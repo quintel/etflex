@@ -44,4 +44,6 @@ _yardoc
 doc/
 
 # Project-Specific Ignores
-# ------------------------
+# -----------------------
+
+config/database.yml
