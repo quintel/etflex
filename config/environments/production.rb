@@ -1,4 +1,4 @@
-Etflex::Application.configure do
+ETF::Application.configure do
   # Settings specified here will take precedence over those in
   # config/application.rb
 
