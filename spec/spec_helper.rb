@@ -29,11 +29,15 @@ RSpec.configure do |config|
   config.filter_run focus: true
   config.run_all_when_everything_filtered = true
 
-  # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  # config.fixture_path = "#{::Rails.root}/spec/fixtures"
+  # Database
+  # --------
 
-  # If you're not using ActiveRecord, or you'd prefer not to run each of your
-  # examples within a transaction, remove the following line or assign false
-  # instead of true.
-  config.use_transactional_fixtures = true
+  # The database_cleaner gem is used to restore the DB to a clean state before
+  # each example runs. This is used in preference over rspec-rails'
+  # transactions since we also need this behaviour in Cucumber features.
+
+  config.before(:suite) { DatabaseCleaner.strategy = :transaction }
+  config.before(:each)  { DatabaseCleaner.start                   }
+  config.after(:each)   { DatabaseCleaner.clean                   }
+
 end
