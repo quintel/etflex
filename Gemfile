@@ -29,10 +29,9 @@ end
 # Deploy with Capistrano
 # gem 'capistrano'
 
-# To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
-
 group :test, :development do
+  gem 'ruby-debug19', :require => 'ruby-debug'
+
   # rspec-rails needs to be added to the development environment, otherwise
   # the spec:* tasks won't be available when using rake.
   gem 'rspec-rails',  '~> 2.6'
