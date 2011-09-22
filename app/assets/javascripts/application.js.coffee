@@ -9,4 +9,4 @@
 #= require jquery_ujs
 #= require_tree .
 
-$ -> $('p').css 'color', '#4b7b3d'
+$ -> $('h1').css 'color', '#4b7b3d'
