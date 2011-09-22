@@ -1,5 +1,6 @@
 ETF::Application.routes.draw do
   get 'sanity', to: 'application#sanity'
+  root          to: redirect('/sanity')
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
