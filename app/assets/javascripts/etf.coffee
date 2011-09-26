@@ -11,11 +11,16 @@
 # and means that the page is in the exact same state as when the user left.
 #
 @$etf =
-  router:      null
-  views:       {}
+  router: null
   collections: {}
 
+  # Hold a singleton copy of the Views used by this router. Views probably
+  # ought to be instantiated lazily, but I'll investigate this later...
+  views: {}
+
   bootstrap: ->
+    @views.sanity = new ETF.SanityView().render()
+
     # Start the router; this is temporary until a proper boostrap process is
     # in place.
     @router = new ETF.Router

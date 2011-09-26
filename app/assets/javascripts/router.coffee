@@ -4,14 +4,6 @@ class ETF.Router extends Backbone.Router
     'sanity': 'sanity'
     'etlite': 'etlite'
 
-  constructor: ->
-    super()
-
-    # Hold a singleton copy of the Views used by this router. Views probably
-    # ought to be instantiated lazily, but I'll investigate this later...
-    @views =
-      sanity: new ETF.SanityView().render()
-
   # The root page; currently redirects to the sanity test page.
   #
   # GET #/
@@ -28,7 +20,7 @@ class ETF.Router extends Backbone.Router
     console.log 'Welcome to the test page.'
 
     $('#chrome').
-      html(@views.sanity.el).
+      html($etf.views.sanity.el).
       find('h1').css 'color', '#4b7b3d'
 
   # A recreation of the ETLite UI which serves as the starting point for
