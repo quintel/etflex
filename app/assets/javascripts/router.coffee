@@ -27,8 +27,8 @@ class @Router extends Backbone.Router
   sanity: ->
     console.log 'Welcome to the test page.'
 
-    $('body').
-      append(@views.sanity.el).
+    $('#chrome').
+      html(@views.sanity.el).
       find('h1').css 'color', '#4b7b3d'
 
   # A recreation of the ETLite UI which serves as the starting point for

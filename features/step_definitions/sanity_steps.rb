@@ -1,3 +1,3 @@
-When /^I should see that I am sane$/ do
-  Then %(I should see "It lives!")
+When /^I should see that the page is loading$/ do
+  Then %(I should see "Loading...")
 end
