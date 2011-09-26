@@ -7,5 +7,6 @@ class ETF.ETLiteView extends Backbone.View
   # on the ETLite page.
   #
   render: ->
-    $(@el).append JST["templates/etlite"]
+    $(@el).html JST["templates/etlite"]
+    @delegateEvents()
     this
