@@ -1,4 +1,4 @@
-class @Router extends Backbone.Router
+class ETF.Router extends Backbone.Router
   routes:
     '':       'root'
     'sanity': 'sanity'
@@ -10,7 +10,7 @@ class @Router extends Backbone.Router
     # Hold a singleton copy of the Views used by this router. Views probably
     # ought to be instantiated lazily, but I'll investigate this later...
     @views =
-      sanity: new SanityView().render()
+      sanity: new ETF.SanityView().render()
 
   # The root page; currently redirects to the sanity test page.
   #
