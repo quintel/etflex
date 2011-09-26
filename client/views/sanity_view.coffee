@@ -4,6 +4,13 @@
 class ETF.Views.Sanity extends Backbone.View
   id: 'sanity-view'
 
+  events:
+    'click a': 'navigateToETLite'
+
+  navigateToETLite: (event) ->
+    $etf.router.navigate 'etlite', true
+    false
+
   # Renders the view which adds text to the page indicating that Backbone is
   # correctly configured.
   #

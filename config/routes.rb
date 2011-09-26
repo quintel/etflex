@@ -1,4 +1,7 @@
 ETF::Application.routes.draw do
+  get 'sanity', to: 'application#sanity'
+  get 'etlite', to: 'application#sanity'
+
   root to: 'application#sanity'
 
   # The priority is based upon order of creation:
