@@ -2,6 +2,7 @@
 # Eco templates are working correctly.
 #
 class ETF.SanityView extends Backbone.View
+  id: 'sanity-view'
 
   # Renders the view which adds text to the page indicating that Backbone is
   # correctly configured.
