@@ -5,4 +5,4 @@ Feature: Developer sanity
 
   Scenario: Visiting the sanity test page
     Given I go to the test page
-    Then I should see that I am sane
+    Then I should see that the page is loading
