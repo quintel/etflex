@@ -1,4 +1,4 @@
-class @SanityView extends Backbone.View
+class ETF.SanityView extends Backbone.View
   events:
     'click a': 'navigateToETLite'
 
@@ -15,4 +15,4 @@ class @SanityView extends Backbone.View
   # to the ETLite mock-up page.
   #
   navigateToETLite: ->
-    window.etfRouter.navigate 'etlite', true
+    $etf.router.navigate 'etlite', true
