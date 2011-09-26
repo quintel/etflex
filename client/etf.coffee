@@ -21,7 +21,7 @@
     # Start the router; this is temporary until a proper boostrap process is
     # in place.
     @router = new ETF.Router
-    Backbone.history.start()
+    Backbone.history.start pushState: true
 
     # Navigates to 'sanity' when no fragment is present (i.e., visiting the
     # root URL).
