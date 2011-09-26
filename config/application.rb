@@ -51,6 +51,15 @@ module ETF
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
 
+    # Since ETF is a heavy-JS application, JS and CS sources are stored in
+    # client/ instead of app/assets/javascripts for convenience.
+    config.after_initialize do
+      # This is done in an after_init block so that /client is always the
+      # highest priority path.
+      self.assets.prepend_path    self.root.join('client').to_s
+      config.assets.paths.unshift self.root.join('client').to_s
+    end
+
     # Enable the asset pipeline.
     config.assets.enabled = true
 
