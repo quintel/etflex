@@ -1,15 +1,15 @@
 class ETF.Router extends Backbone.Router
   routes:
-    '':       'root'
-    'sanity': 'sanity'
-    'etlite': 'etlite'
+    '':        'root'
+    '/sanity': 'sanity'
+    '/etlite': 'etlite'
 
   # The root page; currently redirects to the sanity test page.
   #
   # GET #/
   #
   root: ->
-    window.location = "#{window.location}#sanity"
+    window.location = "#{window.location}#/sanity"
 
   # A test page which shows the all of the application dependencies are
   # correctly installed and work as intended.
