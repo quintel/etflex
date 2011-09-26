@@ -19,3 +19,8 @@ $ ->
   # Prove that Eco templates work.
   $('p').append '<br />'
   $('p').append JST["templates/hello"](name: 'from an Eco template!')
+
+  # Start the router; this is temporary until a proper boostrap process is
+  # in place.
+  new Router
+  Backbone.history.start()
