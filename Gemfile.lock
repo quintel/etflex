@@ -62,6 +62,11 @@ GEM
       nokogiri (>= 1.5.0)
     database_cleaner (0.6.7)
     diff-lcs (1.1.3)
+    eco (1.0.0)
+      coffee-script
+      eco-source
+      execjs
+    eco-source (1.1.0.rc.1)
     erubis (2.7.0)
     execjs (1.2.8)
       multi_json (~> 1.0)
@@ -162,6 +167,7 @@ DEPENDENCIES
   compass (~> 0.12.alpha.0)
   cucumber-rails
   database_cleaner
+  eco (~> 1.0)
   haml (~> 3.1.3)
   jquery-rails
   mysql2

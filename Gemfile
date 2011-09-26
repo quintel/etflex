@@ -21,6 +21,7 @@ group :assets do
   gem 'sass-rails',   RAILS_VERSION
   gem 'coffee-rails', RAILS_VERSION
   gem 'compass',      '~> 0.12.alpha.0'
+  gem 'eco',          '~> 1.0'
   gem 'uglifier'
 end
 
