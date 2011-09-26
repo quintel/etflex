@@ -17,14 +17,7 @@
   router: null
   collections: {}
 
-  # Hold a singleton copy of the Views used by this router. Views probably
-  # ought to be instantiated lazily, but I'll investigate this later...
-  views: {}
-
   bootstrap: ->
-    @views.sanity = new ETF.Views.Sanity()
-    @views.etlite = new ETF.Views.ETLite()
-
     # Start the router; this is temporary until a proper boostrap process is
     # in place.
     @router = new ETF.Router
