@@ -7,6 +7,9 @@
 #
 #= require jquery
 #= require jquery_ujs
+#= require underscore
+#= require backbone
+#
 #= require_tree .
 
 $ -> $('h1').css 'color', '#4b7b3d'
