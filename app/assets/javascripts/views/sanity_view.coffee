@@ -15,4 +15,4 @@ class @SanityView extends Backbone.View
   # to the ETLite mock-up page.
   #
   navigateToETLite: ->
-    window.etfRouter.navigate 'etlite'
+    window.etfRouter.navigate 'etlite', true
