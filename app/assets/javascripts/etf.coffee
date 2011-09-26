@@ -20,6 +20,7 @@
 
   bootstrap: ->
     @views.sanity = new ETF.SanityView().render()
+    @views.etlite = new ETF.ETLiteView().render()
 
     # Start the router; this is temporary until a proper boostrap process is
     # in place.

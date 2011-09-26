@@ -1,3 +1,6 @@
+# A full-page view which confirms to the user that Backbone, CoffeeScript and
+# Eco templates are working correctly.
+#
 class ETF.SanityView extends Backbone.View
   events:
     'click a': 'navigateToETLite'

@@ -30,3 +30,7 @@ class ETF.Router extends Backbone.Router
   #
   etlite: ->
     console.log 'Welcome to the ETLite recreation.'
+
+    $('#chrome').
+      html($etf.views.etlite.el).
+      find('h1').css 'color', '#4b7b3d'
