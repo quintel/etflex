@@ -19,6 +19,10 @@ class @Router extends Backbone.Router
   sanity: ->
     console.log 'Welcome to the test page.'
 
+    $('body').
+      append(new SanityView().render().el).
+      find('h1').css 'color', '#4b7b3d'
+
   # A recreation of the ETLite UI which serves as the starting point for
   # development of the full ETFlex application.
   #
