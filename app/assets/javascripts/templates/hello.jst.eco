@@ -1,1 +1,5 @@
-Hello <%= @name %>
+Hello <%= @name %>.
+
+<p>
+  Would you like to see <a href="#etlite">the ETLite page</a>?
+</p>
