@@ -8,7 +8,9 @@ class ETF.SanityView extends Backbone.View
   # correctly configured.
   #
   render: ->
-    $(@el).append JST["templates/hello"]
+    $(@el).html JST["templates/hello"]
       name: 'from an Eco template and a Backbone view!'
+
+    @delegateEvents()
 
     this

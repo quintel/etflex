@@ -12,7 +12,7 @@ class ETF.Router extends Backbone.Router
     console.log 'Welcome to the test page.'
 
     $('#chrome').
-      html($etf.views.sanity.el).
+      html($etf.views.sanity.render().el).
       find('h1').css 'color', '#4b7b3d'
 
   # A recreation of the ETLite UI which serves as the starting point for
@@ -24,5 +24,5 @@ class ETF.Router extends Backbone.Router
     console.log 'Welcome to the ETLite recreation.'
 
     $('#chrome').
-      html($etf.views.etlite.el).
+      html($etf.views.etlite.render().el).
       find('h1').css 'color', '#4b7b3d'
