@@ -10,10 +10,7 @@
 #= require underscore
 #= require backbone
 #
+#= require etf
 #= require_tree .
 
-$ ->
-  # Start the router; this is temporary until a proper boostrap process is
-  # in place.
-  window.etfRouter = new Router
-  Backbone.history.start()
+$ -> $etf.bootstrap()
