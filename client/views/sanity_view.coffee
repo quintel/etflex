@@ -1,7 +1,7 @@
 # A full-page view which confirms to the user that Backbone, CoffeeScript and
 # Eco templates are working correctly.
 #
-class ETF.SanityView extends Backbone.View
+class ETF.Views.Sanity extends Backbone.View
   id: 'sanity-view'
 
   # Renders the view which adds text to the page indicating that Backbone is

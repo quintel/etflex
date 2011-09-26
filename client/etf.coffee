@@ -1,7 +1,10 @@
 # ETF is used as a namespace for CoffeeScript classes, rather than throwing
 # everything on to `window`.
 #
-@ETF = {}
+@ETF =
+  Views:       {}
+  Collections: {}
+  Models:      {}
 
 # $etf contains the main application router, as well as any other objects
 # which are considered "singletons", such as full-page views.
@@ -19,8 +22,8 @@
   views: {}
 
   bootstrap: ->
-    @views.sanity = new ETF.SanityView()
-    @views.etlite = new ETF.ETLiteView()
+    @views.sanity = new ETF.Views.Sanity()
+    @views.etlite = new ETF.Views.ETLite()
 
     # Start the router; this is temporary until a proper boostrap process is
     # in place.
