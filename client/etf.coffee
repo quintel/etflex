@@ -26,3 +26,8 @@
     # in place.
     @router = new ETF.Router
     Backbone.history.start()
+
+    # Navigates to 'sanity' when no fragment is present (i.e., visiting the
+    # root URL).
+    if Backbone.history.getFragment() is ''
+      @router.navigate('sanity', true)
