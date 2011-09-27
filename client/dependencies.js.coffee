@@ -10,8 +10,3 @@
 #= require modernizr-2.0.6
 #= require underscore
 #= require backbone
-#
-#= require etf
-#= require_tree .
-
-$ -> $etf.bootstrap()

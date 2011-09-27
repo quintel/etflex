@@ -1,12 +1,15 @@
-class ETF.Router extends Backbone.Router
+{ Sanity } = require 'views/sanity'
+{ ETLite } = require 'views/etlite'
+
+class exports.Router extends Backbone.Router
   routes:
     'sanity': 'sanity'
     'etlite': 'etlite'
 
   initialize: ->
     @views =
-      sanity: new ETF.Views.Sanity()
-      etlite: new ETF.Views.ETLite()
+      sanity: new Sanity()
+      etlite: new ETLite()
 
   # A test page which shows the all of the application dependencies are
   # correctly installed and work as intended.
