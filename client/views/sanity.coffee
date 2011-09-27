@@ -1,7 +1,9 @@
+helloTemplate = require 'templates/hello'
+
 # A full-page view which confirms to the user that Backbone, CoffeeScript and
 # Eco templates are working correctly.
 #
-class ETF.Views.Sanity extends Backbone.View
+class exports.Sanity extends Backbone.View
   id: 'sanity-view'
 
   events:
@@ -15,7 +17,8 @@ class ETF.Views.Sanity extends Backbone.View
   # correctly configured.
   #
   render: ->
-    $(@el).html JST["templates/hello"]
+    console.log(helloTemplate)
+    $(@el).html helloTemplate
       name: 'from an Eco template and a Backbone view!'
 
     @delegateEvents()

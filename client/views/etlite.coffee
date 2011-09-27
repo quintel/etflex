@@ -1,6 +1,8 @@
+etliteTemplate = require 'templates/etlite'
+
 # A full-page view which recreates the ETLite interface.
 #
-class ETF.Views.ETLite extends Backbone.View
+class exports.ETLite extends Backbone.View
   id: 'etlite-view'
 
   events:
@@ -15,6 +17,6 @@ class ETF.Views.ETLite extends Backbone.View
   # on the ETLite page.
   #
   render: ->
-    $(@el).html JST["templates/etlite"]
+    $(@el).html etliteTemplate()
     @delegateEvents()
     this
