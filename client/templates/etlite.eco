@@ -1,4 +1,22 @@
-<h1>ETLite Recreation</h1>
+<div class="controls">
+  <div id="savings" class="slider-group">
+    <h2><span>Savings</span></h2>
 
-<p>This page will become the ETLite recreation. For now,<br/>perhaps you might
-  like to return to the <a href="/sanity">test page</a>?</p>
+    <% for slider in @leftSliders: %>
+      <%- @sliderTemplate slider %>
+    <% end %>
+  </div>
+
+  <div id="energy-generation" class="energy-graph">
+  </div>
+
+  <div id="energy-production" class="slider-group">
+    <h2><span>Energy Production</span></h2>
+
+    <% for slider in @rightSliders: %>
+      <%- @sliderTemplate slider %>
+    <% end %>
+  </div>
+</div>
+
+<div class="visualisation"></div>

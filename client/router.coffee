@@ -1,36 +1,42 @@
+app = require 'app'
+
 { Sanity } = require 'views/sanity'
 { ETLite } = require 'views/etlite'
 
+# Router watches the URL and, as it changes, re-renders the main view
+# mimicking the user navigating from one page to another.
+#
 class exports.Router extends Backbone.Router
   routes:
+    '':       'root'
     'sanity': 'sanity'
     'etlite': 'etlite'
 
-  initialize: ->
-    @views =
-      sanity: new Sanity()
-      etlite: new ETLite()
+  constructor: ->
+    super()
+
+    @views  = { sanity: new Sanity, etlite: new ETLite }
+    @chrome = jQuery '#chrome'
+
+  # The root page; simply redirects to /sanity for now.
+  #
+  # GET /
+  #
+  root: ->
+    app.router.navigate 'sanity', true
 
   # A test page which shows the all of the application dependencies are
   # correctly installed and work as intended.
   #
-  # GET #/sanity
+  # GET /sanity
   #
   sanity: ->
-    console.log 'Welcome to the test page.'
-
-    $('#chrome').
-      html(@views.sanity.render().el).
-      find('h1').css 'color', '#4b7b3d'
+    @chrome.html @views.sanity.render().el
 
   # A recreation of the ETLite UI which serves as the starting point for
   # development of the full ETFlex application.
   #
-  # GET #/etflex
+  # GET /etflex
   #
   etlite: ->
-    console.log 'Welcome to the ETLite recreation.'
-
-    $('#chrome').
-      html(@views.etlite.render().el).
-      find('h1').css 'color', '#4b7b3d'
+    @chrome.html @views.etlite.render().el
