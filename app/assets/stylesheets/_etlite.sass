@@ -1,0 +1,111 @@
+$bg-colour: #e0dfe3
+
+html, body
+  min-height: 100%
+
+sup
+  font-size: 11px
+  line-height: 1
+  vertical-align: super
+
+body
+  background: $bg-colour
+  color: #50525a
+  font: 14px/18px "Helvetica Neue", Arial, sans-serif
+  margin: 0
+  padding: 0
+
+  #chrome
+    margin: 0 auto
+    width: 960px
+
+  h1
+    font: italic 48px Georgia, serif
+    margin-bottom: 0.25em
+
+  p
+    margin-top: 0.5em
+
+.controls
+  @extend .clearfix
+  margin-bottom: 20px
+
+.slider-group
+  border: 1px solid #ccc
+  border-radius: 5px
+  float: left
+  margin-top: 100px
+  min-height: 98px
+  padding: 25px
+  width: 249px
+
+  p
+    margin: 0
+
+  h2
+    font-size: 18px
+    font-weight: normal
+    line-height: 13px
+    margin: -32px -5px 20px
+    white-space: nowrap
+
+    span
+      background: $bg-colour
+      padding: 0 5px
+
+  &#energy-production h2
+    color: #900
+    font-size: 22px
+
+  .slider
+    margin-top: 5px
+    .info
+      @extend .clearfix
+    .label, .value
+      float: left
+      width: 160px
+    .value
+      font-size: 16px
+      text-align: right
+      width: 88px
+    .control
+      background: url(/assets/slider-ticks.png) 11px 0 no-repeat
+      height: 32px
+      margin: 0 -11px
+      // width needs to also be set in the JS view.
+      width: 271px
+      .handle
+        background: url(/assets/slider-handle.png) 0 3px no-repeat
+        height: 32px
+        // handleWidth needs to also be set in the JS view.
+        width: 31px
+      .bar, .active-bar
+        .left, .main, .right
+          background: none
+
+.energy-graph
+  background: #eee
+  border-radius: 5px
+  float: left
+  margin: 100px 20px 0
+  min-height: 320px
+  width: 318px
+
+.visualisation
+  background: linear-gradient(top, rgba(black, 0) 0%, rgba(black, 0) 50%, rgba(black, 0.15) 50%, rgba(black, 0.05) 65%, rgba(black, 0) 90%)
+  height: 250px
+  position: relative
+  z-index: 1
+
+  > *
+    position: relative
+    z-index: 3
+
+  &:before
+    background: linear-gradient(left, $bg-colour, rgba($bg-colour, 0) 15%, rgba($bg-colour, 0) 85%, $bg-colour)
+    content: " "
+    display: block
+    height: 250px
+    margin-bottom: -250px
+    position: relative
+    z-index: 2

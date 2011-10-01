@@ -1,5 +1,5 @@
-<h1>It lives!</h1>
-
+<h1>Oh, hi!</h1>
 <p>
+  Hello <%= @name %>!<br />
   Would you like to see <a href="/etlite">the ETLite page</a>?
 </p>

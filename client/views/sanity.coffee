@@ -1,4 +1,5 @@
-helloTemplate = require 'templates/hello'
+application    = require 'app'
+sanityTemplate = require 'templates/sanity'
 
 # A full-page view which confirms to the user that Backbone, CoffeeScript and
 # Eco templates are working correctly.
@@ -10,16 +11,15 @@ class exports.Sanity extends Backbone.View
     'click a': 'navigateToETLite'
 
   navigateToETLite: (event) ->
-    $etf.router.navigate 'etlite', true
+    application.router.navigate 'etlite', true
     false
 
   # Renders the view which adds text to the page indicating that Backbone is
   # correctly configured.
   #
   render: ->
-    console.log(helloTemplate)
-    $(@el).html helloTemplate
-      name: 'from an Eco template and a Backbone view!'
+    $(@el).html sanityTemplate
+      name: 'from Eco and Backbone'
 
     @delegateEvents()
 
