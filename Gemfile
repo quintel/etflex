@@ -20,6 +20,11 @@ gem 'stitch-rb',      '~> 0.0.4'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
+  # The Ruby Racer gives _much_ faster CoffeeScript compilation than simply
+  # using Node since it all happens within the Ruby process; compilation with
+  # Node fires up a new Node process for each source file, slowing things down
+  # considerably in development..
+  gem 'therubyracer'
   gem 'sass-rails',   RAILS_VERSION
   gem 'coffee-rails', RAILS_VERSION
   gem 'compass',      '~> 0.12.alpha.0'
