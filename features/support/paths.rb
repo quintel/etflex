@@ -14,6 +14,9 @@ module NavigationHelpers
     when /the test page/
       '/'
 
+    when /the ETlite page/
+      '/etlite'
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
