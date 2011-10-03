@@ -1,10 +1,6 @@
 <div class="controls">
   <div id="savings" class="slider-group">
     <h2><span>Savings</span></h2>
-
-    <% for slider in @leftSliders: %>
-      <%- @sliderTemplate slider %>
-    <% end %>
   </div>
 
   <div id="energy-generation" class="energy-graph">
@@ -12,10 +8,6 @@
 
   <div id="energy-production" class="slider-group">
     <h2><span>Energy Production</span></h2>
-
-    <% for slider in @rightSliders: %>
-      <%- @sliderTemplate slider %>
-    <% end %>
   </div>
 </div>
 

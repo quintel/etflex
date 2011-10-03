@@ -2,6 +2,10 @@ application    = require 'app'
 etliteTemplate = require 'templates/etlite'
 sliderTemplate = require 'templates/slider'
 
+{ Slider } = require 'views/slider'
+
+# These fixtures are temporary, but act as acceptable stubs for models until a
+# proper model class is added.
 sliderFixtures =
   left:
     [ { name: 'Energy-saving bulbs',  value:  0, unit: '%' }
@@ -34,26 +38,16 @@ class exports.ETLite extends Backbone.View
   # on the ETLite page.
   #
   render: ->
-    $(@el).html etliteTemplate
-      sliderTemplate: sliderTemplate
-      leftSliders:    sliderFixtures.left
-      rightSliders:   sliderFixtures.right
+    $(@el).html etliteTemplate sliderTemplate: sliderTemplate
 
-    # Temporary. A Slider view will follow...
-    _.each @$('.slider'), (slider) ->
-      $slider  = $ slider
-      $control = $slider.find '.control'
+    leftSlidersEl  = @$ '#savings'
+    rightSlidersEl = @$ '#energy-production'
 
-      $control.quinn
-        value:       $control.data 'value'
-        range:       [ 0, parseInt($control.data('max') || 100, 10) ]
-        handleWidth: 31
-        width:       271
+    _.each sliderFixtures.left, (slider) ->
+      leftSlidersEl.append(new Slider(model: slider).render().el)
 
-        onChange: (newValue) -> $slider.find('.output').text(newValue)
-        onSetup:  (v, quinn) -> quinn.trigger 'change'
-
-
+    _.each sliderFixtures.right, (slider) ->
+      rightSlidersEl.append(new Slider(model: slider).render().el)
 
     @delegateEvents()
     this
