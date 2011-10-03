@@ -25,8 +25,8 @@ group :assets do
   # Node fires up a new Node process for each source file, slowing things down
   # considerably in development..
   gem 'therubyracer'
-  gem 'sass-rails',   RAILS_VERSION
-  gem 'coffee-rails', RAILS_VERSION
+  gem 'sass-rails',   '>= 3.1.4'
+  gem 'coffee-rails', '>= 3.1.1'
   gem 'compass',      '~> 0.12.alpha.0'
   gem 'eco',          '~> 1.0'
   gem 'uglifier'
