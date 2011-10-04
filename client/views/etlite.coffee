@@ -1,6 +1,5 @@
 application    = require 'app'
 etliteTemplate = require 'templates/etlite'
-rangeTemplate  = require 'templates/range'
 
 { Range }      = require 'views/range'
 
@@ -38,7 +37,7 @@ class exports.ETLite extends Backbone.View
   # on the ETLite page.
   #
   render: ->
-    $(@el).html etliteTemplate rangeTemplate: rangeTemplate
+    $(@el).html etliteTemplate()
 
     leftRangesEl  = @$ '#savings'
     rightRangesEl = @$ '#energy-production'
