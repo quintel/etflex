@@ -45,17 +45,18 @@ class exports.ETLite extends Backbone.View
 
     savingsMediator = new SavingsMediator
 
+    # Temporary; to demonstrate that the mediator works.
+
+    savingsMediator.bind 'change:sum', (newValue) =>
+      @$('#energy-generation').text "Sum: #{newValue}"
+
+    # Render each of the ranges...
+
     _.each rangeFixtures.left, (range) ->
       leftRangesEl.append new Range(model: range).render(savingsMediator).el
 
     _.each rangeFixtures.right, (range) ->
       rightRangesEl.append(new Range(model: range).render().el)
-
-    # Temporary; to demonstrate that the mediator works.
-    savingsMediator.bind 'change:sum', (newValue) =>
-      @$('#energy-generation').text "Sum: #{newValue}"
-
-    savingsMediator.trigger 'change:sum'
 
     @delegateEvents()
     this
