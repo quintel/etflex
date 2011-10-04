@@ -119,11 +119,12 @@ class Mediator
   #           callbacks.
   #
   set: (key, value, options = { silent: false }) ->
-    @values[key] = value
+    if @get(key) isnt value
+      @values[key] = value
 
-    unless options.silent
-      @trigger "change:#{key}", value, this
-      @trigger "change",        this
+      unless options.silent
+        @trigger "change:#{key}", value, this
+        @trigger "change",        this
 
     value
 
