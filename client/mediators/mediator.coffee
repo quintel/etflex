@@ -63,7 +63,7 @@ class Mediator
 
     for own key, options of @inputs
       options       or=  {}
-      options.with  or=  defaultFetcher
+      options.with  or=  backboneFetcher
       options.event or= 'change:value'
 
       @fetchers[key]       = options.with(key, this)
@@ -153,7 +153,7 @@ _.extend Mediator::, Backbone.Events
 # We need to keep track of individual functions like this within the Mediator
 # so that it is possible to unbind the events if we assign a new input.
 #
-defaultFetcher = (key, mediator) ->
+backboneFetcher = (key, mediator) ->
   initial:      (subject)           -> subject.get key
   fromCallback: (subject, newValue) -> newValue
 
@@ -165,6 +165,6 @@ quinnFetcher = (key, mediator) ->
 
 # Exports --------------------------------------------------------------------
 
-exports.Mediator       = Mediator
-exports.defaultFetcher = defaultFetcher
-exports.quinnFetcher   = quinnFetcher
+exports.Mediator        = Mediator
+exports.backboneFetcher = backboneFetcher
+exports.quinnFetcher    = quinnFetcher
