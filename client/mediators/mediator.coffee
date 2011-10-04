@@ -88,11 +88,12 @@ class Mediator
     #   @subjects[key].unbind @inputs[key], @fetchers[key]
 
     @subjects[key] = subject
-    @subjects[key].bind @fetchers[key].event, @fetchers[key]
 
-    # TODO Definitely need to find a better way to set the initial value than
-    #      triggering a change event on the subject.
-    subject.trigger @fetchers[key].event
+    @subjects[key].bind @fetchers[key].event, (args...) =>
+      @notify key, @fetchers[key].fromCallback(args...)
+
+    # Fetch and set the initial value from the subject.
+    @notify key, @fetchers[key].initial(subject)
 
     this
 
@@ -153,14 +154,14 @@ _.extend Mediator::, Backbone.Events
 # so that it is possible to unbind the events if we assign a new input.
 #
 defaultFetcher = (key, mediator) ->
-  # Returns a function which acts as the callback on the subject.
-  (subject, newValue) -> mediator.notify key, newValue, subject
+  initial:      (subject)           -> subject.get key
+  fromCallback: (subject, newValue) -> newValue
 
 # A mediator fetcher which extracts a value from a Quinn onChange event.
 #
 quinnFetcher = (key, mediator) ->
-  # Returns a function which acts as the callback on the subject.
-  (newValue, quinn) -> mediator.notify key, newValue, quinn
+  initial:      (subject)           -> subject.value
+  fromCallback: (newValue, subject) -> newValue
 
 # Exports --------------------------------------------------------------------
 
