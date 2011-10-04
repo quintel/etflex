@@ -52,6 +52,8 @@ class exports.Mediator extends Backbone.Events
   #
   constructor: (subjects) ->
     @observe key, subject for own key, subject of subjects
+
+    @values   = {}
     @fetchers = {}
 
     for own key, event of @inputs
@@ -100,6 +102,28 @@ class exports.Mediator extends Backbone.Events
   #
   notify: (key, newValue, input) ->
     # Does nothing; override in a subclass.
+
+  # Returns a value which the mediator has calculated.
+  #
+  get: (key) ->
+    @values[key]
+
+  # Sets a mediator value. This should be used internally, only by your custom
+  # notify method, and not by any external class.
+  #
+  # key     - The input key which corresponds with the value being set.
+  # value   - The new value.
+  # options - Add silent: true if you do not wish to fire the change
+  #           callbacks.
+  #
+  set: (key, value, options = { silent: false }) ->
+    @values[key] = value
+
+    unless options.silent
+      @trigger "change:#{key}", value, this
+      @trigger "change",        this
+
+    value
 
 # Returns a function which is used to retrieve a value from an input.
 #
