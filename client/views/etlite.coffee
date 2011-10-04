@@ -1,18 +1,19 @@
-application    = require 'app'
-etliteTemplate = require 'templates/etlite'
+application         = require 'app'
+etliteTemplate      = require 'templates/etlite'
 
-{ Range }      = require 'views/range'
+{ Range }           = require 'views/range'
+{ SavingsMediator } = require 'mediators/savings_mediator'
 
 # These fixtures are temporary, but act as acceptable stubs for models until a
 # proper model class is added.
 rangeFixtures =
   left:
-    [ { name: 'Energy-saving bulbs',  value:  0, unit: '%' }
-      { name: 'Electric cars',        value: 30, unit: '%' }
-      { name: 'Better insulation',    value: 12, unit: '%' }
-      { name: 'Solar power',          value: 24, unit: '%' }
-      { name: 'Devices',              value: 56, unit: '%' }
-      { name: 'Home heating',         value: 53, unit: '%' } ]
+    [ { name: 'Energy-saving bulbs',  value:  0, unit: '%', key: 'bulbs'      }
+      { name: 'Electric cars',        value: 30, unit: '%', key: 'cars'       }
+      { name: 'Better insulation',    value: 12, unit: '%', key: 'insulation' }
+      { name: 'Solar power',          value: 24, unit: '%', key: 'solar'      }
+      { name: 'Devices',              value: 56, unit: '%', key: 'devices'    }
+      { name: 'Home heating',         value: 53, unit: '%', key: 'heating'    } ]
   right:
     [ { name: 'Coal power plants',    value: 0,    max: 7 }
       { name: 'Gas power plants',     value: 26,   max: 7 }
@@ -42,11 +43,19 @@ class exports.ETLite extends Backbone.View
     leftRangesEl  = @$ '#savings'
     rightRangesEl = @$ '#energy-production'
 
+    savingsMediator = new SavingsMediator
+
     _.each rangeFixtures.left, (range) ->
-      leftRangesEl.append(new Range(model: range).render().el)
+      leftRangesEl.append new Range(model: range).render(savingsMediator).el
 
     _.each rangeFixtures.right, (range) ->
       rightRangesEl.append(new Range(model: range).render().el)
+
+    # Temporary; to demonstrate that the mediator works.
+    savingsMediator.bind 'change:sum', (newValue) =>
+      @$('#energy-generation').text "Sum: #{newValue}"
+
+    savingsMediator.trigger 'change:sum'
 
     @delegateEvents()
     this
