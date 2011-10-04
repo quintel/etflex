@@ -1,12 +1,12 @@
 <div class="controls">
-  <div id="savings" class="slider-group">
+  <div id="savings" class="range-group">
     <h2><span>Savings</span></h2>
   </div>
 
   <div id="energy-generation" class="energy-graph">
   </div>
 
-  <div id="energy-production" class="slider-group">
+  <div id="energy-production" class="range-group">
     <h2><span>Energy Production</span></h2>
   </div>
 </div>
