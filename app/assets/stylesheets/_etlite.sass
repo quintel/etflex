@@ -30,7 +30,7 @@ body
   @extend .clearfix
   margin-bottom: 20px
 
-.slider-group
+.range-group
   border: 1px solid #ccc
   border-radius: 5px
   float: left
@@ -57,7 +57,7 @@ body
     color: #900
     font-size: 22px
 
-  .slider
+  .range
     margin-top: 5px
     .info
       @extend .clearfix
@@ -69,13 +69,13 @@ body
       text-align: right
       width: 88px
     .control
-      background: url(/assets/slider-ticks.png) 11px 0 no-repeat
+      background: url(/assets/range-ticks.png) 11px 0 no-repeat
       height: 32px
       margin: 0 -11px
       // width needs to also be set in the JS view.
       width: 271px
       .handle
-        background: url(/assets/slider-handle.png) 0 3px no-repeat
+        background: url(/assets/range-handle.png) 0 3px no-repeat
         height: 32px
         // handleWidth needs to also be set in the JS view.
         width: 31px

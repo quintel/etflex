@@ -1,12 +1,12 @@
 application    = require 'app'
 etliteTemplate = require 'templates/etlite'
-sliderTemplate = require 'templates/slider'
+rangeTemplate  = require 'templates/range'
 
-{ Slider } = require 'views/slider'
+{ Range }      = require 'views/range'
 
 # These fixtures are temporary, but act as acceptable stubs for models until a
 # proper model class is added.
-sliderFixtures =
+rangeFixtures =
   left:
     [ { name: 'Energy-saving bulbs',  value:  0, unit: '%' }
       { name: 'Electric cars',        value: 30, unit: '%' }
@@ -38,16 +38,16 @@ class exports.ETLite extends Backbone.View
   # on the ETLite page.
   #
   render: ->
-    $(@el).html etliteTemplate sliderTemplate: sliderTemplate
+    $(@el).html etliteTemplate rangeTemplate: rangeTemplate
 
-    leftSlidersEl  = @$ '#savings'
-    rightSlidersEl = @$ '#energy-production'
+    leftRangesEl  = @$ '#savings'
+    rightRangesEl = @$ '#energy-production'
 
-    _.each sliderFixtures.left, (slider) ->
-      leftSlidersEl.append(new Slider(model: slider).render().el)
+    _.each rangeFixtures.left, (range) ->
+      leftRangesEl.append(new Range(model: range).render().el)
 
-    _.each sliderFixtures.right, (slider) ->
-      rightSlidersEl.append(new Slider(model: slider).render().el)
+    _.each rangeFixtures.right, (range) ->
+      rightRangesEl.append(new Range(model: range).render().el)
 
     @delegateEvents()
     this
