@@ -46,7 +46,7 @@
 # Then, the mediator can perform whatever calculations it needs, and fire
 # events to notify outputs of these changes.
 #
-class exports.Mediator extends Backbone.Events
+class Mediator
 
   # Creates a new Mediator instance.
   #
@@ -126,6 +126,9 @@ class exports.Mediator extends Backbone.Events
       @trigger "change",        this
 
     value
+
+# Backbone.Events doesn't work when doing class ... extends for some reason.
+_.extend Mediator::, Backbone.Events
 
 # Returns a function which is used to retrieve a value from an input.
 #
