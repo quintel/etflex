@@ -72,10 +72,10 @@ class Mediator
   #   mediator.observe 'gas2020', aModel
   #
   observe: (key, subject) ->
-    if @subjects[key]?
-      # Another object is already being observed for the given key, so we need
-      # to stop watching for changes.
-      @subjects[key].unbind @inputs[key], @fetchers[key]
+    # if @subjects[key]?
+    #   # Another object is already being observed for the given key, so we
+    #   # need to stop watching for changes.
+    #   @subjects[key].unbind @inputs[key], @fetchers[key]
 
     @subjects[key] = subject
     @subjects[key].bind @inputs[key], @fetchers[key]
