@@ -86,6 +86,8 @@ class exports.Mediator extends Backbone.Events
   # subclasses to perform whatever calculations you need, and then fire off
   # the mediator's change events.
   #
+  # By default, this simply sets the mediator key to the new value.
+  #
   # key      - A string which names the input whose value has changed.
   #            Corresponds with the input key in @inputs.
   # newValue - The new value of the input.
@@ -101,7 +103,7 @@ class exports.Mediator extends Backbone.Events
   #         when 'co2target' then doCarbonCalc    newValue
   #
   notify: (key, newValue, input) ->
-    # Does nothing; override in a subclass.
+    @set key, newValue
 
   # Returns a value which the mediator has calculated.
   #
