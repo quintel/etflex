@@ -6,6 +6,9 @@ rangeTemplate = require 'templates/range'
 class exports.Range extends Backbone.View
   className: 'range'
 
+  # Becomes the Quinn instance once render() is called.
+  quinn: null
+
   # Creates a new Range (aka Slider).
   #
   # options - An object containing additional options used to customise the
@@ -36,17 +39,18 @@ class exports.Range extends Backbone.View
   #
   # @return {Range} Returns self.
   #
-  render: ->
+  render: (mediator) ->
     $(@el).html rangeTemplate name: @model.name, unit: @model.unit
 
-    @$('.control').quinn
+    @quinn = new $.Quinn @$('.control'),
       value:       @model.value
       range:       [ 0, @model.max ]
       handleWidth: 31
       width:       271
 
-      onChange:    @onChange
-      onSetup:     @onChange
+    if @model.key
+      mediator.bind "change:#{@model.key}", @onChange
+      mediator.observe @model.key, @quinn
 
     @delegateEvents()
     this
