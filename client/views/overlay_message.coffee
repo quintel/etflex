@@ -41,7 +41,7 @@ class exports.OverlayMessage extends Backbone.View
   # animations have completed.
   #
   hide: =>
-    window.setTimeout (=> @remove()), 425
+    window.setTimeout (=> @remove()), 325
 
     if Modernizr.cssanimations
       $(@el).removeClass('in').addClass('out')
