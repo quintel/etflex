@@ -92,7 +92,7 @@ body
   width: 318px
 
 .visualisation
-  background: linear-gradient(top, rgba(black, 0) 0%, rgba(black, 0) 50%, rgba(black, 0.15) 50%, rgba(black, 0.05) 65%, rgba(black, 0) 90%)
+  +background(linear-gradient(top, rgba(black, 0) 0%, rgba(black, 0) 50%, rgba(black, 0.15) 50%, rgba(black, 0.05) 65%, rgba(black, 0) 90%))
   height: 250px
   position: relative
   z-index: 1
@@ -102,7 +102,7 @@ body
     z-index: 3
 
   &:before
-    background: linear-gradient(left, $bg-colour, rgba($bg-colour, 0) 15%, rgba($bg-colour, 0) 85%, $bg-colour)
+    +background(linear-gradient(left, $bg-colour, rgba($bg-colour, 0) 15%, rgba($bg-colour, 0) 85%, $bg-colour))
     content: " "
     display: block
     height: 250px
