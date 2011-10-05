@@ -38,9 +38,9 @@ createDefaultInputs = (collection) ->
       { name: 'Energy-saving bulbs',  value:  0, max:   100, unit: '%'   }
       { name: 'Electric cars',        value: 30, max:   100, unit: '%'   }
       { name: 'Better insulation',    value: 12, max:   100, unit: '%'   }
-      { name: 'Solar power',          value: 24, max:   100, unit: '%'   }
-      { name: 'Devices',              value: 56, max:   100, unit: '%'   }
-      { name: 'Home heating',         value: 53, max:   100, unit: '%'   }
+      { name: 'Solar power',          value: 24, max:    80, unit: '%'   }
+      { name: 'Devices',              value:  5, max:    20, unit: '%'   }
+      { name: 'Home heating',         value: 66, max:    80, unit: '%'   }
       { name: 'Coal power plants',    value:  0, max:     7, unit: ''    }
       { name: 'Gas power plants',     value:  0, max:     7, unit: ''    }
       { name: 'Nuclear power plants', value:  0, max:     4, unit: ''    }
