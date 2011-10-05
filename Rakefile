@@ -5,4 +5,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-ETF::Application.load_tasks
+ETFlex::Application.load_tasks
