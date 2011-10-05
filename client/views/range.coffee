@@ -1,10 +1,15 @@
-rangeTemplate = require 'templates/range'
+rangeTemplate   = require 'templates/range'
+{ showMessage } = require 'lib/messages'
 
 # A view used for rendering a single range. The ETlite recreation has twelve
 # of these split into two groups.
 #
 class exports.Range extends Backbone.View
   className: 'range'
+
+  # Events; the "help" icon clicker.
+  events:
+    'click .label': 'showHelp'
 
   # Becomes the Quinn instance once render() is called.
   quinn: null
@@ -49,3 +54,15 @@ class exports.Range extends Backbone.View
   updateModel: (value, quinn) =>
     @model.set value: value
     @model.save()
+
+  # Shows a modal help message, providing the user with more information about
+  # the input and how it affects the outcome.
+  #
+  showHelp: ->
+    showMessage 'Low-energy-lighting', """
+      Incandescent light bulbs waste a lot of energy. The power they consume is
+      mostly turned into heat instead of light. That is why, in Europe, we will
+      all shift to low-energy lighting in the coming years. These new light
+      bulbs emit the same amount of light and do not become so warm. They even
+      last much longer than traditional light bulbs!
+    """

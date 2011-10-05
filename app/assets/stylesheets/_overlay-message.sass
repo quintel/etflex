@@ -1,0 +1,96 @@
+// Overlay messages are pop-ups which display helpful information to the
+// user. These messages "pop out" from the background using CSS3 animations
+// when possible.
+
+// Keyframes -----------------------------------------------------------------
+
+// We can remove much of this repetition once Sass#167 is closed:
+// https://github.com/nex3/sass/pull/167
+
+@-webkit-keyframes overlayMessageIn
+  0%
+    opacity: 0.0
+    -webkit-transform: scale(0.4)
+  65%
+    opacity: 1.0
+    -webkit-transform: scale(1.2)
+  100%
+    opacity: 1.0
+    -webkit-transform: scale(1.0)
+
+@-webkit-keyframes overlayMessageOut
+  0%
+    opacity: 1.0
+    -webkit-transform: scale(1.0)
+  100%
+    opacity: 0.0
+    -webkit-transform: scale(0.9)
+
+@-moz-keyframes overlayMessageIn
+  0%
+    opacity: 0.0
+    -moz-transform: scale(0.4)
+  65%
+    opacity: 1.0
+    -moz-transform: scale(1.2)
+  100%
+    opacity: 1.0
+    -moz-transform: scale(1.0)
+
+@-moz-keyframes overlayMessageOut
+  0%
+    opacity: 1.0
+    -moz-transform: scale(1.0)
+  100%
+    opacity: 0.0
+    -moz-transform: scale(0.9)
+
+// CSS Classes ---------------------------------------------------------------
+
+.overlay-message
+
+  // Visual styles.
+
+  +background(linear-gradient(top, #5c5c5c, #2f2f2f) no-repeat, #2f2f2f)
+  +background-size(100% 100px)
+  +border-radius(5px)
+  +box-shadow(inset rgba(255, 255, 255, 0.3) 0 1px 0, rgba(0, 0, 0, 0.6) 0 2px 6px)
+
+  border: 1px solid #2a2a2a
+  border-top-color: #404040
+  border-bottom-bottom: #000
+
+  cursor: pointer
+  color: white
+  left: 50px
+  padding: 5px 25px
+  position: absolute
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.7)
+  top: 50px
+  width: 300px
+  z-index: 100
+
+  // Animation.
+
+  -moz-animation:    linear none 0.4s ease-in-out 1
+  -webkit-animation: linear none 0.4s ease-in-out 1
+
+  // Enables hardware acceleration.
+
+  -moz-transform:    translate3d(0, 0, 0)
+  -webkit-transform: translate3d(0, 0, 0)
+
+  &.in
+    -moz-animation-name:    overlayMessageIn
+    -webkit-animation-name: overlayMessageIn
+  &.out
+    -moz-animation-name:    overlayMessageOut !important
+    -webkit-animation-name: overlayMessageOut !important
+
+  h3
+    font-size: 17px
+    margin-bottom: 10px
+
+  p
+    font-size: 14px
+    line-height: 20px
