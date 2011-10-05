@@ -14,11 +14,9 @@ class exports.OverlayMessage extends Backbone.View
   # message - The message to be shown.
   #
   render: (title, message) ->
-    console.log "Rendering", title, message
+    $(@el).append(@make('h3', {}, title), @make('p', {}, message))
 
-    $(@el)
-      .append(@make('h3', {}, title), @make('p', {}, message))
-
+    @delegateEvents()
     this
 
   # Given an HTML element, adds the overlay message to it and triggers the
@@ -30,8 +28,12 @@ class exports.OverlayMessage extends Backbone.View
   #
   appendTo: (element) ->
     element.append @el
-    $(@el).addClass('in')
-    @delegateEvents()
+
+    if Modernizr.cssanimations
+      $(@el).addClass 'in'
+    else
+      console.log 'am ehre'
+      $(@el).hide().fadeIn 300
 
     this
 
@@ -39,12 +41,9 @@ class exports.OverlayMessage extends Backbone.View
   # animations have completed.
   #
   hide: =>
-    # window.setTimeout (=> @remove()), 0.4
-    window.setTimeout =>
-      @remove()
-      console.log 'rempving'
-    , 425
+    window.setTimeout (=> @remove()), 425
 
-    $(@el)
-      .removeClass('in')
-      .addClass('out')
+    if Modernizr.cssanimations
+      $(@el).removeClass('in').addClass('out')
+    else
+      $(@el).fadeOut 300
