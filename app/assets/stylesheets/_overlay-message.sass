@@ -70,10 +70,13 @@
   width: 300px
   z-index: 100
 
-  // Animation.
+  // Animation
+  //
+  // If you alter the animation duration, you also need to reduce the
+  // setTimeout delay in OverlayMessage#hide.
 
-  -moz-animation:    linear none 0.4s ease-in-out 1
-  -webkit-animation: linear none 0.4s ease-in-out 1
+  -moz-animation:    linear none 0.3s ease-in-out 1
+  -webkit-animation: linear none 0.3s ease-in-out 1
 
   // Enables hardware acceleration.
 
