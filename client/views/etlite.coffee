@@ -4,25 +4,12 @@ etliteTemplate      = require 'templates/etlite'
 { Range }           = require 'views/range'
 { SavingsMediator } = require 'mediators/savings_mediator'
 
-# These fixtures are temporary, but act as acceptable stubs for models until a
-# proper model class is added.
-rangeFixtures =
-  left:
-    [ { name: 'Energy-saving bulbs',  value:  0, unit: '%', key: 'bulbs'      }
-      { name: 'Electric cars',        value: 30, unit: '%', key: 'cars'       }
-      { name: 'Better insulation',    value: 12, unit: '%', key: 'insulation' }
-      { name: 'Solar power',          value: 24, unit: '%', key: 'solar'      }
-      { name: 'Devices',              value: 56, unit: '%', key: 'devices'    }
-      { name: 'Home heating',         value: 53, unit: '%', key: 'heating'    } ]
-  right:
-    [ { name: 'Coal power plants',    value: 0,    max: 7 }
-      { name: 'Gas power plants',     value: 26,   max: 7 }
-      { name: 'Nuclear power plants', value: 47,   max: 4 }
-      { name: 'Wind turbines',        value: 1337, max: 10000 }
-      { name: 'Solar panels',         value: 754,  max: 10000 }
-      { name: 'Biomass',              value: 103,  max: 1606, unit: ' km<sup>2</sup>' } ]
-
-# A full-page view which recreates the ETLite interface.
+# A full-page view which recreates the ETLite interface. Six sliders are on
+# the left of the UI allowing the user to control how savings can be made in
+# energy use, and six on the right controlling how energy will be produced.
+#
+# A graph in the middle, and three image-based visualisations at the bottom
+# provide feedback to the user based on the choices they make.
 #
 class exports.ETLite extends Backbone.View
   id: 'etlite-view'
@@ -38,6 +25,8 @@ class exports.ETLite extends Backbone.View
   # on the ETLite page.
   #
   render: ->
+    @fetchInputs()
+
     $(@el).html etliteTemplate()
 
     leftRangesEl  = @$ '#savings'
@@ -52,11 +41,36 @@ class exports.ETLite extends Backbone.View
 
     # Render each of the ranges...
 
-    _.each rangeFixtures.left, (range) ->
+    _.each @savingsInputs, (range) ->
       leftRangesEl.append new Range(model: range).render(savingsMediator).el
 
-    _.each rangeFixtures.right, (range) ->
-      rightRangesEl.append(new Range(model: range).render().el)
+    _.each @productionInputs, (range) ->
+      rightRangesEl.append new Range(model: range).render(savingsMediator).el
 
     @delegateEvents()
     this
+
+  # Retrieves the inputs needed to render the view, and memoizes them for
+  # future reference. Sliders can be found on @savingsInputs and
+  # @productionInputs.
+  #
+  fetchInputs: ->
+    inputs = application.collections.inputs
+
+    @savingsInputs or= [
+      inputs.getByName 'Energy-saving bulbs'
+      inputs.getByName 'Electric cars'
+      inputs.getByName 'Better insulation'
+      inputs.getByName 'Solar power'
+      inputs.getByName 'Devices'
+      inputs.getByName 'Home heating'
+    ]
+
+    @productionInputs or= [
+      inputs.getByName 'Coal power plants'
+      inputs.getByName 'Gas power plants'
+      inputs.getByName 'Nuclear power plants'
+      inputs.getByName 'Wind turbines'
+      inputs.getByName 'Solar panels'
+      inputs.getByName 'Biomass'
+    ]

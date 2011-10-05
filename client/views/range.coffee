@@ -31,32 +31,43 @@ class exports.Range extends Backbone.View
   constructor: (options) ->
     super options
 
-    @model.value or= 0
-    @model.max   or= 100
-    @model.unit  or= ''
-
   # Renders the range, and sets up events.
   #
   # @return {Range} Returns self.
   #
   render: (mediator) ->
-    $(@el).html rangeTemplate name: @model.name, unit: @model.unit
+    $(@el).html rangeTemplate
+      name: @model.get('name'),
+      unit: @model.get('unit')
 
-    @quinn = new $.Quinn @$('.control'),
-      value:       @model.value
-      range:       [ 0, @model.max ]
+    new $.Quinn @$('.control'),
+      value:       @model.get('value')
+      range:       [ 0, @model.get('max') ]
       handleWidth: 31
       width:       271
 
-    if @model.key
-      mediator.bind "change:#{@model.key}", @onChange
-      mediator.observe @model.key, @quinn
+      onSetup:     @updateOutput
+      onChange:    @updateOutput
+      onCommit:    @updateModel
 
     @delegateEvents()
     this
 
-  # Event triggered when the Quinn onChange event is fired. Updates the
-  # value displayed to the user.
+  # Updates the .output element with the input value. Used as an onChange
+  # callback when creating the Quinn instance.
   #
-  onChange: (newValue, quinn) =>
-    @$('.output').text newValue
+  # value - The input value to be inserted into the output element.
+  # quinn - The Quinn instance which changed.
+  #
+  updateOutput: (value, quinn) =>
+    @$('.output').text value
+
+  # Saves the model with the new value. Used as an onCommit callback for the
+  # Quinn instance.
+  #
+  # value - The new input value.
+  # quinn - The Quinn instance which changed.
+  #
+  updateModel: (value, quinn) =>
+    @model.set value: value
+    @model.save()
