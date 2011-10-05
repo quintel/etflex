@@ -1,4 +1,4 @@
-ETF::Application.routes.draw do
+ETFlex::Application.routes.draw do
   # Assets.
   match '/application.js' => Stitch::Server.new(
     paths: %w(client vendor/assets/javascript))
