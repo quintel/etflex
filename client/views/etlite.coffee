@@ -51,17 +51,17 @@ class exports.ETLite extends Backbone.View
     inputs = application.collections.inputs
 
     @savingsInputs or= [
-      inputs.getByName 'Energy-saving bulbs'
+      inputs.getByName 'Low-energy lighting'
       inputs.getByName 'Electric cars'
       inputs.getByName 'Better insulation'
-      inputs.getByName 'Solar power'
-      inputs.getByName 'Devices'
-      inputs.getByName 'Home heating'
+      inputs.getByName 'Solar water heater'
+      inputs.getByName 'Switch off appliances'
+      inputs.getByName 'Heat pump for the home'
     ]
 
     @productionInputs or= [
-      inputs.getByName 'Coal power plants'
-      inputs.getByName 'Gas power plants'
+      inputs.getByName 'Coal-fired power plants'
+      inputs.getByName 'Gas-fired power plants'
       inputs.getByName 'Nuclear power plants'
       inputs.getByName 'Wind turbines'
       inputs.getByName 'Solar panels'
