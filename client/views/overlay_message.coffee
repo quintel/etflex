@@ -4,7 +4,8 @@
 class exports.OverlayMessage extends Backbone.View
   className: 'overlay-message'
 
-  'click h3': 'hide'
+  events:
+    'click': 'hide'
 
   # Creates the HTML elements for the modal overlay.
   #
@@ -32,7 +33,6 @@ class exports.OverlayMessage extends Backbone.View
     if Modernizr.cssanimations
       $(@el).addClass 'in'
     else
-      console.log 'am ehre'
       $(@el).hide().fadeIn 300
 
     this
