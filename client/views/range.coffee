@@ -15,8 +15,8 @@ class exports.Range extends Backbone.View
   #           way the view is rendered. At a minimum it must contain a `model`
   #           property.
   #
-  # The `model` property requires a `name` (String) which should be the i18n
-  # translated name for the range. It may optionally include:
+  # The `model` property is expected to be a Backbone model, or at least
+  # provide `get`, `set`, and `save` methods.
   #
   #   `value` - The initial value of the range.
   #   `unit`  - A string appended to the value to indicate what is being
