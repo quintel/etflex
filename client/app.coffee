@@ -32,7 +32,9 @@ exports.bootstrap = (window) ->
 #
 createDefaultInputs = (collection) ->
   if collection.length isnt 12
-    collection.add [
+    head.destroy() while head = collection.first()
+
+    fixtures = [
       { name: 'Energy-saving bulbs', start:  0, max:   100, key: '%'   }
       { name: 'Electric cars',       start: 30, max:   100, key: '%'   }
       { name: 'Better insulation',   start: 12, max:   100, key: '%'   }
@@ -47,4 +49,4 @@ createDefaultInputs = (collection) ->
       { name: 'Biomass',             start:  0, max:  1606, key: 'km2' }
     ]
 
-    collection.each (input) -> input.save()
+    collection.create fixture for fixture in fixtures
