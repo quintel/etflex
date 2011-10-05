@@ -12,7 +12,7 @@ currentMessage = null
 # message - The message to be shown.
 #
 exports.showMessage = (title, message) ->
-  if currentMessage and $(currentMessage.el).is('visible')
+  if currentMessage and $(currentMessage.el).is(':visible')
     currentMessage.hide()
     currentMessage = null
   else
