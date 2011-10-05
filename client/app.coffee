@@ -35,18 +35,18 @@ createDefaultInputs = (collection) ->
     head.destroy() while head = collection.first()
 
     fixtures = [
-      { name: 'Energy-saving bulbs', start:  0, max:   100, key: '%'   }
-      { name: 'Electric cars',       start: 30, max:   100, key: '%'   }
-      { name: 'Better insulation',   start: 12, max:   100, key: '%'   }
-      { name: 'Solar power',         start: 24, max:   100, key: '%'   }
-      { name: 'Devices',             start: 56, max:   100, key: '%'   }
-      { name: 'Home heating',        start: 53, max:   100, key: '%'   }
-      { name: 'Coal power plants',   start:  0, max:     7, key: ''    }
-      { name: 'Gas power plants',    start:  0, max:     7, key: ''    }
-      { name: 'Nuclear power plants',start:  0, max:     4, key: ''    }
-      { name: 'Wind turbines',       start:  0, max: 10000, key: ''    }
-      { name: 'Solar panels',        start:  0, max: 10000, key: ''    }
-      { name: 'Biomass',             start:  0, max:  1606, key: 'km2' }
+      { name: 'Energy-saving bulbs',  value:  0, max:   100, unit: '%'   }
+      { name: 'Electric cars',        value: 30, max:   100, unit: '%'   }
+      { name: 'Better insulation',    value: 12, max:   100, unit: '%'   }
+      { name: 'Solar power',          value: 24, max:   100, unit: '%'   }
+      { name: 'Devices',              value: 56, max:   100, unit: '%'   }
+      { name: 'Home heating',         value: 53, max:   100, unit: '%'   }
+      { name: 'Coal power plants',    value:  0, max:     7, unit: ''    }
+      { name: 'Gas power plants',     value:  0, max:     7, unit: ''    }
+      { name: 'Nuclear power plants', value:  0, max:     4, unit: ''    }
+      { name: 'Wind turbines',        value:  0, max: 10000, unit: ''    }
+      { name: 'Solar panels',         value:  0, max: 10000, unit: ''    }
+      { name: 'Biomass',              value:  0, max:  1606, unit: 'km2' }
     ]
 
     collection.create fixture for fixture in fixtures
