@@ -7,6 +7,6 @@ class exports.Input extends Backbone.Model
   defaults:
     name:  'An Input'
     unit:  ''
-    start:    0
+    value:    0
     min:      0
     max:    100
