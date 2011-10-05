@@ -14,15 +14,12 @@ etliteTemplate      = require 'templates/etlite'
 class exports.ETLite extends Backbone.View
   id: 'etlite-view'
 
-  events:
-    'click a': 'navigateToSanity'
-
-  navigateToSanity: (event) ->
-    application.router.navigate 'sanity', true
-    false
-
-  # Renders the view which for the moment simply confirms that the user is now
-  # on the ETLite page.
+  # Creates the HTML elements for the view, and binds events. Returns self.
+  #
+  # Example:
+  #
+  #   view = new ETLite()
+  #   $('body').html view.render().el
   #
   render: ->
     @fetchInputs()
