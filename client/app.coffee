@@ -31,8 +31,6 @@ exports.bootstrap = (window) ->
 # This can be removed once ETEngine is integrated.
 #
 createDefaultInputs = (collection) ->
-  collection.each (input) -> input.destroy()
-
   if collection.length isnt 12
     collection.add [
       { name: 'Energy-saving bulbs', start:  0, max:   100, key: '%'   }
