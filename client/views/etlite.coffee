@@ -14,6 +14,9 @@ etliteTemplate      = require 'templates/etlite'
 class exports.ETLite extends Backbone.View
   id: 'etlite-view'
 
+  events:
+    'click a.clear': 'clearInputStorage'
+
   # Creates the HTML elements for the view, and binds events. Returns self.
   #
   # Example:
@@ -64,3 +67,10 @@ class exports.ETLite extends Backbone.View
       inputs.getByName 'Solar panels'
       inputs.getByName 'Biomass'
     ]
+
+  # Callback for the "Clear Input Storage" button. Wipes out all of the inputs
+  # which should be followed by a browser refresh.
+  #
+  clearInputStorage: (event) =>
+    head.destroy() while head = application.collections.inputs.first()
+    event.preventDefault()
