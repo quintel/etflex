@@ -12,7 +12,7 @@ class exports.Sanity extends Backbone.View
 
   navigateToETLite: (event) ->
     application.router.navigate 'etlite', true
-    false
+    event.preventDefault()
 
   # Renders the view which adds text to the page indicating that Backbone is
   # correctly configured.
