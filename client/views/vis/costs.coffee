@@ -54,5 +54,4 @@ class exports.Costs extends GenericVisualisation
   # repeatedly to update the UI.
   #
   render: =>
-    console.log 'rendering'
     super "€#{@recalculate()} million", 'Costs'
