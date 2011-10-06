@@ -32,7 +32,7 @@ class exports.Renewables extends GenericVisualisation
 
     total    = coal + gas + nuclear + wind + solar + biomass
 
-    Math.round ((wind + solar) / total) * 100
+    if total is 0 then 0 else Math.round ((wind + solar) / total) * 100
 
   # Renders the UI; calculates the C02 emissions. Can be safely called
   # repeatedly to update the UI.
