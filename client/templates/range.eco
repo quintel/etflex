@@ -1,5 +1,5 @@
 <div class="info">
-  <span class="label"><%= @name %></span>
+  <span class="label"><%= @name %> <span class="help"></span></span>
   <span class="value"><span class="output"></span><%- @unit %></span>
 </div>
 
