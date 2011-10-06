@@ -5,6 +5,7 @@ etliteTemplate           = require 'templates/etlite'
 { SavingsMediator }      = require 'mediators/savings_mediator'
 { GenericVisualisation } = require 'views/vis/generic'
 { CO2Emissions }         = require 'views/vis/co2_emissions'
+{ Renewables }           = require 'views/vis/renewables'
 
 # A full-page view which recreates the ETLite interface. Six sliders are on
 # the left of the UI allowing the user to control how savings can be made in
@@ -44,8 +45,9 @@ class exports.ETLite extends Backbone.View
 
     # Add three visualisations to the bottom of the page.
 
-    visOne   = (new GenericVisualisation).render '123', 'Things'
     visThree = (new GenericVisualisation).render '123', 'Things'
+
+    visOne = @createRenewablesVis().render()
 
     visTwo = new CO2Emissions
       gas:  application.collections.inputs.getByName 'Gas-fired power plants'
@@ -88,3 +90,15 @@ class exports.ETLite extends Backbone.View
   clearInputStorage: (event) =>
     head.destroy() while head = application.collections.inputs.first()
     event.preventDefault()
+
+  # Creates and returns the visualisation which shows the proportion of energy
+  # generated from renewable, but unreliable, sources.
+  #
+  createRenewablesVis: ->
+    new Renewables
+      gas:      @productionInputs[0]
+      coal:     @productionInputs[1]
+      nuclear:  @productionInputs[2]
+      wind:     @productionInputs[3]
+      solar:    @productionInputs[4]
+      biomass:  @productionInputs[5]
