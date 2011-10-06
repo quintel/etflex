@@ -1,11 +1,11 @@
-application              = require 'app'
-etliteTemplate           = require 'templates/etlite'
+application         = require 'app'
+etliteTemplate      = require 'templates/etlite'
 
-{ Range }                = require 'views/range'
-{ SavingsMediator }      = require 'mediators/savings_mediator'
-{ GenericVisualisation } = require 'views/vis/generic'
-{ CO2Emissions }         = require 'views/vis/co2_emissions'
-{ Renewables }           = require 'views/vis/renewables'
+{ Range }           = require 'views/range'
+{ SavingsMediator } = require 'mediators/savings_mediator'
+{ CO2Emissions }    = require 'views/vis/co2_emissions'
+{ Renewables }      = require 'views/vis/renewables'
+{ Costs }           = require 'views/vis/costs'
 
 # A full-page view which recreates the ETLite interface. Six sliders are on
 # the left of the UI allowing the user to control how savings can be made in
@@ -45,13 +45,10 @@ class exports.ETLite extends Backbone.View
 
     # Add three visualisations to the bottom of the page.
 
-    visOne   = @createRenewablesVis().render()
-    visTwo   = @createCarbonVis().render()
-    visThree = (new GenericVisualisation).render '123', 'Things'
-
-
-    @$('#visualisations').append(visOne.el).
-      append(visTwo.render().el).append(visThree.el)
+    @$('#visualisations')
+      .append(@createRenewablesVis().render().el)
+      .append(@createCarbonVis().render().el)
+      .append(@createCostsVis().render().el)
 
     @delegateEvents()
     this
@@ -107,3 +104,22 @@ class exports.ETLite extends Backbone.View
       wind:     @productionInputs[3]
       solar:    @productionInputs[4]
       biomass:  @productionInputs[5]
+
+  # Creates and returns the visualisation which shows the total cost, in
+  # Euros, of the choices the user makes.
+  #
+  createCostsVis: ->
+    new Costs
+      lighting:   @savingsInputs[0]
+      cars:       @savingsInputs[1]
+      insulation: @savingsInputs[2]
+      heating:    @savingsInputs[3]
+      appliances: @savingsInputs[4]
+      heatPump:   @savingsInputs[5]
+
+      gas:        @productionInputs[0]
+      coal:       @productionInputs[1]
+      nuclear:    @productionInputs[2]
+      wind:       @productionInputs[3]
+      solar:      @productionInputs[4]
+      biomass:    @productionInputs[5]
