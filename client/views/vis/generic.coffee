@@ -12,13 +12,25 @@ class exports.GenericVisualisation extends Backbone.View
     @delegateEvents()
     this
 
-  # Given a number, rounds to to a certain number of decimal places.
+  # Given a number, rounds to to a certain number of decimal places. Returns
+  # a string.
   #
   # number    - The number to be rounded.
   # precision - The number of decimal places to be shown.
   #
   precision: (number, precision) ->
     if precision is 0
-      Math.round number
+      "#{Math.round number}"
     else
-      Math.round(number * (10 * precision)) / (10 * precision)
+      # When precision is >= 1, we first round the number using the desired
+      # precision and then, since floating-point arithmetic means that we may
+      # still end up with a number with too many decimal places, forcefully
+      # truncate the number.
+
+      multiplier = Math.pow 10, precision
+
+      rounded = Math.round(number * multiplier) / multiplier
+      rounded = rounded.toString().split '.'
+
+      if rounded.length is 1 then rounded else
+        "#{rounded[0]}.#{rounded[1][0...precision]}"
