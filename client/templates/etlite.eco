@@ -11,6 +11,6 @@
   </div>
 </div>
 
-<div class="visualisation"></div>
+<div id="visualisations"></div>
 
 <a href="#" class="clear">Clear Input Storage</a>

@@ -102,7 +102,8 @@ body
   min-height: 320px
   width: 318px
 
-.visualisation
+#visualisations
+  @extend .clearfix
   +background(linear-gradient(top, rgba(black, 0) 0%, rgba(black, 0) 50%, rgba(black, 0.15) 50%, rgba(black, 0.05) 65%, rgba(black, 0) 90%))
   height: 250px
   position: relative
@@ -120,3 +121,17 @@ body
     margin-bottom: -250px
     position: relative
     z-index: 2
+
+  .visualisation
+    float: left
+    padding: 175px 0 25px 0
+    text-align: center
+    width: 320px
+
+    .value
+      background: #bdbec1
+      font-size: 12px
+      padding: 5px 7px
+
+      .output
+        font-weight: bold
