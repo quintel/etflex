@@ -7,7 +7,7 @@
 #
 #= require jquery
 #= require jquery_ujs
-#= reqiore jquery.easing.1.3
+#= require jquery.easing.1.3
 #= require underscore
 #= require backbone
 #= require jquery.quinn
