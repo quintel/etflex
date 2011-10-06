@@ -1,8 +1,9 @@
-application         = require 'app'
-etliteTemplate      = require 'templates/etlite'
+application              = require 'app'
+etliteTemplate           = require 'templates/etlite'
 
-{ Range }           = require 'views/range'
-{ SavingsMediator } = require 'mediators/savings_mediator'
+{ Range }                = require 'views/range'
+{ SavingsMediator }      = require 'mediators/savings_mediator'
+{ GenericVisualisation } = require 'views/vis/generic'
 
 # A full-page view which recreates the ETLite interface. Six sliders are on
 # the left of the UI allowing the user to control how savings can be made in
@@ -39,6 +40,15 @@ class exports.ETLite extends Backbone.View
 
     _.each @productionInputs, (range) ->
       rightRangesEl.append new Range(model: range).render().el
+
+    # Add three visualisations to the bottom of the page.
+
+    visOne   = (new GenericVisualisation).render '123', 'Things'
+    visTwo   = (new GenericVisualisation).render '123', 'Things'
+    visThree = (new GenericVisualisation).render '123', 'Things'
+
+    @$('#visualisations').append(visOne.el).
+      append(visTwo.el).append(visThree.el)
 
     @delegateEvents()
     this
