@@ -80,17 +80,17 @@
   // If you alter the animation duration, you also need to reduce the
   // setTimeout delay in OverlayMessage#hide.
 
-  -moz-animation:    linear none 0.3s ease-in-out 1
-  -webkit-animation: linear none 0.3s ease-in-out 1
+  -moz-animation:    overlayMessageIn 0.3s ease-in-out 0s 1 normal forwards
+  -webkit-animation: overlayMessageIn 0.3s ease-in-out 0s 1 normal forwards
+
+  // Fireefox is ignoring this in the short-hand version above.
+  -moz-animation-fill-mode: fowards
 
   // Enables hardware acceleration.
 
   -moz-transform:    translate3d(0, 0, 0)
   -webkit-transform: translate3d(0, 0, 0)
 
-  &.in
-    -moz-animation-name:    overlayMessageIn
-    -webkit-animation-name: overlayMessageIn
   &.out
     -moz-animation-name:    overlayMessageOut !important
     -webkit-animation-name: overlayMessageOut !important
