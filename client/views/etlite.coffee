@@ -45,13 +45,10 @@ class exports.ETLite extends Backbone.View
 
     # Add three visualisations to the bottom of the page.
 
+    visOne   = @createRenewablesVis().render()
+    visTwo   = @createCarbonVis().render()
     visThree = (new GenericVisualisation).render '123', 'Things'
 
-    visOne = @createRenewablesVis().render()
-
-    visTwo = new CO2Emissions
-      gas:  application.collections.inputs.getByName 'Gas-fired power plants'
-      coal: application.collections.inputs.getByName 'Coal-fired power plants'
 
     @$('#visualisations').append(visOne.el).
       append(visTwo.render().el).append(visThree.el)
@@ -90,6 +87,14 @@ class exports.ETLite extends Backbone.View
   clearInputStorage: (event) =>
     head.destroy() while head = application.collections.inputs.first()
     event.preventDefault()
+
+  # Creates and returns the visualisation which shows the total amount of
+  # carbon emissions based on the user's choices.
+  #
+  createCarbonVis: ->
+    new CO2Emissions
+      gas:  @productionInputs[0]
+      coal: @productionInputs[1]
 
   # Creates and returns the visualisation which shows the proportion of energy
   # generated from renewable, but unreliable, sources.
