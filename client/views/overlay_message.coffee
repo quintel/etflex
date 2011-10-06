@@ -5,7 +5,7 @@ class exports.OverlayMessage extends Backbone.View
   className: 'overlay-wrap'
 
   events:
-    'click': 'hide'
+    'mousedown': 'hide'
 
   # Creates the HTML elements for the modal overlay.
   #
