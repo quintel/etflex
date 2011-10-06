@@ -2,7 +2,7 @@
 # in a black pop-up box.
 
 class exports.OverlayMessage extends Backbone.View
-  className: 'overlay-message'
+  className: 'overlay-wrap'
 
   events:
     'click': 'hide'
@@ -15,7 +15,12 @@ class exports.OverlayMessage extends Backbone.View
   # message - The message to be shown.
   #
   render: (title, message) ->
-    $(@el).append(@make('h3', {}, title), @make('p', {}, message))
+    @messageEl = $(@make 'div', class: 'overlay-message')
+
+    @messageEl.append @make('h3', {}, title)
+    @messageEl.append @make('p', {}, message)
+
+    $(@el).append @messageEl
 
     @delegateEvents()
     this
@@ -27,13 +32,13 @@ class exports.OverlayMessage extends Backbone.View
   #
   # element - The HTML element which the message will be appended to.
   #
-  appendTo: (element) ->
-    element.append @el
+  prependTo: (element) ->
+    element.prepend @el
 
     if Modernizr.cssanimations
-      $(@el).addClass 'in'
+      $(@messageEl).addClass 'in'
     else
-      $(@el).hide().fadeIn 300
+      $(@messageEl).hide().fadeIn 300
 
     this
 
@@ -44,6 +49,6 @@ class exports.OverlayMessage extends Backbone.View
     window.setTimeout (=> @remove()), 325
 
     if Modernizr.cssanimations
-      $(@el).removeClass('in').addClass('out')
+      $(@messageEl).removeClass('in').addClass('out')
     else
-      $(@el).fadeOut 300
+      $(@messageEl).fadeOut 300

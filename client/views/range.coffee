@@ -9,7 +9,7 @@ class exports.Range extends Backbone.View
 
   # Events; the "help" icon clicker.
   events:
-    'click .label': 'showHelp'
+    'click .help': 'showHelp'
 
   # Becomes the Quinn instance once render() is called.
   quinn: null
