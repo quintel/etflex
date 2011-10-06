@@ -35,9 +35,7 @@ class exports.OverlayMessage extends Backbone.View
   prependTo: (element) ->
     element.prepend @el
 
-    if Modernizr.cssanimations
-      $(@messageEl).addClass 'in'
-    else
+    unless Modernizr.cssanimations
       $(@messageEl).hide().fadeIn 300
 
     this
@@ -49,6 +47,6 @@ class exports.OverlayMessage extends Backbone.View
     window.setTimeout (=> @remove()), 325
 
     if Modernizr.cssanimations
-      $(@messageEl).removeClass('in').addClass('out')
+      $(@messageEl).addClass('out')
     else
       $(@messageEl).fadeOut 300
