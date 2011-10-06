@@ -4,6 +4,7 @@ etliteTemplate           = require 'templates/etlite'
 { Range }                = require 'views/range'
 { SavingsMediator }      = require 'mediators/savings_mediator'
 { GenericVisualisation } = require 'views/vis/generic'
+{ CO2Emissions }         = require 'views/vis/co2_emissions'
 
 # A full-page view which recreates the ETLite interface. Six sliders are on
 # the left of the UI allowing the user to control how savings can be made in
@@ -44,11 +45,14 @@ class exports.ETLite extends Backbone.View
     # Add three visualisations to the bottom of the page.
 
     visOne   = (new GenericVisualisation).render '123', 'Things'
-    visTwo   = (new GenericVisualisation).render '123', 'Things'
     visThree = (new GenericVisualisation).render '123', 'Things'
 
+    visTwo = new CO2Emissions
+      gas:  application.collections.inputs.getByName 'Gas-fired power plants'
+      coal: application.collections.inputs.getByName 'Coal-fired power plants'
+
     @$('#visualisations').append(visOne.el).
-      append(visTwo.el).append(visThree.el)
+      append(visTwo.render().el).append(visThree.el)
 
     @delegateEvents()
     this

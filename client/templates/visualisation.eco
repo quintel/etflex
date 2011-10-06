@@ -1,4 +1,4 @@
 <span class="value">
   <span class="unit"><%= @unit %>:</span>
-  <span class="output"><%= @value %></span>
+  <span class="output"><%- @value %></span>
 </span>
