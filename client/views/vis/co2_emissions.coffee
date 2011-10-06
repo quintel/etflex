@@ -22,14 +22,10 @@ class exports.CO2Emissions extends GenericVisualisation
     coalOutput = 3.6 * @coalModel.get 'value'
     gasOutput  = 1.5 * @gasModel.get  'value'
 
-    coalOutput + gasOutput
+    @precision coalOutput + gasOutput, 1
 
   # Renders the UI; calculates the C02 emissions. Can be safely called
   # repeatedly to update the UI.
   #
   render: =>
-    emissions = @recalculate()
-    emissions = Math.floor(emissions * 10) / 10
-    emissions = "#{emissions} Mton CO<sup>2</sup>"
-
-    super emissions, 'Emissions'
+    super "#{@recalculate()} Mton CO<sup>2</sup>", 'Emissions'
