@@ -4,6 +4,16 @@
   </div>
 
   <div id="energy-generation" class="energy-graph">
+    <div class="demand">
+      <div class="legend">Energy demand</div>
+      <div class="marker">524PJ</div>
+      <div class="bar"> </div>
+    </div>
+    <div class="supply">
+      <div class="legend">Energy supply</div>
+      <div class="marker">298PJ</div>
+      <div class="bar"> </div>
+    </div>
   </div>
 
   <div id="energy-production" class="range-group">

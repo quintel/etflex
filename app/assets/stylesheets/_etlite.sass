@@ -1,4 +1,5 @@
 $bg-colour: #e0dfe3
+$quiet-colour: #7c7f89
 
 html, body
   min-height: 100%
@@ -97,12 +98,71 @@ body
           background: none
 
 .energy-graph
-  background: #eee
+  @extend .clearfix
   border-radius: 5px
   float: left
   margin: 100px 20px 0
   min-height: 320px
   width: 318px
+
+  .marker
+    border-top: 1px dashed #bbb
+    color: $quiet-colour
+    font-size: 12px
+    margin-top: 1px
+    position: absolute
+    top: 55%
+    width: 79px
+
+  .demand, .supply
+    background: url(/assets/graph-ticks.png) top right repeat-y
+    float: left
+    height: 242px
+    margin: 0 10px 0 0
+    padding: 0 20px 0 0
+    position: relative
+    width: 127px
+
+    .bar
+      background: #3b3d46
+      bottom: 0px
+      position: absolute
+      height: 25%
+      width: 35px
+      z-index: 4
+
+  .demand .bar
+    height: 45%
+    right: 25px
+
+  .legend
+    -webkit-transform: rotate(270deg)
+    left: 32px
+    bottom: 75px
+    color: white
+    font-size: 16px
+    position: absolute
+    text-shadow: -1px 0 1px rgba(0, 0, 0, 0.1)
+    font-family: 'Trebuchet MS', 'Lucida Grande', Arial, Helvetica
+    width: 150px
+    z-index: 5
+
+  .supply
+    background-position: top left
+    margin: 0 0 0 10px
+    padding: 0 0 0 20px
+
+    .bar
+      background: #a03e0c
+      left: 25px
+
+    .marker
+      right: 0px
+      text-align: right
+      top: 75%
+
+    .legend
+      left: -29px
 
 #visualisations
   @extend .clearfix
