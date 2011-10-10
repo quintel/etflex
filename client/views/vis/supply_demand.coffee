@@ -1,4 +1,7 @@
-supplyDemandTpl= require 'templates/vis/supply_demand'
+supplyDemandTpl = require 'templates/vis/supply_demand'
+
+# The maximum values which may be represented on the graph. In petajoules.
+EXTENT = 850
 
 # A placeholder visualisation which projects energy supply and demand into a
 # histogram based on the selections made by the user on the ETlite recreation.
@@ -52,6 +55,21 @@ class exports.SupplyDemand extends Backbone.View
     { demand: Math.round(demand), supply: Math.round(supply) }
 
   render: =>
-    $(@el).html supplyDemandTpl @recalculate()
+    values = @recalculate()
+
+    $(@el).html supplyDemandTpl values
+
+    # Set the bar height, and marker positions.
+
+    supplyPos = values.supply / EXTENT * 100
+    demandPos = values.demand / EXTENT * 100
+
+    @$('.demand')
+      .find('.bar').css('height', "#{demandPos}%").end()
+      .find('.marker').css('top', "#{100 - demandPos}%")
+
+    @$('.supply')
+      .find('.bar').css('height', "#{supplyPos}%").end()
+      .find('.marker').css('top', "#{100 - supplyPos}%")
 
     this
