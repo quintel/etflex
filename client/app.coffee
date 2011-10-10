@@ -18,15 +18,6 @@ exports.session = null
 exports.bootstrap = (window) ->
   exports.router = new (require('router').Router)
 
-  # Set up the collections.
-  (exports.collections.inputs = new Inputs).fetch()
-
-  # Create some sample inputs for new visitors.
-  createDefaultInputs exports.collections.inputs
-
-  # Fire up Backbone routing...
-  Backbone.history.start pushState: true
-
   # Create the user session.
   #
   # TODO We probably ought to set a short-term cookie containing the session
@@ -37,6 +28,15 @@ exports.bootstrap = (window) ->
       console.error "Could not create user session" if console in window
     else
       exports.session = session
+
+    # Set up the collections.
+    (exports.collections.inputs = new Inputs).fetch()
+
+    # Create some sample inputs for new visitors.
+    createDefaultInputs exports.collections.inputs
+
+    # Fire up Backbone routing...
+    Backbone.history.start pushState: true
 
 # If the Inputs collection has no entries, this is the first time the user has
 # visited the application. Create twelve sample inputs for the ETLite
