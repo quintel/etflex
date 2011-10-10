@@ -25,7 +25,7 @@ exports.bootstrap = (window) ->
   #
   require('models/session').createSession (err, session) =>
     if err?
-      console.error "Could not create user session" if console in window
+      console.error "Could not create user session" if console of window
     else
       exports.session = session
 
