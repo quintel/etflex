@@ -48,4 +48,3 @@ doc/
 
 config/database.yml
 public/assets/*
-.rvmrc
