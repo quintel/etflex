@@ -16,6 +16,8 @@ exports.session = null
 
 # Called _once_ when the application is first loaded in the browser.
 exports.bootstrap = (window) ->
+  installConsolePolyfill window
+
   exports.router = new (require('router').Router)
 
   # Create the user session.
@@ -25,7 +27,7 @@ exports.bootstrap = (window) ->
   #
   require('models/session').createSession (err, session) =>
     if err?
-      console.error "Could not create user session" if console of window
+      console.error 'Could not create user session'
     else
       exports.session = session
 
@@ -64,3 +66,7 @@ createDefaultInputs = (collection) ->
     ]
 
     collection.create fixture for fixture in fixtures
+
+installConsolePolyfill = (window) ->
+  unless console of window
+    window.console = { log: (->), info: (->), warn: (->), error: (->) }
