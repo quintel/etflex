@@ -6,6 +6,7 @@ etliteTemplate      = require 'templates/etlite'
 { CO2Emissions }    = require 'views/vis/co2_emissions'
 { Renewables }      = require 'views/vis/renewables'
 { Costs }           = require 'views/vis/costs'
+{ SupplyDemand }    = require 'views/vis/supply_demand'
 
 # A full-page view which recreates the ETLite interface. Six sliders are on
 # the left of the UI allowing the user to control how savings can be made in
@@ -49,6 +50,10 @@ class exports.ETLite extends Backbone.View
       .append(@createRenewablesVis().render().el)
       .append(@createCarbonVis().render().el)
       .append(@createCostsVis().render().el)
+
+    # And add the supply / demand graph.
+
+    @$('#energy-generation').replaceWith @createSupplyDemandVis().render().el
 
     @delegateEvents()
     this
@@ -110,6 +115,25 @@ class exports.ETLite extends Backbone.View
   #
   createCostsVis: ->
     new Costs
+      lighting:   @savingsInputs[0]
+      cars:       @savingsInputs[1]
+      insulation: @savingsInputs[2]
+      heating:    @savingsInputs[3]
+      appliances: @savingsInputs[4]
+      heatPump:   @savingsInputs[5]
+
+      gas:        @productionInputs[0]
+      coal:       @productionInputs[1]
+      nuclear:    @productionInputs[2]
+      wind:       @productionInputs[3]
+      solar:      @productionInputs[4]
+      biomass:    @productionInputs[5]
+
+  # Creates the energy demand / energy supply graph which sits between the two
+  # range groups.
+  #
+  createSupplyDemandVis: ->
+    new SupplyDemand
       lighting:   @savingsInputs[0]
       cars:       @savingsInputs[1]
       insulation: @savingsInputs[2]
