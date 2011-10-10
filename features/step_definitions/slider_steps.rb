@@ -2,14 +2,14 @@
 
 # Results --------------------------------------------------------------------
 
-Then /^I should see an? "(.+)" slider$/ do |name|
-  page.should have_css('.slider .label', text: name)
+Then /^I should see an? "(.+)" range/ do |name|
+  page.should have_css('.range .label', text: name)
 end
 
-Then /^the "(.+)" slider value should be "(\d+)"$/ do |name, value|
-  page.all('.slider').each do |slider|
-    if slider.has_css?('.label', text: name)
-      slider.should have_css('.output', text: value)
+Then /^the "(.+)" range value should be "(\d+)"$/ do |name, value|
+  page.all('.range').each do |range|
+    if range.has_css?('.label', text: name)
+      range.should have_css('.output', text: value)
     end
   end
 end
