@@ -11,6 +11,9 @@ exports.router = null
 # Holds each of the main model collections (Sliders, Widgets, etc).
 exports.collections = {}
 
+# Holds the Session singleton containing the user session information.
+exports.session = null
+
 # Called _once_ when the application is first loaded in the browser.
 exports.bootstrap = (window) ->
   exports.router = new (require('router').Router)
@@ -23,6 +26,17 @@ exports.bootstrap = (window) ->
 
   # Fire up Backbone routing...
   Backbone.history.start pushState: true
+
+  # Create the user session.
+  #
+  # TODO We probably ought to set a short-term cookie containing the session
+  #      ID so that we can easily resume a session if the user hits refresh.
+  #
+  require('models/session').createSession (err, session) =>
+    if err?
+      console.error "Could not create user session" if console in window
+    else
+      exports.session = session
 
 # If the Inputs collection has no entries, this is the first time the user has
 # visited the application. Create twelve sample inputs for the ETLite
