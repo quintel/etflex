@@ -44,6 +44,13 @@ group :test, :development do
   # rspec-rails needs to be added to the development environment, otherwise
   # the spec:* tasks won't be available when using rake.
   gem 'rspec-rails',  '~> 2.6'
+
+  # Same with Guard.
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'guard-cucumber'
+  gem 'rb-fsevent'
+  gem 'growl_notify'
 end
 
 group :test do
