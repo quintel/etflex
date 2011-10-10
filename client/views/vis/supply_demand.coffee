@@ -29,7 +29,7 @@ class exports.SupplyDemand extends Backbone.View
     inputs.push @solarInput        = options.solar
     inputs.push @biomassInput      = options.biomass
 
-    input.bind 'change:value', @render for input in inputs
+    input.bind 'change:value', @redrawBars for input in inputs
 
   recalculate: ->
     # Demand.
@@ -58,18 +58,29 @@ class exports.SupplyDemand extends Backbone.View
     values = @recalculate()
 
     $(@el).html supplyDemandTpl values
+    @redrawBars false
 
-    # Set the bar height, and marker positions.
+  # Sets the height of the graph bars, and the marker positions without
+  # rerendering the whole view. Returns self.
+  #
+  # animate - If false, will immediately set the new bar height, and marker
+  #           positions. Any other value will animate them to their new
+  #           values.
+  #
+  redrawBars: (animate = true) =>
+    values = @recalculate()
+    action = if animate then 'animate' else 'css'
 
     supplyPos = values.supply / EXTENT * 100
     demandPos = values.demand / EXTENT * 100
 
-    @$('.demand')
-      .find('.bar').css('height', "#{demandPos}%").end()
-      .find('.marker').css('top', "#{100 - demandPos}%")
+    @$('.demand .bar')[action]    height: "#{demandPos}%"
+    @$('.supply .bar')[action]    height: "#{supplyPos}%"
 
-    @$('.supply')
-      .find('.bar').css('height', "#{supplyPos}%").end()
-      .find('.marker').css('top', "#{100 - supplyPos}%")
+    @$('.demand .marker')[action] top: "#{100 - demandPos}%"
+    @$('.demand .marker').text    "#{values.demand}PJ"
+
+    @$('.supply .marker')[action] top: "#{100 - supplyPos}%"
+    @$('.supply .marker').text    "#{values.supply}PJ"
 
     this
