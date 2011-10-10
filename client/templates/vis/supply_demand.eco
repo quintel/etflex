@@ -1,11 +1,11 @@
 <div class="demand">
   <div class="legend">Energy demand</div>
-  <div class="marker"><%= @demand %>PJ</div>
+  <div class="marker"></div>
   <div class="bar"></div>
 </div>
 
 <div class="supply">
   <div class="legend">Energy supply</div>
-  <div class="marker"><%= @supply %>PJ</div>
+  <div class="marker"></div>
   <div class="bar"></div>
 </div>
