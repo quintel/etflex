@@ -20,12 +20,12 @@ class exports.Range extends Backbone.View
   #
   render: (mediator) ->
     $(@el).html rangeTemplate
-      name: @model.get('name'),
-      unit: @model.get('unit')
+      name: @model.def.name,
+      unit: @model.def.unit
 
     new $.Quinn @$('.control'),
       value:       @model.get('value')
-      range:       [ 0, @model.get('max') ]
+      range:       [ 0, @model.def.max ]
       handleWidth: 31
       width:       271
 

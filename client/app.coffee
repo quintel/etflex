@@ -47,25 +47,24 @@ exports.bootstrap = (window) ->
 # This can be removed once ETEngine is integrated.
 #
 createDefaultInputs = (collection) ->
-  if collection.length isnt 12
-    head.destroy() while head = collection.first()
+  head.destroy() while head = collection.first()
 
-    fixtures = [
-      { id:  43, name: 'Low-energy lighting',     value: 0, max:   100, unit: '%'   }
-      { id: 146, name: 'Electric cars',           value: 0, max:   100, unit: '%'   }
-      { id: 336, name: 'Better insulation',       value: 0, max:   100, unit: '%'   }
-      { id: 348, name: 'Solar water heater',      value: 0, max:    80, unit: '%'   }
-      { id: 366, name: 'Switch off appliances',   value: 0, max:    20, unit: '%'   }
-      { id: 338, name: 'Heat pump for the home',  value: 0, max:    80, unit: '%'   }
-      { id: 256, name: 'Coal-fired power plants', value: 0, max:     7, unit: ''    }
-      { id: 315, name: 'Gas-fired power plants',  value: 0, max:     7, unit: ''    }
-      { id: 259, name: 'Nuclear power plants',    value: 0, max:     4, unit: ''    }
-      { id: 263, name: 'Wind turbines',           value: 0, max: 10000, unit: ''    }
-      { id: 313, name: 'Solar panels',            value: 0, max: 10000, unit: ''    }
-      { id: 272, name: 'Biomass',                 value: 0, max:  1606, unit: ' km<sup>2</sup>' }
-    ]
+  fixtures = [
+    { id:  43, name: 'Low-energy lighting',     start_value: 0, max_value:   100, unit: '%'   }
+    { id: 146, name: 'Electric cars',           start_value: 0, max_value:   100, unit: '%'   }
+    { id: 336, name: 'Better insulation',       start_value: 0, max_value:   100, unit: '%'   }
+    { id: 348, name: 'Solar water heater',      start_value: 0, max_value:    80, unit: '%'   }
+    { id: 366, name: 'Switch off appliances',   start_value: 0, max_value:    20, unit: '%'   }
+    { id: 338, name: 'Heat pump for the home',  start_value: 0, max_value:    80, unit: '%'   }
+    { id: 256, name: 'Coal-fired power plants', start_value: 0, max_value:     7, unit: ''    }
+    { id: 315, name: 'Gas-fired power plants',  start_value: 0, max_value:     7, unit: ''    }
+    { id: 259, name: 'Nuclear power plants',    start_value: 0, max_value:     4, unit: ''    }
+    { id: 263, name: 'Wind turbines',           start_value: 0, max_value: 10000, unit: ''    }
+    { id: 313, name: 'Solar panels',            start_value: 0, max_value: 10000, unit: ''    }
+    { id: 272, name: 'Biomass',                 start_value: 0, max_value:  1606, unit: ' km<sup>2</sup>' }
+  ]
 
-    collection.create fixture for fixture in fixtures
+  collection.create fixture for fixture in fixtures
 
 installConsolePolyfill = (window) ->
   unless 'console' of window
