@@ -8,6 +8,21 @@ etliteTemplate      = require 'templates/etlite'
 { Costs }           = require 'views/vis/costs'
 { SupplyDemand }    = require 'views/vis/supply_demand'
 
+INPUT_MAP =
+  lighting:    43
+  cars:       146
+  insulation: 336
+  heating:    348
+  appliances: 366
+  heatPump:   338 # or 339?
+
+  gas:        256
+  coal:       315
+  nuclear:    259 # or 413?
+  wind:       263 # or 265, 265?
+  solar:      313
+  biomass:    272
+
 # A full-page view which recreates the ETLite interface. Six sliders are on
 # the left of the UI allowing the user to control how savings can be made in
 # energy use, and six on the right controlling how energy will be produced.
@@ -64,6 +79,9 @@ class exports.ETLite extends Backbone.View
   #
   fetchInputs: ->
     inputs = application.collections.inputs
+
+    # Fetch inputs which we need and aren't already present in the collection.
+    needed = ( id for own lKey, id of INPUT_MAP when not inputs.get(id) )
 
     @savingsInputs or= [
       inputs.getByName 'Low-energy lighting'
