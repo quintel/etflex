@@ -68,5 +68,5 @@ createDefaultInputs = (collection) ->
     collection.create fixture for fixture in fixtures
 
 installConsolePolyfill = (window) ->
-  unless console of window
+  unless 'console' of window
     window.console = { log: (->), info: (->), warn: (->), error: (->) }
