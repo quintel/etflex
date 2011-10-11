@@ -51,18 +51,18 @@ createDefaultInputs = (collection) ->
     head.destroy() while head = collection.first()
 
     fixtures = [
-      { name: 'Low-energy lighting',     value: 0, max:   100, unit: '%'   }
-      { name: 'Electric cars',           value: 0, max:   100, unit: '%'   }
-      { name: 'Better insulation',       value: 0, max:   100, unit: '%'   }
-      { name: 'Solar water heater',      value: 0, max:    80, unit: '%'   }
-      { name: 'Switch off appliances',   value: 0, max:    20, unit: '%'   }
-      { name: 'Heat pump for the home',  value: 0, max:    80, unit: '%'   }
-      { name: 'Coal-fired power plants', value: 0, max:     7, unit: ''    }
-      { name: 'Gas-fired power plants',  value: 0, max:     7, unit: ''    }
-      { name: 'Nuclear power plants',    value: 0, max:     4, unit: ''    }
-      { name: 'Wind turbines',           value: 0, max: 10000, unit: ''    }
-      { name: 'Solar panels',            value: 0, max: 10000, unit: ''    }
-      { name: 'Biomass',                 value: 0, max:  1606, unit: ' km<sup>2</sup>' }
+      { id:  43, name: 'Low-energy lighting',     value: 0, max:   100, unit: '%'   }
+      { id: 146, name: 'Electric cars',           value: 0, max:   100, unit: '%'   }
+      { id: 336, name: 'Better insulation',       value: 0, max:   100, unit: '%'   }
+      { id: 348, name: 'Solar water heater',      value: 0, max:    80, unit: '%'   }
+      { id: 366, name: 'Switch off appliances',   value: 0, max:    20, unit: '%'   }
+      { id: 338, name: 'Heat pump for the home',  value: 0, max:    80, unit: '%'   }
+      { id: 256, name: 'Coal-fired power plants', value: 0, max:     7, unit: ''    }
+      { id: 315, name: 'Gas-fired power plants',  value: 0, max:     7, unit: ''    }
+      { id: 259, name: 'Nuclear power plants',    value: 0, max:     4, unit: ''    }
+      { id: 263, name: 'Wind turbines',           value: 0, max: 10000, unit: ''    }
+      { id: 313, name: 'Solar panels',            value: 0, max: 10000, unit: ''    }
+      { id: 272, name: 'Biomass',                 value: 0, max:  1606, unit: ' km<sup>2</sup>' }
     ]
 
     collection.create fixture for fixture in fixtures
