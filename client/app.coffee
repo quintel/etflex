@@ -37,6 +37,10 @@ exports.bootstrap = (window) ->
     # Create some sample inputs for new visitors.
     createDefaultInputs exports.collections.inputs
 
+    # Also temporary...
+    exports.collections.inputs.bind 'change:value', (input) ->
+      session.updateInputs [ input ], (err) -> console.log 'Update!', err
+
     # Fire up Backbone routing...
     Backbone.history.start pushState: true
 
