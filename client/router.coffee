@@ -3,6 +3,9 @@ app = require 'app'
 { Sanity } = require 'views/sanity'
 { ETLite } = require 'views/etlite'
 
+# A simpler way to call `app.masterView.setSubView`.
+render = (view) -> app.masterView.setSubView view
+
 # Router watches the URL and, as it changes, re-renders the main view
 # mimicking the user navigating from one page to another.
 #
@@ -29,7 +32,7 @@ class exports.Router extends Backbone.Router
   # GET /sanity
   #
   sanity: ->
-    app.setView @views.sanity
+    render @views.sanity
 
   # A recreation of the ETLite UI which serves as the starting point for
   # development of the full ETFlex application.
@@ -37,4 +40,4 @@ class exports.Router extends Backbone.Router
   # GET /etflex
   #
   etlite: ->
-    app.setView @views.etlite
+    render @views.etlite
