@@ -17,8 +17,7 @@ class exports.Master extends Backbone.View
   # view - The new view to be rendered and added to the page.
   #
   setSubView: (view) ->
-    if @currentView? and _.isFunction @currentView.destruct
-      @currentView.destruct()
-
+    @currentView?.destruct?()
     @currentView = view
+
     $(@el).html view.render().el
