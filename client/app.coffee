@@ -14,29 +14,16 @@ exports.collections = {}
 # Holds the Session singleton containing the user session information.
 exports.session = null
 
-# The instance of Backbone.View which rendered the current page. Allows us to
-# perform destruction before rendering a new page.
-exports.currentView = null
-
-# Replaces the current view with the given `view`. Performs destruction of the
-# current view if necessary, before replacing `currentView`.
-#
-# TODO Once a proper design is in place, add an AppView which represents the
-#      chrome div, and that class can deal with this.
-#
-exports.setView = (view) ->
-  if exports.currentView and _.isFunction exports.currentView.destruct
-    exports.currentView.destruct()
-
-  exports.currentView = view
-
-  jQuery('#chrome').html view.render().el
+# The singleton views/Master instance.
+exports.masterView = null
 
 # Called _once_ when the application is first loaded in the browser.
 exports.bootstrap = (window) ->
   installConsolePolyfill window
+  console.log require('views/master').Master
 
-  exports.router = new (require('router').Router)
+  exports.router     = new (require('router').Router)
+  exports.masterView = new (require('views/master').Master)
 
   # Create the user session.
   #
