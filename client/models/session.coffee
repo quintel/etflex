@@ -40,7 +40,7 @@ exports.createSession = (callback) ->
 # instead.
 #
 class Session extends Backbone.Model
-  constructor: (attributes) ->
+  constructor: (attributes, options) ->
     super
       id:         attributes.id
       country:    attributes.country
@@ -48,6 +48,7 @@ class Session extends Backbone.Model
       region:     attributes.region
       useFCE:     attributes.use_fce
       userValues: {}
+    , options
 
   # Sends an API request updating the given `inputs` with their values.
   #
