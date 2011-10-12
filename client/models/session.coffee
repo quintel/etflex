@@ -57,37 +57,37 @@ class Session extends Backbone.Model
   #
   # inputs   - An array of inputs whose values are to be sent to ETengine.
   #
-  # gqueries - An array of GQuery instances whose values should be refreshed
+  # queries  - An array of Query instances whose values should be refreshed
   #            when the inputs values are sent to the server. This argument
-  #            may be omitted. Note that GQuery `change` events will fire
+  #            may be omitted. Note that Query `change` events will fire
   #            before the `callback`.
   #
   # callback - A callback to the run after the XHR request has completed. The
   #            first parameter will be null unless an error occurred (in which
-  #            case it will be an exception object). The updated GQuery
+  #            case it will be an exception object). The updated Query
   #            instances will be provided to the callback.
   #
-  # Example (with a GQuery collection)
+  # Example (with a Query collection)
   #
-  #   session.updateInputs inputs, gQueries, (err) ->
+  #   session.updateInputs inputs, queries, (err) ->
   #     console.log err if err?
   #
-  # Example (without a GQuery collection)
+  # Example (without a Query collection)
   #
   #   session.updateInputs inputs, (err) ->
   #     console.log err if err?
   #
-  updateInputs: (inputs, gQueries, callback) ->
+  updateInputs: (inputs, queries, callback) ->
     params = input: {}
 
-    # Simple update without wanting any new gQuery results.
-    callback = gQueries if not callback? and _.isFunction gQueries
+    # Simple update without wanting any new Query results.
+    callback = queries if not callback? and _.isFunction queries
 
     # Map the inputs IDs and values.
     params.input[input.get('id')] = input.get('value') for input in inputs
 
-    # if gQueries
-    #   params.r = ( gQuery.get('key') for gQuery in gQueries ).join ';'
+    # if queries
+    #   params.r = ( query.get('key') for query in queries ).join ';'
 
     jQuery.ajax
       url:         scenarioUrl this.get('id')
@@ -99,12 +99,12 @@ class Session extends Backbone.Model
       headers:   { 'X-Api-Agent': 'ETflex/HEAD' }
 
     .done (data, textStatus, jqXHR) ->
-      # TODO Update the given GQuerys.
+      # TODO Update the given Queries.
       #
       # TODO Perhaps also update the Inputs with the values returned by
       #      ETengine in case it wasn't happy with something?
       #
-      callback null, gQueries if callback
+      callback null, queries if callback
 
     .fail (jqXHR, textStatus, error) ->
       callback error if callback
