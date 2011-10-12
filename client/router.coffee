@@ -14,9 +14,7 @@ class exports.Router extends Backbone.Router
 
   constructor: ->
     super()
-
-    @views  = { sanity: new Sanity, etlite: new ETLite }
-    @chrome = jQuery '#chrome'
+    @views = { sanity: new Sanity, etlite: new ETLite }
 
   # The root page; simply redirects to /sanity for now.
   #
@@ -31,7 +29,7 @@ class exports.Router extends Backbone.Router
   # GET /sanity
   #
   sanity: ->
-    @chrome.html @views.sanity.render().el
+    app.setView @views.sanity
 
   # A recreation of the ETLite UI which serves as the starting point for
   # development of the full ETFlex application.
@@ -39,4 +37,4 @@ class exports.Router extends Backbone.Router
   # GET /etflex
   #
   etlite: ->
-    @chrome.html @views.etlite.render().el
+    app.setView @views.etlite
