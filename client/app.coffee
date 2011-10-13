@@ -23,38 +23,51 @@ exports.masterView = null
 exports.bootstrap = (window) ->
   installConsolePolyfill window
 
-  # TODO Eventually we will need to fetch Input and Query definitions from
-  #      somewhere using XHR, so placing this above new Router won't be
-  #      effective. Perhaps we can fetch these values _and_ create/resume the
-  #      user session simultaneously, the finish the bootstrap after those
-  #      have completed; using the async library:
-  #
-  #      https://github.com/caolan/async
-
   # Set up the collections.
   exports.collections.inputs  = new Inputs
   exports.collections.queries = new Queries
 
-  # Create some sample inputs for new visitors.
+  async.parallel data: fetchInitialData, session: createSession, postBootstrap
+
+# Bootstrap Functions, execute in parallel -----------------------------------
+
+# Hits ETengine to retrieve a new user session. Runs the callback passing
+# either the error which occurred, or the new session instance.
+#
+# See `createSession` in models/session.coffee for more information.
+#
+createSession = (callback) ->
+  require('models/session').createSession (err, session) ->
+    if err? then callback err else callback null, session
+
+# Retrieves static data such as input and query definitions. Ideally it should
+# be possible for the remote API to deliver this all in a single response.
+#
+fetchInitialData = (callback) ->
   createDefaultInputs  exports.collections.inputs
   createDefaultQueries exports.collections.queries
 
-  exports.router     = new (require('router').Router)
-  exports.masterView = new (require('views/master').Master)
+  callback null, true
 
-  # Create the user session.
-  #
-  # TODO We probably ought to set a short-term cookie containing the session
-  #      ID so that we can easily resume a session if the user hits refresh.
-  #
-  require('models/session').createSession (err, session) =>
-    if err?
-      console.error 'Could not create user session'
-    else
-      exports.session = session
+# Called after all the other bootstrap functions have completed.
+#
+# Issues a warning if one of the functions failed, otherwise finishes set-up
+# of the application. Any part of the app set-up which depends must occur
+# _after_ the asynchronous boostrap function should go here.
+#
+postBootstrap = (err, result) ->
+  if err?
+    console.error "Could not initialize application.", err
+  else
+    exports.session = result.session
+
+    exports.router     = new (require('router').Router)
+    exports.masterView = new (require('views/master').Master)
 
     # Fire up Backbone routing...
     Backbone.history.start pushState: true
+
+# Helper Functions -----------------------------------------------------------
 
 # If the Inputs collection has no entries, this is the first time the user has
 # visited the application. Create twelve sample inputs for the ETLite
