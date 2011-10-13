@@ -20,7 +20,6 @@ exports.masterView = null
 # Called _once_ when the application is first loaded in the browser.
 exports.bootstrap = (window) ->
   installConsolePolyfill window
-  console.log require('views/master').Master
 
   exports.router     = new (require('router').Router)
   exports.masterView = new (require('views/master').Master)
