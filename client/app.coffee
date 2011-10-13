@@ -2,8 +2,9 @@
 # well as any other objects which are considered "singletons", such as
 # full-page views.
 
-{ Inputs } = require 'collections/inputs'
-{ Query }  = require 'models/query'
+{ Inputs }  = require 'collections/inputs'
+{ Queries } = require 'collections/queries'
+{ Query }   = require 'models/query'
 
 # Holds the router singleton. For the moment the application has only
 # one; in time we may add more.
@@ -37,19 +38,14 @@ exports.bootstrap = (window) ->
       exports.session = session
 
     # Set up the collections.
-    (exports.collections.inputs = new Inputs).fetch()
+    exports.collections.inputs  = new Inputs
+    exports.collections.queries = new Queries
 
     # Create some sample inputs for new visitors.
-    createDefaultInputs exports.collections.inputs
+    createDefaultInputs  exports.collections.inputs
+    createDefaultQueries exports.collections.queries
 
-    # Create two Query instances for total supply and total demand to test
-    # retrieving query results when updating inputs. This will be moved to the
-    # ETlite view once I find an elegant way of having views specify which
-    # queries they depend upon.
-    queries = [
-      new Query id: 518 # Total demand (final_demand_electricity).
-      new Query id:  49 # Total supply (electricity_production).
-    ]
+    queries = _.clone exports.collections.queries.models
 
     # Also temporary...
     exports.collections.inputs.bind 'change:value', (input) ->
@@ -84,6 +80,15 @@ createDefaultInputs = (collection) ->
   ]
 
   collection.create fixture for fixture in fixtures
+
+# Creates the default Query instances.
+#
+# This can be removed once there's a better infrastructure in place for
+# storing and retrieving Query instances.
+#
+createDefaultQueries = (collection) ->
+  collection.add id: 518 # Total demand (final_demand_electricity).
+  collection.add id:  49 # Total supply (electricity_production).
 
 installConsolePolyfill = (window) ->
   unless 'console' of window
