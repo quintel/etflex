@@ -99,12 +99,19 @@ class Session extends Backbone.Model
       headers:   { 'X-Api-Agent': 'ETflex/HEAD' }
 
     .done (data, textStatus, jqXHR) ->
-      # TODO Update the given Queries.
-      #
-      # TODO Perhaps also update the Inputs with the values returned by
-      #      ETengine in case it wasn't happy with something?
-      #
-      callback null, queries if callback
+      # ETengine currently returns a 200 OK even when an input is invalid;
+      # work around this by forming our own error and running the callback
+      # as a failure:
+      if data.errors?.length isnt 0
+        callback _.extend(new Error('API Error'), errors: data.errors)
+
+      else
+        # TODO Update the given Queries.
+        #
+        # TODO Perhaps also update the Inputs with the values returned by
+        #      ETengine in case it wasn't happy with something?
+        #
+        callback null, queries if callback
 
     .fail (jqXHR, textStatus, error) ->
       callback error if callback
