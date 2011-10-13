@@ -11,6 +11,7 @@
 #= require underscore
 #= require backbone
 #= require jquery.quinn
+#= require async
 #= require d3/d3
 
 jQuery.easing.def = 'easeInOutQuart'
