@@ -1,5 +1,7 @@
-application         = require 'app'
+app                 = require 'app'
 etliteTemplate      = require 'templates/etlite'
+
+{ Queries }         = require 'collections/queries'
 
 { Range }           = require 'views/range'
 { SavingsMediator } = require 'mediators/savings_mediator'
@@ -35,6 +37,22 @@ class exports.ETLite extends Backbone.View
 
   events:
     'click a.clear': 'clearInputStorage'
+
+  # Creates a new instance of the ETLite view.
+  #
+  # Creates a subset of the main Queries collection containing only those
+  # queries required by this view.
+  #
+  constructor: (args...) ->
+    super args...
+
+    collection = app.collections.queries
+    @queries   = new Queries ( collection.get key for key in [ 49, 518 ] )
+
+    # Also temporary...
+    app.collections.inputs.bind 'change:value', (input) =>
+      app.session.updateInputs [ input ], @queries.models, (err, queries) ->
+        console.log err, queries
 
   # Creates the HTML elements for the view, and binds events. Returns self.
   #
@@ -78,7 +96,7 @@ class exports.ETLite extends Backbone.View
   # @productionInputs.
   #
   fetchInputs: ->
-    inputs = application.collections.inputs
+    inputs = app.collections.inputs
 
     # Fetch inputs which we need and aren't already present in the collection.
     needed = ( id for own lKey, id of INPUT_MAP when not inputs.get(id) )
@@ -105,7 +123,7 @@ class exports.ETLite extends Backbone.View
   # which should be followed by a browser refresh.
   #
   clearInputStorage: (event) =>
-    head.destroy() while head = application.collections.inputs.first()
+    head.destroy() while head = app.collections.inputs.first()
     event.preventDefault()
 
   # Creates and returns the visualisation which shows the total amount of
