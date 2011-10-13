@@ -74,13 +74,13 @@ class exports.SupplyDemand extends Backbone.View
     supplyPos = values.supply / EXTENT * 100
     demandPos = values.demand / EXTENT * 100
 
-    @$('.demand .bar')[action]    height: "#{demandPos}%"
-    @$('.supply .bar')[action]    height: "#{supplyPos}%"
+    @$('.demand .bar')[action]    height: "#{demandPos}%", 'fast'
+    @$('.supply .bar')[action]    height: "#{supplyPos}%", 'fast'
 
-    @$('.demand .marker')[action] top: "#{100 - demandPos}%"
+    @$('.demand .marker')[action] top: "#{100 - demandPos}%", 'fast'
     @$('.demand .marker').text    "#{values.demand}PJ"
 
-    @$('.supply .marker')[action] top: "#{100 - supplyPos}%"
+    @$('.supply .marker')[action] top: "#{100 - supplyPos}%", 'fast'
     @$('.supply .marker').text    "#{values.supply}PJ"
 
     this
