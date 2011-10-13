@@ -106,11 +106,14 @@ class Session extends Backbone.Model
         callback _.extend(new Error('API Error'), errors: data.errors)
 
       else
-        # TODO Update the given Queries.
-        #
         # TODO Perhaps also update the Inputs with the values returned by
         #      ETengine in case it wasn't happy with something?
-        #
+
+        # Update the queries with the new values returned by the engine.
+        if data.result?.length isnt 0
+          for query in queries when result = data.result[ query.get 'id' ]
+            query.set present: result[0][1], future: result[1][1]
+
         callback null, queries if callback
 
     .fail (jqXHR, textStatus, error) ->
