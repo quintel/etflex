@@ -23,6 +23,22 @@ exports.masterView = null
 exports.bootstrap = (window) ->
   installConsolePolyfill window
 
+  # TODO Eventually we will need to fetch Input and Query definitions from
+  #      somewhere using XHR, so placing this above new Router won't be
+  #      effective. Perhaps we can fetch these values _and_ create/resume the
+  #      user session simultaneously, the finish the bootstrap after those
+  #      have completed; using the async library:
+  #
+  #      https://github.com/caolan/async
+
+  # Set up the collections.
+  exports.collections.inputs  = new Inputs
+  exports.collections.queries = new Queries
+
+  # Create some sample inputs for new visitors.
+  createDefaultInputs  exports.collections.inputs
+  createDefaultQueries exports.collections.queries
+
   exports.router     = new (require('router').Router)
   exports.masterView = new (require('views/master').Master)
 
@@ -36,21 +52,6 @@ exports.bootstrap = (window) ->
       console.error 'Could not create user session'
     else
       exports.session = session
-
-    # Set up the collections.
-    exports.collections.inputs  = new Inputs
-    exports.collections.queries = new Queries
-
-    # Create some sample inputs for new visitors.
-    createDefaultInputs  exports.collections.inputs
-    createDefaultQueries exports.collections.queries
-
-    queries = _.clone exports.collections.queries.models
-
-    # Also temporary...
-    exports.collections.inputs.bind 'change:value', (input) ->
-      session.updateInputs [ input ], queries, (err, queries) ->
-        console.log err, queries
 
     # Fire up Backbone routing...
     Backbone.history.start pushState: true
