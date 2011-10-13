@@ -1,6 +1,7 @@
 app                 = require 'app'
 etliteTemplate      = require 'templates/etlite'
 
+{ Inputs }          = require 'collections/inputs'
 { Queries }         = require 'collections/queries'
 
 { Range }           = require 'views/range'
@@ -46,11 +47,14 @@ class exports.ETLite extends Backbone.View
   constructor: (args...) ->
     super args...
 
-    collection = app.collections.queries
-    @queries   = new Queries ( collection.get key for key in [ 49, 518 ] )
+    qColl    = app.collections.queries
+    @queries = new Queries ( qColl.get key for key in [ 49, 518 ] )
+
+    iColl    = app.collections.inputs
+    @inputs  = new Inputs ( iColl.get key for own v, key of INPUT_MAP )
 
     # Also temporary...
-    app.collections.inputs.bind 'change:value', (input) =>
+    @inputs.bind 'change:value', (input) =>
       app.session.updateInputs [ input ], @queries.models, (err, queries) ->
         console.log err, queries
 
