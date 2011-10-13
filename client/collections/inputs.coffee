@@ -1,4 +1,3 @@
-{ Input } = require 'models/input'
 { Store } = require 'lib/store'
 
 # Contains all of the Inputs. The main instantiated collection can be found
