@@ -86,8 +86,8 @@ class Session extends Backbone.Model
     # Map the inputs IDs and values.
     params.input[input.get('id')] = input.get('value') for input in inputs
 
-    # if queries
-    #   params.r = ( query.get('key') for query in queries ).join ';'
+    # If there were any queries, tell ETengine to also give us those results.
+    params.result = ( query.get('id') for query in queries ) if queries?
 
     jQuery.ajax
       url:         scenarioUrl this.get('id')

@@ -3,6 +3,7 @@
 # full-page views.
 
 { Inputs } = require 'collections/inputs'
+{ Query }  = require 'models/query'
 
 # Holds the router singleton. For the moment the application has only
 # one; in time we may add more.
@@ -41,9 +42,19 @@ exports.bootstrap = (window) ->
     # Create some sample inputs for new visitors.
     createDefaultInputs exports.collections.inputs
 
+    # Create two Query instances for total supply and total demand to test
+    # retrieving query results when updating inputs. This will be moved to the
+    # ETlite view once I find an elegant way of having views specify which
+    # queries they depend upon.
+    queries = [
+      new Query id: 518 # Total demand (final_demand_electricity).
+      new Query id:  49 # Total supply (electricity_production).
+    ]
+
     # Also temporary...
     exports.collections.inputs.bind 'change:value', (input) ->
-      session.updateInputs [ input ], (err) -> console.log 'Update!', err
+      session.updateInputs [ input ], queries, (err, queries) ->
+        console.log err, queries
 
     # Fire up Backbone routing...
     Backbone.history.start pushState: true
