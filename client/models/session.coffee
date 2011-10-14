@@ -62,10 +62,13 @@ class Session extends Backbone.Model
   #            may be omitted. Note that Query `change` events will fire
   #            before the `callback`.
   #
+  #            You may instead provide a Backbone.Collection containing the
+  #            queries to be updated.
+  #
   # callback - A callback to the run after the XHR request has completed. The
   #            first parameter will be null unless an error occurred (in which
   #            case it will be an exception object). The updated Query
-  #            instances will be provided to the callback.
+  #            instances will be provided to the callback in an array.
   #
   # Example (with a Query collection)
   #
@@ -79,6 +82,9 @@ class Session extends Backbone.Model
   #
   updateInputs: (inputs, queries, callback) ->
     params = input: {}
+
+    # queries may be a Backbone.Collection...
+    queries = queries.models if queries? and not _.isArray queries
 
     # Simple update without wanting any new Query results.
     callback = queries if not callback? and _.isFunction queries
