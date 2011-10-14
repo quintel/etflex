@@ -102,7 +102,7 @@ createDefaultInputs = (collection) ->
 createDefaultQueries = (collection) ->
   collection.add id:   8 # co2_emission_total
   collection.add id:  23 # costs_total
-  collection.add id:  31 # share_of_renewable_electricity
+  collection.add id:  32 # share_of_renewable_energy
   collection.add id:  49 # electricity_production
   collection.add id: 518 # final_demand_electricity
 
