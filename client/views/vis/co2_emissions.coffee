@@ -9,20 +9,16 @@ class exports.CO2Emissions extends GenericVisualisation
   constructor: (options) ->
     super options
 
-    @gasModel  = options.gas
-    @coalModel = options.coal
-
-    @gasModel.bind  'change:value', @render
-    @coalModel.bind 'change:value', @render
+    @query = options.queries.get 8
+    @query.bind 'change:future', @render
 
   # Calculates the total CO2 emissions based on the value of the coal and
   # gas inputs.
   #
   recalculate: ->
-    coalOutput = 3.6 * @coalModel.get 'value'
-    gasOutput  = 1.5 * @gasModel.get  'value'
-
-    @precision coalOutput + gasOutput, 1
+    # Query result is in kilograms. Devide by 1000 to get tons, then 1000000
+    # to get Mtons.
+    @precision @query.get('future') / 1000000000, 1
 
   # Renders the UI; calculates the C02 emissions. Can be safely called
   # repeatedly to update the UI.

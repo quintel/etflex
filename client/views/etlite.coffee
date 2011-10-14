@@ -48,7 +48,7 @@ class exports.ETLite extends Backbone.View
     super args...
 
     qColl    = app.collections.queries
-    @queries = new Queries ( qColl.get key for key in [ 32, 49, 518 ] )
+    @queries = new Queries ( qColl.get key for key in [ 8, 32, 49, 518 ] )
 
     iColl    = app.collections.inputs
     @inputs  = new Inputs ( iColl.get key for own v, key of INPUT_MAP )
@@ -140,9 +140,7 @@ class exports.ETLite extends Backbone.View
   # carbon emissions based on the user's choices.
   #
   createCarbonVis: ->
-    new CO2Emissions
-      gas:  @productionInputs[0]
-      coal: @productionInputs[1]
+    new CO2Emissions queries: @queries
 
   # Creates and returns the visualisation which shows the proportion of energy
   # generated from renewable, but unreliable, sources.
