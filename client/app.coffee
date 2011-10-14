@@ -89,7 +89,7 @@ createDefaultInputs = (collection) ->
     { id: 259, name: 'Nuclear power plants',    start_value: 0, max_value:     4, unit: ''    }
     { id: 263, name: 'Wind turbines',           start_value: 0, max_value: 10000, unit: ''    }
     { id: 313, name: 'Solar panels',            start_value: 0, max_value: 10000, unit: ''    }
-    { id: 272, name: 'Biomass',                 start_value: 0, max_value:  1606, unit: ' km<sup>2</sup>' }
+    { id: 196, name: 'Biomass',                 start_value: 0, max_value:  1606, unit: ' km<sup>2</sup>' }
   ]
 
   collection.create fixture for fixture in fixtures

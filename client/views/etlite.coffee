@@ -24,7 +24,7 @@ INPUT_MAP =
   nuclear:    259 # or 413?
   wind:       263 # or 265, 265?
   solar:      313
-  biomass:    272
+  biomass:    196
 
 # A full-page view which recreates the ETLite interface. Six sliders are on
 # the left of the UI allowing the user to control how savings can be made in
