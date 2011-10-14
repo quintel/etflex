@@ -10,6 +10,15 @@ class exports.Inputs extends Backbone.Collection
   # input values.
   localStorage: new Store 'inputs'
 
+  # Creates a new Inputs instance with only the models specified in the given
+  # array of IDs.
+  #
+  # ids - An array containing numbers; IDs of Input instances which should be
+  #       included in the returned Inputs instance.
+  #
+  subset: (ids) ->
+    new Inputs ( @get(id) for id in ids )
+
   # Retrieves an Input by it's localised name. Requires iterating through the
   # whole collection ( O(N) ), so this exists only to serve the ETLite
   # recreation, and will be removed once ETEngine integration is complete.
