@@ -55,7 +55,7 @@ class exports.ETLite extends Backbone.View
 
     # Also temporary...
     @inputs.bind 'change:value', (input) =>
-      app.session.updateInputs [ input ], @queries.models, (err, queries) ->
+      app.session.updateInputs [ input ], @queries, (err, queries) ->
         console.log err, queries
 
   # Creates the HTML elements for the view, and binds events. Returns self.
