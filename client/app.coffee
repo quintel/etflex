@@ -84,8 +84,8 @@ createDefaultInputs = (collection) ->
     { id: 348, name: 'Solar water heater',      start_value: 0, max_value:    80, unit: '%'   }
     { id: 366, name: 'Switch off appliances',   start_value: 0, max_value:    20, unit: '%'   }
     { id: 338, name: 'Heat pump for the home',  start_value: 0, max_value:    80, unit: '%'   }
-    { id: 256, name: 'Coal-fired power plants', start_value: 0, max_value:     7, unit: ''    }
-    { id: 315, name: 'Gas-fired power plants',  start_value: 0, max_value:     7, unit: ''    }
+    { id: 315, name: 'Coal-fired power plants', start_value: 0, max_value:     7, unit: ''    }
+    { id: 256, name: 'Gas-fired power plants',  start_value: 0, max_value:     7, unit: ''    }
     { id: 259, name: 'Nuclear power plants',    start_value: 0, max_value:     4, unit: ''    }
     { id: 263, name: 'Wind turbines',           start_value: 0, max_value: 10000, unit: ''    }
     { id: 313, name: 'Solar panels',            start_value: 0, max_value: 10000, unit: ''    }

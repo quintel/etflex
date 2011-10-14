@@ -19,8 +19,8 @@ INPUT_MAP =
   appliances: 366
   heatPump:   338 # or 339?
 
-  gas:        256
   coal:       315
+  gas:        256
   nuclear:    259 # or 413?
   wind:       263 # or 265, 265?
   solar:      313
