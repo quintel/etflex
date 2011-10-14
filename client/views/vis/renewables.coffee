@@ -8,31 +8,15 @@ class exports.Renewables extends GenericVisualisation
   constructor: (options) ->
     super options
 
-    inputs = []
-
-    inputs.push @gasInput     = options.gas
-    inputs.push @coalInput    = options.coal
-    inputs.push @nuclearInput = options.nuclear
-    inputs.push @windInput    = options.wind
-    inputs.push @solarInput   = options.solar
-    inputs.push @biomassInput = options.biomass
-
-    input.bind 'change:value', @render for input in inputs
+    @query = options.queries.get 32
+    @query.bind 'change:future', @render
 
   # Calculates the total CO2 emissions based on the value of the coal and
   # gas inputs.
   #
   recalculate: ->
-    coal     = 18 * @coalInput.get      'value'
-    gas      = 15 * @gasInput.get       'value'
-    nuclear  = 44 * @nuclearInput.get   'value'
-    wind     = 0.02 * @windInput.get    'value'
-    solar    = 0.004 * @solarInput.get  'value'
-    biomass  = 0.03 * @biomassInput.get 'value'
-
-    total    = coal + gas + nuclear + wind + solar + biomass
-
-    if total is 0 then 0 else Math.round ((wind + solar) / total) * 100
+    total = @query.get('future') * 100
+    if total is 0 then '0' else @precision total, 3
 
   # Renders the UI; calculates the C02 emissions. Can be safely called
   # repeatedly to update the UI.
