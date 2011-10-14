@@ -2,6 +2,8 @@
 # well as any other objects which are considered "singletons", such as
 # full-page views.
 
+session     = require 'models/session'
+
 { Inputs }  = require 'collections/inputs'
 { Queries } = require 'collections/queries'
 
@@ -26,17 +28,17 @@ exports.bootstrap = (window) ->
   exports.collections.inputs  = new Inputs
   exports.collections.queries = new Queries
 
-  async.parallel data: fetchInitialData, session: createSession, postBootstrap
+  async.parallel data: fetchInitialData, session: initSession, postBootstrap
 
 # Bootstrap Functions, execute in parallel -----------------------------------
 
-# Hits ETengine to retrieve a new user session. Runs the callback passing
-# either the error which occurred, or the new session instance.
+# Sets up the user's session with ETengine. If they already have a session
+# active, it will be restored; otherwise a new session is created.
 #
-# See `createSession` in models/session.coffee for more information.
+# See `initSession` in models/session.coffee for more information.
 #
-createSession = (callback) ->
-  require('models/session').createSession (err, session) ->
+initSession = (callback) ->
+  session.initSession (err, session) ->
     if err? then callback err else callback null, session
 
 # Retrieves static data such as input and query definitions. Ideally it should
@@ -59,6 +61,7 @@ postBootstrap = (err, result) ->
     console.error "Could not initialize application.", err
   else
     exports.session = result.session
+    exports.session.finalizeInputs exports.collections.inputs
 
     exports.router     = new (require('router').Router)
     exports.masterView = new (require('views/master').Master)
