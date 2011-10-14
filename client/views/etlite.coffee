@@ -137,13 +137,13 @@ class exports.ETLite extends Backbone.View
   # carbon emissions based on the user's choices.
   #
   createCarbonVis: ->
-    new CO2Emissions queries: @queries
+    new CO2Emissions query: @queries.get(8)
 
   # Creates and returns the visualisation which shows the proportion of energy
   # generated from renewable, but unreliable, sources.
   #
   createRenewablesVis: ->
-    new Renewables queries: @queries
+    new Renewables query: @queries.get(32)
 
   # Creates and returns the visualisation which shows the total cost, in
   # Euros, of the choices the user makes.
@@ -168,4 +168,4 @@ class exports.ETLite extends Backbone.View
   # range groups.
   #
   createSupplyDemandVis: ->
-    new SupplyDemand queries: @queries
+    new SupplyDemand demand: @queries.get(518), supply: @queries.get(49)

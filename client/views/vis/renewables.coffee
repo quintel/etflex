@@ -8,7 +8,7 @@ class exports.Renewables extends GenericVisualisation
   constructor: (options) ->
     super options
 
-    @query = options.queries.get 32
+    @query = options.query
     @query.bind 'change:future', @render
 
   # Calculates the total CO2 emissions based on the value of the coal and
