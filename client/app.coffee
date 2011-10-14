@@ -4,7 +4,6 @@
 
 { Inputs }  = require 'collections/inputs'
 { Queries } = require 'collections/queries'
-{ Query }   = require 'models/query'
 
 # Holds the router singleton. For the moment the application has only
 # one; in time we may add more.
