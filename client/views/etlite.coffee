@@ -103,27 +103,22 @@ class exports.ETLite extends Backbone.View
   # @productionInputs.
   #
   fetchInputs: ->
-    inputs = app.collections.inputs
-
-    # Fetch inputs which we need and aren't already present in the collection.
-    needed = ( id for own lKey, id of INPUT_MAP when not inputs.get(id) )
-
     @savingsInputs or= [
-      inputs.getByName 'Low-energy lighting'
-      inputs.getByName 'Electric cars'
-      inputs.getByName 'Better insulation'
-      inputs.getByName 'Solar water heater'
-      inputs.getByName 'Switch off appliances'
-      inputs.getByName 'Heat pump for the home'
+      @inputs.get INPUT_MAP.lighting
+      @inputs.get INPUT_MAP.cars
+      @inputs.get INPUT_MAP.insulation
+      @inputs.get INPUT_MAP.heating
+      @inputs.get INPUT_MAP.appliances
+      @inputs.get INPUT_MAP.heatPump
     ]
 
     @productionInputs or= [
-      inputs.getByName 'Coal-fired power plants'
-      inputs.getByName 'Gas-fired power plants'
-      inputs.getByName 'Nuclear power plants'
-      inputs.getByName 'Wind turbines'
-      inputs.getByName 'Solar panels'
-      inputs.getByName 'Biomass'
+      @inputs.get INPUT_MAP.coal
+      @inputs.get INPUT_MAP.gas
+      @inputs.get INPUT_MAP.nuclear
+      @inputs.get INPUT_MAP.wind
+      @inputs.get INPUT_MAP.solar
+      @inputs.get INPUT_MAP.biomass
     ]
 
   # Callback for the "Clear Input Storage" button. Wipes out all of the inputs
@@ -150,19 +145,19 @@ class exports.ETLite extends Backbone.View
   #
   createCostsVis: ->
     new Costs
-      lighting:   @savingsInputs[0]
-      cars:       @savingsInputs[1]
-      insulation: @savingsInputs[2]
-      heating:    @savingsInputs[3]
-      appliances: @savingsInputs[4]
-      heatPump:   @savingsInputs[5]
+      lighting:   @inputs.get INPUT_MAP.lighting
+      cars:       @inputs.get INPUT_MAP.cars
+      insulation: @inputs.get INPUT_MAP.insulation
+      heating:    @inputs.get INPUT_MAP.heating
+      appliances: @inputs.get INPUT_MAP.appliances
+      heatPump:   @inputs.get INPUT_MAP.heatPump
 
-      gas:        @productionInputs[0]
-      coal:       @productionInputs[1]
-      nuclear:    @productionInputs[2]
-      wind:       @productionInputs[3]
-      solar:      @productionInputs[4]
-      biomass:    @productionInputs[5]
+      coal:       @inputs.get INPUT_MAP.coal
+      gas:        @inputs.get INPUT_MAP.gas
+      nuclear:    @inputs.get INPUT_MAP.nuclear
+      wind:       @inputs.get INPUT_MAP.wind
+      solar:      @inputs.get INPUT_MAP.solar
+      biomass:    @inputs.get INPUT_MAP.biomass
 
   # Creates the energy demand / energy supply graph which sits between the two
   # range groups.
