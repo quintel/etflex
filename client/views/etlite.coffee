@@ -69,8 +69,6 @@ class exports.ETLite extends Backbone.View
   #   $('body').html view.render().el
   #
   render: ->
-    @fetchInputs()
-
     $(@el).html etliteTemplate()
 
     leftRangesEl  = @$ '#savings'
@@ -78,11 +76,24 @@ class exports.ETLite extends Backbone.View
 
     # Render each of the ranges...
 
-    _.each @savingsInputs, (range) ->
-      leftRangesEl.append new Range(model: range).render().el
+    leftRanges = [
+      new Range model: @inputs.get INPUT_MAP.lighting
+      new Range model: @inputs.get INPUT_MAP.cars
+      new Range model: @inputs.get INPUT_MAP.insulation
+      new Range model: @inputs.get INPUT_MAP.heating
+      new Range model: @inputs.get INPUT_MAP.appliances
+      new Range model: @inputs.get INPUT_MAP.heatPump ]
 
-    _.each @productionInputs, (range) ->
-      rightRangesEl.append new Range(model: range).render().el
+    rightRanges = [
+      new Range model: @inputs.get INPUT_MAP.coal
+      new Range model: @inputs.get INPUT_MAP.gas
+      new Range model: @inputs.get INPUT_MAP.nuclear
+      new Range model: @inputs.get INPUT_MAP.wind
+      new Range model: @inputs.get INPUT_MAP.solar
+      new Range model: @inputs.get INPUT_MAP.biomass ]
+
+    _.each leftRanges,  (range) -> leftRangesEl.append  range.render().el
+    _.each rightRanges, (range) -> rightRangesEl.append range.render().el
 
     # Add three visualisations to the bottom of the page.
 
@@ -97,29 +108,6 @@ class exports.ETLite extends Backbone.View
 
     @delegateEvents()
     this
-
-  # Retrieves the inputs needed to render the view, and memoizes them for
-  # future reference. Sliders can be found on @savingsInputs and
-  # @productionInputs.
-  #
-  fetchInputs: ->
-    @savingsInputs or= [
-      @inputs.get INPUT_MAP.lighting
-      @inputs.get INPUT_MAP.cars
-      @inputs.get INPUT_MAP.insulation
-      @inputs.get INPUT_MAP.heating
-      @inputs.get INPUT_MAP.appliances
-      @inputs.get INPUT_MAP.heatPump
-    ]
-
-    @productionInputs or= [
-      @inputs.get INPUT_MAP.coal
-      @inputs.get INPUT_MAP.gas
-      @inputs.get INPUT_MAP.nuclear
-      @inputs.get INPUT_MAP.wind
-      @inputs.get INPUT_MAP.solar
-      @inputs.get INPUT_MAP.biomass
-    ]
 
   # Callback for the "Clear Input Storage" button. Wipes out all of the inputs
   # which should be followed by a browser refresh.
