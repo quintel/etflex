@@ -47,11 +47,8 @@ class exports.ETLite extends Backbone.View
   constructor: (args...) ->
     super args...
 
-    qColl    = app.collections.queries
-    @queries = new Queries ( qColl.get key for key in [ 8, 32, 49, 518 ] )
-
-    iColl    = app.collections.inputs
-    @inputs  = new Inputs ( iColl.get key for own v, key of INPUT_MAP )
+    @queries = app.collections.queries.subset [ 8, 32, 49, 518 ]
+    @inputs  = app.collections.inputs.subset  ( k for own v, k of INPUT_MAP )
 
     # Also temporary...
     @inputs.bind 'change:value', (input) =>
