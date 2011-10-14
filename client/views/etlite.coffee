@@ -58,6 +58,12 @@ class exports.ETLite extends Backbone.View
       app.session.updateInputs [ input ], @queries, (err, queries) ->
         console.log err, queries
 
+    # Immediately initialize query values. As if this word isn't getting
+    # enough of a workout... this is temporary! I plan to add a way to do this
+    # automatically whenever the view is rendered (see Master::setSubView and
+    # the dependant-resolution branch).
+    app.session.updateInputs [], @queries, (->)
+
   # Creates the HTML elements for the view, and binds events. Returns self.
   #
   # Example:
@@ -173,17 +179,4 @@ class exports.ETLite extends Backbone.View
   # range groups.
   #
   createSupplyDemandVis: ->
-    new SupplyDemand
-      lighting:   @savingsInputs[0]
-      cars:       @savingsInputs[1]
-      insulation: @savingsInputs[2]
-      heating:    @savingsInputs[3]
-      appliances: @savingsInputs[4]
-      heatPump:   @savingsInputs[5]
-
-      gas:        @productionInputs[0]
-      coal:       @productionInputs[1]
-      nuclear:    @productionInputs[2]
-      wind:       @productionInputs[3]
-      solar:      @productionInputs[4]
-      biomass:    @productionInputs[5]
+    new SupplyDemand queries: @queries
