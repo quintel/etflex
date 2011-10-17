@@ -168,7 +168,6 @@ createSession = (callback) ->
       # restore it if the user hits refresh.
       jQuery.cookie 'eteSid', "#{data.api_scenario.id}", expires: 1, path: '/'
 
-      # All done; return the session to the callback.
       callback null, new Session data.api_scenario
 
 # Restores the session state by retrieving it from ETengine.
@@ -188,7 +187,6 @@ restoreSession = (sessionID, callback) ->
 
   async.parallel session: getSession, values: getValues, (err, result) ->
     if err? then callback(err) else
-      # All done; return the session to the callback.
       callback null, new Session _.extend result.session.settings,
         id:          sessionID
         user_values: result.values
