@@ -103,9 +103,10 @@ class Session extends Backbone.Model
   #
   finalizeInputs: (collection) ->
     values = @get 'userValues'
+    valueFrom = (data) -> data? and (data.user_value or data.start_value)
 
     collection.each (input) ->
-      if value = values[ input.get('id') ]?.start_value
+      if value = valueFrom values[ input.get('id') ]
         input.set { value: value }, silent: true
 
 # Exports --------------------------------------------------------------------
