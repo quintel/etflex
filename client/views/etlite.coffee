@@ -50,10 +50,9 @@ class exports.ETLite extends Backbone.View
     @queries = app.collections.queries.subset [ 8, 32, 49, 518 ]
     @inputs  = app.collections.inputs.subset  ( k for own v, k of INPUT_MAP )
 
-    # Also temporary...
-    @inputs.bind 'change:value', (input) =>
-      app.session.updateInputs [ input ], @queries, (err, queries) ->
-        console.log err, queries
+    # Immediately save changed inputs, and request that the Queries used on
+    # the ETlite page be updated.
+    @inputs.bind 'change:value', (input) => input.save {}, queries: @queries
 
     # Immediately initialize query values. As if this word isn't getting
     # enough of a workout... this is temporary! I plan to add a way to do this
