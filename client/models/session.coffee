@@ -87,7 +87,7 @@ class Session extends Backbone.Model
         #      ETengine in case it wasn't happy with something?
 
         # Update the queries with the new values returned by the engine.
-        if data.result?.length isnt 0
+        if data.result?
           for query in queries when result = data.result[ query.get 'id' ]
             query.set present: result[0][1], future: result[1][1]
 
