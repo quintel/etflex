@@ -53,7 +53,6 @@ class exports.Range extends Backbone.View
   #
   updateModel: (value, quinn) =>
     @model.set value: value
-    @model.save()
 
   # Shows a modal help message, providing the user with more information about
   # the input and how it affects the outcome.
