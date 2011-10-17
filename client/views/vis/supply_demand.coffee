@@ -22,8 +22,8 @@ class exports.SupplyDemand extends Backbone.View
   render: =>
     $(@el).html supplyDemandTpl()
 
-    @redrawSupply
-    @redrawDemand
+    @redrawSupply false
+    @redrawDemand false
 
     this
 
