@@ -44,8 +44,8 @@ class exports.ETLite extends Backbone.View
   # Creates a subset of the main Queries collection containing only those
   # queries required by this view.
   #
-  constructor: (args...) ->
-    super args...
+  constructor: ->
+    super
 
     @queries = app.collections.queries.subset [ 8, 32, 49, 518 ]
     @inputs  = app.collections.inputs.subset  ( k for own v, k of INPUT_MAP )
