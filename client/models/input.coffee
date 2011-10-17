@@ -1,4 +1,5 @@
 { InputDefinition } = require 'models/input_definition'
+app                 = require 'app'
 
 # Represents an externally-controlled variable, such as those used in
 # ETEngine. Users can change the selected value of the Input to alter
@@ -22,6 +23,18 @@ class exports.Input extends Backbone.Model
       max:  attributes.max_value
       unit: attributes.unit
       name: attributes.name
+
+  # Handles persistance of the Input back to ETengine; delegates to the main
+  # app instance of InputManager.
+  #
+  # See Backbone.sync.
+  #
+  sync: (method, model, options) ->
+    switch method
+      when 'create' then false
+      when 'read'   then app.inputManager.read   model, options
+      when 'update' then app.inputManager.update model, options
+      when 'delete' then false
 
   # A simple validator which ensures that the value is within the range
   # defined by the input definition.

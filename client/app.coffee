@@ -2,10 +2,12 @@
 # well as any other objects which are considered "singletons", such as
 # full-page views.
 
-session     = require 'models/session'
+session          = require 'models/session'
 
-{ Inputs }  = require 'collections/inputs'
-{ Queries } = require 'collections/queries'
+{ Inputs }       = require 'collections/inputs'
+{ Queries }      = require 'collections/queries'
+
+{ InputManager } = require 'lib/input_manager'
 
 # Holds the router singleton. For the moment the application has only
 # one; in time we may add more.
@@ -19,6 +21,9 @@ exports.session = null
 
 # The singleton views/Master instance.
 exports.masterView = null
+
+# Used to simplify persistance of Inputs and Queries.
+exports.inputManager = null
 
 # Called _once_ when the application is first loaded in the browser.
 exports.bootstrap = (window) ->
@@ -63,8 +68,10 @@ postBootstrap = (err, result) ->
     exports.session = result.session
     exports.session.finalizeInputs exports.collections.inputs
 
-    exports.router     = new (require('router').Router)
-    exports.masterView = new (require('views/master').Master)
+    exports.router       = new (require('router').Router)
+    exports.masterView   = new (require('views/master').Master)
+
+    exports.inputManager = new InputManager exports.session
 
     # Fire up Backbone routing...
     Backbone.history.start pushState: true
