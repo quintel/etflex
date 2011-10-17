@@ -95,7 +95,7 @@ createDefaultInputs = (collection) ->
     { id: 196, name: 'Biomass',                 start_value: 0, max_value:  1606, unit: ' km<sup>2</sup>' }
   ]
 
-  collection.create fixture for fixture in fixtures
+  collection.add fixture for fixture in fixtures
 
 # Creates the default Query instances.
 #
