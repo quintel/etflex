@@ -16,18 +16,22 @@ class exports.SupplyDemand extends Backbone.View
     @demandQuery = options.demand
     @supplyQuery = options.supply
 
-    @demandQuery.bind 'change:future', @redrawBars
-    @supplyQuery.bind 'change:future', @redrawBars
-
-  recalculate: ->
-    { demand: Math.round(@demandQuery.get('future') / 1000000000)
-    , supply: Math.round(@supplyQuery.get('future') / 1000000000) }
+    @demandQuery.bind 'change:future', @redrawDemand
+    @supplyQuery.bind 'change:future', @redrawSupply
 
   render: =>
-    values = @recalculate()
+    $(@el).html supplyDemandTpl()
 
-    $(@el).html supplyDemandTpl values
-    @redrawBars false
+    @redrawSupply
+    @redrawDemand
+
+    this
+
+  redrawSupply: (animate = true) =>
+    @redraw '.supply', @supplyQuery, animate
+
+  redrawDemand: (animate = true) =>
+    @redraw '.demand', @demandQuery, animate
 
   # Sets the height of the graph bars, and the marker positions without
   # rerendering the whole view. Returns self.
@@ -36,20 +40,11 @@ class exports.SupplyDemand extends Backbone.View
   #           positions. Any other value will animate them to their new
   #           values.
   #
-  redrawBars: (animate = true) =>
-    values = @recalculate()
-    action = if animate then 'animate' else 'css'
+  redraw: (selector, query, animate) ->
+    action   = if animate then 'animate' else 'css'
+    value    = Math.round(query.get('future') / 1000000000)
+    position = value / EXTENT * 100
 
-    supplyPos = values.supply / EXTENT * 100
-    demandPos = values.demand / EXTENT * 100
-
-    @$('.demand .bar')[action]    height: "#{demandPos}%", 'fast'
-    @$('.supply .bar')[action]    height: "#{supplyPos}%", 'fast'
-
-    @$('.demand .marker')[action] top: "#{100 - demandPos}%", 'fast'
-    @$('.demand .marker').text    "#{values.demand}PJ"
-
-    @$('.supply .marker')[action] top: "#{100 - supplyPos}%", 'fast'
-    @$('.supply .marker').text    "#{values.supply}PJ"
-
-    this
+    @$("#{selector} .bar")[action]    height: "#{position}%", 'fast'
+    @$("#{selector} .marker")[action] top: "#{100 - position}%", 'fast'
+    @$("#{selector} .marker").text    "#{value}PJ"
