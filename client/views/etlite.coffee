@@ -37,7 +37,7 @@ class exports.ETLite extends Backbone.View
   id: 'etlite-view'
 
   events:
-    'click a.clear': 'clearInputStorage'
+    'click a.clear': 'clearSession'
 
   # Creates a new instance of the ETLite view.
   #
@@ -109,11 +109,11 @@ class exports.ETLite extends Backbone.View
     @delegateEvents()
     this
 
-  # Callback for the "Clear Input Storage" button. Wipes out all of the inputs
-  # which should be followed by a browser refresh.
+  # Callback for the "Clear Session" button. Wipes out all of the inputs which
+  # should be followed by a browser refresh.
   #
-  clearInputStorage: (event) =>
-    head.destroy() while head = app.collections.inputs.first()
+  clearSession: (event) =>
+    app.session.destroy()
     event.preventDefault()
 
   # Creates and returns the visualisation which shows the total amount of

@@ -109,6 +109,12 @@ class Session extends Backbone.Model
       if value = valueFrom values[ input.get('id') ]
         input.set { value: value }, silent: true
 
+  # Removes the user session by simply unsetting the cookie.
+  #
+  destroy: ->
+    jQuery.cookie 'eteSid', null
+    @trigger 'destroy'
+
 # Exports --------------------------------------------------------------------
 
 # Creates a new instance of Session.
