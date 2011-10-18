@@ -65,6 +65,8 @@ fetchInitialData = (callback) ->
 # _after_ the asynchronous boostrap function should go here.
 #
 postBoot = (err, result) ->
+  exports.boot = (->)
+
   if err?
     console.error "Could not initialize application.", err
   else
