@@ -11,9 +11,14 @@ render = (view) -> app.masterView.setSubView view
 #
 class exports.Router extends Backbone.Router
   routes:
-    '':       'root'
-    'sanity': 'sanity'
-    'etlite': 'etlite'
+    '':            'root'
+    'sanity':      'sanity'
+    'etlite':      'etlite'
+
+    'en':          'languageRedirect'
+    'nl':          'languageRedirect'
+    'en/*actions': 'languageRedirect'
+    'nl/*actions': 'languageRedirect'
 
   constructor: ->
     super()
@@ -41,3 +46,12 @@ class exports.Router extends Backbone.Router
   #
   etlite: ->
     render @views.etlite
+
+  # Used when changing language; a two-character language code is appended to
+  # the URL.
+  #
+  # GET /en/*actions
+  # GET /nl/*actions
+  #
+  languageRedirect: (action) ->
+    @navigate action or 'sanity', true
