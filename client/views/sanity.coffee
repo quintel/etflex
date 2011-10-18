@@ -18,8 +18,12 @@ class exports.Sanity extends Backbone.View
   # correctly configured.
   #
   render: ->
+    link = "<a href='/etlite'>#{ I18n.t('etlite.link') }</a>"
+
     $(@el).html sanityTemplate
-      name: 'from Eco and Backbone'
+      header:  I18n.t('etlite.header')
+      hello:   I18n.t('etlite.hello')
+      message: I18n.t('etlite.message', link: link)
 
     @delegateEvents()
 

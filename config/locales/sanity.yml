@@ -1,0 +1,14 @@
+---
+en:
+  etlite:
+    header:  "Oh, hi!"
+    hello:   "Hello from Eco and Backbone!"
+    message: "Would you like to see {{link}}?"
+    link:    "the ETlite page"
+
+nl:
+  etlite:
+    header:  "Hallo!"
+    hello:   "Hallo from Eco en Backbone"
+    message: "Wilt u {{link}} te zien?"
+    link:    "de ETlite pagina"
