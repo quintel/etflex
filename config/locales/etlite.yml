@@ -36,6 +36,81 @@ en:
         new light bulbs emit the same amount of light and do not become so
         warm. They even last much longer than traditional light bulbs!
 
+      cars: >
+        An electric car uses 2 to 3 times less enegry than a diesel or
+        gasoline-powered car. Diesel and gasoline are made from oil. By
+        switching to electric cars, we will save a lot of oil and use a bit
+        more electricity. If we generate this electricity using wind turbines
+        or solar power, driving a car will no longer produce any CO2
+        emissions.
+
+      insulation: >
+        Houses will lose a lot of energy because they have not been properly
+        insulated. Of course, generating the energy we need in a sustainable
+        way is a good idea. It is even better, though, to make sure we use
+        less energy in the first place. A good way to do this is better
+        insualtion for our homes.
+
+      heating: >
+        A solar water heater uses heat from the sun to make warm water. This
+        is often done on the roof of a house. The hot water can then be used
+        for showering or washing dishes, for example. By using the suns heat,
+        we need a lot less energy to make hot water.
+
+      appliances: >
+        We own more and more electrical appliances which are often left on
+        when they are not being used. By switching off these appliances we can
+        save power.
+
+      heatPump: >
+        A heat pump is like a refrigerator used the other way around: it pumps
+        heat into the house from outside, while a refrigerator pumps heat
+        outside of its own insides. Heat pumps make sure that you need a lot
+        less gas to heat the house. This is a good thing; we want to save that
+        gas since it will not be available for ever.
+
+      coal: >
+        A coal-fired power plant is almost always running, producing
+        electricity at maximum power. Powering it doen regularly reduces the
+        amount of electricity we can make from coal. A coal-fired power plant
+        produces more air polluation than any alternative. CO2 emissions are
+        twice as high as for a gas-fired power plant.
+
+      gas: >
+        A gas-fired power plant is cheaper to build than a coal power plant.
+        However, they cost more than power plants which burn coal. A gas-fired
+        power plant is easily powered up or down. That can come in handy when
+        wind turbines are not turning for a lack of wind. CO2 emissions are
+        half that of a coal-fired power plant.
+
+      nuclear: >
+        A nuclear power plant is quite expensive to build. However, they do
+        last a lot longer than power plants which burn gas or coal. Once the
+        power plant has been built, making electricity is cheap. That is why
+        this type of power plant is almost always running. It cannot be used
+        to balance the supply and demand of electricity. One advantage is that
+        there are almost no CO2 emissions. The radioactive waste is a
+        disadvantage. No one has come up with a good solution for this problem
+        yet.
+
+      wind: >
+        A wind turbine produces sustainable power. There are no CO2 emissions.
+        Wind is its fuel; it is a fuel which does not run out. Of course, the
+        wind does not always blow. This means that building windmills alone is
+        not enough. You would have a problem if you needed power and there was
+        no wind. A lot of effort is currently being put into making wind
+        turbines cheaper.
+
+      solar: >
+        Solar panels make electricity when they absorb sublight. This also
+        works on cloudy days. As a result, it is easier to predict how much
+        power you can expect then it is with wind power. Of course, a solar
+        panel in sunny Spain produces more electricity than one in the United
+        Kingdom. You can install solar panels on the roof of your own house.
+        This is useful: it avoids power losses from transporting electricity
+        over a long cable. Solar panels are still quite expensive; a lot of
+        work is being put into making them cheaper.
+
 nl:
   etlite:
 
