@@ -26,8 +26,11 @@ exports.masterView = null
 exports.inputManager = null
 
 # Called _once_ when the application is first loaded in the browser.
-exports.boot = (window) ->
+exports.boot = (window, locale) ->
   installConsolePolyfill window
+
+  I18n.locale    = locale
+  I18n.fallbacks = no
 
   # Set up the collections.
   exports.collections.inputs  = new Inputs
