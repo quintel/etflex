@@ -26,14 +26,14 @@ exports.masterView = null
 exports.inputManager = null
 
 # Called _once_ when the application is first loaded in the browser.
-exports.bootstrap = (window) ->
+exports.boot = (window) ->
   installConsolePolyfill window
 
   # Set up the collections.
   exports.collections.inputs  = new Inputs
   exports.collections.queries = new Queries
 
-  async.parallel data: fetchInitialData, session: initSession, postBootstrap
+  async.parallel data: fetchInitialData, session: initSession, postBoot
 
 # Bootstrap Functions, execute in parallel -----------------------------------
 
@@ -55,13 +55,13 @@ fetchInitialData = (callback) ->
 
   callback null, true
 
-# Called after all the other bootstrap functions have completed.
+# Called after all the other boot functions have completed.
 #
 # Issues a warning if one of the functions failed, otherwise finishes set-up
 # of the application. Any part of the app set-up which depends must occur
 # _after_ the asynchronous boostrap function should go here.
 #
-postBootstrap = (err, result) ->
+postBoot = (err, result) ->
   if err?
     console.error "Could not initialize application.", err
   else
