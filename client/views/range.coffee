@@ -58,10 +58,6 @@ class exports.Range extends Backbone.View
   # the input and how it affects the outcome.
   #
   showHelp: ->
-    showMessage 'Low-energy-lighting', """
-      Incandescent light bulbs waste a lot of energy. The power they consume is
-      mostly turned into heat instead of light. That is why, in Europe, we will
-      all shift to low-energy lighting in the coming years. These new light
-      bulbs emit the same amount of light and do not become so warm. They even
-      last much longer than traditional light bulbs!
-    """
+    showMessage(
+      I18n.t("etlite.#{@model.def.key}"),
+      I18n.t("etlite.info.#{@model.def.key}"))
