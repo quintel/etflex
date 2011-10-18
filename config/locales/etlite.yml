@@ -28,6 +28,14 @@ en:
 
     clearSession: "Clear Session"
 
+    info:
+      lighting: >
+        Incandescent light bulbs waste a lot of energy. The power they consume
+        is mostly turned into heat instead of light. That is why, in Europe,
+        we will all shift to low-energy lighting in the coming years. These
+        new light bulbs emit the same amount of light and do not become so
+        warm. They even last much longer than traditional light bulbs!
+
 nl:
   etlite:
 
@@ -56,3 +64,11 @@ nl:
     million:      "miljoen"
 
     clearSession: "Duidelijk sessie"
+
+    info:
+      lighting: >
+        Gloeilampen verspillen veel energie. Bijna alle stroom die ze
+        gebruiken wordt omgezet in warmte in plaats ven licht. Daarom zullen
+        we Europa de komende jaren overschakelen naar zuinige lampen die veel
+        minder warm worden en evenveel licht geven. Daar komt nog eens bij dat
+        ze veel langer meegaan de gloeilampen.
