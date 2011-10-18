@@ -3,10 +3,12 @@ ETFlex::Application.routes.draw do
   match '/application.js' => Stitch::Server.new(
     paths: %w(client vendor/assets/javascript))
 
-  get 'sanity', to: 'application#sanity'
-  get 'etlite', to: 'application#sanity'
+  scope '(:locale)', constraints: { locale: /en|nl/ } do
+    get 'sanity', to: 'application#sanity'
+    get 'etlite', to: 'application#sanity'
 
-  root to: 'application#sanity'
+    root to: 'application#sanity'
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
