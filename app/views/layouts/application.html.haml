@@ -16,4 +16,5 @@
     = javascript_include_tag 'dependencies'
 
     %script(src="/application.js" type="text/javascript")
-    %script(type="text/javascript") require('app').boot(window);
+    %script(type="text/javascript")
+      == require('app').boot(window, '#{I18n.locale}');
