@@ -22,7 +22,7 @@ class exports.Input extends Backbone.Model
       min:  attributes.min_value
       max:  attributes.max_value
       unit: attributes.unit
-      name: attributes.name
+      key:  attributes.key
 
   # Handles persistance of the Input back to ETengine; delegates to the main
   # app instance of InputManager.

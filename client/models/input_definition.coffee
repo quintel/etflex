@@ -8,7 +8,7 @@ class exports.InputDefinition
 
   constructor: (attributes) ->
     @id   = attributes.id
+    @key  = attributes.key
     @min  = attributes.min  or 0
     @max  = attributes.max  or 100
     @unit = attributes.unit or ''
-    @name = attributes.name or ''

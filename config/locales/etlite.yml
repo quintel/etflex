@@ -1,0 +1,58 @@
+---
+en:
+  etlite:
+
+    savings:      "Savings"
+    production:   "Production"
+
+    lighting:     "Low-energy lighting"
+    cars:         "Electric cars"
+    insulation:   "Better insulation"
+    heating:      "Solar water heater"
+    appliances:   "Switch off appliances"
+    heatPump:     "Heat pump for the home"
+    coal:         "Coal-fired power plants"
+    gas:          "Gas-fired power plants"
+    nuclear:      "Nuclear power plants"
+    wind:         "Wind turbines"
+    solar:        "Solar panels"
+    biomass:      "Biomass"
+
+    supply:       "Energy supply"
+    demand:       "Energy demand"
+
+    renewables:   "Wind and solar"
+    emissions:    "Emissions"
+    costs:        "Costs"
+    million:      "million"
+
+    clearSession: "Clear Session"
+
+nl:
+  etlite:
+
+    savings:      "Besparingen"
+    production:   "Energieproductie"
+
+    lighting:     "Zuinige lampen"
+    cars:         "Elektrische autos"
+    insulation:   "Betere isolatie"
+    heating:      "Zonneboiler"
+    appliances:   "Apparaten uit"
+    heatPump:     "Warmtepomp in huis"
+    coal:         "Steenkoolcentrales"
+    gas:          "Gascentrales"
+    nuclear:      "Kerncentrales"
+    wind:         "Windmolens"
+    solar:        "Zonnepanelen"
+    biomass:      "Biomassa"
+
+    supply:       "Energieopwek"
+    demand:       "Energievraag"
+
+    renewables:   "Wind en zon"
+    emissions:    "Emissies"
+    costs:        "Kosten"
+    million:      "miljoen"
+
+    clearSession: "Duidelijk sessie"

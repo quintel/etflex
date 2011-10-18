@@ -24,4 +24,4 @@ class exports.CO2Emissions extends GenericVisualisation
   # repeatedly to update the UI.
   #
   render: =>
-    super "#{@recalculate()} Mton CO<sup>2</sup>", 'Emissions'
+    super "#{@recalculate()} Mton CO<sup>2</sup>", I18n.t 'etlite.emissions'

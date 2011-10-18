@@ -54,4 +54,5 @@ class exports.Costs extends GenericVisualisation
   # repeatedly to update the UI.
   #
   render: =>
-    super "€#{@recalculate()} million", 'Costs'
+    super(
+      "€#{@recalculate()} #{I18n.t 'etlite.million'}", I18n.t 'etlite.costs')
