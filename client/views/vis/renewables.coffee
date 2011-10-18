@@ -22,4 +22,4 @@ class exports.Renewables extends GenericVisualisation
   # repeatedly to update the UI.
   #
   render: =>
-    super "#{@recalculate()}%", 'Wind and solar'
+    super "#{@recalculate()}%", I18n.t 'etlite.renewables'

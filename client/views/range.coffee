@@ -20,7 +20,7 @@ class exports.Range extends Backbone.View
   #
   render: (mediator) ->
     $(@el).html rangeTemplate
-      name: @model.def.name,
+      name: I18n.t "etlite.#{@model.def.key}"
       unit: @model.def.unit
 
     new $.Quinn @$('.control'),

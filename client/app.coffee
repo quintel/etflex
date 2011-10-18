@@ -91,18 +91,18 @@ createDefaultInputs = (collection) ->
   head.destroy() while head = collection.first()
 
   fixtures = [
-    { id:  43, name: 'Low-energy lighting',     start_value: 5, max_value:   100, unit: '%'   }
-    { id: 146, name: 'Electric cars',           start_value: 0, max_value:   100, unit: '%'   }
-    { id: 336, name: 'Better insulation',       start_value: 1, max_value:   100, unit: '%'   }
-    { id: 348, name: 'Solar water heater',      start_value: 0, max_value:    80, unit: '%'   }
-    { id: 366, name: 'Switch off appliances',   start_value: 0, max_value:    20, unit: '%'   }
-    { id: 338, name: 'Heat pump for the home',  start_value: 0, max_value:    80, unit: '%'   }
-    { id: 315, name: 'Coal-fired power plants', start_value: 0, max_value:     7, unit: ''    }
-    { id: 256, name: 'Gas-fired power plants',  start_value: 0, max_value:     7, unit: ''    }
-    { id: 259, name: 'Nuclear power plants',    start_value: 0, max_value:     4, unit: ''    }
-    { id: 263, name: 'Wind turbines',           start_value: 0, max_value: 10000, unit: ''    }
-    { id: 313, name: 'Solar panels',            start_value: 0, max_value: 10000, unit: ''    }
-    { id: 196, name: 'Biomass',                 start_value: 0, max_value:  1606, unit: ' km<sup>2</sup>' }
+    { id:  43, key: 'lighting',   start_value: 5, max_value:   100, unit: '%'   }
+    { id: 146, key: 'cars',       start_value: 0, max_value:   100, unit: '%'   }
+    { id: 336, key: 'insulation', start_value: 1, max_value:   100, unit: '%'   }
+    { id: 348, key: 'heating',    start_value: 0, max_value:    80, unit: '%'   }
+    { id: 366, key: 'appliances', start_value: 0, max_value:    20, unit: '%'   }
+    { id: 338, key: 'heatPump',   start_value: 0, max_value:    80, unit: '%'   }
+    { id: 315, key: 'coal',       start_value: 0, max_value:     7, unit: ''    }
+    { id: 256, key: 'gas',        start_value: 0, max_value:     7, unit: ''    }
+    { id: 259, key: 'nuclear',    start_value: 0, max_value:     4, unit: ''    }
+    { id: 263, key: 'wind',       start_value: 0, max_value: 10000, unit: ''    }
+    { id: 313, key: 'solar',      start_value: 0, max_value: 10000, unit: ''    }
+    { id: 196, key: 'biomass',    start_value: 0, max_value:  1606, unit: ' km<sup>2</sup>' }
   ]
 
   collection.add fixture for fixture in fixtures
