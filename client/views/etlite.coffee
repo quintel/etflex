@@ -39,26 +39,8 @@ class exports.ETLite extends Backbone.View
   events:
     'click a.clear': 'clearSession'
 
-  # Creates a new instance of the ETLite view.
-  #
-  # Creates a subset of the main Queries collection containing only those
-  # queries required by this view.
-  #
-  constructor: ->
-    super
-
-    @queries = app.collections.queries.subset [ 8, 23, 32, 49, 518 ]
-    @inputs  = app.collections.inputs.subset  ( k for own v, k of INPUT_MAP )
-
-    # Immediately save changed inputs, and request that the Queries used on
-    # the ETlite page be updated.
-    @inputs.bind 'change:value', (input) => input.save {}, queries: @queries
-
-    # Immediately initialize query values. As if this word isn't getting
-    # enough of a workout... this is temporary! I plan to add a way to do this
-    # automatically whenever the view is rendered (see Master::setSubView and
-    # the dependant-resolution branch).
-    app.session.updateInputs [], @queries, (->)
+  dependantQueries: [ 8, 23, 32, 49, 518 ]
+  dependantInputs:  ( k for own v, k of INPUT_MAP )
 
   # Creates the HTML elements for the view, and binds events. Returns self.
   #
