@@ -55,7 +55,7 @@ class exports.Master extends Backbone.View
 
     if view.dependantInputs
       @inputs = app.collections.inputs.subset view.dependantInputs
-      @inputChangeEvent = (input) -> input.save {}, queries: @queries
+      @inputChangeEvent = (input) => input.save {}, queries: @queries
 
       @inputs.bind 'change:value', @inputChangeEvent
     else
