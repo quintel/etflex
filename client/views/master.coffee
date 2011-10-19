@@ -1,3 +1,5 @@
+app = require 'app'
+
 # A Singleton master view which delegates rendering of individual pages to
 # sub-views (such as the ETlite recreation, etc).
 #
@@ -11,13 +13,55 @@ class exports.Master extends Backbone.View
   # loaded.
   currentView: null
 
+  # The function bound to the change event on the subset of inputs used by the
+  # current view; held here so that we can unbind if rendering a different
+  # view.
+  #
+  inputChangeEvent: null
+
+  # The inputs being manipulated in the currently rendered view.
+  #
+  inputs: null
+
+  # The queries whose results are shown in the currently rendered view.
+  #
+  queries: null
+
   # Given a new `View` instance, destructs the current sub-view, then renders
   # the new view and replaces the page contents with it.
   #
   # view - The new view to be rendered and added to the page.
   #
   setSubView: (view) ->
-    @currentView?.destruct?()
+    isFirstView = not @currentView?
+
+    # Removes the onChange event bound to the inputs in the current view (if
+    # there is one), since the new view likely cares about a completely
+    # different set of inputs.
+    #
+    @inputs?.unbind 'change:value', @inputChangeEvent
+
+    # Set up the new view.
+
     @currentView = view
 
-    $(@el).html view.render().el
+    # Views which define a set of dependant queries and/or inputs should have
+    # a sub-set of those models made available.
+    if view.dependantQueries
+      @queries = app.collections.queries.subset view.dependantQueries
+
+    if view.dependantInputs
+      @inputs = app.collections.inputs.subset view.dependantInputs
+      @inputChangeEvent = (input) -> input.save {}, queries: @queries
+
+      @inputs.bind 'change:value', @inputChangeEvent
+
+    app.session.updateInputs [], @queries or [], =>
+      # When the first view is rendered we remove the "loading" styles from
+      # the page prior to inserting the new view into the DOM.
+      jQuery('body').removeClass 'loading' if isFirstView
+
+      view.inputs  = @inputs
+      view.queries = @queries
+
+      $(@el).html view.render().el
