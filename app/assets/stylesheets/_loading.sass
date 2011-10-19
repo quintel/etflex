@@ -1,0 +1,36 @@
+@-webkit-keyframes loading-spin
+  from
+    -webkit-transform: rotate(0deg)
+  to
+    -webkit-transform: rotate(359deg)
+
+@-moz-keyframes loading-spin
+  from
+    -moz-transform: rotate(0deg)
+  to
+    -moz-transform: rotate(359deg)
+
+// Loading page.
+body.loading
+  background: white
+
+  .wrap
+    background: url(/assets/loading.jpg) center 100px no-repeat
+    color: #aaa
+    font-size: 32px
+    margin: 0 auto
+    padding-top: 400px
+    position: relative
+    text-align: center
+    width: 600px
+
+    .spinner
+      -moz-animation:    loading-spin 3s infinite linear
+      -webkit-animation: loading-spin 3s infinite linear
+
+      background: url(/assets/loading-spinner.png) no-repeat
+      height: 64px
+      left: 100px
+      position: absolute
+      top: 100px
+      width: 64px
