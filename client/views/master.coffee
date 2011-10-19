@@ -47,21 +47,37 @@ class exports.Master extends Backbone.View
 
     # Views which define a set of dependant queries and/or inputs should have
     # a sub-set of those models made available.
+
     if view.dependantQueries
       @queries = app.collections.queries.subset view.dependantQueries
+    else
+      @queries = null
 
     if view.dependantInputs
       @inputs = app.collections.inputs.subset view.dependantInputs
       @inputChangeEvent = (input) -> input.save {}, queries: @queries
 
       @inputs.bind 'change:value', @inputChangeEvent
+    else
+      @inputs = null
 
-    app.session.updateInputs [], @queries or [], =>
+    # Render the view after updating the queries to reflect the latest data.
+
+    doRender = if @queries then app.session.updateInputs else immediateRender
+
+    doRender.call app.session, [], @queries or [], =>
       # When the first view is rendered we remove the "loading" styles from
       # the page prior to inserting the new view into the DOM.
       jQuery('body').removeClass 'loading' if isFirstView
 
-      view.inputs  = @inputs
-      view.queries = @queries
+      view.inputs  = @inputs  if @inputs
+      view.queries = @queries if @queries
 
       $(@el).html view.render().el
+
+# A function which is used to render the subview if the subview does not need
+# to fetch any queries.
+#
+# Acts as a stub for app.session.updateInputs
+#
+immediateRender = (ignore..., callback) -> callback()
