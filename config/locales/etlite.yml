@@ -24,7 +24,7 @@ en:
     renewables:   "Wind and solar"
     emissions:    "Emissions"
     costs:        "Costs"
-    million:      "million"
+    billion:      "billion"
 
     clearSession: "Clear Session"
 
@@ -145,7 +145,7 @@ nl:
     renewables:   "Wind en zon"
     emissions:    "Emissies"
     costs:        "Kosten"
-    million:      "miljoen"
+    billion:      "miljard"
 
     clearSession: "Duidelijk sessie"
 
