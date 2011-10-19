@@ -70,6 +70,8 @@ postBoot = (err, result) ->
   if err?
     console.error "Could not initialize application.", err
   else
+    jQuery('body').removeClass 'loading'
+
     exports.session = result.session
     exports.session.finalizeInputs exports.collections.inputs
 
