@@ -47,7 +47,7 @@ class exports.ETLite extends Backbone.View
   constructor: ->
     super
 
-    @queries = app.collections.queries.subset [ 8, 32, 49, 518 ]
+    @queries = app.collections.queries.subset [ 8, 23, 32, 49, 518 ]
     @inputs  = app.collections.inputs.subset  ( k for own v, k of INPUT_MAP )
 
     # Immediately save changed inputs, and request that the Queries used on
@@ -131,20 +131,7 @@ class exports.ETLite extends Backbone.View
   # Euros, of the choices the user makes.
   #
   createCostsVis: ->
-    new Costs
-      lighting:   @inputs.get INPUT_MAP.lighting
-      cars:       @inputs.get INPUT_MAP.cars
-      insulation: @inputs.get INPUT_MAP.insulation
-      heating:    @inputs.get INPUT_MAP.heating
-      appliances: @inputs.get INPUT_MAP.appliances
-      heatPump:   @inputs.get INPUT_MAP.heatPump
-
-      coal:       @inputs.get INPUT_MAP.coal
-      gas:        @inputs.get INPUT_MAP.gas
-      nuclear:    @inputs.get INPUT_MAP.nuclear
-      wind:       @inputs.get INPUT_MAP.wind
-      solar:      @inputs.get INPUT_MAP.solar
-      biomass:    @inputs.get INPUT_MAP.biomass
+    new Costs query: @queries.get(23)
 
   # Creates the energy demand / energy supply graph which sits between the two
   # range groups.
