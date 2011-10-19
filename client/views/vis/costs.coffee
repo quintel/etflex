@@ -16,4 +16,4 @@ class exports.Costs extends GenericVisualisation
   #
   render: =>
     value = @precision @query.get('future') / 1000000000, 3
-    super("€#{value} #{I18n.t 'etlite.million'}", I18n.t 'etlite.costs')
+    super("€#{value} #{I18n.t 'etlite.billion'}", I18n.t 'etlite.costs')
