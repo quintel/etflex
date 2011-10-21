@@ -129,8 +129,8 @@ class Session extends Backbone.Model
 #            successful. The second argument will be the Session object.
 #
 exports.initSession = (callback) ->
-  if sessionID = jQuery.cookie 'eteSid'
-    restoreSession sessionID, callback
+  if sessionId = jQuery.cookie 'eteSid'
+    restoreSession sessionId, callback
   else
     createSession callback
 
@@ -155,6 +155,26 @@ sendRequest = (path, callback) ->
   .error (jqXHR, textStatus, error) ->
     callback error
 
+# Hits ETengine to fetch basic information about a session (country, etc).
+#
+# sessionId - The ID of the session being fetched from ETengine.
+# callback  - Is run with the error or retrieved session data.
+#
+fetchSession = (sessionId, callback) ->
+  sendRequest "#{sessionId}", (err, result) ->
+    if err? then callback(err) else
+      # New sessions return the API information in "api_scenario" while
+      # existing sessions return it in "settings".
+      callback null, result.api_scenario or result.settings
+
+# Hits user_values.json to get the state of the user's Inputs.
+#
+# sessionId - The ID of the ETengine session whose values are to be retrieved.
+# callback  - Is called with the parsed values.
+#
+fetchUserValues = (sessionId, callback) ->
+  sendRequest "#{sessionId}/user_values", callback
+
 # Used to create a new Session instance, pre-initialized with values from
 # ETengine. Use this in preference over `new Session` since creating a session
 # explicitly will not actually create a session on ETengine.
@@ -162,31 +182,42 @@ sendRequest = (path, callback) ->
 # See `initSession`.
 #
 createSession = (callback) ->
-  sendRequest 'new', (err, data) ->
-    if err? then callback(err) else
-      # Set the returned ETengine session ID in a cookie so that we may
-      # restore it if the user hits refresh.
-      jQuery.cookie 'eteSid', "#{data.api_scenario.id}", expires: 1, path: '/'
+  async.waterfall [
+    # Create a new session.
+    (cb) -> fetchSession 'new', cb
 
-      callback null, new Session data.api_scenario
+    # Fetch user_values.json to initialize sliders.
+    (sessionValues, cb) ->
+      fetchUserValues sessionValues.id, (err, userValues) ->
+        cb null, sessionValues, userValues
+
+  ], (err, sessionValues, userValues) ->
+    # Store the session ID as a cookie so that we can restore on refresh.
+    jQuery.cookie 'eteSid', "#{sessionValues.id}",
+      expires: 1, path: '/'
+
+    callback null, new Session _.extend sessionValues, user_values: userValues
 
 # Restores the session state by retrieving it from ETengine.
 #
 # See `initSession`.
 #
-# sessionID - The ID of the ETengine session to be restored.
+# sessionId - The ID of the ETengine session to be restored.
 # callback  - Is called with the restored Session.
 #
-restoreSession = (sessionID, callback) ->
+restoreSession = (sessionId, callback) ->
   # Currently we have to fetch both the session information and user values
   # separately; it would be just marvellous if we could do both in a single
   # request. ;-)
   #
-  getSession = (cb) -> sendRequest sessionID, cb
-  getValues  = (cb) -> sendRequest "#{sessionID}/user_values", cb
+  async.parallel
+    # Fetches information about the session.
+    session: (cb) -> fetchSession sessionId, cb
+    # Fetches user_values.json
+    values:  (cb) -> fetchUserValues sessionId, cb
 
-  async.parallel session: getSession, values: getValues, (err, result) ->
+  , (err, result) ->
     if err? then callback(err) else
-      callback null, new Session _.extend result.session.settings,
-        id:          sessionID
+      callback null, new Session _.extend result.session,
+        id:          sessionId
         user_values: result.values
