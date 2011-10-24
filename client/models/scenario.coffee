@@ -5,7 +5,7 @@
 #
 # Each scenario is linked to an ETengine session which performs calculations.
 #
-class Scenario extends Backbone.Model
+class exports.Scenario extends Backbone.Model
   # Stores an Inputs collection used by the scenario.
   inputs: null
 
