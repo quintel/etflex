@@ -7,6 +7,8 @@ ETFlex::Application.routes.draw do
     get 'sanity', to: 'application#sanity'
     get 'etlite', to: 'application#sanity'
 
+    get 'scenarios/:id', to: 'application#sanity'
+
     root to: 'application#sanity'
   end
 
