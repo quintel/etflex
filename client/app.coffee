@@ -121,6 +121,24 @@ createDefaultQueries = (collection) ->
   collection.add id:  49 # electricity_production
   collection.add id: 518 # final_demand_electricity
 
+# Creates a single Scenario; the ETlite scenario.
+#
+# This can be removed once scenarios are defined on the server and delivered
+# as JSON to the client.
+#
+createDefaultScenarios = (collection) ->
+  collection.add
+    id:   1
+    name: 'ETlite'
+
+    leftInputs:  [  43, 146, 336, 348, 366, 338 ]
+    rightInputs: [ 315, 256, 259, 263, 313, 196 ]
+
+    centerVis:     require('views/vis/supply_demand').SupplyDemand
+    mainVis:     [ require('views/vis/renewables').Renewables,
+                   require('views/vis/co2_emissions').CO2Emissions
+                   require('views/vis/costs').Costs ]
+
 installConsolePolyfill = (window) ->
   unless 'console' of window
     window.console = { log: (->), info: (->), warn: (->), error: (->) }
