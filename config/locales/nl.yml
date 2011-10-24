@@ -3,3 +3,12 @@
 
 nl:
   loading: "Het laden"
+
+
+  # 404 Not Found
+
+  oops: "Oops"
+  frontPage: "voorpagina"
+  fourOhFour: >
+    Je lijkt te zijn aangekomen op een pagina die niet bestaat. Misschien heb
+    je misschien ook zou willen terugkeren naar het {{frontPage}}?

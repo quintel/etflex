@@ -5,17 +5,18 @@ class exports.NotFound extends Backbone.View
   className: 'error-view'
 
   events:
-    'click a': 'goToRoot'
+    'click a': 'navigateToRoot'
 
   render: ->
+    pText = I18n.t 'fourOhFour',
+      frontPage: "<a href='/'>#{I18n.t('frontPage')}</a>"
+
     $(@el)
-      .append($('<h1>Oops!</h1>'))
-      .append($('<p>You appear to have arrived at a page which does ' +
-                'not exist. Perhaps you might like to return to the ' +
-                '<a href="/">front page</a>?</p>'))
+      .append($("<h1>#{I18n.t('oops')}!</h1>"))
+      .append($("<p>#{pText}</p>"))
 
     this
 
-  goToRoot: (event) ->
-    app.router.navigate '/', true
+  navigateToRoot: (event) ->
+    app.router.navigate '', true
     event.preventDefault()

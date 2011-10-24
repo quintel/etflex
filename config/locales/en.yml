@@ -3,3 +3,11 @@
 
 en:
   loading: "Loading"
+
+  # 404 Not Found
+
+  oops: "Oops"
+  frontPage: "front page"
+  fourOhFour: >
+    You appear to have arrived at a page which does not exist. Perhaps you
+    might like to return to the {{frontPage}}?
