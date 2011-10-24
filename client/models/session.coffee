@@ -1,6 +1,10 @@
 # The base URL used for all session requests.
 BASE_URL = 'http://api.et-model.com/api/v2/api_scenarios'
 
+# Send with the request as X-Api-Agent so that ETengine devs know where
+# requests are coming from.
+X_API_AGENT = 'ETflex Client'
+
 # A function which returns a fully-qualified session API URL.
 scenarioUrl = (path) -> "#{BASE_URL}/#{path}.json?callback=?&"
 
@@ -73,7 +77,7 @@ class Session extends Backbone.Model
       dataType:    'json'
       accepts:     'json'
       contentType: 'json'
-      headers:   { 'X-Api-Agent': 'ETflex/HEAD' }
+      headers:   { 'X-Api-Agent': X_API_AGENT }
 
     .done (data, textStatus, jqXHR) ->
       # ETengine currently returns a 200 OK even when an input is invalid;
@@ -147,7 +151,7 @@ sendRequest = (path, callback) ->
     dataType:    'json'
     accepts:     'json'
     contentType: 'json'
-    headers:   { 'X-Api-Agent':  'ETflex/HEAD' }
+    headers:   { 'X-Api-Agent':  X_API_AGENT }
 
   .done (data, textStatus, jqXHR) ->
     callback null, data
