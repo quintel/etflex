@@ -21,6 +21,11 @@ class exports.Router extends Backbone.Router
     'nl/*actions': 'languageRedirect'
 
   constructor: ->
+    # This should always be the first router since it catches any unmatched
+    # routes from other routers -- Backbone appears to check routes in the
+    # reverse order in which they are defined.
+    @errors = new (require('routers/errors').Errors)
+
     super()
     @views = { sanity: new Sanity, etlite: new ETLite }
 
