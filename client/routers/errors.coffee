@@ -14,4 +14,3 @@ class exports.Errors extends Backbone.Router
   #
   notFound: ->
     $('#chrome').html (new NotFound).render().el
-    console.log '404 Not Found'
