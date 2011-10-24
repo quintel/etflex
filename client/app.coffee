@@ -6,6 +6,7 @@ session          = require 'models/session'
 
 { Inputs }       = require 'collections/inputs'
 { Queries }      = require 'collections/queries'
+{ Scenarios }    = require 'collections/scenarios'
 
 { InputManager } = require 'lib/input_manager'
 
@@ -33,8 +34,9 @@ exports.boot = (window, locale) ->
   I18n.fallbacks = no
 
   # Set up the collections.
-  exports.collections.inputs  = new Inputs
-  exports.collections.queries = new Queries
+  exports.collections.inputs    = new Inputs
+  exports.collections.queries   = new Queries
+  exports.collections.scenarios = new Scenarios
 
   async.parallel data: fetchInitialData, session: initSession, postBoot
 
@@ -53,8 +55,9 @@ initSession = (callback) ->
 # be possible for the remote API to deliver this all in a single response.
 #
 fetchInitialData = (callback) ->
-  createDefaultInputs  exports.collections.inputs
-  createDefaultQueries exports.collections.queries
+  createDefaultInputs    exports.collections.inputs
+  createDefaultQueries   exports.collections.queries
+  createDefaultScenarios exports.collections.scenarios
 
   callback null, true
 
