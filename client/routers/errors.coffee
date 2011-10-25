@@ -13,4 +13,4 @@ class exports.Errors extends Backbone.Router
   # GET /*undefined
   #
   notFound: ->
-    $('#chrome').html (new NotFoundView).render().el
+    $('body').html (new NotFoundView).render().el
