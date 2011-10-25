@@ -1,1 +1,16 @@
-<p>My first scenario!</p>
+<div class="controls">
+  <div id="left-inputs" class="range-group">
+    <h2><span><%= I18n.t 'etlite.savings' %></span></h2>
+  </div>
+
+  <div id="center-vis"></div>
+
+  <div id="right-inputs" class="range-group">
+    <h2><span><%= I18n.t 'etlite.production' %></span></h2>
+  </div>
+</div>
+
+<div id="main-vis"></div>
+
+<a href="#" class="clear"><%= I18n.t 'etlite.clearSession' %></a> |
+<a href="/en" class="en">en</a> | <a href="/nl" class="nl">nl</a>
