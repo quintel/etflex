@@ -27,8 +27,8 @@ class ApplicationController < ActionController::Base
   #   render client(meaning: 42)
   #
   def client(options = nil)
-    if options.nil? then { template: 'application/sanity' } else
-      options.merge template: 'application/sanity'
+    if options.nil? then { template: 'application/client' } else
+      options.merge template: 'application/client'
     end
   end
 
