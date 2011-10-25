@@ -1,7 +1,8 @@
 app = require 'app'
 
-{ Sanity } = require 'views/sanity'
-{ ETLite } = require 'views/etlite'
+{ Sanity }   = require 'views/sanity'
+{ ETLite }   = require 'views/etlite'
+{ Scenario } = require 'views/scenario'
 
 # A simpler way to call `app.masterView.setSubView`.
 render = (view) -> app.masterView.setSubView view
@@ -63,6 +64,9 @@ class exports.Router extends Backbone.Router
     if scenario = app.collections.scenarios.get id
       # Start the scenario.
       console.log 'Found scenario:', scenario
+
+      scenario.start (err, scenario, session) ->
+        render new Scenario model: scenario
     else
       @errors.notFound()
 

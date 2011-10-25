@@ -11,12 +11,15 @@ template    = require 'templates/scenario'
 # displaying the left and right sliders, visualisations, etc.
 #
 class exports.Scenario extends Backbone.View
+  className: 'scenario-view'
 
   # Creates a new Scenario view.
   #
   # Sets the @inputs collection which will contain the Input instances used by
   # the view; and the @queries collection which includes the queries used by
   # the visualisations.
+  #
+  # You must supply a "model" attribute.
   #
   constructor: ->
     super
@@ -29,7 +32,7 @@ class exports.Scenario extends Backbone.View
     #      removed).
     #
     @inputs = collectionSubset app.collections.inputs,
-      @get('leftInputs').concat @get('rightInputs')
+      @model.get('leftInputs').concat @model.get('rightInputs')
 
   # Creates the HTML elements for the view, and binds events. Returns self.
   #
@@ -39,6 +42,7 @@ class exports.Scenario extends Backbone.View
   #   $('body').html view.render().el
   #
   render: ->
+    $(@el).html template()
     this
 
 # Helpers --------------------------------------------------------------------
