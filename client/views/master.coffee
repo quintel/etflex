@@ -6,7 +6,7 @@ app = require 'app'
 # The `Master` view is initialized during the boot and stored on
 # `app.masterView`.
 #
-class exports.Master extends Backbone.View
+class exports.MasterView extends Backbone.View
   el: '#chrome'
 
   # The currently rendered sub-view, or null if the page is still being

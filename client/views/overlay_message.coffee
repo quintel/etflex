@@ -1,7 +1,7 @@
 # Contains logic associated with overlay messages - messages shown to the user
 # in a black pop-up box.
 
-class exports.OverlayMessage extends Backbone.View
+class exports.OverlayMessageView extends Backbone.View
   className: 'overlay-wrap'
 
   events:

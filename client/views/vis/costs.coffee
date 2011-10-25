@@ -1,6 +1,6 @@
 { GenericVisualisation } = require 'views/vis/generic'
 
-class exports.Costs extends GenericVisualisation
+class exports.CostsView extends GenericVisualisation
 
   # Creates a new Costs visualisation. Calculates the cost of the choices the
   # user makes in the ETLite scenario.

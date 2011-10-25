@@ -77,7 +77,7 @@ postBoot = (err, result) ->
     exports.session.finalizeInputs exports.collections.inputs
 
     exports.router       = new (require('router').Router)
-    exports.masterView   = new (require('views/master').Master)
+    exports.masterView   = new (require('views/master').MasterView)
 
     exports.inputManager = new InputManager exports.session
 
