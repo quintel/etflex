@@ -25,10 +25,6 @@ test:
   <<: *common
   database: etflex_test
 
-cucumber:
-  <<: *common
-  database: etflex_test
-
 production:
   <<: *common
   database: etflex_production
