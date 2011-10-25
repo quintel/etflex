@@ -8,12 +8,10 @@ class exports.NotFoundView extends Backbone.View
     'click a': 'navigateToRoot'
 
   render: ->
-    pText = I18n.t 'fourOhFour',
-      frontPage: "<a href='/'>#{I18n.t('frontPage')}</a>"
-
     $(@el)
-      .append($("<h1>#{I18n.t('oops')}!</h1>"))
-      .append($("<p>#{pText}</p>"))
+      .append($("<h1>#{ I18n.t 'oops' }!</h1>"))
+      .append($("<p>#{ I18n.t 'fourOhFour' }</p>"))
+      .append($("<p><a href='/'>#{ I18n.t 'frontPage' }.</a></p>"))
 
     this
 

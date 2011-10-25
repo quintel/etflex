@@ -6,8 +6,6 @@ en:
 
   # 404 Not Found
 
-  oops: "Oops"
-  frontPage: "front page"
-  fourOhFour: >
-    You appear to have arrived at a page which does not exist. Perhaps you
-    might like to return to the {{frontPage}}?
+  oops: "Whoops"
+  frontPage: "Back to the home page"
+  fourOhFour: "The page you were looking for could not be found. Sorry about that"

@@ -7,8 +7,6 @@ nl:
 
   # 404 Not Found
 
-  oops: "Oops"
-  frontPage: "voorpagina"
-  fourOhFour: >
-    Je lijkt te zijn aangekomen op een pagina die niet bestaat. Misschien heb
-    je misschien ook zou willen terugkeren naar het {{frontPage}}?
+  oops: "Whoops"
+  frontPage: "Terug naar de homepage"
+  fourOhFour: "De pagina die u zocht kon niet worden gevonden. Het spijt me dat&hellip;"
