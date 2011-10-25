@@ -7,7 +7,7 @@ app = require 'app'
 # `app.masterView`.
 #
 class exports.MasterView extends Backbone.View
-  el: '#chrome'
+  el: 'body'
 
   # The currently rendered sub-view, or null if the page is still being
   # loaded.
