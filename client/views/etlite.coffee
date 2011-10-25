@@ -1,15 +1,14 @@
-app                 = require 'app'
-etliteTemplate      = require 'templates/etlite'
+app                  = require 'app'
+etliteTemplate       = require 'templates/etlite'
 
-{ Inputs }          = require 'collections/inputs'
-{ Queries }         = require 'collections/queries'
+{ Inputs }           = require 'collections/inputs'
+{ Queries }          = require 'collections/queries'
 
-{ Range }           = require 'views/range'
-{ SavingsMediator } = require 'mediators/savings_mediator'
-{ CO2Emissions }    = require 'views/vis/co2_emissions'
-{ Renewables }      = require 'views/vis/renewables'
-{ Costs }           = require 'views/vis/costs'
-{ SupplyDemand }    = require 'views/vis/supply_demand'
+{ RangeView }        = require 'views/range'
+{ CO2EmissionsView } = require 'views/vis/co2_emissions'
+{ RenewablesView }   = require 'views/vis/renewables'
+{ CostsView }        = require 'views/vis/costs'
+{ SupplyDemandView } = require 'views/vis/supply_demand'
 
 INPUT_MAP =
   lighting:    43
@@ -33,7 +32,7 @@ INPUT_MAP =
 # A graph in the middle, and three image-based visualisations at the bottom
 # provide feedback to the user based on the choices they make.
 #
-class exports.ETLite extends Backbone.View
+class exports.ETLiteView extends Backbone.View
   id: 'etlite-view'
 
   events:
@@ -58,20 +57,20 @@ class exports.ETLite extends Backbone.View
     # Render each of the ranges...
 
     leftRanges = [
-      new Range model: @inputs.get INPUT_MAP.lighting
-      new Range model: @inputs.get INPUT_MAP.cars
-      new Range model: @inputs.get INPUT_MAP.insulation
-      new Range model: @inputs.get INPUT_MAP.heating
-      new Range model: @inputs.get INPUT_MAP.appliances
-      new Range model: @inputs.get INPUT_MAP.heatPump ]
+      new RangeView model: @inputs.get INPUT_MAP.lighting
+      new RangeView model: @inputs.get INPUT_MAP.cars
+      new RangeView model: @inputs.get INPUT_MAP.insulation
+      new RangeView model: @inputs.get INPUT_MAP.heating
+      new RangeView model: @inputs.get INPUT_MAP.appliances
+      new RangeView model: @inputs.get INPUT_MAP.heatPump ]
 
     rightRanges = [
-      new Range model: @inputs.get INPUT_MAP.coal
-      new Range model: @inputs.get INPUT_MAP.gas
-      new Range model: @inputs.get INPUT_MAP.nuclear
-      new Range model: @inputs.get INPUT_MAP.wind
-      new Range model: @inputs.get INPUT_MAP.solar
-      new Range model: @inputs.get INPUT_MAP.biomass ]
+      new RangeView model: @inputs.get INPUT_MAP.coal
+      new RangeView model: @inputs.get INPUT_MAP.gas
+      new RangeView model: @inputs.get INPUT_MAP.nuclear
+      new RangeView model: @inputs.get INPUT_MAP.wind
+      new RangeView model: @inputs.get INPUT_MAP.solar
+      new RangeView model: @inputs.get INPUT_MAP.biomass ]
 
     _.each leftRanges,  (range) -> leftRangesEl.append  range.render().el
     _.each rightRanges, (range) -> rightRangesEl.append range.render().el
@@ -101,22 +100,22 @@ class exports.ETLite extends Backbone.View
   # carbon emissions based on the user's choices.
   #
   createCarbonVis: ->
-    new CO2Emissions query: @queries.get(8)
+    new CO2EmissionsView query: @queries.get(8)
 
   # Creates and returns the visualisation which shows the proportion of energy
   # generated from renewable, but unreliable, sources.
   #
   createRenewablesVis: ->
-    new Renewables query: @queries.get(32)
+    new RenewablesView query: @queries.get(32)
 
   # Creates and returns the visualisation which shows the total cost, in
   # Euros, of the choices the user makes.
   #
   createCostsVis: ->
-    new Costs query: @queries.get(23)
+    new CostsView query: @queries.get(23)
 
   # Creates the energy demand / energy supply graph which sits between the two
   # range groups.
   #
   createSupplyDemandVis: ->
-    new SupplyDemand demand: @queries.get(518), supply: @queries.get(49)
+    new SupplyDemandView demand: @queries.get(518), supply: @queries.get(49)

@@ -6,7 +6,7 @@ EXTENT = 1000
 # A placeholder visualisation which projects energy supply and demand into a
 # histogram based on the selections made by the user on the ETlite recreation.
 #
-class exports.SupplyDemand extends Backbone.View
+class exports.SupplyDemandView extends Backbone.View
   id:        'energy-generation'
   className: 'energy-graph'
 

@@ -4,7 +4,7 @@ rangeTemplate   = require 'templates/range'
 # A view used for rendering a single range. The ETlite recreation has twelve
 # of these split into two groups.
 #
-class exports.Range extends Backbone.View
+class exports.RangeView extends Backbone.View
   className: 'range'
 
   # Events; the "help" icon clicker.

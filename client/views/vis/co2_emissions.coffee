@@ -1,6 +1,6 @@
 { GenericVisualisation } = require 'views/vis/generic'
 
-class exports.CO2Emissions extends GenericVisualisation
+class exports.CO2EmissionsView extends GenericVisualisation
 
   # Creates a new CO2Emissions visualisation. In addition to the usual
   # Backbone options, requires `gas` containing the gas-fired power plants

@@ -1,4 +1,4 @@
-{ NotFound } = require 'views/not_found'
+{ NotFoundView } = require 'views/not_found'
 
 # A Backbone Router used for displaying error messages, and catches cases
 # where no other router has a matching route.
@@ -13,4 +13,4 @@ class exports.Errors extends Backbone.Router
   # GET /*undefined
   #
   notFound: ->
-    $('#chrome').html (new NotFound).render().el
+    $('#chrome').html (new NotFoundView).render().el

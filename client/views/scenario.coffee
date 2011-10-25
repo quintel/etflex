@@ -1,16 +1,16 @@
-app         = require 'app'
-template    = require 'templates/scenario'
+app           = require 'app'
+template      = require 'templates/scenario'
 
-{ Inputs }  = require 'collections/inputs'
-{ Queries } = require 'collections/queries'
-{ Range }   = require 'views/range'
+{ Inputs }    = require 'collections/inputs'
+{ Queries }   = require 'collections/queries'
+{ RangeView } = require 'views/range'
 
 # Scenario -------------------------------------------------------------------
 
 # The heart of ETflex; given a Scenario model creates an HTML representation
 # displaying the left and right sliders, visualisations, etc.
 #
-class exports.Scenario extends Backbone.View
+class exports.ScenarioView extends Backbone.View
   className: 'scenario-view'
 
   # Creates a new Scenario view.

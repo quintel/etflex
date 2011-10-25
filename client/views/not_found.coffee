@@ -1,6 +1,6 @@
 app = require 'app'
 
-class exports.NotFound extends Backbone.View
+class exports.NotFoundView extends Backbone.View
   id:        'not-found-view'
   className: 'error-view'
 

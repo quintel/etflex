@@ -1,6 +1,6 @@
 { GenericVisualisation } = require 'views/vis/generic'
 
-class exports.Renewables extends GenericVisualisation
+class exports.RenewablesView extends GenericVisualisation
 
   # Creates a new Renewables visualisation. Calculates the percentage of total
   # energy generated which is derived from solar and window energy.

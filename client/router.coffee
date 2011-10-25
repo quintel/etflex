@@ -1,8 +1,5 @@
-app = require 'app'
-
-{ Sanity }   = require 'views/sanity'
-{ ETLite }   = require 'views/etlite'
-{ Scenario } = require 'views/scenario'
+app              = require 'app'
+{ ScenarioView } = require 'views/scenario'
 
 # A simpler way to call `app.masterView.setSubView`.
 render = (view) -> app.masterView.setSubView view
@@ -29,8 +26,10 @@ class exports.Router extends Backbone.Router
     # reverse order in which they are defined.
     @errors = new (require('routers/errors').Errors)
 
+    @views  = { sanity: new (require('views/sanity').SanityView)
+              , etlite: new (require('views/etlite').ETLiteView) }
+
     super()
-    @views = { sanity: new Sanity, etlite: new ETLite }
 
   # The root page; simply redirects to /sanity for now.
   #
@@ -53,6 +52,7 @@ class exports.Router extends Backbone.Router
   # GET /etflex
   #
   etlite: ->
+    console.log @views
     render @views.etlite
 
   # Loads a scenario using JSON delivered from ETflex to set up which inputs
@@ -66,7 +66,7 @@ class exports.Router extends Backbone.Router
       console.log 'Found scenario:', scenario
 
       scenario.start (err, scenario, session) ->
-        render new Scenario model: scenario
+        render new ScenarioView model: scenario
     else
       @errors.notFound()
 

@@ -4,7 +4,7 @@ sanityTemplate = require 'templates/sanity'
 # A full-page view which confirms to the user that Backbone, CoffeeScript and
 # Eco templates are working correctly.
 #
-class exports.Sanity extends Backbone.View
+class exports.SanityView extends Backbone.View
   id: 'sanity-view'
 
   events:
