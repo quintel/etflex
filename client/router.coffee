@@ -11,14 +11,16 @@ render = (view) -> app.masterView.setSubView view
 #
 class exports.Router extends Backbone.Router
   routes:
-    '':            'root'
-    'sanity':      'sanity'
-    'etlite':      'etlite'
+    '':              'root'
+    'sanity':        'sanity'
+    'etlite':        'etlite'
 
-    'en':          'languageRedirect'
-    'nl':          'languageRedirect'
-    'en/*actions': 'languageRedirect'
-    'nl/*actions': 'languageRedirect'
+    'scenarios/:id': 'scenario'
+
+    'en':            'languageRedirect'
+    'nl':            'languageRedirect'
+    'en/*actions':   'languageRedirect'
+    'nl/*actions':   'languageRedirect'
 
   constructor: ->
     # This should always be the first router since it catches any unmatched
@@ -51,6 +53,18 @@ class exports.Router extends Backbone.Router
   #
   etlite: ->
     render @views.etlite
+
+  # Loads a scenario using JSON delivered from ETflex to set up which inputs
+  # and visualiations are used.
+  #
+  # GET /scenario/:id
+  #
+  scenario: (id) ->
+    if scenario = app.collections.scenarios.get id
+      # Start the scenario.
+      console.log 'Found scenario:', scenario
+    else
+      @errors.notFound()
 
   # Used when changing language; a two-character language code is appended to
   # the URL.
