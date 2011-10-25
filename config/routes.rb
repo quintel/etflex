@@ -4,12 +4,12 @@ ETFlex::Application.routes.draw do
     paths: %w(client vendor/assets/javascript))
 
   scope '(:locale)', constraints: { locale: /en|nl/ } do
-    get 'sanity', to: 'application#sanity'
-    get 'etlite', to: 'application#sanity'
+    get 'sanity', to: 'application#render_client'
+    get 'etlite', to: 'application#render_client'
 
-    get 'scenarios/:id', to: 'application#sanity'
+    get 'scenarios/:id', to: 'application#render_client'
 
-    root to: 'application#sanity'
+    root to: 'application#render_client'
   end
 
   # The priority is based upon order of creation:

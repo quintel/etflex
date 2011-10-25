@@ -17,6 +17,21 @@ class ApplicationController < ActionController::Base
     session[:locale] = I18n.locale
   end
 
+  # Returns a hash which may be used in conjunction with `render` so that you
+  # may simply
+  #
+  #   render client
+  #
+  # Pass extra rendering options to `client` has a hash, like so:
+  #
+  #   render client(meaning: 42)
+  #
+  def client(options = nil)
+    if options.nil? then { template: 'application/sanity' } else
+      options.merge template: 'application/sanity'
+    end
+  end
+
   # ACTIONS ------------------------------------------------------------------
 
   ######
@@ -26,9 +41,10 @@ class ApplicationController < ActionController::Base
   # A temporary action used to verify that Haml, RSpec, and other dependencies
   # are correctly configured.
   #
-  # GET /sanity
+  # GET /
   #
-  def sanity
+  def render_client
+    render client
   end
 
 end
