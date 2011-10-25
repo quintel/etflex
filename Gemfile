@@ -46,18 +46,16 @@ group :test, :development do
   # the spec:* tasks won't be available when using rake.
   gem 'rspec-rails',  '~> 2.6'
 
+  # Integration / acceptance testing.
+  gem 'capybara', '>= 1.1.1'
+
   # Same with Guard.
   gem 'guard'
   gem 'guard-rspec'
-  gem 'guard-cucumber'
   gem 'rb-fsevent'
   gem 'growl_notify'
 end
 
 group :test do
   gem 'database_cleaner'
-end
-
-group :cucumber do
-  gem 'cucumber-rails'
 end
