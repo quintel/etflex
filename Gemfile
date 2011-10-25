@@ -56,5 +56,8 @@ end
 
 group :test do
   gem 'database_cleaner'
+end
+
+group :cucumber do
   gem 'cucumber-rails'
 end
