@@ -11,7 +11,7 @@ template      = require 'templates/scenario'
 # displaying the left and right sliders, visualisations, etc.
 #
 class exports.ScenarioView extends Backbone.View
-  className: 'scenario-view'
+  id: 'scenario-view'
 
   # Creates a new Scenario view.
   #
