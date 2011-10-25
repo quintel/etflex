@@ -44,6 +44,20 @@ class exports.ScenarioView extends Backbone.View
   #
   render: ->
     $(@el).html template()
+
+    # Render each of the Inputs as a Range.
+
+    leftRangesEl  = @$ '#left-inputs'
+    rightRangesEl = @$ '#right-inputs'
+
+    for input in @inputs.models
+      view = new RangeView model: input
+
+      if _.include @model.get('leftInputs'), input.get('id')
+        leftRangesEl.append view.render().el
+      else
+        rightRangesEl.append view.render().el
+
     this
 
 # Helpers --------------------------------------------------------------------
