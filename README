@@ -7,9 +7,9 @@
 
 ---------------------------
 
-ETFlex / ETNode aims to make the Energy Transition Model accessible to
-ordinary people who want to learn more about the subject, as well as help QI
-better serve educational users.
+ETFlex aims to make the Energy Transition Model accessible to ordinary people
+who want to learn more about the subject, as well as help QI better serve
+educational users.
 
 Most of the application is implemented in CoffeeScript and can be found in
 /client, while Rails serves up little more than a REST API.
