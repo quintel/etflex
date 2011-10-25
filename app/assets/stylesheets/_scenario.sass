@@ -1,0 +1,30 @@
+// Styles for scenario pages; pages with inputs and visualisations which allow
+// users to see the outcomes of their choices.
+//
+// This file should contain only generic styles -- positioning, layout, etc,
+// while style specific to different scenarios should be placed in a file
+// dedicated to the scenarios in ./scenarios
+
+#scenario-view
+  #core
+    background: #f5f5f5
+    margin: auto
+    width: 960px
+
+    #controls
+      @extend .clearfix
+
+      // The three "main" boxes on the scenarios page:
+      //
+      //   +-Title----+   +----------+   +-Title----+
+      //   | *------- |   |          |   | -----*-- |
+      //   | ---*---- |   |  ==      |   | -*------ |
+      //   | -*------ |   |  ==      |   | ----*--- |
+      //   | -----*-- |   |  ==  ==  |   | --*----- |
+      //   | --*----- |   |  ==  ==  |   | -------* |
+      //   +----------+   +----------+   +----------+
+      //
+      #left-inputs, #center-vis, #right-inputs
+        float: left
+        margin: 0 30px
+        width: 280px
