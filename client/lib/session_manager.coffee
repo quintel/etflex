@@ -42,6 +42,8 @@ exports.getSession = (scenario, callback) ->
   if scenario.session
     callback null, scenario.session
   else
+    scenarioId = scenario.id
+
     wrappedCallback = (err, session) ->
       if err? then callback(err) else
         ID_MAP[ scenarioId ] = session.id
