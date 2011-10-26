@@ -1,5 +1,5 @@
 # The base URL used for all session requests.
-BASE_URL = 'http://api.et-model.com/api/v2/api_scenarios'
+BASE_URL = 'http://et-engine.com/api/v2/api_scenarios'
 
 # Send with the request as X-Api-Agent so that ETengine devs know where
 # requests are coming from.
