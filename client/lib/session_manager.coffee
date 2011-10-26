@@ -4,13 +4,6 @@
 
 { Session } = require 'models/session'
 
-# Holds all of the scenario ID -> session ID pairs. Retrieved on page load
-# from the cookie, or defaults to an empty object if this is the users first
-# visit.
-ID_MAP = if cookie = jQuery.cookie('eteSessions')
-  JSON.parse cookie
-else {}
-
 # The base URL used for all session requests.
 BASE_URL = 'http://et-engine.com/api/v2/api_scenarios'
 
@@ -22,15 +15,10 @@ X_API_AGENT = 'ETflex Client'
 
 # Returns the ETEngine session which corresponds with a Scenario ID.
 #
-# If the user has visited the scenario since the application loaded, the
-# session instance is cached and will be immediately given to the callback.
-#
-# If the user has a previous session for the scenario it will be fetched from
-# ETengine so that the scenario may be initialized with the values previously
-# chosen by the user.
-#
-# If this is the users first time using a scenario, a new ETEngine session
-# will be created.
+# "getSession" will always hit ETEngine for the session details, and will
+# return a new Session. This method is used in conjunction with
+# Scenario::start and probably shouldn't be celled directly unless you know
+# what you're doing.
 #
 # In all cases, the session will be returned to the callback as the second
 # argument. The first argument will be null unless an error occurred.
@@ -38,25 +26,16 @@ X_API_AGENT = 'ETflex Client'
 # scenarioId - A number which uniquely identifies the session.
 # callback   - A function which is run after the session is retrieved.
 #
-exports.getSession = (scenario, callback) ->
-  if scenario.session
-    callback null, scenario.session
+exports.getSession = (scenarioId, callback) ->
+  lsKey = "ete.#{scenarioId}"
+
+  if existingId = localStorage.getItem lsKey
+    restoreSession existingId, callback
   else
-    scenarioId = scenario.id
-
-    wrappedCallback = (err, session) ->
+    createSession (err, session) ->
       if err? then callback(err) else
-        ID_MAP[ scenarioId ] = session.id
-
-        jQuery.cookie 'eteSessions', JSON.stringify(ID_MAP),
-          expires: 1, path: '/'
-
+        localStorage.setItem lsKey, session.id
         callback null, session
-
-    if ID_MAP[ scenarioId ]
-      restoreSession ID_MAP[ scenarioId ], wrappedCallback
-    else
-      createSession wrappedCallback
 
 # Session Helpers ------------------------------------------------------------
 
