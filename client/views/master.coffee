@@ -66,10 +66,6 @@ class exports.MasterView extends Backbone.View
     doRender = if @queries then app.session.updateInputs else immediateRender
 
     doRender.call app.session, [], @queries or [], =>
-      # When the first view is rendered we remove the "loading" styles from
-      # the page prior to inserting the new view into the DOM.
-      jQuery('body').removeClass 'loading' if isFirstView
-
       view.inputs  = @inputs  if @inputs
       view.queries = @queries if @queries
 
