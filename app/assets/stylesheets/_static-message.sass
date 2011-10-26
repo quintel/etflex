@@ -1,5 +1,5 @@
-.error-view
-  background: #eafafd url(/assets/oops.png) bottom left no-repeat
+#static-message-view
+  background: #eafafd url(/assets/static-msg.png) bottom left no-repeat
   border-top: 1px solid #eafafd
   color: #5d5f5f
   height: 100%
@@ -10,7 +10,7 @@
     background: rgba(#eafafd, 0.7)
     margin: 100px 0 0 100px
     padding: 50px 50px 30px
-    width: 350px
+    width: 325px
 
   h1
     font: bold 48px "Helvetica Neue", Arial, Helvetica, sans-serif
@@ -24,3 +24,9 @@
 
   a
     font-weight: bold
+
+  &.loading
+    h1
+      background: url(/assets/loading-spinner.gif) 0 4px no-repeat
+      margin-left: -60px
+      padding: 0 0 20px 60px

@@ -3,6 +3,8 @@
 
 en:
   loading: "Loading"
+  loadingMsg: "The application is being loaded. Hang tight; it won't be long!"
+  loadingNothing: "Nothing happening?"
 
   # 404 Not Found
 

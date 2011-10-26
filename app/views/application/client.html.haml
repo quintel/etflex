@@ -1,4 +1,7 @@
-#loading-view
-  .wrap
-    .spinner &nbsp;
-    == #{t(:loading)}&hellip;
+#static-message-view.loading
+  .message
+    %h1
+      == #{t(:loading)}&hellip;
+
+    %p
+      = t(:loadingMsg)

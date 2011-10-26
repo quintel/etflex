@@ -1,8 +1,8 @@
 app = require 'app'
 
 class exports.NotFoundView extends Backbone.View
-  id:        'not-found-view'
-  className: 'error-view'
+  id:        'static-message-view'
+  className: 'not-found'
 
   events:
     'click a': 'navigateToRoot'
