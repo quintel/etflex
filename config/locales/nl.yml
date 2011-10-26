@@ -3,7 +3,8 @@
 
 nl:
   loading: "Het laden"
-
+  loadingMsg: "De applicatie wordt geladen. Het ene moment, het zal niet lang meer duren!"
+  loadingNothing: "Niets gebeurt er?"
 
   # 404 Not Found
 
