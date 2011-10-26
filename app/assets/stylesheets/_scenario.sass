@@ -37,8 +37,8 @@
       .range
 
         .control
-          background: url(/assets/scenarios/modern/range.png) top left no-repeat
-          height: 35px
+          // The area which wraps the actual Quinn element. Set a background
+          // and height as appropriate in theme stylesheets.
 
           // Disables the default Quinn sprite. Be sure to set background
           // properties in individual themes...
@@ -46,11 +46,3 @@
           &.quinn
             .left, .main, .right, .handle
               background: none
-
-          .handle
-            background: url(/assets/scenarios/modern/range.png) 0 -35px no-repeat
-            height: 35px
-            width: 30px
-
-            &:active
-              background-position: -30px -35px
