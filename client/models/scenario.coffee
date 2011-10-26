@@ -23,6 +23,5 @@ class exports.Scenario extends Backbone.Model
   #            and the session instance.
   #
   start: (callback) ->
-    if @session then callback(null, this, session) else
-      initSession (err, session) =>
-        if err? then callback(err) else callback(null, @, @session = session)
+    initSession (err, session) =>
+      if err? then callback(err) else callback(null, @, @session = session)

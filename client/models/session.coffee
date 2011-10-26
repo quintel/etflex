@@ -121,6 +121,8 @@ class Session extends Backbone.Model
 
 # Exports --------------------------------------------------------------------
 
+exports.Session = Session
+
 # Creates a new instance of Session.
 #
 # If an existing ETengine session ID is present in a cookie, the session will
