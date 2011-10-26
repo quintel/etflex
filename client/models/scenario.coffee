@@ -1,4 +1,4 @@
-{ initSession } = require 'models/session'
+{ getSession } = require 'lib/session_manager'
 
 # Scenarios are pages such as the ETlite recreation, which have one or more
 # inputs, fetch results from ETengine, and display these to the user.
@@ -23,5 +23,5 @@ class exports.Scenario extends Backbone.Model
   #            and the session instance.
   #
   start: (callback) ->
-    initSession (err, session) =>
+    getSession @, (err, session) =>
       if err? then callback(err) else callback(null, @, @session = session)
