@@ -1,4 +1,6 @@
-{ getSession } = require 'lib/session_manager'
+app              = require 'app'
+{ getSession }   = require 'lib/session_manager'
+{ InputManager } = require 'lib/input_manager'
 
 # Scenarios are pages such as the ETlite recreation, which have one or more
 # inputs, fetch results from ETengine, and display these to the user.
@@ -25,4 +27,14 @@ class exports.Scenario extends Backbone.Model
   start: (callback) ->
     if @session? then callback(null, @, @session) else
       getSession @id, (err, session) =>
-        if err? then callback(err) else callback(null, @, @session = session)
+        if err? then callback(err) else
+
+          # Session::finalizeInputs is the old way of doing things, but
+          # necessary until per-scenario collections are added.
+          session.finalizeInputs app.collections.inputs
+
+          # Same as above; will be removed once per-scenario collections are
+          # added.
+          app.inputManager = new InputManager session
+
+          callback(null, @, @session = session)

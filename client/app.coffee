@@ -17,9 +17,6 @@ exports.router = null
 # Holds each of the main model collections (Sliders, Widgets, etc).
 exports.collections = {}
 
-# Holds the Session singleton containing the user session information.
-exports.session = null
-
 # The singleton views/Master instance.
 exports.masterView = null
 
@@ -38,18 +35,9 @@ exports.boot = (window, locale) ->
   exports.collections.queries   = new Queries
   exports.collections.scenarios = new Scenarios
 
-  async.parallel data: fetchInitialData, session: initSession, postBoot
+  async.parallel data: fetchInitialData, postBoot
 
 # Bootstrap Functions, execute in parallel -----------------------------------
-
-# Sets up the user's session with ETengine. If they already have a session
-# active, it will be restored; otherwise a new session is created.
-#
-# See `initSession` in models/session.coffee for more information.
-#
-initSession = (callback) ->
-  session.initSession (err, session) ->
-    if err? then callback err else callback null, session
 
 # Retrieves static data such as input and query definitions. Ideally it should
 # be possible for the remote API to deliver this all in a single response.
@@ -73,13 +61,8 @@ postBoot = (err, result) ->
   if err?
     console.error "Could not initialize application.", err
   else
-    exports.session = result.session
-    exports.session.finalizeInputs exports.collections.inputs
-
     exports.router       = new (require('router').Router)
     exports.masterView   = new (require('views/master').MasterView)
-
-    exports.inputManager = new InputManager exports.session
 
     # Fire up Backbone routing...
     Backbone.history.start pushState: true
