@@ -120,10 +120,10 @@ createDefaultScenarios = (collection) ->
     leftInputs:  [  43, 146, 336, 348, 366, 338 ]
     rightInputs: [ 315, 256, 259, 263, 313, 196 ]
 
-    centerVis:     require('views/vis/supply_demand').SupplyDemand
-    mainVis:     [ require('views/vis/renewables').Renewables,
-                   require('views/vis/co2_emissions').CO2Emissions
-                   require('views/vis/costs').Costs ]
+    centerVis:     require('views/vis/supply_demand').SupplyDemandView
+    mainVis:     [ require('views/vis/renewables').RenewablesView,
+                   require('views/vis/co2_emissions').CO2EmissionsView
+                   require('views/vis/costs').CostsView ]
 
 installConsolePolyfill = (window) ->
   unless 'console' of window
