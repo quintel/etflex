@@ -58,6 +58,11 @@ class exports.ScenarioView extends Backbone.View
       else
         rightRangesEl.append view.render().el
 
+    centerVis = new (@model.get 'centerVis')(
+      supply: @model.queries.get(49), demand: @model.queries.get(518) )
+
+    @$('#center-vis').html centerVis.render().el
+
     this
 
 # Helpers --------------------------------------------------------------------
