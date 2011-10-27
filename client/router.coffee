@@ -62,9 +62,6 @@ class exports.Router extends Backbone.Router
   #
   scenario: (id) ->
     if scenario = app.collections.scenarios.get id
-      # Start the scenario.
-      console.log 'Found scenario:', scenario
-
       scenario.start (err, scenario, session) ->
         render new ScenarioView model: scenario
     else
