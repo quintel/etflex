@@ -24,15 +24,23 @@ X_API_AGENT = 'ETflex Client'
 # argument. The first argument will be null unless an error occurred.
 #
 # scenarioId - A number which uniquely identifies the session.
+# queries    - Queries whose results should be fetched with the session.
 # callback   - A function which is run after the session is retrieved.
 #
-exports.getSession = (scenarioId, callback) ->
+exports.getSession = (scenarioId, queries, callback) ->
   lsKey = "ete.#{scenarioId}"
 
-  if existingId = localStorage.getItem lsKey
-    restoreSession existingId, callback
+  if callback?
+    # Convert Backbone collection to an array.
+    queries = queries.models unless _.isArray queries
   else
-    createSession (err, session) ->
+    # queries argument may be omitted.
+    [ callback, queries ] = [ queries, null ] unless callback?
+
+  if existingId = localStorage.getItem lsKey
+    restoreSession existingId, queries, callback
+  else
+    createSession queries, (err, session) ->
       if err? then callback(err) else
         localStorage.setItem lsKey, session.id
         callback null, session
@@ -46,10 +54,13 @@ exports.getSession = (scenarioId, callback) ->
 # callback - Run after the request completes with either the jQuery error
 #            returned, or the parsed JSON data.
 #
-sendRequest = (path, callback) ->
+sendRequest = (path, data, callback) ->
+  [ callback, data ] = [ data, null ] unless callback?
+
   jQuery.ajax
     url:         "#{BASE_URL}/#{path}.json?callback=?&"
     type:        'GET'
+    data:         data
     dataType:    'json'
     accepts:     'json'
     contentType: 'json'
@@ -65,14 +76,18 @@ sendRequest = (path, callback) ->
 # information about a session (country, etc).
 #
 # sessionId - The ID of the session being fetched from ETengine.
+# queries   - Queries whose results should be fetched with the session.
 # callback  - Is run with the error or retrieved session data.
 #
-fetchSession = (sessionId, callback) ->
-  sendRequest "#{sessionId}", (err, result) ->
+fetchSession = (sessionId, queries, callback) ->
+  data = {}
+  data.result = ( query.get('id') for query in queries ) if queries?
+
+  sendRequest "#{sessionId}", data, (err, result) ->
     if err? then callback(err) else
       # New sessions return the API information in "api_scenario" while
       # existing sessions return it in "settings".
-      callback null, result.api_scenario or result.settings
+      callback null, result
 
 # Hits user_values.json to get the state of the user's Inputs.
 #
@@ -88,39 +103,50 @@ fetchUserValues = (sessionId, callback) ->
 #
 # See `initSession`.
 #
-createSession = (callback) ->
-  async.waterfall [
-    # Create a new session.
-    (cb) -> fetchSession 'new', cb
+createSession = (queries, callback) ->
+  fetchSession 'new', null, (err, sessionData) ->
+    return callback(err) if err?
 
-    # Fetch user_values.json to initialize sliders.
-    (sessionValues, cb) ->
-      fetchUserValues sessionValues.id, (err, userValues) ->
-        cb null, sessionValues, userValues
+    sessionData = sessionData.api_scenario
 
-  ], (err, sessionValues, userValues) ->
-    callback null, new Session _.extend sessionValues, user_values: userValues
+    # The ETengine API does not presently support requesting query results
+    # when creating a session. We need to start the session, and _then_
+    # fetch the values.
+    return restoreSession sessionData.id, queries, callback if queries?
+
+    # No query results requires, so it suffices to proceed to getting the
+    # initial user values.
+    fetchUserValues sessionData.id, (err, userValues) ->
+      if err? then callback(err) else
+        callback null, new Session(
+          _.extend(sessionData, user_values: userValues))
 
 # Restores the session state by retrieving it from ETengine.
 #
 # See `initSession`.
 #
 # sessionId - The ID of the ETengine session to be restored.
+# queries   - Queries whose results should be fetched with the session.
 # callback  - Is called with the restored Session.
 #
-restoreSession = (sessionId, callback) ->
+restoreSession = (sessionId, queries, callback) ->
   # Currently we have to fetch both the session information and user values
   # separately; it would be just marvellous if we could do both in a single
   # request. ;-)
   #
   async.parallel
     # Fetches information about the session.
-    session: (cb) -> fetchSession sessionId, cb
+    session: (cb) -> fetchSession sessionId, queries, cb
     # Fetches user_values.json
     values:  (cb) -> fetchUserValues sessionId, cb
 
   , (err, result) ->
     if err? then callback(err) else
-      callback null, new Session _.extend result.session,
+      # If we fetched queries, update the models...
+      if queryResults = result.session.result
+        for query in queries when qResult = queryResults[ query.get 'id' ]
+          query.set present: qResult[0][1], future: qResult[1][1]
+
+      callback null, new Session _.extend result.session.settings,
         id:          sessionId
         user_values: result.values

@@ -19,7 +19,7 @@ class exports.Scenario extends Backbone.Model
 
   # Starts the scenario by fetching the ETengine session (if one already
   # exists; creates a new session otherwise).
-  #
+
   # callback - A function which will be run after the scenario has been set
   #            up. The callback will be provided with the Scenario instance
   #            and the session instance.
@@ -38,7 +38,7 @@ class exports.Scenario extends Backbone.Model
       @inputs  = app.collections.inputs.subset(
         @get('leftInputs').concat @get('rightInputs'))
 
-      getSession @id, (err, session) =>
+      getSession @id, @queries, (err, session) =>
         if err? then callback(err) else
 
           # Session::finalizeInputs is the old way of doing things, but
@@ -52,12 +52,4 @@ class exports.Scenario extends Backbone.Model
           # Watch for changes to the inputs, and send them back to ETengine.
           @inputs.bind 'change:value', (ipt) => ipt.save {}, queries: @queries
 
-          # If the view has any queries, we need to fetch their values from
-          # ETengine, I intend to merge this into "getSession", so this is
-          # just a hack to get things up-and-running.
-          if @queries.length > 0
-            session.updateInputs [], @queries, (err) =>
-              if err? then callback(err) else
-                callback(null, @, @session = session)
-          else
-            callback(null, @, @session = session)
+          callback(null, @, @session = session)
