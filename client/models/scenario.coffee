@@ -46,6 +46,10 @@ class exports.Scenario extends Backbone.Model
           # added.
           app.inputManager = new InputManager session
 
+          # Watch for changes to the inputs, and send them back to ETengine.
+          app.collections.inputs.bind 'change:value', (input) =>
+            input.save {}, queries: @queries
+
           # If the view has any queries, we need to fetch their values from
           # ETengine, I intend to merge this into "getSession", so this is
           # just a hack to get things up-and-running.
