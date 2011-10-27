@@ -26,6 +26,15 @@ class exports.Scenario extends Backbone.Model
   #
   start: (callback) ->
     if @session? then callback(null, @, @session) else
+
+      # Determine which queries are used by the Scenario.
+      queryIds = _.clone(@get('centerVis').queries or [])
+
+      for visualisation in @get('mainVis') when visualisation.queries?
+        queryIds.concat visualisation.queries
+
+      @queries = app.collections.queries.subset queryIds
+
       getSession @id, (err, session) =>
         if err? then callback(err) else
 
