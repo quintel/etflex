@@ -46,4 +46,12 @@ class exports.Scenario extends Backbone.Model
           # added.
           app.inputManager = new InputManager session
 
-          callback(null, @, @session = session)
+          # If the view has any queries, we need to fetch their values from
+          # ETengine, I intend to merge this into "getSession", so this is
+          # just a hack to get things up-and-running.
+          if @queries.length > 0
+            session.updateInputs [], @queries, (err) =>
+              if err? then callback(err) else
+                callback(null, @, @session = session)
+          else
+            callback(null, @, @session = session)

@@ -1,3 +1,10 @@
+# The base URL used for all session requests.
+BASE_URL = 'http://et-engine.com/api/v2/api_scenarios'
+
+# Send with the request as X-Api-Agent so that ETengine devs know where
+# requests are coming from.
+X_API_AGENT = 'ETflex Client'
+
 # Represents the user's session with ETengine; keeps track of their unique
 # session ID, scenario country, end date, etc.
 #
@@ -61,7 +68,7 @@ class exports.Session extends Backbone.Model
     params.result = ( query.get('id') for query in queries ) if queries?
 
     jQuery.ajax
-      url:         scenarioUrl this.get('id')
+      url:         "#{BASE_URL}/#{@get('id')}.json?callback=?&"
       data:        params
       type:        'GET'
       dataType:    'json'
