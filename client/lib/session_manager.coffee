@@ -99,10 +99,6 @@ createSession = (callback) ->
         cb null, sessionValues, userValues
 
   ], (err, sessionValues, userValues) ->
-    # Store the session ID as a cookie so that we can restore on refresh.
-    jQuery.cookie 'eteSid', "#{sessionValues.id}",
-      expires: 1, path: '/'
-
     callback null, new Session _.extend sessionValues, user_values: userValues
 
 # Restores the session state by retrieving it from ETengine.
