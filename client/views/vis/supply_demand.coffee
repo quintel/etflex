@@ -7,6 +7,8 @@ EXTENT = 1000
 # histogram based on the selections made by the user on the ETlite recreation.
 #
 class exports.SupplyDemandView extends Backbone.View
+  @queries:  [ 49, 518 ]
+
   id:        'energy-generation'
   className: 'energy-graph'
 
