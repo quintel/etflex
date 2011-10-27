@@ -12,7 +12,7 @@ template      = require 'templates/scenario'
 #
 class exports.ScenarioView extends Backbone.View
   id: 'scenario-view'
-  className: 'modern' # TODO Set dynamically based on server-sent JSON.
+  className: 'etlite' # TODO Set dynamically based on server-sent JSON.
 
   # Creates a new Scenario view.
   #
