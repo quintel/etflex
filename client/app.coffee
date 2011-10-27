@@ -79,9 +79,9 @@ createDefaultInputs = (collection) ->
   head.destroy() while head = collection.first()
 
   fixtures = [
-    { id:  43, key: 'lighting',   start_value: 5, max_value:   100, unit: '%'   }
-    { id: 146, key: 'cars',       start_value: 0, max_value:   100, unit: '%'   }
-    { id: 336, key: 'insulation', start_value: 1, max_value:   100, unit: '%'   }
+    { id:  43, key: 'lighting',   start_value: 5, max_value:   100, unit: '%', disabled: true }
+    { id: 146, key: 'cars',       start_value: 0, max_value:   100, unit: '%', disabled: true }
+    { id: 336, key: 'insulation', start_value: 1, max_value:   100, unit: '%', disabled: true }
     { id: 348, key: 'heating',    start_value: 0, max_value:    80, unit: '%'   }
     { id: 366, key: 'appliances', start_value: 0, max_value:    20, unit: '%'   }
     { id: 338, key: 'heatPump',   start_value: 0, max_value:    80, unit: '%'   }

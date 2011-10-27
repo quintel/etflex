@@ -13,8 +13,9 @@ class exports.Input extends Backbone.Model
   #
   constructor: (attributes, options) ->
     super
-      id:    attributes.id
-      value: attributes.start_value or attributes.min_value or 0
+      id:       attributes.id
+      value:    attributes.start_value or attributes.min_value or 0
+      disabled: attributes.disabled
     , options
 
     @def = new InputDefinition

@@ -29,6 +29,8 @@ class exports.RangeView extends Backbone.View
       handleWidth: 31
       width:       271
 
+      disable:     @model.get('disabled')
+
       onSetup:     @updateOutput
       onChange:    @updateOutput
       onCommit:    @updateModel
