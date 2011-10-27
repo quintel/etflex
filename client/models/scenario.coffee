@@ -35,20 +35,22 @@ class exports.Scenario extends Backbone.Model
 
       @queries = app.collections.queries.subset queryIds
 
+      @inputs  = app.collections.inputs.subset(
+        @get('leftInputs').concat @get('rightInputs'))
+
       getSession @id, (err, session) =>
         if err? then callback(err) else
 
           # Session::finalizeInputs is the old way of doing things, but
           # necessary until per-scenario collections are added.
-          session.finalizeInputs app.collections.inputs
+          session.finalizeInputs @inputs
 
           # Same as above; will be removed once per-scenario collections are
           # added.
           app.inputManager = new InputManager session
 
           # Watch for changes to the inputs, and send them back to ETengine.
-          app.collections.inputs.bind 'change:value', (input) =>
-            input.save {}, queries: @queries
+          @inputs.bind 'change:value', (ipt) => ipt.save {}, queries: @queries
 
           # If the view has any queries, we need to fetch their values from
           # ETengine, I intend to merge this into "getSession", so this is
