@@ -1,7 +1,4 @@
 ETFlex::Application.routes.draw do
-  # Assets.
-  match '/application.js' => Stitch::Server.new(
-    paths: %w(client vendor/assets/javascript))
 
   scope '(:locale)', constraints: { locale: /en|nl/ } do
     get 'sanity', to: 'application#render_client'
