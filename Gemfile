@@ -12,8 +12,7 @@ gem 'railties',       RAILS_VERSION, :require => 'rails'
 
 gem 'mysql2'
 
-gem 'haml',           '~> 3.1.3'
-gem 'stitch-rb',      '~> 0.0.4'
+gem 'haml', '~> 3.1.3'
 
 gem 'jquery-rails'
 gem 'i18n-js'
