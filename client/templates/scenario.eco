@@ -13,6 +13,5 @@
 
   <div id="main-vis"></div>
 
-  <a href="#" class="clear"><%= I18n.t 'etlite.clearSession' %></a> |
   <a href="/en" class="en">en</a> | <a href="/nl" class="nl">nl</a>
 </div>
