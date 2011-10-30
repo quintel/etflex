@@ -41,6 +41,10 @@ end
 group :test, :development do
   # gem 'ruby-debug19', :require => 'ruby-debug'
 
+  # An effective alternative to ruby-debug; call "binding.pry" instead
+  # of "debugger"
+  gem 'pry', '>= 0.9.7'
+
   # rspec-rails needs to be added to the development environment, otherwise
   # the spec:* tasks won't be available when using rake.
   gem 'rspec-rails',  '~> 2.6'
