@@ -39,7 +39,7 @@ end
 # gem 'capistrano'
 
 group :test, :development do
-  gem 'ruby-debug19', :require => 'ruby-debug'
+  # gem 'ruby-debug19', :require => 'ruby-debug'
 
   # rspec-rails needs to be added to the development environment, otherwise
   # the spec:* tasks won't be available when using rake.
