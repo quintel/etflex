@@ -1,3 +1,5 @@
+{ updateInputs } = require 'lib/session_manager'
+
 # Since Inputs aren't stored on ETengine using a "proper" REST API,
 # InputManager keeps track of the "user_values" object which it returns,
 # and is used as the persistance layer for Input instances.
@@ -36,4 +38,4 @@ class exports.InputManager
     @values[ input.get 'id' ] = input.get 'value'
 
     # Then persist it back to ETengine.
-    @session.updateInputs [input], options?.queries, (->)
+    updateInputs @session.id, inputs: [input], queries: options?.queries
