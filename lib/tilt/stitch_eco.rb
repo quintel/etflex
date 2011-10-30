@@ -1,35 +1,29 @@
 require 'tilt'
-require 'tilt/stitch_cs'
 
 module ETFlex::Tilt
-  class StitchEco < Tilt::Template
+  # A customised version of the Eco template which will handle all Eco
+  # templates normally, except those in /client which will be created as
+  # modules for use with Stitch.
+  #
+  class StitchEco < Sprockets::EcoTemplate
     self.default_mime_type = 'application/javascript'
 
-    def self.engine_initialized?
-      defined? ::Eco
-    end
-
-    def initialize_engine
-      require_template_library 'eco'
-    end
-
-    def prepare
-    end
-
+    # Compiles the Eco source.
+    #
+    # If the source file is in the /client directory, it will be compiled as
+    # a CommonJS module for use with Stitch.
+    #
     def evaluate(scope, locals, &block)
-      @output ||= <<-EOF.gsub(/^ {8}/, '')
-        require.define({ '#{ module_name(scope) }': function(e, r, m) {
-          m.exports = #{ Eco.compile(data) }
-        }});
-      EOF
+      if scope.root_path.split('/').last == 'client'
+        @output ||= <<-EOF.gsub(/^ {10}/, '')
+          require.define({ '#{ scope.logical_path }': function(e, r, m) {
+            m.exports = #{ Eco.compile(data) }
+          }});
+        EOF
+      else
+        super
+      end
     end
 
-    #######
-    private
-    #######
-
-    def module_name(scope)
-      scope.logical_path
-    end
-  end
+  end # StitchEco
 end # ETFlex::Tilt
