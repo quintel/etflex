@@ -31,7 +31,7 @@ class exports.Scenario extends Backbone.Model
       queryIds = _.clone(@get('centerVis').queries or [])
 
       for visualisation in @get('mainVis') when visualisation.queries?
-        queryIds.concat visualisation.queries
+        queryIds.push visualisation.queries...
 
       @queries = app.collections.queries.subset queryIds
 
