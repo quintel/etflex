@@ -101,8 +101,12 @@
   overflow: hidden
   padding: 0
 
-  #core #controls .range
-    .control
+  #core #controls
+    margin-top: -230px
+    position: relative
+    z-index: 2
+
+    .range .control
       background: rgba(#000, 0.2)
       height: 30px
 
@@ -122,6 +126,7 @@
     height: 550px
     position: relative
     width: 1920px
+    z-index: 1
 
     #logo
       background: url(/assets/scenarios/modern/header/logo.png) left top no-repeat
@@ -135,7 +140,7 @@
     // The base layer in which all of the header elements are placed.
 
     .world
-      height: 368px
+      height: 318px
       left: 321px
       position: absolute
       top: 110px
@@ -145,7 +150,7 @@
 
       .ground
         background: url(/assets/scenarios/modern/header/ground.png) center 87px no-repeat
-        height: 368px
+        height: 318px
         position: relative
         width: 1277px
 
