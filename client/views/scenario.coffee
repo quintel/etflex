@@ -35,9 +35,17 @@ class exports.ScenarioView extends Backbone.View
       else
         rightRangesEl.append view.render().el
 
+    # Renders the center visualisation (in between the two slider groups).
+
     centerVis = new (@model.get 'centerVis')(
       supply: @model.queries.get(49), demand: @model.queries.get(518) )
 
     @$('#center-vis').html centerVis.render().el
+
+    # Renders the three visualisations below the sliders.
+
+    for klass in @model.get('mainVis')
+      visualisation = new klass queries: @model.queries
+      @$('#main-vis').append visualisation.render().el
 
     this
