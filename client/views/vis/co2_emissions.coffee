@@ -1,6 +1,7 @@
 { GenericVisualisation } = require 'views/vis/generic'
 
 class exports.CO2EmissionsView extends GenericVisualisation
+  @queries: [ 8 ]
 
   # Creates a new CO2Emissions visualisation. In addition to the usual
   # Backbone options, requires `gas` containing the gas-fired power plants
@@ -9,7 +10,7 @@ class exports.CO2EmissionsView extends GenericVisualisation
   constructor: (options) ->
     super options
 
-    @query = options.query
+    @query = options.queries.get 8
     @query.bind 'change:future', @render
 
   # Calculates the total CO2 emissions based on the value of the coal and

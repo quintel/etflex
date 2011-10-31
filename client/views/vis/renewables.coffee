@@ -1,6 +1,7 @@
 { GenericVisualisation } = require 'views/vis/generic'
 
 class exports.RenewablesView extends GenericVisualisation
+  @queries: [ 32 ]
 
   # Creates a new Renewables visualisation. Calculates the percentage of total
   # energy generated which is derived from solar and window energy.
@@ -8,7 +9,7 @@ class exports.RenewablesView extends GenericVisualisation
   constructor: (options) ->
     super options
 
-    @query = options.query
+    @query = options.queries.get 32
     @query.bind 'change:future', @render
 
   # Calculates the total CO2 emissions based on the value of the coal and

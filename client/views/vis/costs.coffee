@@ -1,6 +1,7 @@
 { GenericVisualisation } = require 'views/vis/generic'
 
 class exports.CostsView extends GenericVisualisation
+  @queries: [ 23 ]
 
   # Creates a new Costs visualisation. Calculates the cost of the choices the
   # user makes in the ETLite scenario.
@@ -8,7 +9,7 @@ class exports.CostsView extends GenericVisualisation
   constructor: (options) ->
     super options
 
-    @query = options.query
+    @query = options.queries.get 23
     @query.bind 'change:future', @render
 
   # Renders the UI; calculates the C02 emissions. Can be safely called
