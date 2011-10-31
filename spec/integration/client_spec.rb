@@ -8,7 +8,7 @@ describe 'The Backbone client' do
     visit '/'
 
     # Loading message should be shown.
-    page.should have_css('.wrap', text: 'Loading')
+    page.should have_css('.loading', text: 'Loading')
 
     # English by default.
     page.should have_css('script', text: "boot(window, 'en')")
@@ -20,7 +20,7 @@ describe 'The Backbone client' do
     visit '/en'
 
     # Loading message should be shown.
-    page.should have_css('.wrap', text: 'Loading')
+    page.should have_css('.loading', text: 'Loading')
 
     # English when specified in the URL.
     page.should have_css('script', text: "boot(window, 'en')")
@@ -32,7 +32,7 @@ describe 'The Backbone client' do
     visit '/nl'
 
     # Loading message should be shown.
-    page.should have_css('.wrap', text: 'Het laden')
+    page.should have_css('.loading', text: 'Het laden')
 
     # Dutch when specified in the URL.
     page.should have_css('script', text: "boot(window, 'nl')")
