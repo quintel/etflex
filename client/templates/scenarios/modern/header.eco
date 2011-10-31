@@ -4,5 +4,6 @@
     <div class="city"></div>
     <div class="turbines"></div>
     <div class="ground"></div>
+    <div class="sun"></div>
   </div>
 </div>
