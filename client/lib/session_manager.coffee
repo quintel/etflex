@@ -208,11 +208,6 @@ restoreSession = (sessionId, queries, callback) ->
 
   , (err, result) ->
     if err? then callback(err) else
-      # If we fetched queries, update the models...
-      if queryResults = result.session.result
-        for query in queries when qResult = queryResults[ query.get 'id' ]
-          query.set present: qResult[0][1], future: qResult[1][1]
-
       callback null, new Session _.extend result.session.settings,
         id:          sessionId
         user_values: result.values
