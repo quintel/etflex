@@ -1,3 +1,91 @@
+// Animation -----------------------------------------------------------------
+
+@-moz-keyframes scenarioModernPlane
+  from
+    left: 1700px
+    top: 30px
+    -moz-transform: rotate(8deg)
+  20%
+    top: -10px
+    -moz-transform: rotate(8deg)
+  25%
+    top: -16px
+    -moz-transform: rotate(7deg)
+  30%
+    top: -22px
+    -moz-transform: rotate(6deg)
+  35%
+    top: -27px
+    -moz-transform: rotate(5deg)
+  40%
+    top: -30px
+    -moz-transform: rotate(4deg)
+  50%
+    -moz-transform: rotate(0deg)
+  60%
+    top: -30px
+    -moz-transform: rotate(-4deg)
+  65%
+    top: -27px
+    -moz-transform: rotate(-5deg)
+  70%
+    top: -22px
+    -moz-transform: rotate(-6deg)
+  75%
+    top: -16px
+    -moz-transform: rotate(-7deg)
+  80%
+    top: -10px
+    -moz-transform: rotate(-8deg)
+  to
+    left: -400px
+    top: 50px
+    -moz-transform: rotate(-10deg)
+
+@-webkit-keyframes scenarioModernPlane
+  from
+    left: 1700px
+    top: 30px
+    -webkit-transform: rotate(8deg)
+  20%
+    top: -10px
+    -webkit-transform: rotate(8deg)
+  25%
+    top: -16px
+    -webkit-transform: rotate(7deg)
+  30%
+    top: -22px
+    -webkit-transform: rotate(6deg)
+  35%
+    top: -27px
+    -webkit-transform: rotate(5deg)
+  40%
+    top: -30px
+    -webkit-transform: rotate(4deg)
+  50%
+    -webkit-transform: rotate(0deg)
+  60%
+    top: -30px
+    -webkit-transform: rotate(-4deg)
+  65%
+    top: -27px
+    -webkit-transform: rotate(-5deg)
+  70%
+    top: -22px
+    -webkit-transform: rotate(-6deg)
+  75%
+    top: -16px
+    -webkit-transform: rotate(-7deg)
+  80%
+    top: -10px
+    -webkit-transform: rotate(-8deg)
+  to
+    left: -400px
+    top: 50px
+    -webkit-transform: rotate(-10deg)
+
+// Styles --------------------------------------------------------------------
+
 #scenario-view.modern
   background: #8abcdb url(/assets/scenarios/modern/bg.png) center top repeat-y
   overflow: hidden
@@ -79,3 +167,16 @@
         position: absolute
         top: -83px
         width: 397px
+
+      // A little airliner which moves through the scene.
+
+      .plane
+        background: url(/assets/scenarios/modern/header/plane.png) top left no-repeat
+        height: 22px
+        left: 620px
+        position: absolute
+        top: -30px
+        width: 45px
+
+        -moz-animation:    scenarioModernPlane 45s infinite linear
+        -webkit-animation: scenarioModernPlane 45s infinite linear
