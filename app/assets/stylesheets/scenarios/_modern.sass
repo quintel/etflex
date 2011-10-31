@@ -1,3 +1,13 @@
+// Helpers & Mixins ----------------------------------------------------------
+
+@mixin modern-prop($image, $width, $height, $left, $top)
+  background: url(/assets/scenarios/modern/header/#{$image}.png) top left no-repeat
+  height: $height
+  left: $left
+  position: absolute
+  top: $top
+  width: $width
+
 // Animation -----------------------------------------------------------------
 
 @-moz-keyframes scenarioModernPlane
@@ -142,72 +152,39 @@
       // Wind turbines which appear on the left side of the header.
 
       .turbines
-        background: url(/assets/scenarios/modern/header/wind-turbines.png) top left no-repeat
-        height: 125px
-        left: 130px
-        position: absolute
-        top: 27px
-        width: 162px
+        @include modern-prop(wind-turbines, 162px, 125px, 130px, 27px)
+
+      // The "futuristic city" in the distant background.
 
       .city
-        background: url(/assets/scenarios/modern/header/future-city.png) top left no-repeat
-        height: 121px
-        left: 280px
-        position: absolute
-        top: 5px
-        width: 325px
+        @include modern-prop(future-city, 325px, 121px, 280px, 5px)
 
       // Hills on the left of the ground; currently combines the hills with
       // the trees.
 
       .left-hills
-        background: url(/assets/scenarios/modern/header/left-hills.png) top left no-repeat
-        height: 172px
-        left: 60px
-        position: absolute
-        top: 91px
-        width: 412px
+        @include modern-prop(left-hills, 412px, 172px, 60px, 91px)
 
       // "Eco" buildings, with big glass fronts.
 
       .eco-buildings
-        background: url(/assets/scenarios/modern/header/eco-buildings.png) top left no-repeat
-        height: 162px
-        left: 435px
-        position: absolute
-        top: 18px
-        width: 643px
+        @include modern-prop(eco-buildings, 643px, 162px, 435px, 18px)
 
       // Solar panels; appear to the right of the eco-buildings.
 
       .solar-panels
-        background: url(/assets/scenarios/modern/header/solar-panels.png) top left no-repeat
-        height: 162px
-        left: 944px
-        position: absolute
-        top: 98px
-        width: 643px
+        @include modern-prop(solar-panels, 643px, 162px, 944px, 98px)
 
       // The sun overlay on the right of the header; needs to be displayed
       // above the other layers so that the glow / lens flare isn't occluded.
 
       .sun
-        background: url(/assets/scenarios/modern/header/sun.png) top left no-repeat
-        height: 367px
-        left: 987px
-        position: absolute
-        top: -83px
-        width: 397px
+        @include modern-prop(sun, 397px, 367px, 987px, -83px)
 
       // A little airliner which moves through the scene.
 
       .plane
-        background: url(/assets/scenarios/modern/header/plane.png) top left no-repeat
-        height: 22px
-        left: 620px
-        position: absolute
-        top: -30px
-        width: 45px
+        @include modern-prop(plane, 45px, 22px, 620px, -30px)
 
         -moz-animation:    scenarioModernPlane 45s infinite linear
         -webkit-animation: scenarioModernPlane 45s infinite linear
