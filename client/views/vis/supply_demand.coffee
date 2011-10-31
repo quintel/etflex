@@ -15,8 +15,8 @@ class exports.SupplyDemandView extends Backbone.View
   constructor: (options) ->
     super options
 
-    @demandQuery = options.demand
-    @supplyQuery = options.supply
+    @demandQuery = options.queries.get 518
+    @supplyQuery = options.queries.get  49
 
     @demandQuery.bind 'change:future', @redrawDemand
     @supplyQuery.bind 'change:future', @redrawSupply
