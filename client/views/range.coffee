@@ -26,8 +26,8 @@ class exports.RangeView extends Backbone.View
     new $.Quinn @$('.control'),
       value:       @model.get('value')
       range:       [ 0, @model.def.max ]
-      handleWidth: 31
-      width:       271
+      handleWidth: 28
+      width:       300
 
       disable:     @model.get('disabled')
 
