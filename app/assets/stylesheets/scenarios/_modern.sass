@@ -34,15 +34,22 @@
       top: 20px
       width: 305px
 
-    // The base ground layer - contains the main green area.
+    // The base layer in which all of the header elements are placed.
 
-    .ground
-      background: url(/assets/scenarios/modern/header/ground.png) center 87px no-repeat
+    .world
       height: 368px
       left: 321px
       position: absolute
       top: 110px
       width: 1277px
+
+      // The main ground layer - contains the green "globe".
+
+      .ground
+        background: url(/assets/scenarios/modern/header/ground.png) center 87px no-repeat
+        height: 368px
+        position: relative
+        width: 1277px
 
       // Wind turbines which appear on the left side of the header.
 
