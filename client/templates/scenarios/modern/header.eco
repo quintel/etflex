@@ -4,6 +4,7 @@
     <div class="city"></div>
     <div class="turbines"></div>
     <div class="left-hills"></div>
+    <div class="eco-buildings"></div>
     <div class="ground"></div>
     <div class="sun"></div>
     <div class="plane"></div>
