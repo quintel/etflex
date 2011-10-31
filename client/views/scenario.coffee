@@ -10,7 +10,7 @@ template      = require 'templates/scenario'
 #
 class exports.ScenarioView extends Backbone.View
   id: 'scenario-view'
-  className: 'etlite' # TODO Set dynamically based on server-sent JSON.
+  className: 'modern' # TODO Set dynamically based on server-sent JSON.
 
   # Creates the HTML elements for the view, and binds events. Returns self.
   #
@@ -46,4 +46,15 @@ class exports.ScenarioView extends Backbone.View
       visualisation = new klass queries: @model.queries
       @$('#main-vis').append visualisation.render().el
 
+    @renderTheme()
+
     this
+
+  # Renders the modern theme by extending the default scenario template.
+  #
+  # This will likely be extracted to a separete "ModernView extends
+  # ScenarioView" class later.
+  #
+  renderTheme: ->
+    modernHeader = require 'templates/scenarios/modern/header'
+    @$('#core').prepend modernHeader()
