@@ -49,6 +49,7 @@ doc/
 
 config/database.yml
 public/assets/*
+.rvmrc
 
 # Ignored since in development this is generated automatically.
 app/assets/javascripts/i18n/translations.js
