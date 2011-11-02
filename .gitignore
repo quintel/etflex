@@ -50,6 +50,7 @@ doc/
 config/database.yml
 public/assets/*
 .rvmrc
+.DS_Store
 
 # Ignored since in development this is generated automatically.
 app/assets/javascripts/i18n/translations.js
