@@ -1,6 +1,7 @@
 <div id="theme-header">
   <a href="/" id="logo">Energie Transitie Model (lite)</a>
   <div class="world">
+    <div class="plane"></div>
     <div class="city"></div>
     <div class="turbines"></div>
     <div class="left-hills"></div>
@@ -9,6 +10,5 @@
     <div class="solar-panels"></div>
     <div class="electric-car"></div>
     <div class="sun"></div>
-    <div class="plane"></div>
   </div>
 </div>
