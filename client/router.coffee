@@ -9,16 +9,16 @@ render = (view) -> app.masterView.setSubView view
 #
 class exports.Router extends Backbone.Router
   routes:
-    '':              'root'
-    'sanity':        'sanity'
-    'etlite':        'etlite'
+    '':            'root'
+    'sanity':      'sanity'
+    'etlite':      'etlite'
 
-    'scenarios/:id': 'scenario'
+    'modules/:id': 'showModule'
 
-    'en':            'languageRedirect'
-    'nl':            'languageRedirect'
-    'en/*actions':   'languageRedirect'
-    'nl/*actions':   'languageRedirect'
+    'en':          'languageRedirect'
+    'nl':          'languageRedirect'
+    'en/*actions': 'languageRedirect'
+    'nl/*actions': 'languageRedirect'
 
   constructor: ->
     # This should always be the first router since it catches any unmatched
@@ -31,12 +31,13 @@ class exports.Router extends Backbone.Router
 
     super()
 
-  # The root page; simply redirects to /sanity for now.
+  # The root page; simply shows the default module with the "modern" theme for
+  # the moment.
   #
   # GET /
   #
   root: ->
-    app.router.navigate '/scenarios/1', true
+    app.router.navigate '/modules/1', true
 
   # A test page which shows the all of the application dependencies are
   # correctly installed and work as intended.
@@ -58,9 +59,9 @@ class exports.Router extends Backbone.Router
   # Loads a module using JSON delivered from ETflex to set up which inputs and
   # visualiations are used.
   #
-  # GET /scenario/:id
+  # GET /modules/:id
   #
-  scenario: (id) ->
+  showModule: (id) ->
     if module = app.collections.modules.get id
       module.start (err, module, session) ->
         if err? then console.error err else
