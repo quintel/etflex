@@ -4,7 +4,7 @@ ETFlex::Application.routes.draw do
     get 'sanity', to: 'application#render_client'
     get 'etlite', to: 'application#render_client'
 
-    get 'scenarios/:id', to: 'application#render_client'
+    get 'modules/:id', to: 'application#render_client'
 
     root to: 'application#render_client'
   end
