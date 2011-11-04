@@ -36,7 +36,7 @@ class exports.Router extends Backbone.Router
   # GET /
   #
   root: ->
-    app.router.navigate 'etlite', true
+    app.router.navigate '/scenarios/1', true
 
   # A test page which shows the all of the application dependencies are
   # correctly installed and work as intended.
