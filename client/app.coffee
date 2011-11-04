@@ -6,7 +6,7 @@ session          = require 'models/session'
 
 { Inputs }       = require 'collections/inputs'
 { Queries }      = require 'collections/queries'
-{ Scenarios }    = require 'collections/scenarios'
+{ Modules }      = require 'collections/modules'
 
 { InputManager } = require 'lib/input_manager'
 
@@ -31,9 +31,9 @@ exports.boot = (window, locale) ->
   I18n.fallbacks = no
 
   # Set up the collections.
-  exports.collections.inputs    = new Inputs
-  exports.collections.queries   = new Queries
-  exports.collections.scenarios = new Scenarios
+  exports.collections.inputs  = new Inputs
+  exports.collections.queries = new Queries
+  exports.collections.modules = new Modules
 
   async.parallel data: fetchInitialData, postBoot
 
@@ -43,9 +43,9 @@ exports.boot = (window, locale) ->
 # be possible for the remote API to deliver this all in a single response.
 #
 fetchInitialData = (callback) ->
-  createDefaultInputs    exports.collections.inputs
-  createDefaultQueries   exports.collections.queries
-  createDefaultScenarios exports.collections.scenarios
+  createDefaultInputs  exports.collections.inputs
+  createDefaultQueries exports.collections.queries
+  createDefaultModules exports.collections.modules
 
   callback null, true
 
@@ -107,12 +107,12 @@ createDefaultQueries = (collection) ->
   collection.add id:  49 # electricity_production
   collection.add id: 518 # final_demand_electricity
 
-# Creates a single Scenario; the ETlite scenario.
+# Creates a single module; the ETlite module.
 #
-# This can be removed once scenarios are defined on the server and delivered
+# This can be removed once modules are defined on the server and delivered
 # as JSON to the client.
 #
-createDefaultScenarios = (collection) ->
+createDefaultModules = (collection) ->
   collection.add
     id:   1
     name: 'ETlite'

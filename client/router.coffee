@@ -1,5 +1,5 @@
-app              = require 'app'
-{ ScenarioView } = require 'views/scenario'
+app            = require 'app'
+{ ModuleView } = require 'views/module'
 
 # A simpler way to call `app.masterView.setSubView`.
 render = (view) -> app.masterView.setSubView view
@@ -55,16 +55,16 @@ class exports.Router extends Backbone.Router
     console.log @views
     render @views.etlite
 
-  # Loads a scenario using JSON delivered from ETflex to set up which inputs
-  # and visualiations are used.
+  # Loads a module using JSON delivered from ETflex to set up which inputs and
+  # visualiations are used.
   #
   # GET /scenario/:id
   #
   scenario: (id) ->
-    if scenario = app.collections.scenarios.get id
-      scenario.start (err, scenario, session) ->
+    if module = app.collections.modules.get id
+      module.start (err, module, session) ->
         if err? then console.error err else
-          render new ScenarioView model: scenario
+          render new ModuleView model: module
     else
       @errors.notFound()
 

@@ -6,7 +6,7 @@ BASE_URL = 'http://et-engine.com/api/v2/api_scenarios'
 X_API_AGENT = 'ETflex Client'
 
 # Represents the user's session with ETengine; keeps track of their unique
-# session ID, scenario country, end date, etc.
+# session ID, country, end date, etc.
 #
 # Create a new session by calling `createSession()` instead of `new Session`
 # since `createSession` will fetch the session ID from the server.

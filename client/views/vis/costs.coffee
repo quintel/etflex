@@ -4,7 +4,7 @@ class exports.CostsView extends GenericVisualisation
   @queries: [ 23 ]
 
   # Creates a new Costs visualisation. Calculates the cost of the choices the
-  # user makes in the ETLite scenario.
+  # user makes in the ETLite module.
   #
   constructor: (options) ->
     super options

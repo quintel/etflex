@@ -1,22 +1,22 @@
 app           = require 'app'
-template      = require 'templates/scenario'
+template      = require 'templates/module'
 
 { RangeView } = require 'views/range'
 
-# Scenario -------------------------------------------------------------------
+# Module ---------------------------------------------------------------------
 
-# The heart of ETflex; given a Scenario model creates an HTML representation
+# The heart of ETflex; given a Module model creates an HTML representation
 # displaying the left and right sliders, visualisations, etc.
 #
-class exports.ScenarioView extends Backbone.View
-  id: 'scenario-view'
+class exports.ModuleView extends Backbone.View
+  id: 'module-view'
   className: 'modern' # TODO Set dynamically based on server-sent JSON.
 
   # Creates the HTML elements for the view, and binds events. Returns self.
   #
   # Example:
   #
-  #   view = new Scenario model: scenario
+  #   view = new ModuleView model: module
   #   $('body').html view.render().el
   #
   render: ->
@@ -50,11 +50,11 @@ class exports.ScenarioView extends Backbone.View
 
     this
 
-  # Renders the modern theme by extending the default scenario template.
+  # Renders the modern theme by extending the default module template.
   #
   # This will likely be extracted to a separete "ModernView extends
-  # ScenarioView" class later.
+  # ModuleView" class later.
   #
   renderTheme: ->
-    modernHeader = require 'templates/scenarios/modern/header'
+    modernHeader = require 'templates/modules/modern/header'
     @$('#core').prepend modernHeader()
