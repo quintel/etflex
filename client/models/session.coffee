@@ -5,6 +5,18 @@ BASE_URL = 'http://et-engine.com/api/v2/api_scenarios'
 # requests are coming from.
 X_API_AGENT = 'ETflex Client'
 
+# Retrieves the starting value of an input based on the result returned by
+# ETengine. Prefers values set by the user, but falls back to the input
+# default otherwise.
+#
+valueFrom = (data) ->
+  return null unless data?
+
+  if data.hasOwnProperty('user_value')
+    data.user_value
+  else
+    data.start_value
+
 # Represents the user's session with ETengine; keeps track of their unique
 # session ID, country, end date, etc.
 #
@@ -29,7 +41,6 @@ class exports.Session extends Backbone.Model
   #
   finalizeInputs: (collection) ->
     values = @get 'userValues'
-    valueFrom = (data) -> data? and (data.user_value or data.start_value)
 
     collection.each (input) ->
       if value = valueFrom values[ input.get('id') ]
