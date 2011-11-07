@@ -58,10 +58,24 @@
         text-align: center
         width: 320px
 
+        .icon-vis
+          height: 140px
+          position: relative
+
         .icon
+          background-color: white
           background-repeat: no-repeat
           background-position: center top
+          display: block
           height: 140px
+          left: 0px
+          position: absolute
+          top: 0px
+          width: 100%
+          z-index: 1
+
+          &.active
+            z-index: 2
 
         .value
           font-size: 12px
