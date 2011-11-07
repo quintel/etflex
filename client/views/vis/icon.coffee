@@ -42,8 +42,6 @@ class exports.IconVisualisation extends Backbone.View
   setState: (name) ->
     return true if name is @currentState
 
-    element = $ @el
-
     if @currentState?
       @trigger "leavestate:#{@currentState}"
       @activeIcon.removeClass 'active'
