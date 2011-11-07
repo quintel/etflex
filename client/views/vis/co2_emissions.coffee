@@ -1,4 +1,5 @@
 { GenericVisualisation } = require 'views/vis/generic'
+{ IconVisualisation }    = require 'views/vis/icon'
 
 class exports.CO2EmissionsView extends GenericVisualisation
   @queries: [ 8 ]
@@ -11,6 +12,8 @@ class exports.CO2EmissionsView extends GenericVisualisation
   #
   constructor: (options) ->
     super options
+
+    @icon = new IconVisualisation
 
     @query = options.queries.get 8
     @query.bind 'change:future', @render
@@ -32,13 +35,13 @@ class exports.CO2EmissionsView extends GenericVisualisation
 
     super "#{value} Mton CO<sup>2</sup>", I18n.t 'etlite.emissions'
 
-    element.removeClass('low').removeClass('medium').removeClass('high')
+    element.find('.icon').replaceWith @icon.render().el
 
     if value < 140
-      element.addClass 'low'
+      @icon.setState 'low'
     else if value < 150
-      element.addClass 'medium'
+      @icon.setState 'medium'
     else
-      element.addClass 'high'
+      @icon.setState 'high'
 
     this
