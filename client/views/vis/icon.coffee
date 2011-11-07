@@ -7,7 +7,17 @@
 #
 class exports.IconVisualisation extends Backbone.View
 
-  className: 'icon'
+  className: 'icon-vis'
+
+  render: ->
+    @activeIcon   = $ @make 'span', class: 'icon'
+    @inactiveIcon = $ @make 'span', class: 'icon'
+
+    @inactiveIcon.css display: 'none'
+
+    $(@el).append @activeIcon, @inactiveIcon
+
+    this
 
   # Sets the view to the given state name. Adds the state name to the main
   # element and executes the callback given when the state was added.
@@ -25,8 +35,8 @@ class exports.IconVisualisation extends Backbone.View
   #
   # When changing state, the following events will be triggered:
   #
-  # * leaveState:oldState
-  # * enterState:newState
+  # * leavestate:oldState
+  # * enterstate:newState
   # * change
   #
   setState: (name) ->
@@ -35,10 +45,16 @@ class exports.IconVisualisation extends Backbone.View
     element = $ @el
 
     if @currentState?
-      @trigger "leaveState:#{@currentState}"
-      element.removeClass @currentState
+      @trigger "leavestate:#{@currentState}"
+      @activeIcon.removeClass 'active'
+
+    @trigger "enterstate:#{name}"
+
+    # Swap the icon divs around so that we can change state more than once.
+    [ @activeIcon, @inactiveIcon ] = [ @inactiveIcon, @activeIcon ]
+
+    # Animation.
+    @activeIcon.attr class: "icon #{name} active"
+    @activeIcon.fadeIn null, => @inactiveIcon.fadeOut 1000
 
     @currentState = name
-
-    @trigger "enterState:#{@currentState}"
-    element.addClass @currentState
