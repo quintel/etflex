@@ -122,3 +122,15 @@
 
       .plane
         @include modern-prop(plane, 45px, 22px, 620px, -35px)
+
+  // The three visualisations which sit at the bottom of the page.
+
+  #core #main-vis .visualisation
+    &.co2-emissions
+      .icon
+        background-image: url(/assets/modules/modern/icons/tree.png)
+
+      &.medium .icon
+        background-position: center -140px
+      &.high .icon
+        background-position: center -280px

@@ -3,6 +3,8 @@
 class exports.CO2EmissionsView extends GenericVisualisation
   @queries: [ 8 ]
 
+  className: 'visualisation co2-emissions'
+
   # Creates a new CO2Emissions visualisation. In addition to the usual
   # Backbone options, requires `gas` containing the gas-fired power plants
   # input, and `coal` containing the coal-fired power plans input.
@@ -25,4 +27,18 @@ class exports.CO2EmissionsView extends GenericVisualisation
   # repeatedly to update the UI.
   #
   render: =>
-    super "#{@recalculate()} Mton CO<sup>2</sup>", I18n.t 'etlite.emissions'
+    value   = @recalculate()
+    element = $ @el
+
+    super "#{value} Mton CO<sup>2</sup>", I18n.t 'etlite.emissions'
+
+    element.removeClass('low').removeClass('medium').removeClass('high')
+
+    if value < 140
+      element.addClass 'low'
+    else if value < 150
+      element.addClass 'medium'
+    else
+      element.addClass 'high'
+
+    this
