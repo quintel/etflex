@@ -8,56 +8,6 @@
   top: $top
   width: $width
 
-// Animation -----------------------------------------------------------------
-
-@-moz-keyframes moduleModernPlane
-  from
-    left: 1700px
-    top: 30px
-    -moz-transform: rotate(8deg)
-  20%
-    top: -10px
-    -moz-transform: rotate(8deg)
-  25%
-    top: -16px
-    -moz-transform: rotate(7deg)
-  30%
-    top: -22px
-    -moz-transform: rotate(6deg)
-  35%
-    top: -27px
-    -moz-transform: rotate(5deg)
-  40%
-    top: -30px
-    -moz-transform: rotate(4deg)
-  50%
-    -moz-transform: rotate(0deg)
-  60%
-    top: -30px
-    -moz-transform: rotate(-4deg)
-  65%
-    top: -27px
-    -moz-transform: rotate(-5deg)
-  70%
-    top: -22px
-    -moz-transform: rotate(-6deg)
-  75%
-    top: -16px
-    -moz-transform: rotate(-7deg)
-  80%
-    top: -10px
-    -moz-transform: rotate(-8deg)
-  to
-    left: -400px
-    top: 50px
-    -moz-transform: rotate(-10deg)
-
-@-webkit-keyframes moduleModernPlane
-  from
-    left: 1700px
-  to
-    left: -400px
-
 // Styles --------------------------------------------------------------------
 
 #module-view.modern
@@ -171,7 +121,4 @@
       // A little airliner which moves through the scene.
 
       .plane
-        @include modern-prop(plane, 45px, 22px, 620px, -30px)
-
-        -moz-animation:    moduleModernPlane 60s infinite linear
-        -webkit-animation: moduleModernPlane 60s infinite linear
+        @include modern-prop(plane, 45px, 22px, 620px, -35px)
