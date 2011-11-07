@@ -13,8 +13,6 @@ class exports.IconVisualisation extends Backbone.View
     @activeIcon   = $ @make 'span', class: 'icon'
     @inactiveIcon = $ @make 'span', class: 'icon'
 
-    @inactiveIcon.css display: 'none'
-
     $(@el).append @activeIcon, @inactiveIcon
 
     this
@@ -51,8 +49,14 @@ class exports.IconVisualisation extends Backbone.View
     # Swap the icon divs around so that we can change state more than once.
     [ @activeIcon, @inactiveIcon ] = [ @inactiveIcon, @activeIcon ]
 
-    # Animation.
+    # Prefered over addClass, since it also removes previous state classes.
     @activeIcon.attr class: "icon #{name} active"
-    @activeIcon.fadeIn null, => @inactiveIcon.fadeOut 1000
+
+    if @currentState?
+      @activeIcon.fadeIn null, => @inactiveIcon.fadeOut 1000
+    else
+      # Current state is only falsey when the view is first loaded.
+      @activeIcon.show()
+      @inactiveIcon.hide()
 
     @currentState = name
