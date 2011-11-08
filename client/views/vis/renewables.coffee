@@ -1,7 +1,10 @@
 { GenericVisualisation } = require 'views/vis/generic'
+{ IconVisualisation }    = require 'views/vis/icon'
 
 class exports.RenewablesView extends GenericVisualisation
   @queries: [ 32 ]
+
+  className: 'visualisation renewables'
 
   # Creates a new Renewables visualisation. Calculates the percentage of total
   # energy generated which is derived from solar and window energy.
@@ -9,8 +12,10 @@ class exports.RenewablesView extends GenericVisualisation
   constructor: (options) ->
     super options
 
+    @icon = new IconVisualisation
+
     @query = options.queries.get 32
-    @query.bind 'change:future', @render
+    @query.bind 'change:future', @updateValues
 
   # Calculates the total CO2 emissions based on the value of the coal and
   # gas inputs.
@@ -22,5 +27,28 @@ class exports.RenewablesView extends GenericVisualisation
   # Renders the UI; calculates the C02 emissions. Can be safely called
   # repeatedly to update the UI.
   #
-  render: =>
-    super "#{@recalculate()}%", I18n.t 'etlite.renewables'
+  render: ->
+    super '', I18n.t 'etlite.renewables'
+
+    $(@el).find('.icon').replaceWith @icon.render().el
+    @updateValues()
+
+    this
+
+  # Updates the value shown to the user, and swaps the icon if necessary,
+  # without re-rendering the whole view.
+  #
+  updateValues: =>
+    value   = @recalculate()
+    element = $ @el
+
+    element.find('.output').html "#{value}%"
+
+    if value < 6
+      @icon.setState 'on'
+    else if value < 10
+      @icon.setState 'variable'
+    else
+      @icon.setState 'off'
+
+    this
