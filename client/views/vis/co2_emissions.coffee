@@ -37,6 +37,9 @@ class exports.CO2EmissionsView extends GenericVisualisation
 
     this
 
+  # Updates the value shown to the user, and swaps the icon if necessary,
+  # without re-rendering the whole view.
+  #
   updateValues: =>
     value   = @recalculate()
     element = $ @el
