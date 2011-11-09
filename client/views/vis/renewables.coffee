@@ -45,10 +45,10 @@ class exports.RenewablesView extends GenericVisualisation
     element.find('.output').html "#{value}%"
 
     if value < 6
-      @icon.setState 'on'
+      @icon.setState 'low'
     else if value < 10
-      @icon.setState 'variable'
+      @icon.setState 'medium'
     else
-      @icon.setState 'off'
+      @icon.setState 'high'
 
     this
