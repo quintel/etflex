@@ -31,16 +31,8 @@ class exports.Module extends Backbone.Model
   start: (callback) ->
     if @session? then callback(null, @, @session) else
 
-      # Determine which queries are used by the module.
-      queryIds = _.clone(@get('centerVis').queries or [])
-
-      for visualisation in @get('mainVis') when visualisation.queries?
-        queryIds.push visualisation.queries...
-
-      @queries = collectionFromRaw Queries, queryIds, app.raw.queries
-
-      @inputs  = collectionFromRaw Inputs,
-        @get('leftInputs').concat(@get('rightInputs')), app.raw.inputs
+      @queries = collectionFromRaw Queries, @dependantQueries(), app.raw.queries
+      @inputs  = collectionFromRaw Inputs,  @dependentInputs(),  app.raw.inputs
 
       getSession @id, @queries, (err, session) =>
         if err? then callback(err) else
@@ -57,3 +49,18 @@ class exports.Module extends Backbone.Model
           @inputs.bind 'change:value', (ipt) => ipt.save {}, queries: @queries
 
           callback(null, @, @session = session)
+
+  # Returns an array of query IDs used by the module.
+  #
+  dependantQueries: ->
+    ids = _.clone( @get('centerVis')?.queries or [] )
+
+    for visualisation in @get('mainVis') when visualisation.queries?
+      ids.push visualisation.queries...
+
+    _.uniq ids
+
+  # Returns an array of inputs IDs used by the module.
+  #
+  dependantInputs: ->
+    _.uniq @get('leftInputs').concat @get('rightInputs')
