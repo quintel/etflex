@@ -17,6 +17,10 @@ exports.router = null
 # Holds each of the main model collections (Sliders, Widgets, etc).
 exports.collections = {}
 
+# Contains the raw model data from the server -- inputs, queries, etc. Used
+# when a module loads so that we can prepare actual model instances as needed.
+exports.raw = require 'raw'
+
 # The singleton views/Master instance.
 exports.masterView = null
 
@@ -76,24 +80,7 @@ postBoot = (err, result) ->
 # This can be removed once ETEngine is integrated.
 #
 createDefaultInputs = (collection) ->
-  head.destroy() while head = collection.first()
-
-  fixtures = [
-    { id:  43, key: 'lighting',   start_value: 5, max_value:   100, unit: '%', disabled: true }
-    { id: 146, key: 'cars',       start_value: 0, max_value:   100, unit: '%', disabled: true }
-    { id: 336, key: 'insulation', start_value: 1, max_value:   100, unit: '%', disabled: true }
-    { id: 348, key: 'heating',    start_value: 0, max_value:    80, unit: '%'   }
-    { id: 366, key: 'appliances', start_value: 0, max_value:    20, unit: '%'   }
-    { id: 338, key: 'heatPump',   start_value: 0, max_value:    80, unit: '%'   }
-    { id: 315, key: 'coal',       start_value: 0, max_value:     7, unit: ''    }
-    { id: 256, key: 'gas',        start_value: 0, max_value:     7, unit: ''    }
-    { id: 259, key: 'nuclear',    start_value: 0, max_value:     4, unit: ''    }
-    { id: 263, key: 'wind',       start_value: 0, max_value: 10000, unit: ''    }
-    { id: 313, key: 'solar',      start_value: 0, max_value: 10000, unit: ''    }
-    { id: 196, key: 'biomass',    start_value: 0, max_value:  1606, unit: ' km<sup>2</sup>' }
-  ]
-
-  collection.add fixture for fixture in fixtures
+  collection.add input for input in exports.raw.inputs
 
 # Creates the default Query instances.
 #
@@ -101,11 +88,7 @@ createDefaultInputs = (collection) ->
 # storing and retrieving Query instances.
 #
 createDefaultQueries = (collection) ->
-  collection.add id:   8 # co2_emission_total
-  collection.add id:  23 # costs_total
-  collection.add id:  32 # share_of_renewable_energy
-  collection.add id:  49 # electricity_production
-  collection.add id: 518 # final_demand_electricity
+  collection.add query for query in exports.raw.queries
 
 # Creates a single module; the ETlite module.
 #
