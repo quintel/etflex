@@ -21,7 +21,7 @@ en:
     supply:       "Energy supply"
     demand:       "Energy demand"
 
-    renewables:   "Wind and solar"
+    renewables:   "Renewables"
     emissions:    "Emissions"
     costs:        "Costs"
     billion:      "billion"
@@ -142,7 +142,7 @@ nl:
     supply:       "Energieopwek"
     demand:       "Energievraag"
 
-    renewables:   "Wind en zon"
+    renewables:   "Duurzame energie"
     emissions:    "Emissies"
     costs:        "Kosten"
     billion:      "miljard"
