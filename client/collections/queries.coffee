@@ -9,12 +9,3 @@
 #
 class exports.Queries extends Backbone.Collection
   model: require('models/query').Query
-
-  # Creates a new Queries instance with only the models specified in the given
-  # array of IDs.
-  #
-  # ids - An array containing numbers; IDs of Query instances which should be
-  #       included in the returned Queries instance.
-  #
-  subset: (ids) ->
-    new Queries ( @get(id) for id in ids )
