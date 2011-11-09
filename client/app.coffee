@@ -2,8 +2,6 @@
 # well as any other objects which are considered "singletons", such as
 # full-page views.
 
-session           = require 'models/session'
-
 { Inputs }        = require 'collections/inputs'
 { Modules }       = require 'collections/modules'
 { Queries }       = require 'collections/queries'
