@@ -1,6 +1,10 @@
-app              = require 'app'
-{ getSession }   = require 'lib/session_manager'
-{ InputManager } = require 'lib/input_manager'
+app                   = require 'app'
+{ getSession }        = require 'lib/session_manager'
+{ InputManager }      = require 'lib/input_manager'
+
+{ Inputs }            = require 'collections/inputs'
+{ Queries }           = require 'collections/queries'
+{ collectionFromRaw } = require 'collections/from_raw'
 
 # Modules are pages such as the ETlite recreation, which have one or more
 # inputs, fetch results from ETengine, and display these to the user.
@@ -33,10 +37,10 @@ class exports.Module extends Backbone.Model
       for visualisation in @get('mainVis') when visualisation.queries?
         queryIds.push visualisation.queries...
 
-      @queries = app.collections.queries.subset queryIds
+      @queries = collectionFromRaw Queries, queryIds, app.raw.queries
 
-      @inputs  = app.collections.inputs.subset(
-        @get('leftInputs').concat @get('rightInputs'))
+      @inputs  = collectionFromRaw Inputs,
+        @get('leftInputs').concat(@get('rightInputs')), app.raw.inputs
 
       getSession @id, @queries, (err, session) =>
         if err? then callback(err) else
