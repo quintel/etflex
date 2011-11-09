@@ -2,13 +2,14 @@
 # well as any other objects which are considered "singletons", such as
 # full-page views.
 
-session          = require 'models/session'
+session           = require 'models/session'
 
-{ Inputs }       = require 'collections/inputs'
-{ Queries }      = require 'collections/queries'
-{ Modules }      = require 'collections/modules'
+{ Inputs }        = require 'collections/inputs'
+{ Modules }       = require 'collections/modules'
+{ Queries }       = require 'collections/queries'
+{ createStencil } = require 'collections/stencil'
 
-{ InputManager } = require 'lib/input_manager'
+{ InputManager }  = require 'lib/input_manager'
 
 # Holds the router singleton. For the moment the application has only
 # one; in time we may add more.
@@ -17,9 +18,9 @@ exports.router = null
 # Holds each of the main model collections (Sliders, Widgets, etc).
 exports.collections = {}
 
-# Contains the raw model data from the server -- inputs, queries, etc. Used
-# when a module loads so that we can prepare actual model instances as needed.
-exports.raw = require 'raw'
+# Holds Stencil instances which can be used to create collections for
+# each module.
+exports.stencils = {}
 
 # The singleton views/Master instance.
 exports.masterView = null
@@ -35,8 +36,10 @@ exports.boot = (window, locale) ->
   I18n.fallbacks = no
 
   # Set up the collections.
-  exports.collections.inputs  = new Inputs
-  exports.collections.queries = new Queries
+  raw = require 'raw'
+
+  exports.stencils.inputs     = createStencil Inputs, raw.inputs
+  exports.stencils.queries    = createStencil Queries, raw.queries
   exports.collections.modules = new Modules
 
   async.parallel data: fetchInitialData, postBoot
@@ -47,8 +50,6 @@ exports.boot = (window, locale) ->
 # be possible for the remote API to deliver this all in a single response.
 #
 fetchInitialData = (callback) ->
-  createDefaultInputs  exports.collections.inputs
-  createDefaultQueries exports.collections.queries
   createDefaultModules exports.collections.modules
 
   callback null, true
@@ -72,23 +73,6 @@ postBoot = (err, result) ->
     Backbone.history.start pushState: true
 
 # Helper Functions -----------------------------------------------------------
-
-# If the Inputs collection has no entries, this is the first time the user has
-# visited the application. Create twelve sample inputs for the ETLite
-# recreation page.
-#
-# This can be removed once ETEngine is integrated.
-#
-createDefaultInputs = (collection) ->
-  collection.add input for input in exports.raw.inputs
-
-# Creates the default Query instances.
-#
-# This can be removed once there's a better infrastructure in place for
-# storing and retrieving Query instances.
-#
-createDefaultQueries = (collection) ->
-  collection.add query for query in exports.raw.queries
 
 # Creates a single module; the ETlite module.
 #

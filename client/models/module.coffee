@@ -1,10 +1,9 @@
-app                   = require 'app'
-{ getSession }        = require 'lib/session_manager'
-{ InputManager }      = require 'lib/input_manager'
+app              = require 'app'
+{ getSession }   = require 'lib/session_manager'
+{ InputManager } = require 'lib/input_manager'
 
-{ Inputs }            = require 'collections/inputs'
-{ Queries }           = require 'collections/queries'
-{ collectionFromRaw } = require 'collections/from_raw'
+{ Inputs }       = require 'collections/inputs'
+{ Queries }      = require 'collections/queries'
 
 # Modules are pages such as the ETlite recreation, which have one or more
 # inputs, fetch results from ETengine, and display these to the user.
@@ -31,8 +30,8 @@ class exports.Module extends Backbone.Model
   start: (callback) ->
     if @session? then callback(null, @, @session) else
 
-      @queries = collectionFromRaw Queries, @dependantQueries(), app.raw.queries
-      @inputs  = collectionFromRaw Inputs,  @dependentInputs(),  app.raw.inputs
+      @queries = app.stencils.queries @dependantQueries()
+      @inputs  = app.stencils.inputs  @dependantInputs()
 
       getSession @id, @queries, (err, session) =>
         if err? then callback(err) else
