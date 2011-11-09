@@ -48,9 +48,11 @@ class exports.CO2EmissionsView extends GenericVisualisation
 
     if value < 140
       @icon.setState 'low'
-    else if value < 150
+    else if value < 154
       @icon.setState 'medium'
-    else
+    else if value < 161
       @icon.setState 'high'
+    else
+      @icon.setState 'extreme'
 
     this
