@@ -23,9 +23,6 @@ exports.stencils = {}
 # The singleton views/Master instance.
 exports.masterView = null
 
-# Used to simplify persistance of Inputs and Queries.
-exports.inputManager = null
-
 # Called _once_ when the application is first loaded in the browser.
 exports.boot = (window, locale) ->
   installConsolePolyfill window

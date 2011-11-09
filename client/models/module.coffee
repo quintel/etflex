@@ -1,6 +1,5 @@
-app              = require 'app'
-{ getSession }   = require 'lib/session_manager'
-{ InputManager } = require 'lib/input_manager'
+app            = require 'app'
+{ getSession } = require 'lib/session_manager'
 
 # Modules are pages such as the ETlite recreation, which have one or more
 # inputs, fetch results from ETengine, and display these to the user.
@@ -33,13 +32,8 @@ class exports.Module extends Backbone.Model
       getSession @id, @queries, (err, session) =>
         if err? then callback(err) else
 
-          # Session::finalizeInputs is the old way of doing things, but
-          # necessary until per-module collections are added.
-          session.finalizeInputs @inputs
-
-          # Same as above; will be removed once per-module collections are
-          # added.
-          app.inputManager = new InputManager session
+          # Required so that changes to inputs can be sent back to ETengine.
+          @inputs.setSession session
 
           # Watch for changes to the inputs, and send them back to ETengine.
           @inputs.bind 'change:value', (ipt) => ipt.save {}, queries: @queries
