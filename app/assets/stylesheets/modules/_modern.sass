@@ -8,22 +8,6 @@
   top: $top
   width: $width
 
-@-moz-keyframes gaugeBounce
-  from
-    -moz-transform: rotate(-84deg)
-  50%
-    -moz-transform: rotate(84deg)
-  to
-    -moz-transform: rotate(-84deg)
-
-@-webkit-keyframes gaugeBounce
-  from
-    -webkit-transform: rotate(-84deg)
-  50%
-    -webkit-transform: rotate(84deg)
-  to
-    -webkit-transform: rotate(-84deg)
-
 // Styles --------------------------------------------------------------------
 
 #module-view.modern
@@ -159,8 +143,10 @@
       position: absolute
       top: 17px
       width: 110px
-      -moz-animation: gaugeBounce 10s infinite
-      -webkit-animation: gaugeBounce 10s infinite
+
+      // Enables smooth animation of the needle when it changes.
+      -moz-transition:    -moz-transform    0.5s
+      -webkit-transition: -webkit-transform 0.5s
 
   // The three visualisations which sit at the bottom of the page.
 
