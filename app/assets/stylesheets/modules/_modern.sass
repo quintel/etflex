@@ -31,22 +31,39 @@
       text-transform: uppercase
       text-shadow: white 0 0 18px, white 0 0 12px, white 0 0 6px, white 0 0 3px
 
-    .range .control
-      background: url(/assets/modules/modern/range.png) left top no-repeat
+    // Ranges / sliders
 
-      &, .bar, .movable-range, .left, .main, .right
-        height: 30px
+    .range
+      .info
+        @extend .clearfix
 
-      .active-bar
-        background: url(/assets/modules/modern/range.png) 0 -30px no-repeat
+        .label
+          float: left
+          padding-left: 5px
+          width: 195px
 
-      .handle
-        background: url(/assets/modules/modern/range.png) 0 -60px no-repeat
-        height: 28px
-        width: 28px
+        .value
+          float: left
+          padding-right: 5px
+          text-align: right
+          width: 95px
 
-        &:active
-          background-position: -30px -60px
+      .control
+        background: url(/assets/modules/modern/range.png) left top no-repeat
+
+        &, .bar, .movable-range, .left, .main, .right
+          height: 30px
+
+        .active-bar
+          background: url(/assets/modules/modern/range.png) 0 -30px no-repeat
+
+        .handle
+          background: url(/assets/modules/modern/range.png) 0 -60px no-repeat
+          height: 28px
+          width: 28px
+
+          &:active
+            background-position: -30px -60px
 
   // The big graphic header at the top of the modern theme...
 
