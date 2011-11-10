@@ -9,3 +9,7 @@
   <div class="marker"></div>
   <div class="bar"></div>
 </div>
+
+<div class="gauge">
+  <div class="needle"></div>
+</div>

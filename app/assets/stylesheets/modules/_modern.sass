@@ -8,6 +8,22 @@
   top: $top
   width: $width
 
+@-moz-keyframes gaugeBounce
+  from
+    -moz-transform: rotate(-84deg)
+  50%
+    -moz-transform: rotate(84deg)
+  to
+    -moz-transform: rotate(-84deg)
+
+@-webkit-keyframes gaugeBounce
+  from
+    -webkit-transform: rotate(-84deg)
+  50%
+    -webkit-transform: rotate(84deg)
+  to
+    -webkit-transform: rotate(-84deg)
+
 // Styles --------------------------------------------------------------------
 
 #module-view.modern
@@ -125,6 +141,26 @@
 
       .plane
         @include modern-prop(plane, 45px, 22px, 620px, -35px)
+
+  // The supply / demand gauge.
+
+  #core #center-vis .gauge
+    background: url(/assets/modules/modern/gauge.png) no-repeat
+    height: 85px
+    margin: 0 auto
+    overflow: hidden
+    position: relative
+    width: 130px
+
+    .needle
+      background: url(/assets/modules/modern/gauge.png) -180px 0 no-repeat
+      height: 98px
+      left: 10px
+      position: absolute
+      top: 17px
+      width: 110px
+      -moz-animation: gaugeBounce 10s infinite
+      -webkit-animation: gaugeBounce 10s infinite
 
   // The three visualisations which sit at the bottom of the page.
 
