@@ -12,6 +12,9 @@ class exports.ModuleView extends Backbone.View
   id: 'module-view'
   className: 'modern' # TODO Set dynamically based on server-sent JSON.
 
+  events:
+    'click #main-nav a': 'fakeNavClick'
+
   # Creates the HTML elements for the view, and binds events. Returns self.
   #
   # Example:
@@ -58,3 +61,8 @@ class exports.ModuleView extends Backbone.View
   renderTheme: ->
     modernHeader = require 'templates/modules/modern/header'
     @$('#core').prepend modernHeader()
+
+  # Fakes a click on a navigation item. Does nothing for the moment.
+  #
+  fakeNavClick: (event) =>
+    event.preventDefault()

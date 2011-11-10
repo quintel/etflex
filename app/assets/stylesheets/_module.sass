@@ -8,7 +8,37 @@
 #module-view
   #core
     margin: auto
+    position: relative
     width: 960px
+
+    // The main, site-wide navigation menu.
+
+    #main-nav
+      line-height: 1
+      position: absolute
+      right: 0
+      top: 20px
+      width: 240px
+      z-index: 2
+
+      li
+        float: left
+        font-size: 11px
+        font-weight: bold
+        text-shadow: 0 1px 0 #effbff
+
+      a
+        display: block
+        padding-top: 23px
+        width: 80px
+
+        &:hover
+          text-decoration: none
+
+        span
+          display: block
+          padding-bottom: 15px
+          text-align: center
 
     #controls
       @extend .clearfix
