@@ -1,5 +1,7 @@
 <div id="theme-header">
   <a href="/" id="logo">Energie Transitie Model (lite)</a>
+
+  <!-- illustration props -->
   <div class="world">
     <div class="plane"></div>
     <div class="city"></div>
@@ -11,4 +13,13 @@
     <div class="electric-car"></div>
     <div class="sun"></div>
   </div>
+  <!-- / illustration props -->
 </div>
+
+<!-- main site navigation -->
+<ul id="main-nav">
+  <li id="nav-info"><a href="#"><span>Information</span></a></li>
+  <li id="nav-settings"><a href="#"><span>Settings</span></a></li>
+  <li id="nav-user"><a href="#"><span>Log in</span></a></li>
+</ul>
+<!-- / main site navigation -->

@@ -17,6 +17,38 @@
   overflow: hidden
   padding: 0
 
+  // The main, site-wide navigation.
+
+  #core #main-nav
+    a
+      background: url(/assets/modules/modern/nav.png) 32px -60px no-repeat
+      color: #548aaa
+      text-shadow: 0 1px 0 #f5fdff
+
+      span
+        background: url(/assets/modules/modern/nav.png) 32px 20px no-repeat
+
+      &:active
+        background-position: 32px -120px
+        color: #386a8d
+
+        span
+          background-position: -68px 20px
+
+    #nav-settings a
+      background-position: -68px -60px
+
+      &:active
+        background-position: -68px -120px
+
+    #nav-user a
+      background-position: -168px -60px
+
+      &:active
+        background-position: -168px -120px
+
+  // The content area containing the sliders.
+
   #core #controls
     margin-top: -250px
     position: relative
