@@ -30,10 +30,30 @@ class exports.SupplyDemandView extends Backbone.View
     this
 
   redrawSupply: (animate = true) =>
-    @redraw '.supply', @supplyQuery, animate
+    # @redraw '.supply', @supplyQuery, animate
+    @updateGauge()
 
   redrawDemand: (animate = true) =>
-    @redraw '.demand', @demandQuery, animate
+    # @redraw '.demand', @demandQuery, animate
+    @updateGauge()
+
+  # Moves the needle on the "supply too high / demand too high" gauge which
+  # sits beneath the main supply and demand graph.
+  #
+  updateGauge: ->
+    difference = @demandQuery.get('future') / @supplyQuery.get('future')
+
+    # The gauge needle extremes are -84 degrees to +84 degrees. For the
+    # moment, a one percent difference between supply and demand will be
+    # represented by moving the needly by 1.5 degrees.
+    degrees = ( 1 - difference ) * 84 * 1.5
+
+    degrees =  84 if degrees >  84
+    degrees = -84 if degrees < -84
+
+    @$('.gauge .needle')
+      .css('-moz-transform', "rotate(#{degrees}deg)")
+      .css('-webkit-transform', "rotate(#{degrees}deg)")
 
   # Sets the height of the graph bars, and the marker positions without
   # rerendering the whole view. Returns self.
