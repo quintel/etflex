@@ -38,7 +38,7 @@ group :production do
 end
 
 # Deploy with Capistrano
-# gem 'capistrano'
+gem 'capistrano'
 
 group :test, :development do
   # gem 'ruby-debug19', :require => 'ruby-debug'
