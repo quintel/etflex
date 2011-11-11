@@ -32,8 +32,10 @@ group :assets do
   gem 'uglifier'
 end
 
-# Use unicorn as the web server
-# gem 'unicorn'
+group :production do
+  # Use unicorn as the web server
+  gem 'unicorn'
+end
 
 # Deploy with Capistrano
 # gem 'capistrano'
