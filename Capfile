@@ -1,4 +1,6 @@
 load    'deploy'
+load    'deploy/assets'
+
 require 'bundler/capistrano'
 require 'capistrano-unicorn'
 
