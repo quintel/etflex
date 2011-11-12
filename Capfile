@@ -26,10 +26,16 @@ task :production do
   set :db_name,   'etflex'
   set :db_user,   'etflex'
 
+  # If you change this, be sure to also change config/unicorn/production.rb
+  set :unicorn_pid, '/home/ubuntu/apps/etflex/current/tmp/pids/unicorn.pid'
+
   # One server currently handles everything.
   server 'etflex.et-model.com', :web, :app, :db, primary: true
 end
 
 # ----------------------------------------------------------------------------
+
+# Needs to be last.
+require 'capistrano-unicorn'
 
 # vim: set filetype=ruby :
