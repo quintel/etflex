@@ -12,14 +12,14 @@ timeout 30
 
 # This is where we specify the socket. We will point the upstream Nginx module
 # to this socket later on
-listen '/home/ubuntu/apps/etflex/current/tmp/sockets/unicorn.sock', backlog: 64
+listen '/home/ubuntu/apps/etflex/shared/pids/unicorn.sock', backlog: 64
 
 # File containing the Unicorn process ID.
-pid '/home/ubuntu/apps/etflex/current/tmp/pids/unicorn.pid'
+pid '/home/ubuntu/apps/etflex/shared/pids/unicorn.pid'
 
 # Set the path of the log files inside the log folder of the testapp
-stderr_path '/home/ubuntu/apps/etflex/current/log/unicorn.stderr.log'
-stdout_path '/home/ubuntu/apps/etflex/current/log/unicorn.stdout.log'
+stderr_path '/home/ubuntu/apps/etflex/shared/log/unicorn.log'
+stdout_path '/home/ubuntu/apps/etflex/shared/log/unicorn.log'
 
 before_fork do |server, worker|
   # This option works in together with preload_app true setting. What is does
