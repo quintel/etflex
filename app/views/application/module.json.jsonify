@@ -1,0 +1,10 @@
+json.id          @module.id
+json.name        @module.name
+
+json.leftInputs  @module.left_inputs
+json.rightInputs @module.right_inputs
+
+json.centerVis   @module.center_vis
+json.mainVis     @module.main_vis
+
+# vim: set filetype=ruby :

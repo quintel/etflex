@@ -1,6 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
+  respond_to :html
+  respond_to :json, only: :render_module
+
   # FILTERS ------------------------------------------------------------------
 
   #######
@@ -45,6 +48,31 @@ class ApplicationController < ActionController::Base
   #
   def render_client
     render client
+  end
+
+  # A temporary action which renders a module.
+  #
+  # This will be replaced with a full module controller once the ActiveRecord
+  # model is implemented.
+  #
+  # GET /modules/:id
+  #
+  def module
+    @module = OpenStruct.new id: 1, name: 'ETlite'
+
+    # Inputs used by the module.
+    @module.left_inputs =  [  43, 146, 336, 348, 366, 338 ]
+    @module.right_inputs = [ 315, 256, 259, 263, 313, 196 ]
+
+    # Visualisations used.
+    @module.center_vis = 'supply-demand'
+    @module.main_vis   = %w( renewables co2-emissions costs )
+
+    # TODO Add a custom Responder so we may simply "render @module".
+    respond_to do |wants|
+      wants.html { render client }
+      wants.json { render }
+    end
   end
 
 end
