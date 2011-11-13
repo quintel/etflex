@@ -41,7 +41,7 @@ end
 
 # Deploy with Capistrano
 gem 'capistrano'
-gem 'capistrano-unicorn'
+gem 'capistrano-unicorn', git: 'git://github.com/antw/capistrano-unicorn.git', branch: 'lazy-config'
 
 group :test, :development do
   # gem 'ruby-debug19', :require => 'ruby-debug'
