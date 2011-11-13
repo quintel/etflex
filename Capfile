@@ -59,8 +59,11 @@ end
 
 # COMMON CONFIGURATION -------------------------------------------------------
 
+# Configuration options which depend on values set in :production, :staging,
+# etc, MUST be set in a block.
+
 # If you change this, be sure to also change config/unicorn/:stage.rb
-set :unicorn_pid, "#{deploy_to}/current/tmp/pids/unicorn.pid"
+set(:unicorn_pid) { "#{deploy_to}/shared/pids/unicorn.pid" }
 
 # Symlink database.yml, etc.
 after 'deploy:update_code', 'deploy:link_config'
