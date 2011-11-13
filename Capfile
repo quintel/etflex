@@ -45,7 +45,7 @@ ssh_options[:forward_agent] = true
 
 task :production do
   set :stage,   'production'
-  set :branch,  'unicorn'
+  set :branch,  'production'
 
   set :deploy_to, "/home/ubuntu/apps/#{application_name}"
 
