@@ -40,4 +40,18 @@ RSpec.configure do |config|
   config.before(:each)  { DatabaseCleaner.start                   }
   config.after(:each)   { DatabaseCleaner.clean                   }
 
+  # Capybara
+  # --------
+
+  Capybara.register_driver :rack_test_api do |app|
+    Capybara::RackTest::Driver.new(app, headers: {
+      'HTTP_ACCEPT'  => 'application/json',
+      'CONTENT_TYPE' => 'application/json'
+    })
+  end
+
+  # Steps with the "api" meta-data should ask for JSON.
+  config.before(:each, api: true) { Capybara.current_driver = :rack_test_api }
+  config.after(:each,  api: true) { Capybara.current_driver = :rack_test     }
+
 end

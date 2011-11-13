@@ -21,8 +21,8 @@ describe ApplicationController, 'routing' do
     get('/etlite').should route_to('application#render_client')
   end
 
-  it 'routes /scenarios/:id to render_client' do
-    get('/scenarios/1').should route_to('application#render_client', id: '1')
+  it 'routes /modules/:id to module' do
+    get('/modules/1').should route_to('application#module', id: '1')
   end
 
   it 'should not route /scenarios' do
