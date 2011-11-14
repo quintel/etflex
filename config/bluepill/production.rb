@@ -18,7 +18,7 @@
 
 # Set environment variables
 rails_env  = ENV['RAILS_ENV']    || 'production'
-rails_root = ENV['RAILS_ROOT']   || "/home/ubuntu/etflex/current"
+rails_root = ENV['RAILS_ROOT']   || "/home/ubuntu/apps/etflex/current"
 
 log_file   = "#{rails_root}/log/bluepill.log"
 
