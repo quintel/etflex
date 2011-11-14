@@ -36,6 +36,7 @@ namespace :bluepill do
   DESC
   task :reload, roles: :app do
     quit
+    start
   end
 
   desc <<-DESC
