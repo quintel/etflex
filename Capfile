@@ -1,12 +1,11 @@
-load    'deploy'
-load    'deploy/assets'
-
 require 'bundler/capistrano'
-require 'capistrano-unicorn'
 
-load    'lib/capistrano/airbrake'
-load    'lib/capistrano/bluepill'
-load    'lib/capistrano/link_config'
+load 'deploy'
+load 'deploy/assets'
+
+load 'lib/capistrano/airbrake'
+load 'lib/capistrano/bluepill'
+load 'lib/capistrano/link_config'
 
 _cset(:stage) { 'production' }
 
@@ -70,6 +69,7 @@ set(:unicorn_pid) { "#{deploy_to}/shared/pids/unicorn.pid" }
 
 # Symlink database.yml, etc.
 after 'deploy:update_code', 'deploy:link_config'
+after 'deploy:restart',     'bluepill:restart'
 after 'deploy',             'airbrake:notify'
 
 # ----------------------------------------------------------------------------
