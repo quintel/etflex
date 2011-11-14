@@ -25,6 +25,20 @@ before_fork do |server, worker|
   # This option works in together with preload_app true setting. What is does
   # is prevent the master process from holding the database connection
   defined?(ActiveRecord::Base) and ActiveRecord::Base.connection.disconnect!
+
+  # When doing a "hot" restart of the Unicorn master, the old master hangs
+  # around until it is explicitly killed (so that it can be used if the new
+  # master fails to start). Since we got as far as starting a new worker, we
+  # end the old process...
+  old_pid = '/home/ubuntu/apps/etflex/shared/pids/unicorn.pid.oldbin'
+
+  if File.exists?(old_pid) && server.pid != old_pid
+    begin
+      Process.kill('QUIT', File.read(old_pid).to_i)
+    rescue Errno::ENOENT, Errno::ESRCH
+      # Old master already dead. Just ignore it.
+    end
+  end
 end
 
 after_fork do |server, worker|
