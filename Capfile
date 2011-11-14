@@ -63,7 +63,8 @@ end
 # Configuration options which depend on values set in :production, :staging,
 # etc, MUST be set in a block.
 
-# If you change this, be sure to also change config/unicorn/:stage.rb
+# If you change this, be sure to also change config/unicorn/:stage.rb and
+# config/bluepill.rb.
 set(:unicorn_pid) { "#{deploy_to}/shared/pids/unicorn.pid" }
 
 # Symlink database.yml, etc.
