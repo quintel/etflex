@@ -4,8 +4,9 @@ load    'deploy/assets'
 require 'bundler/capistrano'
 require 'capistrano-unicorn'
 
-load    'lib/capistrano/link_config'
 load    'lib/capistrano/airbrake'
+load    'lib/capistrano/bluepill'
+load    'lib/capistrano/link_config'
 
 _cset(:stage) { 'production' }
 
