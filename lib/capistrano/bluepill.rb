@@ -30,13 +30,23 @@ namespace :bluepill do
   end
 
   desc <<-DESC
-    Restarts Bluepill and reloads the configuration. Since Bluepill is an \
+    Restarts Bluepill reloading the configuration. Since Bluepill is an \
     Upstart job, simply quitting Bluepill is sufficient since Upstart will \
-    bring it right back up again.
+    bring it right back up again. Unless the Bluepill config has been \
+    changed, you probably want bluepill::restart_monitored instead.
   DESC
   task :restart, roles: :app do
     quit
     start
+  end
+
+  desc <<-DESC
+    Restarts Bluepill-monitored processes. This is more graceful than \
+    restarting Bluepill itself, since Unicorn won't drop connections for \
+    anyone currently in the middle of a request.
+  DESC
+  task :restart_monitored, roles: :app do
+    run_bluepill 'restart'
   end
 
   desc <<-DESC
