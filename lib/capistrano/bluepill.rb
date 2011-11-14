@@ -34,7 +34,7 @@ namespace :bluepill do
     Upstart job, simply quitting Bluepill is sufficient since Upstart will \
     bring it right back up again.
   DESC
-  task :reload, roles: :app do
+  task :restart, roles: :app do
     quit
     start
   end

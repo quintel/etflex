@@ -70,7 +70,7 @@ set(:unicorn_pid) { "#{deploy_to}/shared/pids/unicorn.pid" }
 
 # Symlink database.yml, etc.
 after 'deploy:update_code', 'deploy:link_config'
-after 'deploy',             'deploy:notify_airbrake'
+after 'deploy',             'airbrake:notify'
 
 # ----------------------------------------------------------------------------
 
