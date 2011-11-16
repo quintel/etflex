@@ -78,6 +78,6 @@ class exports.SupplyDemandView extends Backbone.View
     value    = Math.round(query.get('future') / 1000000000)
     position = value / EXTENT
 
-    @$("#{selector} .bar")[action]    height: "#{position * 242}px", 'fast'
+    @$("#{selector} .bar")[action]    height: "#{position * 204}px", 'fast'
     @$("#{selector} .marker")[action] top: "#{100 - position * 100}%", 'fast'
     @$("#{selector} .marker").text    "#{value}PJ"

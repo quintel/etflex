@@ -232,65 +232,70 @@
   // The supply / demand gauge.
 
   #core #center-vis .energy-graph
-    @extend .clearfix
+
+    .bars
+      @extend .clearfix
+      background: url(/assets/modules/modern/energy-graph.png) 78px 0 no-repeat
 
     .marker
-      border-top: 1px dashed #bbb
-      color: #777
-      font-size: 12px
+      border-top: 1px dashed #ccc
+      color: #235cbb
+      font-size: 11px
+      font-weight: bold
       margin-top: 1px
       position: absolute
       top: 100%
-      width: 79px
+      width: 69px
 
     .demand, .supply
-      background: url(/assets/graph-ticks.png) top right repeat-y
       float: left
-      height: 242px
-      margin: 0 10px 20px 0
-      padding: 0 20px 0 0
+      height: 204px
+      margin: 0 0 20px 0
+      padding: 0
       position: relative
-      width: 120px
+      width: 150px
 
       .bar
-        background: #3b3d46
+        +border-bottom-left-radius(9px)
+        +border-bottom-right-radius(9px)
         bottom: 0px
+        background: url(/assets/modules/modern/energy-graph.png) bottom left no-repeat
+        box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.2)
+        left: 94px
         position: absolute
         height: 0%
-        width: 35px
+        width: 44px
         z-index: 4
-
-    .demand .bar
-      right: 25px
 
     .legend
       -webkit-transform: rotate(270deg)
       -moz-transform: rotate(270deg)
-      left: 27px
-      bottom: 75px
+      left: 41px
+      bottom: 85px
       color: white
-      font-size: 16px
+      font: bold 15px 'Trebuchet MS', 'Lucida Grande', Arial, Helvetica
       position: absolute
-      text-shadow: -1px 0 1px rgba(0, 0, 0, 0.2)
-      font-family: 'Trebuchet MS', 'Lucida Grande', Arial, Helvetica
+      text-shadow: -1px 0 1px rgba(0, 0, 0, 0.4)
+      text-transform: uppercase
       width: 150px
       z-index: 5
 
     .supply
-      background-position: top left
-      margin: 0 0 20px 10px
-      padding: 0 0 0 20px
+      margin: 0 0 20px 0
+      padding: 0
 
       .bar
-        background: #a03e0c
-        left: 25px
+        background-position: -60px bottom
+        box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.1)
+        left: 13px
 
       .marker
+        color: #ec650b
         right: 0px
         text-align: right
 
       .legend
-        left: -29px
+        left: -39px
 
     .gauge
       background: url(/assets/modules/modern/gauge.png) no-repeat
