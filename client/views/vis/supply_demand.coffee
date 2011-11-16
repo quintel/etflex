@@ -34,11 +34,11 @@ class exports.SupplyDemandView extends Backbone.View
     this
 
   redrawSupply: (animate = true) =>
-    # @redraw '.supply', @supplyQuery, animate
+    @redraw '.supply', @supplyQuery, animate
     @updateGauge()
 
   redrawDemand: (animate = true) =>
-    # @redraw '.demand', @demandQuery, animate
+    @redraw '.demand', @demandQuery, animate
     @updateGauge()
 
   # Moves the needle on the "supply too high / demand too high" gauge which
