@@ -76,8 +76,8 @@ class exports.SupplyDemandView extends Backbone.View
   redraw: (selector, query, animate) ->
     action   = if animate then 'animate' else 'css'
     value    = Math.round(query.get('future') / 1000000000)
-    position = value / EXTENT * 100
+    position = value / EXTENT
 
-    @$("#{selector} .bar")[action]    height: "#{position}%", 'fast'
-    @$("#{selector} .marker")[action] top: "#{100 - position}%", 'fast'
+    @$("#{selector} .bar")[action]    height: "#{position * 242}px", 'fast'
+    @$("#{selector} .marker")[action] top: "#{100 - position * 100}%", 'fast'
     @$("#{selector} .marker").text    "#{value}PJ"
