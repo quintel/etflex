@@ -18,5 +18,10 @@
       <li class="twitter"><a href="#">Share on Twitter</a></li>
       <li class="facebook"><a href="#">Share on Facebook</a></li>
     </ul>
+
+    <ul id="sponsors">
+      <li><a href="#" class="sponsor gas-terra">GasTerra</a></li>
+      <li class="by"><%= I18n.t('sponsoredBy') %></li>
+    </ul>
   </div>
 </div>

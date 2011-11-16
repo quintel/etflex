@@ -124,6 +124,9 @@
       padding: 30px 0 45px
 
       ul#social-media
+        @extend .clearfix
+        display: block
+        float: left
         width: 500px
 
         li
@@ -142,3 +145,25 @@
 
         .facebook a
           background-position: 0 -50px
+
+      #sponsors
+        float: left
+        width: 460px
+
+        li
+          float: right
+          margin-right: 10px
+
+          &.by
+            color: #aaa
+            padding-top: 22px
+            font-size: 11px
+
+        .sponsor
+          display: block
+          text-indent: -10000px
+
+          &.gas-terra
+            background: url(/assets/sponsors/gas-terra.png) no-repeat
+            height: 36px
+            width: 80px
