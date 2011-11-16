@@ -116,3 +116,29 @@
           sup
             font-size: 9px
             vertical-align: text-top
+
+    // The footer; contains social media links and sponsor logos.
+
+    #footer
+      @extend .clearfix
+      padding: 30px 0 45px
+
+      ul#social-media
+        width: 500px
+
+        li
+          float: left
+
+        a
+          background: url(/assets/social-media.png) no-repeat
+          display: block
+          height: 24px
+          margin-right: 10px
+          text-indent: -10000px
+          width: 24px
+
+        .twitter a
+          background-position: 0 0
+
+        .facebook a
+          background-position: 0 -50px

@@ -13,5 +13,10 @@
 
   <div id="main-vis"></div>
 
-  <a href="/en" class="en">en</a> | <a href="/nl" class="nl">nl</a>
+  <div id="footer">
+    <ul id="social-media">
+      <li class="twitter"><a href="#">Share on Twitter</a></li>
+      <li class="facebook"><a href="#">Share on Facebook</a></li>
+    </ul>
+  </div>
 </div>
