@@ -15,6 +15,10 @@ class exports.SupplyDemandView extends Backbone.View
   constructor: (options) ->
     super options
 
+    # Since both queries are (normally) updated at the same time, wait until
+    # we should have results for them both before updating the gauge.
+    @updateGauge = _.debounce @updateGauge, 50
+
     @demandQuery = options.queries.get 518
     @supplyQuery = options.queries.get  49
 
