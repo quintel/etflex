@@ -1,13 +1,15 @@
-<div class="demand">
-  <div class="legend"><%= I18n.t 'etlite.demand' %></div>
-  <div class="marker"></div>
-  <div class="bar"></div>
-</div>
+<div class="bars">
+  <div class="demand">
+    <div class="legend"><%= I18n.t 'etlite.demand' %></div>
+    <div class="marker"></div>
+    <div class="bar"></div>
+  </div>
 
-<div class="supply">
-  <div class="legend"><%= I18n.t 'etlite.supply' %></div>
-  <div class="marker"></div>
-  <div class="bar"></div>
+  <div class="supply">
+    <div class="legend"><%= I18n.t 'etlite.supply' %></div>
+    <div class="marker"></div>
+    <div class="bar"></div>
+  </div>
 </div>
 
 <div class="gauge">
