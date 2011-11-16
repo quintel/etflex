@@ -11,3 +11,7 @@ nl:
   oops: "Whoops"
   frontPage: "Terug naar de homepage"
   fourOhFour: "De pagina die u zocht kon niet worden gevonden. Het spijt me dat&hellip;"
+
+  # Common content on module pages
+
+  sponsoredBy: "Gesponsord door"
