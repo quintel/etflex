@@ -53,7 +53,7 @@ class exports.IconVisualisation extends Backbone.View
     @activeIcon.attr class: "icon #{name} active"
 
     if @currentState?
-      @activeIcon.fadeIn null, => @inactiveIcon.fadeOut 100
+      @activeIcon.fadeIn 1000, => @inactiveIcon.hide()
     else
       # Current state is only falsey when the view is first loaded.
       @activeIcon.show()
