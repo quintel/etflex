@@ -20,16 +20,21 @@ class exports.Router extends Backbone.Router
     'en/*actions': 'languageRedirect'
     'nl/*actions': 'languageRedirect'
 
-  constructor: ->
-    # This should always be the first router since it catches any unmatched
-    # routes from other routers -- Backbone appears to check routes in the
-    # reverse order in which they are defined.
-    @errors = new (require('routers/errors').Errors)
+    '*undefined':   'notFound'
 
+  constructor: ->
     @views  = { sanity: new (require('views/sanity').SanityView)
               , etlite: new (require('views/etlite').ETLiteView) }
 
     super()
+
+  # A 404 Not Found page. Presents the user with a localised message guiding
+  # them back to the front page.
+  #
+  # GET /*undefined
+  #
+  notFound: ->
+    $('body').html (new NotFoundView).render().el
 
   # The root page; simply shows the default module with the "modern" theme for
   # the moment.
@@ -67,7 +72,7 @@ class exports.Router extends Backbone.Router
         if err? then console.error err else
           render new ModuleView model: module
     else
-      @errors.notFound()
+      notFound()
 
   # Used when changing language; a two-character language code is appended to
   # the URL.
