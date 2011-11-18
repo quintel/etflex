@@ -1,5 +1,6 @@
-app            = require 'app'
-{ ModuleView } = require 'views/module'
+app              = require 'app'
+{ ModuleView }   = require 'views/module'
+{ NotFoundView } = require 'views/not_found'
 
 # A simpler way to call `app.masterView.setSubView`.
 render = (view) -> app.masterView.setSubView view
