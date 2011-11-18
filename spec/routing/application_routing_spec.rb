@@ -25,7 +25,7 @@ describe ApplicationController, 'routing' do
     get('/modules/1').should route_to('application#module', id: '1')
   end
 
-  it 'should not route /scenarios' do
-    get('/scenarios').should_not be_routable
+  it 'should not route /modules' do
+    get('/modules').should_not be_routable
   end
 end
