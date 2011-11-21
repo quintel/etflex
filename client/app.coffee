@@ -45,8 +45,6 @@ exports.boot = (window, locale) ->
 # be possible for the remote API to deliver this all in a single response.
 #
 fetchInitialData = (callback) ->
-  createDefaultModules exports.collections.modules
-
   callback null, true
 
 # Called after all the other boot functions have completed.
@@ -68,22 +66,6 @@ postBoot = (err, result) ->
     Backbone.history.start pushState: true
 
 # Helper Functions -----------------------------------------------------------
-
-# Creates a single module; the ETlite module.
-#
-# This can be removed once modules are defined on the server and delivered
-# as JSON to the client.
-#
-createDefaultModules = (collection) ->
-  collection.add
-    id:   1
-    name: 'ETlite'
-
-    leftInputs:  [  43, 146, 336, 348, 366, 338 ]
-    rightInputs: [ 315, 256, 259, 263, 313, 196 ]
-
-    centerVis:     'supply-demand'
-    mainVis:     [ 'renewables', 'co2-emissions', 'costs' ]
 
 installConsolePolyfill = (window) ->
   unless 'console' of window
