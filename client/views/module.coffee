@@ -3,6 +3,8 @@ template      = require 'templates/module'
 
 { RangeView } = require 'views/range'
 
+{ getVisualisation } = require 'views/vis'
+
 # Module ---------------------------------------------------------------------
 
 # The heart of ETflex; given a Module model creates an HTML representation
@@ -40,13 +42,13 @@ class exports.ModuleView extends Backbone.View
 
     # Renders the center visualisation (in between the two slider groups).
 
-    centerVis = new (@model.get 'centerVis')(queries: @model.queries)
+    centerVis = @visualisation @model.get('centerVis'), queries: @model.queries
     @$('#center-vis').html centerVis.render().el
 
     # Renders the three visualisations below the sliders.
 
-    for klass in @model.get('mainVis')
-      visualisation = new klass queries: @model.queries
+    for key in @model.get('mainVis')
+      visualisation = @visualisation key, queries: @model.queries
       @$('#main-vis').append visualisation.render().el
 
     @renderTheme()
@@ -66,3 +68,12 @@ class exports.ModuleView extends Backbone.View
   #
   fakeNavClick: (event) =>
     event.preventDefault()
+
+  # Creates a new instance of a visualisation. Takes the key of the
+  # visualisation and and additional arguments to be passed the constructor.
+  #
+  # key  - The key name for the visualisation. See views/vis.
+  # args - Additional arguments passed to the constructor.
+  #
+  visualisation: (key, args...) ->
+    new (getVisualisation key)(args...)
