@@ -57,6 +57,7 @@ group :test, :development do
   # rspec-rails needs to be added to the development environment, otherwise
   # the spec:* tasks won't be available when using rake.
   gem 'rspec-rails',  '~> 2.6'
+  gem 'shoulda-matchers'
 
   # Integration / acceptance testing.
   gem 'capybara', '>= 1.1.1'

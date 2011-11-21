@@ -165,6 +165,7 @@ GEM
       json_pure
       rubyzip
     sexp_processor (3.0.8)
+    shoulda-matchers (1.0.0)
     slop (2.1.0)
     sprockets (2.1.0)
       hike (~> 1.2)
@@ -214,6 +215,7 @@ DEPENDENCIES
   rb-fsevent
   rspec-rails (~> 2.6)
   sass-rails (>= 3.1.4)
+  shoulda-matchers
   therubyracer
   uglifier
   unicorn
