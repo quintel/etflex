@@ -68,12 +68,15 @@ class exports.Router extends Backbone.Router
   # GET /modules/:id
   #
   showModule: (id) ->
-    if module = app.collections.modules.get id
-      module.start (err, module, session) ->
-        if err? then console.error err else
-          render new ModuleView model: module
-    else
-      @notFound()
+    app.collections.modules.getOrFetch id, (err, module) =>
+      # Backbone doesn't return a useful error, but it was almost certainly a
+      # 404, so just render the Not Found page...
+      if err? then @notFound() else
+
+        # Otherwise, let's start the module by starting the ETengine session.
+        module.start (err, module, session) ->
+          if err? then console.error err else
+            render new ModuleView model: module
 
   # Used when changing language; a two-character language code is appended to
   # the URL.
