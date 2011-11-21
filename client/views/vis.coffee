@@ -2,11 +2,11 @@
 # database to identify the class.
 
 visualisations =
-  co2Emissions: require('vis/co2_emissions').CO2Emissions
-  costs:        require('vis/costs').Costs
-  icon:         require('vis/icon').Icon
-  renewables:   require('vis/renewables').Renewables
-  supplyDemand: require('vis/supply_demand').SupplyDemand
+  'co2-emissions': require('views/vis/co2_emissions').CO2EmissionsView
+  'costs':         require('views/vis/costs').CostsView
+  'icon':          require('views/vis/icon').IconVisualisation
+  'renewables':    require('views/vis/renewables').RenewablesView
+  'supply-demand': require('views/vis/supply_demand').SupplyDemandView
 
 # Exports --------------------------------------------------------------------
 

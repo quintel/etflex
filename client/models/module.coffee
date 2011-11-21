@@ -1,5 +1,7 @@
-app            = require 'app'
-{ getSession } = require 'lib/session_manager'
+app = require 'app'
+
+{ getSession }       = require 'lib/session_manager'
+{ getVisualisation } = require 'views/vis'
 
 # Modules are pages such as the ETlite recreation, which have one or more
 # inputs, fetch results from ETengine, and display these to the user.
@@ -42,11 +44,16 @@ class exports.Module extends Backbone.Model
 
   # Returns an array of query IDs used by the module.
   #
+  # TODO At some point, figuring out what queries are used by a module will
+  #      become dependant on those defined in the database, instead of being
+  #      an attribute on the View class. We can remove this when that happens,
+  #      since the server JSON will tell us exactly which queries are needed.
+  #
   dependantQueries: ->
-    ids = _.clone( @get('centerVis')?.queries or [] )
+    ids = _.clone( getVisualisation( @get('centerVis') ).queries or [] )
 
-    for visualisation in @get('mainVis') when visualisation.queries?
-      ids.push visualisation.queries...
+    for visualisation in @get('mainVis')
+      ids.push ( getVisualisation(visualisation).queries or [] )...
 
     _.uniq ids
 

@@ -82,10 +82,8 @@ createDefaultModules = (collection) ->
     leftInputs:  [  43, 146, 336, 348, 366, 338 ]
     rightInputs: [ 315, 256, 259, 263, 313, 196 ]
 
-    centerVis:     require('views/vis/supply_demand').SupplyDemandView
-    mainVis:     [ require('views/vis/renewables').RenewablesView,
-                   require('views/vis/co2_emissions').CO2EmissionsView
-                   require('views/vis/costs').CostsView ]
+    centerVis:     'supply-demand'
+    mainVis:     [ 'renewables', 'co2-emissions', 'costs' ]
 
 installConsolePolyfill = (window) ->
   unless 'console' of window
