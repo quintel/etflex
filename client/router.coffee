@@ -73,7 +73,7 @@ class exports.Router extends Backbone.Router
         if err? then console.error err else
           render new ModuleView model: module
     else
-      notFound()
+      @notFound()
 
   # Used when changing language; a two-character language code is appended to
   # the URL.
