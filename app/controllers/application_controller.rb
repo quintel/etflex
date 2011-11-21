@@ -60,6 +60,11 @@ class ApplicationController < ActionController::Base
   # GET /modules/:id
   #
   def module
+    # Mock requesting a module which doesn't exist.
+    if request.format.json? and params[:id] != '1'
+      return head(:not_found)
+    end
+
     @module = OpenStruct.new id: 1, name: 'ETlite'
 
     # Inputs used by the module.
