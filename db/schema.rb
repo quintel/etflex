@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111122154918) do
+ActiveRecord::Schema.define(:version => 20111122180916) do
+
+  create_table "blueprint_inputs", :force => true do |t|
+    t.integer "blueprint_id",                    :null => false
+    t.integer "input_id",                        :null => false
+    t.boolean "placement",    :default => false, :null => false
+    t.integer "position",     :default => 0,     :null => false
+  end
 
   create_table "blueprints", :force => true do |t|
     t.string   "name"
