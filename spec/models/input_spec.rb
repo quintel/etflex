@@ -26,6 +26,33 @@ describe Input do
   it { should validate_numericality_of(:max) }
   it { should allow_mass_assignment_of(:max) }
 
+  it 'should not be less than the minimum value' do
+    input  = Input.new min: 5, max: 4
+    errors = input.errors_on(:max)
+
+    errors.should \
+      include('The maximum value must be equal or greater than the ' \
+              'minimum value')
+  end
+
+  it 'should skip maximum >= minimum validation when minimum is nil' do
+    input  = Input.new min: nil
+    errors = input.errors_on(:max)
+
+    errors.should_not \
+      include('The maximum value must be equal or greater than the ' \
+              'minimum value')
+  end
+
+  it 'should skip maximum >= minimum validation when maximum is nil' do
+    input = Input.new max: nil
+    errors = input.errors_on(:max)
+
+    errors.should_not \
+      include('The maximum value must be equal or greater than the ' \
+              'minimum value')
+  end
+
   # START VALUE --------------------------------------------------------------
 
   it { should validate_presence_of(:start) }
