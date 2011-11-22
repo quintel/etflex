@@ -1,5 +1,10 @@
 class BlueprintInput < ActiveRecord::Base
 
+  # RELATIONSHIPS ------------------------------------------------------------
+
+  belongs_to :blueprint
+  belongs_to :input
+
   # VALIDATION ---------------------------------------------------------------
 
   validates :blueprint_id, presence: true
