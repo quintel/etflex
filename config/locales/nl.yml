@@ -6,12 +6,22 @@ nl:
   loadingMsg: "De applicatie wordt geladen. Het ene moment, het zal niet lang meer duren!"
   loadingNothing: "Niets gebeurt er?"
 
-  # 404 Not Found
+  # 404 Not Found ------------------------------------------------------------
 
   oops: "Whoops"
   frontPage: "Terug naar de homepage"
   fourOhFour: "De pagina die u zocht kon niet worden gevonden. Het spijt me dat&hellip;"
 
-  # Common content on module pages
+  # Common content on module pages -------------------------------------------
 
   sponsoredBy: "Gesponsord door"
+
+  # ActiveRecord -------------------------------------------------------------
+
+  activerecord:
+    errors:
+      models:
+        input:
+          attributes:
+            max:
+              less_than_min: "De maximale waarde moet gelijk of groter dan de minimale waarde"
