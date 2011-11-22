@@ -2,6 +2,11 @@ require 'spec_helper'
 
 describe BlueprintInput do
 
+  # RELATIONSHIPS ------------------------------------------------------------
+
+  it { should belong_to(:blueprint) }
+  it { should belong_to(:input) }
+
   # BLUEPRINT ID -------------------------------------------------------------
 
   it { should validate_presence_of(:blueprint_id) }
