@@ -11,12 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111122143754) do
+ActiveRecord::Schema.define(:version => 20111122154918) do
 
   create_table "blueprints", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "inputs", :force => true do |t|
+    t.string  "key",                          :null => false
+    t.float   "step",      :default => 1.0,   :null => false
+    t.float   "min",       :default => 0.0,   :null => false
+    t.float   "max",       :default => 100.0, :null => false
+    t.float   "start",     :default => 0.0,   :null => false
+    t.string  "unit"
+    t.integer "remote_id",                    :null => false
   end
 
 end
