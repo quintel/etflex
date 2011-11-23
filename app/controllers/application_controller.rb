@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   respond_to :html
-  respond_to :json, only: :render_module
+  respond_to :json, only: :render_scene
 
   # FILTERS ------------------------------------------------------------------
 
@@ -52,30 +52,30 @@ class ApplicationController < ActionController::Base
     render client
   end
 
-  # A temporary action which renders a module.
+  # A temporary action which renders a scene.
   #
-  # This will be replaced with a full module controller once the ActiveRecord
+  # This will be replaced with a full scenes controller once the ActiveRecord
   # model is implemented.
   #
-  # GET /modules/:id
+  # GET /scenes/:id
   #
-  def module
-    # Mock requesting a module which doesn't exist.
+  def scene
+    # Mock requesting a scene which doesn't exist.
     if request.format.json? and params[:id] != '1'
       return head(:not_found)
     end
 
-    @module = OpenStruct.new id: 1, name: 'ETlite'
+    @scene = OpenStruct.new id: 1, name: 'ETlite'
 
-    # Inputs used by the module.
-    @module.left_inputs =  [  43, 146, 336, 348, 366, 338 ]
-    @module.right_inputs = [ 315, 256, 259, 263, 313, 196 ]
+    # Inputs used by the scene.
+    @scene.left_inputs =  [  43, 146, 336, 348, 366, 338 ]
+    @scene.right_inputs = [ 315, 256, 259, 263, 313, 196 ]
 
     # Visualisations used.
-    @module.center_vis = 'supply-demand'
-    @module.main_vis   = %w( renewables co2-emissions costs )
+    @scene.center_vis = 'supply-demand'
+    @scene.main_vis   = %w( renewables co2-emissions costs )
 
-    # TODO Add a custom Responder so we may simply "render @module".
+    # TODO Add a custom Responder so we may simply "render @scene".
     respond_to do |wants|
       wants.html { render client }
       wants.json { render }

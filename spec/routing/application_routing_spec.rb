@@ -21,11 +21,11 @@ describe ApplicationController, 'routing' do
     get('/etlite').should route_to('application#render_client')
   end
 
-  it 'routes /modules/:id to module' do
-    get('/modules/1').should route_to('application#module', id: '1')
+  it 'routes /scenes/:id to scene' do
+    get('/scenes/1').should route_to('application#scene', id: '1')
   end
 
-  it 'should not route /modules' do
-    get('/modules').should_not be_routable
+  it 'should not route /scenes' do
+    get('/scenes').should_not be_routable
   end
 end
