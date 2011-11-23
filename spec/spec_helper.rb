@@ -29,6 +29,14 @@ RSpec.configure do |config|
   config.filter_run focus: true
   config.run_all_when_everything_filtered = true
 
+  # Languages
+  # ---------
+
+  # Default all test runs to use English; you can change this in each
+  # individual test, or in a before(:each) block.
+  #
+  config.before(:each) { I18n.locale = 'en' }
+
   # Database
   # --------
 
