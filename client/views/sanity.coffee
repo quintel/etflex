@@ -11,14 +11,14 @@ class exports.SanityView extends Backbone.View
     'click a': 'navigateToETLite'
 
   navigateToETLite: (event) ->
-    application.router.navigate 'modules/1', true
+    application.router.navigate 'scenes/1', true
     event.preventDefault()
 
   # Renders the view which adds text to the page indicating that Backbone is
   # correctly configured.
   #
   render: ->
-    link = "<a href='/modules/1'>#{ I18n.t('etlite.link') }</a>"
+    link = "<a href='/scenes/1'>#{ I18n.t('etlite.link') }</a>"
 
     $(@el).html sanityTemplate
       header:  I18n.t('etlite.header')
