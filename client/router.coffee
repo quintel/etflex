@@ -14,7 +14,7 @@ class exports.Router extends Backbone.Router
     'sanity':      'sanity'
     'etlite':      'etlite'
 
-    'modules/:id': 'showModule'
+    'scenes/:id':  'showScene'
 
     'en':          'languageRedirect'
     'nl':          'languageRedirect'
@@ -37,13 +37,14 @@ class exports.Router extends Backbone.Router
   notFound: ->
     $('body').html (new NotFoundView).render().el
 
-  # The root page; simply shows the default module with the "modern" theme for
+  # The root page; simply shows the default scene with the "modern" theme for
   # the moment.
   #
   # GET /
   #
   root: ->
-    app.router.navigate '/modules/1', true
+    console.log 'hello world; routing to /scenes/1'
+    app.router.navigate '/scenes/1', true
 
   # A test page which shows the all of the application dependencies are
   # correctly installed and work as intended.
@@ -62,12 +63,12 @@ class exports.Router extends Backbone.Router
     console.log @views
     render @views.etlite
 
-  # Loads a module using JSON delivered from ETflex to set up which inputs and
+  # Loads a scene using JSON delivered from ETflex to set up which inputs and
   # visualiations are used.
   #
-  # GET /modules/:id
+  # GET /scenes/:id
   #
-  showModule: (id) ->
+  showScene: (id) ->
     app.collections.modules.getOrFetch id, (err, module) =>
       # Backbone doesn't return a useful error, but it was almost certainly a
       # 404, so just render the Not Found page...
