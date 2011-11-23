@@ -11,20 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111122180916) do
-
-  create_table "blueprint_inputs", :force => true do |t|
-    t.integer "blueprint_id",                    :null => false
-    t.integer "input_id",                        :null => false
-    t.boolean "placement",    :default => false, :null => false
-    t.integer "position",     :default => 0,     :null => false
-  end
-
-  create_table "blueprints", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 20111123123816) do
 
   create_table "inputs", :force => true do |t|
     t.string  "key",                          :null => false
@@ -34,6 +21,19 @@ ActiveRecord::Schema.define(:version => 20111122180916) do
     t.float   "start",     :default => 0.0,   :null => false
     t.string  "unit"
     t.integer "remote_id",                    :null => false
+  end
+
+  create_table "scene_inputs", :force => true do |t|
+    t.integer "scene_id",                     :null => false
+    t.integer "input_id",                     :null => false
+    t.boolean "placement", :default => false, :null => false
+    t.integer "position",  :default => 0,     :null => false
+  end
+
+  create_table "scenes", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
