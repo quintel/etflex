@@ -10,7 +10,7 @@
 #
 class exports.Modules extends Backbone.Collection
   model: Module
-  url:  'http://etflex.dev/scenes'
+  url:  '/scenes'
 
   # Returns the Module whose ID matches "id". If the module already exists in
   # the collection, the supplied "callback" will be run immediately. Otherwise
