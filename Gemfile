@@ -12,6 +12,7 @@ gem 'railties',       RAILS_VERSION, :require => 'rails'
 
 gem 'mysql2'
 gem 'acts_as_list'
+gem 'default_value_for'
 
 gem 'haml', '~> 3.1.3'
 gem 'jsonify-rails'
