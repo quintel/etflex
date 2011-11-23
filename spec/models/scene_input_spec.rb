@@ -15,11 +15,6 @@ describe SceneInput do
 
   it { should validate_presence_of(:input_id) }
 
-  # POSITION -----------------------------------------------------------------
-
-  it { should validate_presence_of(:position) }
-  it { should validate_numericality_of(:position) }
-
   # PLACEMENT ----------------------------------------------------------------
 
   context '#left?' do
