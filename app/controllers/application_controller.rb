@@ -65,15 +65,7 @@ class ApplicationController < ActionController::Base
       return head(:not_found)
     end
 
-    @scene = OpenStruct.new id: 1, name: 'ETlite'
-
-    # Inputs used by the scene.
-    @scene.left_inputs =  [  43, 146, 336, 348, 366, 338 ]
-    @scene.right_inputs = [ 315, 256, 259, 263, 313, 196 ]
-
-    # Visualisations used.
-    @scene.center_vis = 'supply-demand'
-    @scene.main_vis   = %w( renewables co2-emissions costs )
+    @scene = Scene.find(params[:id])
 
     # TODO Add a custom Responder so we may simply "render @scene".
     respond_to do |wants|
