@@ -1,8 +1,8 @@
 json.id          @scene.id
 json.name        @scene.name
 
-json.leftInputs  @scene.left_inputs
-json.rightInputs @scene.right_inputs
+json.leftInputs  @scene.left_inputs.map(&:remote_id)
+json.rightInputs @scene.right_inputs.map(&:remote_id)
 
-json.centerVis   @scene.center_vis
-json.mainVis     @scene.main_vis
+json.centerVis   'supply-demand'
+json.mainVis     %w( renewables co2-emissions costs )
