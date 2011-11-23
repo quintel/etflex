@@ -1,10 +1,10 @@
 # A collection which contains raw fixture data from the server.
 #
 # This allows us to create a new collection, with new models each time a new
-# module is loaded by the user; providing each module with a degree of
+# scene is loaded by the user; providing each scene with a degree of
 # isolation. You can freely bind events to the collection returned by
 # "createCollection" -- or individual models -- without any of those events
-# "spilling over" into other modules.
+# "spilling over" into other scenes.
 #
 # You should not bind any events to the Stencil collection, or it's models
 # however as these will not be passed on to collections created with
