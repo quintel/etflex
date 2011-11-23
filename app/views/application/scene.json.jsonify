@@ -6,5 +6,3 @@ json.rightInputs @scene.right_inputs
 
 json.centerVis   @scene.center_vis
 json.mainVis     @scene.main_vis
-
-# vim: set filetype=ruby :
