@@ -9,7 +9,10 @@ class SceneInput < ActiveRecord::Base
 
   validates :scene_id, presence: true
   validates :input_id, presence: true
-  validates :position, presence: true, numericality: { only_integer: true }
+
+  # BEHAVIOUR ----------------------------------------------------------------
+
+  acts_as_list scope: [ :scene_id, :placement ]
 
   # INSTANCE METHODS ---------------------------------------------------------
 
