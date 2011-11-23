@@ -1,5 +1,5 @@
 app              = require 'app'
-{ ModuleView }   = require 'views/module'
+{ SceneView }    = require 'views/scene'
 { NotFoundView } = require 'views/not_found'
 
 # A simpler way to call `app.masterView.setSubView`.
@@ -43,7 +43,6 @@ class exports.Router extends Backbone.Router
   # GET /
   #
   root: ->
-    console.log 'hello world; routing to /scenes/1'
     app.router.navigate '/scenes/1', true
 
   # A test page which shows the all of the application dependencies are
@@ -60,7 +59,6 @@ class exports.Router extends Backbone.Router
   # GET /etflex
   #
   etlite: ->
-    console.log @views
     render @views.etlite
 
   # Loads a scene using JSON delivered from ETflex to set up which inputs and
@@ -69,15 +67,15 @@ class exports.Router extends Backbone.Router
   # GET /scenes/:id
   #
   showScene: (id) ->
-    app.collections.modules.getOrFetch id, (err, module) =>
+    app.collections.scenes.getOrFetch id, (err, scene) =>
       # Backbone doesn't return a useful error, but it was almost certainly a
       # 404, so just render the Not Found page...
       if err? then @notFound() else
 
-        # Otherwise, let's start the module by starting the ETengine session.
-        module.start (err, module, session) ->
+        # Otherwise, let's start the scene by starting the ETengine session.
+        scene.start (err, scene, session) ->
           if err? then console.error err else
-            render new ModuleView model: module
+            render new SceneView model: scene
 
   # Used when changing language; a two-character language code is appended to
   # the URL.

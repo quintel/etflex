@@ -3,7 +3,7 @@
 # full-page views.
 
 { Inputs }        = require 'collections/inputs'
-{ Modules }       = require 'collections/modules'
+{ Scenes }        = require 'collections/scenes'
 { Queries }       = require 'collections/queries'
 { createStencil } = require 'collections/stencil'
 
@@ -17,7 +17,7 @@ exports.router = null
 exports.collections = {}
 
 # Holds Stencil instances which can be used to create collections for
-# each module.
+# each scene.
 exports.stencils = {}
 
 # The singleton views/Master instance.
@@ -33,9 +33,9 @@ exports.boot = (window, locale) ->
   # Set up the collections.
   raw = require 'raw'
 
-  exports.stencils.inputs     = createStencil Inputs, raw.inputs
-  exports.stencils.queries    = createStencil Queries, raw.queries
-  exports.collections.modules = new Modules
+  exports.stencils.inputs    = createStencil Inputs, raw.inputs
+  exports.stencils.queries   = createStencil Queries, raw.queries
+  exports.collections.scenes = new Scenes
 
   async.parallel data: fetchInitialData, postBoot
 
