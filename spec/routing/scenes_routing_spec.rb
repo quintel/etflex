@@ -12,7 +12,7 @@ describe 'ScenesController' do
     end
 
     it 'routes to #show' do
-      get('/scenes/1').should route_to('application#module', id: '1')
+      get('/scenes/1').should route_to('application#scene', id: '1')
     end
 
     xit 'routes to #edit' do
