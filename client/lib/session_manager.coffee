@@ -1,6 +1,6 @@
-# Each Module uses a separate ETEngine session so that the inputs from one
-# module don't affect the outcome of another. SessionManager keeps track of
-# each module ID and the ETEngine session it uses.
+# Each scene uses a separate ETEngine session so that the inputs from one
+# scene don't affect the outcome of another. SessionManager keeps track of
+# each scene ID and the ETEngine session it uses.
 
 { Session } = require 'models/session'
 
@@ -13,22 +13,22 @@ X_API_AGENT = 'ETflex Client'
 
 # Exports --------------------------------------------------------------------
 
-# Returns the ETEngine session which corresponds with a Module ID.
+# Returns the ETEngine session which corresponds with a scene ID.
 #
 # "getSession" will always hit ETEngine for the session details, and will
 # return a new Session. This method is used in conjunction with
-# Module::start and probably shouldn't be celled directly unless you know
+# Scene::start and probably shouldn't be celled directly unless you know
 # what you're doing.
 #
 # In all cases, the session will be returned to the callback as the second
 # argument. The first argument will be null unless an error occurred.
 #
-# moduleId - A number which uniquely identifies the session.
-# queries    - Queries whose results should be fetched with the session.
-# callback   - A function which is run after the session is retrieved.
+# sceneId  - A number which uniquely identifies the session.
+# queries  - Queries whose results should be fetched with the session.
+# callback - A function which is run after the session is retrieved.
 #
-exports.getSession = (moduleId, queries, callback) ->
-  lsKey = "ete.#{moduleId}"
+exports.getSession = (sceneId, queries, callback) ->
+  lsKey = "ete.#{sceneId}"
 
   if callback?
     # Convert Backbone collection to an array.
