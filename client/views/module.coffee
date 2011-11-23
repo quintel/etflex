@@ -11,7 +11,7 @@ template      = require 'templates/module'
 # displaying the left and right sliders, visualisations, etc.
 #
 class exports.ModuleView extends Backbone.View
-  id: 'module-view'
+  id: 'scene-view'
   className: 'modern' # TODO Set dynamically based on server-sent JSON.
 
   events:
