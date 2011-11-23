@@ -13,13 +13,14 @@ gem 'railties',       RAILS_VERSION, :require => 'rails'
 gem 'mysql2'
 
 gem 'haml', '~> 3.1.3'
+gem 'jsonify-rails'
 
 gem 'jquery-rails'
+
 gem 'i18n-js'
+gem 'rails-i18n'
 
 gem 'airbrake'
-
-gem 'jsonify-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.
