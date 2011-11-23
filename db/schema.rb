@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111123160834) do
+ActiveRecord::Schema.define(:version => 20111123161847) do
 
   create_table "inputs", :force => true do |t|
     t.string  "key",                          :null => false
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(:version => 20111123160834) do
     t.integer "remote_id",                    :null => false
   end
 
+  add_index "inputs", ["remote_id"], :name => "index_inputs_on_remote_id", :unique => true
+
   create_table "scene_inputs", :force => true do |t|
     t.integer "scene_id",                     :null => false
     t.integer "input_id",                     :null => false
@@ -30,10 +32,10 @@ ActiveRecord::Schema.define(:version => 20111123160834) do
     t.integer "position"
   end
 
+  add_index "scene_inputs", ["scene_id", "input_id"], :name => "index_scene_inputs_on_scene_id_and_input_id"
+
   create_table "scenes", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string "name"
   end
 
 end
