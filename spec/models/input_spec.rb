@@ -59,6 +59,10 @@ describe Input do
   it { should validate_numericality_of(:start) }
   it { should allow_mass_assignment_of(:start) }
 
+  it 'should default to the minimum value' do
+    Input.new(min: 50.0).start.should eql(50.0)
+  end
+
   # STEP VALUE ---------------------------------------------------------------
 
   it { should validate_presence_of(:step) }

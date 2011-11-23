@@ -21,4 +21,8 @@ class Input < ActiveRecord::Base
     end
   end
 
+  # BEHAVIOUR ----------------------------------------------------------------
+
+  default_value_for(:start) { |input| input.min }
+
 end
