@@ -5,7 +5,7 @@ describe 'The ETlite recreation' do
   # --------------------------------------------------------------------------
 
   specify 'Viewing the ETlite recreation',  js: true do
-    visit '/modules/1'
+    visit '/scenes/1'
 
     # Low-energy lighting.
 
