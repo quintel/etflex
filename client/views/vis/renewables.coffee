@@ -2,7 +2,7 @@
 { IconVisualisation }    = require 'views/vis/icon'
 
 class exports.RenewablesView extends GenericVisualisation
-  @queries: [ 32 ]
+  @queries: [ 'share_of_renewable_electricity' ]
 
   className: 'visualisation renewables'
 
@@ -14,7 +14,7 @@ class exports.RenewablesView extends GenericVisualisation
 
     @icon = new IconVisualisation
 
-    @query = options.queries.get 32
+    @query = options.queries.get 'share_of_renewable_electricity'
     @query.bind 'change:future', @updateValues
 
   # Calculates the total CO2 emissions based on the value of the coal and

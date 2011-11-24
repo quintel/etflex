@@ -7,7 +7,7 @@ EXTENT = 1000
 # histogram based on the selections made by the user on the ETlite recreation.
 #
 class exports.SupplyDemandView extends Backbone.View
-  @queries:  [ 49, 518 ]
+  @queries:  [ 'electricity_production', 'final_demand_electricity' ]
 
   id:        'energy-generation'
   className: 'energy-graph'
@@ -19,8 +19,8 @@ class exports.SupplyDemandView extends Backbone.View
     # we should have results for them both before updating the gauge.
     @updateGauge = _.debounce @updateGauge, 50
 
-    @demandQuery = options.queries.get 518
-    @supplyQuery = options.queries.get  49
+    @demandQuery = options.queries.get 'final_demand_electricity'
+    @supplyQuery = options.queries.get 'electricity_production'
 
     @demandQuery.bind 'change:future', @redrawDemand
     @supplyQuery.bind 'change:future', @redrawSupply
