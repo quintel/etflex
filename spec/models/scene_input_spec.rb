@@ -15,7 +15,7 @@ describe SceneInput do
 
   it { should validate_presence_of(:input_id) }
 
-  # PLACEMENT ----------------------------------------------------------------
+  # LEFT ---------------------------------------------------------------------
 
   context 'when left: true' do
     subject { SceneInput.new(left: true) }
@@ -97,6 +97,10 @@ describe SceneInput do
       subject.remote_id.should eql(5)
     end
 
+    it 'should return nil when no input is set' do
+      SceneInput.new.remote_id.should be_nil
+    end
+
     it 'should not be writable' do
       expect { subject.remote_id = 6 }.to raise_error(NoMethodError)
     end
@@ -109,6 +113,10 @@ describe SceneInput do
 
     it 'should be delegated to the input' do
       subject.key.should eql('hello')
+    end
+
+    it 'should return nil when no input is set' do
+      SceneInput.new.key.should be_nil
     end
 
     it 'should not be writable' do
@@ -125,6 +133,10 @@ describe SceneInput do
       subject.step.should eql(50.0)
     end
 
+    it 'should return nil when no input is set' do
+      SceneInput.new.step.should be_nil
+    end
+
     it 'should not be writable' do
       expect { subject.step = 25 }.to raise_error(NoMethodError)
     end
@@ -137,6 +149,10 @@ describe SceneInput do
 
     it 'should be delegated to the input' do
       subject.unit.should eql('PJ')
+    end
+
+    it 'should return nil when no input is set' do
+      SceneInput.new.unit.should be_nil
     end
 
     it 'should not be writable' do
