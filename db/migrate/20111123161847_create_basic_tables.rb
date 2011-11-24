@@ -20,9 +20,9 @@ class CreateBasicTables < ActiveRecord::Migration
 
       # Customised input values.
 
-      t.float   :min,       default:   0.0, null: false
-      t.float   :max,       default: 100.0, null: false
-      t.float   :start,     default:   0.0, null: false
+      t.float   :min
+      t.float   :max
+      t.float   :start
     end
 
     add_index :scene_inputs, [ :scene_id, :input_id ]
