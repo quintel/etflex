@@ -2,7 +2,7 @@
 { IconVisualisation }    = require 'views/vis/icon'
 
 class exports.CO2EmissionsView extends GenericVisualisation
-  @queries: [ 8 ]
+  @queries: [ 'co2_emission_total' ]
 
   className: 'visualisation co2-emissions'
 
@@ -15,7 +15,7 @@ class exports.CO2EmissionsView extends GenericVisualisation
 
     @icon = new IconVisualisation
 
-    @query = options.queries.get 8
+    @query = options.queries.get 'co2_emission_total'
     @query.bind 'change:future', @updateValues
 
   # Calculates the total CO2 emissions based on the value of the coal and
