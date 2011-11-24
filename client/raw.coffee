@@ -18,8 +18,8 @@ exports.inputs = [
   { id: 196, key: 'biomass',    start_value: 0, max_value:  1606, unit: ' km<sup>2</sup>' } ]
 
 exports.queries = [
-  { id:   8 },  # co2_emission_total
-  { id:  23 },  # costs_total
-  { id:  32 },  # share_of_renewable_electricity
-  { id:  49 },  # electricity_production
-  { id: 518 } ] # final_demand_electricity
+  { id: 'co2_emission_total' }
+  { id: 'costs_total' }
+  { id: 'share_of_renewable_electricity' }
+  { id: 'electricity_production' }
+  { id: 'final_demand_electricity' } ]
