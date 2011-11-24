@@ -28,7 +28,7 @@ YAML.load_file(Rails.root.join('db/seeds/scenes.yml')).each do |data|
       input_id: Input.where(remote_id: input).first.id)
   end
 
-  data['left_inputs'].each do |input|
+  data['right_inputs'].each do |input|
     scene.right_scene_inputs.create!(
       input_id: Input.where(remote_id: input).first.id)
   end
