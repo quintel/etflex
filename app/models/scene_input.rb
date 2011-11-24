@@ -1,6 +1,6 @@
 class SceneInput < ActiveRecord::Base
 
-  delegate :remote_id, :key, :step, :unit, to: :input
+  delegate :remote_id, :key, :step, :unit, to: :input, allow_nil: true
 
   # RELATIONSHIPS ------------------------------------------------------------
 
@@ -14,7 +14,7 @@ class SceneInput < ActiveRecord::Base
 
   # BEHAVIOUR ----------------------------------------------------------------
 
-  acts_as_list scope: [ :scene_id, :placement ]
+  acts_as_list scope: [ :scene_id, :left ]
 
   # INSTANCE METHODS ---------------------------------------------------------
 
