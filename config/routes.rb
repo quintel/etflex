@@ -1,13 +1,11 @@
 ETFlex::Application.routes.draw do
 
-  scope '(:locale)', constraints: { locale: /en|nl/ } do
-    get 'sanity', to: 'application#render_client'
-    get 'etlite', to: 'application#render_client'
+  get 'sanity', to: 'application#render_client'
+  get 'etlite', to: 'application#render_client'
 
-    get 'scenes/:id', to: 'application#scene'
+  get 'scenes/:id', to: 'application#scene', as: 'scene'
 
-    root to: 'application#render_client'
-  end
+  root to: 'application#render_client'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
