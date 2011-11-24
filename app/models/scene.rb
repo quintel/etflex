@@ -3,8 +3,8 @@ class Scene < ActiveRecord::Base
   # RELATIONSHIPS ------------------------------------------------------------
 
   with_options class_name: 'SceneInput' do |opts|
-    opts.has_many :left_scene_inputs,  conditions: { placement: false }
-    opts.has_many :right_scene_inputs, conditions: { placement: true  }
+    opts.has_many :left_scene_inputs,  conditions: { left: true  }
+    opts.has_many :right_scene_inputs, conditions: { left: false }
   end
 
   with_options class_name: 'Input', source: :input, readonly: true do |opts|
