@@ -1,5 +1,7 @@
 class SceneInput < ActiveRecord::Base
 
+  delegate :remote_id, :key, :step, :unit, to: :input
+
   # RELATIONSHIPS ------------------------------------------------------------
 
   belongs_to :scene
