@@ -14,22 +14,25 @@
 ActiveRecord::Schema.define(:version => 20111123161847) do
 
   create_table "inputs", :force => true do |t|
+    t.integer "remote_id",                    :null => false
     t.string  "key",                          :null => false
     t.float   "step",      :default => 1.0,   :null => false
     t.float   "min",       :default => 0.0,   :null => false
     t.float   "max",       :default => 100.0, :null => false
     t.float   "start",     :default => 0.0,   :null => false
     t.string  "unit"
-    t.integer "remote_id",                    :null => false
   end
 
   add_index "inputs", ["remote_id"], :name => "index_inputs_on_remote_id", :unique => true
 
   create_table "scene_inputs", :force => true do |t|
-    t.integer "scene_id",                     :null => false
-    t.integer "input_id",                     :null => false
+    t.integer "scene_id",                    :null => false
+    t.integer "input_id",                    :null => false
     t.boolean "left",     :default => true,  :null => false
     t.integer "position"
+    t.float   "min",      :default => 0.0,   :null => false
+    t.float   "max",      :default => 100.0, :null => false
+    t.float   "start",    :default => 0.0,   :null => false
   end
 
   add_index "scene_inputs", ["scene_id", "input_id"], :name => "index_scene_inputs_on_scene_id_and_input_id"
