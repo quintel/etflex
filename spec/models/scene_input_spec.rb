@@ -88,4 +88,60 @@ describe SceneInput do
     end
   end
 
+  # REMOTE ID ----------------------------------------------------------------
+
+  describe '#remote_id' do
+    subject { SceneInput.new(input: Input.new(remote_id: 5)) }
+
+    it 'should be delegated to the input' do
+      subject.remote_id.should eql(5)
+    end
+
+    it 'should not be writable' do
+      expect { subject.remote_id = 6 }.to raise_error(NoMethodError)
+    end
+  end
+
+  # KEY ----------------------------------------------------------------------
+
+  describe '#key' do
+    subject { SceneInput.new(input: Input.new(key: 'hello')) }
+
+    it 'should be delegated to the input' do
+      subject.key.should eql('hello')
+    end
+
+    it 'should not be writable' do
+      expect { subject.key = 'another' }.to raise_error(NoMethodError)
+    end
+  end
+
+  # STEP ---------------------------------------------------------------------
+
+  describe '#step' do
+    subject { SceneInput.new(input: Input.new(step: 50.0)) }
+
+    it 'should be delegated to the input' do
+      subject.step.should eql(50.0)
+    end
+
+    it 'should not be writable' do
+      expect { subject.step = 25 }.to raise_error(NoMethodError)
+    end
+  end
+
+  # UNIT ---------------------------------------------------------------------
+
+  describe '#unit' do
+    subject { SceneInput.new(input: Input.new(unit: 'PJ')) }
+
+    it 'should be delegated to the input' do
+      subject.unit.should eql('PJ')
+    end
+
+    it 'should not be writable' do
+      expect { subject.unit = 'TJ' }.to raise_error(NoMethodError)
+    end
+  end
+
 end
