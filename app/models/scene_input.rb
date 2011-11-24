@@ -16,13 +16,6 @@ class SceneInput < ActiveRecord::Base
 
   # INSTANCE METHODS ---------------------------------------------------------
 
-  # Returns if this input should be shown on the left-hand side of the
-  # scene page.
-  #
-  def left?
-    placement.blank?
-  end
-
   # Returns if this input should be shown on the right-hand side of the
   # scene page.
   #

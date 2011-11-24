@@ -15,7 +15,7 @@ class CreateBasicTables < ActiveRecord::Migration
     create_table :scene_inputs do |t|
       t.integer :scene_id,                  null: false
       t.integer :input_id,                  null: false
-      t.boolean :placement, default: false, null: false
+      t.boolean :left,      default: true,  null: false
       t.integer :position
     end
 

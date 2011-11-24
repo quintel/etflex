@@ -17,24 +17,18 @@ describe SceneInput do
 
   # PLACEMENT ----------------------------------------------------------------
 
-  context '#left?' do
-    it 'should be true when placement=0' do
-      SceneInput.new(placement: false).should be_left
-    end
+  context 'when left: true' do
+    subject { SceneInput.new(left: true) }
 
-    it 'should be false when placement=1' do
-      SceneInput.new(placement: true).should_not be_left
-    end
+    it { should be_left }
+    it { should_not be_right }
   end
 
-  context '#right?' do
-    it 'should be false when placement=0' do
-      SceneInput.new(placement: false).should_not be_right
-    end
+  context 'when left: false' do
+    subject { SceneInput.new(left: false) }
 
-    it 'should be true when placement=1' do
-      SceneInput.new(placement: true).should be_right
-    end
+    it { should_not be_left }
+    it { should be_right }
   end
 
 end
