@@ -14,6 +14,8 @@ class exports.Input extends Backbone.Model
     super
       id:       attributes.remoteId
       value:    attributes.start or attributes.min or 0
+      location: attributes.location
+      position: attributes.position
       disabled: attributes.disabled
     , options
 
