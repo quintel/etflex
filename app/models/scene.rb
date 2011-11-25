@@ -2,7 +2,7 @@ class Scene < ActiveRecord::Base
 
   # RELATIONSHIPS ------------------------------------------------------------
 
-  with_options class_name: 'SceneInput' do |opts|
+  with_options class_name: 'SceneInput', order: 'position ASC' do |opts|
     opts.has_many :scene_inputs
     opts.has_many :left_scene_inputs,  conditions: { left: true  }
     opts.has_many :right_scene_inputs, conditions: { left: false }
