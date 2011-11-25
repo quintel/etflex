@@ -30,5 +30,11 @@ class CreateBasicTables < ActiveRecord::Migration
     create_table :scenes do |t|
       t.string  :name,      limit: 100
     end
+
+    create_table :outputs do |t|
+      t.string  :key,       limit: 100,     null: false
+      t.string  :type_name, limit: 25,      null: false
+      t.text    :type_data,                 null: false
+    end
   end
 end
