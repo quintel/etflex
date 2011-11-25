@@ -1,0 +1,113 @@
+---
+nl:
+  inputs:
+    households_lighting_low_energy_light_bulb_share:
+      name: "Zuinige lampen"
+      description: >
+        Gloeilampen verspillen veel energie. Bijna alle stroom die ze
+        gebruiken wordt omgezet in warmte in plaats ven licht. Daarom zullen
+        we Europa de komende jaren overschakelen naar zuinige lampen die veel
+        minder warm worden en evenveel licht geven. Daar komt nog eens bij dat
+        ze veel langer meegaan de gloeilampen.
+
+    transport_cars_electric_share:
+      name: "Elektrische autos"
+      description: >
+        Een elektrische auto gebruikt 2 tot 3 keer minder energie dan een auto
+        op benzine of diesel. Benzine en diesel worden uit olie gemaakt. Met
+        elektrische auto's besparen we dus heel veel olie en gebruiken we een
+        beetje meer elektriciteit. Als we deze elektriciteit opwekken met wind
+        of zon, dan heeft autorijden geen CO2-uitstoot meer tot gevolg.
+
+    households_insulation_level_old_houses:
+      name: "Betere isolatie"
+      description: >
+        Er gaat heel veel warmte verloren doordat huizen niet goed geïsoleerd
+        zijn. Het is natuurlijk goed om energie die we nodig hebben duurzaam
+        op te wekken. Maar het is natuurlijk nog beter om te zorgen dat we
+        minder energie gebruiken. Dit kan door onze huizen beter te isoleren.
+
+    households_hot_water_solar_water_heater_share:
+      name: "Zonneboiler"
+      description: >
+        Een zonneboiler benut warmte van de zon om water te verwarmen. Dit
+        water zit in een reservoir op het dak van het huis. Het verwarmde
+        water kan vervolgens gebruikt worden om af te wassen of te douchen.
+        Op deze manier is veel minder energie nodig om water te verwarmen.
+
+    households_behavior_standby_killer_turn_off_appliances:
+      name: "Apparaten uit"
+      description: >
+        We hebben steeds meer elektrische apparaten in huis. Heel vaak staan
+        deze apparaten aan zonder dat we ze gebruiken. Door deze apparaten zo
+        vaak mogelijk uit te zetten, kunnen we dus stroom besparen.
+
+    households_heating_heat_pump_ground_share:
+      name: "Warmtepomp in huis"
+      description: >
+        Een warmtepomp is een soort omgekeerde koelkast. Hij pompt warmte van
+        buiten het huis naar binnen, terwijl een koelkast warmte van binnen de
+        koelkast naar buiten pompt. Warmtepompen zorgen ervoor dat je veel
+        minder gas hoeft te verbranden om je huis te verwarmen. Dat is goed.
+        We willen zuinig zijn op gas omdat het niet eindeloos beschikbaar is.
+
+    number_of_coal_conventional:
+      name: "Steenkoolcentrales"
+      description: >
+        Een kolencentrale draait het grootste deel van de tijd op volle
+        kracht. Regelmatig uitzetten verlaagt de hoeveelheid stroom die we
+        uit kolen kunnen halen. Van alle manieren om stroom te maken geeft een
+        kolencentrale de grootste luchtvervuiling. De CO2-uitstoot is ongeveer
+        2 keer zo groot als die van een gascentrale.
+
+    number_of_gas_conventional:
+      name: "Gascentrales"
+      description: >
+        Een gascentrale is goedkoper om te bouwen dan een kolencentrale. Wel
+        zijn ze duurder als ze draaien dan centrales op kolen. Een gascentrale
+        kun je makkelijk aan of uit zetten. Dat is handig om stroom te makken
+        als de windmolen even stilstaat om dat het niet  waait. De
+        CO2-uitstoot van een gascentrale is ongeveer de helft van een
+        kolencentrale.
+
+    number_of_nuclear_3rd_gen:
+      name: "Kerncentrales"
+      description: >
+        Een kerncentrale is heel durr om te bouwen. Een kerncentrale gaat wel
+        langer mee dan een kolen- of gascentrale. Als de centrale er eenmaal
+        staat is het hoedkoop om stroom te maken. Daarom staat de centrale
+        bijna altijd op volle kracht aan. Een kerncentrale is niet geschikt om
+        vraag en aanbod ven stroom in evenwicht te brengen. Voordeel is dat je
+        nauwelijks last hebt van CO2-uitstoot. Nadeel is het radioactieve
+        afval dar overblijft. Hiervoor is nog geen goede oplossing bedacht.
+
+    number_of_wind_onshore_land:
+      name: "Windmolens"
+      description: >
+        Een windmolen produceert duurzame stroom omdat je geen last hebt van
+        CO2-uitstoot. Wind wordt als brandstof gebruikt. En wind is
+        onuitputtelijk aanwezig. Het waait allen niet altijd. Daarom kun je
+        niet volstaan met alleen windmolens. Dat heb je een probleem als je
+        stroom nodig hebt en het waait niet. Er wordt momenteel hard gewerkt
+        om te zorgen dat windmolens goedkoper worden.
+
+    number_of_solar_pv_roofs_fixed:
+      name: "Zonnepanelen"
+      description: >
+        Zonnepanelen maken stroom als ze zonlicht opvangen. Dit lukt trouwens
+        ook als het bewolkt is. Daarom weet je van tevoren beter hoeveel
+        stroom je kunt verwachten dan bij een windmolen. Het is wel zo dat een
+        zonnepaneel in het zonnige Spanje meer stroom oplevert dan in
+        Nederland. Zonnepanelen kun je op je eigen huis leggen. Dat is nuttig.
+
+    policy_area_biomass:
+      name: "Biomassa"
+      description: >
+        Met biomassa wordt vooral het afval van planten en bomen bedoeld
+        (hooi, houtsnippers, takken, zaagsel). Je kan stroom maken door
+        biomassa te verbranden. Voordeel is dat biomassa niet uitgeput raakt
+        zoals kolen en olie. Je moet dan natuurlijk wel zorgen dat er altijd
+        voldoende nieuwe planten en boomen bijkomen! Als je biomassa verbrandt
+        komt er CO2 in de lucht. Het mooie can biomassa is dat de boom of
+        plant tijdens zijn leven al een groot deel van deze CO2 uit de lucht
+        heeft opgenomen.
