@@ -14,6 +14,7 @@ describe SceneInput do
   # INPUT ID -----------------------------------------------------------------
 
   it { should validate_presence_of(:input_id) }
+  xit { should uniqueness_of(:input_id).scoped_to(:scene_id) }
 
   # LEFT ---------------------------------------------------------------------
 
