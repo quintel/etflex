@@ -35,7 +35,7 @@ class exports.SceneView extends Backbone.View
     for input in @model.inputs.models
       view = new RangeView model: input
 
-      if _.include @model.get('leftInputs'), input.get('id')
+      if input.get('location') is 'left'
         leftRangesEl.append view.render().el
       else
         rightRangesEl.append view.render().el
