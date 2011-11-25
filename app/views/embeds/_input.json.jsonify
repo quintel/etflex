@@ -6,3 +6,6 @@ json.min      input.min
 json.max      input.max
 json.step     input.step
 json.unit     input.unit
+
+json.position input.position
+json.location ( if input.left? then 'left' else 'right' end )

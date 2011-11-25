@@ -3,6 +3,8 @@ app = require 'app'
 { getSession }       = require 'lib/session_manager'
 { getVisualisation } = require 'views/vis'
 
+{ Inputs }           = require 'collections/inputs'
+
 # Scenes are pages such as the ETlite recreation, which have one or more
 # inputs, fetch results from ETengine, and display these to the user.
 #
@@ -29,7 +31,7 @@ class exports.Scene extends Backbone.Model
     if @session? then callback(null, @, @session) else
 
       @queries = app.stencils.queries @dependantQueries()
-      @inputs  = app.stencils.inputs  @dependantInputs()
+      @inputs  = new Inputs @get('inputs')
 
       getSession @id, @queries, (err, session) =>
         if err? then callback(err) else
