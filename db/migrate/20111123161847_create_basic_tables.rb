@@ -25,7 +25,7 @@ class CreateBasicTables < ActiveRecord::Migration
       t.float   :start
     end
 
-    add_index :scene_inputs, [ :scene_id, :input_id ]
+    add_index :scene_inputs, [ :scene_id, :input_id ], unique: true
 
     create_table :scenes do |t|
       t.string  :name,      limit: 100
