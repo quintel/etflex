@@ -16,6 +16,6 @@ class Scene < ActiveRecord::Base
 
   # VALIDATION ---------------------------------------------------------------
 
-  validates :name, presence: true
+  validates :name, presence: true, length: { maximum: 100 }
 
 end

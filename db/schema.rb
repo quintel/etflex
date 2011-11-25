@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(:version => 20111123161847) do
   add_index "scene_inputs", ["scene_id", "input_id"], :name => "index_scene_inputs_on_scene_id_and_input_id"
 
   create_table "scenes", :force => true do |t|
-    t.string "name"
+    t.string "name", :limit => 100
   end
 
 end
