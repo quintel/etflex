@@ -25,6 +25,12 @@ ActiveRecord::Schema.define(:version => 20111123161847) do
 
   add_index "inputs", ["remote_id"], :name => "index_inputs_on_remote_id", :unique => true
 
+  create_table "outputs", :force => true do |t|
+    t.string "key",       :limit => 100, :null => false
+    t.string "type_name", :limit => 25,  :null => false
+    t.text   "type_data",                :null => false
+  end
+
   create_table "scene_inputs", :force => true do |t|
     t.integer "scene_id",                   :null => false
     t.integer "input_id",                   :null => false
