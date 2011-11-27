@@ -24,66 +24,13 @@ a
   height: 100%
   position: relative
 
-// Header --------------------------------------------------------------------
-
-#header
-  #site-info
-    @include background(linear-gradient(#5a78a0, #2b4067))
-    border-bottom: 1px solid #091c3b
-    color: white
-    line-height: 1
-    padding: 12px 25px 14px
-    text-shadow: 0 1px 0 #18436d
-
-    a
-      color: #cdd9e6
-
-      &:hover
-        color: white
-        text-decoration: none
-
-    #logo
-      font-size: 18px
-
-      .quiet
-        font-family: Georgia
-        font-style: italic
-        font-weight: normal
-        font-size: 22px
-        line-height: 18px
-        text-shadow: 0 1px 1px #18436d
-
-    #user_controls
-      float: right
-      font-size: 12px
-      font-weight: bold
-      text-shadow: 0 1px 1px #18436d
-
-      li
-        margin-left: 25px
-        float: left
-
-        a
-          display: block
-          padding: 10px 10px 16px
-          margin: 0 -10px 0
-
-        &#nav_logout
-          background: image-url("backstage/icons/power.png") 0 1px no-repeat
-          text-indent: -10000px
-          text-transform: uppercase
-          width: 20px
-
-          &:hover
-            background-position: 0 -49px
-
 // Main Content --------------------------------------------------------------
 
 #master
   bottom: 0px
   position: absolute
   overflow: hidden
-  top: 86px
+  top: 53px
   width: 100%
   z-index: $nav-z-index - 1
 
