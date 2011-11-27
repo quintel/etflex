@@ -6,20 +6,69 @@
 
 #header #nav
   @include horizontal-menu
+  @include background(image-url("backstage/menu.png") repeat-x, linear-gradient($hm-top-color, $hm-bottom-color))
+  box-shadow: none
+  font-size: 14px
+  padding-top: 5px
 
   li a
-    padding-top: 11px
-    padding-bottom: 10px
+    @include background(linear-gradient($hm-top-color, $hm-bottom-color))
+    box-shadow: none
+    padding-top: 15px
+    padding-bottom: 14px
 
     .icon
       background-repeat: no-repeat
       padding-left: 22px
+      padding: 8px 0 7px 36px
+
+  li.selected
+    background: image-url("backstage/menu.png") right -75px no-repeat
+    border-right: none
+    margin-top: -5px
+    padding-top: 5px
+
+    a
+      @include background(linear-gradient($hm-selected-top-color, $hm-selected-bottom-color))
+      border-right: 1px solid $hm-item-border-color
+
+      &:active
+        border-color: $hm-item-border-color
+        border-right: 1px solid $hm-item-border-color
+        margin-right: 0
 
   li#nav_scenes .icon
-    background-image: image-url("backstage/icons/application-image.png")
+    background-image: image-url("backstage/scene.png")
 
   li#nav_inputs .icon
-    background-image: image-url("backstage/icons/equalizer.png")
+    background-image: image-url("backstage/input.png")
 
   li#nav_outputs .icon
-    background-image: image-url("backstage/icons/chart-pie-separate.png")
+    background-image: image-url("backstage/output.png")
+
+  li#nav_logout, li#nav_user
+    border-right: none
+    float: right
+
+    a:active
+      border-color: transparent
+      box-shadow: none
+
+  li#nav_logout a
+    background: image-url("backstage/power.png") 25px 14px no-repeat
+    text-indent: -10000px
+    width: 20px
+
+    &:active
+      background-position: 25px -36px
+
+  li#nav_user a
+    background: none
+    color: #808fa2
+    font-size: 12px
+    padding-top: 16px
+    padding-bottom: 13px
+    padding-right: 0
+
+    &:active
+      color: #6b7686
