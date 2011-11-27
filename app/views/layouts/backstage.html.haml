@@ -20,15 +20,29 @@
             %li#nav_logout
               %a(href="#") Sign out
 
-        #nav
-          %a#nav_scenes(href="#")  Scenes
-          %a#nav_inputs(href="#")  Inputs
-          %a#nav_outputs(href="#") Outputs
+        %ul#nav
+          %li#nav_scenes.selected
+            %a(href="#")
+              %span.icon Scenes
+          %li#nav_inputs
+            %a(href="#")
+              %span.icon Inputs
+          %li#nav_outputs
+            %a(href="#")
+              %span.icon Outputs
 
       #master
         #main-sidebar.sidebar
-          .tabs
-            %a.active(href="#") Public
-            %a(href="#") Yours
+          .search
+            %input(type="text" placeholder="Search Scenes")
+
+          %ul.tabs
+            %li.selected
+              %a(href="#") Public
+            %li
+              %a(href="#") Yours
+
+          Content
+
         #content
           Content
