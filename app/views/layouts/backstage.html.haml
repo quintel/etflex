@@ -1,0 +1,34 @@
+!!! 5
+%html
+  %head
+    %title ETFlex Backstage
+
+    = stylesheet_link_tag 'backstage'
+    = javascript_include_tag 'modernizr-2.0.6.js'
+    = airbrake_javascript_notifier
+
+    = csrf_meta_tags
+
+  %body
+    #chrome
+      #header
+        #site-info
+          %a#logo(href="/")
+            ET
+            %span.quiet<> flex
+          %ul#user_controls
+            %li#nav_logout
+              %a(href="#") Sign out
+
+        #nav
+          %a#nav_scenes(href="#")  Scenes
+          %a#nav_inputs(href="#")  Inputs
+          %a#nav_outputs(href="#") Outputs
+
+      #master
+        #main-sidebar.sidebar
+          .tabs
+            %a.active(href="#") Public
+            %a(href="#") Yours
+        #content
+          Content

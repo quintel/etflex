@@ -74,4 +74,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # A temporary action used while mocking up the Backstage layout.
+  #
+  # GET /backstage
+  #
+  def backstage
+    render text: '', layout: 'backstage'
+  end
+
 end
