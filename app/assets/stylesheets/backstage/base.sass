@@ -3,6 +3,9 @@
 $link-color: #26477d
 $link-active-color: #172a4a
 
+$border-color: #a9b2bc
+$lighter-border-color: #b8c0ca
+
 $nav-z-index: 10
 
 // Styles --------------------------------------------------------------------
@@ -64,42 +67,6 @@ a
           display: block
           padding: 4px 0
 
-  // Main Navigation (Scenes, Inputs, etc) -----------------------------------
-
-  #nav
-    @include background(linear-gradient(#f3f8fd, #d1d9e3))
-    border-bottom: 1px solid #adb6c2
-    box-shadow: inset 0 1px 0 white
-    font-size: 13px
-    overflow: hidden
-    position: relative
-    text-shadow: 0 1px 0 white
-    z-index: $nav-z-index
-
-    a
-      background: image-url("backstage/icons/equalizer.png") 25px 12px no-repeat
-      border-right: 1px solid #c0c9d3
-      display: block
-      float: left
-      font-weight: bold
-      padding: 11px 25px 10px 47px
-
-      &:hover
-        text-decoration: none
-
-      &:active
-        background-color: #d2d9e1
-        border-color: #b0bbc6
-        border-left: 1px solid #b0bbc6
-        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1)
-        margin-left: -1px
-
-      &#nav_scenes
-        background-image: image-url("backstage/icons/application-image.png")
-
-      &#nav_outputs
-        background-image: image-url("backstage/icons/chart-pie-separate.png")
-
 // Main Content --------------------------------------------------------------
 
 #master
@@ -110,67 +77,9 @@ a
   width: 100%
   z-index: $nav-z-index - 1
 
-  #main-sidebar
-    background: #e2e9f1
-    bottom: 0px
-    border-right: 1px solid #b0bac6
-    position: absolute
-    top: 0px
-    width: 249px
-    z-index: $nav-z-index - 1
-
   #content
     bottom: 0px
     left: 250px
     position: absolute
     top: 0px
     z-index: $nav-z-index - 1
-
-// Sidebar-specific Styles ---------------------------------------------------
-
-.sidebar
-  .tabs
-    @include background(linear-gradient(#eff4fa, #d2d9e1))
-    border-bottom: 1px solid #b0bac6
-    box-shadow: inset 0 1px 0 white
-    height: 25px
-    position: relative
-    font-size: 11px
-    font-weight: bold
-    text-transform: uppercase
-    width: 249px
-
-    a
-      border-right: 1px solid #b0bac6
-      box-shadow: inset 0 1px 0 white
-      float: left
-      padding: 4px 25px 3px
-      position: relative
-      text-shadow: 0 1px 0 white
-      z-index: $nav-z-index + 1
-
-      &:hover
-        text-decoration: none
-
-      &.active
-        @include background(linear-gradient(white, #e2e9f1))
-        border-bottom: 1px solid #e2e9f1
-        margin-bottom: -1px
-
-      &:active
-        background: #d2d9e1
-        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1)
-
-        &.active
-          background: #e2e9f1
-
-  .search
-    @include background(linear-gradient(#e2e9f1, #d2d9e1))
-    border-bottom: 1px solid #b0bac6
-    padding: 10px 10px 9px
-
-    input[type=search]
-      margin: 0
-      font-size: 16px
-      font-family: Arial
-      width: 229px

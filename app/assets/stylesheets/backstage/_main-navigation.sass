@@ -1,0 +1,25 @@
+// The main navigation element at the top of each page.
+//
+//   +----------+----------+-----------+--------+--
+//   |  Scenes  |  Inputs  |  Outputs  |  Etc.  | ->
+//   +----------+----------+-----------+--------+--
+
+#header #nav
+  @include horizontal-menu
+
+  li a
+    padding-top: 11px
+    padding-bottom: 10px
+
+    .icon
+      background-repeat: no-repeat
+      padding-left: 22px
+
+  li#nav_scenes .icon
+    background-image: image-url("backstage/icons/application-image.png")
+
+  li#nav_inputs .icon
+    background-image: image-url("backstage/icons/equalizer.png")
+
+  li#nav_outputs .icon
+    background-image: image-url("backstage/icons/chart-pie-separate.png")

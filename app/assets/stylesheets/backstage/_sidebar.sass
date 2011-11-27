@@ -1,0 +1,38 @@
+// Background colour of the sidebar.
+$sidebar-background-color: #e2e9f1 !default
+
+// Styles common to the main- or secondary- sidebars.
+$sidebar-border-color: #a9b2bc !default
+
+.sidebar
+  background-color: $sidebar-background-color
+  border-right: 1px solid $sidebar-border-color
+  width: 249px
+  height: 100%
+
+  .tabs
+    @include horizontal-menu
+    font-size: 11px
+    text-transform: uppercase
+
+    li.selected
+      border-bottom: 1px solid #e2e9f1
+      margin-bottom: -1px
+
+  .search
+    @include background(linear-gradient(#e2e9f1, #d2d9e1))
+    border-bottom: 1px solid $border-color
+    padding: 10px 10px 9px
+
+    input[type=text]
+      @include border-radius(2px)
+      border: 1px solid $border-color
+      border-top-color: darken($border-color, 8%)
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4), inset 0 1px 0 rgba(0, 0, 0, 0.1)
+      margin: 0
+      padding: 5px 6px 4px
+      font: 12px "Helvetica Neue", Arial, Helvetica, sans-serif
+      width: 214px
+
+      &:focus
+        outline: none
