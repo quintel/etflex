@@ -51,6 +51,15 @@ YAML.load_file(Rails.root.join('db/seeds/scenes.yml')).each do |data|
   end
 end
 
+# PROPS ----------------------------------------------------------------------
+
+puts 'Importing props...'
+
+YAML.load_file(Rails.root.join('db/seeds/props.yml')).each do |data|
+  klass = Props.const_get(data['type'])
+  klass.create!(data.except('type'))
+end
+
 # ----------------------------------------------------------------------------
 
 puts 'All done'
