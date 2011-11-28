@@ -15,3 +15,13 @@ nl:
   # Common content on module pages
 
   sponsoredBy: "Gesponsord door"
+
+  # Custom validation messages
+
+  monogid:
+    errors:
+      models:
+        input:
+          attributes:
+            max:
+              less_than_min: "De maximale waarde moet gelijk of groter dan de minimale waarde"
