@@ -10,6 +10,8 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
 RSpec.configure do |config|
 
+  config.include Mongoid::Matchers
+
   # == Mock Framework
   #
   # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
@@ -36,9 +38,9 @@ RSpec.configure do |config|
   # each example runs. This is used in preference over rspec-rails'
   # transactions since we also need this behaviour in Cucumber features.
 
-  config.before(:suite) { DatabaseCleaner.strategy = :transaction }
-  config.before(:each)  { DatabaseCleaner.start                   }
-  config.after(:each)   { DatabaseCleaner.clean                   }
+  config.before(:suite) { DatabaseCleaner.strategy = :truncation }
+  config.before(:each)  { DatabaseCleaner.start                  }
+  config.after(:each)   { DatabaseCleaner.clean                  }
 
   # Capybara
   # --------

@@ -1,3 +1,12 @@
+GIT
+  remote: git://github.com/evansagge/mongoid-rspec.git
+  revision: c6e4ca867788fcb4678e46dec64961e8835780e4
+  specs:
+    mongoid-rspec (1.4.4)
+      mongoid (~> 2.0)
+      rake
+      rspec (~> 2)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -16,22 +25,18 @@ GEM
       activesupport (= 3.1.2)
       builder (~> 3.0.0)
       i18n (~> 0.6)
-    activerecord (3.1.2)
-      activemodel (= 3.1.2)
-      activesupport (= 3.1.2)
-      arel (~> 2.2.1)
-      tzinfo (~> 0.3.29)
     activesupport (3.1.2)
       multi_json (~> 1.0)
     airbrake (3.0.5)
       activesupport
       builder
-    arel (2.2.1)
     bluepill (0.0.51)
       activesupport (>= 3.0.0)
       daemons (~> 1.1.0)
       i18n (>= 0.5.0)
       state_machine (~> 0.9.4)
+    bson (1.4.0)
+    bson_ext (1.4.0)
     builder (3.0.0)
     capistrano (2.9.0)
       highline
@@ -100,8 +105,13 @@ GEM
     method_source (0.6.7)
       ruby_parser (>= 2.3.1)
     mime-types (1.17.2)
+    mongo (1.4.0)
+      bson (= 1.4.0)
+    mongoid (2.3.4)
+      activemodel (~> 3.1)
+      mongo (~> 1.3)
+      tzinfo (~> 0.3.22)
     multi_json (1.0.3)
-    mysql2 (0.3.10)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-sftp (2.0.5)
@@ -191,10 +201,10 @@ PLATFORMS
 
 DEPENDENCIES
   actionpack (~> 3.1.2)
-  activerecord (~> 3.1.2)
   activesupport (~> 3.1.2)
   airbrake
   bluepill
+  bson_ext
   capistrano
   capybara (>= 1.1.1)
   coffee-rails (>= 3.1.1)
@@ -204,11 +214,12 @@ DEPENDENCIES
   growl_notify
   guard
   guard-rspec
-  haml (~> 3.1.3)
+  haml (~> 3.1)
   i18n-js
   jquery-rails
   jsonify-rails
-  mysql2
+  mongoid (~> 2.3)
+  mongoid-rspec!
   pry (>= 0.9.7)
   railties (~> 3.1.2)
   rb-fsevent
