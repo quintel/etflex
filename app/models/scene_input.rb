@@ -4,6 +4,7 @@
 # input.
 class SceneInput
   include Mongoid::Document
+  include ActsAsList::Mongoid
 
   # FIELDS -------------------------------------------------------------------
 
@@ -19,6 +20,8 @@ class SceneInput
   field :min,   type: Float
   field :max,   type: Float
   field :start, type: Float
+
+  acts_as_list scope: :scene
 
   # VALIDATION ---------------------------------------------------------------
 
