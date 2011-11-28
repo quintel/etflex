@@ -1,8 +1,8 @@
 module Props
   # The icon prop fades between different images based on a state, represented
-  # by one or more IconState instances. These are embedded within the Icon
+  # by one or more State instances. These are embedded within the Icon
   # "states" collection. States are also embedded within Gauges allowing
-  # developers to display a different label beneath the gauge as the valae
+  # developers to display a different label beneath the gauge as the value
   # changes.
   #
   # The state contains the lowest value at which the icon will transition into
