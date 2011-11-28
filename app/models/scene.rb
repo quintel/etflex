@@ -14,6 +14,9 @@ class Scene < ActiveRecord::Base
     opts.has_many :right_inputs, through: :right_scene_inputs
   end
 
+  has_many :scene_props
+  has_many :props, through: :scene_props, readonly: true
+
   # VALIDATION ---------------------------------------------------------------
 
   validates :name, presence: true, length: { maximum: 100 }

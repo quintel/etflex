@@ -12,6 +12,9 @@ describe Scene do
   it { should have_many(:left_inputs).through(:left_scene_inputs) }
   it { should have_many(:right_inputs).through(:right_scene_inputs) }
 
+  it { should have_many(:scene_props) }
+  it { should have_many(:props).through(:scene_props) }
+
   # NAME ---------------------------------------------------------------------
 
   it { should validate_presence_of(:name) }
