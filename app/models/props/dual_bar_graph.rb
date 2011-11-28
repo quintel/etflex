@@ -7,19 +7,19 @@ module Props
 
     # FIELDS -----------------------------------------------------------------
 
-    field :left_query_id,  type: Integer
-    field :right_query_id, type: Integer
+    field :left_query_key,  type: String
+    field :right_query_key, type: String
 
-    field :left_extent,    type: Float
-    field :right_extent,   type: Float
+    field :left_extent,     type: Float
+    field :right_extent,    type: Float
 
     # VALIDATION -------------------------------------------------------------
 
-    validates :left_query_id,  presence: true
-    validates :right_query_id, presence: true
+    validates :left_query_key,  presence: true
+    validates :right_query_key, presence: true
 
-    validates :left_extent,    presence: true, numericality: true
-    validates :right_extent,   presence: true, numericality: true
+    validates :left_extent,     presence: true, numericality: true
+    validates :right_extent,    presence: true, numericality: true
 
   end # DualBarGraph
 end # Props
