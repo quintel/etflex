@@ -15,7 +15,6 @@ class Scene < ActiveRecord::Base
   end
 
   has_many :scene_props
-  has_many :props, through: :scene_props, readonly: true
 
   # VALIDATION ---------------------------------------------------------------
 

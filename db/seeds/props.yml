@@ -1,0 +1,6 @@
+---
+- type:           DualBarGraph
+  left_query_id:  1
+  right_query_id: 1
+  left_extent:    1000
+  right_extent:   1000
