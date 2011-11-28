@@ -15,3 +15,13 @@ en:
   # Common content on module pages
 
   sponsoredBy: "Sponsored by"
+
+  # Custom validation messages
+
+  mongoid:
+    errors:
+      models:
+        input:
+          attributes:
+            max:
+              less_than_min: "The maximum value must be equal or greater than the minimum value"
