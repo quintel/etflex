@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111123161847) do
+ActiveRecord::Schema.define(:version => 20111128220709) do
+
+  create_table "dual_bar_graph_props", :force => true do |t|
+    t.integer "left_query_id",  :null => false
+    t.integer "right_query_id", :null => false
+    t.float   "left_extent",    :null => false
+    t.float   "right_extent",   :null => false
+  end
 
   create_table "inputs", :force => true do |t|
     t.integer "remote_id",                    :null => false
@@ -25,12 +32,6 @@ ActiveRecord::Schema.define(:version => 20111123161847) do
 
   add_index "inputs", ["remote_id"], :name => "index_inputs_on_remote_id", :unique => true
 
-  create_table "outputs", :force => true do |t|
-    t.string "key",       :limit => 100, :null => false
-    t.string "type_name", :limit => 25,  :null => false
-    t.text   "type_data",                :null => false
-  end
-
   create_table "scene_inputs", :force => true do |t|
     t.integer "scene_id",                   :null => false
     t.integer "input_id",                   :null => false
@@ -41,10 +42,16 @@ ActiveRecord::Schema.define(:version => 20111123161847) do
     t.float   "start"
   end
 
-  add_index "scene_inputs", ["scene_id", "input_id"], :name => "index_scene_inputs_on_scene_id_and_input_id", :unique => true
+  add_index "scene_inputs", ["scene_id", "input_id"], :name => "index_scene_inputs_on_scene_id_and_input_id"
+
+  create_table "scene_props", :force => true do |t|
+    t.integer "scene_id",                 :null => false
+    t.integer "prop_id",                  :null => false
+    t.string  "prop_type", :limit => 100, :null => false
+  end
 
   create_table "scenes", :force => true do |t|
-    t.string "name", :limit => 100
+    t.string "name"
   end
 
 end
