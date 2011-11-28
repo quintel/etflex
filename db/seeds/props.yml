@@ -7,7 +7,7 @@
   right_extent:    1000
 
 - type:            Gauge
-  name:            Balance of Electricity Supply and Demand
-  query_key:       balance_of_supply_and_demand
+  name:            balance_of_electricity_supply_and_demand
+  query_key:       balance_of_electricity_supply_and_demand
   min:             0.6
   max:             1.4

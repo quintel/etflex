@@ -27,6 +27,15 @@ YAML.load_file(Rails.root.join('db/seeds/inputs.yml')).each do |data|
   end
 end
 
+# PROPS ----------------------------------------------------------------------
+
+puts 'Importing props...'
+
+YAML.load_file(Rails.root.join('db/seeds/props.yml')).each do |data|
+  klass = Props.const_get(data['type'])
+  klass.create!(data.except('type'))
+end
+
 # SCENES ---------------------------------------------------------------------
 
 puts 'Importing scenes...'
@@ -37,6 +46,18 @@ YAML.load_file(Rails.root.join('db/seeds/scenes.yml')).each do |data|
   unless scene.save
     raise "Failed to save scene: #{data['name']}, #{scene.errors.inspect}"
   end
+
+  # Props.
+
+  if data['center_props']
+    data['center_props'].each do |name_key|
+      scene.center_props.push(Prop.where(name: name_key).first)
+    end
+
+    scene.save!
+  end
+
+  # Inputs.
 
   data['left_inputs'].each do |input|
     scene.scene_inputs.create!(
@@ -49,15 +70,6 @@ YAML.load_file(Rails.root.join('db/seeds/scenes.yml')).each do |data|
       left:  false,
       input: Input.where(remote_id: input).first)
   end
-end
-
-# PROPS ----------------------------------------------------------------------
-
-puts 'Importing props...'
-
-YAML.load_file(Rails.root.join('db/seeds/props.yml')).each do |data|
-  klass = Props.const_get(data['type'])
-  klass.create!(data.except('type'))
 end
 
 # ----------------------------------------------------------------------------
