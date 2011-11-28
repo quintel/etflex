@@ -15,6 +15,9 @@ module Props
     field :min,       type: Float
     field :max,       type: Float
 
+    # Icon transitions between different states depending on the query value.
+    embeds_many :states, class_name: 'Props::State', as: :stateful
+
     # VALIDATION -------------------------------------------------------------
 
     validates :query_key, presence: true
