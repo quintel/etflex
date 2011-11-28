@@ -2,7 +2,7 @@
 { IconVisualisation }    = require 'views/vis/icon'
 
 class exports.CostsView extends GenericVisualisation
-  @queries: [ 'costs_total' ]
+  @queries: [ 'total_costs' ]
 
   className: 'visualisation costs'
 
@@ -14,7 +14,7 @@ class exports.CostsView extends GenericVisualisation
 
     @icon = new IconVisualisation
 
-    @query = options.queries.get 'costs_total'
+    @query = options.queries.get 'total_costs'
     @query.bind 'change:future', @updateValues
 
   # Renders the UI; calculates the C02 emissions. Can be safely called

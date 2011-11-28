@@ -19,7 +19,7 @@ exports.inputs = [
 
 exports.queries = [
   { id: 'co2_emission_total' }
-  { id: 'costs_total' }
+  { id: 'total_costs' }
   { id: 'share_of_renewable_electricity' }
   { id: 'electricity_production' }
   { id: 'final_demand_electricity' } ]
