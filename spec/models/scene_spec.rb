@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe Scene do
 
+  it { should embed_many(:scene_inputs) }
+
   # NAME ---------------------------------------------------------------------
 
   describe 'name' do
