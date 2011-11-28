@@ -52,5 +52,15 @@ class CreateBasicTables < ActiveRecord::Migration
       t.float   :left_extent,    null: false
       t.float   :right_extent,   null: false
     end
+
+    create_table :prop_states do |t|
+      t.integer :prop_id,   null: false
+      t.string  :prop_type, null: false
+
+      t.string  :key,       null: false
+      t.float   :value,     null: false
+    end
+
+    add_index :prop_states, [ :prop_id, :prop_type ]
   end
 end

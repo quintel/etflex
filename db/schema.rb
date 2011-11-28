@@ -38,6 +38,15 @@ ActiveRecord::Schema.define(:version => 20111123161847) do
     t.text   "type_data",                :null => false
   end
 
+  create_table "prop_states", :force => true do |t|
+    t.integer "prop_id",   :null => false
+    t.string  "prop_type", :null => false
+    t.string  "key",       :null => false
+    t.float   "value",     :null => false
+  end
+
+  add_index "prop_states", ["prop_id", "prop_type"], :name => "index_prop_states_on_prop_id_and_prop_type"
+
   create_table "scene_inputs", :force => true do |t|
     t.integer "scene_id",                   :null => false
     t.integer "input_id",                   :null => false
