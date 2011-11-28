@@ -29,4 +29,8 @@ class Scene
   validates_presence_of :name, if: -> { name_key.blank? }
   validates_length_of   :name, maximum: 100
 
+  # RELATIONS ----------------------------------------------------------------
+
+  embeds_many :scene_inputs
+
 end
