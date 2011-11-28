@@ -32,8 +32,16 @@ end
 puts 'Importing props...'
 
 YAML.load_file(Rails.root.join('db/seeds/props.yml')).each do |data|
-  klass = Props.const_get(data['type'])
-  klass.create!(data.except('type'))
+  klass  = Props.const_get(data.delete('type'))
+  states = data.delete('states')
+
+  prop = klass.new(data)
+
+  if states.present?
+    states.each { |key, value| prop.states.build(key: key, value: value) }
+  end
+
+  prop.save!
 end
 
 # SCENES ---------------------------------------------------------------------
