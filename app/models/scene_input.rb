@@ -4,7 +4,7 @@
 # input.
 class SceneInput
   include Mongoid::Document
-  include ActsAsList::Mongoid
+  include Mongoid::List
 
   # FIELDS -------------------------------------------------------------------
 
@@ -21,7 +21,9 @@ class SceneInput
   field :max,   type: Float
   field :start, type: Float
 
-  acts_as_list scope: :scene
+  # Customise Mongoid::List to scope to the "left" value.
+
+  field :position, type: Integer, scope: 'left'
 
   # VALIDATION ---------------------------------------------------------------
 
@@ -29,7 +31,7 @@ class SceneInput
 
   # RELATIONS ----------------------------------------------------------------
 
-  embedded_in :scene
+  embedded_in :scene, inverse_of: :scene_inputs
   belongs_to :input
 
   # INSTANCE METHODS ---------------------------------------------------------

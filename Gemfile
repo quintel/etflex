@@ -11,7 +11,7 @@ gem 'railties',       RAILS_VERSION, :require => 'rails'
 
 gem 'mongoid', '~> 2.3'
 gem 'bson_ext'
-gem 'acts_as_list_mongoid'
+gem 'mongoid-list', git: 'git://github.com/davekrupinski/mongoid-list.git'
 
 gem 'haml', '~> 3.1'
 gem 'jsonify-rails'
