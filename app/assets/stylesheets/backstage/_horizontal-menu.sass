@@ -62,7 +62,7 @@ $hm-item-border-color: #b8c0ca !default
       &:active
         @include background(linear-gradient($hm-active-top-color, $hm-active-bottom-color))
         box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1)
-        border: 1px solid darken($hm-item-border-color, 8%)
+        border: 1px solid darken($hm-item-border-color, 9%)
         border-top-width: 0px
         margin: 0px -1px -1px
 
@@ -74,6 +74,6 @@ $hm-item-border-color: #b8c0ca !default
         color: $color
 
         &:active
-          border-right-color: $hm-item-border-color
+          border-right: 1px solid darken($hm-item-border-color, 9%)
           box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1)
           background: $hm-selected-bottom-color
