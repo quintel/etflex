@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Input do
 
   it { should be_mongoid_document }
-  xit('should save; pending FactoryGirl') { should save }
+  it('should save the factory') { create(:input) }
 
   # KEY ----------------------------------------------------------------------
 
