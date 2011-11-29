@@ -17,8 +17,13 @@ end
 # PROPS ----------------------------------------------------------------------
 
 YAML.load_file(Rails.root.join('db/seeds/props.yml')).each do |data|
-  klass = Props.const_get(data.delete('type'))
-  klass.create!(data)
+  klass  = Props.const_get(data.delete('type'))
+  states = data.delete('states') || []
+  prop   = klass.new(data)
+
+  states.each { |(key, value)| prop.states.build(key: key, value: value) }
+
+  prop.save!
 end
 
 # SCENES ---------------------------------------------------------------------
