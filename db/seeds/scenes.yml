@@ -3,10 +3,12 @@
   left_inputs:  [  43, 146, 336, 348, 366, 338 ]
   right_inputs: [ 315, 256, 259, 263, 313, 196 ]
 
-  center_props:
-    - electricity_supply_and_demand
-    - balance_of_electricity_supply_and_demand
-    - co2_emissions_icon
+  props:
+    center:
+      - electricity_supply_and_demand
+      - balance_of_electricity_supply_and_demand
+    bottom:
+      - co2_emissions_icon
 
 - name: 'A Second Test'
   left_inputs:  [  43, 146, 336, 348, 366, 338 ]
