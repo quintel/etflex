@@ -22,7 +22,7 @@ RSpec::Matchers.define :successfully_save do |*factory|
   end
 
   description do
-    'be saved successfully'
+    "successfully save the #{@factory} factory"
   end
 
   failure_message_for_should do |*|
