@@ -14,7 +14,9 @@
 
 RSpec::Matchers.define :successfully_save do |*factory|
   match do |document|
-    @factory  = factory.try(:first) || document.class.name.underscore.to_sym
+    @factory  = factory.try(:first) ||
+      document.class.name.split('::').last.underscore.to_sym
+
     @instance = FactoryGirl.build(@factory)
     @instance.save
   end
