@@ -49,8 +49,9 @@ end
 puts 'Importing scenes...'
 
 YAML.load_file(Rails.root.join('db/seeds/scenes.yml')).each do |data|
-  scene = Scene.new name: data['name']
-  props = data.delete('props') || []
+  scene  = Scene.new name: data['name']
+  props  = data.delete('props') || []
+  inputs = data.delete('inputs') || {}
 
   # Props.
 
@@ -58,28 +59,23 @@ YAML.load_file(Rails.root.join('db/seeds/scenes.yml')).each do |data|
     keys.each do |key|
       scene.scene_props.build(
         location: location,
-        prop:     Props::Base.where(name: key).first)
+        prop:     Props::Base.where(name: key).first
+      )
     end
   end
 
   # Inputs.
 
-  data['left_inputs'].each do |input|
-    scene.scene_inputs.build(
-      left:  true,
-      input: Input.where(remote_id: input).first)
+  inputs.each do |(location, ids)|
+    ids.each do |remote_id|
+      scene.scene_inputs.build(
+        left:  location == 'left',
+        input: Input.where(remote_id: remote_id).first
+      )
+    end
   end
 
-  data['right_inputs'].each do |input|
-    scene.scene_inputs.build(
-      left:  false,
-      input: Input.where(remote_id: input).first)
-  end
-
-
-  unless scene.save
-    raise "Failed to save scene: #{data['name']}, #{scene.errors.inspect}"
-  end
+  scene.save!
 end
 
 # ----------------------------------------------------------------------------
