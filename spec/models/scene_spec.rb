@@ -4,8 +4,8 @@ describe Scene do
 
   it { should embed_many(:scene_inputs) }
 
-  it { should reference_and_be_referenced_in_many(:center_props).of_type(Prop) }
-  it { should reference_and_be_referenced_in_many(:bottom_props).of_type(Prop) }
+  it { should reference_and_be_referenced_in_many(:center_props).of_type(Props::Base) }
+  it { should reference_and_be_referenced_in_many(:bottom_props).of_type(Props::Base) }
 
   # NAME ---------------------------------------------------------------------
 

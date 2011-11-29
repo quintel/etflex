@@ -3,7 +3,7 @@ module Props
   # source "query" with the value displayed on the bar, and an "extent" which
   # defines the maximum value displayed on the bar.
   #
-  class DualBarGraph < Prop
+  class DualBarGraph < Base
 
     # FIELDS -----------------------------------------------------------------
 

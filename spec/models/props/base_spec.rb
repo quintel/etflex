@@ -1,6 +1,8 @@
 require 'spec_helper'
 
-describe Prop do
+describe Props::Base do
+  it { should be_mongoid_document }
+  it { should be_stored_in(:props) }
 
   # NAME ---------------------------------------------------------------------
 
