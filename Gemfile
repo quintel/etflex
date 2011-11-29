@@ -59,13 +59,6 @@ group :test, :development do
   # rspec-rails needs to be added to the development environment, otherwise
   # the spec:* tasks won't be available when using rake.
   gem 'rspec-rails',  '~> 2.6'
-  gem 'shoulda-matchers'
-
-  # Swap back to official release when >=1.4.5 is released.
-  gem 'mongoid-rspec', git: 'git://github.com/evansagge/mongoid-rspec.git'
-
-  # Integration / acceptance testing.
-  gem 'capybara', '>= 1.1.1'
 
   # Same with Guard.
   gem 'guard'
@@ -76,4 +69,11 @@ end
 
 group :test do
   gem 'database_cleaner'
+  gem 'shoulda-matchers'
+
+  # Swap back to official release when >=1.4.5 is released.
+  gem 'mongoid-rspec', git: 'git://github.com/evansagge/mongoid-rspec.git'
+
+  # Integration / acceptance testing.
+  gem 'capybara', '>= 1.1.1'
 end
