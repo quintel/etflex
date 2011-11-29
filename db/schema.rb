@@ -53,6 +53,10 @@ ActiveRecord::Schema.define(:version => 20111123161847) do
     t.float   "max",      :null => false
   end
 
+  create_table "props_icons", :force => true do |t|
+    t.integer "query_id", :null => false
+  end
+
   create_table "scene_inputs", :force => true do |t|
     t.integer "scene_id",                   :null => false
     t.integer "input_id",                   :null => false
