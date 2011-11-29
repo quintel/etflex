@@ -6,3 +6,4 @@
   props:
     - [ DualBarGraph, 1 ]
     - [ Gauge,        1 ]
+    - [ Icon,         1 ]

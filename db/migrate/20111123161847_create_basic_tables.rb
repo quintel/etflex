@@ -59,6 +59,10 @@ class CreateBasicTables < ActiveRecord::Migration
       t.float   :max,      null: false
     end
 
+    create_table :props_icons do |t|
+      t.integer :query_id, null: false
+    end
+
     create_table :prop_states do |t|
       t.integer :prop_id,   null: false
       t.string  :prop_type, null: false
