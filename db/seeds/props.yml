@@ -1,6 +1,6 @@
 ---
 - type:            DualBarGraph
-  name:            Electricity Supply and Demand
+  name:            electricity_supply_and_demand
   left_query_key:  final_demand_electricity
   right_query_key: electricity_production
   left_extent:     1000

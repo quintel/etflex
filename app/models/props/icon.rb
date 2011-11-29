@@ -3,7 +3,7 @@ module Props
   # value of a query and fades the icon between alternative images based on
   # the query value.
   #
-  class Icon < Prop
+  class Icon < Base
 
     # FIELDS -----------------------------------------------------------------
 

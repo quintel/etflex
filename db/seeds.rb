@@ -59,7 +59,7 @@ YAML.load_file(Rails.root.join('db/seeds/scenes.yml')).each do |data|
 
   if data['center_props']
     data['center_props'].each do |name_key|
-      scene.center_props.push(Prop.where(name: name_key).first)
+      scene.center_props.push(Props::Base.where(name: name_key).first)
     end
 
     scene.save!

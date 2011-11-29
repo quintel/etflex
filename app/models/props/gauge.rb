@@ -6,7 +6,7 @@ module Props
   # An example is the "supply too high" / "supply too low" gauge used on the 
   # ETlite recreation scene.
   #
-  class Gauge < Prop
+  class Gauge < Base
 
     # FIELDS -----------------------------------------------------------------
 
