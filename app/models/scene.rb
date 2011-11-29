@@ -32,8 +32,6 @@ class Scene
   # RELATIONS ----------------------------------------------------------------
 
   embeds_many :scene_inputs
-
-  has_and_belongs_to_many :center_props, class_name: 'Props::Base'
-  has_and_belongs_to_many :bottom_props, class_name: 'Props::Base'
+  embeds_many :scene_props
 
 end
