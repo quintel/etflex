@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe Scene do
+  it { should successfully_save }
+  it { should successfully_save(:scene_with_key) }
 
   it { should embed_many(:scene_inputs) }
   it { should embed_many(:scene_props) }
