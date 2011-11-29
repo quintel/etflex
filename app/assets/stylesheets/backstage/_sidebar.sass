@@ -16,12 +16,20 @@ $sidebar-border-color: #a9b2bc !default
     font-size: 11px
     text-transform: uppercase
 
+  // Needs to be separate from .tabs above, so that the styles have higher
+  // precedence thanks to the "ul".
+  ul.tabs
+    a:active
+      border-top: 1px solid darken($hm-item-border-color, 11%)
+      margin-top: -1px
+
     li.selected
       border-bottom: 1px solid #e2e9f1
       margin-bottom: -1px
 
       a:active
         border-bottom-color: transparent
+        box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.1)
 
   .search
     @include background(linear-gradient(#e2e9f1, #d2d9e1))
