@@ -1,7 +1,7 @@
 // Helpers & Mixins ----------------------------------------------------------
 
 @mixin modern-prop($image, $width, $height, $left, $top)
-  background: image-url("modules/modern/header/#{$image}.png") top left no-repeat
+  background: image-url("scenes/modern/header/#{$image}.png") top left no-repeat
   height: $height
   left: $left
   position: absolute
@@ -10,7 +10,7 @@
 
 // Animation -----------------------------------------------------------------
 
-@-moz-keyframes moduleModernPlane
+@-moz-keyframes sceneModernPlane
   from
     left: 1700px
     top: 30px
@@ -52,7 +52,7 @@
     top: 50px
     -moz-transform: rotate(-10deg)
 
-@-webkit-keyframes moduleModernPlane
+@-webkit-keyframes sceneModernPlane
   from
     left: 1700px
   to
@@ -60,9 +60,9 @@
 
 // Styles --------------------------------------------------------------------
 
-#module-view.modern
-  background: #8abcdb image-url("modules/modern/bg.png") center top repeat-y
-  background: image-url("modules/modern/footer.jpg") center bottom no-repeat, #8abcdb image-url("modules/modern/bg.png") center top repeat-y
+#scene-view.modern
+  background: #8abcdb image-url("scenes/modern/bg.png") center top repeat-y
+  background: image-url("scenes/modern/footer.jpg") center bottom no-repeat, #8abcdb image-url("scenes/modern/bg.png") center top repeat-y
   min-height: 100%
   overflow: hidden
   padding: 0
@@ -71,12 +71,12 @@
 
   #core #main-nav
     a
-      background: image-url("modules/modern/nav.png") 32px -60px no-repeat
+      background: image-url("scenes/modern/nav.png") 32px -60px no-repeat
       color: #548aaa
       text-shadow: 0 1px 0 #f5fdff
 
       span
-        background: image-url("modules/modern/nav.png") 32px 20px no-repeat
+        background: image-url("scenes/modern/nav.png") 32px 20px no-repeat
 
       &:active
         background-position: 32px -120px
@@ -132,16 +132,16 @@
           width: 100px
 
       .control
-        background: image-url("modules/modern/range.png") left top no-repeat
+        background: image-url("scenes/modern/range.png") left top no-repeat
 
         &, .bar, .movable-range, .left, .main, .right
           height: 30px
 
         .active-bar
-          background: image-url("modules/modern/range.png") 0 -30px no-repeat
+          background: image-url("scenes/modern/range.png") 0 -30px no-repeat
 
         .handle
-          background: image-url("modules/modern/range.png") 0 -60px no-repeat
+          background: image-url("scenes/modern/range.png") 0 -60px no-repeat
           height: 28px
           width: 28px
 
@@ -151,7 +151,7 @@
   // The big graphic header at the top of the modern theme...
 
   #theme-header
-    background: image-url("modules/modern/header/clouds.png") center top no-repeat
+    background: image-url("scenes/modern/header/clouds.png") center top no-repeat
     margin-left: -480px
     height: 550px
     position: relative
@@ -159,7 +159,7 @@
     z-index: 1
 
     #logo
-      background: image-url("modules/modern/header/logo.png") left top no-repeat
+      background: image-url("scenes/modern/header/logo.png") left top no-repeat
       height: 34px
       left: 480px
       position: absolute
@@ -179,7 +179,7 @@
       // The main ground layer - contains the green "globe".
 
       .ground
-        background: image-url("modules/modern/header/ground.png") center 87px no-repeat
+        background: image-url("scenes/modern/header/ground.png") center 87px no-repeat
         height: 318px
         position: relative
         width: 1277px
@@ -226,8 +226,8 @@
       .plane
         @include modern-prop(plane, 45px, 22px, 620px, -30px)
 
-        -moz-animation:    moduleModernPlane 60s infinite linear
-        -webkit-animation: moduleModernPlane 60s infinite linear
+        -moz-animation:    sceneModernPlane 60s infinite linear
+        -webkit-animation: sceneModernPlane 60s infinite linear
 
   // The supply / demand gauge.
 
@@ -235,7 +235,7 @@
 
     .bars
       @extend .clearfix
-      background: image-url("modules/modern/energy-graph.png") 78px 0 no-repeat
+      background: image-url("scenes/modern/energy-graph.png") 78px 0 no-repeat
 
     .marker
       border-top: 1px dashed #ccc
@@ -259,7 +259,7 @@
         +border-bottom-left-radius(9px)
         +border-bottom-right-radius(9px)
         bottom: 0px
-        background: image-url("modules/modern/energy-graph.png") -120px -250px no-repeat, image-url("modules/modern/energy-graph.png") bottom left no-repeat
+        background: image-url("scenes/modern/energy-graph.png") -120px -250px no-repeat, image-url("scenes/modern/energy-graph.png") bottom left no-repeat
         box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.2)
         left: 94px
         position: absolute
@@ -299,7 +299,7 @@
         left: -39px
 
     .gauge
-      background: image-url("modules/modern/gauge.png") no-repeat
+      background: image-url("scenes/modern/gauge.png") no-repeat
       height: 110px
       margin: 0 auto
       overflow: hidden
@@ -307,7 +307,7 @@
       width: 130px
 
       .needle
-        background: image-url("modules/modern/gauge.png") -180px 0 no-repeat
+        background: image-url("scenes/modern/gauge.png") -180px 0 no-repeat
         height: 98px
         left: 10px
         position: absolute
@@ -328,7 +328,7 @@
 
   #core #main-vis .visualisation
     &.co2-emissions .icon
-      background-image: image-url("modules/modern/icons/polar-bear.png")
+      background-image: image-url("scenes/modern/icons/polar-bear.png")
       left: 60px
       width: 200px
 
@@ -342,7 +342,7 @@
         background-position: -600px 0
 
     &.renewables .icon
-      background-image: image-url("modules/modern/icons/tree.png")
+      background-image: image-url("scenes/modern/icons/tree.png")
       left: 76px
       width: 167px
 
@@ -353,7 +353,7 @@
         background-position: -340px 0
 
     &.costs .icon
-      background-image: image-url("modules/modern/icons/money.png")
+      background-image: image-url("scenes/modern/icons/money.png")
       left: 71px
       width: 138px
 

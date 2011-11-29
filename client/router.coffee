@@ -1,5 +1,5 @@
 app              = require 'app'
-{ ModuleView }   = require 'views/module'
+{ SceneView }    = require 'views/scene'
 { NotFoundView } = require 'views/not_found'
 
 # A simpler way to call `app.masterView.setSubView`.
@@ -14,7 +14,7 @@ class exports.Router extends Backbone.Router
     'sanity':      'sanity'
     'etlite':      'etlite'
 
-    'modules/:id': 'showModule'
+    'scenes/:id':  'showScene'
 
     'en':          'languageRedirect'
     'nl':          'languageRedirect'
@@ -37,13 +37,13 @@ class exports.Router extends Backbone.Router
   notFound: ->
     $('body').html (new NotFoundView).render().el
 
-  # The root page; simply shows the default module with the "modern" theme for
+  # The root page; simply shows the default scene with the "modern" theme for
   # the moment.
   #
   # GET /
   #
   root: ->
-    app.router.navigate '/modules/1', true
+    app.router.navigate '/scenes/1', true
 
   # A test page which shows the all of the application dependencies are
   # correctly installed and work as intended.
@@ -59,21 +59,23 @@ class exports.Router extends Backbone.Router
   # GET /etflex
   #
   etlite: ->
-    console.log @views
     render @views.etlite
 
-  # Loads a module using JSON delivered from ETflex to set up which inputs and
+  # Loads a scene using JSON delivered from ETflex to set up which inputs and
   # visualiations are used.
   #
-  # GET /modules/:id
+  # GET /scenes/:id
   #
-  showModule: (id) ->
-    if module = app.collections.modules.get id
-      module.start (err, module, session) ->
-        if err? then console.error err else
-          render new ModuleView model: module
-    else
-      @notFound()
+  showScene: (id) ->
+    app.collections.scenes.getOrFetch id, (err, scene) =>
+      # Backbone doesn't return a useful error, but it was almost certainly a
+      # 404, so just render the Not Found page...
+      if err? then @notFound() else
+
+        # Otherwise, let's start the scene by starting the ETengine session.
+        scene.start (err, scene, session) ->
+          if err? then console.error err else
+            render new SceneView model: scene
 
   # Used when changing language; a two-character language code is appended to
   # the URL.

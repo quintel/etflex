@@ -3,7 +3,7 @@
 # full-page views.
 
 { Inputs }        = require 'collections/inputs'
-{ Modules }       = require 'collections/modules'
+{ Scenes }        = require 'collections/scenes'
 { Queries }       = require 'collections/queries'
 { createStencil } = require 'collections/stencil'
 
@@ -17,7 +17,7 @@ exports.router = null
 exports.collections = {}
 
 # Holds Stencil instances which can be used to create collections for
-# each module.
+# each scene.
 exports.stencils = {}
 
 # The singleton views/Master instance.
@@ -33,9 +33,9 @@ exports.boot = (window, locale) ->
   # Set up the collections.
   raw = require 'raw'
 
-  exports.stencils.inputs     = createStencil Inputs, raw.inputs
-  exports.stencils.queries    = createStencil Queries, raw.queries
-  exports.collections.modules = new Modules
+  exports.stencils.inputs    = createStencil Inputs, raw.inputs
+  exports.stencils.queries   = createStencil Queries, raw.queries
+  exports.collections.scenes = new Scenes
 
   async.parallel data: fetchInitialData, postBoot
 
@@ -45,8 +45,6 @@ exports.boot = (window, locale) ->
 # be possible for the remote API to deliver this all in a single response.
 #
 fetchInitialData = (callback) ->
-  createDefaultModules exports.collections.modules
-
   callback null, true
 
 # Called after all the other boot functions have completed.
@@ -68,24 +66,6 @@ postBoot = (err, result) ->
     Backbone.history.start pushState: true
 
 # Helper Functions -----------------------------------------------------------
-
-# Creates a single module; the ETlite module.
-#
-# This can be removed once modules are defined on the server and delivered
-# as JSON to the client.
-#
-createDefaultModules = (collection) ->
-  collection.add
-    id:   1
-    name: 'ETlite'
-
-    leftInputs:  [  43, 146, 336, 348, 366, 338 ]
-    rightInputs: [ 315, 256, 259, 263, 313, 196 ]
-
-    centerVis:     require('views/vis/supply_demand').SupplyDemandView
-    mainVis:     [ require('views/vis/renewables').RenewablesView,
-                   require('views/vis/co2_emissions').CO2EmissionsView
-                   require('views/vis/costs').CostsView ]
 
 installConsolePolyfill = (window) ->
   unless 'console' of window

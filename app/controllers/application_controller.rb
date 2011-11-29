@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   respond_to :html
-  respond_to :json, only: :render_module
+  respond_to :json, only: :render_scene
 
   # FILTERS ------------------------------------------------------------------
 
@@ -52,29 +52,34 @@ class ApplicationController < ActionController::Base
     render client
   end
 
-  # A temporary action which renders a module.
+  # A temporary action which renders a scene.
   #
-  # This will be replaced with a full module controller once the ActiveRecord
+  # This will be replaced with a full scenes controller once the ActiveRecord
   # model is implemented.
   #
-  # GET /modules/:id
+  # GET /scenes/:id
   #
-  def module
-    @module = OpenStruct.new id: 1, name: 'ETlite'
+  def scene
+    # Mock requesting a scene which doesn't exist.
+    if request.format.json? and params[:id] != '1'
+      return head(:not_found)
+    end
 
-    # Inputs used by the module.
-    @module.left_inputs =  [  43, 146, 336, 348, 366, 338 ]
-    @module.right_inputs = [ 315, 256, 259, 263, 313, 196 ]
+    @scene = Scene.find(params[:id])
 
-    # Visualisations used.
-    @module.center_vis = 'supply-demand'
-    @module.main_vis   = %w( renewables co2-emissions costs )
-
-    # TODO Add a custom Responder so we may simply "render @module".
+    # TODO Add a custom Responder so we may simply "render @scene".
     respond_to do |wants|
       wants.html { render client }
       wants.json { render }
     end
+  end
+
+  # A temporary action used while mocking up the Backstage layout.
+  #
+  # GET /backstage
+  #
+  def backstage
+    render text: '', layout: 'backstage'
   end
 
 end

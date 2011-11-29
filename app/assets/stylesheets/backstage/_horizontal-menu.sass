@@ -1,0 +1,79 @@
+// Colours of the the horizontal gradient.
+$hm-top-color:    #eff4fa !default
+$hm-bottom-color: #d2d9e1 !default
+
+// Colours of the background gradient when hovered.
+$hm-hover-top-color:    white !default
+$hm-hover-bottom-color: #e0e5eb !default
+
+// Colours of the background gradient when active (mousedown).
+$hm-active-top-color:    #d2d9e1 !default
+$hm-active-bottom-color: #d2d9e1 !default
+
+// Colours of an item when it is the currently selected item.
+$hm-selected-top-color:    white !default
+$hm-selected-bottom-color: #e2e9f1 !default
+
+// The border colour used at the top and bottom of the menu.
+$hm-border-color: #a9b2bc !default
+
+// The border colour used on the right of each item; slightly lighter than the
+// main border colour.
+$hm-item-border-color: #b8c0ca !default
+
+// Given an <ul> or <ol> element which contains <li>, and in turn contains <a>
+// elements which link to other pages; styles the element so that it looks
+// like a standarad horizontal menu item.
+//
+// * Light-blue gradient background with standard borders.
+//
+// * Support for icons may be added on in specific stylesheets by using the
+//   "horizontal-item-with-icon(ICON_NAME)" mixin.
+
+@mixin horizontal-menu
+  @include background(linear-gradient($hm-top-color, $hm-bottom-color))
+
+  // We can't use horizontal-list since it uses the "overflow" clearfix
+  // method, which makes it impossible to use list items with a negative
+  // bottom margin in order to remove the bottom border on selected items.
+  @include reset-box-model
+  @include legacy-pie-clearfix
+
+  border-bottom: 1px solid $hm-border-color
+  box-shadow: inset 0 1px 0 white
+  line-height: 18px
+  text-shadow: 0 1px 0 white
+
+  li
+    @include horizontal-list-item(0px)
+    border-right: 1px solid $hm-item-border-color
+    font-weight: bold
+    text-shadow: 0 1px 0 white
+
+    a
+      box-shadow: inset 0 1px 0 white
+      display: block
+      padding: 4px 25px 3px
+      text-decoration: none
+
+      &:hover
+        @include background(linear-gradient($hm-hover-top-color, $hm-hover-bottom-color))
+
+      &:active
+        @include background(linear-gradient($hm-active-top-color, $hm-active-bottom-color))
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1)
+        border: 1px solid darken($hm-item-border-color, 8%)
+        border-top-width: 0px
+        margin: 0px -1px -1px
+
+    &.selected
+      @include background(linear-gradient($hm-selected-top-color, $hm-selected-bottom-color))
+
+      a
+        background: none
+        color: $color
+
+        &:active
+          border-right-color: $hm-item-border-color
+          box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1)
+          background: $hm-selected-bottom-color

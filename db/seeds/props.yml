@@ -1,0 +1,24 @@
+---
+- type:           DualBarGraph
+  left_query_id:  1
+  right_query_id: 1
+  left_extent:    1000
+  right_extent:   1000
+
+- type:           Gauge
+  query_id:       1
+  min:            0.6
+  max:            1.4
+
+  states:
+    supply_too_low:  0.0
+    balanced:        0.6
+    supply_too_high: 1.4
+
+- type:           Icon
+  query_id:       1
+  states:
+    low:          0
+    medium:       140
+    high:         154
+    extreme:      161
