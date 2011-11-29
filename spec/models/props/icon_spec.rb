@@ -3,6 +3,7 @@ require 'spec_helper'
 describe Props::Icon do
   it { should be_mongoid_document }
   it { should be_stored_in(:props) }
+  it { should successfully_save }
 
   it { should embed_many(:states).of_type(Props::State) }
 

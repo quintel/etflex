@@ -16,4 +16,9 @@ FactoryGirl.define do
     min 0.4
     max 1.6
   end
+
+  factory :icon, class: Props::Icon do
+    name      'co2 emissions'
+    query_key 'co2_emissions'
+  end
 end
