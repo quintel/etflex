@@ -50,33 +50,35 @@ puts 'Importing scenes...'
 
 YAML.load_file(Rails.root.join('db/seeds/scenes.yml')).each do |data|
   scene = Scene.new name: data['name']
-
-  unless scene.save
-    raise "Failed to save scene: #{data['name']}, #{scene.errors.inspect}"
-  end
+  props = data.delete('props') || []
 
   # Props.
 
-  if data['center_props']
-    data['center_props'].each do |name_key|
-      scene.center_props.push(Props::Base.where(name: name_key).first)
+  props.each do |(location, keys)|
+    keys.each do |key|
+      scene.scene_props.build(
+        location: location,
+        prop:     Props::Base.where(name: key).first)
     end
-
-    scene.save!
   end
 
   # Inputs.
 
   data['left_inputs'].each do |input|
-    scene.scene_inputs.create!(
+    scene.scene_inputs.build(
       left:  true,
       input: Input.where(remote_id: input).first)
   end
 
   data['right_inputs'].each do |input|
-    scene.scene_inputs.create!(
+    scene.scene_inputs.build(
       left:  false,
       input: Input.where(remote_id: input).first)
+  end
+
+
+  unless scene.save
+    raise "Failed to save scene: #{data['name']}, #{scene.errors.inspect}"
   end
 end
 
