@@ -13,13 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20111123161847) do
 
-  create_table "dual_bar_graph_props", :force => true do |t|
-    t.integer "left_query_id",  :null => false
-    t.integer "right_query_id", :null => false
-    t.float   "left_extent",    :null => false
-    t.float   "right_extent",   :null => false
-  end
-
   create_table "inputs", :force => true do |t|
     t.integer "remote_id",                    :null => false
     t.string  "key",                          :null => false
@@ -46,6 +39,19 @@ ActiveRecord::Schema.define(:version => 20111123161847) do
   end
 
   add_index "prop_states", ["prop_id", "prop_type"], :name => "index_prop_states_on_prop_id_and_prop_type"
+
+  create_table "props_dual_bar_graphs", :force => true do |t|
+    t.integer "left_query_id",  :null => false
+    t.integer "right_query_id", :null => false
+    t.float   "left_extent",    :null => false
+    t.float   "right_extent",   :null => false
+  end
+
+  create_table "props_gauges", :force => true do |t|
+    t.integer "query_id", :null => false
+    t.float   "min",      :null => false
+    t.float   "max",      :null => false
+  end
 
   create_table "scene_inputs", :force => true do |t|
     t.integer "scene_id",                   :null => false

@@ -45,12 +45,18 @@ class CreateBasicTables < ActiveRecord::Migration
       t.string  :prop_type, limit: 100, null: false
     end
 
-    create_table :dual_bar_graph_props do |t|
+    create_table :props_dual_bar_graphs do |t|
       t.integer :left_query_id,  null: false
       t.integer :right_query_id, null: false
 
       t.float   :left_extent,    null: false
       t.float   :right_extent,   null: false
+    end
+
+    create_table :props_gauges do |t|
+      t.integer :query_id, null: false
+      t.float   :min,      null: false
+      t.float   :max,      null: false
     end
 
     create_table :prop_states do |t|

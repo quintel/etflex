@@ -5,3 +5,4 @@
 
   props:
     - [ DualBarGraph, 1 ]
+    - [ Gauge,        1 ]
