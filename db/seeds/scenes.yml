@@ -1,0 +1,17 @@
+---
+- name: 'ETlite Recreation'
+  inputs:
+    left:  [  43, 146, 336, 348, 366, 338 ]
+    right: [ 315, 256, 259, 263, 313, 196 ]
+
+  props:
+    center:
+      - electricity_supply_and_demand
+      - balance_of_electricity_supply_and_demand
+    bottom:
+      - co2_emissions_icon
+
+- name: 'A Second Test'
+  inputs:
+    left:  [  43, 146, 336, 348, 366, 338 ]
+    right: [ 315, 256, 259, 263, 313, 196 ]

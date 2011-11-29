@@ -3,18 +3,17 @@ source 'http://rubygems.org'
 RAILS_VERSION = '~> 3.1.2'
 
 gem 'activesupport',  RAILS_VERSION, :require => 'active_support'
-gem 'activerecord',   RAILS_VERSION, :require => 'active_record'
 gem 'actionpack',     RAILS_VERSION, :require => 'action_pack'
 gem 'railties',       RAILS_VERSION, :require => 'rails'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2'
-gem 'acts_as_list'
-gem 'default_value_for'
+gem 'mongoid', '~> 2.3'
+gem 'bson_ext'
+gem 'mongoid-list', git: 'git://github.com/davekrupinski/mongoid-list.git'
 
-gem 'haml', '~> 3.1.3'
+gem 'haml', '~> 3.1'
 gem 'jsonify-rails'
 
 gem 'jquery-rails'
@@ -61,6 +60,9 @@ group :test, :development do
   # the spec:* tasks won't be available when using rake.
   gem 'rspec-rails',  '~> 2.6'
   gem 'shoulda-matchers'
+
+  # Swap back to official release when >=1.4.5 is released.
+  gem 'mongoid-rspec', git: 'git://github.com/evansagge/mongoid-rspec.git'
 
   # Integration / acceptance testing.
   gem 'capybara', '>= 1.1.1'
