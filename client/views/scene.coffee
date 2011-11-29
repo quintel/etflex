@@ -1,15 +1,17 @@
 app           = require 'app'
-template      = require 'templates/module'
+template      = require 'templates/scene'
 
 { RangeView } = require 'views/range'
 
-# Module ---------------------------------------------------------------------
+{ getVisualisation } = require 'views/vis'
 
-# The heart of ETflex; given a Module model creates an HTML representation
+# Scene ----------------------------------------------------------------------
+
+# The heart of ETflex; given a Scene model creates an HTML representation
 # displaying the left and right sliders, visualisations, etc.
 #
-class exports.ModuleView extends Backbone.View
-  id: 'module-view'
+class exports.SceneView extends Backbone.View
+  id: 'scene-view'
   className: 'modern' # TODO Set dynamically based on server-sent JSON.
 
   events:
@@ -19,7 +21,7 @@ class exports.ModuleView extends Backbone.View
   #
   # Example:
   #
-  #   view = new ModuleView model: module
+  #   view = new SceneView model: scene
   #   $('body').html view.render().el
   #
   render: ->
@@ -33,36 +35,45 @@ class exports.ModuleView extends Backbone.View
     for input in @model.inputs.models
       view = new RangeView model: input
 
-      if _.include @model.get('leftInputs'), input.get('id')
+      if input.get('location') is 'left'
         leftRangesEl.append view.render().el
       else
         rightRangesEl.append view.render().el
 
     # Renders the center visualisation (in between the two slider groups).
 
-    centerVis = new (@model.get 'centerVis')(queries: @model.queries)
+    centerVis = @visualisation @model.get('centerVis'), queries: @model.queries
     @$('#center-vis').html centerVis.render().el
 
     # Renders the three visualisations below the sliders.
 
-    for klass in @model.get('mainVis')
-      visualisation = new klass queries: @model.queries
+    for key in @model.get('mainVis')
+      visualisation = @visualisation key, queries: @model.queries
       @$('#main-vis').append visualisation.render().el
 
     @renderTheme()
 
     this
 
-  # Renders the modern theme by extending the default module template.
+  # Renders the modern theme by extending the default scene template.
   #
   # This will likely be extracted to a separete "ModernView extends
-  # ModuleView" class later.
+  # SceneView" class later.
   #
   renderTheme: ->
-    modernHeader = require 'templates/modules/modern/header'
+    modernHeader = require 'templates/scenes/modern/header'
     @$('#core').prepend modernHeader()
 
   # Fakes a click on a navigation item. Does nothing for the moment.
   #
   fakeNavClick: (event) =>
     event.preventDefault()
+
+  # Creates a new instance of a visualisation. Takes the key of the
+  # visualisation and and additional arguments to be passed the constructor.
+  #
+  # key  - The key name for the visualisation. See views/vis.
+  # args - Additional arguments passed to the constructor.
+  #
+  visualisation: (key, args...) ->
+    new (getVisualisation key)(args...)

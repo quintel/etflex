@@ -6,12 +6,22 @@ en:
   loadingMsg: "The application is being loaded. Hang tight; it won't be long!"
   loadingNothing: "Nothing happening?"
 
-  # 404 Not Found
+  # 404 Not Found ------------------------------------------------------------
 
   oops: "Whoops"
   frontPage: "Back to the homepage"
   fourOhFour: "The page you were looking for could not be found. Sorry about that&hellip;"
 
-  # Common content on module pages
+  # Common content on scene pages --------------------------------------------
 
   sponsoredBy: "Sponsored by"
+
+  # ActiveRecord -------------------------------------------------------------
+
+  activerecord:
+    errors:
+      models:
+        input:
+          attributes:
+            max:
+              less_than_min: "The maximum value must be equal or greater than the minimum value"

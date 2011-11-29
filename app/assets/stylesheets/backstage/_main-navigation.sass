@@ -1,0 +1,71 @@
+// The main navigation element at the top of each page.
+//
+//   +----------+----------+-----------+--------+--
+//   |  Scenes  |  Inputs  |  Outputs  |  Etc.  | ->
+//   +----------+----------+-----------+--------+--
+
+#header #nav
+  @include horizontal-menu
+  @include background(image-url("backstage/menu.png") repeat-x, linear-gradient($hm-top-color, $hm-bottom-color))
+  box-shadow: none
+  font-size: 14px
+  padding-top: 5px
+
+  li a
+    @include background(linear-gradient($hm-top-color, $hm-bottom-color))
+    box-shadow: none
+    padding-top: 15px
+    padding-bottom: 14px
+
+    .icon
+      background-repeat: no-repeat
+      background-position: 0 4px
+      padding-left: 22px
+      padding: 8px 0 7px 32px
+
+  li.selected
+    background: image-url("backstage/menu.png") right -75px no-repeat
+    border-right: none
+    margin-top: -5px
+    padding-top: 5px
+
+    a
+      @include background(linear-gradient($hm-selected-top-color, $hm-selected-bottom-color))
+      border-right: 1px solid $hm-item-border-color
+
+      &:active
+        border-color: $hm-item-border-color
+        border-right: 1px solid $hm-item-border-color
+        margin-right: 0
+
+  li#nav_scenes .icon
+    background-image: image-url("backstage/scene.png")
+
+  li#nav_inputs .icon
+    background-image: image-url("backstage/input.png")
+
+  li#nav_queries .icon
+    background-image: image-url("backstage/query.png")
+
+  li#nav_outputs .icon
+    background-image: image-url("backstage/prop.png")
+
+  li#nav_logout, li#nav_user
+    border-right: none
+    float: right
+
+    a:active
+      border-color: transparent
+      box-shadow: none
+
+  li#nav_logout a
+    background: image-url("backstage/sign-out.png") 25px 16px no-repeat
+    color: #6b7686
+    font-size: 12px
+    padding: 15px 25px 14px 47px
+
+  li#nav_user a
+    background: none
+    color: #6b7686
+    font-size: 12px
+    padding: 15px 0 14px 25px

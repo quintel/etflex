@@ -1,0 +1,74 @@
+!!! 5
+%html
+  %head
+    %title ETFlex Backstage
+
+    = stylesheet_link_tag 'backstage'
+    = javascript_include_tag 'modernizr-2.0.6.js'
+    = airbrake_javascript_notifier
+
+    = csrf_meta_tags
+
+  %body
+    #chrome
+      #header
+        %ul#nav
+          %li#nav_scenes.selected
+            %a(href="#")
+              %span.icon Scenes
+          %li#nav_inputs
+            %a(href="#")
+              %span.icon Inputs
+          %li#nav_queries
+            %a(href="#")
+              %span.icon Queries
+          %li#nav_outputs
+            %a(href="#")
+              %span.icon Props
+          %li#nav_logout
+            %a(href="#") Sign out
+          %li#nav_user
+            %a(href="#") User A.
+
+      #master
+        #main-sidebar.sidebar
+          .search
+            %input(type="text" placeholder="Search Scenes")
+
+          %ul.tabs
+            %li.selected
+              %a(href="#") Public
+            %li
+              %a(href="#") Yours
+
+          Content
+
+          .controls
+            %p Click here to add a new scene
+            %ul
+              %li.add
+                %a(href="#") Add a Scene
+              %li.settings
+                %a(href="#") Scene Settings
+
+        #content
+          .make-a-selection
+            %h2 Scenes
+            %p
+              Lorem ipsum dolor sit amet, est paulo feugait corpora ad, et
+              commune indoctum quo. Dolorum adipiscing eum id. Cum scaevola
+              salutandi ea. Accusam appareat ei mel, ut puto congue rationibus
+              has. Eam populo prompta menandri eu, mei democritum argumentum
+              eu, an eum tibique constituto scribentur. Mei id partem semper
+              mnesarchum, autem constituto his eu.
+
+            %ul.buttons
+              %li
+                %a.green(href="#")
+                  %span.icon.plus Add a new scene
+              %li
+                %a(href="#") Help!
+
+          .sidebar(style="display: none")
+            %h6 Inputs
+            %h6 Outputs
