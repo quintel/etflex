@@ -16,9 +16,9 @@ nl:
 
   sponsoredBy: "Gesponsord door"
 
-  # ActiveRecord -------------------------------------------------------------
+  # Custom validation messages
 
-  activerecord:
+  monogid:
     errors:
       models:
         input:

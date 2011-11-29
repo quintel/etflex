@@ -16,9 +16,9 @@ en:
 
   sponsoredBy: "Sponsored by"
 
-  # ActiveRecord -------------------------------------------------------------
+  # Custom validation messages
 
-  activerecord:
+  mongoid:
     errors:
       models:
         input:
