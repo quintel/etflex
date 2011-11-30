@@ -15,7 +15,10 @@ unless $stdin.gets.chomp =~ /^y(es)?$/
 end
 
 puts 'Removing old records...'
-Mongoid.database.collections.each { |collection| collection.remove }
+
+Mongoid.database.collections.each do |collection|
+  collection.drop unless collection.name.match(/^system\./)
+end
 
 # INPUTS ---------------------------------------------------------------------
 
