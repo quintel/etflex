@@ -36,6 +36,35 @@ class Scene
 
   # INSTANCE METHODS ---------------------------------------------------------
 
+  # Given a SceneInput, returns the Input instance it relates to.
+  #
+  # This method is preferred over using `scene.scene_input.input` since it
+  # will eager load all of the inputs used by the scene so that we don't
+  # perform a query for every input we want.
+  #
+  # @param [SceneInput] scene_input
+  #   A SceneInput instance. This should be a SceneInput from the Scene's
+  #   embedded `scene_inputs` collection.
+  #
+  # @return [Input]
+  #   Returns the Input to which the SceneInput refers.
+  # @return [nil]
+  #   Returns nil if the Input does not exist, or the method was called with
+  #   nil or a SceneInput which doesn't yet have a `input_id` value.
+  #
+  def input(scene_input)
+    return nil if scene_input.nil? or scene_input.input_id.nil?
+
+    unless @inputs_cache
+      input_ids = scene_inputs.map(&:input_id).uniq
+      inputs    = Input.any_of(:_id.in => input_ids)
+
+      @inputs_cache = inputs.index_by(&:id)
+    end
+
+    @inputs_cache[ scene_input.input_id ]
+  end
+
   # Given a SceneProp, returns the Prop instance it relates to.
   #
   # This method is preferred over using `scene.scene_prop.prop` since it will
