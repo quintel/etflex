@@ -34,4 +34,35 @@ class Scene
   embeds_many :scene_inputs
   embeds_many :scene_props
 
+  # INSTANCE METHODS ---------------------------------------------------------
+
+  # Given a SceneProp, returns the Prop instance it relates to.
+  #
+  # This method is preferred over using `scene.scene_prop.prop` since it will
+  # eager load all of the props used by the scene so that we don't perform
+  # a query for every prop we want.
+  #
+  # @param [SceneProp] scene_prop
+  #   A SceneProp instance. This should be a SceneProp from the Scene's
+  #   embedded `scene_props` collection.
+  #
+  # @return [Prop]
+  #   Returns the Prop to which the SceneProp refers.
+  # @return [nil]
+  #   Returns nil if the Prop does not exist, or the method was called with
+  #   nil or a SceneProp which doesn't yet have a `prop_id` value.
+  #
+  def prop(scene_prop)
+    return nil if scene_prop.nil? or scene_prop.prop_id.nil?
+
+    unless @props_cache
+      prop_ids = scene_props.map(&:prop_id).uniq
+      props    = Props::Base.any_of(:_id.in => prop_ids)
+
+      @props_cache = props.index_by(&:id)
+    end
+
+    @props_cache[ scene_prop.prop_id ]
+  end
+
 end
