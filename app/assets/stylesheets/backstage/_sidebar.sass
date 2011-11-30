@@ -47,6 +47,11 @@ $sidebar-border-color: #a9b2bc !default
       font: 12px "Helvetica Neue", Arial, Helvetica, sans-serif
       width: 214px
 
+      &:active, &:focus
+        border-color: #467fe3
+        box-shadow: 0 0 3px 1px #7db1f4, inset 0 1px 0 rgba(0, 0, 0, 0.1)
+        outline: none
+
   h6
     @include background(linear-gradient($hm-top-color, $hm-bottom-color))
     border-bottom: 1px solid $border-color
