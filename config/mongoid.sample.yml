@@ -1,18 +1,25 @@
-development:
-  host: localhost
-  database: etflex_development
+development: &common
+  host:                 localhost
+  database:             etflex_development
+  identity_map_enabled: true
+  persist_in_safe_mode: true
+  autocreate_indexes:   true
 
 test:
-  host: localhost
+  <<: *common
   database: etflex_test
 
 # set these environment variables on your prod server
 production:
-  host: <%= ENV['MONGOID_HOST'] %>
-  port: <%= ENV['MONGOID_PORT'] %>
+  <<: *common
+  autocreate_indexes: false
+
+  host:     <%= ENV['MONGOID_HOST'] %>
+  port:     <%= ENV['MONGOID_PORT'] %>
   username: <%= ENV['MONGOID_USERNAME'] %>
   password: <%= ENV['MONGOID_PASSWORD'] %>
   database: <%= ENV['MONGOID_DATABASE'] %>
+
   # slaves:
   #   - host: slave1.local
   #     port: 27018
