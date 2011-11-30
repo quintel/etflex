@@ -38,10 +38,13 @@ $sidebar-border-color: #a9b2bc !default
     padding: 10px 10px 9px
 
     input[type=text]
-      @include border-radius(2px)
+      +transition-property("border-color, box-shadow")
+      +transition-duration(".15s, .15s")
+      +transition-timing-function("ease-in-out, ease-in-out")
+      +border-radius(2px)
+      +box-shadow(0 1px 0 rgba(255, 255, 255, 0.4), inset 0 1px 0 rgba(0, 0, 0, 0.1))
       border: 1px solid $border-color
       border-top-color: darken($border-color, 8%)
-      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4), inset 0 1px 0 rgba(0, 0, 0, 0.1)
       margin: 0
       padding: 5px 6px 4px
       font: 12px "Helvetica Neue", Arial, Helvetica, sans-serif
