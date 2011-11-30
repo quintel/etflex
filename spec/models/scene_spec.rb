@@ -39,6 +39,72 @@ describe Scene do
     end # when "name_key" is present
   end # name
 
+  # INPUT --------------------------------------------------------------------
+
+  describe '#input' do
+    before(:each) do
+      @input_one = create :input
+      @input_two = create :input
+      @scene     = create :scene
+
+      @scene_input_one = @scene.scene_inputs.create!  input: @input_one
+      @scene_input_two  = @scene.scene_inputs.create! input: @input_two
+    end
+
+    context 'when given a SceneInput' do
+      subject { @scene.input(@scene_input_one) }
+
+      it 'should return an Input instance' do
+        should be_kind_of(Input)
+      end
+
+      it 'should return the correct input instance' do
+        subject.id.should eql(@input_one.id)
+      end
+
+      it 'should return the same instance when invoked multiple times' do
+        @scene.input(@scene_input_one).should eql(subject)
+        @scene.input(@scene_input_two).should eql(@input_two)
+      end
+    end
+
+    context "when given a SceneInput which isn't a scene_inputs member" do
+      before(:each) do
+        @another_input = create :input
+        @scene_input   = SceneInput.new(input: @another_input)
+      end
+
+      subject { @scene.input(@scene_input) }
+
+      it 'should return nil' do
+        should be_nil
+      end
+
+      it 'should still correctly fetch valid SceneInputs' do
+        @scene.input(@scene_input_one).should eql(@input_one)
+      end
+    end
+
+    context 'when given a blank SceneInput' do
+      it 'should return nil' do
+        @scene.input(SceneInput.new).should be_nil
+      end
+    end
+
+    context 'when given nil' do
+      it 'should return nil' do
+        @scene.input(nil).should be_nil
+      end
+    end
+
+    context 'when the input has been deleted' do
+      it 'should return nil' do
+        @input_one.destroy
+        @scene.input(@scene_input_one).should be_nil
+      end
+    end
+  end # input
+
   # PROP ---------------------------------------------------------------------
 
   describe '#prop' do
@@ -95,6 +161,10 @@ describe Scene do
 
       it 'should return nil' do
         should be_nil
+      end
+
+      it 'should still correctly fetch valid SceneInputs' do
+        @scene.prop(@scene_gauge).should eql(@gauge)
       end
     end
 
