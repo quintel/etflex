@@ -74,4 +74,27 @@ class SceneInput
     read_attribute(:start) or ( input and input.start )
   end
 
+  alias mongoid_input input
+
+  # Overwrites the default #input accessor to try to call Scene#input.
+  #
+  # Since we often want to fetch the related input for all of the Inputs used
+  # by a Scene, we delegate to Scene#input where possible so that _all_ of the
+  # inputs can be eager loaded in one query, instead of every SceneInput
+  # hitting the database separately.
+  #
+  # If no Scene is set, this will fall back to the standard Mongoid #input
+  # accessor.
+  #
+  # @return [Input] Returns the related Input record.
+  # @return [nil]   Returns nil if no Input is related.
+  #
+  def input(reload = false, *args)
+    if not reload and input_id.present? and scene.present?
+      scene.input(self)
+    else
+      mongoid_input(reload, *args)
+    end
+  end
+
 end
