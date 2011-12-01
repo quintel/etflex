@@ -19,9 +19,6 @@ exports.collections = {}
 # each scene.
 exports.stencils = {}
 
-# The singleton views/Master instance.
-exports.masterView = null
-
 # Called _once_ when the application is first loaded in the browser.
 exports.boot = (window, locale) ->
   installConsolePolyfill window
@@ -66,7 +63,6 @@ postBoot = (err, result) ->
     console.error "Could not initialize application.", err
   else
     exports.routers.main = new (require('routers/main').MainRouter)
-    exports.masterView   = new (require('views/master').MasterView)
 
     # Fire up Backbone routing...
     Backbone.history.start pushState: true

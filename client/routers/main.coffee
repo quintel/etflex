@@ -2,8 +2,8 @@ app              = require 'app'
 { SceneView }    = require 'views/scene'
 { NotFoundView } = require 'views/not_found'
 
-# A simpler way to call `app.masterView.setSubView`.
-render = (view) -> app.masterView.setSubView view
+# A simpler way to render a view and replace the <body> element.
+render = (view) -> $('body').html(view.render().el)
 
 # Router watches the URL and, as it changes, re-renders the main view
 # mimicking the user navigating from one page to another.
