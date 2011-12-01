@@ -50,11 +50,13 @@ $hm-item-border-color: #b8c0ca !default
     font-weight: bold
     text-shadow: 0 1px 0 white
 
-    a
+    a, span.pseudo
       box-shadow: inset 0 1px 0 white
       display: block
       padding: 4px 25px 3px
       text-decoration: none
+
+    a
 
       &:hover
         @include background(linear-gradient($hm-hover-top-color, $hm-hover-bottom-color))
@@ -69,7 +71,7 @@ $hm-item-border-color: #b8c0ca !default
     &.selected
       @include background(linear-gradient($hm-selected-top-color, $hm-selected-bottom-color))
 
-      a
+      a, span.pseudo
         background: none
         color: $color
 

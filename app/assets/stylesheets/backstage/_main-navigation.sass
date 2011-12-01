@@ -4,16 +4,17 @@
 //   |  Scenes  |  Inputs  |  Outputs  |  Etc.  | ->
 //   +----------+----------+-----------+--------+--
 
-#header #nav
+#header .navigation
   @include horizontal-menu
   @include background(image-url("backstage/menu.png") repeat-x, linear-gradient($hm-top-color, $hm-bottom-color))
   box-shadow: none
   font-size: 14px
   padding-top: 5px
 
-  li a
+  li a, li span.pseudo
     @include background(linear-gradient($hm-top-color, $hm-bottom-color))
     box-shadow: none
+    display: block
     padding-top: 15px
     padding-bottom: 14px
 
@@ -36,47 +37,48 @@
       &:active
         margin-right: 0
 
-  li#nav_scenes .icon
+  li.scenes .icon
     background-image: image-url("backstage/scene.png")
 
-  li#nav_inputs .icon
+  li.inputs .icon
     background-image: image-url("backstage/input.png")
 
-  li#nav_queries .icon
+  li.queries .icon
     background-image: image-url("backstage/query.png")
 
-  li#nav_outputs .icon
+  li.props .icon
     background-image: image-url("backstage/prop.png")
 
-  li#nav_logout, li#nav_user, li#nav_loading
+  li.sign_out .icon
+    background-image: image-url("backstage/sign-out.png")
+    background-position: 0 8px
+    padding-left: 24px
+
+  li.sign_out, li.loading
     border-right: none
     float: right
 
     a
+      background: none
       color: #6b7686
       font-size: 12px
-      padding: 15px 25px 14px 47px
 
       &:active
         border-color: transparent
         box-shadow: none
 
-  li#nav_logout a
-    background: image-url("backstage/sign-out.png") 25px 16px no-repeat
-
-  li#nav_user a
-    background: none
-    padding-left: 25px
-    padding-right: 0
-
-  li#nav_loading
+  li.loading
     border-right: 1px solid lighten($hm-border-color, 7%)
-    margin: 14px 0 14px 0
-    height: 19px
+    margin: 15px 0 14px
 
-    .indicator
-      background: image-url("backstage/indicator.gif") 0 5px no-repeat
-      display: none
-      padding: 1px 25px 0 0
-      text-indent: -10000px
-      width: 24px
+    span.pseudo
+      background: none
+      padding-top: 0
+      padding-bottom: 0
+      height: 18px
+
+      .icon
+        background: image-url("backstage/indicator.gif") 0 4px no-repeat
+        display: block
+        padding: 0 0 0 16px
+        text-indent: -10000px
