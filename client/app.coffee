@@ -9,9 +9,8 @@
 
 { InputManager }  = require 'lib/input_manager'
 
-# Holds the router singleton. For the moment the application has only
-# one; in time we may add more.
-exports.router = null
+# Holds the instantiated routers so that we can refer to them later.
+exports.routers = {}
 
 # Holds each of the main model collections (Sliders, Widgets, etc).
 exports.collections = {}
@@ -39,6 +38,13 @@ exports.boot = (window, locale) ->
 
   async.parallel data: fetchInitialData, postBoot
 
+# A wrapper around Backbone.Router::navigate which selects the correct router
+# (main or backstage) depending on the URL, and by default will run the action
+# in the router (Backbone by default does not do this).
+#
+exports.navigate = (url, trigger = true) ->
+  exports.routers.main.navigate url, trigger
+
 # Bootstrap Functions, execute in parallel -----------------------------------
 
 # Retrieves static data such as input and query definitions. Ideally it should
@@ -59,7 +65,7 @@ postBoot = (err, result) ->
   if err?
     console.error "Could not initialize application.", err
   else
-    exports.router       = new (require('router').Router)
+    exports.routers.main = new (require('routers/main').MainRouter)
     exports.masterView   = new (require('views/master').MasterView)
 
     # Fire up Backbone routing...
