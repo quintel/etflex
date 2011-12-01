@@ -8,7 +8,7 @@ render = (view) -> $('body').html(view.render().el)
 # Router watches the URL and, as it changes, re-renders the main view
 # mimicking the user navigating from one page to another.
 #
-class exports.MainRouter extends Backbone.Router
+class exports.Main extends Backbone.Router
   routes:
     '':            'root'
     'sanity':      'sanity'

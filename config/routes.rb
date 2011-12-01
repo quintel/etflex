@@ -1,10 +1,12 @@
 ETFlex::Application.routes.draw do
 
-  get 'sanity',     to: 'application#render_client'
-  get 'etlite',     to: 'application#render_client'
-  get 'backstage',  to: 'application#backstage'
+  get 'sanity',         to: 'application#render_client'
+  get 'etlite',         to: 'application#render_client'
 
-  get 'scenes/:id', to: 'application#scene', as: 'scene'
+  get 'backstage',      to: 'application#render_client'
+  get 'backstage/*any', to: 'application#render_client'
+
+  get 'scenes/:id',     to: 'application#scene', as: 'scene'
 
   root to: 'application#render_client'
 
