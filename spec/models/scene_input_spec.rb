@@ -157,4 +157,47 @@ describe SceneInput do
     end
   end
 
+  # INPUT --------------------------------------------------------------------
+
+  describe '#input' do
+    let(:input) { create :input }
+    subject { SceneInput.new input: input }
+
+    context 'when a #scene is set' do
+      let(:scene) { build(:scene).tap { |s| s.scene_inputs.push(subject) } }
+
+      it 'should call Scene#input' do
+        scene.should_receive(:input).with(subject).once
+        subject.input
+      end
+
+      it 'should return the correct input' do
+        subject.input.should eql(input)
+      end
+
+      it 'should not call Scene#Input if reloading' do
+        scene.should_not_receive(:input)
+        subject.input(:reload)
+      end
+
+      context 'and no input is set' do
+        before(:each) { subject.input = nil }
+
+        it 'should not call Scene#input' do
+          scene.should_not_receive(:input)
+        end
+
+        it 'should return nil' do
+          subject.input.should be_nil
+        end
+      end
+    end # when a #scene is set
+
+    context 'when no #scene is set' do
+      it 'should return the correct input' do
+        subject.input.should eql(input)
+      end
+    end # when no #scene is set
+  end # #input
+
 end
