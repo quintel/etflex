@@ -1,0 +1,76 @@
+<div id="header">
+  <ul id="nav">
+    <li id="nav_scenes" class="selected">
+      <a href="#" title="Scenes"><span class="icon">Scenes</span></a>
+    </li>
+    <li id="nav_inputs">
+      <a href="#" title="Inputs"><span class="icon">Inputs</span></a>
+    </li>
+    <li id="nav_queries">
+      <a href="#" title="Queries"><span class="icon">Queries</span></a>
+    </li>
+    <li id="nav_outputs">
+      <a href="#" title="Props"><span class="icon">Props</span></a>
+    </li>
+    <li id="nav_logout">
+      <a href="#" title="Sign out">Sign out</a>
+    </li>
+    <li id="nav_loading">
+      <span class="indicator">Loading&hellip;</span>
+    </li>
+  </ul>
+</div>
+
+<div id="master">
+  <div id="main-sidebar" class="sidebar">
+    <div class="search">
+      <input type="text" placeholder="Search Scenes" />
+    </div>
+
+    <ul class="tabs">
+      <li class="selected"><a href="#" title="Public Scenes">Public</a></li>
+      <li><a href="#" title="Your Scenes">Yours</a></li>
+    </ul>
+
+    Content
+
+    <div class="controls">
+      <p>Click here to add a new scene</p>
+      <ul>
+        <li class="add">
+          <a href="#" title="Add a Scene">Add a Scene</a>
+        </li>
+        <li class="settings">
+          <a href="#" title="Scene Settings">Scene Settings</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- sidebar -->
+
+  <div id="content">
+    <div class="make-a-selection">
+      <h2>Scenes</h2>
+
+      <p>
+        Lorem ipsum dolor sit amet, est paulo feugait corpora ad, et
+        commune indoctum quo. Dolorum adipiscing eum id. Cum scaevola
+        salutandi ea. Accusam appareat ei mel, ut puto congue rationibus
+        has. Eam populo prompta menandri eu, mei democritum argumentum
+        eu, an eum tibique constituto scribentur. Mei id partem semper
+        mnesarchum, autem constituto his eu.
+      </p>
+
+      <ul class="buttons">
+        <li><a href="#" class="green" title="Add a new Scene"><span class="icon plus">Add a new Scene</span></a></li>
+        <li><a href="#" title="Find out more about scenes">Help!</a></li>
+      </ul>
+    </div>
+
+    <div class="sidebar" style="display: none">
+      <h6>Inputs</h6>
+      <h6>Outputs</h6>
+    </div>
+  </div>
+
+</div>

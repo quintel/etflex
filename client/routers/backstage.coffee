@@ -1,4 +1,5 @@
-app = require 'app'
+app          = require 'app'
+{ BaseView } = require 'views/backstage/base'
 
 # A simpler way to render a view and replace the <body> element.
 render = (view) -> $('body').html(view.render().el)
@@ -25,4 +26,4 @@ class exports.Backstage extends Backbone.Router
   # GET /backstage/scenes
   #
   scenesIndex: ->
-    console.log 'Hello from ScenesIndex'
+    render new BaseView
