@@ -14,7 +14,7 @@ gem 'bson_ext'
 gem 'mongoid-list', git: 'git://github.com/davekrupinski/mongoid-list.git'
 
 gem 'haml', '~> 3.1'
-gem 'jsonify-rails'
+gem 'jbuilder'
 
 gem 'jquery-rails'
 
