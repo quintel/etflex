@@ -37,6 +37,7 @@ GEM
     airbrake (3.0.5)
       activesupport
       builder
+    blankslate (2.1.2.4)
     bluepill (0.0.51)
       activesupport (>= 3.0.0)
       daemons (~> 1.1.0)
@@ -103,14 +104,13 @@ GEM
     i18n (0.6.0)
     i18n-js (2.1.2)
       i18n
+    jbuilder (0.3)
+      activesupport (>= 3.0.0)
+      blankslate (>= 2.1.2.4)
     jquery-rails (1.0.19)
       railties (~> 3.0)
       thor (~> 0.14)
     json (1.6.2)
-    jsonify (0.2.0)
-    jsonify-rails (0.2.0)
-      actionpack
-      jsonify (>= 0.2.0)
     kgio (2.6.0)
     libv8 (3.3.10.4)
     method_source (0.6.7)
@@ -231,8 +231,8 @@ DEPENDENCIES
   guard-rspec
   haml (~> 3.1)
   i18n-js
+  jbuilder
   jquery-rails
-  jsonify-rails
   mongoid (~> 2.3)
   mongoid-list!
   mongoid-rspec!
