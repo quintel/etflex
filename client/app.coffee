@@ -40,7 +40,13 @@ exports.boot = (window, locale) ->
 # in the router (Backbone by default does not do this).
 #
 exports.navigate = (url, trigger = true) ->
-  exports.routers.main.navigate url, trigger
+  router =
+    if url.match(/^backstage\//)
+      exports.routers.backstage
+    else
+      exports.routers.main
+
+  router.navigate url, trigger
 
 # Bootstrap Functions, execute in parallel -----------------------------------
 
@@ -62,7 +68,8 @@ postBoot = (err, result) ->
   if err?
     console.error "Could not initialize application.", err
   else
-    exports.routers.main = new (require('routers/main').MainRouter)
+    exports.routers.main      = new (require('routers/main').Main)
+    exports.routers.backstage = new (require('routers/backstage').Backstage)
 
     # Fire up Backbone routing...
     Backbone.history.start pushState: true
