@@ -17,5 +17,5 @@ class exports.NotFoundView extends Backbone.View
     this
 
   navigateToRoot: (event) ->
-    app.router.navigate '', true
+    app.navigate '', true
     event.preventDefault()

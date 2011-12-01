@@ -8,7 +8,7 @@ render = (view) -> app.masterView.setSubView view
 # Router watches the URL and, as it changes, re-renders the main view
 # mimicking the user navigating from one page to another.
 #
-class exports.Router extends Backbone.Router
+class exports.MainRouter extends Backbone.Router
   routes:
     '':            'root'
     'sanity':      'sanity'
@@ -43,7 +43,7 @@ class exports.Router extends Backbone.Router
   # GET /
   #
   root: ->
-    app.router.navigate '/scenes/1', true
+    app.navigate '/scenes/1', true
 
   # A test page which shows the all of the application dependencies are
   # correctly installed and work as intended.

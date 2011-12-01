@@ -11,7 +11,7 @@ class exports.SanityView extends Backbone.View
     'click a': 'navigateToETLite'
 
   navigateToETLite: (event) ->
-    application.router.navigate 'scenes/1', true
+    application.navigate 'scenes/1', true
     event.preventDefault()
 
   # Renders the view which adds text to the page indicating that Backbone is
