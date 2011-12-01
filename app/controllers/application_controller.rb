@@ -61,9 +61,9 @@ class ApplicationController < ActionController::Base
   #
   def scene
     # Mock requesting a scene which doesn't exist.
-    if request.format.json? and params[:id] != '1'
-      return head(:not_found)
-    end
+    # if request.format.json? and params[:id] != '1'
+    #   return head(:not_found)
+    # end
 
     @scene = Scene.find(params[:id])
 
