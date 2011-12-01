@@ -60,11 +60,6 @@ class ApplicationController < ActionController::Base
   # GET /scenes/:id
   #
   def scene
-    # Mock requesting a scene which doesn't exist.
-    # if request.format.json? and params[:id] != '1'
-    #   return head(:not_found)
-    # end
-
     @scene = Scene.find(params[:id])
 
     # TODO Add a custom Responder so we may simply "render @scene".
