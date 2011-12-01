@@ -1,4 +1,5 @@
 <div id="header">
+<!--
   <ul id="nav">
     <li id="nav_scenes" class="selected">
       <a href="#" title="Scenes"><span class="icon">Scenes</span></a>
@@ -19,6 +20,7 @@
       <span class="indicator">Loading&hellip;</span>
     </li>
   </ul>
+-->
 </div>
 
 <div id="master">

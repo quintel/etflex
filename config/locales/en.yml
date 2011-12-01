@@ -6,6 +6,15 @@ en:
   loadingMsg: "The application is being loaded. Hang tight; it won't be long!"
   loadingNothing: "Nothing happening?"
 
+  # Models -------------------------------------------------------------------
+
+  navigation:
+    scenes:   Scenes
+    inputs:   Inputs
+    queries:  Queries
+    loading:  Loading
+    sign_out: Sign out
+
   # 404 Not Found ------------------------------------------------------------
 
   oops: "Whoops"
