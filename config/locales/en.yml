@@ -12,6 +12,7 @@ en:
     scenes:   Scenes
     inputs:   Inputs
     queries:  Queries
+    props:    Props
     loading:  Loading
     sign_out: Sign out
 
