@@ -31,11 +31,14 @@ class exports.BaseView extends Backbone.View
   #
   render: ->
     $(@el).html template()
-    @$('#header').append(@navigation.render().el)
+    @$('#header').append @navigation.render().el
 
     # The loading icon defaults to display: block (otherwise the "Loading"
     # label isn't removed by text-offset). Hide it now...
-    @$('#header .loading .icon').css('display', 'none')
+    @$('#header .loading .icon').css 'display', 'none'
+
+    # Set the first menu item to selected'
+    @$('#header .navigation li:first').addClass 'selected'
 
     this
 
