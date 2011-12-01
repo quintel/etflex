@@ -19,6 +19,7 @@ class exports.BaseView extends Backbone.View
         { key: 'scenes',   href: '#' }
         { key: 'inputs',   href: '#' }
         { key: 'queries',  href: '#' }
+        { key: 'props',    href: '#' }
         { key: 'sign_out', href: '#' }
         { key: 'loading'             } ]
 
