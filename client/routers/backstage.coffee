@@ -1,8 +1,6 @@
 app          = require 'app'
+render       = require 'lib/render'
 { BaseView } = require 'views/backstage/base'
-
-# A simpler way to render a view and replace the <body> element.
-render = (view) -> $('body').html(view.render().el)
 
 # A router which controls the actions and pages which are displayed in the
 # /backstage section of the application.
