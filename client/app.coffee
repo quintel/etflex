@@ -40,6 +40,9 @@ exports.boot = (window, locale) ->
 # in the router (Backbone by default does not do this).
 #
 exports.navigate = (url, trigger = true) ->
+  # Remove leading slash, if present.
+  url = url.slice(1, url.length) if url.slice(0, 1) is '/'
+
   router =
     if url.match(/^backstage\//)
       exports.routers.backstage
