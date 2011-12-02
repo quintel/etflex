@@ -6,6 +6,7 @@ template       = require 'templates/backstage/base'
 class exports.BaseView extends Backbone.View
   id: 'backstage'
   events: { 'click a': 'cancelClick' }
+  pageTitle: 'Backstage'
 
   # Creates a new BaseView; instantiates the main navigation element.
   #
