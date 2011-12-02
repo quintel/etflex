@@ -12,6 +12,7 @@ class exports.Main extends Backbone.Router
     'sanity':      'sanity'
     'etlite':      'etlite'
 
+    'scenes':      'redirectToDefaultScene'
     'scenes/:id':  'showScene'
 
     'en':          'languageRedirect'
@@ -58,6 +59,27 @@ class exports.Main extends Backbone.Router
   #
   etlite: ->
     render @views.etlite
+
+  # Fetches the list of all Scenes, and redirects to the ETlite recreation.
+  #
+  # TODO Use the scenes collection, adding any scenes which were fetched from
+  #      the server but weren't present in the collection. Need to know which
+  #      scenes are partial definitions (from views/embeds) and which are
+  #      complete...
+  #
+  redirectToDefaultScene: ->
+    jQuery.getJSON('/scenes')
+      .done (data) ->
+        etlite = _.find data['scenes'], (scene) ->
+          scene.name is 'ETlite Recreation'
+
+        if etlite?
+          app.navigate etlite.href
+        else
+          console.error "No scene has the name 'ETlite Recreation'"
+
+      .error ->
+        console.error "Couldn't fetch a scene list from /scenes"
 
   # Loads a scene using JSON delivered from ETflex to set up which inputs and
   # visualiations are used.

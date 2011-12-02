@@ -61,11 +61,9 @@ class ApplicationController < ActionController::Base
   # GET /scenes
   #
   def scenes
-    @scenes = Scene.all
-
     respond_to do |wants|
       wants.html { render client }
-      wants.json { render }
+      wants.json { @scenes = Scene.all ; render }
     end
   end
 
