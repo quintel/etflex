@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   respond_to :html
-  respond_to :json, only: :render_scene
+  respond_to :json, only: [ :scene, :scenes ]
 
   # FILTERS ------------------------------------------------------------------
 
@@ -50,6 +50,23 @@ class ApplicationController < ActionController::Base
   #
   def render_client
     render client
+  end
+
+  # A temporary action which renders a scene list. Currently JSON only; the
+  # Backbone client won't know what to do with /scenes.
+  #
+  # This will be replaced with a full scenes controller once the ActiveRecord
+  # model is implemented.
+  #
+  # GET /scenes
+  #
+  def scenes
+    @scenes = Scene.all
+
+    respond_to do |wants|
+      wants.html { render client }
+      wants.json { render }
+    end
   end
 
   # A temporary action which renders a scene.
