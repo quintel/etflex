@@ -6,6 +6,7 @@ ETFlex::Application.routes.draw do
   get 'backstage',      to: 'application#render_client'
   get 'backstage/*any', to: 'application#render_client'
 
+  get 'scenes',         to: 'application#scenes'
   get 'scenes/:id',     to: 'application#scene', as: 'scene'
 
   root to: 'application#render_client'
