@@ -49,6 +49,4 @@ describe 'Administering inputs' do
     end # the second input in the collection
   end # Listing all inputs
 
-  # --------------------------------------------------------------------------
-
 end
