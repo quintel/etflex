@@ -19,7 +19,7 @@ class exports.Backstage extends Backbone.Router
   # GET /backstage
   #
   redirectToInputsIndex: ->
-    app.navigate 'backstage/scenes'
+    app.navigate 'backstage/inputs'
 
   # SCENES -------------------------------------------------------------------
 
