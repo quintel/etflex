@@ -49,6 +49,14 @@ class exports.BaseView extends Backbone.View
 
     this
 
+  # Run the the router after the DOM element is added to the display.
+  #
+  postRender: ->
+    # The "search" box is a slightly different height depending on the
+    # browser, we we need to re-adjus the top of the collection view.
+    searchHeight = @$('.sidebar .search').outerHeight()
+    @$('.sidebar .collection-view').css 'top', "#{searchHeight}px"
+
   # Events -------------------------------------------------------------------
 
   # Intercepts clicks on anchors and prevents the default user action. Used
