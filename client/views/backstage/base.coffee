@@ -1,5 +1,6 @@
-template       = require 'templates/backstage/base'
-{ Navigation } = require 'views/backstage/navigation'
+template           = require 'templates/backstage/base'
+{ Navigation }     = require 'views/backstage/navigation'
+{ CollectionView } = require 'views/backstage/collection'
 
 # A base view for the Backstage section; sets up the main navigation element.
 #
@@ -10,7 +11,7 @@ class exports.BaseView extends Backbone.View
 
   # Creates a new BaseView; instantiates the main navigation element.
   #
-  constructor: ->
+  constructor: ({ @collection }) ->
     super
 
     @navigation = new Navigation
@@ -40,7 +41,11 @@ class exports.BaseView extends Backbone.View
     @$('#header .loading .icon').css 'display', 'none'
 
     # Set the first menu item to selected'
-    @$('#header .navigation li:first').addClass 'selected'
+    @$('#header .navigation li.inputs').addClass 'selected'
+
+    # Add the list of items to the sidebar.
+    collView = new CollectionView collection: @collection
+    @$('.sidebar').append collView.render().el
 
     this
 

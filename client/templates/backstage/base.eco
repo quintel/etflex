@@ -1,27 +1,4 @@
-<div id="header">
-<!--
-  <ul id="nav">
-    <li id="nav_scenes" class="selected">
-      <a href="#" title="Scenes"><span class="icon">Scenes</span></a>
-    </li>
-    <li id="nav_inputs">
-      <a href="#" title="Inputs"><span class="icon">Inputs</span></a>
-    </li>
-    <li id="nav_queries">
-      <a href="#" title="Queries"><span class="icon">Queries</span></a>
-    </li>
-    <li id="nav_outputs">
-      <a href="#" title="Props"><span class="icon">Props</span></a>
-    </li>
-    <li id="nav_logout">
-      <a href="#" title="Sign out">Sign out</a>
-    </li>
-    <li id="nav_loading">
-      <span class="indicator">Loading&hellip;</span>
-    </li>
-  </ul>
--->
-</div>
+<div id="header"></div>
 
 <div id="master">
   <div id="main-sidebar" class="sidebar">
@@ -29,6 +6,7 @@
       <input type="text" placeholder="Search Scenes" />
     </div>
 
+<!--
     <ul class="tabs">
       <li class="selected"><a href="#" title="Public Scenes">Public</a></li>
       <li><a href="#" title="Your Scenes">Yours</a></li>
@@ -47,6 +25,7 @@
         </li>
       </ul>
     </div>
+-->
   </div>
   <!-- sidebar -->
 
