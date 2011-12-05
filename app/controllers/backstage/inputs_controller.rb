@@ -26,7 +26,7 @@ class Backstage::InputsController < ApplicationController
   # GET /backstage/inputs
   #
   def index
-    @inputs = Input.all
+    respond_with @inputs = Input.all
   end
 
   # Updates an input with the supplied params.
