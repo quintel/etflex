@@ -1,10 +1,5 @@
 class Backstage::InputsController < ApplicationController
-  respond_to :json
-  respond_to :html, only: [ :index, :show, :new, :edit ]
-
-  def self.responder
-    ETFlex::ClientResponder
-  end
+  include ETFlex::ClientController
 
   # Actions ------------------------------------------------------------------
 
