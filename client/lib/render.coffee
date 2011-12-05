@@ -7,6 +7,10 @@ module.exports = (view) ->
   $('body').html  view.render().el
   $('title').text pageTitle view
 
+  view.postRender?()
+
+  true
+
 # Given a view, returns the page title which shoud be set.
 #
 # Looks for a "pageTitle" attribute on the view. If it is a function, the
