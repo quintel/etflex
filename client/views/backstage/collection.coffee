@@ -24,7 +24,7 @@ class exports.CollectionView extends Backbone.View
     $(@el).html collectionTemplate()
     ulElement = @$('ul.items')
 
-    for document in @collection.models
+    for document in _.sortBy(@collection.models, (el) -> el.def.key)
       ulElement.append itemTemplate
         key: document.def.key
 
