@@ -42,5 +42,6 @@ class exports.Backstage extends Backbone.Router
     inputs = new Inputs
     inputs.url = '/backstage/inputs'
 
-    inputs.fetch success: => render new BaseView(collection: inputs),
-                 error:   -> console.error 'Could not load inputs'
+    inputs.fetch
+      success: => render new BaseView(collection: inputs)
+      error:   -> console.error 'Could not load inputs'
