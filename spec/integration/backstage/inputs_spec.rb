@@ -17,13 +17,12 @@ describe 'Administering inputs' do
     end
 
     describe 'the JSON document' do
-      it { json.should be_kind_of(Hash) }
-      it { json.should have_key('inputs') }
-      it { json['inputs'].should have(2).members }
+      it { json.should be_kind_of(Array) }
+      it { json.should have(2).members }
     end
 
     describe 'the first input in the collection' do
-      subject { json['inputs'].first.symbolize_keys }
+      subject { json.first.symbolize_keys }
 
       it { should include(id:       input_one.id.to_s)   }
       it { should include(remoteId: input_one.remote_id) }
@@ -36,7 +35,7 @@ describe 'Administering inputs' do
     end # the first input in the collection
 
     describe 'the second input in the collection' do
-      subject { json['inputs'].last.symbolize_keys }
+      subject { json.last.symbolize_keys }
 
       it { should include(id:       input_two.id.to_s)   }
       it { should include(remoteId: input_two.remote_id) }
