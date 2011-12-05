@@ -6,6 +6,28 @@ class ApplicationController < ActionController::Base
   respond_to :html
   respond_to :json, only: [ :scene, :scenes ]
 
+  # Returns a hash which may be used in conjunction with `render` so that you
+  # may simply
+  #
+  #   render client
+  #
+  # Pass extra rendering options to `client` has a hash, like so:
+  #
+  #   render client(meaning: 42)
+  #
+  def client(options = nil)
+    if options.nil? then { template: 'application/client' } else
+      options.merge template: 'application/client'
+    end
+  end
+
+  # Hide the public "client" method used with render client, and by the
+  # ClientResponder.
+  #
+  def self.hide_actions
+    super.push :client
+  end
+
   # FILTERS ------------------------------------------------------------------
 
   #######
@@ -20,21 +42,6 @@ class ApplicationController < ActionController::Base
   def set_locale
     I18n.locale = params[:locale] || session[:locale] || I18n.default_locale
     session[:locale] = I18n.locale
-  end
-
-  # Returns a hash which may be used in conjunction with `render` so that you
-  # may simply
-  #
-  #   render client
-  #
-  # Pass extra rendering options to `client` has a hash, like so:
-  #
-  #   render client(meaning: 42)
-  #
-  def client(options = nil)
-    if options.nil? then { template: 'application/client' } else
-      options.merge template: 'application/client'
-    end
   end
 
   # ACTIONS ------------------------------------------------------------------
