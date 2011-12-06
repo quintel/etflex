@@ -8,7 +8,7 @@ class SceneInput
 
   # FIELDS -------------------------------------------------------------------
 
-  delegate :remote_id, :key, :step, :unit, to: :input, allow_nil: true
+  delegate :key, :step, :unit, to: :input, allow_nil: true
 
   # Determines if this Input is displayed in the left or right group.
 

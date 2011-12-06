@@ -13,12 +13,11 @@ describe Input do
     it { should have_index_for(:key).with_options(:unique => true) }
   end
 
-  # REMOTE ID ----------------------------------------------------------------
+  # IDENTITY FIELD -----------------------------------------------------------
 
-  describe 'remote ID' do
-    it { should validate_presence_of(:remote_id) }
-    it { should validate_uniqueness_of(:remote_id) }
-    it { should have_index_for(:remote_id).with_options(unique: true) }
+  describe 'identity field' do
+    it { should validate_presence_of(:_id) }
+    it { should validate_uniqueness_of(:_id) }
   end
 
   # MINIMUM VALUE ------------------------------------------------------------
