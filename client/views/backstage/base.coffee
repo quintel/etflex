@@ -65,13 +65,17 @@ class exports.BaseView extends Backbone.View
       @$('#content .commit button').click (event) =>
         event.preventDefault()
 
-        values = {}
+        # TODO Use ajaxStart to show/hide the loading icon.
+        loading = $('#header .loading .icon').fadeIn('fast')
+        values  = {}
 
         @$('.document-form input').each ->
           element = $ this
           values[ element.attr('name') ] = element.val()
 
         jQuery.post("#{ @collection.url }/#{ input.get('id') }.json", values)
+          .success(-> loading.hide('fast'))
+          .error(-> loading.hide('fast'))
 
     this
 
