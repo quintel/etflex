@@ -53,4 +53,5 @@ class exports.CollectionView extends Backbone.View
     @currentItem = element
     @currentItem.addClass 'selected'
 
+    @trigger "selected",  @currentItem.data 'list-item'
     @trigger "selected:#{ @currentItem.data 'list-item' }"
