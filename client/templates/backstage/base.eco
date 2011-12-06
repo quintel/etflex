@@ -3,7 +3,7 @@
 <div id="master">
   <div id="main-sidebar" class="sidebar">
     <div class="search">
-      <input type="text" placeholder="Search Scenes" />
+      <input type="text" placeholder="Search Inputs" disabled="disabled" />
     </div>
 
 <!--
