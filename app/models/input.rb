@@ -32,7 +32,7 @@ class Input
 
   # VALIDATION ---------------------------------------------------------------
 
-  validates :_id,       presence: true, uniqueness: true
+  validates :_id,       presence: true, uniqueness: true, on: :create
   validates :key,       presence: true, uniqueness: true
 
   validates :min,       presence: true, numericality: true
