@@ -26,6 +26,7 @@ class exports.CollectionView extends Backbone.View
 
     for document in _.sortBy(@collection.models, (el) -> el.def.key)
       ulElement.append itemTemplate
+        id:  document.get('id')
         key: document.def.key
 
     this
