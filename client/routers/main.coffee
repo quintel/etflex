@@ -42,7 +42,7 @@ class exports.Main extends Backbone.Router
   # GET /
   #
   root: ->
-    app.navigate '/scenes/1', true
+    @redirectToDefaultScene()
 
   # A test page which shows the all of the application dependencies are
   # correctly installed and work as intended.
