@@ -1,4 +1,4 @@
-<h2><span class="icon"><%= @key %></span></h2>
+<h2 class="content-header"><span class="icon"><%= @key %></span></h2>
 
 <form action="/backstage/inputs/<%= @id or 'new' %>" method="post" class="document-form">
   <input name="_method" type="hidden" value="put" />
