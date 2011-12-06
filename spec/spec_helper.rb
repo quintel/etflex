@@ -51,6 +51,14 @@ RSpec.configure do |config|
   config.before(:each)  { DatabaseCleaner.start                  }
   config.after(:each)   { DatabaseCleaner.clean                  }
 
+  config.before(:suite) do
+    Mongoid.database.collections.each do |collection|
+      # Drop each collection so that indices are also removed (which the
+      # database_cleaner truncation strategy will not do).
+      collection.drop unless collection.name.match(/^system\./)
+    end
+  end
+
   # Capybara
   # --------
 
