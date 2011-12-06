@@ -40,27 +40,6 @@ $sidebar-width: 249px
     border-bottom: 1px solid $border-color
     padding: 10px 10px 9px
 
-    input[type=text]
-      +transition-property("border-color, box-shadow")
-      +transition-duration(".15s, .15s")
-      +transition-timing-function("ease-in-out, ease-in-out")
-      +border-radius(2px)
-      +box-shadow(0 1px 0 rgba(255, 255, 255, 0.4), inset 0 1px 0 rgba(0, 0, 0, 0.1))
-      border: 1px solid $border-color
-      border-top-color: darken($border-color, 8%)
-      margin: 0
-      padding: 5px 6px 4px
-      font: 12px "Helvetica Neue", Arial, Helvetica, sans-serif
-      width: 214px
-
-      &:focus
-        border-color: #467fe3
-        box-shadow: 0 0 3px 1px #7db1f4, inset 0 1px 0 rgba(0, 0, 0, 0.1)
-        outline: none
-
-      &[disabled="disabled"]
-        background: #eef2f6
-
   h6
     @include background(linear-gradient($hm-top-color, $hm-bottom-color))
     border-bottom: 1px solid $border-color
