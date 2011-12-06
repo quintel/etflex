@@ -74,6 +74,16 @@ class SceneInput
     read_attribute(:start) or ( input and input.start )
   end
 
+  # Returns the ID of the input on ETEngine; this is stored simply as the
+  # identity field for the Input.
+  #
+  # @return [Integer]
+  #   Returns the ID of the input on ETEngine.
+  #
+  def remote_id
+    input and input.id
+  end
+
   alias mongoid_input input
 
   # Overwrites the default #input accessor to try to call Scene#input.
