@@ -1,4 +1,5 @@
 template           = require 'templates/backstage/base'
+formTemplate       = require 'templates/backstage/input_form'
 { Navigation }     = require 'views/backstage/navigation'
 { CollectionView } = require 'views/backstage/collection'
 
@@ -46,6 +47,31 @@ class exports.BaseView extends Backbone.View
     # Add the list of items to the sidebar.
     collView = new CollectionView collection: @collection
     @$('.sidebar').append collView.render().el
+
+    # Clicking on sidebar items should activate the input form.
+    collView.bind 'selected', (documentId) =>
+      input = @collection.get(documentId)
+
+      # ow, ow, ow: so hacky. extracting this to a separate view is a
+      # priority, but this will have to do to deploy today...
+
+      @$('#content').html formTemplate
+        id:    input.get('id')
+        key:   input.def.key
+        min:   input.def.min
+        max:   input.def.max
+        start: input.get('value')
+
+      @$('#content .commit button').click (event) =>
+        event.preventDefault()
+
+        values = {}
+
+        @$('.document-form input').each ->
+          element = $ this
+          values[ element.attr('name') ] = element.val()
+
+        jQuery.post("#{ @collection.url }/#{ input.get('id') }.json", values)
 
     this
 
