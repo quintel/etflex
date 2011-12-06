@@ -12,7 +12,8 @@ class Backstage::InputsController < ApplicationController
   # Retrieves the input specified in the params.
   #
   def fetch_input
-    @input = Input.find(params[:id])
+    # TODO Spec params[:id] not accepting .to_i
+    @input = Input.find(params[:id].to_i)
   end
 
   # ACTIONS ------------------------------------------------------------------
