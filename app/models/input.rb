@@ -15,8 +15,8 @@ class Input
   # Both key and remote ID should match the "key" column - and primary key -
   # of the inputs on ETengine.
 
+  identity              type: Integer
   field :key,           type: String
-  field :remote_id,     type: Integer
 
   # Values derived from ETengine, but may be customised if required.
 
@@ -29,12 +29,11 @@ class Input
   # Indices.
 
   index :key,           unique: true
-  index :remote_id,     unique: true
 
   # VALIDATION ---------------------------------------------------------------
 
+  validates :_id,       presence: true, uniqueness: true
   validates :key,       presence: true, uniqueness: true
-  validates :remote_id, presence: true, uniqueness: true
 
   validates :min,       presence: true, numericality: true
   validates :max,       presence: true, numericality: true

@@ -85,10 +85,14 @@ describe SceneInput do
     end
   end
 
-  # REMOTE ID ----------------------------------------------------------------
+  # ID -----------------------------------------------------------------------
 
   describe '#remote_id' do
-    subject { SceneInput.new(input: Input.new(remote_id: 5)) }
+    subject { SceneInput.new(input: Input.new(id: 5)) }
+
+    it 'should be an integer' do
+      subject.remote_id.should be_kind_of(Integer)
+    end
 
     it 'should be delegated to the input' do
       subject.remote_id.should eql(5)
