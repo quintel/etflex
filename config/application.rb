@@ -57,6 +57,7 @@ module ETFlex
     config.assets.paths.unshift self.root.join('client').to_s
 
     config.assets.precompile.push('modernizr-2.0.6.js')
+    config.assets.precompile.push('backstage.css')
 
     # Version of your assets, change this if you want to expire all your
     # assets.
