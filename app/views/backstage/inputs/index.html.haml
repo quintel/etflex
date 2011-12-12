@@ -1,16 +1,15 @@
 %table#inputs.records
   %thead
     %tr
-      %th Key
-      %th Name
-      %th Unit
-      %th &nbsp;
+      %th.key    Key
+      %th        Name
+      %th.unit   Unit
+      %th.action &nbsp;
 
   %tbody
     - @inputs.each do |input|
       %tr
-        %td.link= link_to input.key, backstage_input_path(input)
-        %td= input_name_for_list input
-        %td= input.unit
-        %td
-          [actions]
+        %td.link.key=    link_to input.key, edit_backstage_input_path(input)
+        %td=             input_name_for_list input
+        %td.unit=        input.unit
+        %td.link.action= link_to 'Edit', edit_backstage_input_path(input)
