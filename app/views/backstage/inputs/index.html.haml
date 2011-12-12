@@ -10,7 +10,7 @@
     - @inputs.each do |input|
       %tr
         %td.link= link_to input.key, backstage_input_path(input)
-        %td= t :"inputs.#{input.key}.name", default: "<span class='missing-name'>#{input.key}</span>".html_safe
+        %td= input_name_for_list input
         %td= input.unit
         %td
           [actions]
