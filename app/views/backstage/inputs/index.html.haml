@@ -1,1 +1,16 @@
-%p Hello.
+%table#inputs.records
+  %thead
+    %tr
+      %th Key
+      %th Name
+      %th Unit
+      %th &nbsp;
+
+  %tbody
+    - @inputs.each do |input|
+      %tr
+        %td.link= link_to input.key, backstage_input_path(input)
+        %td= t :"inputs.#{input.key}.name", default: "<span class='missing-name'>#{input.key}</span>".html_safe
+        %td= input.unit
+        %td
+          [actions]
