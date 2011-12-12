@@ -36,20 +36,14 @@ exports.boot = (window, locale) ->
   async.parallel data: fetchInitialData, postBoot
 
 # A wrapper around Backbone.Router::navigate which selects the correct router
-# (main or backstage) depending on the URL, and by default will run the action
-# in the router (Backbone by default does not do this).
+# depending on the URL, and by default will run the action defined the router
+# (Backbone by default does not do this).
 #
 exports.navigate = (url, trigger = true) ->
   # Remove leading slash, if present.
   url = url.slice(1, url.length) if url.slice(0, 1) is '/'
 
-  router =
-    if url.match(/^backstage\//)
-      exports.routers.backstage
-    else
-      exports.routers.main
-
-  router.navigate url, trigger
+  exports.routers.main.navigate url, trigger
 
 # Bootstrap Functions, execute in parallel -----------------------------------
 
@@ -71,8 +65,7 @@ postBoot = (err, result) ->
   if err?
     console.error "Could not initialize application.", err
   else
-    exports.routers.main      = new (require('routers/main').Main)
-    exports.routers.backstage = new (require('routers/backstage').Backstage)
+    exports.routers.main = new (require('routers/main').Main)
 
     # Fire up Backbone routing...
     Backbone.history.start pushState: true
