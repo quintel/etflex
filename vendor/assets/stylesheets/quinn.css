@@ -11,7 +11,7 @@
 .quinn .active-bar .left, .quinn .active-bar .main, .quinn
 .active-bar .right, .quinn .handle,
 .quinn .reset, .quinn .minus, .quinn .plus, .quinn .help {
-  background-image: url(/images/quinn.png);
+  background-image: url(/assets/quinn.png);
   background-repeat: no-repeat;
 }
 
