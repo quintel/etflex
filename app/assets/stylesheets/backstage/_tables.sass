@@ -1,0 +1,35 @@
+// The padding of each table cell.
+$record-table-padding: 11px 10px 9px !default
+
+// Styles --------------------------------------------------------------------
+
+// Records tables contains list of database records so that we can show
+// general information, provide links to edit and delete them, etc.
+table.records
+  border-collapse: collapse
+  line-height: 1
+  width: 100%
+
+  td, th
+    border: 1px solid $hm-border-color
+    padding: $record-table-padding
+
+  thead th
+    +background(linear-gradient($hm-top-color, $hm-bottom-color))
+    color: $quiet-color
+    font-weight: bold
+    text-shadow: 0 1px 0 rgba(white, 0.7)
+
+  tbody tr:nth-child(2n+1) td
+    background-color: #edf1f6
+
+  // A cell classed as a link sets the link to be a block so that it fills the
+  // full dimensions of the table cell.
+
+  td.link
+    padding: 0
+
+    a
+      display: block
+      font-weight: bold
+      padding: $record-table-padding
