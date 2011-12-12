@@ -15,6 +15,7 @@ gem 'mongoid-list', git: 'git://github.com/davekrupinski/mongoid-list.git'
 
 gem 'haml', '~> 3.1'
 gem 'jbuilder'
+gem 'simple_form'
 
 gem 'jquery-rails'
 
