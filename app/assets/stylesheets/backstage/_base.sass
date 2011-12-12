@@ -30,48 +30,47 @@ a
 
 // Main Content --------------------------------------------------------------
 
-#master
-  #content
-    padding: 10px
-    z-index: $nav-z-index - 1
+#content
+  padding: 25px
+  z-index: $nav-z-index - 1
 
-    .sidebar
-      border-right: none
-      border-left: 1px solid $border-color
-      top: 0px
-      right: 0px
+  .sidebar
+    border-right: none
+    border-left: 1px solid $border-color
+    top: 0px
+    right: 0px
 
-    .make-a-selection
-      @include border-radius(5px)
-      background: #e2e9f1
-      border: 1px solid $border-color
-      border-bottom-color: darken($border-color, 5%)
-      box-shadow: 0 1px 2px rgba(0,0,0,0.1), inset 0 1px 0 #eee
-      padding: 25px 35px 30px 73px
-      margin: 100px auto 0
-      text-shadow: 0 1px 0 white
-      width: 400px
+  .make-a-selection
+    @include border-radius(5px)
+    background: #e2e9f1
+    border: 1px solid $border-color
+    border-bottom-color: darken($border-color, 5%)
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1), inset 0 1px 0 #eee
+    padding: 25px 35px 30px 73px
+    margin: 100px auto 0
+    text-shadow: 0 1px 0 white
+    width: 400px
 
-      h2
-        background: image-url("backstage/scene.png") no-repeat
-        font-size: 16px
-        font-weight: bold
-        padding: 4px 0 10px 34px
-        margin-left: -34px
-
-      p
-        color: $quiet-color
-
-    h2.content-header
-      @include background(linear-gradient(#e2e9f1, #d2d9e1))
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6)
-      border-bottom: 1px solid $border-color
+    h2
+      background: image-url("backstage/scene.png") no-repeat
+      font-size: 16px
       font-weight: bold
-      margin: -10px -10px 10px
-      padding: 14px 10px 12px
-      text-transform: uppercase
-      text-shadow: 0 1px 0 rgba(white, 0.7)
+      padding: 4px 0 10px 34px
+      margin-left: -34px
 
-      span.icon
-        background: image-url("backstage/sidebar-input.png") 2px 0 no-repeat
-        padding-left: 23px
+    p
+      color: $quiet-color
+
+  h2.content-header
+    @include background(linear-gradient(#e2e9f1, #d2d9e1))
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6)
+    border-bottom: 1px solid $border-color
+    font-weight: bold
+    margin: -10px -10px 10px
+    padding: 14px 10px 12px
+    text-transform: uppercase
+    text-shadow: 0 1px 0 rgba(white, 0.7)
+
+    span.icon
+      background: image-url("backstage/sidebar-input.png") 2px 0 no-repeat
+      padding-left: 23px
