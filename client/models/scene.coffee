@@ -22,7 +22,7 @@ class exports.Scene extends Backbone.Model
 
   # Starts the scene by fetching the ETengine session (if one already exists;
   # creates a new session otherwise).
-
+  #
   # callback - A function which will be run after the scene has been set up.
   #            The callback will be provided with the Scene instance and the
   #            session instance.
