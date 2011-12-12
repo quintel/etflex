@@ -1,0 +1,19 @@
+---
+en:
+  backstage:
+    navigation:
+      scenes:
+        name:  'Scenes'
+        title: 'Add, edit, and remove Scenes'
+      inputs:
+        name:  'Inputs'
+        title: 'Edit the inputs defined by ETengine'
+      queries:
+        name:  'Queries'
+        title: 'Edit the queries used by ETengine'
+      props:
+        name:  'Props'
+        title: 'Add, edit, and remove Props'
+      sign_out:
+        name:  'Sign Out'
+        title: 'Sign out of your ETflex account'
