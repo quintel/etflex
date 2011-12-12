@@ -2,6 +2,7 @@
   %span.icon= input_name_for_title @input
 
 = simple_form_for [ :backstage, @input ] do |f|
+  = f.input :_id,   input_html: { class: 'small', disabled: true }
   = f.input :key,   input_html: { autocomplete: 'off' }
   = f.input :step,  input_html: { class: 'small' }
   = f.input :min,   input_html: { class: 'small' }
