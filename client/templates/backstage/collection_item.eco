@@ -1,3 +1,0 @@
-<li class="item" title="<%= @key %>" data-list-item="<%= @id %>">
-  <span class="label"><%= @key %></span>
-</li>

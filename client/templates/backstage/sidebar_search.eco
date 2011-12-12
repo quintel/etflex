@@ -1,5 +1,0 @@
-<input type="text"
-  <% if @value?: %>value="<%= @value %>"<% end %>
-  <% if @placeholder?: %>placeholder="<%= @placeholder %>"<% end %>
-  <% if @disabled: %>disabled="disabled"<% end %>
-/>
