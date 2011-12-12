@@ -66,11 +66,25 @@ a
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6)
     border-bottom: 1px solid $border-color
     font-weight: bold
-    margin: -10px -10px 10px
-    padding: 14px 10px 12px
+    margin: -25px -25px 25px
+    padding: 14px 25px 12px
     text-transform: uppercase
     text-shadow: 0 1px 0 rgba(white, 0.7)
 
     span.icon
       background: image-url("backstage/sidebar-input.png") 2px 0 no-repeat
       padding-left: 23px
+
+    span.quiet
+      color: $very-quiet-color
+      font-size: 12px
+      line-height: 1
+      padding-left: 5px
+
+      &:before
+        content: "("
+        padding-right: 1px
+
+      &:after
+        content: ")"
+        padding-left: 1px
