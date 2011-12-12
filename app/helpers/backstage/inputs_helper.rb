@@ -17,11 +17,15 @@ module Backstage::InputsHelper
   # input - The input instance whose name is to be returned.
   #
   def input_name_for_title(input)
-    translated = t("inputs.#{ input.key }.name", default: '')
+    # User may have changed the key in a form; perhaps even to a blank value.
+    # Prefer to show the original key over the new one in the title.
+    key = input.key_was or input.key
 
-    if translated.blank? then input.key else
+    translated = t("inputs.#{ key }.name", default: '')
+
+    if translated.blank? then key else
       %(#{ h translated }
-        <span class='quiet'>#{ h input.key}</span>
+        <span class='quiet'>#{ h key}</span>
       ).html_safe
     end
   end
