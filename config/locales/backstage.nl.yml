@@ -1,0 +1,19 @@
+---
+en:
+  backstage:
+    navigation:
+      scenes:
+        name:  'Scenes'
+        title: 'Toevoegen, bewerken en verwijderen Scenes'
+      inputs:
+        name:  'Ingangen'
+        title: 'Bewerk de ingangen gedefinieerd door ETengine'
+      queries:
+        name:  'Queries'
+        title: 'Bewerk de querys worden gebruikt door ETengine'
+      props:
+        name:  'Props'
+        title: 'Toevoegen, bewerken en verwijderen props'
+      sign_out:
+        name:  'Afmelden'
+        title: 'Meld u af van uw ETflex-account'
