@@ -27,7 +27,7 @@ class Backstage::InputsController < ApplicationController
   # GET /backstage/inputs
   #
   def index
-    respond_with @inputs = Input.all
+    respond_with @inputs = Input.order_by([[ :key, :asc ]])
   end
 
   # Updates an input with the supplied params.
