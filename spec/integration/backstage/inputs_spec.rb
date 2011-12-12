@@ -57,6 +57,7 @@ describe 'Administering inputs' do
 
     # Inputs navigation element should be selected.
     page.should have_css('.navigation .inputs.selected')
+    page.should have_css('h2', text: input.key)
 
     # Pre-populated form.
     find 'form.input' do |form|
@@ -90,5 +91,25 @@ describe 'Administering inputs' do
     input.unit.should  eql('MW')
 
   end # Editing an input
+
+  # --------------------------------------------------------------------------
+
+  specify 'Failing to edit an input' do
+    input = create :input
+    orig  = input.key
+
+    visit "/backstage/inputs/#{ input.id }/edit"
+
+    # Fill in the "key" field so that it is empty.
+    within 'form.input' do
+      fill_in 'Key', with: ''
+      click_button 'Update Input'
+    end
+
+    page.should have_css('h2',         text: input.key)
+    page.should have_css('span.error', text: "can't be blank")
+
+    input.reload.key.should eql(orig)
+  end
 
 end
