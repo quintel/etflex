@@ -1,80 +1,100 @@
-// Styles for form elements within the Backstage section
-// -----------------------------------------------------
+// Simple Form ---------------------------------------------------------------
+//
+// Styles imported for use with the default simple_form markup, imported
+// straight from the official wiki:
+//
+// https://github.com/plataformatec/simple_form/wiki/CSS-for-simple_form
 
-#backstage .document-form
-  +border-radius(5px)
-  background-color: #e2e9f1
-  border: 1px solid $border-color
-  width: 600px
+.simple_form
+  div.input
+    margin-bottom: 10px
 
-  .form-items
-    > li
-      +background(linear-gradient($hm-top-color, $hm-bottom-color 40px, $hm-bottom-color))
-      +clearfix
-      border-bottom: 1px solid $border-color
+  label
+    float: left
+    width: 150px
+    text-align: right
+    margin: 5px 10px 2px
 
-      &:first-child
-        +border-top-radius(5px)
+  .error
+    clear:   left
+    color:   black
+    display: block
+    margin-left: 120px
+    font-size:    12px
 
-      &:last-child
-        +border-bottom-radius(5px)
-        border-bottom: none
+  .hint
+    clear: left
+    margin-left: 120px
+    font-size:    12px
+    color: #555
+    display: block
+    font-style: italic
 
-    label, .field
-      display: block
-      float: left
-      padding: 10px 10px
+  .required abbr
+    color: maroon
+    font-weight: bold
 
-    label
-      +box-shadow(inset 0 1px 0 white)
-      cursor: pointer
-      font-weight: bold
-      padding-top: 15px
-      text-shadow: 0 1px 0 rgba(white, 0.8)
-      width: 180px
+  div.boolean, .simple_form input[type='submit']
+    margin-left: 120px
 
-    .field
-      +box-shadow(inset 0 1px 0 rgba(white, 0.5))
-      background-color: #e2e9f1
-      border-left: 1px solid $border-color
-      width: 379px
-
-  li.commit
-    background: #e2e9f1
-    padding-left: 200px
-
-    .buttons
-      margin: 10px 0
-
-// Generic Input Styles
-// --------------------
-
-#backstage
-  input[type=text], input[type=password]
-    +transition-property("border-color, box-shadow")
-    +transition-duration(".15s, .15s")
-    +transition-timing-function("ease-in-out, ease-in-out")
-    +border-radius(2px)
-    +box-shadow(0 1px 0 rgba(255, 255, 255, 0.4), inset 0 1px 0 rgba(0, 0, 0, 0.1))
-    border: 1px solid $border-color
-    border-top-color: darken($border-color, 8%)
+  div.boolean label, label.collection_radio
+    float: none
     margin: 0
-    padding: 5px 6px 4px
-    font: 13px "Helvetica Neue", Arial, Helvetica, sans-serif
-    width: 300px
 
-    &:focus
-      border-color: #467fe3
-      box-shadow: 0 0 3px 1px #7db1f4, inset 0 1px 0 rgba(0, 0, 0, 0.1)
-      outline: none
+  label.collection_radio
+    margin-right: 10px
+    vertical-align: -2px
+    margin-left:   2px
 
-    &[disabled="disabled"]
-      background: #eef2f6
-      color: #555
+  .field_with_errors
+    background-color: #ff3333
 
-    &.small
-      width: 75px
+  input.radio
+    margin-right: 5px
+    vertical-align: -3px
 
-  .sidebar .search input
-    font-size: 12px
-    width: 214px
+  input.check_boxes
+    margin-left: 3px
+    vertical-align: -3px
+
+  label.collection_check_boxes
+    float: none
+    margin: 0
+    vertical-align: -2px
+    margin-left:   2px
+
+// Generic Input Styles ------------------------------------------------------
+//
+// Custom form styles which tweak the simple_form defaults where necessary.
+
+input[type=text], input[type=password]
+  +transition-property("border-color, box-shadow")
+  +transition-duration(".15s, .15s")
+  +transition-timing-function("ease-in-out, ease-in-out")
+  +border-radius(2px)
+  +box-shadow(0 1px 0 rgba(255, 255, 255, 0.4), inset 0 1px 0 rgba(0, 0, 0, 0.1))
+  border: 1px solid $border-color
+  border-top-color: darken($border-color, 8%)
+  margin: 0
+  padding: 5px 6px 4px
+  font: 13px "Helvetica Neue", Arial, Helvetica, sans-serif
+  width: 400px
+
+  &:focus
+    border-color: #467fe3
+    box-shadow: 0 0 3px 1px #7db1f4, inset 0 1px 0 rgba(0, 0, 0, 0.1)
+    outline: none
+
+  &[disabled="disabled"]
+    background: #eef2f6
+    color: #555
+
+  &.small
+    width: 75px
+
+.simple_form ul.buttons
+  padding-left: 170px
+
+.sidebar .search input
+  font-size: 12px
+  width: 214px
