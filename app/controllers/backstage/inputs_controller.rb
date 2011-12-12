@@ -44,7 +44,7 @@ class Backstage::InputsController < ApplicationController
   #
   def update
     @input.update_attributes(params[:input])
-    respond_with [ :backstage, @input ], location: backstage_inputs_path
+    respond_with @input, location: backstage_inputs_path
   end
 
 end
