@@ -1,7 +1,7 @@
 en:
   simple_form:
     "yes": 'Yes'
-    "no": 'No'
+    "no":  'No'
     required:
       text: 'required'
       mark: '*'
@@ -22,3 +22,12 @@ en:
     #   username: 'User name to sign in.'
     #   password: 'No special characters, please.'
 
+    labels:
+      input:
+        _id:   'ETengine input ID'
+        key:   'Key'
+        min:   'Minimum value'
+        max:   'Maximum value'
+        start: 'Starting value'
+        step:  'Step by'
+        unit:  'Unit'
