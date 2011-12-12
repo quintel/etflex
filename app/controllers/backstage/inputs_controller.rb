@@ -30,13 +30,21 @@ class Backstage::InputsController < ApplicationController
     respond_with @inputs = Input.order_by([[ :key, :asc ]])
   end
 
+  # Shows a form allowing a user to edit an input.
+  #
+  # GET /backstage/inputs/:id/edit
+  #
+  def edit
+    respond_with @input
+  end
+
   # Updates an input with the supplied params.
   #
   # PUT /backstage/inputs/:id
   #
   def update
     @input.update_attributes(params[:input])
-    respond_with @input
+    respond_with [ :backstage, @input ], location: backstage_inputs_path
   end
 
 end

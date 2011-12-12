@@ -1,0 +1,16 @@
+%h2.content-header
+  %span.icon= input_name_for_title @input
+
+= simple_form_for [ :backstage, @input ] do |f|
+  = f.input :key
+  = f.input :step,  input_html: { class: 'small' }
+  = f.input :min,   input_html: { class: 'small' }
+  = f.input :max,   input_html: { class: 'small' }
+  = f.input :start, input_html: { class: 'small' }
+  = f.input :unit,  input_html: { class: 'small' }
+
+  %ul.buttons
+    %li
+      = f.button :submit, class: 'green'
+    %li
+      = link_to 'Cancel', backstage_inputs_path

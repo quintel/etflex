@@ -11,4 +11,19 @@ module Backstage::InputsHelper
     t("inputs.#{ input.key }.name", default: fallback)
   end
 
+  # Returns the name of the input, suitable for use in the header of input
+  # pages. Shows the I18n name if one is set, and the key.
+  #
+  # input - The input instance whose name is to be returned.
+  #
+  def input_name_for_title(input)
+    translated = t("inputs.#{ input.key }.name", default: '')
+
+    if translated.blank? then input.key else
+      %(#{ h translated }
+        <span class='quiet'>#{ h input.key}</span>
+      ).html_safe
+    end
+  end
+
 end
