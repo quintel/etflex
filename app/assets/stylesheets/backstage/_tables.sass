@@ -33,3 +33,11 @@ table.records
       display: block
       font-weight: bold
       padding: $record-table-padding
+
+// Inputs --------------------------------------------------------------------
+
+table#inputs
+  // Inputs which have no I18n name defined will just show the key, but
+  // lighter than in the key column.
+  span.missing-name
+    color: $very-quiet-color
