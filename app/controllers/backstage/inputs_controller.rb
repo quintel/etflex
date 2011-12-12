@@ -1,5 +1,5 @@
 class Backstage::InputsController < ApplicationController
-  include ETFlex::ClientController
+  layout 'backstage'
 
   # FILTERS ------------------------------------------------------------------
 
