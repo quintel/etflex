@@ -58,8 +58,3 @@ class exports.Scene extends Backbone.Model
       ids.push ( getVisualisation(visualisation).queries or [] )...
 
     _.uniq ids
-
-  # Returns an array of inputs IDs used by the scene.
-  #
-  dependantInputs: ->
-    _.uniq @get('leftInputs').concat @get('rightInputs')
