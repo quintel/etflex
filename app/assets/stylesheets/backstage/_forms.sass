@@ -96,6 +96,26 @@ input[type=text], input[type=password]
   &.small
     width: 75px
 
+.simple_form .slider
+  input[type=text]
+    +border-right-radius(0)
+
+  .widget
+    +border-right-radius(2px)
+    +box-shadow(0 1px 0 rgba(255, 255, 255, 0.4), inset 0 1px 0 rgba(0, 0, 0, 0.1))
+    background: rgba(white, 0.5)
+    border: 1px solid $border-color
+    border-top-color: darken($border-color, 8%)
+    border-left: none
+    display: inline-block
+    margin-top: -6px
+    padding: 2px 5px 0px
+    vertical-align: text-top
+    width: 314px
+
+    div
+      height: 22px
+
 .simple_form ul.buttons
   padding-left: 170px
 
