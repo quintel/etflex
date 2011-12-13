@@ -54,7 +54,7 @@ class SceneInput < ActiveRecord::Base
 
   # BEHAVIOUR ----------------------------------------------------------------
 
-  acts_as_list scope: [ :scene_id, :left ]
+  acts_as_list scope: [ :scene_id, :location ]
 
   # INSTANCE METHODS ---------------------------------------------------------
 

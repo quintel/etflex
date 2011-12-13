@@ -44,7 +44,7 @@ YAML.load_file(Rails.root.join('db/seeds/scenes.yml')).each do |data|
   inputs.each do |(location, ids)|
     ids.each do |remote_id|
       scene.scene_inputs.build(
-        left:  location == 'left',
+        location: location,
         input: Input.where(remote_id: remote_id).first
       )
     end
