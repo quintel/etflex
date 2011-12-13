@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :input do
-    sequence(:id)
-    key { "factory_input_#{id}" }
+    sequence(:remote_id)
+    key { "factory_input_#{remote_id}" }
 
     factory :mwh_input do
       unit      'mwh'

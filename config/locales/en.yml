@@ -28,7 +28,7 @@ en:
 
   # Custom validation messages
 
-  mongoid:
+  activerecord:
     errors:
       models:
         input:

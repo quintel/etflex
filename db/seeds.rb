@@ -14,11 +14,11 @@ unless $stdin.gets.chomp =~ /^y(es)?$/
   exit 0
 end
 
-puts 'Removing old records...'
-
-Mongoid.database.collections.each do |collection|
-  collection.drop unless collection.name.match(/^system\./)
-end
+Input.delete_all
+Prop.delete_all
+Scene.delete_all
+SceneInput.delete_all
+SceneProp.delete_all
 
 # INPUTS ---------------------------------------------------------------------
 
@@ -30,42 +30,14 @@ YAML.load_file(Rails.root.join('db/seeds/inputs.yml')).each do |data|
   end
 end
 
-# PROPS ----------------------------------------------------------------------
-
-puts 'Importing props...'
-
-YAML.load_file(Rails.root.join('db/seeds/props.yml')).each do |data|
-  klass  = Props.const_get(data.delete('type'))
-  states = data.delete('states')
-
-  prop = klass.new(data)
-
-  if states.present?
-    states.each { |key, value| prop.states.build(key: key, value: value) }
-  end
-
-  prop.save!
-end
-
 # SCENES ---------------------------------------------------------------------
 
 puts 'Importing scenes...'
 
 YAML.load_file(Rails.root.join('db/seeds/scenes.yml')).each do |data|
-  scene  = Scene.new name: data['name']
-  props  = data.delete('props') || []
+  scene  = Scene.create name: data['name']
   inputs = data.delete('inputs') || {}
-
-  # Props.
-
-  props.each do |(location, keys)|
-    keys.each do |key|
-      scene.scene_props.build(
-        location: location,
-        prop:     Props::Base.where(name: key).first
-      )
-    end
-  end
+  props  = data.delete('props')  || {}
 
   # Inputs.
 
@@ -73,7 +45,7 @@ YAML.load_file(Rails.root.join('db/seeds/scenes.yml')).each do |data|
     ids.each do |remote_id|
       scene.scene_inputs.build(
         left:  location == 'left',
-        input: Input.find(remote_id)
+        input: Input.where(remote_id: remote_id).first
       )
     end
   end

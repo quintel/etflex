@@ -10,7 +10,6 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
 RSpec.configure do |config|
 
-  config.include Mongoid::Matchers
   config.include FactoryGirl::Syntax::Methods
 
   # == Mock Framework
@@ -50,14 +49,6 @@ RSpec.configure do |config|
   config.before(:suite) { DatabaseCleaner.strategy = :truncation }
   config.before(:each)  { DatabaseCleaner.start                  }
   config.after(:each)   { DatabaseCleaner.clean                  }
-
-  config.before(:suite) do
-    Mongoid.database.collections.each do |collection|
-      # Drop each collection so that indices are also removed (which the
-      # database_cleaner truncation strategy will not do).
-      collection.drop unless collection.name.match(/^system\./)
-    end
-  end
 
   # Capybara
   # --------

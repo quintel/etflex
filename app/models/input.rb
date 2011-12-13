@@ -7,32 +7,11 @@
 # input values should be set on a scene-by-scene basis using SceneInput
 # instances instead.
 #
-class Input
-  include Mongoid::Document
-
-  # FIELDS -------------------------------------------------------------------
-
-  # Both key and remote ID should match the "key" column - and primary key -
-  # of the inputs on ETengine.
-
-  identity              type: Integer
-  field :key,           type: String
-
-  # Values derived from ETengine, but may be customised if required.
-
-  field :step,          type: Float,    default:   1.0
-  field :min,           type: Float,    default:   0.0
-  field :max,           type: Float,    default: 100.0
-  field :start,         type: Float,    default: -> { min }
-  field :unit,          type: String
-
-  # Indices.
-
-  index :key,           unique: true
+class Input < ActiveRecord::Base
 
   # VALIDATION ---------------------------------------------------------------
 
-  validates :_id,       presence: true, uniqueness: true, on: :create
+  validates :remote_id, presence: true, uniqueness: true, on: :create
   validates :key,       presence: true, uniqueness: true
 
   validates :min,       presence: true, numericality: true
@@ -50,5 +29,9 @@ class Input
       errors.add(:max, :less_than_min)
     end
   end
+
+  # BAHAVIOUR ----------------------------------------------------------------
+
+  default_value_for(:start) { |input| input.min }
 
 end
