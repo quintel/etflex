@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20111123161847) do
   add_index "inputs", ["remote_id"], :name => "index_inputs_on_remote_id", :unique => true
 
   create_table "props", :force => true do |t|
+    t.string "key",        :limit => 100, :null => false
     t.string "client_key", :limit => 100, :null => false
   end
 
@@ -46,6 +47,8 @@ ActiveRecord::Schema.define(:version => 20111123161847) do
     t.integer "prop_id",                :null => false
     t.string  "location", :limit => 50, :null => false
   end
+
+  add_index "scene_props", ["scene_id", "prop_id"], :name => "index_scene_props_on_scene_id_and_prop_id", :unique => true
 
   create_table "scenes", :force => true do |t|
     t.string "name",     :limit => 100
