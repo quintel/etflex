@@ -21,7 +21,7 @@ describe ApplicationController, 'routing' do
     get('/scenes/1').should route_to('application#scene', id: '1')
   end
 
-  it 'should not route /scenes' do
-    get('/scenes').should_not be_routable
+  it 'should not route to scenes' do
+    get('/scenes').should route_to('application#scenes')
   end
 end
