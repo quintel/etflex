@@ -1,6 +1,6 @@
 class Backstage::ScenesController < ApplicationController
   layout 'backstage'
-  respond_to :html, :json
+  respond_to :html
 
   # FILTERS ------------------------------------------------------------------
 
