@@ -6,19 +6,15 @@ describe ApplicationController, 'routing' do
   end
 
   it 'routes /en to render_client' do
-    get('/en').should route_to('application#render_client', locale: 'en')
+    pending 'Pending re-addition of language swapping' do
+      get('/en').should route_to('application#render_client', locale: 'en')
+    end
   end
 
   it 'routes /nl to render_client' do
-    get('/nl').should route_to('application#render_client', locale: 'nl')
-  end
-
-  it 'routes /sanity to render_client' do
-    get('/sanity').should route_to('application#render_client')
-  end
-
-  it 'routes /etlite to render_client' do
-    get('/etlite').should route_to('application#render_client')
+    pending 'Pending re-addition of language swapping' do
+      get('/nl').should route_to('application#render_client', locale: 'nl')
+    end
   end
 
   it 'routes /scenes/:id to scene' do

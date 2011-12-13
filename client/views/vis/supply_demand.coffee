@@ -60,11 +60,11 @@ class exports.SupplyDemandView extends Backbone.View
       .css('-webkit-transform', "rotate(#{degrees}deg)")
 
     if difference > 1.4
-      @$('.gauge .info').text I18n.t 'etlite.demandExcess'
+      @$('.gauge .info').text I18n.t 'scenes.etlite.demandExcess'
     else if difference < 0.6
-      @$('.gauge .info').text I18n.t 'etlite.supplyExcess'
+      @$('.gauge .info').text I18n.t 'scenes.etlite.supplyExcess'
     else
-      @$('.gauge .info').text I18n.t 'etlite.balanced'
+      @$('.gauge .info').text I18n.t 'scenes.etlite.balanced'
 
   # Sets the height of the graph bars, and the marker positions without
   # rerendering the whole view. Returns self.

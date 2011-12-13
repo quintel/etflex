@@ -17,25 +17,29 @@ describe 'The Backbone client' do
   # --------------------------------------------------------------------------
 
   specify 'Should load at /en' do
-    visit '/en'
+    pending 'Pending re-addition of language swapping' do
+      visit '/en'
 
-    # Loading message should be shown.
-    page.should have_css('.loading', text: 'Loading')
+      # Loading message should be shown.
+      page.should have_css('.loading', text: 'Loading')
 
-    # English when specified in the URL.
-    page.should have_css('script', text: "boot(window, 'en')")
+      # English when specified in the URL.
+      page.should have_css('script', text: "boot(window, 'en')")
+    end
   end
 
   # --------------------------------------------------------------------------
 
   specify 'Should load at /nl' do
-    visit '/nl'
+    pending 'Pending re-addition of language swapping' do
+      visit '/nl'
 
-    # Loading message should be shown.
-    page.should have_css('.loading', text: 'Het laden')
+      # Loading message should be shown.
+      page.should have_css('.loading', text: 'Het laden')
 
-    # Dutch when specified in the URL.
-    page.should have_css('script', text: "boot(window, 'nl')")
+      # Dutch when specified in the URL.
+      page.should have_css('script', text: "boot(window, 'nl')")
+    end
   end
 
   # --------------------------------------------------------------------------

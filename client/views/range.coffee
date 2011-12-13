@@ -61,5 +61,5 @@ class exports.RangeView extends Backbone.View
   #
   showHelp: ->
     showMessage(
-      I18n.t("etlite.#{@model.def.key}"),
-      I18n.t("etlite.info.#{@model.def.key}"))
+      I18n.t("scenes.etlite.#{@model.def.key}"),
+      I18n.t("scenes.etlite.info.#{@model.def.key}"))

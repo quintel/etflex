@@ -9,8 +9,6 @@ render           = require 'lib/render'
 class exports.Main extends Backbone.Router
   routes:
     '':            'root'
-    'sanity':      'sanity'
-    'etlite':      'etlite'
 
     'scenes':      'redirectToDefaultScene'
     'scenes/:id':  'showScene'
@@ -21,12 +19,6 @@ class exports.Main extends Backbone.Router
     'nl/*actions': 'languageRedirect'
 
     '*undefined':   'notFound'
-
-  constructor: ->
-    @views  = { sanity: new (require('views/sanity').SanityView)
-              , etlite: new (require('views/etlite').ETLiteView) }
-
-    super()
 
   # A 404 Not Found page. Presents the user with a localised message guiding
   # them back to the front page.
@@ -43,22 +35,6 @@ class exports.Main extends Backbone.Router
   #
   root: ->
     @redirectToDefaultScene()
-
-  # A test page which shows the all of the application dependencies are
-  # correctly installed and work as intended.
-  #
-  # GET /sanity
-  #
-  sanity: ->
-    render @views.sanity
-
-  # A recreation of the ETLite UI which serves as the starting point for
-  # development of the full ETFlex application.
-  #
-  # GET /etflex
-  #
-  etlite: ->
-    render @views.etlite
 
   # Fetches the list of all Scenes, and redirects to the ETlite recreation.
   #

@@ -21,7 +21,7 @@ class exports.CostsView extends GenericVisualisation
   # repeatedly to update the UI.
   #
   render: ->
-    super '', I18n.t 'etlite.costs'
+    super '', I18n.t 'scenes.etlite.costs'
 
     $(@el).find('.icon').replaceWith @icon.render().el
     @updateValues()
@@ -35,7 +35,7 @@ class exports.CostsView extends GenericVisualisation
     value   = @precision @query.get('future') / 1000000000, 3
     element = $ @el
 
-    element.find('.output').html "€#{value} #{I18n.t 'etlite.billion'}"
+    element.find('.output').html "€#{value} #{I18n.t 'scenes.etlite.billion'}"
 
     if value < 40
       @icon.setState 'nine'
