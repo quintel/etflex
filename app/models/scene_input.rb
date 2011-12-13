@@ -53,6 +53,20 @@ class SceneInput < ActiveRecord::Base
   validates :input_id, presence: true
   validates :location, presence: true
 
+  # Ensure that the minimum value does not exceed the minimum value defined in
+  # the Input; but only if the input is set, and has a minimum.
+  #
+  validates_numericality_of :min,
+    greater_than_or_equal_to: ->(si) { si.input.min },
+    if:                       ->(si) { si.input and si.input.min.present? }
+
+  # Ensure that the maximum value does not exceed the maximum value defined in
+  # the Input; but only if the input is set, and has a maximum.
+  #
+  validates_numericality_of :max,
+    less_than_or_equal_to:    ->(si) { si.input.max },
+    if:                       ->(si) { si.input and si.input.max.present? }
+
   # RELATIONS ----------------------------------------------------------------
 
   belongs_to :scene
