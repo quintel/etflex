@@ -3,6 +3,12 @@
 #
 # == Columns
 #
+# scene_id (Integer)
+#   Foreign key relating the SceneProp to it's parent scene.
+#
+# prop_id (Integer)
+#   Foreign key relating the SceneProp to the prop used by the scene.
+#
 # location (String[1..50])
 #   Determines where in the template the prop should be displayed. Each
 #   template has a number of pre-defined locations where a prop is shown. For
