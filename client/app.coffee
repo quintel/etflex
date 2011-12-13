@@ -33,7 +33,17 @@ exports.boot = (window, locale) ->
   exports.stencils.queries   = createStencil Queries, raw.queries
   exports.collections.scenes = new Scenes
 
-  async.parallel data: fetchInitialData, postBoot
+  # Ensure that boot cannot be called again.
+  exports.boot = (->)
+
+  # Additional setup can be added here; tasks which can be executed in
+  # parallel (API requests) should use async.parallel:
+  #
+  #   async.parallel one: something, two: somethingElse, postBoot
+  #
+  # ... for now we just call postBoot straight away.
+
+  postBoot false, {}
 
 # A wrapper around Backbone.Router::navigate which selects the correct router
 # depending on the URL, and by default will run the action defined the router
@@ -47,12 +57,6 @@ exports.navigate = (url, trigger = true) ->
 
 # Bootstrap Functions, execute in parallel -----------------------------------
 
-# Retrieves static data such as input and query definitions. Ideally it should
-# be possible for the remote API to deliver this all in a single response.
-#
-fetchInitialData = (callback) ->
-  callback null, true
-
 # Called after all the other boot functions have completed.
 #
 # Issues a warning if one of the functions failed, otherwise finishes set-up
@@ -60,8 +64,6 @@ fetchInitialData = (callback) ->
 # _after_ the asynchronous boostrap function should go here.
 #
 postBoot = (err, result) ->
-  exports.boot = (->)
-
   if err?
     console.error "Could not initialize application.", err
   else
