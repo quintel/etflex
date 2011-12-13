@@ -43,5 +43,7 @@ class CreateBasicTables < ActiveRecord::Migration
       t.integer :prop_id,  null: false
       t.string  :location, null: false, limit: 50
     end
+
+    add_index :scene_props, [ :scene_id, :prop_id ], unique: true
   end
 end
