@@ -43,7 +43,7 @@ exports.boot = (window, locale) ->
   #
   # ... for now we just call postBoot straight away.
 
-  postBoot false, {}
+  postBoot undefined, {}
 
 # A wrapper around Backbone.Router::navigate which selects the correct router
 # depending on the URL, and by default will run the action defined the router
