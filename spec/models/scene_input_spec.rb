@@ -10,22 +10,10 @@ describe SceneInput do
   it { should validate_presence_of(:input_id) }
   xit { should validate_uniqueness_of(:input_id).scoped_to(:scene_id) }
 
-  # LEFT ---------------------------------------------------------------------
+  # LOCATION -----------------------------------------------------------------
 
-  describe 'left' do
-    context 'when left: true' do
-      subject { SceneInput.new(left: true) }
-
-      it { should be_left }
-      it { should_not be_right }
-    end
-
-    context 'when left: false' do
-      subject { SceneInput.new(left: false) }
-
-      it { should_not be_left }
-      it { should be_right }
-    end
+  describe 'location' do
+    it { should validate_presence_of(:location) }
   end
 
   # MIN ----------------------------------------------------------------------

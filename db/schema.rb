@@ -31,9 +31,9 @@ ActiveRecord::Schema.define(:version => 20111123161847) do
   end
 
   create_table "scene_inputs", :force => true do |t|
-    t.integer "scene_id",                   :null => false
-    t.integer "input_id",                   :null => false
-    t.boolean "left",     :default => true, :null => false
+    t.integer "scene_id",                :null => false
+    t.integer "input_id",                :null => false
+    t.string  "location", :limit => 100, :null => false
     t.integer "position"
     t.float   "min"
     t.float   "max"
