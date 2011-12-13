@@ -16,6 +16,25 @@ describe SceneInput do
     it { should validate_presence_of(:location) }
   end
 
+  # STEP ---------------------------------------------------------------------
+
+  describe '#step' do
+    subject { SceneInput.new(input: Input.new(step: 50)) }
+
+    it 'should return the value when set' do
+      subject.step = 75
+      subject.step.should eql(75.0)
+    end
+
+    it 'should delegate to the input when no value is set' do
+      subject.step.should eql(50.0)
+    end
+
+    it 'should return nil if no value, and no input is set' do
+      SceneInput.new.step.should be_nil
+    end
+  end
+
   # MIN ----------------------------------------------------------------------
 
   describe '#min' do
@@ -111,24 +130,6 @@ describe SceneInput do
 
     it 'should not be writable' do
       expect { subject.key = 'another' }.to raise_error(NoMethodError)
-    end
-  end
-
-  # STEP ---------------------------------------------------------------------
-
-  describe '#step' do
-    subject { SceneInput.new(input: Input.new(step: 50.0)) }
-
-    it 'should be delegated to the input' do
-      subject.step.should eql(50.0)
-    end
-
-    it 'should return nil when no input is set' do
-      SceneInput.new.step.should be_nil
-    end
-
-    it 'should not be writable' do
-      expect { subject.step = 25 }.to raise_error(NoMethodError)
     end
   end
 

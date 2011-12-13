@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20111123161847) do
     t.integer "input_id",                :null => false
     t.string  "location", :limit => 100, :null => false
     t.integer "position"
+    t.float   "step"
     t.float   "min"
     t.float   "max"
     t.float   "start"

@@ -20,6 +20,7 @@ class CreateBasicTables < ActiveRecord::Migration
 
       # Customised input values.
 
+      t.float   :step
       t.float   :min
       t.float   :max
       t.float   :start
