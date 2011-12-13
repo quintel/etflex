@@ -29,7 +29,7 @@ exports.boot = (window, locale) ->
   # Set up the collections.
   raw = require 'raw'
 
-  exports.stencils.inputs    = createStencil Inputs, raw.inputs
+  exports.stencils.inputs    = createStencil Inputs,  raw.inputs
   exports.stencils.queries   = createStencil Queries, raw.queries
   exports.collections.scenes = new Scenes
 
