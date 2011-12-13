@@ -1,5 +1,5 @@
 class CreateBasicTables < ActiveRecord::Migration
-  def change
+  def up
     create_table :inputs do |t|
       t.integer :remote_id,                 null: false
       t.string  :key,                       null: false
@@ -46,5 +46,15 @@ class CreateBasicTables < ActiveRecord::Migration
     end
 
     add_index :scene_props, [ :scene_id, :prop_id ], unique: true
+  end
+
+  def down
+    # This migration became a "catch-all" prior to the first production
+    # deployment with MySQL...
+    tables = %w( inputs scene_inputs scenes props scene_props
+                 props_dual_bar_graphs props_gauges props_icons
+                 prop_states )
+
+    tables.each { |table| drop_table table if table_exists? table }
   end
 end
