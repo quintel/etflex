@@ -58,13 +58,6 @@ class SceneInput < ActiveRecord::Base
 
   # INSTANCE METHODS ---------------------------------------------------------
 
-  # Returns if this input should be shown on the right-hand side of the
-  # scene page.
-  #
-  def right?
-    not left?
-  end
-
   # Retrieves the minimum value to which the input may be set in the scene. If
   # no value is set, the value from the canonical input will be used instead.
   #
