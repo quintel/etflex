@@ -20,7 +20,7 @@ jQuery ->
   # Update the start field when the slider is moved.
   updateStartField = (value, quinn) ->
     # How many decimal places do we step to?
-    precision = quinn.options.step.toString().split('.')
+    precision = stepField.val().split('.')
     precision = precision?[1]?.length or 0
 
     startField.val value.toFixed precision
