@@ -126,7 +126,7 @@ class SceneInput < ActiveRecord::Base
   #   Returns the ID of the input on ETEngine.
   #
   def remote_id
-    input and input.id
+    input and input.remote_id
   end
 
 end

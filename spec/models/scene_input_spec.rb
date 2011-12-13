@@ -141,7 +141,7 @@ describe SceneInput do
     end
 
     it 'should be delegated to the input' do
-      subject.remote_id.should eql(input.id)
+      subject.remote_id.should eql(input.remote_id)
     end
 
     it 'should return nil when no input is set' do
