@@ -4,14 +4,15 @@ RAILS_VERSION = '~> 3.1.2'
 
 gem 'activesupport',  RAILS_VERSION, :require => 'active_support'
 gem 'actionpack',     RAILS_VERSION, :require => 'action_pack'
+gem 'activerecord',   RAILS_VERSION, :require => 'active_record'
 gem 'railties',       RAILS_VERSION, :require => 'rails'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem 'mongoid', '~> 2.3'
-gem 'bson_ext'
-gem 'mongoid-list', git: 'git://github.com/davekrupinski/mongoid-list.git'
+gem 'mysql2'
+gem 'acts_as_list'
+gem 'default_value_for'
 
 gem 'haml', '~> 3.1'
 gem 'jbuilder'
@@ -72,9 +73,6 @@ end
 group :test do
   gem 'database_cleaner'
   gem 'shoulda-matchers'
-
-  # Swap back to official release when >=1.4.5 is released.
-  gem 'mongoid-rspec', git: 'git://github.com/evansagge/mongoid-rspec.git'
 
   # Integration / acceptance testing.
   gem 'capybara', '>= 1.1.1'

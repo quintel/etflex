@@ -2,13 +2,13 @@
   %span.icon= input_name_for_title @input
 
 = simple_form_for [ :backstage, @input ] do |f|
-  = f.input :_id,   input_html: { class: 'small', disabled: true }
-  = f.input :key,   input_html: { autocomplete: 'off' }
-  = f.input :step,  input_html: { class: 'small' }
-  = f.input :min,   input_html: { class: 'small' }
-  = f.input :max,   input_html: { class: 'small' }
-  = f.input :start, input_html: { class: 'small' }, wrapper_html: { class: 'slider' }
-  = f.input :unit,  input_html: { class: 'small' }
+  = f.input :_id,   as: :string, input_html: { class: 'small', disabled: true }
+  = f.input :key,   as: :string, input_html: { autocomplete: 'off' }
+  = f.input :step,  as: :string, input_html: { class: 'small' }
+  = f.input :min,   as: :string, input_html: { class: 'small' }
+  = f.input :max,   as: :string, input_html: { class: 'small' }
+  = f.input :start, as: :string, input_html: { class: 'small' }, wrapper_html: { class: 'slider' }
+  = f.input :unit,  as: :string, input_html: { class: 'small' }
 
   %ul.buttons
     %li

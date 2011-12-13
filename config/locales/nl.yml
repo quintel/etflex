@@ -18,7 +18,7 @@ nl:
 
   # Custom validation messages
 
-  monogid:
+  activerecord:
     errors:
       models:
         input:

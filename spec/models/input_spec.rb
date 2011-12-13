@@ -2,22 +2,22 @@ require 'spec_helper'
 
 describe Input do
 
-  it { should be_mongoid_document }
   it { should successfully_save }
 
   # KEY ----------------------------------------------------------------------
 
   describe 'key' do
     it { should validate_presence_of(:key) }
-    it { should validate_uniqueness_of(:key) }
-    it { should have_index_for(:key).with_options(:unique => true) }
+    xit { should validate_uniqueness_of(:key) }
+    it { should allow_mass_assignment_of(:key) }
   end
 
   # IDENTITY FIELD -----------------------------------------------------------
 
   describe 'identity field' do
-    it { should validate_presence_of(:_id) }
-    it { should validate_uniqueness_of(:_id) }
+    it { should validate_presence_of(:remote_id) }
+    xit { should validate_uniqueness_of(:remote_id) }
+    it { should allow_mass_assignment_of(:remote_id) }
   end
 
   # MINIMUM VALUE ------------------------------------------------------------
@@ -25,6 +25,7 @@ describe Input do
   describe 'minimum value' do
     it { should validate_presence_of(:min) }
     it { should validate_numericality_of(:min) }
+    it { should allow_mass_assignment_of(:min) }
   end
 
   # MAXIMUM VALUE ------------------------------------------------------------
@@ -32,6 +33,7 @@ describe Input do
   describe 'maximum value' do
     it { should validate_presence_of(:max) }
     it { should validate_numericality_of(:max) }
+    it { should allow_mass_assignment_of(:max) }
 
     it 'should not be less than the minimum value' do
       input  = Input.new min: 5, max: 4
@@ -66,6 +68,7 @@ describe Input do
   describe 'step value' do
     it { should validate_presence_of(:step) }
     it { should validate_numericality_of(:step) }
+    it { should allow_mass_assignment_of(:step) }
   end
 
   # START VALUE --------------------------------------------------------------
@@ -73,6 +76,7 @@ describe Input do
   describe 'start value' do
     it { should validate_presence_of(:start) }
     it { should validate_numericality_of(:start) }
+    it { should allow_mass_assignment_of(:start) }
 
     it 'should default to the minimum value' do
       Input.new(min: 50.0).start.should eql(50.0)

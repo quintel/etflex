@@ -48,7 +48,6 @@ doc/
 # -----------------------
 
 config/database.yml
-config/mongoid.yml
 public/assets/*
 .rvmrc
 .DS_Store

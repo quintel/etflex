@@ -1,38 +1,23 @@
-# SceneInputs are embedded within a Scene document and link a scene to the
-# Inputs it uses. SceneInputs may also customise the values from Input so that
-# each scene may have it's own min, max, start, and step values for each
-# input.
-class SceneInput
-  include Mongoid::Document
-  include Mongoid::List
-
-  # FIELDS -------------------------------------------------------------------
+# Scene inputs relate Scenes to the inputs they use. As a join model,
+# SceneInput allows customising the minimum, maximum, and starting values of
+# the input.
+class SceneInput < ActiveRecord::Base
 
   delegate :key, :step, :unit, to: :input, allow_nil: true
 
-  # Determines if this Input is displayed in the left or right group.
-
-  field :left, type: Boolean, default: true
-
-  # Custom Input values. When these are nil, the values from the Input will
-  # be used instead.
-
-  field :min,   type: Float
-  field :max,   type: Float
-  field :start, type: Float
-
-  # Customise Mongoid::List to scope to the "left" value.
-
-  field :position, type: Integer, scope: 'left'
-
   # VALIDATION ---------------------------------------------------------------
 
+  validates :scene_id, presence: true
   validates :input_id, presence: true
 
   # RELATIONS ----------------------------------------------------------------
 
-  embedded_in :scene, inverse_of: :scene_inputs
+  belongs_to :scene
   belongs_to :input
+
+  # BEHAVIOUR ----------------------------------------------------------------
+
+  acts_as_list scope: [ :scene_id, :left ]
 
   # INSTANCE METHODS ---------------------------------------------------------
 
@@ -82,29 +67,6 @@ class SceneInput
   #
   def remote_id
     input and input.id
-  end
-
-  alias mongoid_input input
-
-  # Overwrites the default #input accessor to try to call Scene#input.
-  #
-  # Since we often want to fetch the related input for all of the Inputs used
-  # by a Scene, we delegate to Scene#input where possible so that _all_ of the
-  # inputs can be eager loaded in one query, instead of every SceneInput
-  # hitting the database separately.
-  #
-  # If no Scene is set, this will fall back to the standard Mongoid #input
-  # accessor.
-  #
-  # @return [Input] Returns the related Input record.
-  # @return [nil]   Returns nil if no Input is related.
-  #
-  def input(reload = false, *args)
-    if not reload and input_id.present? and scene.present?
-      scene.input(self)
-    else
-      mongoid_input(reload, *args)
-    end
   end
 
 end

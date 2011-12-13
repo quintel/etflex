@@ -4,6 +4,7 @@ development: &common
   identity_map_enabled: true
   persist_in_safe_mode: true
   autocreate_indexes:   true
+  include_root_in_json: true
 
 test:
   <<: *common
@@ -14,11 +15,11 @@ production:
   <<: *common
   autocreate_indexes: false
 
-  host:     <%= ENV['MONGOID_HOST'] %>
-  port:     <%= ENV['MONGOID_PORT'] %>
-  username: <%= ENV['MONGOID_USERNAME'] %>
-  password: <%= ENV['MONGOID_PASSWORD'] %>
-  database: <%= ENV['MONGOID_DATABASE'] %>
+  host:     'staff.mongohq.com'
+  port:     '10059'
+  username: 'quintel'
+  password: 'qp3ofuRmtOWh7E'
+  database: 'et-flex'
 
   # slaves:
   #   - host: slave1.local

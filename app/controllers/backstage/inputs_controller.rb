@@ -1,5 +1,6 @@
 class Backstage::InputsController < ApplicationController
   layout 'backstage'
+  respond_to :html, :json
 
   # FILTERS ------------------------------------------------------------------
 
@@ -27,7 +28,7 @@ class Backstage::InputsController < ApplicationController
   # GET /backstage/inputs
   #
   def index
-    respond_with @inputs = Input.order_by([[ :key, :asc ]])
+    respond_with @inputs = Input.order('`key` ASC')
   end
 
   # Shows a form allowing a user to edit an input.
