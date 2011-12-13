@@ -35,6 +35,7 @@ class CreateBasicTables < ActiveRecord::Migration
     # Props
 
     create_table :props do |t|
+      t.string :key,        null: false, limit: 100
       t.string :client_key, null: false, limit: 100
     end
 
