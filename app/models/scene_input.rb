@@ -19,6 +19,12 @@
 #   Used by acts_as_list to order inputs in the "left" or "right" slider
 #   groups.
 #
+# step (Float)
+#   When the input is a slider, "step" determines the increments in which the
+#   user can move the slider handle. Steps of 0.1 will allow the slider to be
+#   moved from 0.0, to 0.1, to 0.2, etc. Left blank, the scene will use the
+#   step value defined in the Input.
+#
 # min (Float)
 #   Allows you to customise the minimum value of the slider as it appears in
 #   the scene, without having to edit the Input (which would affect all
@@ -39,7 +45,7 @@
 #
 class SceneInput < ActiveRecord::Base
 
-  delegate :key, :step, :unit, to: :input, allow_nil: true
+  delegate :key, :unit, to: :input, allow_nil: true
 
   # VALIDATION ---------------------------------------------------------------
 
@@ -57,6 +63,16 @@ class SceneInput < ActiveRecord::Base
   acts_as_list scope: [ :scene_id, :location ]
 
   # INSTANCE METHODS ---------------------------------------------------------
+
+  # Retrieves the step value to which the input may be set in the scene. If no
+  # value is set, the value from the canonical input will be used instead.
+  #
+  # @return [Float]
+  #   Returns the step value, or the associated input step.
+  #
+  def step
+    read_attribute(:step) or ( input and input.step )
+  end
 
   # Retrieves the minimum value to which the input may be set in the scene. If
   # no value is set, the value from the canonical input will be used instead.
