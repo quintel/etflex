@@ -22,6 +22,25 @@ en:
   frontPage: "Back to the homepage"
   fourOhFour: "The page you were looking for could not be found. Sorry about that&hellip;"
 
+  # Text used on the ETlite recreation ---------------------------------------
+
+  scenes:
+    etlite:
+      savings:      "Savings"
+      production:   "Production"
+
+      supply:       "Energy supply"
+      demand:       "Energy demand"
+
+      balanced:     "Balanced"
+      supplyExcess: "Supply too high"
+      demandExcess: "Demand too high"
+
+      renewables:   "Renewables"
+      emissions:    "Emissions"
+      costs:        "Costs"
+      billion:      "billion"
+
   # Common content on scene pages --------------------------------------------
 
   sponsoredBy: "Sponsored by"

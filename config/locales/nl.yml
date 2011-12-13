@@ -12,6 +12,25 @@ nl:
   frontPage: "Terug naar de homepage"
   fourOhFour: "De pagina die u zocht kon niet worden gevonden. Het spijt me dat&hellip;"
 
+  # Text used on the ETlite recreation ---------------------------------------
+
+  scenes:
+    etlite:
+      savings:      "Besparingen"
+      production:   "Energieproductie"
+
+      supply:       "Energieopwek"
+      demand:       "Energievraag"
+
+      balanced:     "Evenwichtige"
+      supplyExcess: "Aanbod te hoog"
+      demandExcess: "Vraag te hoog"
+
+      renewables:   "Duurzame energie"
+      emissions:    "Emissies"
+      costs:        "Kosten"
+      billion:      "miljard"
+
   # Common content on scene pages --------------------------------------------
 
   sponsoredBy: "Gesponsord door"

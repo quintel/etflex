@@ -1,8 +1,5 @@
 ETFlex::Application.routes.draw do
 
-  get 'sanity',         to: 'application#render_client'
-  get 'etlite',         to: 'application#render_client'
-
   get 'scenes',         to: 'application#scenes'
   get 'scenes/:id',     to: 'application#scene', as: 'scene'
 

@@ -30,7 +30,7 @@ class exports.CO2EmissionsView extends GenericVisualisation
   # repeatedly to update the UI.
   #
   render: ->
-    super '', I18n.t 'etlite.emissions'
+    super '', I18n.t 'scenes.etlite.emissions'
 
     $(@el).find('.icon').replaceWith @icon.render().el
     @updateValues()

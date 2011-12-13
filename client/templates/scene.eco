@@ -1,13 +1,13 @@
 <div id="core">
   <div id="controls">
     <div id="left-inputs">
-      <h2><span><%= I18n.t 'etlite.savings' %></span></h2>
+      <h2><span><%= I18n.t 'scenes.etlite.savings' %></span></h2>
     </div>
 
     <div id="center-vis"></div>
 
     <div id="right-inputs">
-      <h2><span><%= I18n.t 'etlite.production' %></span></h2>
+      <h2><span><%= I18n.t 'scenes.etlite.production' %></span></h2>
     </div>
   </div>
 

@@ -28,7 +28,7 @@ class exports.RenewablesView extends GenericVisualisation
   # repeatedly to update the UI.
   #
   render: ->
-    super '', I18n.t 'etlite.renewables'
+    super '', I18n.t 'scenes.etlite.renewables'
 
     $(@el).find('.icon').replaceWith @icon.render().el
     @updateValues()
