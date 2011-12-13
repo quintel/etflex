@@ -1,6 +1,41 @@
 # Scene inputs relate Scenes to the inputs they use. As a join model,
 # SceneInput allows customising the minimum, maximum, and starting values of
 # the input.
+#
+# == Columns
+#
+# scene_id (Integer)
+#   Foreign key relating the scene input to it's parent scene.
+#
+# input_id (Integer)
+#   Foreign key relating the scene to the input.
+#
+# left (Boolean, default=true)
+#   Indicates whether the input is displayed in the group of sliders to the
+#   left of the central visualisation, or to the right.
+#
+# position (Integer)
+#   Used by acts_as_list to order inputs in the "left" or "right" slider
+#   groups.
+#
+# min (Float)
+#   Allows you to customise the minimum value of the slider as it appears in
+#   the scene, without having to edit the Input (which would affect all
+#   scenes). Left blank, the scene will use the minimum value defined in the
+#   Input.
+#
+# max (Float)
+#   Allows you to customise the maximum value of the slider as it appears in
+#   the scene, without having to edit the Input (which would affect all
+#   scenes). Left blank, the scene will use the maximum value defined in the
+#   Input.
+#
+# start (Float)
+#   Allows you to customise the start value of the slider as it appears in
+#   the scene, without having to edit the Input (which would affect all
+#   scenes). Left blank, the scene will use the starting value defined in the
+#   Input.
+#
 class SceneInput < ActiveRecord::Base
 
   delegate :key, :step, :unit, to: :input, allow_nil: true
