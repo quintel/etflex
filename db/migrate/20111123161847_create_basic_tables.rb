@@ -13,9 +13,9 @@ class CreateBasicTables < ActiveRecord::Migration
     add_index :inputs, :remote_id, unique: true
 
     create_table :scene_inputs do |t|
-      t.integer :scene_id,                  null: false
-      t.integer :input_id,                  null: false
-      t.boolean :left,      default: true,  null: false
+      t.integer :scene_id,  null: false
+      t.integer :input_id,  null: false
+      t.string  :location,  null: false, limit: 100
       t.integer :position
 
       # Customised input values.

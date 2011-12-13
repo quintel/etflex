@@ -10,9 +10,10 @@
 # input_id (Integer)
 #   Foreign key relating the scene to the input.
 #
-# left (Boolean, default=true)
-#   Indicates whether the input is displayed in the group of sliders to the
-#   left of the central visualisation, or to the right.
+# location (String[1.100])
+#   Determines where in the template the input should be displayed. Each
+#   template will have a range of places in which inputs may appear; the
+#   modern theme, for example, has "left" and "right".
 #
 # position (Integer)
 #   Used by acts_as_list to order inputs in the "left" or "right" slider
@@ -44,6 +45,7 @@ class SceneInput < ActiveRecord::Base
 
   validates :scene_id, presence: true
   validates :input_id, presence: true
+  validates :location, presence: true
 
   # RELATIONS ----------------------------------------------------------------
 
