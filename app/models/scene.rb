@@ -24,11 +24,12 @@ class Scene < ActiveRecord::Base
   # RELATIONSHIPS ------------------------------------------------------------
 
   has_many :scene_props
+  has_many :props, :through => :scene_props
 
   with_options class_name: 'SceneInput', order: 'position ASC' do |opts|
     opts.has_many :scene_inputs
-    opts.has_many :left_scene_inputs,  conditions: { left: true  }
-    opts.has_many :right_scene_inputs, conditions: { left: false }
+    opts.has_many :left_scene_inputs,  conditions: { location: 'left'  }
+    opts.has_many :right_scene_inputs, conditions: { location: 'right' }
   end
 
   with_options class_name: 'Input', source: :input, readonly: true do |opts|
