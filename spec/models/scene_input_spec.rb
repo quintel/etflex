@@ -52,6 +52,25 @@ describe SceneInput do
     it 'should return nil if no value, and no input is set' do
       SceneInput.new.min.should be_nil
     end
+
+    # Minimum must not be less than input minimum...
+
+    it 'should not be higher than the Input min' do
+      subject.min = 49
+
+      subject.errors_on(:min).should include(
+        'must be greater than or equal to 50.0')
+    end
+
+    it 'should ignore the input minimum when no input is set' do
+      subject.input = nil
+      subject.should have(:no).errors_on(:min)
+    end
+
+    it 'should ignore the input minimum when none is set' do
+      subject.input.max = nil
+      subject.should have(:no).errors_on(:min)
+    end
   end
 
   # MAX ----------------------------------------------------------------------
@@ -70,6 +89,25 @@ describe SceneInput do
 
     it 'should return nil if no value, and no input is set' do
       SceneInput.new.max.should be_nil
+    end
+
+    # Maximum must not be less than input maximum...
+
+    it 'should not be higher than the Input max' do
+      subject.max = 51
+
+      subject.errors_on(:max).should include(
+        'must be less than or equal to 50.0')
+    end
+
+    it 'should ignore the input maximum when no input is set' do
+      subject.input = nil
+      subject.should have(:no).errors_on(:max)
+    end
+
+    it 'should ignore the input maximum when none is set' do
+      subject.input.max = nil
+      subject.should have(:no).errors_on(:max)
     end
   end
 
