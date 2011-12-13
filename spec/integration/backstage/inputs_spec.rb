@@ -4,7 +4,7 @@ describe 'Administering inputs' do
 
   # --------------------------------------------------------------------------
 
-  context 'Listing all through the API', api: true, pending: true do
+  context 'Listing all through the API', api: true do
     let(:json)      { JSON.parse page.source }
     let(:input_one) { create :input }
     let(:input_two) { create :mwh_input }
@@ -22,9 +22,9 @@ describe 'Administering inputs' do
     end
 
     describe 'the first input in the collection' do
-      subject { json.first.symbolize_keys }
+      subject { json.detect { |m| m['id'] == input_one.id }.symbolize_keys }
 
-      it { should include(id:       input_one.id.to_s)   }
+      it { should include(id:       input_one.id)   }
       it { should include(remoteId: input_one.remote_id) }
       it { should include(step:     input_one.step)      }
       it { should include(min:      input_one.min)       }
@@ -35,9 +35,9 @@ describe 'Administering inputs' do
     end # the first input in the collection
 
     describe 'the second input in the collection' do
-      subject { json.last.symbolize_keys }
+      subject { json.detect { |m| m['id'] == input_two.id }.symbolize_keys }
 
-      it { should include(id:       input_two.id.to_s)   }
+      it { should include(id:       input_two.id)   }
       it { should include(remoteId: input_two.remote_id) }
       it { should include(step:     input_two.step)      }
       it { should include(min:      input_two.min)       }
