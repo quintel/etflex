@@ -17,7 +17,7 @@
 #
 class SceneProp < ActiveRecord::Base
 
-  # RELATIONS ----------------------------------------------------------------
+  # RELATIONSHIPS ------------------------------------------------------------
 
   belongs_to :scene
   belongs_to :prop

@@ -67,7 +67,7 @@ class SceneInput < ActiveRecord::Base
     less_than_or_equal_to:    ->(si) { si.input.max },
     if:                       ->(si) { si.input and si.input.max.present? }
 
-  # RELATIONS ----------------------------------------------------------------
+  # RELATIONSHIPS ------------------------------------------------------------
 
   belongs_to :scene
   belongs_to :input
