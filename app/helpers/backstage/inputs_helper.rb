@@ -19,7 +19,7 @@ module Backstage::InputsHelper
   def input_name_for_title(input)
     # User may have changed the key in a form; perhaps even to a blank value.
     # Prefer to show the original key over the new one in the title.
-    key = input.key_was or input.key
+    key = input.respond_to?(:key_was) && input.key_was || input.key
 
     translated = t("inputs.#{ key }.name", default: '')
 
