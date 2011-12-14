@@ -9,7 +9,11 @@
   %tbody
     - @inputs.each do |input|
       %tr
-        %td.link.key=    link_to input.key, edit_backstage_input_path(input)
-        %td=             input_name_for_list input
-        %td.unit=        input.unit
-        %td.link.action= link_to 'Edit', edit_backstage_input_path(input)
+        %td.link.key
+          = link_to input.key, poly_backstage_input_path(input, :edit)
+        %td
+          = input_name_for_list input
+        %td.unit
+          = input.unit
+        %td.link.action
+          = link_to 'Edit', poly_backstage_input_path(input, :edit)
