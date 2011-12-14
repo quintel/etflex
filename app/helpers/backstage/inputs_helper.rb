@@ -30,4 +30,22 @@ module Backstage::InputsHelper
     end
   end
 
+  # Returns a link to the edit form for an input. Correctly handles both Input
+  # and SceneInputs, which is more than can be said for Rails' built-in
+  # *_polymorphic_path.
+  #
+  def poly_backstage_input_path(input, action = nil)
+    # backstage_input_path, or backstage_scene_input_path
+    route_name = "backstage_#{ input.class.name.underscore }_path"
+
+    # Prefixes "edit", "custom action", etc...
+    route_name = "#{ action }_#{ route_name }" if action.present?
+
+    # SceneInput routes require a Scene.
+    scene = if input.respond_to?(:scene) then input.scene end
+
+    # Generate the URL. Scene will be set when routing
+    __send__(route_name, *[ scene, input ].compact)
+  end
+
 end
