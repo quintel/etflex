@@ -24,13 +24,12 @@ class SceneProp < ActiveRecord::Base
 
   # SERIALIZATION ------------------------------------------------------------
 
-  serialize :hurdles
+  serialize :hurdles, Hash
 
   # VALIDATION ---------------------------------------------------------------
 
   validates :scene_id, presence: true
   validates :prop_id,  presence: true
   validates :location, presence: true, length: { in: 1..50 }
-  validates :hurdles,  presence: true
 
 end
