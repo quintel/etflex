@@ -19,11 +19,7 @@ module Backstage::InputsHelper
   def input_name_for_title(input)
     translated = t("inputs.#{ input.key }.name", default: '')
 
-    if translated.blank? then input.key else
-      %(#{ h translated }
-        <span class='quiet'>#{ h input.key}</span>
-      ).html_safe
-    end
+    if translated.blank? then input.key else translated end
   end
 
   # Returns a link to the list of inputs, based on the given argument.

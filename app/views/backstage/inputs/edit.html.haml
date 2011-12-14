@@ -1,7 +1,5 @@
--# TODO SceneInput should have it's own template.
-
 %h2.content-header
-  %span.icon= input_name_for_title @input
+  %span.input= input_name_for_title @input
 
 = simple_form_for @input, url: { action: 'update' } do |f|
   = f.input :remote_id, as: :string, input_html: { class: 'small', disabled: true }

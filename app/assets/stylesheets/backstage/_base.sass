@@ -71,9 +71,24 @@ a
     text-transform: uppercase
     text-shadow: 0 1px 0 rgba(white, 0.7)
 
-    span.icon
+    span.scene, span.input
       background: image-url("backstage/sidebar-input.png") 2px 0 no-repeat
-      padding-left: 23px
+      padding: 0 25px 0 23px
+
+      &:after
+        content: "\25B6"
+        color: $very-quiet-color
+        display: block
+        font-size: 10px
+        line-height: 0
+        padding-left: 23px
+        margin-right: -7px
+
+      &:last-child:after
+        content: ""
+
+    span.scene
+      background-position: 1px -99px
 
     span.quiet
       color: $very-quiet-color
