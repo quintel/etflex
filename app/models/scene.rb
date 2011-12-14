@@ -28,14 +28,16 @@ class Scene < ActiveRecord::Base
 
   with_options class_name: 'SceneInput', order: 'position ASC' do |opts|
     opts.has_many :scene_inputs
-    opts.has_many :left_scene_inputs,  conditions: { location: 'left'  }
-    opts.has_many :right_scene_inputs, conditions: { location: 'right' }
+    opts.has_many :left_scene_inputs,   conditions:  { location: 'left'  }
+    opts.has_many :right_scene_inputs,  conditions:  { location: 'right' }
+    opts.has_many :hidden_scene_inputs, conditions:  { location: nil     }
   end
 
   with_options class_name: 'Input', source: :input, readonly: true do |opts|
-    opts.has_many :inputs,       through: :scene_inputs
-    opts.has_many :left_inputs,  through: :left_scene_inputs
-    opts.has_many :right_inputs, through: :right_scene_inputs
+    opts.has_many :inputs,        through: :scene_inputs
+    opts.has_many :left_inputs,   through: :left_scene_inputs
+    opts.has_many :right_inputs,  through: :right_scene_inputs
+    opts.has_many :hidden_inputs, through: :hidden_scene_inputs
   end
 
   # VALIDATION ---------------------------------------------------------------
