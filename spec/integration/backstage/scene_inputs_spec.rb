@@ -46,8 +46,8 @@ feature 'Editing scene inputs' do
     page.should_not have_css('form.scene_input')
     page.should     have_css('table#inputs')
 
-    # TODO Should be on the scene inputs page, not the main inputs page.
-    # page.should   have_css('.navigation .scenes.selected')
+    # Should be on the scene inputs page, not the main inputs page.
+    page.should     have_css('.navigation .scenes.selected')
 
     @input.reload
     @scene_input.reload
