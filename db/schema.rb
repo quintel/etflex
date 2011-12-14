@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(:version => 20111213210435) do
     t.integer "scene_id",               :null => false
     t.integer "prop_id",                :null => false
     t.string  "location", :limit => 50, :null => false
+    t.text    "hurdles"
   end
 
   add_index "scene_props", ["scene_id", "prop_id"], :name => "index_scene_props_on_scene_id_and_prop_id", :unique => true

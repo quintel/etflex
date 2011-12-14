@@ -22,10 +22,15 @@ class SceneProp < ActiveRecord::Base
   belongs_to :scene
   belongs_to :prop
 
+  # SERIALIZATION ------------------------------------------------------------
+
+  serialize :hurdles
+
   # VALIDATION ---------------------------------------------------------------
 
   validates :scene_id, presence: true
   validates :prop_id,  presence: true
   validates :location, presence: true, length: { in: 1..50 }
+  validates :hurdles,  presence: true
 
 end
