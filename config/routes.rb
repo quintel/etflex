@@ -6,8 +6,11 @@ ETFlex::Application.routes.draw do
   # Backstage and Administration ---------------------------------------------
 
   namespace :backstage do
-    resources(:inputs)
-    resources(:scenes) { resources :inputs }
+    resources :inputs
+
+    resources :scenes do
+      resources :inputs, controller: 'scene_inputs', except: :show
+    end
 
     get '/', to: redirect('/backstage/scenes')
   end
