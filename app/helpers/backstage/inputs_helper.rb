@@ -26,11 +26,24 @@ module Backstage::InputsHelper
     end
   end
 
+  # Returns a link to the list of inputs, based on the given argument.
+  #
+  # If a @scene ivar is set, the path returned will be to the list of scene
+  # inputs, otherwise the path will be to the main inputs list.
+  #
+  def poly_backstage_inputs_path
+    if @scene
+      backstage_scene_inputs_path @scene
+    else
+      backstage_inputs_path
+    end
+  end
+
   # Returns a link to the edit form for an input. Correctly handles both Input
   # and SceneInputs, which is more than can be said for Rails' built-in
   # *_polymorphic_path.
   #
-  def poly_backstage_input_path(input, action = nil)
+  def poly_backstage_input_path(input = nil, action = nil)
     # backstage_input_path, or backstage_scene_input_path
     route_name = "backstage_#{ input.class.name.underscore }_path"
 

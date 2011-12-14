@@ -1,5 +1,6 @@
 module Backstage
   class InputsController < BackstageController
+    include InputsHelper
 
     # JSON templates exist for this controller, but I don't know if JSON
     # support is needed right now...
@@ -48,7 +49,7 @@ module Backstage
     #
     def update
       @input.update_attributes(params[:scene_input] || params[:input])
-      respond_with @input, location: backstage_inputs_path
+      respond_with @input, location: poly_backstage_inputs_path
     end
 
   end # InputsController

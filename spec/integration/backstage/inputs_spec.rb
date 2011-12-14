@@ -83,7 +83,12 @@ describe 'Administering inputs' do
       click_button 'Update Input'
     end
 
-    # TODO Then "I should not see an error message"
+    # Should not be an error page.
+    page.should_not have_css('form.input')
+    page.should     have_css('table#inputs')
+
+    # Should be on the inputs page, not a scene inputs page.
+    page.should     have_css('.navigation .inputs.selected')
 
     input.reload
     input.step.should  eql(5.0)
