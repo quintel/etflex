@@ -7,8 +7,9 @@ ETFlex::Application.routes.draw do
 
   namespace :backstage do
     resources :inputs
-    resources :scenes
-    resources :input_scenes
+    resources :scenes do
+      resources :inputs
+    end
   end
 
   get 'backstage',      to: 'application#render_client'
