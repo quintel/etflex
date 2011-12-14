@@ -47,7 +47,7 @@ module Backstage
     # PUT /backstage/inputs/:id
     #
     def update
-      @input.update_attributes(params[:input])
+      @input.update_attributes(params[:scene_input] || params[:input])
       respond_with @input, location: backstage_inputs_path
     end
 

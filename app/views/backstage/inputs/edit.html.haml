@@ -1,14 +1,23 @@
+-# TODO SceneInput should have it's own template.
+
 %h2.content-header
   %span.icon= input_name_for_title @input
 
 = simple_form_for [ :backstage, @input ] do |f|
   = f.input :_id,   as: :string, input_html: { class: 'small', disabled: true }
-  = f.input :key,   as: :string, input_html: { autocomplete: 'off' }
+
+  - if @input.is_a?(SceneInput)
+    = f.input :key, as: :string, input_html: { disabled: true }
+  - else
+    = f.input :key, as: :string, input_html: { autocomplete: 'off' }
+
   = f.input :step,  as: :string, input_html: { class: 'small' }
   = f.input :min,   as: :string, input_html: { class: 'small' }
   = f.input :max,   as: :string, input_html: { class: 'small' }
   = f.input :start, as: :string, input_html: { class: 'small' }, wrapper_html: { class: 'slider' }
-  = f.input :unit,  as: :string, input_html: { class: 'small' }
+
+  - if @input.is_a?(Input)
+    = f.input :unit,  as: :string, input_html: { class: 'small' }
 
   %ul.buttons
     %li
