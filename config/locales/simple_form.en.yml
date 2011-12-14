@@ -23,7 +23,7 @@ en:
     #   password: 'No special characters, please.'
 
     labels:
-      input:
+      input: &input
         _id:   'ETengine input ID'
         key:   'Key'
         min:   'Minimum value'
@@ -31,3 +31,6 @@ en:
         start: 'Starting value'
         step:  'Step by'
         unit:  'Unit'
+
+      scene_input:
+        <<: *input
