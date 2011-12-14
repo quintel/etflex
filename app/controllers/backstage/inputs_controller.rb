@@ -31,11 +31,7 @@ module Backstage
     # GET /backstage/inputs
     #
     def index
-      if params[:scene_id]
-        respond_with @inputs = Scene.find(params[:scene_id]).inputs.order('`key` ASC')
-      else
-        respond_with @inputs = Input.order('`key` ASC')
-      end
+      respond_with @inputs = Input.order('`key` ASC')
     end
 
     # Shows a form allowing a user to edit an input.

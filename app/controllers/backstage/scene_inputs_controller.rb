@@ -25,5 +25,19 @@ module Backstage
       @input = (@scene or fetch_scene).scene_inputs.find(params[:id])
     end
 
+    # ACTIONS ----------------------------------------------------------------
+
+    ######
+    public
+    ######
+
+    # Shows a list of all inputs used by the Scene.
+    #
+    # GET /backstage/scenes/:scene_id/inputs
+    #
+    def index
+      @inputs = @scene.scene_inputs.includes(:input)
+    end
+
   end # SceneInputsController
 end # Backstage
