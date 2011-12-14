@@ -59,6 +59,10 @@ describe 'Administering inputs' do
     page.should have_css('.navigation .inputs.selected')
     page.should have_css('h2', text: input.key)
 
+    # ETengine ID and Key attributes should be disbaled.
+    page.should have_css('#input_remote_id[disabled=disabled]')
+    page.should have_css('#input_key[disabled=disabled]')
+
     # Pre-populated form.
     find 'form.input' do |form|
       form.should have_css("#input_key",   value: input.key)
@@ -70,7 +74,6 @@ describe 'Administering inputs' do
     end
 
     within 'form.input' do
-      fill_in 'Key',   with: 'new_input_key'
       fill_in 'Step' , with: '5'
       fill_in 'Min',   with: '50'
       fill_in 'Max',   with: '60.5'
@@ -83,7 +86,6 @@ describe 'Administering inputs' do
     # TODO Then "I should not see an error message"
 
     input.reload
-    input.key.should   eql('new_input_key')
     input.step.should  eql(5.0)
     input.min.should   eql(50.0)
     input.max.should   eql(60.5)
@@ -102,7 +104,7 @@ describe 'Administering inputs' do
 
     # Fill in the "key" field so that it is empty.
     within 'form.input' do
-      fill_in 'Key', with: ''
+      fill_in 'Step', with: ''
       click_button 'Update Input'
     end
 
