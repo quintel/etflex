@@ -5,4 +5,5 @@
 class Backstage::BackstageController < ApplicationController
   layout 'backstage'
   respond_to :html
+  helper :backstage
 end

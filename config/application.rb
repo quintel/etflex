@@ -46,6 +46,9 @@ module ETFlex
     #
     # config.i18n.default_locale = :de
 
+    # Each controller loads only the helpers it uses.
+    config.action_controller.include_all_helpers = false
+
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
 
