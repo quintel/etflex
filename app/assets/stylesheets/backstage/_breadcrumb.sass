@@ -1,0 +1,36 @@
+ul.breadcrumb
+  @include horizontal-list(0px)
+  @include background(linear-gradient(#e2e9f1, #d2d9e1))
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6)
+  border-bottom: 1px solid $border-color
+  font-weight: bold
+  margin: -25px -25px 25px
+  padding: 14px 25px 12px
+  text-transform: uppercase
+  text-shadow: 0 1px 0 rgba(white, 0.7)
+
+  li:after
+    content: "\25B6"
+    color: $very-quiet-color
+    display: inline
+    font-size: 10px
+    line-height: 0
+    vertical-align: baseline
+
+  // Make the first link flush with the far-left of the page.
+  li:first-child a
+    margin-left: -25px
+
+  // The final breadcumb item requires no arrow.
+  li:last-child:after
+    content: ""
+
+  a
+    padding: 0 25px
+
+    &:hover
+      text-decoration: none
+
+  // Current page
+  li.selected a
+    color: $color
