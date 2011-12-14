@@ -104,7 +104,7 @@ exports.updateInputs = (sessionId, options, callback) ->
         error = new Error('API Error')
         error.errors = data.errors
 
-        callback error
+        callback? error
 
       else
         # Update the queries with the new values returned by the engine.
