@@ -25,9 +25,15 @@ SceneProp.delete_all
 puts 'Importing inputs...'
 
 YAML.load_file(Rails.root.join('db/seeds/inputs.yml')).each do |data|
-  unless Input.create(data)
-    raise "Failed to save input: #{data['key']}, #{input.errors.inspect}"
-  end
+  Input.create!(data)
+end
+
+# INPUTS ---------------------------------------------------------------------
+
+puts 'Importing props...'
+
+YAML.load_file(Rails.root.join('db/seeds/props.yml')).each do |data|
+  Prop.create!(data)
 end
 
 # SCENES ---------------------------------------------------------------------
@@ -45,7 +51,18 @@ YAML.load_file(Rails.root.join('db/seeds/scenes.yml')).each do |data|
     ids.each do |remote_id|
       scene.scene_inputs.build(
         location: location,
-        input: Input.where(remote_id: remote_id).first
+        input:    Input.where(remote_id: remote_id).first
+      )
+    end
+  end
+
+  # Props.
+
+  props.each do |(location, keys)|
+    keys.each do |client_key|
+      scene.scene_props.build(
+        location: location,
+        prop:     Prop.where(client_key: client_key).first
       )
     end
   end
