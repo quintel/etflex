@@ -1,5 +1,5 @@
 %h2.content-header
-  %span= @scene.name
+  %span.scene= @scene.name
 
 = simple_form_for [ :backstage, @scene ] do |f|
   = f.input :id,        as: :string, input_html: { class: 'small', disabled: true }
