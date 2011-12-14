@@ -6,10 +6,11 @@
 
   props:
     center:
-      - electricity_supply_and_demand
-      - balance_of_electricity_supply_and_demand
+      - supply-demand
     bottom:
-      - co2_emissions_icon
+      - co2-emissions
+      - renewables
+      - costs
 
 - name: 'A Second Test'
   inputs:

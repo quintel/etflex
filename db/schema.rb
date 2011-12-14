@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(:version => 20111213210435) do
   create_table "props", :force => true do |t|
     t.string "key",        :limit => 100, :null => false
     t.string "client_key", :limit => 100, :null => false
-    t.string "hurdles"
   end
 
   create_table "scene_inputs", :force => true do |t|
