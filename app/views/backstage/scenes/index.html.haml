@@ -3,22 +3,15 @@
     %tr
       %th        id
       %th.unit   name
-      %th.unit   left sliders
-      %th.unit   right sliders
+      %th.unit   sliders
+      %th.unit   dashboard-items
       %th.action action
 
   %tbody
     - @scenes.each do |scene|
       %tr
         %td=             scene.id
-        %td.unit=        link_to scene.name, edit_backstage_scene_path(scene)
-        %td.unit
-          %ul
-          - scene.left_inputs.each do |input|
-            %li=input.key
-        %td.unit
-          %ul
-          - scene.right_inputs.each do |input|
-            %li=input.key
-          %li link_to 'Add '
+        %td.link=        link_to scene.name, edit_backstage_scene_path(scene)
+        %td.link=        link_to "Left: #{scene.left_inputs.size} | Right: #{scene.right_inputs.size}", backstage_scene_inputs_path(scene)
+        %td.link=        link_to scene.props.size, "#"
         %td.link.action= link_to 'Edit', edit_backstage_scene_path(scene)
