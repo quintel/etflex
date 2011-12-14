@@ -12,7 +12,9 @@ module BackstageHelper
   def backstage_navigation
     items = []
 
-    items << backstage_navigation_item(:scenes,  backstage_scenes_path)
+    items << backstage_navigation_item(
+      :scenes,  backstage_scenes_path, %w( scenes scene_inputs ))
+
     items << backstage_navigation_item(:inputs,  backstage_inputs_path)
     items << backstage_navigation_item(:queries, '#')
     items << backstage_navigation_item(:props,   '#')
