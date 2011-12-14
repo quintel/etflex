@@ -1,6 +1,6 @@
 jQuery ->
   # The jQuery instance for the input form.
-  inputForm  = $ 'form.input'
+  inputForm  = $ 'form.input, form.scene_input'
   startQuinn = null
 
   # Do nothing if we're not on a page with an input editor.
@@ -10,10 +10,10 @@ jQuery ->
   $('.slider').append $ '<div class="widget"></div>'
 
   # The input fields.
-  stepField  = $ '#input_step',  inputForm
-  minField   = $ '#input_min',   inputForm
-  maxField   = $ '#input_max',   inputForm
-  startField = $ '#input_start', inputForm
+  stepField  = $ '[name*="[step]"]',  inputForm
+  minField   = $ '[name*="[min]"]',   inputForm
+  maxField   = $ '[name*="[max]"]',   inputForm
+  startField = $ '[name*="[start]"]', inputForm
 
   num = _.isNumber
 

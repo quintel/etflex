@@ -26,6 +26,12 @@ feature 'Editing scene inputs' do
     # Visit the edit scene input page.
     within('#inputs') { click_link @input.key }
 
+    # Default values don't appear on the form.
+    page.should have_css('#scene_input_step',  value: '')
+    page.should have_css('#scene_input_min',   value: '')
+    page.should have_css('#scene_input_max',   value: '')
+    page.should have_css('#scene_input_start', value: '')
+
     # ETengine ID and Key attributes should be disbaled.
     page.should have_css('#scene_input_remote_id[disabled=disabled]')
     page.should have_css('#scene_input_key[disabled=disabled]')
@@ -63,6 +69,14 @@ feature 'Editing scene inputs' do
     @input.min.should   eql(input_originals[:min])
     @input.max.should   eql(input_originals[:max])
     @input.start.should eql(input_originals[:start])
+
+    # Custom values appear on the form?
+    visit "/backstage/scenes/#{ @scene.id }/inputs/#{ @scene_input.id }/edit"
+
+    page.should have_css('#scene_input_step',  value: '5.5')
+    page.should have_css('#scene_input_min',   value: '12.0')
+    page.should have_css('#scene_input_max',   value: '72.0')
+    page.should have_css('#scene_input_start', value: '42.0')
   end
 
 end

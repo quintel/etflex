@@ -1,0 +1,22 @@
+%h2.content-header
+  %span.icon= input_name_for_title @input
+
+= simple_form_for @input, url: { action: 'update' } do |f|
+  = f.input :remote_id, as: :string, input_html: { class: 'small', disabled: true }
+  = f.input :key,                    input_html: { disabled: true }
+
+  = f.input :step, as: :string, input_html: { class: 'small' }
+  = f.hint "Defaults to #{ @input.input.step }"
+
+  = f.input :min, as: :string, input_html: { class: 'small' }
+  = f.hint "Defaults to #{ @input.input.min }"
+
+  = f.input :max, as: :string, input_html: { class: 'small' }
+  = f.hint "Defaults to #{ @input.input.max }"
+
+  = f.input :start, as: :string, input_html: { class: 'small' }, wrapper_html: { class: 'slider' }
+  = f.hint "Defaults to #{ @input.input.start }"
+
+  %ul.buttons
+    %li= f.button :submit, class: 'green'
+    %li= link_to 'Cancel', backstage_scene§_inputs_path

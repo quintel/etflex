@@ -3,7 +3,7 @@
 %h2.content-header
   %span.icon= input_name_for_title @input
 
-= simple_form_for [ :backstage, @input ] do |f|
+= simple_form_for @input, url: { action: 'update' } do |f|
   = f.input :remote_id, as: :string, input_html: { class: 'small', disabled: true }
 
   = f.input :key,                input_html: { disabled: true }
@@ -11,9 +11,7 @@
   = f.input :min,   as: :string, input_html: { class: 'small' }
   = f.input :max,   as: :string, input_html: { class: 'small' }
   = f.input :start, as: :string, input_html: { class: 'small' }, wrapper_html: { class: 'slider' }
-
-  - if @input.is_a?(Input)
-    = f.input :unit, input_html: { class: 'small' }
+  = f.input :unit,               input_html: { class: 'small' }
 
   %ul.buttons
     %li= f.button :submit, class: 'green'
