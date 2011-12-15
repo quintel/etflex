@@ -6,7 +6,7 @@
   = f.input :remote_id, as: :string, input_html: { class: 'small', disabled: true }
   = f.input :key,                    input_html: { disabled: true }
 
-  = f.input :location, :collection => %w[left right], input_html: { class: 'small' }
+  = scene_input_location_select(f)
   = f.hint "Choose none for a slider which can be choosen by the user in the interface, but is hidden upon load."
 
   = f.input :position, as: :string, input_html: { class: 'small' }
