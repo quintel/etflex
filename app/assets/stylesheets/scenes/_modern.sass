@@ -138,7 +138,14 @@
           height: 30px
 
         .active-bar
-          background: image-url("scenes/modern/range.png") 0 -30px no-repeat
+          .left, .main, .right
+            background: image-url("scenes/modern/range.png") 0 -30px no-repeat
+
+          .main
+            background-position: -5px -30px
+
+          .right
+            background-position: -279px -30px
 
         .handle
           background: image-url("scenes/modern/range.png") 0 -60px no-repeat
