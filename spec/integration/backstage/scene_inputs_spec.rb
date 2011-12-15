@@ -102,4 +102,22 @@ feature 'Editing scene inputs' do
     page.should have_css('#scene_input_start', value: '42.0')
   end
 
+  # --------------------------------------------------------------------------
+
+  scenario 'Deleting a scene input' do
+    visit "/backstage/scenes/#{ @scene.id }/inputs"
+
+    # There should be only one scene input, therefore one delete link.
+    within('table#inputs') { click_link 'Delete' }
+
+    @scene.scene_inputs(:reload).should be_empty
+
+    # We should be returned to the scene input list.
+    page.should have_css('.navigation .scenes.selected')
+    page.should have_css('table#inputs')
+
+    # The scene input was definitely removed?
+    page.should_not have_css('td.key a', content: @input.key)
+  end
+
 end
