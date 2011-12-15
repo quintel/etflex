@@ -72,7 +72,7 @@ feature 'Editing scene inputs' do
     end
 
     # Should not be an error page.
-    page.should_not have_css('form.scene_input')
+    page.should_not have_css("form#edit_scene_input_#{ @scene_input.id }")
     page.should     have_css('table#inputs')
 
     # Should be on the scene inputs page, not the main inputs page.
