@@ -17,8 +17,7 @@ module Backstage
     # Retrieves the input specified in the params.
     #
     def fetch_input
-      # TODO Spec params[:id] not accepting .to_i
-      @input = Input.find(params[:id].to_i)
+      @input = Input.find(params[:id])
     end
 
     # ACTIONS ----------------------------------------------------------------
