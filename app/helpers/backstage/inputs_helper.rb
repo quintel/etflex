@@ -53,4 +53,15 @@ module Backstage::InputsHelper
     __send__(route_name, *[ scene, input ].compact)
   end
 
+  # Creates the drop-down form element for setting the scene input location.
+  #
+  # form - The form builder object.
+  #
+  def scene_input_location_select(form)
+    form.input :location,
+      include_blank: 'Hidden',
+      input_html: { class: 'small' },
+      collection: [ %w( Left left ), %w( Right right ) ]
+  end
+
 end
