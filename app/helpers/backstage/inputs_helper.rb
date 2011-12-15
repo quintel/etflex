@@ -64,4 +64,14 @@ module Backstage::InputsHelper
       collection: [ %w( Left left ), %w( Right right ) ]
   end
 
+  # Creates the drop-down form element for selecting an input when adding a
+  # new scene input.
+  #
+  # form - The form builder object.
+  #
+  def scene_input_input_select(form)
+    inputs = Input.scoped.only(:id, :key).order('`key` ASC')
+    form.association :input, collection: inputs, include_blank: false
+  end
+
 end

@@ -104,6 +104,9 @@ select
   &.small
     width: 85px
 
+  &.medium
+    width: 170px
+
 .simple_form .slider
   input[type=text]
     +border-right-radius(0)
@@ -131,3 +134,25 @@ select
 .sidebar .search input
   font-size: 12px
   width: 214px
+
+// Small, "inline" forms.
+
+#content .inline-add
+  margin-top: 25px
+
+  form
+    padding: 10px 0
+
+    label
+      display: block
+      float: none
+      font-weight: bold
+      margin-left: 0
+      text-align: left
+      width: auto
+
+    select
+      width: 380px
+
+    ul.buttons
+      padding-left: 0
