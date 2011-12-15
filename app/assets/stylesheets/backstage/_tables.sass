@@ -56,5 +56,10 @@ table#inputs
     padding-left: 32px
 
   // Shows the unit used by the input.
-  th.unit, td.unit
-    text-align: center
+  th, td
+    &.unit, &.location, &.position
+      text-align: center
+
+  th, td
+    &.location, &.position
+      width: 65px
