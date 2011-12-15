@@ -17,6 +17,8 @@
 #
 class SceneProp < ActiveRecord::Base
 
+  delegate :key, :client_key, to: :prop, allow_nil: true
+
   # RELATIONSHIPS ------------------------------------------------------------
 
   belongs_to :scene
