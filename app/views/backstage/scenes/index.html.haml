@@ -13,5 +13,5 @@
         %td=             scene.id
         %td.link=        link_to scene.name, edit_backstage_scene_path(scene)
         %td.link=        link_to "Left: #{scene.left_inputs.size} | Right: #{scene.right_inputs.size} | Hidden: #{scene.hidden_inputs.size}", backstage_scene_inputs_path(scene)
-        %td.link=        link_to scene.props.size, "#"
+        %td.link=        link_to scene.props.size, backstage_scene_props_path(scene)
         %td.link.action= link_to 'Edit', edit_backstage_scene_path(scene)
