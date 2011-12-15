@@ -34,3 +34,4 @@ en:
 
       scene_input:
         <<: *input
+        input:     'Input'

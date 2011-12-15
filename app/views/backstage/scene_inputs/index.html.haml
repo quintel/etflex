@@ -23,3 +23,13 @@
           = input.unit
         %td.link.action
           = link_to 'Edit', poly_backstage_input_path(input, :edit)
+
+.inline-add.make-a-selection
+  %h2 Add a new input to this scene:
+
+  = simple_form_for SceneInput.new, url: { action: 'new' } do |f|
+    = scene_input_input_select(f)
+
+    %ul.buttons
+      %li= f.button :submit, class: 'green'
+      -#%li= link_to 'Cancel', backstage_inputs_path

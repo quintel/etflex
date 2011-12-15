@@ -66,4 +66,10 @@ class Input < ActiveRecord::Base
 
   default_value_for(:start) { |input| input.min }
 
+  # INSTANCE METHODS ---------------------------------------------------------
+
+  def to_s
+    key
+  end
+
 end
