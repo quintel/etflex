@@ -4,7 +4,6 @@
       %th.key    Key
       %th        Name
       %th.unit   Unit
-      %th.unit   Unit
       %th.action &nbsp;
 
   %tbody
@@ -14,8 +13,6 @@
           = link_to input.key, poly_backstage_input_path(input, :edit)
         %td
           = input_name_for_list input
-        %td.unit
-          = input.unit
         %td.unit
           = input.unit
         %td.link.action
