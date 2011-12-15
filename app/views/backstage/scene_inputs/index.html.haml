@@ -1,19 +1,19 @@
 %table#inputs.records
   %thead
     %tr
-      %th.key    Location
-      %th.key    Ranking
-      %th.key    Key
-      %th        Name
-      %th.unit   Unit
-      %th.action &nbsp;
+      %th.location Location
+      %th.position Ranking
+      %th.key      Key
+      %th          Name
+      %th.unit     Unit
+      %th.action   &nbsp;
 
   %tbody
     - @inputs.each do |input|
       %tr
-        %td.unit
+        %td.location
           = input.location
-        %td.unit
+        %td.position
           = input.position
         %td.link.key
           = link_to input.key, poly_backstage_input_path(input, :edit)
