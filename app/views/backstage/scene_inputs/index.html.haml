@@ -5,6 +5,9 @@
       %th.position Ranking
       %th.key      Key
       %th          Name
+      %th.unit     Min
+      %th.unit     Max
+      %th.unit     Step
       %th.unit     Unit
       %th.action   &nbsp;
       %th.action   &nbsp;
@@ -20,6 +23,12 @@
           = link_to input.key, poly_backstage_input_path(input, :edit)
         %td
           = input_name_for_list input
+        %td.unit
+          = input.min
+        %td.unit
+          = input.max
+        %td.unit
+          = input.step
         %td.unit
           = input.unit
         %td.link.action
