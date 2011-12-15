@@ -27,9 +27,9 @@
 .inline-add.make-a-selection
   %h2 Add a new input to this scene:
 
-  = simple_form_for SceneInput.new, url: { action: 'new' } do |f|
+  = simple_form_for SceneInput.new, url: { action: 'create' } do |f|
     = scene_input_input_select(f)
+    = scene_input_location_select(f)
 
     %ul.buttons
       %li= f.button :submit, class: 'green'
-      -#%li= link_to 'Cancel', backstage_inputs_path
