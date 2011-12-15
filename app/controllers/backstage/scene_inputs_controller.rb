@@ -41,11 +41,19 @@ module Backstage
 
     # Add a new scene input to the scene.
     #
-    # POST /backstage/scenes/:scene_id/input
+    # POST /backstage/scenes/:scene_id/inputs
     #
     def create
       @input = @scene.scene_inputs.create(params[:scene_input])
       respond_with @input, location: backstage_scene_inputs_path
+    end
+
+    # Deletes a scene input.
+    #
+    # DELETE /backstage/scenes/:scene_id/inputs/:id
+    #
+    def destroy
+      respond_with @input.destroy, location: backstage_scene_inputs_path
     end
 
   end # SceneInputsController
