@@ -1,0 +1,14 @@
+%h2.content-header
+  %span.scene= @scene.name
+  %span.input= input_name_for_title @input
+
+= simple_form_for [ :backstage, @input ], url: { action: 'create' } do |f|
+  = scene_input_location_select(f)
+  = f.hint "Choose none for a slider which can be choosen by the user in the interface, but is hidden upon load."
+
+  = f.input :position, as: :string, input_html: { class: 'small' }
+  = f.hint "Make sure this position is unique."
+
+  %ul.buttons
+    %li= f.button :submit, class: 'green'
+    %li= link_to 'Cancel', backstage_scene_inputs_path

@@ -39,5 +39,14 @@ module Backstage
       @inputs = @scene.scene_inputs.includes(:input)
     end
 
+    # Add a new scene input to the scene.
+    #
+    # POST /backstage/scenes/:scene_id/input
+    #
+    def create
+      @input = @scene.scene_inputs.create(params[:scene_input])
+      respond_with @input, location: backstage_scene_inputs_path
+    end
+
   end # SceneInputsController
 end # Backstage

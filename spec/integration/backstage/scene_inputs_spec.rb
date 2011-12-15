@@ -11,6 +11,29 @@ feature 'Editing scene inputs' do
 
   # --------------------------------------------------------------------------
 
+  scenario 'Successfully adding a new scene input' do
+    # The input we will be adding to the scene.
+    @other = create :input
+
+    visit "/backstage/scenes/#{ @scene.id }/inputs"
+
+    within('form.scene_input') do
+      select @other.key, from: 'Input'
+      select 'Left',     from: 'Location'
+
+      click_button 'Create Scene input'
+    end
+
+    # We should be returned to the scene input list.
+    page.should have_css('.navigation .scenes.selected')
+    page.should have_css('table#inputs')
+
+    # The scene input was added?
+    page.should have_css('td.key a', content: @other.key)
+  end
+
+  # --------------------------------------------------------------------------
+
   scenario 'Successfully updating the scene input' do
     visit "/backstage/scenes/#{ @scene.id }/inputs"
 
