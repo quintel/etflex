@@ -1,0 +1,22 @@
+%table#props.records
+  %thead
+    %tr
+      %th.location Location
+      %th.key      Key
+      %th.key      CoffeeScript Behaviour
+      %th.action   &nbsp;
+      %th.action   &nbsp;
+
+  %tbody
+    - @props.each do |prop|
+      %tr
+        %td.location
+          = prop.location
+        %td.link.key
+          = link_to prop.key, edit_backstage_scene_prop_path(@scene, prop)
+        %td.key
+          = prop.client_key
+        %td.link.action
+          = link_to 'Edit',   edit_backstage_scene_prop_path(@scene, prop)
+        %td.link.action
+          = link_to 'Delete', backstage_scene_prop_path(@scene, prop), method: :delete, confirm: 'Delete this prop from the scene?'

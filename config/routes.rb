@@ -10,6 +10,7 @@ ETFlex::Application.routes.draw do
 
     resources :scenes do
       resources :inputs, controller: 'scene_inputs', except: :show
+      resources :props,  controller: 'scene_props',  except: :show
     end
 
     get '/', to: redirect('/backstage/scenes')
