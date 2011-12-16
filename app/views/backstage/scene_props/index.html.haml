@@ -3,7 +3,8 @@
     %tr
       %th.location Location
       %th.key      Key
-      %th.key      CoffeeScript Behaviour
+      %th.key      Hurdles
+      %th.key      Front-end Behaviour
       %th.action   &nbsp;
       %th.action   &nbsp;
 
@@ -14,8 +15,10 @@
           = prop.location
         %td.link.key
           = link_to prop.key, edit_backstage_scene_prop_path(@scene, prop)
-        %td.key
-          = prop.client_key
+        %td.link.key
+          = link_to prop.concatenated_hurdles, edit_backstage_scene_prop_path(@scene, prop)
+        %td.link
+          = link_to prop.client_key, "https://github.com/dennisschoenmakers/etflex/tree/master/client/views/vis/#{prop.client_key}.coffee", :target => "_blank", :confirm => "This will take you to Github where you can inspect/adjust the CoffeeScript code. Make sure you have access or you will receive a 'Not Found'-Error. Do you want to continue?"
         %td.link.action
           = link_to 'Edit',   edit_backstage_scene_prop_path(@scene, prop)
         %td.link.action

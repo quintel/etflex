@@ -8,7 +8,7 @@ module Backstage
     #######
 
     before_filter :fetch_scene
-    before_filter :fetch_input, :except => [ :index, :new, :create ]
+    before_filter :fetch_prop, :except => [ :index, :new, :create ]
 
     # Retrieves the scene identified in the params.
     #
@@ -35,6 +35,14 @@ module Backstage
     def index
       @props = @scene.scene_props.includes(:prop)
     end
+
+    # Allows editing a particular scene_prop
+    #
+    # GET /backstage/props/:id
+    #
+    def edit
+    end
+
 
   end # BackstagePropsController
 end # Backstage

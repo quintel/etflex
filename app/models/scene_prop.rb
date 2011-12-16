@@ -26,12 +26,20 @@ class SceneProp < ActiveRecord::Base
 
   # SERIALIZATION ------------------------------------------------------------
 
-  serialize :hurdles, Hash
+  serialize :hurdles, Array
 
   # VALIDATION ---------------------------------------------------------------
 
   validates :scene_id, presence: true
   validates :prop_id,  presence: true
   validates :location, presence: true, length: { in: 1..50 }
+
+  def concatenated_hurdles=(string)
+    self.hurdles = string.split(",").map(&:to_f)
+  end
+
+  def concatenated_hurdles
+    hurdles.join(",")
+  end
 
 end
