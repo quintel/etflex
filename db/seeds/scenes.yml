@@ -6,9 +6,9 @@
 
   props:
     center:
-      - supply-demand
+      - supply_demand
     bottom:
-      - co2-emissions
+      - co2_emissions
       - renewables
       - costs
 
