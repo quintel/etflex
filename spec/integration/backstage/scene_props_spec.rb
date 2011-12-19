@@ -39,6 +39,27 @@ feature 'Editing scene props' do
 
   # --------------------------------------------------------------------------
 
+  scenario 'Failing to add a scene prop' do
+    # Visit the add scene prop page.
+    visit "/backstage/scenes/#{ @scene.id }/props/new"
+
+    # Empty a required field.
+    within('form.scene_prop') do
+      fill_in 'Location', with: ''
+
+      expect { click_button 'Create Scene prop' }.to_not \
+        change { SceneProp.count }
+    end
+
+    # Should be an error page.
+    page.should     have_css("form#new_scene_prop")
+    page.should_not have_css('table#props')
+
+    page.should     have_css('.error', content: "can't be blank")
+  end
+
+  # --------------------------------------------------------------------------
+
   scenario 'Successfully updating the scene prop' do
     # Hold on to the values used by the Prop so we may later ensure that they
     # have not been changed.
@@ -80,6 +101,25 @@ feature 'Editing scene props' do
     # ... and that the Prop wasn't.
     @prop.key.should       eql(prop_originals[:key])
     @prop.behaviour.should eql(prop_originals[:behaviour])
+  end
+
+  # --------------------------------------------------------------------------
+
+  scenario 'Failing to update a scene prop' do
+    # Visit the edit scene prop page.
+    visit "/backstage/scenes/#{ @scene.id }/props/#{ @scene_prop.id }/edit"
+
+    # Empty a required field.
+    within('form.scene_prop') do
+      fill_in      'Location', with: ''
+      click_button 'Update Scene prop'
+    end
+
+    # Should be an error page.
+    page.should     have_css("form#edit_scene_prop_#{ @scene_prop.id }")
+    page.should_not have_css('table#props')
+
+    page.should     have_css('.error', content: "can't be blank")
   end
 
   # --------------------------------------------------------------------------
