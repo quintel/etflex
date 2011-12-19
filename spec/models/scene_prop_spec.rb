@@ -68,7 +68,7 @@ describe SceneProp do
     end
   end
 
-  describe '#concatenated_hurdles' do
+  describe '#concatenated_hurdles=' do
     it 'should set an empty array when given an empty string' do
       prop = SceneProp.new(concatenated_hurdles: '')
       prop.hurdles.should eql([])
