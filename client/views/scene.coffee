@@ -46,7 +46,9 @@ class exports.SceneView extends Backbone.View
     mainProps   = @$ '#main-vis'
 
     for prop in @model.get('props')
-      propView = @visualisation prop.behaviour, queries: @model.queries
+      propView = @visualisation prop.behaviour,
+        hurdles: prop.hurdles
+        queries: @model.queries
 
       if prop.location is 'bottom'
         mainProps.append propView.render().el
