@@ -64,9 +64,10 @@ end
 # etc, MUST be set in a block.
 
 # Symlink database.yml, etc.
-after 'deploy:update_code', 'deploy:link_config'
-after 'deploy:restart',     'bluepill:restart_monitored'
-after 'deploy',             'airbrake:notify'
+before 'deploy:assets:precompile', 'deploy:link_config'
+after  'deploy:update_code',       'deploy:link_config'
+after  'deploy:restart',           'bluepill:restart_monitored'
+after  'deploy',                   'airbrake:notify'
 
 # ----------------------------------------------------------------------------
 
