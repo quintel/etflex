@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111219095847) do
+ActiveRecord::Schema.define(:version => 20111219154910) do
 
   create_table "inputs", :force => true do |t|
     t.integer "remote_id",                    :null => false
@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(:version => 20111219095847) do
   add_index "inputs", ["remote_id"], :name => "index_inputs_on_remote_id", :unique => true
 
   create_table "props", :force => true do |t|
-    t.string "key",        :limit => 100, :null => false
-    t.string "client_key", :limit => 100, :null => false
+    t.string "key",       :limit => 100, :null => false
+    t.string "behaviour", :limit => 100, :null => false
   end
 
   create_table "scene_inputs", :force => true do |t|

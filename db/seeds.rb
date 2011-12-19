@@ -59,11 +59,11 @@ YAML.load_file(Rails.root.join('db/seeds/scenes.yml')).each do |data|
   # Props.
 
   props.each do |(location, keys)|
-    keys.each_with_index do |(client_key, hurdles),index|
+    keys.each_with_index do |(behaviour, hurdles),index|
       scene.scene_props.build(
         location: location,
         position: index,
-        prop:     Prop.where(client_key: client_key).first,
+        prop:     Prop.where(behaviour: behaviour).first,
         hurdles:  hurdles
       )
     end

@@ -18,7 +18,7 @@
         %td.link.key
           = link_to prop.concatenated_hurdles, edit_backstage_scene_prop_path(@scene, prop)
         %td.link
-          = link_to prop.client_key, "https://github.com/dennisschoenmakers/etflex/tree/master/client/views/vis/#{prop.client_key}.coffee", :target => "_blank", :confirm => "This will take you to Github where you can inspect/adjust the CoffeeScript code. Make sure you have access or you will receive a 'Not Found'-Error. Do you want to continue?"
+          = link_to prop.behaviour, "https://github.com/dennisschoenmakers/etflex/tree/master/client/views/vis/#{prop.behaviour.underscore}.coffee", :target => "_blank", :confirm => "This will take you to Github where you can inspect/adjust the CoffeeScript code. Make sure you have access or you will receive a 'Not Found'-Error. Do you want to continue?"
         %td.link.action
           = link_to 'Edit',   edit_backstage_scene_prop_path(@scene, prop)
         %td.link.action
