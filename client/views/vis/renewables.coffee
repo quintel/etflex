@@ -3,6 +3,7 @@
 
 class exports.RenewablesView extends GenericVisualisation
   @queries: [ 'share_of_renewable_electricity' ]
+  states:   [ 'low', 'medium', 'high' ]
 
   className: 'visualisation renewables'
 
@@ -16,13 +17,6 @@ class exports.RenewablesView extends GenericVisualisation
 
     @query = options.queries.get 'share_of_renewable_electricity'
     @query.bind 'change:future', @updateValues
-
-  # Calculates the total CO2 emissions based on the value of the coal and
-  # gas inputs.
-  #
-  recalculate: ->
-    total = @query.get('future') * 100
-    if total is 0 then '0' else @precision total, 3
 
   # Renders the UI; calculates the C02 emissions. Can be safely called
   # repeatedly to update the UI.
@@ -39,16 +33,12 @@ class exports.RenewablesView extends GenericVisualisation
   # without re-rendering the whole view.
   #
   updateValues: =>
-    value   = @recalculate()
-    element = $ @el
+    # Multiply the query value by 100 to get a percentage.
+    value = @query.get('future') * 100
 
-    element.find('.output').html "#{value}%"
+    # Reduce the value to three decimal places when shown.
+    $(@el).find('.output').html "#{@precision value, 3}%"
 
-    if value < 6
-      @icon.setState 'low'
-    else if value < 10
-      @icon.setState 'medium'
-    else
-      @icon.setState 'high'
+    @icon.setState @hurdleState value
 
     this
