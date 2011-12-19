@@ -4,7 +4,7 @@
 # @param [String] file The name of the file in the config/ directory.
 #
 def link_config_command(file)
-  %( ln -s "#{shared_path}/config/#{file}" "#{release_path}/config/#{file}" )
+  %( ln -sf "#{shared_path}/config/#{file}" "#{release_path}/config/#{file}" )
 end
 
 namespace :deploy do
