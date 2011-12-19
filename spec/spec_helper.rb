@@ -42,6 +42,18 @@ RSpec.configure do |config|
   # Database
   # --------
 
+  # Integration tests should use truncation; real requests aren't wrapped
+  # in a transaction, so neither should high-level tests. These filters need
+  # to be above the filter which starts DatabaseCleaner.
+
+  config.before(:each, type: :request) do
+    DatabaseCleaner.strategy = :truncation
+  end
+
+  config.after(:each, type: :request) do
+    DatabaseCleaner.strategy = :transaction
+  end
+
   # The database_cleaner gem is used to restore the DB to a clean state before
   # each example runs. This is used in preference over rspec-rails'
   # transactions since we also need this behaviour in Cucumber features.
