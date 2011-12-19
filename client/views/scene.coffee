@@ -40,16 +40,21 @@ class exports.SceneView extends Backbone.View
       else
         rightRangesEl.append view.render().el
 
-    # Renders the center visualisation (in between the two slider groups).
+    # Render each of the Props.
 
-    centerVis = @visualisation @model.get('centerVis'), queries: @model.queries
-    @$('#center-vis').html centerVis.render().el
+    centerProps = @$ '#center-vis'
+    mainProps   = @$ '#main-vis'
 
-    # Renders the three visualisations below the sliders.
+    for prop in @model.get('props')
+      propView = @visualisation prop.clientKey, queries: @model.queries
 
-    for key in @model.get('mainVis')
-      visualisation = @visualisation key, queries: @model.queries
-      @$('#main-vis').append visualisation.render().el
+      if prop.location is 'bottom'
+        mainProps.append propView.render().el
+      else
+        centerProps.append propView.render().el
+
+    # Render additional elements used in the modern theme (the animated
+    # header element, etc).
 
     @renderTheme()
 
