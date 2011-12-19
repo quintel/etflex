@@ -1,5 +1,20 @@
 require 'spec_helper'
 
+# Shared Examples ------------------------------------------------------------
+
+shared_examples_for 'an embedded scene prop' do
+  before { subject and subject.symbolize_keys!    }
+
+  it { should_not be_nil                          }
+
+  it { should include(key:       prop.key)        }
+  it { should include(clientKey: prop.client_key) }
+  it { should include(position:  prop.position)   }
+  it { should include(location:  prop.location)   }
+end
+
+# Scene Examples -------------------------------------------------------------
+
 describe 'Scenes' do
 
   # --------------------------------------------------------------------------
@@ -51,7 +66,7 @@ describe 'Scenes' do
 
   # --------------------------------------------------------------------------
 
-  context 'retrieving a list of scenes', api: true do
+  context 'Retrieving a list of scenes', api: true do
     let(:json) { JSON.parse page.source }
 
     before { @scene = create :scene, name_key: 'test' }
@@ -75,10 +90,12 @@ describe 'Scenes' do
 
   # --------------------------------------------------------------------------
 
-  context 'retrieving a scene', api: true do
+  context 'Retrieving a scene', api: true do
     let(:scene)  {   create(:scene)                   }
     let(:inputs) { [ create(:input), create(:input) ] }
     let(:props)  { [ create(:prop),  create(:prop)  ] }
+
+    let(:json)   { JSON.parse page.source }
 
     before do
       # Create two inputs, with two scene inputs; two props, and two
@@ -87,28 +104,32 @@ describe 'Scenes' do
       scene.scene_inputs.create! input: inputs[0], location: 'left'
       scene.scene_inputs.create! input: inputs[1], location: 'right'
 
-      #scene.scene_props.build prop: props[0], location: 'center'
-      #scene.scene_props.build prop: props[1], location: 'bottom'
-    end
+      scene.scene_props.create!  prop: props[0],   location: 'center'
+      scene.scene_props.create!  prop: props[1],   location: 'bottom'
 
-    before  { visit "/scenes/#{scene.id}" }
-    subject { JSON.parse page.source }
+      # Visit the scene page to fetch JSON.
+      visit "/scenes/#{ scene.id }"
+    end
 
     it { page.status_code.should eql(200) }
 
-    it { should have_key('id')        }
-    it { should have_key('name')      }
-    it { should have_key('inputs')    }
-    it { should have_key('props')     }
-    it { should have_key('centerVis') }
-    it { should have_key('mainVis')   }
+    context 'JSON' do
+      subject { json }
 
-    its(['inputs']) { should have(2).members }
-    #its(['props'])  { should have(2).members }
+      it { should have_key('id')        }
+      it { should have_key('name')      }
+      it { should have_key('inputs')    }
+      it { should have_key('props')     }
+      it { should have_key('centerVis') }
+      it { should have_key('mainVis')   }
+
+      its(['inputs']) { should have(2).members }
+      its(['props'])  { should have(2).members }
+    end
 
     context 'inputs' do
       context 'the first input' do
-        let(:input_json) { subject['inputs'].first }
+        let(:input_json) { json['inputs'].first }
         let(:input)      { inputs.first }
 
         it 'should be present' do
@@ -129,7 +150,7 @@ describe 'Scenes' do
       end # the first input
 
       context 'the second input' do
-        let(:input_json) { subject['inputs'].last }
+        let(:input_json) { json['inputs'].last }
         let(:input)      { inputs.last }
 
         it 'should be present' do
@@ -147,8 +168,24 @@ describe 'Scenes' do
         it 'should include the position' do
           input_json['position'].should eql(1)
         end
-      end # the first input
+      end # the second input
     end # inputs
+
+    context 'props' do
+      context 'the first prop' do
+        subject    { json['props'].first }
+        let(:prop) { scene.scene_props.first }
+
+        it_should_behave_like 'an embedded scene prop'
+      end # the first prop
+
+      context 'the second prop' do
+        subject    { json['props'].last }
+        let(:prop) { scene.scene_props.last }
+
+        it_should_behave_like 'an embedded scene prop'
+      end # the second prop
+    end # props
   end
 
   # --------------------------------------------------------------------------
