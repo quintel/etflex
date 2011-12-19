@@ -2,7 +2,7 @@
   %thead
     %tr
       %th.location Location
-      %th.key      Key
+      %th.location Position
       %th.key      Hurdles
       %th.key      Front-end Behaviour
       %th.action   &nbsp;
@@ -11,10 +11,10 @@
   %tbody
     - @props.each do |prop|
       %tr
-        %td.location
-          = prop.location
-        %td.link.key
-          = link_to prop.key, edit_backstage_scene_prop_path(@scene, prop)
+        %td.link
+          = link_to prop.location, edit_backstage_scene_prop_path(@scene, prop)
+        %td.link
+          = link_to (prop.position ? prop.position : "none"), edit_backstage_scene_prop_path(@scene, prop)
         %td.link.key
           = link_to prop.concatenated_hurdles, edit_backstage_scene_prop_path(@scene, prop)
         %td.link

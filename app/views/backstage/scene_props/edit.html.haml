@@ -3,10 +3,13 @@
 
 = simple_form_for @prop, url: { action: 'update' } do |f|
   = f.input :location, as: :string, default: 'bottom', input_html: { class: 'small' }
-  = f.hint "Choose bottom for a Dashboard item"
+  = f.hint "Choose 'bottom' for a Dashboard item"
 
-  = f.input :concatenated_hurdles, as: :string, input_html: { class: 'small' }
-  = f.hint "Please provide in the following format: '<strong>0.1,0.3,0.6,0.8,1.2,10.3</strong>'".html_safe
+  = f.input :position, input_html: { class: 'small' }
+  = f.hint "Leave empty for a hidden Dashboard item, which later can be choosen by a user"
+
+  = f.input :concatenated_hurdles
+  = f.hint "Please provide in the following format: '<strong>0.1, 0.3, 0.6, 0.8, 1.2, 10.3</strong>'".html_safe
 
 
   %ul.buttons

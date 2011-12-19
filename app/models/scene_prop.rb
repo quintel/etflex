@@ -39,7 +39,7 @@ class SceneProp < ActiveRecord::Base
   end
 
   def concatenated_hurdles
-    hurdles.join(",")
+    hurdles.join(", ")
   end
 
 end

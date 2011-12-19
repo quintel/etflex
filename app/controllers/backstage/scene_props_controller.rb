@@ -35,14 +35,11 @@ module Backstage
     def index
       @props = @scene.scene_props.includes(:prop)
     end
-
-    # Allows editing a particular scene_prop
-    #
-    # GET /backstage/props/:id
-    #
-    def edit
+    
+    def update
+      @prop.update_attributes(params[:scene_prop])
+      redirect_to backstage_scenes_path
     end
-
-
+    
   end # BackstagePropsController
 end # Backstage
