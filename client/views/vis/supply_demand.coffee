@@ -1,4 +1,5 @@
 supplyDemandTpl = require 'templates/vis/supply_demand'
+{ hurdleState } = require 'views/vis'
 
 # The maximum values which may be represented on the graph. In petajoules.
 EXTENT = 1000
@@ -25,10 +26,6 @@ class exports.SupplyDemandView extends Backbone.View
 
     @demandQuery.bind 'change:future', @redrawDemand
     @supplyQuery.bind 'change:future', @redrawSupply
-
-    # A file-global isn't visible in the de-bounced updateGauge, so we have to
-    # attach it to the view instance.
-    { @hurdleState } = require 'views/vis'
 
   render: =>
     $(@el).html supplyDemandTpl()
@@ -66,7 +63,7 @@ class exports.SupplyDemandView extends Backbone.View
 
     # Update the label underneath the gauge.
     @$('.gauge .info').text(
-      I18n.t "scenes.etlite.#{ @hurdleState this, difference }")
+      I18n.t "scenes.etlite.#{ hurdleState this, difference }")
 
   # Sets the height of the graph bars, and the marker positions without
   # rerendering the whole view. Returns self.
