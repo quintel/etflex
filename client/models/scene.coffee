@@ -52,9 +52,9 @@ class exports.Scene extends Backbone.Model
   #      since the server JSON will tell us exactly which queries are needed.
   #
   dependantQueries: ->
-    ids = _.clone( getVisualisation( @get('centerVis') ).queries or [] )
+    ids = []
 
-    for visualisation in @get('mainVis')
-      ids.push ( getVisualisation(visualisation).queries or [] )...
+    for prop in @get('props')
+      ids.push ( getVisualisation(prop.behaviour).queries or [] )...
 
     _.uniq ids
