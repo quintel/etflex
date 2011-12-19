@@ -17,7 +17,7 @@
 #
 class SceneProp < ActiveRecord::Base
 
-  delegate :key, :client_key, to: :prop, allow_nil: true
+  delegate :key, :behaviour, to: :prop, allow_nil: true
 
   # RELATIONSHIPS ------------------------------------------------------------
 

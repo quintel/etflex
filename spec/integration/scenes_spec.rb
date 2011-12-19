@@ -24,7 +24,7 @@ shared_examples_for 'an embedded scene prop' do
   it { should_not be_nil                          }
 
   it { should include(key:       prop.key)        }
-  it { should include(clientKey: prop.client_key) }
+  it { should include(behaviour: prop.behaviour) }
   it { should include(position:  prop.position)   }
   it { should include(location:  prop.location)   }
 end
@@ -135,8 +135,6 @@ describe 'Scenes' do
       it { should have_key('name')      }
       it { should have_key('inputs')    }
       it { should have_key('props')     }
-      it { should have_key('centerVis') }
-      it { should have_key('mainVis')   }
 
       its(['inputs']) { should have(2).members }
       its(['props'])  { should have(2).members }
