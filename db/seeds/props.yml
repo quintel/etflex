@@ -1,5 +1,5 @@
 ---
-- client_key: 'co2_emissions'
+- client_key: 'co2-emissions'
 - client_key: 'costs'
 - client_key: 'renewables'
-- client_key: 'supply_demand'
+- client_key: 'supply-demand'
