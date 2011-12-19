@@ -1,4 +1,5 @@
-visTemplate = require 'templates/visualisation'
+visTemplate     = require 'templates/visualisation'
+{ hurdleState } = require 'views/vis'
 
 # A generic, placeholder visualisation which has an empty space for some sort
 # of icon or illustration, and a formatted value.
@@ -43,12 +44,4 @@ class exports.GenericVisualisation extends Backbone.View
   # value - The query value.
   #
   hurdleState: (value) ->
-    return null unless @options?.hurdles and @states?
-
-    _.detect @states, (state, index) =>
-      # If no such hurdle value exists, it means we have run out... the value
-      # is higher than the last hurdle value; use the last state.
-      @options.hurdles[ index ] is undefined or
-        # Is the value less than the hurdle value (we check each hurdle in
-        # ascending order)?
-        value < @options.hurdles[ index ]
+    hurdleState this, value
