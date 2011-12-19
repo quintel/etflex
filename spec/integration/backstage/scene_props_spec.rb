@@ -34,7 +34,7 @@ feature 'Editing scene props' do
     page.should have_css('table#props')
 
     # The scene prop was added?
-    page.should have_css('td.key a', content: @other.key)
+    page.should have_css('td', content: @other.behaviour)
   end
 
   # --------------------------------------------------------------------------
