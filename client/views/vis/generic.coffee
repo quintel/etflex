@@ -34,3 +34,21 @@ class exports.GenericVisualisation extends Backbone.View
 
       if rounded.length is 1 then rounded else
         "#{rounded[0]}.#{rounded[1][0...precision]}"
+
+  # Given a query value, returns which "state" that value corresponds to based
+  # on the array of "hurdles" which the instance was initialized with. If the
+  # instance does not have a "states" attribute, or @options does not have a
+  # "hurdles" attribute, then "null" will be returned.
+  #
+  # value - The query value.
+  #
+  hurdleState: (value) ->
+    return null unless @options?.hurdles and @states?
+
+    _.detect @states, (state, index) =>
+      # If no such hurdle value exists, it means we have run out... the value
+      # is higher than the last hurdle value; use the last state.
+      @options.hurdles[ index ] is undefined or
+        # Is the value less than the hurdle value (we check each hurdle in
+        # ascending order)?
+        value < @options.hurdles[ index ]
