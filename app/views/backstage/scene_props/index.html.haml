@@ -5,6 +5,7 @@
 %table#props.records
   %thead
     %tr
+      %th.name     Prop
       %th.location Location
       %th.location Position
       %th.key      Hurdles
@@ -16,11 +17,13 @@
     - @props.each do |prop|
       %tr
         %td.link
-          = link_to prop.location, edit_backstage_scene_prop_path(@scene, prop)
-        %td.link
-          = link_to (prop.position ? prop.position : "none"), edit_backstage_scene_prop_path(@scene, prop)
-        %td.link.key
-          = link_to prop.concatenated_hurdles, edit_backstage_scene_prop_path(@scene, prop)
+          = link_to I18n.t("props.#{prop.key}.name"), edit_backstage_scene_prop_path(@scene, prop)
+        %td
+          = prop.location
+        %td
+          = if prop.position.blank? then 'none' else prop.position end
+        %td.key
+          = prop.concatenated_hurdles
         %td.link
           = link_to prop.behaviour, "https://github.com/dennisschoenmakers/etflex/tree/master/client/views/vis/#{prop.behaviour.underscore}.coffee", :target => "_blank", :confirm => "This will take you to Github where you can inspect/adjust the CoffeeScript code. Make sure you have access or you will receive a 'Not Found'-Error. Do you want to continue?"
         %td.link.action
