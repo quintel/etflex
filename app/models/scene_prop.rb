@@ -35,11 +35,13 @@ class SceneProp < ActiveRecord::Base
   validates :location, presence: true, length: { in: 1..50 }
 
   def concatenated_hurdles=(string)
-    self.hurdles = string.split(",").map(&:to_f)
+    self.hurdles = if string.blank? then [] else
+      string.split(',').map(&:to_f)
+    end
   end
 
   def concatenated_hurdles
-    hurdles.join(", ")
+    hurdles.join(', ')
   end
 
 end
