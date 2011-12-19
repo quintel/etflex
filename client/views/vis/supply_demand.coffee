@@ -8,6 +8,7 @@ EXTENT = 1000
 #
 class exports.SupplyDemandView extends Backbone.View
   @queries:  [ 'electricity_production', 'final_demand_electricity' ]
+  states:    [ 'supplyExcess', 'balanced', 'demandExcess' ]
 
   id:        'energy-generation'
   className: 'energy-graph'
@@ -24,6 +25,10 @@ class exports.SupplyDemandView extends Backbone.View
 
     @demandQuery.bind 'change:future', @redrawDemand
     @supplyQuery.bind 'change:future', @redrawSupply
+
+    # A file-global isn't visible in the de-bounced updateGauge, so we have to
+    # attach it to the view instance.
+    { @hurdleState } = require 'views/vis'
 
   render: =>
     $(@el).html supplyDemandTpl()
@@ -59,12 +64,9 @@ class exports.SupplyDemandView extends Backbone.View
       .css('-moz-transform', "rotate(#{degrees}deg)")
       .css('-webkit-transform', "rotate(#{degrees}deg)")
 
-    if difference > 1.4
-      @$('.gauge .info').text I18n.t 'scenes.etlite.demandExcess'
-    else if difference < 0.6
-      @$('.gauge .info').text I18n.t 'scenes.etlite.supplyExcess'
-    else
-      @$('.gauge .info').text I18n.t 'scenes.etlite.balanced'
+    # Update the label underneath the gauge.
+    @$('.gauge .info').text(
+      I18n.t "scenes.etlite.#{ @hurdleState this, difference }")
 
   # Sets the height of the graph bars, and the marker positions without
   # rerendering the whole view. Returns self.
