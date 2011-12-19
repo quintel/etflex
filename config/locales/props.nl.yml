@@ -1,0 +1,11 @@
+---
+nl:
+  props:
+    co2_emissions:
+      name: "CO2-uitstoot"
+    costs:
+      name: "Totale Kosten"
+    renewables:
+      name: "Percentage van hernieuwbare energiebronnen"
+    supply_demand:
+      name: "Saldo van Vraag en Aanbod"
