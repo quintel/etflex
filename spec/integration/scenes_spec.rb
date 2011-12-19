@@ -2,6 +2,22 @@ require 'spec_helper'
 
 # Shared Examples ------------------------------------------------------------
 
+shared_examples_for 'an embedded scene input' do
+  before { subject and subject.symbolize_keys!    }
+
+  it { should_not be_nil                          }
+
+  it { should include(key:       input.key)       }
+  it { should include(start:     input.start)     }
+  it { should include(min:       input.min)       }
+  it { should include(max:       input.max)       }
+  it { should include(step:      input.step)      }
+  it { should include(unit:      input.unit)      }
+  it { should include(position:  input.position)  }
+  it { should include(location:  input.location)  }
+  it { should include(remoteId:  input.remote_id) }
+end
+
 shared_examples_for 'an embedded scene prop' do
   before { subject and subject.symbolize_keys!    }
 
@@ -91,15 +107,14 @@ describe 'Scenes' do
   # --------------------------------------------------------------------------
 
   context 'Retrieving a scene', api: true do
-    let(:scene)  {   create(:scene)                   }
-    let(:inputs) { [ create(:input), create(:input) ] }
-    let(:props)  { [ create(:prop),  create(:prop)  ] }
-
+    let(:scene)  { create(:scene)         }
     let(:json)   { JSON.parse page.source }
 
     before do
       # Create two inputs, with two scene inputs; two props, and two
       # scene props.
+      inputs = [ create(:input), create(:input) ]
+      props  = [ create(:prop),  create(:prop)  ]
 
       scene.scene_inputs.create! input: inputs[0], location: 'left'
       scene.scene_inputs.create! input: inputs[1], location: 'right'
@@ -129,45 +144,17 @@ describe 'Scenes' do
 
     context 'inputs' do
       context 'the first input' do
-        let(:input_json) { json['inputs'].first }
-        let(:input)      { inputs.first }
+        subject     { json['inputs'].first }
+        let(:input) { scene.scene_inputs.first }
 
-        it 'should be present' do
-          input_json.should_not be_nil
-        end
-
-        it 'should set the remoteId' do
-          input_json['remoteId'].should eql(input.remote_id)
-        end
-
-        it 'should include the location' do
-          input_json['location'].should eql('left')
-        end
-
-        it 'should include the position' do
-          input_json['position'].should eql(1)
-        end
+        it_should_behave_like 'an embedded scene input'
       end # the first input
 
       context 'the second input' do
-        let(:input_json) { json['inputs'].last }
-        let(:input)      { inputs.last }
+        subject     { json['inputs'].last }
+        let(:input) { scene.scene_inputs.last }
 
-        it 'should be present' do
-          input_json.should_not be_nil
-        end
-
-        it 'should set the remoteId' do
-          input_json['remoteId'].should eql(input.remote_id)
-        end
-
-        it 'should include the location' do
-          input_json['location'].should eql('right')
-        end
-
-        it 'should include the position' do
-          input_json['position'].should eql(1)
-        end
+        it_should_behave_like 'an embedded scene input'
       end # the second input
     end # inputs
 
