@@ -46,9 +46,9 @@ RSpec.configure do |config|
   # each example runs. This is used in preference over rspec-rails'
   # transactions since we also need this behaviour in Cucumber features.
 
-  config.before(:suite) { DatabaseCleaner.strategy = :truncation }
-  config.before(:each)  { DatabaseCleaner.start                  }
-  config.after(:each)   { DatabaseCleaner.clean                  }
+  config.before(:suite) { DatabaseCleaner.strategy = :transaction }
+  config.before(:each)  { DatabaseCleaner.start                   }
+  config.after(:each)   { DatabaseCleaner.clean                   }
 
   # Capybara
   # --------
