@@ -16,6 +16,7 @@ feature 'Editing scene inputs' do
     @other = create :input
 
     visit "/backstage/scenes/#{ @scene.id }/inputs"
+    click_link 'Create Scene Input'
 
     within('form.scene_input') do
       select @other.key, from: 'Input'
