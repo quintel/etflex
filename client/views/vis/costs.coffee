@@ -4,6 +4,9 @@
 class exports.CostsView extends GenericVisualisation
   @queries: [ 'total_costs' ]
 
+  states:   [ 'nine', 'eight', 'seven', 'six', 'five',
+              'four', 'three', 'two', 'one' ]
+
   className: 'visualisation costs'
 
   # Creates a new Costs visualisation. Calculates the cost of the choices the
@@ -32,28 +35,13 @@ class exports.CostsView extends GenericVisualisation
   # without re-rendering the whole view.
   #
   updateValues: =>
-    value   = @precision @query.get('future') / 1000000000, 3
-    element = $ @el
+    # Divide to get the cost in billions.
+    value = @query.get('future') / 1000000000
 
-    element.find('.output').html "€#{value} #{I18n.t 'scenes.etlite.billion'}"
+    # Reduce the shown value to three decimal places.
+    $(@el).find('.output').html(
+      "€#{@precision value, 3} #{I18n.t 'scenes.etlite.billion'}")
 
-    if value < 40
-      @icon.setState 'nine'
-    else if value < 40.4
-      @icon.setState 'eight'
-    else if value < 40.8
-      @icon.setState 'seven'
-    else if value < 41.2
-      @icon.setState 'six'
-    else if value < 41.6
-      @icon.setState 'five'
-    else if value < 42.0
-      @icon.setState 'four'
-    else if value < 42.4
-      @icon.setState 'three'
-    else if value < 42.8
-      @icon.setState 'two'
-    else
-      @icon.setState 'one'
+    @icon.setState @hurdleState value
 
     this
