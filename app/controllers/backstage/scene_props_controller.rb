@@ -1,5 +1,6 @@
 module Backstage
   class ScenePropsController < BackstageController
+    helper PropsHelper
 
     # FILTERS ----------------------------------------------------------------
 
@@ -35,11 +36,40 @@ module Backstage
     def index
       @props = @scene.scene_props.includes(:prop)
     end
-    
+
+    # Shows a form for adding a new scene prop.
+    #
+    # GET /backstage/scenes/:scene_id/props/new
+    #
+    def new
+      @prop = @scene.scene_props.build
+    end
+
+    # Adds a new scene prop to the scene.
+    #
+    # POST /backstage/scenes/:scene_id/props
+    #
+    def create
+      @prop = @scene.scene_props.create(params[:scene_prop])
+      respond_with @prop, location: backstage_scene_props_path
+    end
+
+    # Updates a scene prop.
+    #
+    # PUT /backstage/scenes/:scene_id/props/:id
+    #
     def update
       @prop.update_attributes(params[:scene_prop])
-      redirect_to backstage_scenes_path
+      respond_with @prop, location: backstage_scene_props_path
     end
-    
-  end # BackstagePropsController
+
+    # Deletes a scene prop.
+    #
+    # DELETE /backstage/scenes/:scene_id/props/:id
+    #
+    def destroy
+      respond_with @prop.destroy, location: backstage_scene_props_path
+    end
+
+  end # ScenePropsController
 end # Backstage

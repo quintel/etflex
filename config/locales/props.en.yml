@@ -1,0 +1,11 @@
+---
+en:
+  props:
+    co2_emissions:
+      name: "CO2 Emissions"
+    costs:
+      name: "Total Costs"
+    renewables:
+      name: "Percentage of Renewables"
+    supply_demand:
+      name: "Balance of Supply and Demand"
