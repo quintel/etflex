@@ -17,7 +17,11 @@ module Backstage::InputsHelper
   # input - The input instance whose name is to be returned.
   #
   def input_name_for_title(input)
-    translated = t("inputs.#{ input.key }.name", default: '')
+    if input.new_record? and input.key.blank?
+      translated = t('inputs.new.name')
+    else
+      translated = t("inputs.#{ input.key }.name", default: '')
+    end
 
     if translated.blank? then input.key else translated end
   end

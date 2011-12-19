@@ -1,6 +1,10 @@
 ---
 nl:
   inputs:
+    new:
+      name: "Nieuwe input"
+      description: ""
+
     households_lighting_low_energy_light_bulb_share:
       name: "Zuinige lampen"
       description: >

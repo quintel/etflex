@@ -1,3 +1,7 @@
+%ul.buttons.main-actions
+  %li
+    = link_to 'Create a new Scene Input', new_backstage_scene_input_path, class: 'green'
+
 %table#inputs.records
   %thead
     %tr
@@ -35,13 +39,3 @@
           = link_to 'Edit',   poly_backstage_input_path(input, :edit)
         %td.link.action
           = link_to 'Delete', poly_backstage_input_path(input), method: :delete, confirm: 'Delete this input from the scene?'
-
-.inline-add.make-a-selection
-  %h2 Add a new input to this scene:
-
-  = simple_form_for SceneInput.new, url: { action: 'create' } do |f|
-    = scene_input_input_select(f)
-    = scene_input_location_select(f)
-
-    %ul.buttons
-      %li= f.button :submit, class: 'green'

@@ -1,6 +1,10 @@
 ---
 en:
   inputs:
+    new:
+      name: "New input"
+      description: ""
+
     households_lighting_low_energy_light_bulb_share:
       name: "Low-energy lighting"
       description: >

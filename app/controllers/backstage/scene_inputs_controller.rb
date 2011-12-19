@@ -39,6 +39,14 @@ module Backstage
       @inputs = @scene.scene_inputs.includes(:input)
     end
 
+    # Shows a form allowing a user to add a new input to the scene.
+    #
+    # GET /backstage/scenes/:scene_id/inputs/new
+    #
+    def new
+      @input = @scene.scene_inputs.build
+    end
+
     # Add a new scene input to the scene.
     #
     # POST /backstage/scenes/:scene_id/inputs
