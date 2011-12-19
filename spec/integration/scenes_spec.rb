@@ -24,9 +24,10 @@ shared_examples_for 'an embedded scene prop' do
   it { should_not be_nil                          }
 
   it { should include(key:       prop.key)        }
-  it { should include(behaviour: prop.behaviour) }
+  it { should include(behaviour: prop.behaviour)  }
   it { should include(position:  prop.position)   }
   it { should include(location:  prop.location)   }
+  it { should include(hurdles:   prop.hurdles)    }
 end
 
 # Scene Examples -------------------------------------------------------------
@@ -120,7 +121,8 @@ describe 'Scenes' do
       scene.scene_inputs.create! input: inputs[1], location: 'right'
 
       scene.scene_props.create!  prop: props[0],   location: 'center'
-      scene.scene_props.create!  prop: props[1],   location: 'bottom'
+      scene.scene_props.create!  prop: props[1],   location: 'bottom',
+        hurdles: [1, 2, 3]
 
       # Visit the scene page to fetch JSON.
       visit "/scenes/#{ scene.id }"
