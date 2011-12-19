@@ -3,6 +3,7 @@
 
 class exports.CO2EmissionsView extends GenericVisualisation
   @queries: [ 'co2_emission_total' ]
+  states:   [ 'low', 'medium', 'high', 'extreme' ]
 
   className: 'visualisation co2-emissions'
 
@@ -17,14 +18,6 @@ class exports.CO2EmissionsView extends GenericVisualisation
 
     @query = options.queries.get 'co2_emission_total'
     @query.bind 'change:future', @updateValues
-
-  # Calculates the total CO2 emissions based on the value of the coal and
-  # gas inputs.
-  #
-  recalculate: ->
-    # Query result is in kilograms. Devide by 1000 to get tons, then 1000000
-    # to get Mtons.
-    @precision @query.get('future') / 1000000000, 1
 
   # Renders the UI; calculates the C02 emissions. Can be safely called
   # repeatedly to update the UI.
@@ -41,18 +34,13 @@ class exports.CO2EmissionsView extends GenericVisualisation
   # without re-rendering the whole view.
   #
   updateValues: =>
-    value   = @recalculate()
-    element = $ @el
+    # Query result is in kilograms. Divide by 1000 to get tons, then 1000000
+    # to get Mtons.
+    value = @query.get('future') / 1000000000
 
-    element.find('.output').html "#{value} Mton CO<sup>2</sup>"
+    # Reduce the value to one decimal place when shown.
+    $(@el).find('.output').html "#{@precision value, 1} Mton CO<sup>2</sup>"
 
-    if value < 140
-      @icon.setState 'low'
-    else if value < 154
-      @icon.setState 'medium'
-    else if value < 161
-      @icon.setState 'high'
-    else
-      @icon.setState 'extreme'
+    @icon.setState @hurdleState value
 
     this
