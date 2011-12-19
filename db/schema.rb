@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111213210435) do
+ActiveRecord::Schema.define(:version => 20111219095847) do
 
   create_table "inputs", :force => true do |t|
     t.integer "remote_id",                    :null => false
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(:version => 20111213210435) do
     t.integer "prop_id",                :null => false
     t.string  "location", :limit => 50, :null => false
     t.text    "hurdles"
+    t.integer "position"
   end
 
   add_index "scene_props", ["scene_id", "prop_id"], :name => "index_scene_props_on_scene_id_and_prop_id", :unique => true
