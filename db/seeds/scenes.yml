@@ -6,9 +6,9 @@
 
   props:
     center:
-      supply_demand: []
+      supply-demand: []
     bottom:
-      co2_emissions: [140.0, 154.0, 161.0]
+      co2-emissions: [140.0, 154.0, 161.0]
       renewables: [6.0, 10.0]
       costs: [40.0, 40.4, 40.8, 41.2, 41.6, 42.0, 42.4, 42.8]
 
