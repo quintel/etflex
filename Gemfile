@@ -25,6 +25,9 @@ gem 'rails-i18n'
 
 gem 'airbrake'
 
+# Deploy with Capistrano
+gem 'capistrano'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -48,8 +51,10 @@ group :production do
   gem 'bluepill', require: false
 end
 
-# Deploy with Capistrano
-gem 'capistrano'
+group :development do
+  # Used in the update_inputs rake task.
+  gem 'rest-client', require: false
+end
 
 group :test, :development do
   # gem 'ruby-debug19', :require => 'ruby-debug'
