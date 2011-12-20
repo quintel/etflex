@@ -15,10 +15,10 @@ module BackstageHelper
     items << backstage_navigation_item(
       :scenes,  backstage_scenes_path, %w( scenes scene_inputs scene_props ))
 
-    items << backstage_navigation_item(:inputs,  backstage_inputs_path)
-    items << backstage_navigation_item(:queries, '#')
-    items << backstage_navigation_item(:props,   '#')
-    items << backstage_navigation_item(:front_end,   '/')
+    items << backstage_navigation_item(:inputs,    backstage_inputs_path)
+    items << backstage_navigation_item(:queries,   '#')
+    items << backstage_navigation_item(:props,     '#')
+    items << backstage_navigation_item(:front_end, '/')
 
     items.join("\n").html_safe
   end
