@@ -17,3 +17,6 @@ en:
       sign_out:
         name:  'Sign Out'
         title: 'Sign out of your ETflex account'
+      front_end:
+        name:  'Front End'
+        title: 'Go to the Front End'
