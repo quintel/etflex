@@ -11,4 +11,5 @@ class exports.InputDefinition
     @key  = attributes.key
     @min  = attributes.min  or 0
     @max  = attributes.max  or 100
+    @step = attributes.step or 1
     @unit = attributes.unit or ''
