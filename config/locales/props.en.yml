@@ -9,3 +9,11 @@ en:
       name: "Percentage of Renewables"
     supply_demand:
       name: "Balance of Supply and Demand"
+
+    # Modern Theme Header
+    # -------------------
+
+    car:
+      name: "Header: Eco Car / SUV"
+    city:
+      name: "Header: Futuristic City"

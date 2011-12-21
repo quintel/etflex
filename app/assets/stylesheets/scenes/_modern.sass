@@ -238,10 +238,13 @@
       .solar-panels
         @include modern-prop(solar-panels, 643px, 162px, 944px, 98px)
 
-      // The electric car.
+      // The electric car / SUV.
 
-      .electric-car
-        @include modern-prop(electric-car, 345px, 143px, 690px, 40px)
+      .car
+        @include modern-prop-dyn(car, 345px, 143px, 690px, 40px)
+
+        .icon.suv
+          background-position: left -143px
 
       // The sun overlay on the right of the header; needs to be displayed
       // above the other layers so that the glow / lens flare isn't occluded.

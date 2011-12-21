@@ -3,4 +3,7 @@
 - behaviour: 'costs'
 - behaviour: 'renewables'
 - behaviour: 'supply-demand'
+
+# Modern theme headerprops.
+- behaviour: 'car'
 - behaviour: 'city'

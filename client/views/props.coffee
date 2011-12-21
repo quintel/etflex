@@ -45,4 +45,5 @@ props =
   'supply-demand': require('views/props/supply_demand').SupplyDemandView
 
   # Header Props.
+  'car':           require('views/props/headers/car').CarProp
   'city':          require('views/props/headers/city').CityProp
