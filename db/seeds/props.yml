@@ -3,3 +3,4 @@
 - behaviour: 'costs'
 - behaviour: 'renewables'
 - behaviour: 'supply-demand'
+- behaviour: 'city'

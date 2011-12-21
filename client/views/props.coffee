@@ -43,3 +43,6 @@ props =
   'icon':          require('views/props/icon').IconProp
   'renewables':    require('views/props/renewables').RenewablesView
   'supply-demand': require('views/props/supply_demand').SupplyDemandView
+
+  # Header Props.
+  'city':          require('views/props/headers/city').CityProp
