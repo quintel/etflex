@@ -51,7 +51,6 @@ class SceneInput < ActiveRecord::Base
 
   validates :scene_id, presence: true
   validates :input_id, presence: true
-  validates :location, presence: true
 
   # Ensure that the minimum value does not exceed the minimum value defined in
   # the Input; but only if the input is set, and has a minimum.
