@@ -41,18 +41,17 @@ class exports.SceneView extends Backbone.View
 
     # Render each of the Props.
 
-    centerProps = @$ '#center-props'
-    mainProps   = @$ '#main-props'
+    propLocations = @propContainers()
 
     for prop in @model.get('props')
       propView = @prop prop.behaviour,
         hurdles: prop.hurdles
         queries: @model.queries
 
-      if prop.location is 'bottom'
-        mainProps.append propView.render().el
-      else
-        centerProps.append propView.render().el
+      # If the prop location doesn't exist in the template, the prop will not
+      # rendered. This is intentional so that "hidden" props don't raise
+      # errors.
+      propLocations[ prop.location ]?.append propView.render().el
 
     # Render additional elements used in the modern theme (the animated
     # header element, etc).
@@ -83,3 +82,15 @@ class exports.SceneView extends Backbone.View
   #
   prop: (key, args...) ->
     new (getProp key)(args...)
+
+  # Returns a Hash of Div elements, each of which is a location in the
+  # template where props may be rendered. Each hash key is the prop location.
+  #
+  propContainers: ->
+    containers = {}
+
+    for element in @$ '[data-prop-location]'
+      element = $ element
+      containers[ element.attr 'data-prop-location' ] = element
+
+    containers
