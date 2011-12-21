@@ -11,7 +11,7 @@
     </div>
   </div>
 
-  <div id="main-props"></div>
+  <div class="dashboard" id="main-props"></div>
 
   <div id="footer">
     <ul id="social-media">
