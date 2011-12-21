@@ -8,6 +8,7 @@
 class exports.IconProp extends Backbone.View
 
   className: 'icon-prop'
+  fadeType:  'serial'
 
   render: ->
     @activeIcon   = $ @make 'span', class: 'icon'
@@ -53,7 +54,11 @@ class exports.IconProp extends Backbone.View
     @activeIcon.attr class: "icon #{name} active"
 
     if @currentState?
-      @activeIcon.fadeIn 1000, => @inactiveIcon.hide()
+      if @fadeType is 'parallel'
+        @activeIcon.fadeIn 1000
+        @inactiveIcon.fadeOut 1000
+      else
+        @activeIcon.fadeIn 1000, => @inactiveIcon.hide()
     else
       # Current state is only falsey when the view is first loaded.
       @activeIcon.show()

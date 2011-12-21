@@ -2,6 +2,8 @@
 { hurdleState } = require 'views/props'
 
 class exports.HeaderIcon extends IconProp
+  fadeType: 'parallel'
+
   constructor: (options) ->
     super
 
