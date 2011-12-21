@@ -26,6 +26,11 @@ class exports.SceneView extends Backbone.View
   render: ->
     $(@el).html template()
 
+    # Render additional elements used in the modern theme (the animated
+    # header element, etc).
+
+    @renderTheme()
+
     # Render each of the Inputs as a Range.
 
     leftRangesEl  = @$ '#left-inputs'
@@ -52,11 +57,6 @@ class exports.SceneView extends Backbone.View
       # rendered. This is intentional so that "hidden" props don't raise
       # errors.
       propLocations[ prop.location ]?.append propView.render().el
-
-    # Render additional elements used in the modern theme (the animated
-    # header element, etc).
-
-    @renderTheme()
 
     this
 
