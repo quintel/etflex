@@ -3,7 +3,7 @@
 
 class exports.RenewablesView extends GenericVisualisation
   @queries: [ 'share_of_renewable_electricity' ]
-  states:   [ 'low', 'medium', 'high' ]
+  states:   [ 'low', 'medium', 'high', 'extreme' ]
 
   className: 'visualisation renewables'
 

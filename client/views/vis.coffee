@@ -26,7 +26,11 @@ exports.getVisualisation = (name) ->
 exports.hurdleState = (view, value) ->
   return null unless view.options?.hurdles and view.states?
 
+  console.log ''
+  console.log view.states, value
+
   _.detect view.states, (state, index) =>
+    console.log index, state, view.options.hurdles[ index ]
     # If no such hurdle value exists, it means we have run out... the value
     # is higher than the last hurdle value; use the last state.
     view.options.hurdles[ index ] is undefined or
