@@ -25,8 +25,8 @@
         %td.key
           = prop.concatenated_hurdles
         %td.link
-          = link_to prop.behaviour, "https://github.com/dennisschoenmakers/etflex/tree/master/client/views/vis/#{prop.behaviour.underscore}.coffee", :target => "_blank", :confirm => "This will take you to Github where you can inspect/adjust the CoffeeScript code. Make sure you have access or you will receive a 'Not Found'-Error. Do you want to continue?"
+          = link_to_prop_behaviour prop
         %td.link.action
-          = link_to 'Edit',   edit_backstage_scene_prop_path(@scene, prop)
+          = link_to 'Edit', edit_backstage_scene_prop_path(@scene, prop)
         %td.link.action
           = link_to 'Delete', backstage_scene_prop_path(@scene, prop), method: :delete, confirm: 'Delete this prop from the scene?'
