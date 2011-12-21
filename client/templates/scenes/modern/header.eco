@@ -2,7 +2,7 @@
   <a href="/" id="logo">Energie Transitie Model (lite)</a>
 
   <!-- illustration props -->
-  <div class="world">
+  <div class="world" data-prop-location="header">
     <div class="plane"></div>
     <div class="city"></div>
     <div class="turbines"></div>
