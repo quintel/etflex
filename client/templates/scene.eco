@@ -4,14 +4,14 @@
       <h2><span><%= I18n.t 'scenes.etlite.savings' %></span></h2>
     </div>
 
-    <div id="center-vis"></div>
+    <div id="center-props"></div>
 
     <div id="right-inputs">
       <h2><span><%= I18n.t 'scenes.etlite.production' %></span></h2>
     </div>
   </div>
 
-  <div id="main-vis"></div>
+  <div id="main-props"></div>
 
   <div id="footer">
     <ul id="social-media">

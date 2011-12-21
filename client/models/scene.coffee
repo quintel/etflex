@@ -1,9 +1,9 @@
 app = require 'app'
 
-{ getSession }       = require 'lib/session_manager'
-{ getVisualisation } = require 'views/vis'
+{ getSession } = require 'lib/session_manager'
+{ getProp }    = require 'views/props'
 
-{ Inputs }           = require 'collections/inputs'
+{ Inputs }     = require 'collections/inputs'
 
 # Scenes are pages such as the ETlite recreation, which have one or more
 # inputs, fetch results from ETengine, and display these to the user.
@@ -55,6 +55,6 @@ class exports.Scene extends Backbone.Model
     ids = []
 
     for prop in @get('props')
-      ids.push ( getVisualisation(prop.behaviour).queries or [] )...
+      ids.push ( getProp(prop.behaviour).queries or [] )...
 
     _.uniq ids

@@ -1,20 +1,20 @@
-{ GenericVisualisation } = require 'views/vis/generic'
-{ IconVisualisation }    = require 'views/vis/icon'
+{ GenericProp } = require 'views/props/generic'
+{ IconProp }    = require 'views/props/icon'
 
-class exports.CO2EmissionsView extends GenericVisualisation
+class exports.CO2EmissionsView extends GenericProp
   @queries: [ 'co2_emission_total' ]
   states:   [ 'low', 'medium', 'high', 'extreme' ]
 
-  className: 'visualisation co2-emissions'
+  className: 'prop co2-emissions'
 
-  # Creates a new CO2Emissions visualisation. In addition to the usual
-  # Backbone options, requires `gas` containing the gas-fired power plants
-  # input, and `coal` containing the coal-fired power plans input.
+  # Creates a new CO2Emissions prop. In addition to the usual Backbone
+  # options, requires `gas` containing the gas-fired power plants input, and
+  # `coal` containing the coal-fired power plans input.
   #
   constructor: (options) ->
     super options
 
-    @icon = new IconVisualisation
+    @icon = new IconProp
 
     @query = options.queries.get 'co2_emission_total'
     @query.bind 'change:future', @updateValues

@@ -1,14 +1,14 @@
-visTemplate     = require 'templates/visualisation'
-{ hurdleState } = require 'views/vis'
+propTemplate     = require 'templates/prop'
+{ hurdleState }  = require 'views/props'
 
-# A generic, placeholder visualisation which has an empty space for some sort
-# of icon or illustration, and a formatted value.
+# A generic, placeholder prop which has an empty space for some sort of icon
+# or illustration, and a formatted value.
 #
-class exports.GenericVisualisation extends Backbone.View
-  className: 'visualisation'
+class exports.GenericProp extends Backbone.View
+  className: 'prop'
 
   render: (value, unit) ->
-    $(@el).html visTemplate value: value, unit: unit
+    $(@el).html propTemplate value: value, unit: unit
 
     @delegateEvents()
     this

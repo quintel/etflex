@@ -1,11 +1,11 @@
-supplyDemandTpl = require 'templates/vis/supply_demand'
-{ hurdleState } = require 'views/vis'
+supplyDemandTpl = require 'templates/props/supply_demand'
+{ hurdleState } = require 'views/props'
 
 # The maximum values which may be represented on the graph. In petajoules.
 EXTENT = 1000
 
-# A placeholder visualisation which projects energy supply and demand into a
-# histogram based on the selections made by the user on the ETlite recreation.
+# A placeholder prop which projects energy supply and demand into a histogram
+# based on the selections made by the user on the ETlite recreation.
 #
 class exports.SupplyDemandView extends Backbone.View
   @queries:  [ 'electricity_production', 'final_demand_electricity' ]
