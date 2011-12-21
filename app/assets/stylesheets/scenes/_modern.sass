@@ -8,6 +8,20 @@
   top: $top
   width: $width
 
+@mixin modern-prop-dyn($image, $width, $height, $left, $top)
+  height: $height
+  left: $left
+  position: absolute
+  top: $top
+  width: $width
+
+  span.icon
+    background: image-url("scenes/modern/header/#{$image}.png") top left no-repeat
+    height: $height
+    display: block
+    position: absolute
+    width: $width
+
 // Animation -----------------------------------------------------------------
 
 @-moz-keyframes sceneModernPlane
@@ -200,7 +214,13 @@
       // The "futuristic city" in the distant background.
 
       .city
-        @include modern-prop(future-city, 325px, 121px, 280px, 5px)
+        @include modern-prop-dyn(future-city, 672px, 175px, 144px, -26px)
+
+        .icon.small
+          background-position: left -175px
+
+        .icon.large
+          background-position: left -350px
 
       // Hills on the left of the ground; currently combines the hills with
       // the trees.
@@ -234,7 +254,7 @@
       .plane
         @include modern-prop(plane, 45px, 22px, 620px, -30px)
 
-        -moz-animation:    sceneModernPlane 60s infinite linear
+        -moz-animation: sceneModernPlane 60s infinite linear
 
   // The supply / demand gauge.
 
