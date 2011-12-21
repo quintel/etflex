@@ -58,7 +58,7 @@ class exports.Main extends Backbone.Router
         console.error "Couldn't fetch a scene list from /scenes"
 
   # Loads a scene using JSON delivered from ETflex to set up which inputs and
-  # visualiations are used.
+  # orios are used.
   #
   # GET /scenes/:id
   #

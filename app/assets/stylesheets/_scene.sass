@@ -1,5 +1,5 @@
-// Styles for scnes pages; pages with inputs and visualisations which allow
-// users to see the outcomes of their choices.
+// Styles for scnes pages; pages with inputs and props which allow users to
+// see the outcomes of their choices.
 //
 // This file should contain only generic styles -- positioning, layout, etc,
 // while style specific to different scenes should be placed in a file
@@ -53,7 +53,7 @@
       //   | --*----- |   |  ==  ==  |   | -------* |
       //   +----------+   +----------+   +----------+
       //
-      #left-inputs, #center-vis, #right-inputs
+      #left-inputs, #center-props, #right-inputs
         float: left
         margin: 0 30px 0 0
         min-height: 2px
@@ -77,18 +77,18 @@
             .left, .main, .right, .handle
               background: none
 
-    // The three visualisations which sit at the bottom of each page, beneath
+    // The three props which sit at the bottom of each page, beneath
     // the slider groups.
-    #main-vis
+    #main-props
       @extend .clearfix
 
-      .visualisation
+      .prop
         float: left
         padding: 37px 0 25px 0
         text-align: center
         width: 320px
 
-        .icon-vis
+        .icon-prop
           height: 140px
           position: relative
 

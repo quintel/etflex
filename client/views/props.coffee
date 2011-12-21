@@ -1,20 +1,20 @@
-# Holds all of the Visualisation classes with their "key" names, used in the
-# database to identify the class.
+# Holds all of the Prop classes with their "key" names, used in the database
+# to identify the class.
 
 # Exports --------------------------------------------------------------------
 
-# Returns the visualisation whose key is "name".
+# Returns the prop whose key is "name".
 #
 # Example:
 #
-#   getVisualisation 'supply-demand'
+#   getProp 'supply-demand'
 #   # => SupplyDemand
 #
-exports.getVisualisation = (name) ->
-  if visualisations.hasOwnProperty name
-    visualisations[name]
+exports.getProp = (name) ->
+  if props.hasOwnProperty name
+    props[name]
   else
-    throw "No such visualisation: #{name}"
+    throw "No such prop: #{name}"
 
 # Given a query value, returns which "state" that value corresponds to based
 # on the array of "hurdles" which the instance was initialized with. If the
@@ -41,9 +41,9 @@ exports.hurdleState = (view, value) ->
 # ----------------------------------------------------------------------------
 
 # This must go after all exports.
-visualisations =
-  'co2-emissions': require('views/vis/co2_emissions').CO2EmissionsView
-  'costs':         require('views/vis/costs').CostsView
-  'icon':          require('views/vis/icon').IconVisualisation
-  'renewables':    require('views/vis/renewables').RenewablesView
-  'supply-demand': require('views/vis/supply_demand').SupplyDemandView
+props =
+  'co2-emissions': require('views/props/co2_emissions').CO2EmissionsView
+  'costs':         require('views/props/costs').CostsView
+  'icon':          require('views/props/icon').IconProp
+  'renewables':    require('views/props/renewables').RenewablesView
+  'supply-demand': require('views/props/supply_demand').SupplyDemandView

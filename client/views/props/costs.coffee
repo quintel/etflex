@@ -1,21 +1,21 @@
-{ GenericVisualisation } = require 'views/vis/generic'
-{ IconVisualisation }    = require 'views/vis/icon'
+{ GenericProp } = require 'views/props/generic'
+{ IconProp }    = require 'views/props/icon'
 
-class exports.CostsView extends GenericVisualisation
+class exports.CostsView extends GenericProp
   @queries: [ 'total_costs' ]
 
   states:   [ 'nine', 'eight', 'seven', 'six', 'five',
               'four', 'three', 'two', 'one' ]
 
-  className: 'visualisation costs'
+  className: 'prop costs'
 
-  # Creates a new Costs visualisation. Calculates the cost of the choices the
-  # user makes in the ETLite scene.
+  # Creates a new Costs prop. Calculates the cost of the choices the user
+  # makes in the ETLite scene.
   #
   constructor: (options) ->
     super options
 
-    @icon = new IconVisualisation
+    @icon = new IconProp
 
     @query = options.queries.get 'total_costs'
     @query.bind 'change:future', @updateValues

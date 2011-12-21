@@ -1,19 +1,19 @@
-{ GenericVisualisation } = require 'views/vis/generic'
-{ IconVisualisation }    = require 'views/vis/icon'
+{ GenericProp } = require 'views/props/generic'
+{ IconProp }    = require 'views/props/icon'
 
-class exports.RenewablesView extends GenericVisualisation
+class exports.RenewablesView extends GenericProp
   @queries: [ 'share_of_renewable_electricity' ]
   states:   [ 'low', 'medium', 'high', 'extreme' ]
 
-  className: 'visualisation renewables'
+  className: 'prop renewables'
 
-  # Creates a new Renewables visualisation. Calculates the percentage of total
-  # energy generated which is derived from solar and window energy.
+  # Creates a new Renewables prop. Calculates the percentage of total energy
+  # generated which is derived from solar and window energy.
   #
   constructor: (options) ->
     super options
 
-    @icon = new IconVisualisation
+    @icon = new IconProp
 
     @query = options.queries.get 'share_of_renewable_electricity'
     @query.bind 'change:future', @updateValues

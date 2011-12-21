@@ -1,13 +1,13 @@
-{ GenericVisualisation } = require 'views/vis/generic'
+{ GenericProp } = require 'views/props/generic'
 
-# IconVisualisation is used when displaying a visualisation which alters it
-# appearance by changing from one icon to another. One such example might be
-# changing from an icon showing a jar with lots of money, to an empty jar,
-# based on the total cost of a scenario.
+# IconProp is used when displaying a prop which alters it appearance by
+# changing from one icon to another. One such example might be changing from
+# an icon showing a jar with lots of money, to an empty jar, based on the
+# total cost of a scenario.
 #
-class exports.IconVisualisation extends Backbone.View
+class exports.IconProp extends Backbone.View
 
-  className: 'icon-vis'
+  className: 'icon-prop'
 
   render: ->
     @activeIcon   = $ @make 'span', class: 'icon'
@@ -22,11 +22,11 @@ class exports.IconVisualisation extends Backbone.View
   #
   # Example:
   #
-  #   vis.setState 'high'
+  #   prop.setState 'high'
   #
   # Example:
   #
-  #   vis.setState 'low'
+  #   prop.setState 'low'
   #
   # The second example will remove the previous "high" state and set the view
   # state to "low".

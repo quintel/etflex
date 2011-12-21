@@ -2,13 +2,12 @@ app           = require 'app'
 template      = require 'templates/scene'
 
 { RangeView } = require 'views/range'
-
-{ getVisualisation } = require 'views/vis'
+{ getProp }   = require 'views/props'
 
 # Scene ----------------------------------------------------------------------
 
 # The heart of ETflex; given a Scene model creates an HTML representation
-# displaying the left and right sliders, visualisations, etc.
+# displaying the left and right sliders, props, etc.
 #
 class exports.SceneView extends Backbone.View
   id: 'scene-view'
@@ -42,11 +41,11 @@ class exports.SceneView extends Backbone.View
 
     # Render each of the Props.
 
-    centerProps = @$ '#center-vis'
-    mainProps   = @$ '#main-vis'
+    centerProps = @$ '#center-props'
+    mainProps   = @$ '#main-props'
 
     for prop in @model.get('props')
-      propView = @visualisation prop.behaviour,
+      propView = @prop prop.behaviour,
         hurdles: prop.hurdles
         queries: @model.queries
 
@@ -76,11 +75,11 @@ class exports.SceneView extends Backbone.View
   fakeNavClick: (event) =>
     event.preventDefault()
 
-  # Creates a new instance of a visualisation. Takes the key of the
-  # visualisation and and additional arguments to be passed the constructor.
+  # Creates a new instance of a prop. Takes the key of the prop and and
+  # additional arguments to be passed the constructor.
   #
-  # key  - The key name for the visualisation. See views/vis.
+  # key  - The key name for the prop. See views/props.
   # args - Additional arguments passed to the constructor.
   #
-  visualisation: (key, args...) ->
-    new (getVisualisation key)(args...)
+  prop: (key, args...) ->
+    new (getProp key)(args...)
