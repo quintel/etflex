@@ -205,16 +205,22 @@
         height: 318px
         position: relative
         width: 1277px
+        z-index: 5
 
       // Wind turbines which appear on the left side of the header.
 
       .turbines
-        @include modern-prop(wind-turbines, 162px, 125px, 130px, 27px)
+        @include modern-prop-dyn(wind-turbines, 413px, 239px, -95px, -50px)
+        z-index: 4
+
+        .icon.coal
+          background-position: left -239px
 
       // The "futuristic city" in the distant background.
 
       .city
         @include modern-prop-dyn(future-city, 672px, 175px, 144px, -26px)
+        z-index: 3
 
         .icon.small
           background-position: left -175px
@@ -227,21 +233,25 @@
 
       .left-hills
         @include modern-prop(left-hills, 412px, 172px, 60px, 91px)
+        z-index: 5
 
       // "Eco" buildings, with big glass fronts.
 
       .eco-buildings
         @include modern-prop(eco-buildings, 643px, 162px, 435px, 18px)
+        z-index: 5
 
       // Solar panels; appear to the right of the eco-buildings.
 
       .solar-panels
         @include modern-prop(solar-panels, 643px, 162px, 944px, 98px)
+        z-index: 5
 
       // The electric car / SUV.
 
       .car
         @include modern-prop-dyn(car, 345px, 143px, 690px, 40px)
+        z-index: 6
 
         .icon.suv
           background-position: left -143px
@@ -251,12 +261,13 @@
 
       .sun
         @include modern-prop(sun, 397px, 367px, 987px, -83px)
+        z-index: 7
 
       // A little airliner which moves through the scene.
 
       .plane
         @include modern-prop(plane, 45px, 22px, 620px, -30px)
-
+        z-index: 7
         -moz-animation: sceneModernPlane 60s infinite linear
 
   // The supply / demand gauge.

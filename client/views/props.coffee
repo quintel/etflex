@@ -47,3 +47,4 @@ props =
   # Header Props.
   'car':           require('views/props/headers/car').CarProp
   'city':          require('views/props/headers/city').CityProp
+  'turbines':      require('views/props/headers/turbines').TurbinesProp
