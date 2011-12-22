@@ -25,9 +25,14 @@ class exports.RangeView extends Backbone.View
   # @return {Range} Returns self.
   #
   render: (mediator) ->
+    # TODO Add a "unitHtml helper somewhere.
+    unit = switch @model.def.unit
+      when 'km2' then " km<sup>2</sup>"
+      else            @model.def.unit
+
     $(@el).html rangeTemplate
       name: I18n.t "inputs.#{@model.def.key}.name"
-      unit: @model.def.unit
+      unit: unit
 
     new $.Quinn @$('.control'),
       value:       @model.get('value')
