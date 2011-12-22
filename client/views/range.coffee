@@ -14,6 +14,12 @@ class exports.RangeView extends Backbone.View
   # Becomes the Quinn instance once render() is called.
   quinn: null
 
+  constructor: ->
+    super
+
+    @precision = @model.def.step.toString().split('.')
+    @precision = @precision[1]?.length or 0
+
   # Renders the range, and sets up events.
   #
   # @return {Range} Returns self.
@@ -46,7 +52,7 @@ class exports.RangeView extends Backbone.View
   # quinn - The Quinn instance which changed.
   #
   updateOutput: (value, quinn) =>
-    @$('.output').text value
+    @$('.output').text value.toFixed @precision
 
   # Saves the model with the new value. Used as an onCommit callback for the
   # Quinn instance.
