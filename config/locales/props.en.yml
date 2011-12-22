@@ -17,3 +17,7 @@ en:
       name: "Header: Eco Car / SUV"
     city:
       name: "Header: Futuristic City"
+    eco_buildings:
+      name: "Header: Eco-Buildings / Quarry"
+    turbines:
+      name: "Header: Wind Turbines / Coal Power Plant"
