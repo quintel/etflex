@@ -201,7 +201,7 @@
       // The main ground layer - contains the green "globe".
 
       .ground
-        background: image-url("scenes/modern/header/ground.png") center 87px no-repeat
+        background: image-url("scenes/modern/header/ground.png") center 55px no-repeat
         height: 318px
         position: relative
         width: 1277px
@@ -229,21 +229,14 @@
           // Move the large city further down.
           background-position: -15px -335px
 
-      // Hills on the left of the ground; currently combines the hills with
-      // the trees.
-
-      .left-hills
-        @include modern-prop(left-hills, 412px, 172px, 60px, 91px)
-        z-index: 5
-
       // "Eco" buildings, with big glass fronts.
 
       .eco-buildings
-        @include modern-prop-dyn(eco-buildings, 643px, 162px, 435px, 18px)
+        @include modern-prop-dyn(eco-buildings, 380px, 87px, 435px, 18px)
         z-index: 4
 
         .icon.coal
-          background-position: -643px top
+          background-position: -380px top
 
       // Solar panels; appear to the right of the eco-buildings.
 
