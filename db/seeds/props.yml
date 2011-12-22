@@ -7,4 +7,5 @@
 # Modern theme headerprops.
 - behaviour: 'car'
 - behaviour: 'city'
+- behaviour: 'eco-buildings'
 - behaviour: 'turbines'

@@ -226,7 +226,8 @@
           background-position: left -175px
 
         .icon.large
-          background-position: left -350px
+          // Move the large city further down.
+          background-position: -15px -335px
 
       // Hills on the left of the ground; currently combines the hills with
       // the trees.
@@ -238,8 +239,11 @@
       // "Eco" buildings, with big glass fronts.
 
       .eco-buildings
-        @include modern-prop(eco-buildings, 643px, 162px, 435px, 18px)
-        z-index: 5
+        @include modern-prop-dyn(eco-buildings, 643px, 162px, 435px, 18px)
+        z-index: 4
+
+        .icon.coal
+          background-position: -643px top
 
       // Solar panels; appear to the right of the eco-buildings.
 
