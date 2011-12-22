@@ -40,6 +40,8 @@ end
 
 puts 'Importing scenes...'
 
+Scene.connection.execute('ALTER TABLE scenes AUTO_INCREMENT = 1;')
+
 YAML.load_file(Rails.root.join('db/seeds/scenes.yml')).each do |data|
   scene  = Scene.create name: data['name']
   inputs = data.delete('inputs') || {}
