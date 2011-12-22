@@ -9,3 +9,15 @@ nl:
       name: "Percentage van hernieuwbare energiebronnen"
     supply_demand:
       name: "Saldo van Vraag en Aanbod"
+
+    # Modern Theme Header
+    # -------------------
+
+    car:
+      name: "Header: Eco Car / SUV"
+    city:
+      name: "Header: Futuristische Stad"
+    eco_buildings:
+      name: "Header: Eco-Gebouwen / Quarry"
+    turbines:
+      name: "Header: Windturbines / Kolen Power Plant"
