@@ -48,11 +48,13 @@ YAML.load_file(Rails.root.join('db/seeds/scenes.yml')).each do |data|
   # Inputs.
 
   inputs.each do |(location, ids)|
-    ids.each do |remote_id|
-      scene.scene_inputs.build(
+    ids.each do |(remote_id, data)|
+      data = data.symbolize_keys
+
+      scene.scene_inputs.build((data || {}).merge(
         location: location,
         input:    Input.where(remote_id: remote_id).first
-      )
+      ))
     end
   end
 
