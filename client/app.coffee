@@ -5,7 +5,6 @@
 { Inputs }        = require 'collections/inputs'
 { Scenes }        = require 'collections/scenes'
 { Queries }       = require 'collections/queries'
-{ createStencil } = require 'collections/stencil'
 
 { InputManager }  = require 'lib/input_manager'
 
@@ -15,10 +14,6 @@ exports.routers = {}
 # Holds each of the main model collections (Sliders, Widgets, etc).
 exports.collections = {}
 
-# Holds Stencil instances which can be used to create collections for
-# each scene.
-exports.stencils = {}
-
 # Called _once_ when the application is first loaded in the browser.
 exports.boot = (window, locale) ->
   installConsolePolyfill window
@@ -27,10 +22,6 @@ exports.boot = (window, locale) ->
   I18n.fallbacks = no
 
   # Set up the collections.
-  raw = require 'raw'
-
-  exports.stencils.inputs    = createStencil Inputs,  raw.inputs
-  exports.stencils.queries   = createStencil Queries, raw.queries
   exports.collections.scenes = new Scenes
 
   # Ensure that boot cannot be called again.
