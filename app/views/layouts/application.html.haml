@@ -15,5 +15,5 @@
   // These go at the end so that loading JS doesn't block the page load...
   = javascript_include_tag 'application'
 
-  %script(type="text/javascript")
-    == require('app').boot(window, '#{I18n.locale}');
+  :javascript
+    require('app').boot(window, #{ client_options })

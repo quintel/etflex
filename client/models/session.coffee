@@ -1,10 +1,3 @@
-# The base URL used for all session requests.
-BASE_URL = 'http://et-engine.com/api/v2/api_scenarios'
-
-# Send with the request as X-Api-Agent so that ETengine devs know where
-# requests are coming from.
-X_API_AGENT = 'ETflex Client'
-
 # Represents the user's session with ETengine; keeps track of their unique
 # session ID, country, end date, etc.
 #

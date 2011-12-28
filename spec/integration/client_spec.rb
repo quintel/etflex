@@ -11,7 +11,10 @@ describe 'The Backbone client' do
     page.should have_css('.loading', text: 'Loading')
 
     # English by default.
-    page.should have_css('script', text: "boot(window, 'en')")
+    page.should have_css('script', text: "boot(window,")
+
+    script = find('script', text: "boot(window,")
+    script.text.should match(/"locale":"en"/)
   end
 
   # --------------------------------------------------------------------------
@@ -25,6 +28,9 @@ describe 'The Backbone client' do
 
       # English when specified in the URL.
       page.should have_css('script', text: "boot(window, 'en')")
+
+      script = find('script', text: "boot(window,")
+      script.text.should match(/"locale":"en"/)
     end
   end
 
@@ -39,6 +45,9 @@ describe 'The Backbone client' do
 
       # Dutch when specified in the URL.
       page.should have_css('script', text: "boot(window, 'nl')")
+
+      script = find('script', text: "boot(window,")
+      script.text.should match(/"locale":"nl"/)
     end
   end
 

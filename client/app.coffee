@@ -2,27 +2,26 @@
 # well as any other objects which are considered "singletons", such as
 # full-page views.
 
-{ Inputs }        = require 'collections/inputs'
-{ Scenes }        = require 'collections/scenes'
-{ Queries }       = require 'collections/queries'
-
-{ InputManager }  = require 'lib/input_manager'
-
 # Holds the instantiated routers so that we can refer to them later.
 exports.routers = {}
 
 # Holds each of the main model collections (Sliders, Widgets, etc).
 exports.collections = {}
 
+# The base URL for all API requests.
+exports.api = null
+
 # Called _once_ when the application is first loaded in the browser.
-exports.boot = (window, locale) ->
+exports.boot = (window, { locale, api }) ->
   installConsolePolyfill window
+
+  exports.api = api
 
   I18n.locale    = locale
   I18n.fallbacks = no
 
   # Set up the collections.
-  exports.collections.scenes = new Scenes
+  exports.collections.scenes = new (require('collections/scenes').Scenes)
 
   # Ensure that boot cannot be called again.
   exports.boot = (->)
