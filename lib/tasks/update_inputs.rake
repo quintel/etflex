@@ -1,6 +1,4 @@
 namespace :etflex do
-  ETE_API = 'http://api.et-engine.com/api/v2/api_scenarios'
-
   desc <<-DESC
     Updates the inputs seed file with values from ETEngine. Creates a new
     ETEngine scenario and extracts the min, max, and start values from the
@@ -13,7 +11,7 @@ namespace :etflex do
     # Sends an API request to the given path on ETEngine and returns the
     # HTTP response.
     def api(path)
-      RestClient.get "http://api.et-engine.com/api/v2/#{ path }"
+      RestClient.get "#{ ETFlex.config.api_url }#{ path }"
     end
 
     # Sends an API request for a scenario, returning the HTTP response.
@@ -57,7 +55,9 @@ namespace :etflex do
     session    = JSON.parse(api('api_scenarios/new.json'))
     session_id = session['api_scenario']['id']
 
-    values = RestClient.get("#{ ETE_API }/#{ session_id }/user_values.json")
+    values = RestClient.get("#{ ETFlex.config.api_url }/api_scenarios/" \
+                            "#{ session_id }/user_values.json")
+
     values = JSON.parse(values)
 
     puts 'Parsing GQL values...'

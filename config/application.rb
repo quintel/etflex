@@ -66,5 +66,12 @@ module ETFlex
     # Version of your assets, change this if you want to expire all your
     # assets.
     config.assets.version = '1.0'
+
+    # Application specific configuration. Defaults; customise as necessary in
+    # the environmenets/* files. This may also be accessed as ETFlex.config.
+    config.etflex = ActiveSupport::OrderedOptions.new
+
+    # The base URL for all API requests.
+    config.etflex.api_url = 'http://api.et-engine.com/api/v2'
   end
 end

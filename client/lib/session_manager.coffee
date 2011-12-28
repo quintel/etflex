@@ -2,10 +2,11 @@
 # scene don't affect the outcome of another. SessionManager keeps track of
 # each scene ID and the ETEngine session it uses.
 
+{ api }     = require 'app'
 { Session } = require 'models/session'
 
 # The base URL used for all session requests.
-BASE_URL = 'http://et-engine.com/api/v2/api_scenarios'
+BASE_URL = "#{api}/api_scenarios"
 
 # Send with the request as X-Api-Agent so that ETengine devs know where
 # requests are coming from.
