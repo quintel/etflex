@@ -2,8 +2,8 @@ require File.expand_path('../boot', __FILE__)
 
 require 'action_controller/railtie'
 require 'sprockets/railtie'
- require 'active_record/railtie'
-# require 'action_mailer/railtie'
+require 'active_record/railtie'
+require 'action_mailer/railtie'
 # require 'active_resource/railtie'
 # require 'rails/test_unit/railtie'
 
@@ -66,6 +66,9 @@ module ETFlex
     # Version of your assets, change this if you want to expire all your
     # assets.
     config.assets.version = '1.0'
+
+    # Required by Devise.
+    config.action_mailer.default_url_options = { host: 'localhost:3000' }
 
     # Application specific configuration. Defaults; customise as necessary in
     # the environmenets/* files. This may also be accessed as ETFlex.config.

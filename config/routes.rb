@@ -1,5 +1,7 @@
 ETFlex::Application.routes.draw do
 
+  devise_for :users
+
   # Actions for creating, editing and deleting resources.
   CUD_ACTIONS = %w( new create edit update destroy )
 

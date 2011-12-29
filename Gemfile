@@ -5,6 +5,7 @@ RAILS_VERSION = '~> 3.1.2'
 gem 'activesupport',  RAILS_VERSION, :require => 'active_support'
 gem 'actionpack',     RAILS_VERSION, :require => 'action_pack'
 gem 'activerecord',   RAILS_VERSION, :require => 'active_record'
+gem 'actionmailer',   RAILS_VERSION, :require => 'action_mailer'
 gem 'railties',       RAILS_VERSION, :require => 'rails'
 
 # Bundle edge Rails instead:
@@ -17,6 +18,8 @@ gem 'default_value_for'
 gem 'haml', '~> 3.1'
 gem 'jbuilder'
 gem 'simple_form'
+
+gem 'devise'
 
 gem 'jquery-rails'
 
