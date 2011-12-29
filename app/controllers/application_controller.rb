@@ -1,31 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  respond_to :html
-  respond_to :json, only: [ :scene, :scenes ]
-
-  # Returns a hash which may be used in conjunction with `render` so that you
-  # may simply
-  #
-  #   render client
-  #
-  # Pass extra rendering options to `client` has a hash, like so:
-  #
-  #   render client(meaning: 42)
-  #
-  def client(options = nil)
-    if options.nil? then { template: 'application/client' } else
-      options.merge template: 'application/client'
-    end
-  end
-
-  # Hide the public "client" method used with render client, and by the
-  # ClientResponder.
-  #
-  def self.hide_actions
-    super.push :client
-  end
-
   # FILTERS ------------------------------------------------------------------
 
   #######
@@ -40,61 +15,6 @@ class ApplicationController < ActionController::Base
   def set_locale
     I18n.locale = params[:locale] || session[:locale] || I18n.default_locale
     session[:locale] = I18n.locale
-  end
-
-  # ACTIONS ------------------------------------------------------------------
-
-  ######
-  public
-  ######
-
-  # A temporary action used to verify that Haml, RSpec, and other dependencies
-  # are correctly configured.
-  #
-  # GET /
-  #
-  def render_client
-    render client
-  end
-
-  # A temporary action which renders a scene list. Currently JSON only; the
-  # Backbone client won't know what to do with /scenes.
-  #
-  # This will be replaced with a full scenes controller once the ActiveRecord
-  # model is implemented.
-  #
-  # GET /scenes
-  #
-  def scenes
-    respond_to do |wants|
-      wants.html { render client }
-      wants.json { @scenes = Scene.all ; render }
-    end
-  end
-
-  # A temporary action which renders a scene.
-  #
-  # This will be replaced with a full scenes controller once the ActiveRecord
-  # model is implemented.
-  #
-  # GET /scenes/:id
-  #
-  def scene
-    @scene = Scene.find(params[:id])
-
-    # TODO Add a custom Responder so we may simply "render @scene".
-    respond_to do |wants|
-      wants.html { render client }
-      wants.json { render }
-    end
-  end
-
-  # A temporary action used while mocking up the Backstage layout.
-  #
-  # GET /backstage
-  #
-  def backstage
-    render text: '', layout: 'backstage'
   end
 
 end

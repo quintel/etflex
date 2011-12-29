@@ -4,6 +4,8 @@ describe ETFlex::ClientResponder do
   render_views
 
   controller do
+    include ETFlex::ClientController
+
     respond_to :json
     respond_to :html, only: [ :index, :show, :new, :edit ]
 
