@@ -54,5 +54,4 @@ module BackstageHelper
     HTML
   end
 
-
 end # BackstageHelper
