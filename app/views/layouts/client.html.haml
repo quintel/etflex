@@ -4,10 +4,16 @@
     %title ETFlex
 
     = stylesheet_link_tag 'application'
+    = javascript_include_tag 'modernizr-2.0.6.js'
+    = airbrake_javascript_notifier
+
     = csrf_meta_tags
 
-  %body#minimal
+  %body
     = yield
 
   // These go at the end so that loading JS doesn't block the page load...
   = javascript_include_tag 'application'
+
+  :javascript
+    require('app').boot(window, #{ client_options })
