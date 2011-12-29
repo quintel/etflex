@@ -20,7 +20,7 @@ ETFlex::Application.routes.draw do
 
   # Default Path -------------------------------------------------------------
 
-  root to: 'application#render_client'
+  root to: 'scenes#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
