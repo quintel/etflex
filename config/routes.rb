@@ -1,7 +1,9 @@
 ETFlex::Application.routes.draw do
 
-  get 'scenes',         to: 'application#scenes'
-  get 'scenes/:id',     to: 'application#scene', as: 'scene'
+  # Actions for creating, editing and deleting resources.
+  CUD_ACTIONS = %w( new create edit update destroy )
+
+  resources :scenes, except: CUD_ACTIONS
 
   # Backstage and Administration ---------------------------------------------
 

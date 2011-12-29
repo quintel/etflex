@@ -16,12 +16,4 @@ describe ApplicationController, 'routing' do
       get('/nl').should route_to('application#render_client', locale: 'nl')
     end
   end
-
-  it 'routes /scenes/:id to scene' do
-    get('/scenes/1').should route_to('application#scene', id: '1')
-  end
-
-  it 'should not route to scenes' do
-    get('/scenes').should route_to('application#scenes')
-  end
 end
