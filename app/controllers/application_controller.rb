@@ -1,6 +1,13 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
+  # RESCUES ------------------------------------------------------------------
+
+  rescue_from User::NotAuthorised do
+    render file: Rails.root.join('public/404.html'),
+           status: :not_found, layout: false
+  end
+
   # FILTERS ------------------------------------------------------------------
 
   #######

@@ -1,56 +1,20 @@
 require 'spec_helper'
 
-describe 'Administering inputs' do
+feature 'Administering inputs' do
+
+  background do
+    sign_in create(:admin)
+  end
 
   # --------------------------------------------------------------------------
 
-  context 'Listing all through the API', api: true do
-    let(:json)      { JSON.parse page.source }
-    let(:input_one) { create :input }
-    let(:input_two) { create :mwh_input }
-
-    before { input_one ; input_two }
-    before { visit '/backstage/inputs' }
-
-    describe 'response code' do
-      it { page.status_code.should eql(200) }
-    end
-
-    describe 'the JSON document' do
-      it { json.should be_kind_of(Array) }
-      it { json.should have(2).members }
-    end
-
-    describe 'the first input in the collection' do
-      subject { json.detect { |m| m['id'] == input_one.id }.symbolize_keys }
-
-      it { should include(id:       input_one.id)   }
-      it { should include(remoteId: input_one.remote_id) }
-      it { should include(step:     input_one.step)      }
-      it { should include(min:      input_one.min)       }
-      it { should include(max:      input_one.max)       }
-      it { should include(start:    input_one.start)     }
-      it { should include(unit:     input_one.unit)      }
-
-    end # the first input in the collection
-
-    describe 'the second input in the collection' do
-      subject { json.detect { |m| m['id'] == input_two.id }.symbolize_keys }
-
-      it { should include(id:       input_two.id)   }
-      it { should include(remoteId: input_two.remote_id) }
-      it { should include(step:     input_two.step)      }
-      it { should include(min:      input_two.min)       }
-      it { should include(max:      input_two.max)       }
-      it { should include(start:    input_two.start)     }
-      it { should include(unit:     input_two.unit)      }
-
-    end # the second input in the collection
-  end # Listing all inputs
+  it_should_behave_like 'a backstage controller' do
+    let(:path) { '/backstage/inputs' }
+  end
 
   # --------------------------------------------------------------------------
 
-  specify 'Editing an input' do
+  scenario 'Editing an input' do
     input = create :input, unit: '%'
 
     visit "/backstage/inputs/#{ input.id }/edit"
@@ -101,7 +65,7 @@ describe 'Administering inputs' do
 
   # --------------------------------------------------------------------------
 
-  specify 'Failing to edit an input' do
+  scenario 'Failing to edit an input' do
     input = create :input
     orig  = input.key
 

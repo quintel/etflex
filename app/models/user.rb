@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+  # Exception raised when the user tries to do something for which they don't
+  # have sufficient authorisation.
+  class NotAuthorised < StandardError ; end
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :trackable, :encryptable, :confirmable, :lockable,
   # :timeoutable and :omniauthable
