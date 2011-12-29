@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe ApplicationController, 'routing' do
-  it 'routes / to render_client' do
-    get('/').should route_to('application#render_client')
+  it 'routes / to scenes#index' do
+    get('/').should route_to('scenes#index')
   end
 
   it 'routes /en to render_client' do
