@@ -7,6 +7,14 @@ feature 'Editing scene props' do
     @prop  = create :prop
 
     @scene_prop = @scene.scene_props.create(prop: @prop, location: 'bottom')
+
+    sign_in create(:admin)
+  end
+
+  # --------------------------------------------------------------------------
+
+  it_should_behave_like 'a backstage controller' do
+    let(:path) { "/backstage/scenes/#{ @scene.id }/props" }
   end
 
   # --------------------------------------------------------------------------

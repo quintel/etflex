@@ -7,6 +7,14 @@ feature 'Editing scene inputs' do
     @input = create :input
 
     @scene_input = @scene.scene_inputs.create(input: @input, location: 'left')
+
+    sign_in create(:admin)
+  end
+
+  # --------------------------------------------------------------------------
+
+  it_should_behave_like 'a backstage controller' do
+    let(:path) { "/backstage/scenes/#{ @scene.id }/inputs" }
   end
 
   # --------------------------------------------------------------------------

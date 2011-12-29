@@ -4,6 +4,20 @@
 #
 class Backstage::BackstageController < ApplicationController
   layout 'backstage'
-  respond_to :html
   helper :backstage
-end
+
+  respond_to :html
+
+  # FILTERS ------------------------------------------------------------------
+
+  before_filter :authenticate_user!
+  before_filter :require_admin!
+
+  # Checks that the authenticated user is an admin, otherwise just renders
+  # a 404.
+  #
+  def require_admin!
+    raise User::NotAuthorised unless current_user.admin?
+  end
+
+end # Backstage::BackstageController
