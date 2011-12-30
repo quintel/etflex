@@ -13,3 +13,15 @@ educational users.
 
 Most of the application is implemented in CoffeeScript and can be found in
 /client, while Rails serves up little more than a REST API.
+
+Installation
+------------
+
+ 1. Copy config/database.sample.yml to config/database.yml. Edit any settings
+    as necessary for your local machine.
+
+ 2. Use Ruby 1.9.3 p0 or newer.
+    rbenv: `rbenv local 1.9.3-p0`
+    RVM: Create an .rvmrc with "rvm gemset use 1.9.3" then `rvm rvmrc load`.
+
+ 3. `bundle install`
