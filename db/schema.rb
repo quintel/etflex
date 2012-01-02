@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111229173636) do
+ActiveRecord::Schema.define(:version => 20120102141738) do
 
   create_table "inputs", :force => true do |t|
     t.integer "remote_id",                    :null => false
@@ -31,14 +31,16 @@ ActiveRecord::Schema.define(:version => 20111229173636) do
   end
 
   create_table "scene_inputs", :force => true do |t|
-    t.integer "scene_id",                :null => false
-    t.integer "input_id",                :null => false
-    t.string  "location", :limit => 100, :null => false
+    t.integer "scene_id",                      :null => false
+    t.integer "input_id",                      :null => false
+    t.string  "location",       :limit => 100, :null => false
     t.integer "position"
     t.float   "step"
     t.float   "min"
     t.float   "max"
     t.float   "start"
+    t.text    "information_en"
+    t.text    "information_nl"
   end
 
   add_index "scene_inputs", ["scene_id", "input_id"], :name => "index_scene_inputs_on_scene_id_and_input_id", :unique => true
