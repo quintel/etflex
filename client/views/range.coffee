@@ -20,20 +20,22 @@ class exports.RangeView extends Backbone.View
     @precision = @model.def.step.toString().split('.')
     @precision = @precision[1]?.length or 0
 
+    @rangeName = I18n.t "inputs.#{ @model.def.key }"
+
   # Renders the range, and sets up events.
   #
   # @return {Range} Returns self.
   #
-  render: (mediator) ->
+  render: () ->
     # TODO Add a "unitHtml helper somewhere.
     unit = switch @model.def.unit
       when 'km2' then " km<sup>2</sup>"
       else            @model.def.unit
 
     $(@el).html rangeTemplate
-      name:    I18n.t "inputs.#{@model.def.key}.name"
-      unit:    unit
-      hasInfo: @model.def.info?
+      name:        @rangeName
+      hasInfo:     @model.def.info?
+      unit:        unit
 
     new $.Quinn @$('.control'),
       value:       @model.get('value')
@@ -73,6 +75,4 @@ class exports.RangeView extends Backbone.View
   # the input and how it affects the outcome.
   #
   showHelp: ->
-    showMessage(
-      I18n.t("inputs.#{@model.def.key}.name"),
-      I18n.t("inputs.#{@model.def.key}.description"))
+    showMessage @rangeName, @model.def.info

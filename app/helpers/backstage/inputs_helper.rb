@@ -8,7 +8,7 @@ module Backstage::InputsHelper
   #
   def input_name_for_list(input)
     fallback = %(<span class="missing-name">#{ h input.key }</span>).html_safe
-    t("inputs.#{ input.key }.name", default: fallback)
+    t("inputs.#{ input.key }", default: fallback)
   end
 
   # Returns the name of the input, suitable for use in the header of input
@@ -18,9 +18,9 @@ module Backstage::InputsHelper
   #
   def input_name_for_title(input)
     if input.new_record? and input.key.blank?
-      translated = t('inputs.new.name')
+      translated = t('inputs.new')
     else
-      translated = t("inputs.#{ input.key }.name", default: '')
+      translated = t("inputs.#{ input.key }", default: '')
     end
 
     if translated.blank? then input.key else translated end
