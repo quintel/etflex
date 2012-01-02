@@ -3,19 +3,20 @@ require 'spec_helper'
 # Shared Examples ------------------------------------------------------------
 
 shared_examples_for 'an embedded scene input' do
-  before { subject and subject.symbolize_keys!    }
+  before { subject and subject.symbolize_keys!         }
 
-  it { should_not be_nil                          }
+  it { should_not be_nil                               }
 
-  it { should include(key:       input.key)       }
-  it { should include(start:     input.start)     }
-  it { should include(min:       input.min)       }
-  it { should include(max:       input.max)       }
-  it { should include(step:      input.step)      }
-  it { should include(unit:      input.unit)      }
-  it { should include(position:  input.position)  }
-  it { should include(location:  input.location)  }
-  it { should include(remoteId:  input.remote_id) }
+  it { should include(key:       input.key)            }
+  it { should include(start:     input.start)          }
+  it { should include(min:       input.min)            }
+  it { should include(max:       input.max)            }
+  it { should include(step:      input.step)           }
+  it { should include(unit:      input.unit)           }
+  it { should include(position:  input.position)       }
+  it { should include(location:  input.location)       }
+  it { should include(remoteId:  input.remote_id)      }
+  it { should include(info:      input.information_en) }
 end
 
 shared_examples_for 'an embedded scene prop' do
@@ -102,6 +103,8 @@ describe 'Scenes' do
       it { should have_key('href')     }
       it { should have_key('name')     }
       it { should have_key('name_key') }
+
+      it { should_not have_key('info') }
     end
   end
 
@@ -117,8 +120,9 @@ describe 'Scenes' do
       inputs = [ create(:input), create(:input) ]
       props  = [ create(:prop),  create(:prop)  ]
 
-      scene.scene_inputs.create! input: inputs[0], location: 'left'
-      scene.scene_inputs.create! input: inputs[1], location: 'right'
+      scene.scene_inputs.create!(input: inputs[0], location: 'left')
+      scene.scene_inputs.create!(
+        input: inputs[1], location: 'right', information_en: 'English')
 
       scene.scene_props.create!  prop: props[0],   location: 'center'
       scene.scene_props.create!  prop: props[1],   location: 'bottom',
