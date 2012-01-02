@@ -43,9 +43,20 @@
 #   scenes). Left blank, the scene will use the starting value defined in the
 #   Input.
 #
+# information_en (String)
+#   English text containing information about the input and how it will affect
+#   the scene outcome.
+#
+# information_nl (String)
+#   Dutch text containing information about the input and how it will affect
+#   the scene outcome.
+#
 class SceneInput < ActiveRecord::Base
 
   delegate :key, :unit, to: :input, allow_nil: true
+
+  attr_accessible :input, :input_id, :location, :position, :step, :min, :max,
+                  :step, :start, :information_en, :information_nl
 
   # VALIDATION ---------------------------------------------------------------
 

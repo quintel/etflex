@@ -5,6 +5,19 @@ describe SceneInput do
   it { should belong_to(:input) }
   it { should belong_to(:scene) }
 
+  it { should allow_mass_assignment_of(:input_id) }
+  it { should allow_mass_assignment_of(:location) }
+  it { should allow_mass_assignment_of(:position) }
+  it { should allow_mass_assignment_of(:step) }
+  it { should allow_mass_assignment_of(:min) }
+  it { should allow_mass_assignment_of(:max) }
+  it { should allow_mass_assignment_of(:step) }
+  it { should allow_mass_assignment_of(:start) }
+  it { should allow_mass_assignment_of(:information_en) }
+  it { should allow_mass_assignment_of(:information_nl) }
+
+  it { should_not allow_mass_assignment_of(:scene_id) }
+
   # INPUT ID -----------------------------------------------------------------
 
   it { should validate_presence_of(:input_id) }
