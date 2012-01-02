@@ -69,7 +69,7 @@
 //
 // Custom form styles which tweak the simple_form defaults where necessary.
 
-input[type=text], input[type=password]
+input[type=text], input[type=password], textarea
   +transition-property("border-color, box-shadow")
   +transition-duration(".15s, .15s")
   +transition-timing-function("ease-in-out, ease-in-out")
@@ -96,6 +96,9 @@ input[type=text], input[type=password]
 
   &.small
     width: 75px
+
+textarea
+  height: 9.6em
 
 select
   font-size: 16px
