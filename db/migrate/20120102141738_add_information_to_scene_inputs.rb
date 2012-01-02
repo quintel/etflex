@@ -41,7 +41,7 @@ en:
     gasoline-powered car. Diesel and gasoline are made from oil. By
     switching to electric cars, we will save a lot of oil and use a bit
     more electricity. If we generate this electricity using wind turbines
-    or solar power, driving a car will no longer produce any CO2
+    or solar power, driving a car will no longer produce any CO^2
     emissions.
 
   households_insulation_level_old_houses: >
@@ -73,14 +73,14 @@ en:
     A coal-fired power plant is almost always running, producing
     electricity at maximum power. Powering it doen regularly reduces the
     amount of electricity we can make from coal. A coal-fired power plant
-    produces more air polluation than any alternative. CO2 emissions are
+    produces more air polluation than any alternative. CO^2 emissions are
     twice as high as for a gas-fired power plant.
 
   number_of_gas_conventional: >
     A gas-fired power plant is cheaper to build than a coal power plant.
     However, they cost more than power plants which burn coal. A gas-fired
     power plant is easily powered up or down. That can come in handy when
-    wind turbines are not turning for a lack of wind. CO2 emissions are
+    wind turbines are not turning for a lack of wind. CO^2 emissions are
     half that of a coal-fired power plant.
 
   number_of_nuclear_3rd_gen: >
@@ -89,12 +89,12 @@ en:
     power plant has been built, making electricity is cheap. That is why
     this type of power plant is almost always running. It cannot be used
     to balance the supply and demand of electricity. One advantage is that
-    there are almost no CO2 emissions. The radioactive waste is a
+    there are almost no CO^2 emissions. The radioactive waste is a
     disadvantage. No one has come up with a good solution for this problem
     yet.
 
   number_of_wind_onshore_land: >
-    A wind turbine produces sustainable power. There are no CO2 emissions.
+    A wind turbine produces sustainable power. There are no CO^2 emissions.
     Wind is its fuel; it is a fuel which does not run out. Of course, the
     wind does not always blow. This means that building windmills alone is
     not enough. You would have a problem if you needed power and there was
@@ -116,9 +116,9 @@ en:
     branches, and saw dust). You can make power by burning biomass. An
     advantage is that biomass will never be exhausted, like coal or oil
     will. Of course, you do have to make sure to plant new trees and
-    plants! CO2 is released into the air when you burn biomass. The good
+    plants! CO^2 is released into the air when you burn biomass. The good
     thing about using biomass is that those trees and plans absorbed a
-    large part of this CO2 from the air during their lifetime.
+    large part of this CO^2 from the air during their lifetime.
 
 nl:
   households_lighting_low_energy_light_bulb_share: >
@@ -133,7 +133,7 @@ nl:
     op benzine of diesel. Benzine en diesel worden uit olie gemaakt. Met
     elektrische auto's besparen we dus heel veel olie en gebruiken we een
     beetje meer elektriciteit. Als we deze elektriciteit opwekken met wind
-    of zon, dan heeft autorijden geen CO2-uitstoot meer tot gevolg.
+    of zon, dan heeft autorijden geen CO^(2)-uitstoot meer tot gevolg.
 
   households_insulation_level_old_houses: >
     Er gaat heel veel warmte verloren doordat huizen niet goed geïsoleerd
@@ -163,7 +163,7 @@ nl:
     Een kolencentrale draait het grootste deel van de tijd op volle
     kracht. Regelmatig uitzetten verlaagt de hoeveelheid stroom die we
     uit kolen kunnen halen. Van alle manieren om stroom te maken geeft een
-    kolencentrale de grootste luchtvervuiling. De CO2-uitstoot is ongeveer
+    kolencentrale de grootste luchtvervuiling. De CO^(2)-uitstoot is ongeveer
     2 keer zo groot als die van een gascentrale.
 
   number_of_gas_conventional: >
@@ -171,7 +171,7 @@ nl:
     zijn ze duurder als ze draaien dan centrales op kolen. Een gascentrale
     kun je makkelijk aan of uit zetten. Dat is handig om stroom te makken
     als de windmolen even stilstaat om dat het niet  waait. De
-    CO2-uitstoot van een gascentrale is ongeveer de helft van een
+    CO^(2)-uitstoot van een gascentrale is ongeveer de helft van een
     kolencentrale.
 
   number_of_nuclear_3rd_gen: >
@@ -180,12 +180,12 @@ nl:
     staat is het hoedkoop om stroom te maken. Daarom staat de centrale
     bijna altijd op volle kracht aan. Een kerncentrale is niet geschikt om
     vraag en aanbod ven stroom in evenwicht te brengen. Voordeel is dat je
-    nauwelijks last hebt van CO2-uitstoot. Nadeel is het radioactieve
+    nauwelijks last hebt van CO^(2)-uitstoot. Nadeel is het radioactieve
     afval dar overblijft. Hiervoor is nog geen goede oplossing bedacht.
 
   number_of_wind_onshore_land: >
     Een windmolen produceert duurzame stroom omdat je geen last hebt van
-    CO2-uitstoot. Wind wordt als brandstof gebruikt. En wind is
+    CO^(2)-uitstoot. Wind wordt als brandstof gebruikt. En wind is
     onuitputtelijk aanwezig. Het waait allen niet altijd. Daarom kun je
     niet volstaan met alleen windmolens. Dat heb je een probleem als je
     stroom nodig hebt en het waait niet. Er wordt momenteel hard gewerkt
@@ -204,7 +204,7 @@ nl:
     biomassa te verbranden. Voordeel is dat biomassa niet uitgeput raakt
     zoals kolen en olie. Je moet dan natuurlijk wel zorgen dat er altijd
     voldoende nieuwe planten en boomen bijkomen! Als je biomassa verbrandt
-    komt er CO2 in de lucht. Het mooie can biomassa is dat de boom of
-    plant tijdens zijn leven al een groot deel van deze CO2 uit de lucht
+    komt er CO^(2) in de lucht. Het mooie can biomassa is dat de boom of
+    plant tijdens zijn leven al een groot deel van deze CO^(2) uit de lucht
     heeft opgenomen.
 YAMLDOC

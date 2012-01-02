@@ -17,8 +17,8 @@ class exports.OverlayMessageView extends Backbone.View
   render: (title, message) ->
     @messageEl = $(@make 'div', class: 'overlay-message')
 
-    @messageEl.append @make('h3', {}, title)
-    @messageEl.append @make('p', {}, message)
+    @messageEl.append @make('h3',  {}, title)
+    @messageEl.append @make('div', {}, message)
 
     $(@el).append @messageEl
 

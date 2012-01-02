@@ -18,6 +18,7 @@ gem 'default_value_for'
 gem 'haml', '~> 3.1'
 gem 'jbuilder'
 gem 'simple_form'
+gem 'redcarpet'
 
 gem 'devise'
 
