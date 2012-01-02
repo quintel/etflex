@@ -1,5 +1,6 @@
 class ScenesController < ApplicationController
   include ETFlex::ClientController
+  helper  ScenesHelper
 
   # Shows a list of all available scenes.
   #
