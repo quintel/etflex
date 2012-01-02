@@ -19,6 +19,7 @@ Prop.delete_all
 Scene.delete_all
 SceneInput.delete_all
 SceneProp.delete_all
+User.delete_all
 
 # INPUTS ---------------------------------------------------------------------
 
@@ -75,6 +76,11 @@ YAML.load_file(Rails.root.join('db/seeds/scenes.yml')).each do |data|
 
   scene.save!
 end
+
+# ADMIN USER FOR BACKSTAGE ---------------------------------------------------
+
+User.create({email:'admin@quintel.com',password:'Energy'})
+
 
 # ----------------------------------------------------------------------------
 
