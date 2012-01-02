@@ -26,6 +26,7 @@ class exports.Input extends Backbone.Model
       unit: attributes.unit
       step: attributes.step
       key:  attributes.key
+      info: attributes.info
 
   # Handles persistance of the Input back to ETengine; delegates to the main
   # collection instance of InputManager.

@@ -31,8 +31,9 @@ class exports.RangeView extends Backbone.View
       else            @model.def.unit
 
     $(@el).html rangeTemplate
-      name: I18n.t "inputs.#{@model.def.key}.name"
-      unit: unit
+      name:    I18n.t "inputs.#{@model.def.key}.name"
+      unit:    unit
+      hasInfo: @model.def.info?
 
     new $.Quinn @$('.control'),
       value:       @model.get('value')
