@@ -163,6 +163,7 @@ GEM
     rb-fsevent (0.4.3.1)
     rdoc (3.12)
       json (~> 1.4)
+    redcarpet (2.0.1)
     rest-client (1.6.7)
       mime-types (>= 1.16)
     rspec (2.8.0.rc2)
@@ -256,6 +257,7 @@ DEPENDENCIES
   rails-i18n
   railties (~> 3.1.2)
   rb-fsevent
+  redcarpet
   rest-client
   rspec-rails (~> 2.8.0.rc2)
   sass-rails (>= 3.1.4)
