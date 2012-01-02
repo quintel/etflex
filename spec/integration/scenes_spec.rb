@@ -16,7 +16,13 @@ shared_examples_for 'an embedded scene input' do
   it { should include(position:  input.position)       }
   it { should include(location:  input.location)       }
   it { should include(remoteId:  input.remote_id)      }
-  it { should include(info:      input.information_en) }
+
+  # Info is markdown-parsed.
+  its([:info]) do
+    if input.information_en.nil? then subject.should be_nil else
+      subject.should match(input.information_en)
+    end
+  end
 end
 
 shared_examples_for 'an embedded scene prop' do
