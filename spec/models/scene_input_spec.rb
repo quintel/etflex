@@ -21,12 +21,14 @@ describe SceneInput do
   # INPUT ID -----------------------------------------------------------------
 
   it { should validate_presence_of(:input_id) }
-  xit { should validate_uniqueness_of(:input_id).scoped_to(:scene_id) }
+  it {
+    SceneInput.create!(input_id: 1, location: 'l') { |si| si.scene_id = 1 }
+    should validate_uniqueness_of(:input_id).scoped_to(:scene_id) }
 
   # LOCATION -----------------------------------------------------------------
 
   describe 'location' do
-    xit { should validate_presence_of(:location) }
+    it { should validate_presence_of(:location) }
   end
 
   # STEP ---------------------------------------------------------------------
