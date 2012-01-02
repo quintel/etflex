@@ -8,7 +8,7 @@ describe Input do
 
   describe 'key' do
     it { should validate_presence_of(:key) }
-    xit { should validate_uniqueness_of(:key) }
+    it { create(:input) ; should validate_uniqueness_of(:key) }
     it { should allow_mass_assignment_of(:key) }
   end
 
@@ -16,7 +16,7 @@ describe Input do
 
   describe 'identity field' do
     it { should validate_presence_of(:remote_id) }
-    xit { should validate_uniqueness_of(:remote_id) }
+    it { create(:input) ; should validate_uniqueness_of(:remote_id) }
     it { should allow_mass_assignment_of(:remote_id) }
   end
 
