@@ -10,6 +10,12 @@
   = f.input :position, as: :string, input_html: { class: 'small' }
   = f.hint "Make sure this position is unique."
 
+  = f.input :information_en, label: 'Information (English)'
+  = f.hint 'Shown to English-language users when the click the (?) button'
+
+  = f.input :information_nl, label: 'Information (Dutch)'
+  = f.hint 'Shown to Dutch-language users when the click the (?) button'
+
   %ul.buttons
     %li= f.button :submit, class: 'green'
     %li= link_to 'Cancel', backstage_scene_inputs_path
