@@ -20,7 +20,7 @@
     </ul>
 
     <ul id="sponsors">
-      <li><a href="#" class="sponsor gas-terra">GasTerra</a></li>
+      <li><a href="#" class="qi-sponsor gas-terra">GasTerra</a></li>
       <li class="by"><%= I18n.t('sponsoredBy') %></li>
     </ul>
   </div>
