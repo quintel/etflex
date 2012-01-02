@@ -79,7 +79,10 @@ end
 
 # ADMIN USER FOR BACKSTAGE ---------------------------------------------------
 
-User.create({email:'admin@quintel.com',password:'Energy'})
+puts "Setting admin user..."
+user = User.new({email:'admin@quintel.com',password:'Energy'})
+user.admin = true
+user.save!
 
 
 # ----------------------------------------------------------------------------
