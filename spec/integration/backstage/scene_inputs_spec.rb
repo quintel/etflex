@@ -30,6 +30,9 @@ feature 'Editing scene inputs' do
       select @other.key, from: 'Input'
       select 'Left',     from: 'Location'
 
+      fill_in 'Information (English)', with: 'Info!'
+      fill_in 'Information (Dutch)',   with: 'Informatie!'
+
       click_button 'Create Scene input'
     end
 
@@ -39,6 +42,11 @@ feature 'Editing scene inputs' do
 
     # The scene input was added?
     page.should have_css('td.key a', content: @other.key)
+
+    click_link @other.key
+
+    page.should have_css('textarea', text: 'Info!')
+    page.should have_css('textarea', text: 'Informatie!')
   end
 
   # --------------------------------------------------------------------------
@@ -77,6 +85,9 @@ feature 'Editing scene inputs' do
       fill_in 'Maximum value',  with: '72'
       fill_in 'Starting value', with: '42'
 
+      fill_in 'Information (English)', with: 'Info! (2)'
+      fill_in 'Information (Dutch)',   with: 'Informatie! (2)'
+
       click_button 'Update Scene input'
     end
 
@@ -109,6 +120,9 @@ feature 'Editing scene inputs' do
     page.should have_css('#scene_input_min',   value: '12.0')
     page.should have_css('#scene_input_max',   value: '72.0')
     page.should have_css('#scene_input_start', value: '42.0')
+
+    page.should have_css('textarea', text: 'Info! (2)')
+    page.should have_css('textarea', text: 'Informatie! (2)')
   end
 
   # --------------------------------------------------------------------------
