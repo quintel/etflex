@@ -46,8 +46,9 @@ describe 'Scenes' do
 
     scene = create :scene
 
-    scene.scene_inputs.create! input: input_one, location: 'left'
-    scene.scene_inputs.create! input: input_two, location: 'right'
+    scene.scene_inputs.create!(input: input_one, location: 'left')
+    scene.scene_inputs.create!(
+      input: input_two, location: 'right', information_en: 'English')
 
     # Finally...!
 
@@ -67,6 +68,9 @@ describe 'Scenes' do
     page.all('.range').each do |range|
       if range.has_css?('.label', text: 'Electric cars')
         range.should have_css('.output', text: '0')
+
+        # No info; a (?) should not be present.
+        range.should_not have_css('.help')
       end
     end
 
@@ -77,6 +81,9 @@ describe 'Scenes' do
     page.all('.range').each do |range|
       if range.has_css?('.label', text: 'Coal-fired power plants')
         range.should have_css('.output', text: '0')
+
+        # Has info; a (?) should be present.
+        range.should have_css('.help')
       end
     end
 

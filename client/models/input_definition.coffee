@@ -13,3 +13,4 @@ class exports.InputDefinition
     @max  = attributes.max  or 100
     @step = attributes.step or 1
     @unit = attributes.unit or ''
+    @info = attributes.info or null
