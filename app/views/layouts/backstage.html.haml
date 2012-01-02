@@ -11,16 +11,17 @@
   %body#backstage
     #chrome
       #header
-        %ul.navigation
-          = backstage_navigation
+        - if user_signed_in?
+          %ul.navigation
+            = backstage_navigation
 
-          %li.sign-out
-            %a(href="/goodbye" title="#{t(:'backstage.navigation.sign_out.title')}")
-              = t(:'backstage.navigation.sign_out.name')
+            %li.sign-out
+              %a(href="/goodbye" title="#{t(:'backstage.navigation.sign_out.title')}")
+                = t(:'backstage.navigation.sign_out.name')
 
-          %li.loading
-            %span.pseudo
-              %span.icon Loading&hellip;
+            %li.loading
+              %span.pseudo
+                %span.icon Loading&hellip;
 
       #content
         = yield
