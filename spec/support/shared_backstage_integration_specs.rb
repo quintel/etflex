@@ -5,7 +5,7 @@ shared_examples_for 'a backstage controller' do
 
   it 'should deny access to guests and require signing in' do
     visit path
-    page.should have_css('h2', text: 'Sign in')
+    page.should have_css('h1', text: 'Sign in')
   end
 
   it 'should deny access to ordinary users with a 404' do
@@ -19,6 +19,6 @@ shared_examples_for 'a backstage controller' do
     sign_in create(:admin)
 
     visit path
-    page.should_not have_css('h2', text: 'Sign in')
+    page.should_not have_css('h1', text: 'Sign in')
   end
 end
