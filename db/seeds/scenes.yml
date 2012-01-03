@@ -195,13 +195,14 @@
 
   props:
     center:
-      supply-demand: [ 0.6, 1.4 ]
+      supply-demand:       [ 0.6, 1.4 ]
     bottom:
-      co2-emissions: [ 140.0, 154.0, 161.0 ]
-      renewables:    [ 6.0, 8.0, 9.0 ]
-      costs:         [ 40.0, 40.4, 40.8, 41.2, 41.6, 42.0, 42.4, 42.8 ]
+      co2-emissions:       [ 140.0, 154.0, 161.0 ]
+      renewables:          [ 6.0, 8.0, 9.0 ]
+      costs:               [ 40.0, 40.4, 40.8, 41.2, 41.6, 42.0, 42.4, 42.8 ]
     header:
-      car:           [ 0.15 ]
-      city:          [ 145.0, 165.0 ]
-      eco-buildings: [ 0.15 ]
-      turbines:      [ 0.15 ]
+      car:                 [ 0.15 ]
+      city:                [ 145.0, 165.0 ]
+      eco-buildings:       [ 0.15 ]
+      geothermal-pipeline: [ 0.12, 0.22 ]
+      turbines:            [ 0.15 ]

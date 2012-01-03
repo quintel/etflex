@@ -242,6 +242,19 @@
         .icon.coal
           background-position: -380px top
 
+      // Appears to the left of the eco building; contains a geothermal power
+      // plant and an oil pipeline.
+
+      .geothermal-pipeline
+        @include modern-prop-dyn(geothermal-pipeline, 247px, 118px, 375px, 30px)
+        z-index: 5
+
+        .icon.none
+          background: none
+
+        .icon.geothermal
+          background-position: left -118px
+
       // Solar panels; appear to the right of the eco-buildings.
 
       .solar-panels
