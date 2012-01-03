@@ -16,8 +16,11 @@
 #   demand graph, and a "bottom" location containing three icons.
 #
 class SceneProp < ActiveRecord::Base
+  extend ETFlex::ConcatenatedAttributes
 
   delegate :key, :behaviour, to: :prop, allow_nil: true
+
+  concatenate_attr :hurdles, :to_f
 
   # RELATIONSHIPS ------------------------------------------------------------
 
@@ -33,15 +36,5 @@ class SceneProp < ActiveRecord::Base
   validates :scene_id, presence: true
   validates :prop_id,  presence: true
   validates :location, presence: true, length: { in: 1..50 }
-
-  def concatenated_hurdles=(string)
-    self.hurdles = if string.blank? then [] else
-      string.split(',').map(&:to_f)
-    end
-  end
-
-  def concatenated_hurdles
-    hurdles.join(', ')
-  end
 
 end
