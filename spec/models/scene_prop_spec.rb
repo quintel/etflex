@@ -69,14 +69,14 @@ describe SceneProp do
   end
 
   describe '#concatenated_hurdles=' do
-    it 'should set an empty array when given an empty string' do
+    it 'should set nil when given an empty string' do
       prop = SceneProp.new(concatenated_hurdles: '')
-      prop.hurdles.should eql([])
+      prop.hurdles.should be_nil
     end
 
-    it 'should set an empty array when given nil' do
+    it 'should set nil when given nil' do
       prop = SceneProp.new(concatenated_hurdles: nil)
-      prop.hurdles.should eql([])
+      prop.hurdles.should be_nil
     end
 
     it 'set values when given a comma separated string' do
