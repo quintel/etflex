@@ -261,6 +261,15 @@
         @include modern-prop(solar-panels, 643px, 162px, 944px, 98px)
         z-index: 5
 
+      // Solar water heater -- appears atop the eco building.
+
+      .solar-heater
+        @include modern-prop-dyn(solar-heater, 74px, 28px, 665px, 9px)
+        z-index: 6
+
+        .icon.none
+          background: none
+
       // The electric car / SUV.
 
       .car
