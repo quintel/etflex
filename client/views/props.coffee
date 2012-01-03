@@ -36,17 +36,21 @@ exports.hurdleState = (view, value) ->
 
 # ----------------------------------------------------------------------------
 
+p = (path, constant) ->  require("views/props/#{ path }")[constant]
+h = (path, constant) ->  p "headers/#{ path }", constant
+
 # This must go after all exports.
 props =
-  'co2-emissions': require('views/props/co2_emissions').CO2EmissionsView
-  'costs':         require('views/props/costs').CostsView
-  'icon':          require('views/props/icon').IconProp
-  'renewables':    require('views/props/renewables').RenewablesView
-  'supply-demand': require('views/props/supply_demand').SupplyDemandView
+  'co2-emissions':       p 'co2_emissions',       'CO2EmissionsView'
+  'costs':               p 'costs',               'CostsView'
+  'icon':                p 'icon',                'IconProp'
+  'renewables':          p 'renewables',          'RenewablesView'
+  'supply-demand':       p 'supply_demand',       'SupplyDemandView'
 
   # Header Props.
-  'car':           require('views/props/headers/car').CarProp
-  'city':          require('views/props/headers/city').CityProp
-  'eco-buildings': require('views/props/headers/eco_buildings').EcoBuildingsProp
-  'geothermal-pipeline': require('views/props/headers/geothermal_pipeline').GeothermalPipelineProp
-  'turbines':      require('views/props/headers/turbines').TurbinesProp
+
+  'car':                 h 'car',                 'CarProp'
+  'city':                h 'city',                'CityProp'
+  'eco-buildings':       h 'eco_buildings',       'EcoBuildingsProp'
+  'geothermal-pipeline': h 'geothermal_pipeline', 'GeothermalPipelineProp'
+  'turbines':            h 'turbines',            'TurbinesProp'
