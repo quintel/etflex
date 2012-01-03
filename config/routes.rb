@@ -1,9 +1,6 @@
 ETFlex::Application.routes.draw do
 
-  # Actions for creating, editing and deleting resources.
-  CUD_ACTIONS = %w( new create edit update destroy )
-
-  resources :scenes, except: CUD_ACTIONS
+  resources :scenes, except: %w( new create edit update destroy )
 
   # Devise -------------------------------------------------------------------
 
