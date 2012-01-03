@@ -9,4 +9,5 @@
 - behaviour: 'city'
 - behaviour: 'eco-buildings'
 - behaviour: 'geothermal-pipeline'
+- behaviour: 'solar-heater'
 - behaviour: 'turbines'
