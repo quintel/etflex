@@ -129,7 +129,7 @@ sendRequest = (path, data, callback) ->
 
   # JSONP doesn't allow custom headers unfortunately - PZ
   jQuery.ajax
-    url:         "#{BASE_URL}/#{path}.json?x_api_agent=#{X_API_AGENT}&callback=?&"
+    url:         "#{BASE_URL}/#{path}.json?x_api_agent=#{X_API_AGENT}"
     type:        'GET'
     data:         data
     dataType:    'json'

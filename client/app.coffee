@@ -15,7 +15,7 @@ exports.api = null
 exports.boot = (window, { locale, api }) ->
   installConsolePolyfill window
 
-  exports.api = api
+  exports.api = if jQuery.support.cors then api else '/ete'
 
   I18n.locale    = locale
   I18n.fallbacks = no
