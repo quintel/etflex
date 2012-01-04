@@ -36,7 +36,16 @@ exports.getSession = (sceneId, queries, callback) ->
     [ callback, queries ] = [ queries, null ] unless callback?
 
   if existingId = localStorage.getItem lsKey
-    restoreSession existingId, queries, callback
+    restoreSession existingId, queries, (err, session) ->
+      if err? and err is 'Not Found'
+        # Session was missing. Create a new one.
+        localStorage.removeItem lsKey
+        exports.getSession sceneId, queries, callback
+      else if err?
+        callback err
+      else
+        # Success!
+        callback null, session
   else
     createSession queries, (err, session) ->
       if err? then callback(err) else
@@ -202,12 +211,7 @@ restoreSession = (sessionId, queries, callback) ->
     values:  (cb) -> fetchUserValues sessionId, cb
 
   , (err, result) ->
-    if err?
-      if err is 'Not Found'
-        createSession queries, callback
-      else
-        callback(err)
-    else
+    if err? then callback(err) else
       callback null, new Session _.extend result.session.settings,
         id:          sessionId
         user_values: result.values
