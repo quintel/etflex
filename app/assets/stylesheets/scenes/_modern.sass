@@ -255,10 +255,10 @@
         .icon.geothermal
           background-position: left -118px
 
-      // Solar panels; appear to the right of the eco-buildings.
+      // Swaps between solar panels, nuclear, and oil.
 
-      .solar-panels
-        @include modern-prop(solar-panels, 643px, 162px, 944px, 98px)
+      .energy-sources
+        @include modern-prop-dyn(energy-sources, 314px, 305px, 905px, -55px)
         z-index: 5
 
       // Solar water heater -- appears atop the eco building.

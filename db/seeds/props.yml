@@ -8,6 +8,7 @@
 - behaviour: 'car'
 - behaviour: 'city'
 - behaviour: 'eco-buildings'
+- behaviour: 'energy-sources'
 - behaviour: 'geothermal-pipeline'
 - behaviour: 'solar-heater'
 - behaviour: 'turbines'

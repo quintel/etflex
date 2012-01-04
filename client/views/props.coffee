@@ -52,6 +52,7 @@ props =
   'car':                 h 'car',                 'CarProp'
   'city':                h 'city',                'CityProp'
   'eco-buildings':       h 'eco_buildings',       'EcoBuildingsProp'
+  'energy-sources':      h 'energy_sources',      'EnergySourcesProp'
   'geothermal-pipeline': h 'geothermal_pipeline', 'GeothermalPipelineProp'
   'solar-heater':        h 'solar_heater',        'SolarHeaterProp'
   'turbines':            h 'turbines',            'TurbinesProp'
