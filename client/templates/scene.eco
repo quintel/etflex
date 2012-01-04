@@ -17,6 +17,7 @@
     <ul id="social-media">
       <li class="twitter"><a href="#">Share on Twitter</a></li>
       <li class="facebook"><a href="#">Share on Facebook</a></li>
+      <li class="etmodel"><a href="#">View on ET-Model</a></li>
     </ul>
 
     <ul id="sponsors">
