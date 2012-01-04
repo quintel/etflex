@@ -1,5 +1,3 @@
-app = require 'app'
-
 { getSession } = require 'lib/session_manager'
 { getProp }    = require 'views/props'
 
