@@ -35,4 +35,4 @@ class exports.Inputs extends Backbone.Collection
 
     for input in @models
       if (value = valueFrom values[ input.id ])?
-        input.set { value: value }, silent: true
+        input.set value: value
