@@ -37,7 +37,7 @@ class exports.InputManager
     # Update the local copy of the input.
     @values[ input.get 'id' ] = input.get 'value'
 
-    data = inputs: [input], queries: options?.queries
+    data = inputs: [input], queries: options?.queries, sanitize_groups: true
 
     # Then persist it back to ETengine.
     updateInputs @session.id, data, (err) ->
