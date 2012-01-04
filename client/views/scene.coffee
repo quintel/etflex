@@ -4,8 +4,6 @@ template      = require 'templates/scene'
 { RangeView } = require 'views/range'
 { getProp }   = require 'views/props'
 
-{ beta }      = require 'lib/session_manager'
-
 # ----------------------------------------------------------------------------
 
 # Returns the path to the current ETEngine session on ETModel.
@@ -13,7 +11,7 @@ template      = require 'templates/scene'
 # session - The session instance we want to view on ETModel.
 #
 pathToSessionOnETM = (session) ->
-  host = if beta?
+  host = if api.isBeta
     'http://beta.et-model.com'
   else
     'http://et-model.com'

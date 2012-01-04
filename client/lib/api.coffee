@@ -5,7 +5,8 @@ PATH = null
 #
 exports.setPath = (path) ->
   PATH = if jQuery.support.cors then path else '/ete'
-  exports.beta = !! path.match(/^https?:\/\/beta\./)
+
+  exports.isBeta  = path.match(/^https?:\/\/beta\./)?
   exports.setPath = (->)
 
 # Creates a path for an API request. Prevents malicious users messing with the
@@ -16,7 +17,7 @@ exports.setPath = (path) ->
 exports.path = (suffix) -> "#{ PATH }/#{ suffix }"
 
 # Using the beta API?
-exports.beta = false
+exports.isBeta = false
 
 # Sends a request to ETengine.
 #
