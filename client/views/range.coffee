@@ -37,7 +37,7 @@ class exports.RangeView extends Backbone.View
       hasInfo:     @model.def.info?
       unit:        unit
 
-    new $.Quinn @$('.control'),
+    @quinn = new $.Quinn @$('.control'),
       value:       @model.get('value')
       range:     [ @model.def.min, @model.def.max ]
       step:        @model.def.step
@@ -49,6 +49,8 @@ class exports.RangeView extends Backbone.View
       onSetup:     @updateOutput
       onChange:    @updateOutput
       onCommit:    @updateModel
+
+    @model.bind 'change:value', @updateQuinnFromModel
 
     @delegateEvents()
     this
@@ -70,6 +72,15 @@ class exports.RangeView extends Backbone.View
   #
   updateModel: (value, quinn) =>
     @model.set value: value
+
+  # Triggered when the model value changes (such as when an API request
+  # failed).
+  #
+  # model - The model instance.
+  # value - The new value.
+  #
+  updateQuinnFromModel: (model, value) =>
+    @quinn.setValue value, true
 
   # Shows a modal help message, providing the user with more information about
   # the input and how it affects the outcome.
