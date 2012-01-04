@@ -8,19 +8,14 @@ exports.routers = {}
 # Holds each of the main model collections (Sliders, Widgets, etc).
 exports.collections = {}
 
-# The base URL for all API requests.
-exports.api     = null
-exports.realApi = null
-
 # Called _once_ when the application is first loaded in the browser.
 exports.boot = (window, { locale, api }) ->
   installConsolePolyfill window
 
-  exports.realApi = api
-  exports.api     = if jQuery.support.cors then api else '/ete'
-
   I18n.locale     = locale
   I18n.fallbacks  = no
+
+  require('lib/api').setPath api
 
   # Set up the collections.
   exports.collections.scenes = new (require('collections/scenes').Scenes)

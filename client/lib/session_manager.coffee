@@ -2,11 +2,8 @@
 # scene don't affect the outcome of another. SessionManager keeps track of
 # each scene ID and the ETEngine session it uses.
 
-{ api }     = require 'app'
+api         = require 'lib/api'
 { Session } = require 'models/session'
-
-# The base URL used for all session requests.
-BASE_URL = "#{api}/api_scenarios"
 
 # Send with the request as X-Api-Agent so that ETengine devs know where
 # requests are coming from.
@@ -128,9 +125,9 @@ sendRequest = (path, data, callback) ->
   [ callback, data ] = [ data, null ] unless callback?
 
   jQuery.ajax
-    url:         "#{BASE_URL}/#{path}.json"
-    type:        'GET'
+    url:          api.path "api_scenarios/#{path}.json"
     data:         data
+    type:        'GET'
     dataType:    'json'
     accepts:     'json'
     contentType: 'json'

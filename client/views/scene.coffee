@@ -1,8 +1,10 @@
-app           = require 'app'
+api           = require 'lib/api'
 template      = require 'templates/scene'
 
 { RangeView } = require 'views/range'
 { getProp }   = require 'views/props'
+
+{ beta }      = require 'lib/session_manager'
 
 # ----------------------------------------------------------------------------
 
@@ -11,7 +13,7 @@ template      = require 'templates/scene'
 # session - The session instance we want to view on ETModel.
 #
 pathToSessionOnETM = (session) ->
-  host = if app.realApi.match(/beta/)
+  host = if beta?
     'http://beta.et-model.com'
   else
     'http://et-model.com'
@@ -95,7 +97,7 @@ class exports.SceneView extends Backbone.View
   # Sends the user to view their session on ET-Model.
   #
   navigateToETModel: (event) =>
-    host = if app.realApi.match(/^\/beta/)
+    host = if api.beta?
       'http://beta.et-model.com'
     else
       'http://et-model.com'
