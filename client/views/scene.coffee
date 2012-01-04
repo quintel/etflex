@@ -4,6 +4,20 @@ template      = require 'templates/scene'
 { RangeView } = require 'views/range'
 { getProp }   = require 'views/props'
 
+# ----------------------------------------------------------------------------
+
+# Returns the path to the current ETEngine session on ETModel.
+#
+# session - The session instance we want to view on ETModel.
+#
+pathToSessionOnETM = (session) ->
+  host = if app.realApi.match(/beta/)
+    'http://beta.et-model.com'
+  else
+    'http://et-model.com'
+
+  "#{ host }/scenarios/#{ session.id }/load"
+
 # Scene ----------------------------------------------------------------------
 
 # The heart of ETflex; given a Scene model creates an HTML representation
@@ -58,6 +72,10 @@ class exports.SceneView extends Backbone.View
       # errors.
       propLocations[ prop.location ]?.append propView.render().el
 
+    # Link to the session on ET-Model.
+    @$('#social-media .etmodel a').attr('href',
+      pathToSessionOnETM(@model.session))
+
     this
 
   # Renders the modern theme by extending the default scene template.
@@ -72,6 +90,18 @@ class exports.SceneView extends Backbone.View
   # Fakes a click on a navigation item. Does nothing for the moment.
   #
   fakeNavClick: (event) =>
+    event.preventDefault()
+
+  # Sends the user to view their session on ET-Model.
+  #
+  navigateToETModel: (event) =>
+    host = if app.realApi.match(/^\/beta/)
+      'http://beta.et-model.com'
+    else
+      'http://et-model.com'
+
+    window.navigate "#{ host }/scenarios/#{ @model.session.id }/load"
+
     event.preventDefault()
 
   # Creates a new instance of a prop. Takes the key of the prop and and
