@@ -139,7 +139,7 @@ sendRequest = (path, data, callback) ->
   .done (data, textStatus, jqXHR) ->
     callback null, data
 
-  .error (jqXHR, textStatus, error) ->
+  .fail (jqXHR, textStatus, error) ->
     callback error
 
 # An abstraction around sendRequest which hits ETEngine for the basic
@@ -208,7 +208,14 @@ restoreSession = (sessionId, queries, callback) ->
     values:  (cb) -> fetchUserValues sessionId, cb
 
   , (err, result) ->
-    if err? then callback(err) else
+    if err?
+      if err is 'Not Found'
+        # 404 means the session no longer exists. Just create a new one.
+        createSession queries, callback
+      else
+        # Otherwise, re-raise...
+        callback(err)
+    else
       callback null, new Session _.extend result.session.settings,
         id:          sessionId
         user_values: result.values
