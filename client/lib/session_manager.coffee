@@ -5,10 +5,6 @@
 api         = require 'lib/api'
 { Session } = require 'models/session'
 
-# Send with the request as X-Api-Agent so that ETengine devs know where
-# requests are coming from.
-X_API_AGENT = 'ETflex Client'
-
 # Exports --------------------------------------------------------------------
 
 # Returns the ETEngine session which corresponds with a scene ID.
@@ -102,7 +98,7 @@ exports.updateInputs = (sessionId, options, callback) ->
   # If there are any queries, tell ETEngine to give us those results.
   params.result = ( query.get('id') for query in queries ) if queries?
 
-  sendRequest sessionId, params, (err, data) ->
+  api.send sessionId, params, (err, data) ->
     if err? then callback(err) else
       if data.errors and data.errors.length
         # ETengine currently returns a 200 OK even when an input is invalid;
@@ -123,33 +119,8 @@ exports.updateInputs = (sessionId, options, callback) ->
 
 # Session Helpers ------------------------------------------------------------
 
-# Sends a request to ETengine.
-#
-# path     - The path to which the request should be sent. This is suffixed to
-#            BASE_URL, and then has ".json" added to the end.
-# callback - Run after the request completes with either the jQuery error
-#            returned, or the parsed JSON data.
-#
-sendRequest = (path, data, callback) ->
-  [ callback, data ] = [ data, null ] unless callback?
-
-  jQuery.ajax
-    url:          api.path "api_scenarios/#{path}.json"
-    data:         data
-    type:        'GET'
-    dataType:    'json'
-    accepts:     'json'
-    contentType: 'json'
-    headers:   { 'X-Api-Agent': X_API_AGENT }
-
-  .done (data, textStatus, jqXHR) ->
-    callback null, data
-
-  .fail (jqXHR, textStatus, error) ->
-    callback error
-
-# An abstraction around sendRequest which hits ETEngine for the basic
-# information about a session (country, etc).
+# An abstraction around api::send which hits ETEngine for the basicinformation
+# about a session (country, etc).
 #
 # sessionId - The ID of the session being fetched from ETengine.
 # queries   - Queries whose results should be fetched with the session.
@@ -165,7 +136,7 @@ fetchSession = (sessionId, queries, callback) ->
 # callback  - Is called with the parsed values.
 #
 fetchUserValues = (sessionId, callback) ->
-  sendRequest "#{sessionId}/user_values", callback
+  api.send "#{sessionId}/user_values", callback
 
 # Used to create a new Session instance, pre-initialized with values from
 # ETengine. Use this in preference over `new Session` since creating a session
