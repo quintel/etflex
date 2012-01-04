@@ -34,5 +34,5 @@ class exports.Inputs extends Backbone.Collection
     values   = session.get 'userValues'
 
     for input in @models
-      if value = valueFrom values[ input.id ]
+      if (value = valueFrom values[ input.id ])?
         input.set { value: value }, silent: true
