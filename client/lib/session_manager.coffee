@@ -127,8 +127,9 @@ exports.updateInputs = (sessionId, options, callback) ->
 sendRequest = (path, data, callback) ->
   [ callback, data ] = [ data, null ] unless callback?
 
+  # JSONP doesn't allow custom headers unfortunately - PZ
   jQuery.ajax
-    url:         "#{BASE_URL}/#{path}.json?callback=?&"
+    url:         "#{BASE_URL}/#{path}.json?x_api_agent=#{X_API_AGENT}&callback=?&"
     type:        'GET'
     data:         data
     dataType:    'json'
