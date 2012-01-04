@@ -75,6 +75,6 @@ module ETFlex
     config.etflex = ActiveSupport::OrderedOptions.new
 
     # The base URL for all API requests.
-    config.etflex.api_url = 'http://api.et-engine.com/api/v2'
+    config.etflex.api_url = 'http://beta.et-engine.com/api/v2'
   end
 end
