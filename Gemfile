@@ -11,6 +11,8 @@ gem 'railties',       RAILS_VERSION, :require => 'rails'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
+gem 'rack-proxy'
+
 gem 'mysql2'
 gem 'acts_as_list'
 gem 'default_value_for'
