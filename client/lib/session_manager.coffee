@@ -151,10 +151,7 @@ sendRequest = (path, data, callback) ->
 #
 fetchSession = (sessionId, queries, callback) ->
   exports.updateInputs sessionId, { queries }, (err, result) ->
-    if err? then callback(err) else
-      # New sessions return the API information in "api_scenario"
-      # while existing sessions return it in "settings".
-      callback null, result
+    if err? then callback(err) else callback null, result
 
 # Hits user_values.json to get the state of the user's Inputs.
 #
@@ -181,7 +178,7 @@ createSession = (queries, callback) ->
     # fetch the values.
     return restoreSession sessionData.id, queries, callback if queries?
 
-    # No query results requires, so it suffices to proceed to getting the
+    # No query results required, so it suffices to proceed to getting the
     # initial user values.
     fetchUserValues sessionData.id, (err, userValues) ->
       if err? then callback(err) else
@@ -210,10 +207,8 @@ restoreSession = (sessionId, queries, callback) ->
   , (err, result) ->
     if err?
       if err is 'Not Found'
-        # 404 means the session no longer exists. Just create a new one.
         createSession queries, callback
       else
-        # Otherwise, re-raise...
         callback(err)
     else
       callback null, new Session _.extend result.session.settings,
