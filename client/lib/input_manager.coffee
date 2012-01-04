@@ -37,5 +37,10 @@ class exports.InputManager
     # Update the local copy of the input.
     @values[ input.get 'id' ] = input.get 'value'
 
+    data = inputs: [input], queries: options?.queries
+
     # Then persist it back to ETengine.
-    updateInputs @session.id, inputs: [input], queries: options?.queries
+    updateInputs @session.id, data, (err) ->
+      if err? then console.error(err) else
+        # TODO Update the input(s) to the returned values.
+        true
