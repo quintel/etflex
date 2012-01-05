@@ -259,7 +259,16 @@
 
       .energy-sources
         @include modern-prop-dyn(energy-sources, 314px, 305px, 905px, -55px)
-        z-index: 5
+
+        .icon
+          z-index: 5
+
+        .icon.nuclear
+          background-position: left -305px
+          z-index: 3
+
+        .icon.oil
+          background-position: left -610px
 
       // Solar water heater -- appears atop the eco building.
 
