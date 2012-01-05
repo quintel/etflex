@@ -205,17 +205,17 @@
       // The main ground layer - contains the green "globe".
 
       .ground
-        background: image-url("scenes/modern/header/ground.png") center 55px no-repeat
-        height: 318px
-        position: relative
-        width: 1277px
-        z-index: 5
+        @include modern-prop-dyn(ground, 1277px, 261px, 0px, 55px)
+        z-index: 4
+
+        .icon.dry
+          background-position: center -300px
 
       // Wind turbines which appear on the left side of the header.
 
       .turbines
         @include modern-prop-dyn(wind-turbines, 413px, 239px, -95px, -50px)
-        z-index: 4
+        z-index: 3
 
         .icon.coal
           background-position: left -239px
@@ -224,7 +224,7 @@
 
       .city
         @include modern-prop-dyn(future-city, 672px, 175px, 144px, -26px)
-        z-index: 3
+        z-index: 2
 
         .icon.small
           background-position: left -175px

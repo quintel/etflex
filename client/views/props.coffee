@@ -54,5 +54,6 @@ props =
   'eco-buildings':       h 'eco_buildings',       'EcoBuildingsProp'
   'energy-sources':      h 'energy_sources',      'EnergySourcesProp'
   'geothermal-pipeline': h 'geothermal_pipeline', 'GeothermalPipelineProp'
+  'ground':              h 'ground',              'GroundProp'
   'solar-heater':        h 'solar_heater',        'SolarHeaterProp'
   'turbines':            h 'turbines',            'TurbinesProp'
