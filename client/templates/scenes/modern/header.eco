@@ -4,7 +4,6 @@
   <!-- illustration props -->
   <div class="world" data-prop-location="header">
     <div class="plane"></div>
-    <div class="ground"></div>
     <div class="sun"></div>
   </div>
   <!-- / illustration props -->

@@ -10,5 +10,6 @@
 - behaviour: 'eco-buildings'
 - behaviour: 'energy-sources'
 - behaviour: 'geothermal-pipeline'
+- behaviour: 'ground'
 - behaviour: 'solar-heater'
 - behaviour: 'turbines'
