@@ -3,4 +3,3 @@
 class exports.SolarHeaterProp extends HeaderIcon
   @queries: [ 'share_of_renewable_electricity' ]
   states:   [ 'none', 'heater' ]
-  className:  'solar-heater'

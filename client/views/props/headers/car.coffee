@@ -3,4 +3,3 @@
 class exports.CarProp extends HeaderIcon
   @queries: [ 'share_of_renewable_electricity' ]
   states:   [ 'suv', 'eco' ]
-  className:  'car'

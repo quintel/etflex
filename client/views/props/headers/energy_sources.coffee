@@ -6,8 +6,6 @@ class exports.EnergySourcesProp extends HeaderIcon
               'electricity_produced_from_solar'
               'electricity_produced_from_oil' ]
 
-  className:  'energy-sources'
-
   refresh: (total, nuclear, solar, oil) ->
     if nuclear / total > 0.08
       @setState 'nuclear'

@@ -18,8 +18,11 @@ class exports.HeaderIcon extends IconProp
   render: ->
     super
 
-    element = $ @el
+    element  = $ @el
+    keyClass = @options.key?.replace('_', '-')
+
     element.addClass('icon-prop') unless element.hasClass('icon-prop')
+    element.addClass(keyClass)    unless element.hasClass(keyClass)
 
     @doRefresh()
 
