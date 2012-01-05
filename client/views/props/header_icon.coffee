@@ -7,22 +7,42 @@ class exports.HeaderIcon extends IconProp
   constructor: (options) ->
     super
 
-    # HeaderIcon currently assumes that the prop uses a single query only,
-    # which is defined on the subclass as "@queries: [ query_key ]".
-    @query = options.queries.get @constructor.queries[0]
-    @query.bind 'change:future', => @refresh @query.get('future')
+    # Trigger doRefresh when any of the queries used by the prop are updated.
+    for key in @constructor.queries
+      options.queries.get(key).bind 'change:future', @doRefresh
 
-  # Updates the icon without re-rendering the whole view.
-  refresh: (value) ->
-    @setState hurdleState(this, value)
+    # Since all the queries are (normally) updated at the same time, wait
+    # until we have results for them all before updating the prop.
+    @refresh = _.debounce @refresh, 25 if @constructor.queries.length > 1
 
   render: ->
     super
 
-    # Subclasses may omit the "icon-prop" class.
     element = $ @el
     element.addClass('icon-prop') unless element.hasClass('icon-prop')
 
-    @refresh @query.get('future')
+    @doRefresh()
 
     this
+
+  # Updates the icon without re-rendering the whole view. Only accounts for
+  # value from the first query; props which use more than one value must
+  # override this method in a subclass.
+  #
+  # NOTE! Props with more than one query result in the refresh function being
+  # debounced by Underscore; it will be executed after a 25ms delay to ensure
+  # that Backbone has time to update all the queries before refreshing the
+  # prop.
+  #
+  # value - The new query value.
+  #
+  refresh: (value) ->
+    @setState hurdleState(this, value)
+
+  # Returns the query future value whose key is "key"
+  q: (key) ->
+    @options.queries.get(key).get('future')
+
+  # Internally used to call refresh with the value of each query.
+  doRefresh: =>
+    @refresh ( @q(key) for key in @constructor.queries )...

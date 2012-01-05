@@ -64,6 +64,7 @@ class exports.SceneView extends Backbone.View
 
     for prop in @model.get('props')
       propView = @prop prop.behaviour,
+        key:     prop.key
         hurdles: prop.hurdles
         queries: @model.queries
 
