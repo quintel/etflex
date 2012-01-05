@@ -7,7 +7,6 @@
 class exports.CityProp extends HeaderIcon
   @queries: [ 'co2_emission_total' ]
   states:   [ 'small', 'medium', 'large' ]
-  className:  'city'
 
   # Query result is in kilograms. Divide by 1000 to get tons, then 1000000
   # to get Mtons.

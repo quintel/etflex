@@ -3,4 +3,3 @@
 class exports.EcoBuildingsProp extends HeaderIcon
   @queries: [ 'share_of_renewable_electricity' ]
   states:   [ 'coal', 'eco' ]
-  className:  'eco-buildings'

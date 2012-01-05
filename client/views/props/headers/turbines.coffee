@@ -3,4 +3,3 @@
 class exports.TurbinesProp extends HeaderIcon
   @queries: [ 'share_of_renewable_electricity' ]
   states:   [ 'coal', 'wind' ]
-  className:  'turbines'
