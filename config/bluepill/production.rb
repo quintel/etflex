@@ -43,8 +43,6 @@ Bluepill.application('etflex', log_file: log_file) do |app|
     # Set the command line argument to RESTART Unicorn. (The USR2 causes the
     # master to re-create itself and spawn a new worker pool).
     #
-    # TODO Documentation says you need to -QUIT also?
-    #
     process.restart_command = 'kill -USR2 {{PID}}'
 
     # If the process status changes five times within three minutes, stop
