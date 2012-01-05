@@ -32,6 +32,7 @@ Bluepill.application('etflex', log_file: log_file) do |app|
 
     # Set the command line argument to START Unicorn.
     process.start_command =
+      "BUNDLE_GEMFILE=#{rails_root}/Gemfile " \
       "bundle exec unicorn -D " \
       "-c #{rails_root}/config/unicorn/#{rails_env}.rb " \
       "-E #{rails_env}"
