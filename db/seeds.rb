@@ -80,10 +80,10 @@ end
 # ADMIN USER FOR BACKSTAGE ---------------------------------------------------
 
 puts "Setting admin user..."
-user = User.new({email:'admin@quintel.com',password:'Energy'})
-user.admin = true
-user.save!
 
+User.create!(email: 'admin@quintel.com', password: 'Energy') do |user|
+  user.admin = true
+end
 
 # ----------------------------------------------------------------------------
 
