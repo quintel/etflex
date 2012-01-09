@@ -16,6 +16,4 @@ class exports.EcoBuildingsProp extends HeaderIcon
     else
       stateName = "#{ stateName }-green"
 
-    console.log stateName
-
     @setState stateName
