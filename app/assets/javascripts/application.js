@@ -9,6 +9,7 @@
  *= require jquery
  *= require jquery_ujs
  *= require jquery.easing.1.3
+ *= require jquery.ba-outside-events
  *= require underscore
  *= require backbone
  *= require jquery.quinn
