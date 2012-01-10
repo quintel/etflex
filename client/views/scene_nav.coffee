@@ -19,6 +19,10 @@ urlToSessionOnETM = (session) ->
 
   "#{ host }/scenarios/#{ session.id }/load"
 
+# Given an event, returns the name of the item used to trigger the event.
+itemNameFromEvent = (event) ->
+  $(event.currentTarget).parent('li').attr('id')[4..]
+
 # Renders the contents of the information menu.
 renderInfo = ({ model }) ->
   infoTemplate
@@ -40,8 +44,8 @@ class exports.SceneNav extends Backbone.View
   id: 'main-nav'
 
   events:
-    'click ul a':   'handleClick'
-    'clickoutside': 'deactivate'
+    'click ul.scene-nav a': 'handleClick'
+    'clickoutside':         'deactivate'
 
   activeItem: null
 
@@ -60,15 +64,7 @@ class exports.SceneNav extends Backbone.View
   # event - The jQuery event triggered during the click.
   #
   handleClick: (event) ->
-    parent = $(event.currentTarget).parent('li')
-
-    itemName = switch parent.attr 'id'
-      when 'nav-info'     then 'info'
-      when 'nav-settings' then 'settings'
-      when 'nav-user'     then 'user'
-
-    @activate itemName
-
+    @activate itemNameFromEvent(event)
     event.preventDefault()
 
   # Activates an item in the navigation by the key. If the item is already
