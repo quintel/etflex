@@ -2,23 +2,9 @@ api           = require 'lib/api'
 template      = require 'templates/scene'
 
 { RangeView } = require 'views/range'
-{ getProp }   = require 'views/props'
-
 { SceneNav }  = require 'views/scene_nav'
 
-# ----------------------------------------------------------------------------
-
-# Returns the path to the current ETEngine session on ETModel.
-#
-# session - The session instance we want to view on ETModel.
-#
-pathToSessionOnETM = (session) ->
-  host = if api.isBeta
-    'http://beta.et-model.com'
-  else
-    'http://et-model.com'
-
-  "#{ host }/scenarios/#{ session.id }/load"
+{ getProp }   = require 'views/props'
 
 # Scene ----------------------------------------------------------------------
 
@@ -71,10 +57,6 @@ class exports.SceneView extends Backbone.View
       # rendered. This is intentional so that "hidden" props don't raise
       # errors.
       propLocations[ prop.location ]?.append propView.render().el
-
-    # Link to the session on ET-Model.
-    @$('#social-media .etmodel a').attr('href',
-      pathToSessionOnETM(@model.session))
 
     # Initialize the nav menu.
     @$('#theme-header').after (new SceneNav model: @model).render().el
