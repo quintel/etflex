@@ -7,7 +7,10 @@ TEMPLATES =
 
 class exports.SceneNav extends Backbone.View
   id: 'main-nav'
-  events: { 'click ul a': 'handleClick' }
+
+  events:
+    'click ul a':   'handleClick'
+    'clickoutside': 'deactivate'
 
   activeItem: null
 
