@@ -1,1 +1,3 @@
-Info.
+<ul>
+  <li id="nav-etmodel"><a href="<%= @etmURL %>">View on ET-Model</a></li>
+</ul>

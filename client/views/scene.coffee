@@ -77,7 +77,7 @@ class exports.SceneView extends Backbone.View
       pathToSessionOnETM(@model.session))
 
     # Initialize the nav menu.
-    @$('#theme-header').after (new SceneNav).render().el
+    @$('#theme-header').after (new SceneNav model: @model).render().el
 
     this
 
