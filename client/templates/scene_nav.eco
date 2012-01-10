@@ -1,4 +1,4 @@
-<ul>
+<ul class="scene-nav">
   <li id="nav-info"><a href="#"><span><%= @info %></span></a></li>
   <li id="nav-settings"><a href="#"><span><%= @settings %></span></a></li>
   <li id="nav-user"><a href="#"><span><%= @user %></span></a></li>

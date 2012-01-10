@@ -1,9 +1,35 @@
-sceneNavTemplate = require 'templates/scene_nav'
+api              = require 'lib/api'
 
-TEMPLATES =
-  'info':     require('templates/scene_nav/info')
-  'settings': require('templates/scene_nav/settings')
-  'user':     require('templates/scene_nav/user')
+sceneNavTemplate = require 'templates/scene_nav'
+infoTemplate     = require 'templates/scene_nav/info'
+settingsTemplate = require 'templates/scene_nav/settings'
+userTemplate     = require 'templates/scene_nav/user'
+
+# ----------------------------------------------------------------------------
+
+# Returns the path to the current ETEngine session on ETModel.
+#
+# session - The session instance we want to view on ETModel.
+#
+urlToSessionOnETM = (session) ->
+  host = if api.isBeta
+    'http://beta.et-model.com'
+  else
+    'http://et-model.com'
+
+  "#{ host }/scenarios/#{ session.id }/load"
+
+# Renders the contents of the information menu.
+renderInfo = ({ model }) ->
+  infoTemplate etmURL: urlToSessionOnETM(model.session)
+
+# Renders the contents of the settings menu.
+renderSettings = -> settingsTemplate()
+
+# Renders the contents of the user menu.
+renderUser = -> userTemplate()
+
+# SceneNav -------------------------------------------------------------------
 
 class exports.SceneNav extends Backbone.View
   id: 'main-nav'
@@ -51,7 +77,13 @@ class exports.SceneNav extends Backbone.View
     if @activeItem?            then @itemEl(@activeItem).removeClass('active')
 
     @itemEl(itemName).addClass('active')
-    @pulldown.html(TEMPLATES[ itemName ]()).show()
+
+    @pulldown.html switch itemName
+      when 'info'     then renderInfo     this
+      when 'settings' then renderSettings this
+      when 'user'     then renderUser     this
+
+    @pulldown.show()
 
     # The first and last items overlap the left and right of the menu, so we
     # need to disable the correct border radius so that the menu doesn't look
