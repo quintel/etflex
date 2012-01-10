@@ -1,0 +1,7 @@
+<ul>
+  <li id="nav-info"><a href="#"><span><%= @info %></span></a></li>
+  <li id="nav-settings"><a href="#"><span><%= @settings %></span></a></li>
+  <li id="nav-user"><a href="#"><span><%= @user %></span></a></li>
+</ul>
+
+<div class="main-nav-pulldown"></div>

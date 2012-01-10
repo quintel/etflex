@@ -42,10 +42,11 @@
             text-align: center
 
       .main-nav-pulldown
-        @include border-bottom-radius(3px)
-        background: #f0fbff
+        @include border-radius(4px)
         border: 1px solid #c0c9c9
         border: 1px solid rgba(0, 0, 0, 0.2)
+        border-bottom-color: rgba(0, 0, 0, 0.3)
+        box-shadow: 0 1px 0 rgba(50, 50, 50, 0.1)
         display: none
         font-size: 12px
         line-height: 16px
@@ -56,9 +57,11 @@
         width: 200px
         z-index: 9
 
-        a
-          display: block
-          font-weight: bold
+        &.first
+          @include border-top-left-radius(0px)
+
+        &.last
+          @include border-top-right-radius(0px)
 
     #controls
       @extend .clearfix
