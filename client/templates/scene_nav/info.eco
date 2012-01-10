@@ -1,6 +1,6 @@
 <ul class="icon-nav">
-  <li><a href="#">About this application</a></li>
-  <li><a href="#">Feedback</a></li>
-  <li><a href="#">Privacy statement</a></li>
-  <li id="nav-etmodel"><a href="<%= @etmURL %>" target="_blank">View on ET-Model</a></li>
+  <li><a href="/about"><%= @about %></a></li>
+  <li><a href="/feedback"><%= @feedback %></a></li>
+  <li><a href="/privacy"><%= @privacy %></a></li>
+  <li id="nav-etmodel"><a href="<%= @etmURL %>" target="_blank"><%= @etmodel %></a></li>
 </ul>
