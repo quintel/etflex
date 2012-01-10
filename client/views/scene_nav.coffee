@@ -47,33 +47,40 @@ class exports.SceneNav extends Backbone.View
   #            being activated.
   #
   activate: (itemName) ->
-    console.log "ACTIVATE: #{ itemName }"
+    if @activeItem is itemName then return @deactivate()
+    if @activeItem?            then @itemEl(@activeItem).removeClass('active')
 
-    if itemName is @activeItem
-      return @deactivate()
-    else if @activeItem
-      @$('li.active').removeClass 'active'
+    @itemEl(itemName).addClass('active')
+    @pulldown.html(TEMPLATES[ itemName ]()).show()
+
+    # The first and last items overlap the left and right of the menu, so we
+    # need to disable the correct border radius so that the menu doesn't look
+    # weird.
+    radii = if itemName is 'info'
+      [ 'addClass', 'removeClass' ]
+    else if itemName is 'user'
+      [ 'removeClass', 'addClass' ]
+    else
+      [ 'removeClass', 'removeClass' ]
+
+    @pulldown[radii[0]]('first')
+    @pulldown[radii[1]]('last')
 
     @activeItem = itemName
-    $(@el).find("#nav-#{ itemName }").addClass('active')
-
-    @pulldown.html TEMPLATES[ itemName ]()
-    @pulldown.show()
-
-    if itemName is 'info'
-      @pulldown.addClass('first').removeClass('last')
-    else if itemName is 'user'
-      @pulldown.addClass('last').removeClass('first')
-    else
-      @pulldown.removeClass('last').removeClass('first')
 
   # Deactivates the menu by removing the "active" class from the currently
   # active anchor, and hiding the menu.
   #
   deactivate: ->
-    console.log "DEACTIVATE"
+    @itemEl(@activeItem).removeClass('active')
+    @pulldown.hide()
 
     @activeItem = null
 
-    @$('li.active').removeClass 'active'
-    @pulldown.hide()
+  # Returns the element from the navigation menu for a given section name.
+  #
+  # itemName - The name of the navigation item element; e.g. "info" or
+  #            "settings".
+  #
+  itemEl: (itemName) ->
+    @$ "#nav-#{ itemName }"
