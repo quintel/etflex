@@ -21,7 +21,12 @@ urlToSessionOnETM = (session) ->
 
 # Renders the contents of the information menu.
 renderInfo = ({ model }) ->
-  infoTemplate etmURL: urlToSessionOnETM(model.session)
+  infoTemplate
+    etmURL:   urlToSessionOnETM(model.session)
+    about:    I18n.t('navigation.about')
+    feedback: I18n.t('navigation.feedback')
+    privacy:  I18n.t('navigation.privacy')
+    etmodel:  I18n.t('navigation.etmodel')
 
 # Renders the contents of the settings menu.
 renderSettings = -> settingsTemplate()
@@ -42,9 +47,9 @@ class exports.SceneNav extends Backbone.View
 
   render: ->
     $(@el).append sceneNavTemplate
-      info:     'Information'
-      settings: 'Settings'
-      user:     'Log in'
+      info:     I18n.t('navigation.info')
+      settings: I18n.t('navigation.settings')
+      user:     I18n.t('navigation.sign_in')
 
     @pulldown = @$ '.main-nav-pulldown'
 

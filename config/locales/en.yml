@@ -6,7 +6,7 @@ en:
   loadingMsg: "The application is being loaded. Hang tight; it won't be long!"
   loadingNothing: "Nothing happening?"
 
-  # Models -------------------------------------------------------------------
+  # Navigation Elements ------------------------------------------------------
 
   navigation:
     scenes:   Scenes
@@ -15,6 +15,16 @@ en:
     props:    Props
     loading:  Loading
     sign_out: Sign out
+
+    info:     Information
+    settings: Settings
+    sign_in:  Sign in
+    account:  Your Account
+
+    about:    About this application
+    feedback: Feedback
+    privacy:  Privacy statement
+    etmodel:  View on ET-Model
 
   # 404 Not Found ------------------------------------------------------------
 

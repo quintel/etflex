@@ -6,6 +6,26 @@ nl:
   loadingMsg: "De applicatie wordt geladen. Het ene moment, het zal niet lang meer duren!"
   loadingNothing: "Niets gebeurt er?"
 
+  # Navigation Elements ------------------------------------------------------
+
+  navigation:
+    scenes:   Scenes
+    inputs:   Inputs
+    queries:  Queries
+    props:    Props
+    loading:  Het laden
+    sign_out: Afmelden
+
+    info:     Informatie
+    settings: Instellingen
+    sign_in:  Meld je aan
+    account:  Uw account
+
+    about:    Over deze applicatie
+    feedback: Terugkoppeling
+    privacy:  Privacy statement
+    etmodel:  Zicht op ET-Model
+
   # 404 Not Found ------------------------------------------------------------
 
   oops: "Whoops"
