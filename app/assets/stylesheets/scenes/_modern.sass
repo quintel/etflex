@@ -99,15 +99,18 @@
         span
           background-position: -68px 20px
 
-    .main-nav-pulldown a
-      color: #548aaa
+    .main-nav-pulldown
+      background: #f0fbff
 
-      &:hover
-        color: #386a8d
+      a
+        color: #548aaa
+
+        &:hover
+          color: #386a8d
 
     li.active
       @include background-image(linear-gradient(white, #f0fbff))
-      @include border-top-radius(3px)
+      @include border-top-radius(4px)
       background: #f0fbff
       border: 1px solid #c0c9c9
       border: 1px solid rgba(0, 0, 0, 0.2)

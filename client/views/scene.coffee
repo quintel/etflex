@@ -4,6 +4,8 @@ template      = require 'templates/scene'
 { RangeView } = require 'views/range'
 { getProp }   = require 'views/props'
 
+{ SceneNav }  = require 'views/scene_nav'
+
 # ----------------------------------------------------------------------------
 
 # Returns the path to the current ETEngine session on ETModel.
@@ -26,9 +28,6 @@ pathToSessionOnETM = (session) ->
 class exports.SceneView extends Backbone.View
   id: 'scene-view'
   className: 'modern' # TODO Set dynamically based on server-sent JSON.
-
-  events:
-    'click #main-nav a': 'fakeNavClick'
 
   # Creates the HTML elements for the view, and binds events. Returns self.
   #
@@ -77,6 +76,9 @@ class exports.SceneView extends Backbone.View
     @$('#social-media .etmodel a').attr('href',
       pathToSessionOnETM(@model.session))
 
+    # Initialize the nav menu.
+    @$('#theme-header').after (new SceneNav).render().el
+
     this
 
   # Renders the modern theme by extending the default scene template.
@@ -87,11 +89,6 @@ class exports.SceneView extends Backbone.View
   renderTheme: ->
     modernHeader = require 'templates/scenes/modern/header'
     @$('#core').prepend modernHeader()
-
-  # Fakes a click on a navigation item. Does nothing for the moment.
-  #
-  fakeNavClick: (event) =>
-    event.preventDefault()
 
   # Sends the user to view their session on ET-Model.
   #
