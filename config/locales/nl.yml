@@ -26,6 +26,17 @@ nl:
     privacy:  Privacy statement
     etmodel:  Zicht op ET-Model
 
+  # Misc Words & Phrases -----------------------------------------------------
+
+  words:
+    sign_in_to_account: Meld u aan bij uw account
+    no_account:         Heb je nog geen account?
+
+    email_address:      E-mailadres
+    password:           Wachtwoord
+    remember_me:        Herinner mij
+    sign_in:            Aanmelden
+
   # 404 Not Found ------------------------------------------------------------
 
   oops: "Whoops"

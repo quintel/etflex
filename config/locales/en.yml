@@ -26,6 +26,17 @@ en:
     privacy:  Privacy statement
     etmodel:  View on ET-Model
 
+  # Misc Words & Phrases -----------------------------------------------------
+
+  words:
+    sign_in_to_account: Sign in to your account
+    no_account:         Don't have an account?
+
+    email_address:      E-mail address
+    password:           Password
+    remember_me:        Remember me
+    sign_in:            Sign in
+
   # 404 Not Found ------------------------------------------------------------
 
   oops: "Whoops"
