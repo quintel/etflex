@@ -30,9 +30,10 @@ Bluepill.application('etflex', log_file: log_file) do |app|
     process.pid_file    = "#{rails_root}/tmp/pids/unicorn.pid"
     process.working_dir = "#{rails_root}"
 
+    process.cache_actual_pid = false
+
     # Set the command line argument to START Unicorn.
     process.start_command =
-      "BUNDLE_GEMFILE=#{rails_root}/Gemfile " \
       "bundle exec unicorn -D " \
       "-c #{rails_root}/config/unicorn/#{rails_env}.rb " \
       "-E #{rails_env}"
@@ -55,21 +56,21 @@ Bluepill.application('etflex', log_file: log_file) do |app|
     # monitoring the application. This needs to be long enough for the Rails
     # application and worker processes to boot otherwise Bluepill will think
     # that the process failed to start.
-    process.start_grace_time = 10.seconds
+    process.start_grace_time = 30.seconds
 
     # Same as above, grace period after we've restarted the application
-    process.restart_grace_time = 8.seconds
+    process.restart_grace_time = 30.seconds
 
     # APPLICATION CHECKS -----------------------------------------------------
 
-    process.checks :cpu_usage, every: 10, below: 30,            times: 3
-    process.checks :mem_usage, every: 10, below: 300.megabytes, times: [3, 5]
+    process.checks :cpu_usage, every: 30, below: 30,            times: 3
+    process.checks :mem_usage, every: 30, below: 300.megabytes, times: [3, 5]
 
     # SETUP UNICORN CHILDREN MONITORING --------------------------------------
 
     process.monitor_children do |child|
-      child.checks :cpu_usage, every: 10, below: 25,            times: 3
-      child.checks :mem_usage, every: 10, below: 200.megabytes, times: [3, 5]
+      child.checks :cpu_usage, every: 30, below: 25,            times: 3
+      child.checks :mem_usage, every: 30, below: 200.megabytes, times: [3, 5]
 
       child.stop_command = "kill -QUIT {{PID}}"
     end
