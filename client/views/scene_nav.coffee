@@ -1,9 +1,11 @@
+app              = require 'app'
 api              = require 'lib/api'
 
 sceneNavTemplate = require 'templates/scene_nav'
 infoTemplate     = require 'templates/scene_nav/info'
 settingsTemplate = require 'templates/scene_nav/settings'
 userTemplate     = require 'templates/scene_nav/user'
+accountTemplate  = require 'templates/scene_nav/account'
 
 # ----------------------------------------------------------------------------
 
@@ -38,6 +40,9 @@ renderSettings = -> settingsTemplate()
 # Renders the contents of the user menu.
 renderUser = -> userTemplate()
 
+# Renders the contents of the user account menu.
+renderAccount = -> accountTemplate()
+
 # SceneNav -------------------------------------------------------------------
 
 class exports.SceneNav extends Backbone.View
@@ -50,11 +55,7 @@ class exports.SceneNav extends Backbone.View
   activeItem: null
 
   render: ->
-    $(@el).append sceneNavTemplate
-      info:     I18n.t('navigation.info')
-      settings: I18n.t('navigation.settings')
-      user:     I18n.t('navigation.sign_in')
-
+    $(@el).append sceneNavTemplate(isSignedIn: app.isSignedIn)
     @pulldown = @$ '.main-nav-pulldown'
 
     this
@@ -83,18 +84,17 @@ class exports.SceneNav extends Backbone.View
       when 'info'     then renderInfo     this
       when 'settings' then renderSettings this
       when 'user'     then renderUser     this
+      when 'account'  then renderAccount  this
 
     @pulldown.show()
 
     # The first and last items overlap the left and right of the menu, so we
     # need to disable the correct border radius so that the menu doesn't look
     # weird.
-    radii = if itemName is 'info'
-      [ 'addClass', 'removeClass' ]
-    else if itemName is 'user'
-      [ 'removeClass', 'addClass' ]
-    else
-      [ 'removeClass', 'removeClass' ]
+    radii = switch itemName
+      when 'info'            then [ 'addClass',    'removeClass' ]
+      when 'user', 'account' then [ 'removeClass', 'addClass'    ]
+      else                        [ 'removeClass', 'removeClass' ]
 
     @pulldown[radii[0]]('first')
     @pulldown[radii[1]]('last')

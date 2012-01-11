@@ -5,8 +5,9 @@ module ApplicationHelper
   # Returns a string with the JSON.
   #
   def client_options
-    { locale: I18n.locale,
-      api:    ETFlex.config.api_url }.to_json
+    { locale:   I18n.locale,
+      api:      ETFlex.config.api_url,
+      signedIn: user_signed_in?
+    }.to_json
   end
-
 end

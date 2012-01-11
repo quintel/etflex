@@ -1,7 +1,12 @@
 <ul class="scene-nav">
-  <li id="nav-info"><a href=""><span><%= @info %></span></a></li>
-  <li id="nav-settings"><a href=""><span><%= @settings %></span></a></li>
-  <li id="nav-user"><a href=""><span><%= @user %></span></a></li>
+  <li id="nav-info"><a href=""><span><%= I18n.t 'navigation.info' %></span></a></li>
+  <li id="nav-settings"><a href=""><span><%= I18n.t 'navigation.settings' %></span></a></li>
+
+  <% if @isSignedIn: %>
+    <li id="nav-account"><a href=""><span><%= I18n.t 'navigation.account' %></span></a></li>
+  <% else: %>
+    <li id="nav-user"><a href=""><span><%= I18n.t 'navigation.sign_in' %></span></a></li>
+  <% end %>
 </ul>
 
 <div class="main-nav-pulldown"></div>
