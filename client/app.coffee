@@ -2,6 +2,9 @@
 # well as any other objects which are considered "singletons", such as
 # full-page views.
 
+# Indicates if the visitor is currently signed in to a registered account.
+exports.isSignedIn = false
+
 # Holds the instantiated routers so that we can refer to them later.
 exports.routers = {}
 
@@ -9,8 +12,10 @@ exports.routers = {}
 exports.collections = {}
 
 # Called _once_ when the application is first loaded in the browser.
-exports.boot = (window, { locale, api }) ->
+exports.boot = (window, { locale, api, signedIn }) ->
   installConsolePolyfill window
+
+  exports.isSignedIn = signedIn
 
   I18n.locale     = locale
   I18n.fallbacks  = no
