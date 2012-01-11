@@ -15,6 +15,8 @@ class exports.SceneView extends Backbone.View
   id: 'scene-view'
   className: 'modern' # TODO Set dynamically based on server-sent JSON.
 
+  pageTitle: -> @model.get('name')
+
   # Creates the HTML elements for the view, and binds events. Returns self.
   #
   # Example:
