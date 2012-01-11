@@ -2,10 +2,11 @@
 # in a black pop-up box.
 
 class exports.OverlayMessageView extends Backbone.View
-  className: 'overlay-wrap'
+  className: 'overlay-message'
 
   events:
-    'mousedown': 'hide'
+    'mousedown':    'hide'
+    'clickoutside': 'hide'
 
   # Creates the HTML elements for the modal overlay.
   #
@@ -15,14 +16,11 @@ class exports.OverlayMessageView extends Backbone.View
   # message - The message to be shown.
   #
   render: (title, message) ->
-    @messageEl = $(@make 'div', class: 'overlay-message')
+    element = $ @el
 
-    @messageEl.append @make('h3',  {}, title)
-    @messageEl.append @make('div', {}, message)
+    element.append @make('h3', {}, title)
+    element.append @make('p', {}, message)
 
-    $(@el).append @messageEl
-
-    @delegateEvents()
     this
 
   # Given an HTML element, adds the overlay message to it and triggers the
@@ -36,17 +34,26 @@ class exports.OverlayMessageView extends Backbone.View
     element.prepend @el
 
     unless Modernizr.cssanimations
-      $(@messageEl).hide().fadeIn 300
+      $(@el).hide().fadeIn 300
+
+    @shownAt = new Date
 
     this
 
   # Hides the message, then destroys the HTML elements after the hide
   # animations have completed.
   #
-  hide: =>
+  hide: (event) ->
+    # For some reason, clickoutside is triggering when the message is shown.
+    # Ignore calls to hide within 100ms of the message becoming visible.
+    #
+    # TODO Find out why this happens...
+    #
+    return false if (new Date - @shownAt) < 100
+
     window.setTimeout (=> @remove()), 325
 
     if Modernizr.cssanimations
-      $(@messageEl).addClass('out')
+      $(@el).addClass('out')
     else
-      $(@messageEl).fadeOut 300
+      $(@el).fadeOut 300
