@@ -25,4 +25,6 @@
       <li class="by"><%= I18n.t('sponsoredBy') %></li>
     </ul>
   </div>
+
+  <div id="loader">Loading...</div>
 </div>

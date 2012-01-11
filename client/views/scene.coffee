@@ -61,6 +61,12 @@ class exports.SceneView extends Backbone.View
     # Initialize the nav menu.
     @$('#footer').before (new SceneNav model: @model).render().el
 
+    # The "Loading..." events.
+    loader = @$ '#loader'
+
+    loader.ajaxStart    -> loader.stop().animate bottom:   '0px', 'fast'
+    loader.ajaxComplete -> loader.stop().animate bottom: '-36px', 'fast'
+
     this
 
   # Renders the modern theme by extending the default scene template.
