@@ -59,7 +59,7 @@ class exports.SceneView extends Backbone.View
       propLocations[ prop.location ]?.append propView.render().el
 
     # Initialize the nav menu.
-    @$('#theme-header').after (new SceneNav model: @model).render().el
+    @$('#footer').before (new SceneNav model: @model).render().el
 
     this
 
