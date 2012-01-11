@@ -1,1 +1,18 @@
-User.
+<h6>Sign in to your account</h6>
+
+<form action="/users/sign_in" method="post">
+  <input name="user[email]" id="user_email" type="email" value="" placeholder="E-mail address" />
+  <input name="user[password]" id="user_password" type="password" value="" placeholder="Password" />
+
+  <div class="buttons">
+    <label id="user-remember" for="user_remember_me">
+      <input name="user[remember_me]" id="user_remember_me" type="checkbox" checked="checked" value="1" /> Remember me
+    </label>
+
+    <input id="user-sign-in" type="submit" value="Sign in" class="button green" />
+  </div>
+</form>
+
+<h6>Don't have an account?</h6>
+
+<p>[ register ]</p>

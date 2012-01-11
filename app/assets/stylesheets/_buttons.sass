@@ -1,0 +1,44 @@
+// Colours of the the horizontal gradient.
+$button-top-color:    #eff4fa !default
+$button-bottom-color: #d2d9e1 !default
+
+// Colour of the border around the button.
+$button-border-color: #a9b2bc !default
+
+// Styles --------------------------------------------------------------------
+
+.buttons
+  a, button, input.button
+    @include background(linear-gradient($button-top-color, $button-bottom-color))
+    @include border-radius(3px)
+    border: 1px solid $button-border-color
+    border-bottom-color: darken($button-border-color, 8%)
+    box-shadow: inset 0 1px 0 white, 0 1px 0 rgba(0, 0, 0, 0.08)
+    color: black
+    cursor: pointer
+    display: block
+    font: bold 13px "Helvetica Neue", Arial, Helvetica, sans-serif
+    line-height: 18px
+    margin: 0
+    padding: 5px 11px
+    text-shadow: 0 1px 0 white
+
+    &:hover
+      text-decoration: none
+
+    &:active
+      background: $button-bottom-color
+      box-shadow: none
+      border-color: darken($button-border-color, 8%)
+
+    &.green
+      @include background(linear-gradient(#80c060, #57984d))
+      border-color: #227e17 #227e17 #1d4e1b
+      box-shadow: inset 0 1px 0 #a3d488, 0 1px 0 rgba(0, 0, 0, 0.15)
+      color: white
+      text-shadow: 0 1px 1px #235d21
+
+      &:active
+        background: #67a754
+        box-shadow: none
+        border-color: #235d21

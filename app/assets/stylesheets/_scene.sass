@@ -73,6 +73,53 @@
         &.last
           @include border-top-right-radius(0px)
 
+        h6
+          border-bottom: 1px solid #c0c9c9
+          color: #548aaa
+          font-size: 11px
+          font-weight: bold
+          margin-bottom: 15px
+          padding-bottom: 2px
+          text-transform: uppercase
+
+        form
+          margin-bottom: 20px
+
+          input
+            font: 13px "Helvetica Neue", Arial, sans-serif
+            margin: 0
+
+            &:focus
+              outline: none
+
+            & + input
+              margin-top: -1px
+
+            &#user_email, &#user_password
+              border: 1px solid #c0c9c9
+              padding: 6px 4px
+              width: 190px
+
+            &#user_email
+              +border-top-radius(3px)
+
+            &#user_password
+              +border-bottom-radius(3px)
+              margin-bottom: 19px
+
+          label#user-remember
+            padding-top: 5px
+            font-size: 12px
+
+            input
+              margin-right: 3px
+
+          input#user-sign-in
+            float: right
+            font-size: 12px
+            font-weight: bold
+            margin-top: -7px
+
     #controls
       @extend .clearfix
 
