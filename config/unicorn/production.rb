@@ -21,6 +21,10 @@ pid '/home/ubuntu/apps/etflex/shared/pids/unicorn.pid'
 stderr_path '/home/ubuntu/apps/etflex/shared/log/unicorn.log'
 stdout_path '/home/ubuntu/apps/etflex/shared/log/unicorn.log'
 
+before_exec do |server|
+  ENV['BUNDLE_GEMFILE'] = '/home/ubuntu/apps/etflex/current/Gemfile'
+end
+
 before_fork do |server, worker|
   # This option works in together with preload_app true setting. What is does
   # is prevent the master process from holding the database connection
@@ -39,6 +43,7 @@ before_fork do |server, worker|
       # Old master already dead. Just ignore it.
     end
   end
+
 end
 
 after_fork do |server, worker|
