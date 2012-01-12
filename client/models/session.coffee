@@ -1,8 +1,9 @@
 # Represents the user's session with ETengine; keeps track of their unique
-# session ID, country, end date, etc.
+# session ID. It may do other stuff in the future...
 #
-# Create a new session by calling `createSession()` instead of `new Session`
-# since `createSession` will fetch the session ID from the server.
+# Create a new session by calling `engine::getSession()` instead of
+# `new Session` since `getSession` will handle other important setup details
+# (like keeping track of session IDs).
 #
 class exports.Session extends Backbone.Model
   constructor: ({ id }, options) ->
