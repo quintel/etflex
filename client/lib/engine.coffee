@@ -1,7 +1,3 @@
-# Each scene uses a separate ETEngine session so that the inputs from one
-# scene don't affect the outcome of another. SessionManager keeps track of
-# each scene ID and the ETEngine session it uses.
-
 api         = require 'lib/api'
 { Session } = require 'models/session'
 
@@ -18,7 +14,13 @@ api         = require 'lib/api'
 # argument. The first argument will be null unless an error occurred.
 #
 # sceneId  - A number which uniquely identifies the session.
+#
 # queries  - Queries whose results should be fetched with the session.
+#
+# inputs   - Inputs whose values should be retrieved from ETEngine when
+#            restoring an existing session, or set to the engine when
+#            creating a new session.
+#
 # callback - A function which is run after the session is retrieved.
 #
 exports.getSession = (sceneId, queries, inputs, callback) ->
@@ -46,22 +48,14 @@ exports.getSession = (sceneId, queries, inputs, callback) ->
 
 # Session Helpers ------------------------------------------------------------
 
-# An abstraction around api::send which hits ETEngine for the basicinformation
-# about a session (country, etc).
-#
-# sessionId - The ID of the session being fetched from ETengine.
-# queries   - Queries whose results should be fetched with the session.
-# callback  - Is run with the error or retrieved session data.
+# An abstraction around api::send which hits ETEngine for the basic
+# information about a session (country, etc).
 #
 fetchSession = (sessionId, queries, callback) ->
   api.updateInputs sessionId, { queries }, (err, result) ->
     if err? then callback(err) else callback null, result
 
-# Hits user_values.json to get the state of the user's Inputs.
-#
-# sessionId - The ID of the ETengine session whose values are to be retrieved.
-# inputs    - The inputs whose values are to be retrieved.
-# callback  - Is called with the parsed values.
+# Requests input_data.json to get the state of the user's Inputs.
 #
 fetchUserValues = (sessionId, inputs, callback) ->
   inputKeys = ( input.def.key for input in inputs )
@@ -71,8 +65,6 @@ fetchUserValues = (sessionId, inputs, callback) ->
 # Used to create a new Session instance, pre-initialized with values from
 # ETengine. Use this in preference over `new Session` since creating a session
 # explicitly will not actually create a session on ETengine.
-#
-# See `initSession`.
 #
 createSession = (queries, inputs, callback) ->
   fetchSession 'new', null, (err, sessionData) ->
@@ -89,18 +81,11 @@ createSession = (queries, inputs, callback) ->
 
 # Restores the session state by retrieving it from ETengine.
 #
-# See `initSession`.
-#
-# sessionId - The ID of the ETengine session to be restored.
-# queries   - Queries whose results should be fetched with the session.
-# inputs    - The inputs whose values are to be restored.
-# callback  - Is called with the restored Session.
+# Currently we have to fetch both the session information and user values
+# separately; it would be just marvellous if we could do both in a single
+# request. ;-)
 #
 restoreSession = (sessionId, queries, inputs, callback) ->
-  # Currently we have to fetch both the session information and user values
-  # separately; it would be just marvellous if we could do both in a single
-  # request. ;-)
-  #
   async.parallel
     # Fetches information about the session.
     session: (cb) -> fetchSession sessionId, queries, cb
