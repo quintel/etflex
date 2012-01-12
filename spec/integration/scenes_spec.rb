@@ -47,8 +47,11 @@ describe 'Scenes' do
 
     # Set up records.
 
-    input_one = create :input, key: 'transport_cars_electric_share'
-    input_two = create :input, key: 'number_of_coal_conventional'
+    input_one = create :input, remote_id: 146,
+      key: 'transport_cars_electric_share'
+
+    input_two = create :input, remote_id: 315,
+      key: 'number_of_coal_conventional'
 
     scene = create :scene
 
