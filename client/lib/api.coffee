@@ -43,3 +43,72 @@ exports.send = (path, data, callback) ->
 
   .fail (jqXHR, textStatus, error) ->
     callback error
+
+# Given inputs, sends their values to ETengine. Given queries, will also fetch
+# their values.
+#
+# This may be called without any inputs or queries as part of the session
+# creation process.
+#
+# sessionId - The ID of the ETengine session whose input values are to be
+#             updated.
+#
+# options   - An object containing an optional "input" item containing a
+#             collection of inputs to be updated, and an optional "queries"
+#             item containing queries whose results should be returned.
+#
+# callback  - A callback to the run after the XHR request has completed. The
+#             first parameter will be null unless an error occurred (in which
+#             case it will be an exception object). The updated Query
+#             instances will be provided to the callback in an array.
+#
+# Example (with a Query collection)
+#
+#   updateInputs 1337, inputs: myInputs, queries: myQueries, (err, data) ->
+#     if err? then ... else ...
+#
+# Example (without a Query collection)
+#
+#   updateInputs 1337, inputs: myInputs, (err, data) ->
+#     if err? then ... else ...
+#
+# Example (fetching session information only)
+#
+#   updateInputs 1337, (err, data) ->
+#     if err? then ... else ...
+#
+exports.updateInputs = (sessionId, options, callback) ->
+  [ callback, options ] = [ options, {} ] if _.isFunction options
+  { inputs,   queries } = options
+
+  # Data sent to the server.
+  params = { input: {} }
+
+  # Queries and inputs may be a Backbone collection.
+  inputs  = inputs?.models  or inputs or []
+  queries = queries?.models or queries
+
+  # Map the input IDs and their values.
+  params.input[ input.get('id') ] = input.get('value') for input in inputs
+
+  # If there are any queries, tell ETEngine to give us those results.
+  params.result = ( query.get('id') for query in queries ) if queries?
+
+  exports.send sessionId, params, (err, data) ->
+    if err? then callback(err) else
+      if data.errors and data.errors.length
+        # ETengine currently returns a 200 OK even when an input is invalid;
+        # work around this by forming our own error and running the callback
+        # as a failure:
+        error = new Error('API Error')
+        error.errors = data.errors
+
+        callback? error
+
+      else
+        # Update the queries with the new values returned by the engine.
+        if data.result?
+          for query in queries when result = data.result[ query.get 'id' ]
+            query.set present: result[0][1], future: result[1][1]
+
+        callback null, data if callback

@@ -1,6 +1,6 @@
 # Represents a Query which is executed by ETengine (known there as a Gquery).
 #
-# ETflex worries only about the ID of the query, while `Session::updateInputs`
+# ETflex worries only about the ID of the query, while `api::updateInputs`
 # handles fetching new values for one or more Query instances when updating
 # the user inputs.
 #
