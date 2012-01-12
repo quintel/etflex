@@ -67,7 +67,7 @@ fetchUserValues = (sessionId, inputs, callback) ->
 # explicitly will not actually create a session on ETengine.
 #
 createSession = (queries, inputs, callback) ->
-  fetchSession 'new', null, (err, sessionData) ->
+  api.send 'new', (err, sessionData) ->
     return callback(err) if err?
 
     sessionId = parseInt(sessionData.api_scenario.id, 10)
