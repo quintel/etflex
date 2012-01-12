@@ -1,4 +1,4 @@
-{ updateInputs } = require 'lib/session_manager'
+{ updateInputs } = require 'lib/api'
 
 currentUpdate = null
 pendingUpdate = null
