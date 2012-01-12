@@ -21,29 +21,25 @@ api         = require 'lib/api'
 # queries  - Queries whose results should be fetched with the session.
 # callback - A function which is run after the session is retrieved.
 #
-exports.getSession = (sceneId, queries, callback) ->
+exports.getSession = (sceneId, queries, inputs, callback) ->
   lsKey = "ete.#{sceneId}"
 
-  if callback?
-    # Convert Backbone collection to an array.
-    queries = queries.models unless _.isArray queries
-  else
-    # queries argument may be omitted.
-    [ callback, queries ] = [ queries, null ] unless callback?
+  queries = queries.models or queries
+  inputs  = inputs.models  or inputs
 
   if existingId = localStorage.getItem lsKey
-    restoreSession existingId, queries, (err, session) ->
+    restoreSession existingId, queries, inputs, (err, session) ->
       if err? and err is 'Not Found'
         # Session was missing. Create a new one.
         localStorage.removeItem lsKey
-        exports.getSession sceneId, queries, callback
+        exports.getSession sceneId, queries, inputs, callback
       else if err?
         callback err
       else
         # Success!
         callback null, session
   else
-    createSession queries, (err, session) ->
+    createSession queries, inputs, (err, session) ->
       if err? then callback(err) else
         localStorage.setItem lsKey, session.id
         callback null, session
@@ -64,10 +60,13 @@ fetchSession = (sessionId, queries, callback) ->
 # Hits user_values.json to get the state of the user's Inputs.
 #
 # sessionId - The ID of the ETengine session whose values are to be retrieved.
+# inputs    - The inputs whose values are to be retrieved.
 # callback  - Is called with the parsed values.
 #
-fetchUserValues = (sessionId, callback) ->
-  api.send "#{sessionId}/user_values", callback
+fetchUserValues = (sessionId, inputs, callback) ->
+  inputKeys = ( input.def.key for input in inputs )
+
+  api.send "#{sessionId}/input_data", inputs: inputKeys, callback
 
 # Used to create a new Session instance, pre-initialized with values from
 # ETengine. Use this in preference over `new Session` since creating a session
@@ -75,7 +74,7 @@ fetchUserValues = (sessionId, callback) ->
 #
 # See `initSession`.
 #
-createSession = (queries, callback) ->
+createSession = (queries, inputs, callback) ->
   fetchSession 'new', null, (err, sessionData) ->
     return callback(err) if err?
 
@@ -84,14 +83,9 @@ createSession = (queries, callback) ->
     # The ETengine API does not presently support requesting query results
     # when creating a session. We need to start the session, and _then_
     # fetch the values.
-    return restoreSession sessionData.id, queries, callback if queries?
-
-    # No query results required, so it suffices to proceed to getting the
-    # initial user values.
-    fetchUserValues sessionData.id, (err, userValues) ->
+    api.updateInputs sessionData.id, { queries, inputs }, (err, userValues) ->
       if err? then callback(err) else
-        callback null, new Session(
-          _.extend(sessionData, user_values: userValues))
+        callback null, new Session sessionData
 
 # Restores the session state by retrieving it from ETengine.
 #
@@ -99,9 +93,10 @@ createSession = (queries, callback) ->
 #
 # sessionId - The ID of the ETengine session to be restored.
 # queries   - Queries whose results should be fetched with the session.
+# inputs    - The inputs whose values are to be restored.
 # callback  - Is called with the restored Session.
 #
-restoreSession = (sessionId, queries, callback) ->
+restoreSession = (sessionId, queries, inputs, callback) ->
   # Currently we have to fetch both the session information and user values
   # separately; it would be just marvellous if we could do both in a single
   # request. ;-)
@@ -110,10 +105,21 @@ restoreSession = (sessionId, queries, callback) ->
     # Fetches information about the session.
     session: (cb) -> fetchSession sessionId, queries, cb
     # Fetches user_values.json
-    values:  (cb) -> fetchUserValues sessionId, cb
+    values:  (cb) -> fetchUserValues sessionId, inputs, cb
 
   , (err, result) ->
+
     if err? then callback(err) else
-      callback null, new Session _.extend result.session.settings,
-        id:          sessionId
-        user_values: result.values
+      # Update each of the inputs with the value retrieved from ETEngine.
+      for input in inputs
+        continue unless inputData = result.values[ input.def.key ]
+
+        value = if inputData.hasOwnProperty('user_value')
+          inputData.user_value
+        else
+          inputData.start_value
+
+        input.set value: value if value?
+
+      callback null, new Session(
+        _.extend(result.session.settings, id: sessionId))

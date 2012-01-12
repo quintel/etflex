@@ -32,7 +32,7 @@ class exports.Scene extends Backbone.Model
       @queries = new Queries({ id: id } for id in @dependantQueries())
       @inputs  = new Inputs @get('inputs')
 
-      getSession @id, @queries, (err, session) =>
+      getSession @id, @queries, @inputs, (err, session) =>
         if err? then callback(err) else
 
           # Required so that changes to inputs can be sent back to ETengine.
