@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   private
   #######
 
-  before_filter :set_locale 
+  before_filter :set_locale
   layout :layout_by_resource
 
   # Sets the language to be used for the user; permits setting it through the
@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
     I18n.locale = params[:locale] || session[:locale] || I18n.default_locale
     session[:locale] = I18n.locale
   end
-  
+
   ##########
   protected
   ##########
@@ -33,8 +33,7 @@ class ApplicationController < ActionController::Base
   #
   #
   def layout_by_resource
-    devise_controller? ? "backstage" : nil
+    devise_controller? ? 'backstage' : nil
   end
-
 
 end
