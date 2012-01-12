@@ -17,16 +17,11 @@ class exports.InputManager
   #
   # session       - An instance of the Session model. Required so that
   #                 InputManager can persist new values to the correct URL.
-  # initialValues - An object mapping input ID keys to their initial values.
   #
   constructor: (@session) ->
-    @values  = {}
-
-    for own key, data of @session.get 'userValues'
-      @values[key] = data.user_value or data.start_value
 
   # Reads the value for an input.
-  read: (input) -> @values[ input.get 'id' ]
+  read: (input) -> throw 'No support for reading input values'
 
   # Updates the value of an input. You don't need to call this directly; is
   # used internally by Input::sync.
