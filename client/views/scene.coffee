@@ -66,8 +66,8 @@ class exports.SceneView extends Backbone.View
     # The "Loading..." events.
     loader = @$ '#loader'
 
-    loader.ajaxStart    -> loader.stop().animate bottom:   '0px', 'fast'
-    loader.ajaxComplete -> loader.stop().animate bottom: '-36px', 'fast'
+    loader.ajaxStart -> loader.stop().animate bottom:   '0px', 'fast'
+    loader.ajaxStop  -> loader.stop().animate bottom: '-36px', 'fast'
 
     this
 
