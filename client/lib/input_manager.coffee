@@ -1,5 +1,8 @@
 { updateInputs } = require 'lib/session_manager'
 
+currentUpdate = null
+pendingUpdate = null
+
 # Since Inputs aren't stored on ETengine using a "proper" REST API,
 # InputManager keeps track of the "user_values" object which it returns,
 # and is used as the persistance layer for Input instances.
@@ -17,7 +20,7 @@ class exports.InputManager
   # initialValues - An object mapping input ID keys to their initial values.
   #
   constructor: (@session) ->
-    @values = {}
+    @values  = {}
 
     for own key, data of @session.get 'userValues'
       @values[key] = data.user_value or data.start_value
@@ -34,16 +37,72 @@ class exports.InputManager
   #           which should be updated once the input value has been saved.
   #
   update: (input, options) ->
-    # Update the local copy of the input.
-    @values[ input.get 'id' ] = input.get 'value'
+    if currentUpdate?
+      pendingUpdate or= new QueuedUpdate
+      pendingUpdate.update(input, options?.queries)
+    else
+      currentUpdate = new QueuedUpdate
+      currentUpdate.update(input, options?.queries)
+      currentUpdate.perform(@session.id).always(@afterUpdate)
 
-    prevValue = input.previous('value')
-
-    data = inputs: [input], queries: options?.queries, sanitize_groups: true
-
-    # Then persist it back to ETengine.
-    updateInputs @session.id, data, (err) ->
-      return true unless err?
-
+  # Called after an update is perform, regardless of the outcome.
+  afterUpdate: (err, queuedUpdate) =>
+    if err?
       console.error err
-      input.set value: prevValue
+      queuedUpdate.rollback()
+
+    if pendingUpdate
+      currentUpdate = pendingUpdate
+      pendingUpdate = null
+
+      currentUpdate.perform(@session.id).always(@afterUpdate)
+    else
+      currentUpdate = null
+
+# QueuedUpdate ---------------------------------------------------------------
+
+# If the user changes multiple sliders in a short period, it can occur that
+# the responses are returned out of order, and queries are update to incorrect
+# values. QueuedUpdate will amalgamate all input changes, and the queries
+# affected, and do them all simultaneously when you call perform().
+#
+class QueuedUpdate
+  constructor: ->
+    @inputs     = {}
+    @origValues = {}
+    @queries    = {}
+
+  # Adds an input update to the queue so that it may be performed.
+  #
+  # input   - The Input model whose value is to be sent to ETEngine.
+  # queries - An optional array or Backbone collection containing queries
+  #           whose values we want ETEngine to return to us.
+  #
+  update: (input, queries = []) ->
+    @inputs[ input.id ]  = input
+    @queries[ query.id ] = query for query in (queries?.models or queries)
+
+    unless @origValues.hasOwnProperty(input.id)
+      @origValues[ input.id ] = input.previous('value')
+
+  # Sends the HTTP request to ETEngine.
+  #
+  # sessionId - The current ETEngine session ID.
+  #
+  perform: (sessionId) ->
+    queries  = ( query for own k, query of @queries )
+    inputs   = ( input for own k, input of @inputs  )
+    data     = { inputs: inputs, queries: queries, sanitize_groups: true }
+
+    deferred = $.Deferred()
+
+    updateInputs sessionId, data, (err) =>
+      (if err? then deferred.reject else deferred.resolve)(err, this)
+
+    return deferred.promise()
+
+  # Restores the inputs to their original values.
+  #
+  rollback: ->
+    for own k, input of @inputs
+      input.set(value: @origValues[ input.id ])
