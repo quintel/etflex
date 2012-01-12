@@ -78,14 +78,14 @@ createSession = (queries, inputs, callback) ->
   fetchSession 'new', null, (err, sessionData) ->
     return callback(err) if err?
 
-    sessionData = sessionData.api_scenario
+    sessionId = parseInt(sessionData.api_scenario.id, 10)
 
     # The ETengine API does not presently support requesting query results
     # when creating a session. We need to start the session, and _then_
     # fetch the values.
-    api.updateInputs sessionData.id, { queries, inputs }, (err, userValues) ->
+    api.updateInputs sessionId, { queries, inputs }, (err, userValues) ->
       if err? then callback(err) else
-        callback null, new Session sessionData
+        callback null, new Session(id: sessionId)
 
 # Restores the session state by retrieving it from ETengine.
 #
@@ -104,22 +104,21 @@ restoreSession = (sessionId, queries, inputs, callback) ->
   async.parallel
     # Fetches information about the session.
     session: (cb) -> fetchSession sessionId, queries, cb
-    # Fetches user_values.json
+    # Fetches the persisted input values.
     values:  (cb) -> fetchUserValues sessionId, inputs, cb
 
   , (err, result) ->
+    return callback(err) if err?
 
-    if err? then callback(err) else
-      # Update each of the inputs with the value retrieved from ETEngine.
-      for input in inputs
-        continue unless inputData = result.values[ input.def.key ]
+    # Update each of the inputs with the value retrieved from ETEngine.
+    for input in inputs
+      continue unless inputData = result.values[ input.def.key ]
 
-        value = if inputData.hasOwnProperty('user_value')
-          inputData.user_value
-        else
-          inputData.start_value
+      value = if inputData.hasOwnProperty('user_value')
+        inputData.user_value
+      else
+        inputData.start_value
 
-        input.set value: value if value?
+      input.set value: value if value?
 
-      callback null, new Session(
-        _.extend(result.session.settings, id: sessionId))
+    callback null, new Session(id: parseInt(sessionId, 10))
