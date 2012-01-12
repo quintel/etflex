@@ -1,17 +1,5 @@
 { InputManager } = require 'lib/input_manager'
 
-# Retrieves the starting value of an input based on the result returned by
-# ETengine. Prefers values set by the user, but falls back to the input
-# default otherwise.
-#
-valueFrom = (data) ->
-  return null unless data?
-
-  if data.hasOwnProperty('user_value')
-    data.user_value
-  else
-    data.start_value
-
 # Contains all of the Inputs. The main instantiated collection can be found
 # on app.collections.inputs.
 #
@@ -28,11 +16,4 @@ class exports.Inputs extends Backbone.Collection
   # than once will be ignored.
   #
   setSession: (session) ->
-    return true if @manager?
-
     @manager = new InputManager session
-    values   = session.get 'userValues'
-
-    for input in @models
-      if (value = valueFrom values[ input.id ])?
-        input.set value: value
