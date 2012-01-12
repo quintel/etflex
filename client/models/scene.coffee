@@ -1,4 +1,4 @@
-{ getSession } = require 'lib/session_manager'
+{ getSession } = require 'lib/engine'
 { getProp }    = require 'views/props'
 
 { Inputs }     = require 'collections/inputs'
