@@ -5,12 +5,5 @@
 # since `createSession` will fetch the session ID from the server.
 #
 class exports.Session extends Backbone.Model
-  constructor: (attributes, options) ->
-    super
-      id:         attributes.id
-      country:    attributes.country
-      endYear:    attributes.end_year
-      region:     attributes.region
-      useFCE:     attributes.use_fce
-      userValues: attributes.user_values or {}
-    , options
+  constructor: ({ id }, options) ->
+    super { id }, options
