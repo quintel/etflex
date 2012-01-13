@@ -88,24 +88,10 @@ describe 'Scenes' do
   # --------------------------------------------------------------------------
 
   context 'Retrieving a scene', api: true do
-    let(:scene)  { create(:scene)         }
-    let(:json)   { JSON.parse page.source }
-    subject      { JSON.parse page.source }
+    let(:scene)  { create(:detailed_scene) }
+    let(:json)   { JSON.parse page.source  }
 
     before do
-      # Create two inputs, with two scene inputs; two props, and two
-      # scene props.
-      inputs = [ create(:input), create(:input) ]
-      props  = [ create(:prop),  create(:prop)  ]
-
-      scene.scene_inputs.create!(input: inputs[0], location: 'left')
-      scene.scene_inputs.create!(
-        input: inputs[1], location: 'right', information_en: 'English')
-
-      scene.scene_props.create! prop: props[0], location: 'center'
-      scene.scene_props.create! prop: props[1], location: 'bottom',
-        hurdles: [1, 2, 3]
-
       # Visit the scene page to fetch JSON.
       visit "/scenes/#{ scene.id }"
     end

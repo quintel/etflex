@@ -43,10 +43,10 @@ shared_examples_for 'scene JSON' do
   context 'JSON' do
     subject { scene_json }
 
-    it { should have_key('id')        }
-    it { should have_key('name')      }
-    it { should have_key('inputs')    }
-    it { should have_key('props')     }
+    it { should have_key('id')     }
+    it { should have_key('name')   }
+    it { should have_key('inputs') }
+    it { should have_key('props')  }
 
     its(['inputs']) { should have(2).members }
     its(['props'])  { should have(2).members }
