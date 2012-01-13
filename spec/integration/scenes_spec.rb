@@ -1,44 +1,5 @@
 require 'spec_helper'
 
-# Shared Examples ------------------------------------------------------------
-
-shared_examples_for 'an embedded scene input' do
-  before { subject and subject.symbolize_keys!         }
-
-  it { should_not be_nil                               }
-
-  it { should include(key:       input.key)            }
-  it { should include(start:     input.start)          }
-  it { should include(min:       input.min)            }
-  it { should include(max:       input.max)            }
-  it { should include(step:      input.step)           }
-  it { should include(unit:      input.unit)           }
-  it { should include(position:  input.position)       }
-  it { should include(location:  input.location)       }
-  it { should include(remoteId:  input.remote_id)      }
-
-  # Info is markdown-parsed.
-  its([:info]) do
-    if input.information_en.nil? then subject.should be_nil else
-      subject.should match(input.information_en)
-    end
-  end
-end
-
-shared_examples_for 'an embedded scene prop' do
-  before { subject and subject.symbolize_keys!    }
-
-  it { should_not be_nil                          }
-
-  it { should include(key:       prop.key)        }
-  it { should include(behaviour: prop.behaviour)  }
-  it { should include(position:  prop.position)   }
-  it { should include(location:  prop.location)   }
-  it { should include(hurdles:   prop.hurdles)    }
-end
-
-# Scene Examples -------------------------------------------------------------
-
 describe 'Scenes' do
 
   # --------------------------------------------------------------------------
@@ -129,6 +90,7 @@ describe 'Scenes' do
   context 'Retrieving a scene', api: true do
     let(:scene)  { create(:scene)         }
     let(:json)   { JSON.parse page.source }
+    subject      { JSON.parse page.source }
 
     before do
       # Create two inputs, with two scene inputs; two props, and two
@@ -140,8 +102,8 @@ describe 'Scenes' do
       scene.scene_inputs.create!(
         input: inputs[1], location: 'right', information_en: 'English')
 
-      scene.scene_props.create!  prop: props[0],   location: 'center'
-      scene.scene_props.create!  prop: props[1],   location: 'bottom',
+      scene.scene_props.create! prop: props[0], location: 'center'
+      scene.scene_props.create! prop: props[1], location: 'bottom',
         hurdles: [1, 2, 3]
 
       # Visit the scene page to fetch JSON.
@@ -150,49 +112,9 @@ describe 'Scenes' do
 
     it { page.status_code.should eql(200) }
 
-    context 'JSON' do
-      subject { json }
-
-      it { should have_key('id')        }
-      it { should have_key('name')      }
-      it { should have_key('inputs')    }
-      it { should have_key('props')     }
-
-      its(['inputs']) { should have(2).members }
-      its(['props'])  { should have(2).members }
+    it_should_behave_like 'scene JSON' do
+      let(:scene_json) { json }
     end
-
-    context 'inputs' do
-      context 'the first input' do
-        subject     { json['inputs'].first }
-        let(:input) { scene.scene_inputs.first }
-
-        it_should_behave_like 'an embedded scene input'
-      end # the first input
-
-      context 'the second input' do
-        subject     { json['inputs'].last }
-        let(:input) { scene.scene_inputs.last }
-
-        it_should_behave_like 'an embedded scene input'
-      end # the second input
-    end # inputs
-
-    context 'props' do
-      context 'the first prop' do
-        subject    { json['props'].first }
-        let(:prop) { scene.scene_props.first }
-
-        it_should_behave_like 'an embedded scene prop'
-      end # the first prop
-
-      context 'the second prop' do
-        subject    { json['props'].last }
-        let(:prop) { scene.scene_props.last }
-
-        it_should_behave_like 'an embedded scene prop'
-      end # the second prop
-    end # props
   end
 
   # --------------------------------------------------------------------------
