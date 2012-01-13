@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120102141738) do
+ActiveRecord::Schema.define(:version => 20120113155407) do
 
   create_table "inputs", :force => true do |t|
     t.integer "remote_id",                    :null => false
@@ -29,6 +29,16 @@ ActiveRecord::Schema.define(:version => 20120102141738) do
     t.string "key",       :limit => 100, :null => false
     t.string "behaviour", :limit => 100, :null => false
   end
+
+  create_table "scenarios", :force => true do |t|
+    t.integer  "user_id",    :null => false
+    t.integer  "scene_id",   :null => false
+    t.integer  "session_id", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "scenarios", ["session_id"], :name => "index_scenarios_on_session_id", :unique => true
 
   create_table "scene_inputs", :force => true do |t|
     t.integer "scene_id",                      :null => false
