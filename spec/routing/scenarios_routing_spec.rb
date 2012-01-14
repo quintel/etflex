@@ -11,7 +11,12 @@ describe 'ScenariosController' do
       get('/scenes/1337/scenarios').should_not be_routable
     end
 
-    it 'routes to #show' do
+    it 'routes to #show using /with/...' do
+      get('/scenes/1337/with/1').should \
+        route_to('scenarios#show', scene_id: '1337', id: '1')
+    end
+
+    it 'routes to #show using /scenarios/...' do
       get('/scenes/1337/scenarios/1').should \
         route_to('scenarios#show', scene_id: '1337', id: '1')
     end
