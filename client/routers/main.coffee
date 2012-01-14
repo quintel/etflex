@@ -8,17 +8,19 @@ render           = require 'lib/render'
 #
 class exports.Main extends Backbone.Router
   routes:
-    '':            'root'
+    '':                          'root'
 
-    'scenes':      'redirectToDefaultScene'
-    'scenes/:id':  'showScene'
+    'scenes':                    'redirectToDefaultScene'
+    'scenes/:id':                'showScene'
 
-    'en':          'languageRedirect'
-    'nl':          'languageRedirect'
-    'en/*actions': 'languageRedirect'
-    'nl/*actions': 'languageRedirect'
+    'scenes/:sid/scenarios/:id': 'showSceneWithScenario'
 
-    '*undefined':   'notFound'
+    'en':                        'languageRedirect'
+    'nl':                        'languageRedirect'
+    'en/*actions':               'languageRedirect'
+    'nl/*actions':               'languageRedirect'
+
+    '*undefined':                'notFound'
 
   # A 404 Not Found page. Presents the user with a localised message guiding
   # them back to the front page.
@@ -72,6 +74,19 @@ class exports.Main extends Backbone.Router
         scene.start (err, scene, session) ->
           if err? then console.error err else
             render new SceneView model: scene
+
+  # Given JSON for a scenario (and embedded Scene), renders the scene fetching
+  # the scenario from ET-Engine.
+  #
+  # GET /scenes/:scene_id/scenarios/:id
+  #
+  showSceneWithScenario: (sceneId, id) ->
+    app.collections.scenarios.getOrFetch sceneId, id, (err, scenario) ->
+      if err? then @notFound() else
+        scenario.start (err, scenario, scene, session) ->
+          if err then console.log(err) else
+            render new SceneView model: scene, scenario: scenario
+
 
   # Used when changing language; a two-character language code is appended to
   # the URL.
