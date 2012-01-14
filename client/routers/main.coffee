@@ -8,19 +8,19 @@ render           = require 'lib/render'
 #
 class exports.Main extends Backbone.Router
   routes:
-    '':                          'root'
+    '':                     'root'
 
-    'scenes':                    'redirectToDefaultScene'
-    'scenes/:id':                'showScene'
+    'scenes':               'redirectToDefaultScene'
+    'scenes/:id':           'showScene'
 
-    'scenes/:sid/scenarios/:id': 'showSceneWithScenario'
+    'scenes/:sid/with/:id': 'showSceneWithScenario'
 
-    'en':                        'languageRedirect'
-    'nl':                        'languageRedirect'
-    'en/*actions':               'languageRedirect'
-    'nl/*actions':               'languageRedirect'
+    'en':                   'languageRedirect'
+    'nl':                   'languageRedirect'
+    'en/*actions':          'languageRedirect'
+    'nl/*actions':          'languageRedirect'
 
-    '*undefined':                'notFound'
+    '*undefined':           'notFound'
 
   # A 404 Not Found page. Presents the user with a localised message guiding
   # them back to the front page.
