@@ -22,8 +22,11 @@ exports.boot = (window, { locale, api, signedIn }) ->
 
   require('lib/api').setPath api
 
-  # Set up the collections.
-  exports.collections.scenes = new (require('collections/scenes').Scenes)
+  exports.collections.scenes =
+    new (require('collections/scenes').Scenes)
+
+  exports.collections.scenarios =
+    new (require('collections/scenarios').Scenarios)
 
   # Ensure that boot cannot be called again.
   exports.boot = (->)
