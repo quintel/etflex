@@ -9,7 +9,7 @@ class ScenariosController < ApplicationController
   # GET /scenes/:scene_id/scenarios/:id
   #
   def show
-    @scenario = Scenario.where(params.slice(:scene_id, :id)).first!
+    @scenario = Scenario.for_session! *params.values_at(:scene_id, :id)
     @scene    = @scenario.scene
 
     respond_with @scenario
