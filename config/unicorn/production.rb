@@ -1,4 +1,4 @@
-worker_processes 2
+worker_processes 4
 working_directory '/home/ubuntu/apps/etflex/current'
 
 # This loads the application in the master process before forking worker
