@@ -11,7 +11,7 @@ describe 'Scenarios' do
 
     before do
       # Visit the scene page to fetch JSON.
-      visit "/scenes/#{ scene.id }/scenarios/#{ scenario.id }"
+      visit "/scenes/#{ scene.id }/scenarios/#{ scenario.session_id }"
     end
 
     it { page.status_code.should eql(200) }
