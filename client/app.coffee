@@ -12,13 +12,14 @@ exports.routers = {}
 exports.collections = {}
 
 # Called _once_ when the application is first loaded in the browser.
-exports.boot = (window, { locale, api, signedIn }) ->
+exports.boot = (window, { locale, api, user }) ->
   installConsolePolyfill window
 
-  exports.isSignedIn = signedIn
+  exports.user       = user or {}
+  exports.isSignedIn = !! user
 
-  I18n.locale     = locale
-  I18n.fallbacks  = no
+  I18n.locale        = locale
+  I18n.fallbacks     = no
 
   require('lib/api').setPath api
 
