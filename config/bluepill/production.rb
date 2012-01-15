@@ -64,13 +64,13 @@ Bluepill.application('etflex', log_file: log_file) do |app|
     # APPLICATION CHECKS -----------------------------------------------------
 
     process.checks :cpu_usage, every: 30, below: 30,            times: 3
-    process.checks :mem_usage, every: 30, below: 300.megabytes, times: [3, 5]
+    process.checks :mem_usage, every: 30, below: 100.megabytes, times: [3, 5]
 
     # SETUP UNICORN CHILDREN MONITORING --------------------------------------
 
     process.monitor_children do |child|
       child.checks :cpu_usage, every: 30, below: 25,            times: 3
-      child.checks :mem_usage, every: 30, below: 200.megabytes, times: [3, 5]
+      child.checks :mem_usage, every: 30, below: 100.megabytes, times: [3, 5]
 
       child.stop_command = "kill -QUIT {{PID}}"
     end
