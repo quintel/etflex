@@ -3,6 +3,7 @@
 
 { Inputs }     = require 'collections/inputs'
 { Queries }    = require 'collections/queries'
+{ Session}     = require 'models/session'
 
 # Scenes are pages such as the ETlite recreation, which have one or more
 # inputs, fetch results from ETengine, and display these to the user.
@@ -30,11 +31,11 @@ class exports.Scene extends Backbone.Model
     @queries or= new Queries({ id: id } for id in @dependantQueries())
     @inputs  or= new Inputs @get('inputs')
 
-    getSession @id, @queries, @inputs, (err, session) =>
+    getSession @id, @queries, @inputs, (err, sessionId) =>
       if err? then callback(err) else
 
         # Required so that changes to inputs can be sent back to ETengine.
-        @inputs.setSession session
+        @inputs.setSession session = new Session id: sessionId
 
         # Watch for changes to the inputs, and send them back to ETengine.
         @inputs.bind 'change:value', (ipt) => ipt.save {}, queries: @queries
