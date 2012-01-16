@@ -1,4 +1,4 @@
-{ scenes } = require('app').collections
+{ collections } = require 'app'
 
 # Scenario keeps track of a user's attempt to complete a scene. Holding on to
 # the scene ID, user ID, and the corresponding ET-Engine session ID, it allows
@@ -25,5 +25,5 @@ class exports.Scenario extends Backbone.Model
   #            session instances.
   #
   start: (callback) ->
-    scenes.get(@get('scene').id).start (err, scene, session) =>
+    collections.scenes.get(@get('scene').id).start (err, scene, session) =>
       callback err, this, scene, session
