@@ -62,7 +62,7 @@ class exports.RangeView extends Backbone.View
   # quinn - The Quinn instance which changed.
   #
   updateOutput: (value, quinn) =>
-    @$('.output').text value.toFixed @precision
+    @$('.output').text I18n.toNumber value, precision: @precision
 
   # Saves the model with the new value. Used as an onCommit callback for the
   # Quinn instance.
