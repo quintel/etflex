@@ -1,4 +1,4 @@
-{ collections } = require 'app'
+app = require 'app'
 
 # Scenario keeps track of a user's attempt to complete a scene. Holding on to
 # the scene ID, user ID, and the corresponding ET-Engine session ID, it allows
@@ -25,7 +25,16 @@ class exports.Scenario extends Backbone.Model
   #            session instances.
   #
   start: (callback) ->
-    scene = collections.scenes.get @get('scene').id
+    scene = app.collections.scenes.get @get('scene').id
 
     scene.start this, (err, scene, session) =>
       callback err, this, scene, session
+
+  # Given a user, determines if the user is permitted to change any part of
+  # the scene. Currently, only the owner may change the scene.
+  #
+  # user - The user to test.
+  #
+  canChange: (user) ->
+    return true unless @get('userId')?
+    app.isLoggedIn and @get('userId') is app.user.id
