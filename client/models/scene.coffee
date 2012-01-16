@@ -27,21 +27,19 @@ class exports.Scene extends Backbone.Model
   #            session instance.
   #
   start: (callback) ->
-    if @session? then callback(null, @, @session) else
+    @queries or= new Queries({ id: id } for id in @dependantQueries())
+    @inputs  or= new Inputs @get('inputs')
 
-      @queries = new Queries({ id: id } for id in @dependantQueries())
-      @inputs  = new Inputs @get('inputs')
+    getSession @id, @queries, @inputs, (err, session) =>
+      if err? then callback(err) else
 
-      getSession @id, @queries, @inputs, (err, session) =>
-        if err? then callback(err) else
+        # Required so that changes to inputs can be sent back to ETengine.
+        @inputs.setSession session
 
-          # Required so that changes to inputs can be sent back to ETengine.
-          @inputs.setSession session
+        # Watch for changes to the inputs, and send them back to ETengine.
+        @inputs.bind 'change:value', (ipt) => ipt.save {}, queries: @queries
 
-          # Watch for changes to the inputs, and send them back to ETengine.
-          @inputs.bind 'change:value', (ipt) => ipt.save {}, queries: @queries
-
-          callback(null, @, @session = session)
+        callback(null, @, @session = session)
 
   # Returns an array of query IDs used by the scene.
   #
