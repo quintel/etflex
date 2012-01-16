@@ -6,13 +6,15 @@ api = require 'lib/api'
 #
 # "getSession" will always hit ETEngine for the session details, and will
 # return a new Session. This method is used in conjunction with
-# Scene::start and probably shouldn't be celled directly unless you know
+# Scene::start and probably shouldn't be called directly unless you know
 # what you're doing.
 #
 # In all cases, the session will be returned to the callback as the second
 # argument. The first argument will be null unless an error occurred.
 #
-# sceneId  - A number which uniquely identifies the session.
+# scenario - The scenario whose session is to be fetched from the Engine. If
+#            the scenario has no session ID value, a new session will be
+#            created.
 #
 # queries  - Queries whose results should be fetched with the session.
 #
@@ -22,28 +24,14 @@ api = require 'lib/api'
 #
 # callback - A function which is run after the session is retrieved.
 #
-exports.getSession = (sceneId, queries, inputs, callback) ->
-  lsKey = "ete.#{sceneId}"
-
+exports.getSession = (scenario, queries, inputs, callback) ->
   queries = queries.models or queries
   inputs  = inputs.models  or inputs
 
-  if existingId = localStorage.getItem lsKey
-    restoreSession existingId, queries, inputs, (err, sessionId) ->
-      if err? and err is 'Not Found'
-        # Session was missing. Create a new one.
-        localStorage.removeItem lsKey
-        exports.getSession sceneId, queries, inputs, callback
-      else if err?
-        callback err
-      else
-        # Success!
-        callback null, sessionId
+  if existingId = scenario.get 'sessionId'
+    restoreSession existingId, queries, inputs, callback
   else
-    createSession queries, inputs, (err, sessionId) ->
-      if err? then callback(err) else
-        localStorage.setItem lsKey, sessionId
-        callback null, sessionId
+    createSession queries, inputs, callback
 
 # Session Helpers ------------------------------------------------------------
 

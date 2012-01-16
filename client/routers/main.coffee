@@ -73,6 +73,10 @@ class exports.Main extends Backbone.Router
         # Otherwise, let's start the scene by starting the ETengine session.
         scene.start (err, scene, session) ->
           if err? then console.error err else
+            # Now that we have fetches the session, we change the URL so that
+            # the user can hit refresh without losing their changes.
+            app.navigate "scenes/#{ scene.id }/with/#{ session.id }", false
+
             render new SceneView model: scene
 
   # Given JSON for a scenario (and embedded Scene), renders the scene fetching
