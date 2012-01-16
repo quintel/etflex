@@ -25,5 +25,7 @@ class exports.Scenario extends Backbone.Model
   #            session instances.
   #
   start: (callback) ->
-    collections.scenes.get(@get('scene').id).start (err, scene, session) =>
+    scene = collections.scenes.get @get('scene').id
+
+    scene.start this, (err, scene, session) =>
       callback err, this, scene, session

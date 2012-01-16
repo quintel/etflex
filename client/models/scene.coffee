@@ -3,7 +3,8 @@
 
 { Inputs }     = require 'collections/inputs'
 { Queries }    = require 'collections/queries'
-{ Session}     = require 'models/session'
+{ Session }    = require 'models/session'
+{ Scenario }   = require 'models/scenario'
 
 # Scenes are pages such as the ETlite recreation, which have one or more
 # inputs, fetch results from ETengine, and display these to the user.
@@ -23,11 +24,23 @@ class exports.Scene extends Backbone.Model
   # Starts the scene by fetching the ETengine session (if one already exists;
   # creates a new session otherwise).
   #
+  # scenario - By default, start will create a new ET-Engine session
+  #            (scenario) but you may instead provide a scenario of your own
+  #            which should be used instead. Note that if the Scenario has no
+  #            "sessionId" value, starting the scene will create a new
+  #            ET-Engine session and set the value.
+  #
   # callback - A function which will be run after the scene has been set up.
   #            The callback will be provided with the Scene instance and the
   #            session instance.
   #
-  start: (callback) ->
+  start: ([ scenario ]..., callback) ->
+    if scenario
+      if scenario.get('scene').id isnt @id
+        throw 'Scenario scene ID does not match scene ID'
+    else
+      scenario = new Scenario sceneId: this
+
     @queries or= new Queries({ id: id } for id in @dependantQueries())
     @inputs  or= new Inputs @get('inputs')
 
