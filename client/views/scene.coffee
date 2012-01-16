@@ -80,18 +80,6 @@ class exports.SceneView extends Backbone.View
     modernHeader = require 'templates/scenes/modern/header'
     @$('#core').prepend modernHeader()
 
-  # Sends the user to view their session on ET-Model.
-  #
-  navigateToETModel: (event) =>
-    host = if api.beta?
-      'http://beta.et-model.com'
-    else
-      'http://et-model.com'
-
-    window.navigate "#{ host }/scenarios/#{ @model.session.id }/load"
-
-    event.preventDefault()
-
   # Creates a new instance of a prop. Takes the key of the prop and and
   # additional arguments to be passed the constructor.
   #
