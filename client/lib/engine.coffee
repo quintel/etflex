@@ -1,5 +1,4 @@
-api         = require 'lib/api'
-{ Session } = require 'models/session'
+api = require 'lib/api'
 
 # Exports --------------------------------------------------------------------
 
@@ -30,7 +29,7 @@ exports.getSession = (sceneId, queries, inputs, callback) ->
   inputs  = inputs.models  or inputs
 
   if existingId = localStorage.getItem lsKey
-    restoreSession existingId, queries, inputs, (err, session) ->
+    restoreSession existingId, queries, inputs, (err, sessionId) ->
       if err? and err is 'Not Found'
         # Session was missing. Create a new one.
         localStorage.removeItem lsKey
@@ -39,12 +38,12 @@ exports.getSession = (sceneId, queries, inputs, callback) ->
         callback err
       else
         # Success!
-        callback null, session
+        callback null, sessionId
   else
-    createSession queries, inputs, (err, session) ->
+    createSession queries, inputs, (err, sessionId) ->
       if err? then callback(err) else
-        localStorage.setItem lsKey, session.id
-        callback null, session
+        localStorage.setItem lsKey, sessionId
+        callback null, sessionId
 
 # Session Helpers ------------------------------------------------------------
 
@@ -77,7 +76,7 @@ createSession = (queries, inputs, callback) ->
     # fetch the values.
     api.updateInputs sessionId, { queries, inputs }, (err, userValues) ->
       if err? then callback(err) else
-        callback null, new Session(id: sessionId)
+        callback null, sessionId
 
 # Restores the session state by retrieving it from ETengine.
 #
@@ -106,4 +105,4 @@ restoreSession = (sessionId, queries, inputs, callback) ->
 
       input.set value: value if value?
 
-    callback null, new Session(id: parseInt(sessionId, 10))
+    callback null, parseInt(sessionId, 10)
