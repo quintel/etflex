@@ -31,11 +31,9 @@ ActiveRecord::Schema.define(:version => 20120113155407) do
   end
 
   create_table "scenarios", :force => true do |t|
-    t.integer  "user_id",    :null => false
-    t.integer  "scene_id",   :null => false
-    t.integer  "session_id", :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "user_id",    :null => false
+    t.integer "scene_id",   :null => false
+    t.integer "session_id", :null => false
   end
 
   add_index "scenarios", ["session_id"], :name => "index_scenarios_on_session_id", :unique => true
