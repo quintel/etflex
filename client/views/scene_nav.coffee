@@ -49,8 +49,9 @@ class exports.SceneNav extends Backbone.View
   id: 'main-nav'
 
   events:
-    'click ul.scene-nav a': 'handleClick'
-    'clickoutside':         'deactivate'
+    'click ul.scene-nav a':       'handleClick'
+    'click .main-nav-pulldown a': 'deactivate'
+    'clickoutside':               'deactivate'
 
   activeItem: null
 
