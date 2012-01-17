@@ -21,3 +21,11 @@ en:
       name: "Header: Eco-Buildings / Quarry"
     turbines:
       name: "Header: Wind Turbines / Coal Power Plant"
+    energy_sources:
+      name: "Header: Energy Sources"
+    geothermal_pipeline:
+      name: "Header: Geothermal-pipeline"
+    ground:
+      name: "Header: Ground"
+    solar_heater:
+      name: "Header: Solar Heater"
