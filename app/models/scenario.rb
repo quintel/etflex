@@ -19,8 +19,8 @@ class Scenario < ActiveRecord::Base
   # Returns the Scenario for a given scene ID, session ID pair, raising a
   # RecordNotFound error if no Scenario exists.
   #
-  def self.for_session!(scene_id, session_id)
-    where(scene_id: scene_id, session_id: session_id).first!
+  def self.for_session(scene_id, session_id)
+    where(scene_id: scene_id, session_id: session_id).first
   end
 
   # RELATIONSHIPS ------------------------------------------------------------
