@@ -34,9 +34,9 @@ class exports.CO2EmissionsView extends GenericProp
   # without re-rendering the whole view.
   #
   updateValues: =>
-    # Query result is in kilograms. Divide by 1000 to get tons, then 1000000
+    # Query result is in kilograms. Divide by 1000 to get tons, then 1000_000
     # to get Mtons.
-    value = @query.get('future') / 1000000000
+    value = @query.get('future') / (1000 * 1000000)
 
     # Reduce the value to one decimal place when shown.
     $(@el).find('.output').html "#{@precision value, 1} Mton CO<sub>2</sub>"
