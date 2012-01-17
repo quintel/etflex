@@ -9,17 +9,17 @@ accountTemplate  = require 'templates/scene_nav/account'
 
 # ----------------------------------------------------------------------------
 
-# Returns the path to the current ETEngine session on ETModel.
+# Returns the path to the current ETEngine scenario on ETModel.
 #
-# session - The session instance we want to view on ETModel.
+# scenario - The scenario we want to view on ETModel.
 #
-urlToSessionOnETM = (session) ->
+urlToScenarioOnETM = (scenario) ->
   host = if api.isBeta
     'http://beta.et-model.com'
   else
     'http://et-model.com'
 
-  "#{ host }/scenarios/#{ session.id }/load"
+  "#{ host }/scenarios/#{ scenario.get('sessionId') }/load"
 
 # Given an event, returns the name of the item used to trigger the event.
 itemNameFromEvent = (event) ->
@@ -28,7 +28,7 @@ itemNameFromEvent = (event) ->
 # Renders the contents of the information menu.
 renderInfo = ({ model }) ->
   infoTemplate
-    etmURL:   urlToSessionOnETM(model.session)
+    etmURL:   urlToScenarioOnETM(model.scenario)
     about:    I18n.t('navigation.about')
     feedback: I18n.t('navigation.feedback')
     privacy:  I18n.t('navigation.privacy')
