@@ -5,8 +5,8 @@ module ApplicationHelper
   # Returns a string with the JSON.
   #
   def client_options
-    rendered_user = if devise_controller? and user_signed_in?
-      render partial: 'embeds/user', user: current_user
+    rendered_user = if respond_to?(:user_signed_in?) and user_signed_in?
+      render partial: 'embeds/user.json', locals: { user: current_user }
     end
 
     { locale:   I18n.locale,
