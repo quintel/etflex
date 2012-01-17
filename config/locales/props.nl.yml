@@ -21,3 +21,11 @@ nl:
       name: "Header: Eco-Gebouwen / Quarry"
     turbines:
       name: "Header: Windturbines / Kolen Power Plant"
+    energy_sources:
+      name: "Header: Energiebronnen"
+    geothermal_pipeline:
+      name: "Header: Geothermie"
+    ground:
+      name: "Header: Grond"
+    solar_heater:
+      name: "Header: Zonneboiler"
