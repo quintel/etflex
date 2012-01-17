@@ -7,6 +7,7 @@ rangeTemplate   = require 'templates/range'
 class exports.RangeView extends Backbone.View
   className: 'range'
 
+
   # Events; the "help" icon clicker.
   events:
     'click .help': 'showHelp'
@@ -14,7 +15,10 @@ class exports.RangeView extends Backbone.View
   # Becomes the Quinn instance once render() is called.
   quinn: null
 
-  constructor: ->
+  # False will prevent the sliders changes being committed.
+  canChange: true
+
+  constructor: ({ @canChange }) ->
     super
 
     @precision = @model.def.step.toString().split('.')
@@ -71,7 +75,7 @@ class exports.RangeView extends Backbone.View
   # quinn - The Quinn instance which changed.
   #
   updateModel: (value, quinn) =>
-    @model.set value: value
+    if @canChange then @model.set(value: value) else false
 
   # Triggered when the model value changes (such as when an API request
   # failed).

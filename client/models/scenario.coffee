@@ -36,5 +36,5 @@ class exports.Scenario extends Backbone.Model
   # user - The user to test.
   #
   canChange: (user) ->
-    return true unless @get('userId')?
-    app.isLoggedIn and @get('userId') is app.user.id
+    return true unless @get('user')?.id
+    user.id and @get('user').id is user.id

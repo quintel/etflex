@@ -1,3 +1,5 @@
+app           = require 'app'
+
 api           = require 'lib/api'
 template      = require 'templates/scene'
 
@@ -34,11 +36,12 @@ class exports.SceneView extends Backbone.View
 
     # Render each of the Inputs as a Range.
 
+    canChange     = @model.scenario.canChange(app.user)
     leftRangesEl  = @$ '#left-inputs'
     rightRangesEl = @$ '#right-inputs'
 
     for input in @model.inputs.models
-      view = new RangeView model: input
+      view = new RangeView model: input, canChange: canChange
 
       if input.get('location') is 'left'
         leftRangesEl.append view.render().el
