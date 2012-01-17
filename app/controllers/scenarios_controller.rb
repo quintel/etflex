@@ -13,6 +13,9 @@ class ScenariosController < ApplicationController
     @scene    = @scenario.scene
 
     respond_with @scenario
+  rescue ActiveRecord::RecordNotFound
+    # Temporary!
+    redirect_to scene_path(params[:scene_id])
   end
 
   # Creates a new Scenario record.
