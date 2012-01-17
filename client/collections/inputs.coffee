@@ -8,12 +8,11 @@ class exports.Inputs extends Backbone.Collection
 
   # Sets the session to which the inputs contained in the collection belong.
   #
-  # Sets the @manager variable so that changes to the inputs may be persisted
-  # back to ETengine.
+  # scenario - The ET-Engine scenario to which the input values should be sent
+  #            when changed.
   #
-  # Sets the value of all the  inputs to the values contained in the session;
-  # but only if you haven't run setSession previously. Running setSession more
-  # than once will be ignored.
-  #
-  setSession: (session) ->
-    @manager = new InputManager session
+  persistTo: (scenario) ->
+    if sessionId = scenario.get 'sessionId'
+      @manager = new InputManager sessionId
+    else
+      throw 'Cannot persist inputs to a scenario which has no sessionId'
