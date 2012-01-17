@@ -38,7 +38,7 @@ class exports.InputManager
     else
       currentUpdate = new QueuedUpdate
       currentUpdate.update(input, options?.queries)
-      currentUpdate.perform(sessionId).always(@afterUpdate)
+      currentUpdate.perform(@sessionId).always(@afterUpdate)
 
   # Called after an update is perform, regardless of the outcome.
   afterUpdate: (err, queuedUpdate) =>
@@ -50,7 +50,7 @@ class exports.InputManager
       currentUpdate = pendingUpdate
       pendingUpdate = null
 
-      currentUpdate.perform(sessionId).always(@afterUpdate)
+      currentUpdate.perform(@sessionId).always(@afterUpdate)
     else
       currentUpdate = null
 
