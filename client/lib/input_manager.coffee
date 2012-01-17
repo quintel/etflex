@@ -15,10 +15,10 @@ class exports.InputManager
 
   # Creates a new InputManager.
   #
-  # session       - An instance of the Session model. Required so that
-  #                 InputManager can persist new values to the correct URL.
+  # sessionId - The ID of the ET-Engine session so that the manager can
+  #             persist the input values to the correct URL.
   #
-  constructor: (@session) ->
+  constructor: (@sessionId) ->
 
   # Reads the value for an input.
   read: (input) -> throw 'No support for reading input values'
@@ -38,7 +38,7 @@ class exports.InputManager
     else
       currentUpdate = new QueuedUpdate
       currentUpdate.update(input, options?.queries)
-      currentUpdate.perform(@session.id).always(@afterUpdate)
+      currentUpdate.perform(sessionId).always(@afterUpdate)
 
   # Called after an update is perform, regardless of the outcome.
   afterUpdate: (err, queuedUpdate) =>
@@ -50,7 +50,7 @@ class exports.InputManager
       currentUpdate = pendingUpdate
       pendingUpdate = null
 
-      currentUpdate.perform(@session.id).always(@afterUpdate)
+      currentUpdate.perform(sessionId).always(@afterUpdate)
     else
       currentUpdate = null
 

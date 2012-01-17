@@ -3,7 +3,6 @@
 
 { Inputs }     = require 'collections/inputs'
 { Queries }    = require 'collections/queries'
-{ Session }    = require 'models/session'
 { Scenario }   = require 'models/scenario'
 
 # Scenes are pages such as the ETlite recreation, which have one or more
@@ -17,9 +16,6 @@ class exports.Scene extends Backbone.Model
 
   # Stores a Query collection used by the scene.
   queries: null
-
-  # The ETengine session. null if the scene has not yet been started.
-  session: null
 
   # Starts the scene by fetching the ETengine session (if one already exists;
   # creates a new session otherwise).
@@ -50,12 +46,12 @@ class exports.Scene extends Backbone.Model
         scenario.set { sessionId }
 
         # Required so that changes to inputs can be sent back to ETengine.
-        @inputs.setSession session = new Session id: sessionId
+        @inputs.persistTo scenario
 
         # Watch for changes to the inputs, and send them back to ETengine.
         @inputs.bind 'change:value', (ipt) => ipt.save {}, queries: @queries
 
-        callback(null, @, @session = session)
+        callback null, this, scenario
 
   # Returns an array of query IDs used by the scene.
   #

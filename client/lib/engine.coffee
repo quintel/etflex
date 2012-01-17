@@ -5,7 +5,7 @@ api = require 'lib/api'
 # Returns the ETEngine session which corresponds with a scene ID.
 #
 # "getSession" will always hit ETEngine for the session details, and will
-# return a new Session. This method is used in conjunction with
+# return the ID of the session. This method is used in conjunction with
 # Scene::start and probably shouldn't be called directly unless you know
 # what you're doing.
 #
@@ -49,8 +49,8 @@ fetchUserValues = (sessionId, inputs, callback) ->
 
   api.send "#{sessionId}/input_data", inputs: inputKeys, callback
 
-# Used to create a new Session instance, pre-initialized with values from
-# ETengine. Use this in preference over `new Session` since creating a session
+# Used to create a new session, pre-initialized with values from ET-Engine.
+# Use this in preference over `new Session` since creating a session
 # explicitly will not actually create a session on ETengine.
 #
 createSession = (queries, inputs, callback) ->
