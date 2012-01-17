@@ -51,7 +51,7 @@ class exports.Scene extends Backbone.Model
         # Watch for changes to the inputs, and send them back to ETengine.
         @inputs.bind 'change:value', (ipt) => ipt.save {}, queries: @queries
 
-        callback null, this, scenario
+        callback null, this, @scenario = scenario
 
   # Returns an array of query IDs used by the scene.
   #
