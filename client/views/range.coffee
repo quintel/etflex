@@ -33,7 +33,7 @@ class exports.RangeView extends Backbone.View
   render: () ->
     # TODO Add a "unitHtml helper somewhere.
     unit = switch @model.def.unit
-      when 'km2' then " km<sup>2</sup>"
+      when 'km2' then " km<sub>2</sub>"
       else            @model.def.unit
 
     $(@el).html rangeTemplate
