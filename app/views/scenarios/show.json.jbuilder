@@ -6,5 +6,6 @@ json.user do |json|
 end
 
 json.scene do |json|
+  @scene = @scenario.scene
   render template: 'scenes/show', locals: { json: json }
 end
