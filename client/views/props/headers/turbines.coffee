@@ -1,5 +1,5 @@
 { HeaderIcon } = require 'views/props/header_icon'
 
 class exports.TurbinesProp extends HeaderIcon
-  @queries: [ 'co2_emissions_per_kwh_electricity' ]
+  @queries: [ 'share_of_total_costs_assigned_to_wind' ]
   states:   [ 'wind', 'coal' ]
