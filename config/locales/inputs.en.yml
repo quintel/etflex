@@ -11,7 +11,8 @@ en:
     number_of_coal_conventional: "Coal-fired power plants"
     number_of_gas_conventional: "Gas-fired power plants"
     number_of_nuclear_3rd_gen: "Nuclear power plants"
-    number_of_solar_pv_roofs_fixed: "Solar panels"
+    households_market_penetration_solar_panels: "Solar panels"
     number_of_wind_onshore_land: "Wind turbines"
     policy_area_biomass: "Biomass"
     transport_cars_electric_share: "Electric cars"
+    
