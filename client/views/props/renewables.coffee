@@ -2,7 +2,7 @@
 { IconProp }    = require 'views/props/icon'
 
 class exports.RenewablesView extends GenericProp
-  @queries: [ 'share_of_renewable_electricity' ]
+  @queries: [ 'renewable_electricity_share' ]
   states:   [ 'low', 'medium', 'high', 'extreme' ]
 
   className: 'prop renewables'
@@ -15,7 +15,7 @@ class exports.RenewablesView extends GenericProp
 
     @icon = new IconProp
 
-    @query = options.queries.get 'share_of_renewable_electricity'
+    @query = options.queries.get 'renewable_electricity_share'
     @query.bind 'change:future', @updateValues
 
   # Renders the UI; calculates the C02 emissions. Can be safely called

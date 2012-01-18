@@ -2,7 +2,7 @@
 { IconProp }    = require 'views/props/icon'
 
 class exports.CO2EmissionsView extends GenericProp
-  @queries: [ 'co2_emission_total' ]
+  @queries: [ 'total_co2_emissions' ]
   states:   [ 'low', 'medium', 'high', 'extreme' ]
 
   className: 'prop co2-emissions'
@@ -16,7 +16,7 @@ class exports.CO2EmissionsView extends GenericProp
 
     @icon = new IconProp
 
-    @query = options.queries.get 'co2_emission_total'
+    @query = options.queries.get 'total_co2_emissions'
     @query.bind 'change:future', @updateValues
 
   # Renders the UI; calculates the C02 emissions. Can be safely called
