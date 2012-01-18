@@ -18,7 +18,7 @@ class exports.RenewablesView extends GenericProp
     @query = options.queries.get 'renewable_electricity_share'
     @query.bind 'change:future', @updateValues
 
-  # Renders the UI; calculates the C02 emissions. Can be safely called
+  # Renders the UI; calculates the CO2 emissions. Can be safely called
   # repeatedly to update the UI.
   #
   render: ->

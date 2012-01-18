@@ -206,6 +206,6 @@
       eco-buildings:       [ 0.15 ]
       energy-sources:      [ 0 ]
       geothermal-pipeline: [ 0.05, 0.25 ]
-      ground:              [ 0.065 ]
+      ground:              [ 0.085 ]
       solar-heater:        [ 0.25 ]
       turbines:            [ 0.01 ]
