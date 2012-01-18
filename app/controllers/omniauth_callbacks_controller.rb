@@ -1,17 +1,4 @@
-class User < ActiveRecord::Base
-  # Exception raised when the user tries to do something for which they don't
-  # have sufficient authorisation.
-  class NotAuthorised < StandardError ; end
-
-  # Include default devise modules. Others available are:
-  # :token_authenticatable, :trackable, :encryptable, :confirmable, :lockable,
-  # :timeoutable and :omniauthable
-  #
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :omniauthable
-
-  # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   # --- !ruby/hash:OmniAuth::AuthHash
   # provider: facebook
@@ -41,13 +28,15 @@ class User < ActiveRecord::Base
   #     timezone: 1
   #     locale: nl_NL
   #     verified: true
-  #     updated_time: '2011-09-24T11:36:17+0000'  
-  def self.find_or_create_with_facebook(auth_hash)
-    raw_info = auth_hash.extra.raw_info
-    if user = User.find_by_email(raw_info.email)
-      user
+  #     updated_time: '2011-09-24T11:36:17+0000'
+  def facebook
+    auth = request.env['omniauth.auth']
+    @user = User.find_or_create_with_facebook(auth)    
+    if @user.persisted?
+       sign_in @user
+       redirect_to root_path, notice: "succesfully signed in!"
     else
-      User.create!(email: raw_info.email, password: Devise.friendly_token[0,20])
+       raise auth.to_yaml
     end
   end
 end
