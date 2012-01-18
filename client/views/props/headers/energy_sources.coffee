@@ -9,7 +9,7 @@ class exports.EnergySourcesProp extends HeaderIcon
   refresh: (total, nuclear, solar, oil) ->
     if nuclear / total > 0.08
       @setState 'nuclear'
-    else if solar / total > 0.00034
+    else if solar / total > 0.001
       @setState 'solar'
     else
       @setState 'oil'
