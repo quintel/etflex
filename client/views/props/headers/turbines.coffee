@@ -2,4 +2,4 @@
 
 class exports.TurbinesProp extends HeaderIcon
   @queries: [ 'co2_emissions_per_kwh_electricity' ]
-  states:   [ 'coal', 'wind' ]
+  states:   [ 'wind', 'coal' ]
