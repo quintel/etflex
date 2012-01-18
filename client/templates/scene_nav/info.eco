@@ -2,5 +2,6 @@
   <li><a href="/about"><%= @about %></a></li>
   <li><a href="/feedback"><%= @feedback %></a></li>
   <li><a href="/privacy"><%= @privacy %></a></li>
+  <li><a href='http://etflex.dev/users/auth/facebook'>Log in with Facebook</a></li>
   <li id="nav-etmodel"><a href="<%= @etmURL %>" target="_blank"><%= @etmodel %></a></li>
 </ul>
