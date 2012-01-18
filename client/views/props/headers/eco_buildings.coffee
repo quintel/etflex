@@ -2,7 +2,7 @@
 { hurdleState } = require 'views/props'
 
 class exports.EcoBuildingsProp extends HeaderIcon
-  @queries: [ 'share_of_renewable_electricity', 'co2_emission_total' ]
+  @queries: [ 'renewable_electricity_share', 'total_co2_emissions' ]
   states:   [ 'coal', 'eco' ]
 
   # After running refresh which chooses between the eco building and quarry,
