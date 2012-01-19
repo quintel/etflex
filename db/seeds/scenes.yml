@@ -197,14 +197,14 @@
         max: 20
         step: 0.2
         information_en: >
-          Green gas is biogas that has been upgraded to natural gas quality. It 
-          can be fed into the gas mains. Biogas is conventionally produced by 
-          bacteria that digest biological material. In the future, such gas may 
-          be produced by 'gasification' of biomass.    
+          Green gas is biogas that has been upgraded to natural gas quality.
+          It can be fed into the gas mains. Biogas is conventionally produced
+          by bacteria that digest biological material. In the future, such gas
+          may be produced by 'gasification' of biomass.
         information_nl: >
-          Groengas is biogas dat is opgewerkt tot aardgaskwaliteit. Het kan 
-          dus op het gasnet worden ingevoed. Biogas wordt gewoonlijk gemaakt 
-          door bacteriën die biologisch materiaal verteren. In de toekomst 
+          Groengas is biogas dat is opgewerkt tot aardgaskwaliteit. Het kan
+          dus op het gasnet worden ingevoed. Biogas wordt gewoonlijk gemaakt
+          door bacteriën die biologisch materiaal verteren. In de toekomst
           wordt het mogelijk ook gemaakt door biomassa te vergassen.
 
   props:
