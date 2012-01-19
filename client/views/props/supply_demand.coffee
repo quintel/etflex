@@ -58,8 +58,6 @@ class exports.SupplyDemandView extends Backbone.View
     # represented by moving the needly by 1.5 degrees.
     degrees = (1 - difference) / perDegree
 
-    console.log difference, perDegree, degrees
-
     degrees =  84 if degrees >  84
     degrees = -84 if degrees < -84
 
