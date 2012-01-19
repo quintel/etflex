@@ -47,7 +47,7 @@ task :production do
   set :stage,   'production'
   set :branch,  'production'
 
-  set :deploy_to, "/home/ubuntu/apps/#{application_name}"
+  set :deploy_to, "/u/apps/#{application_name}"
 
   set :db_host, 'etm.cr6sxqj0itls.eu-west-1.rds.amazonaws.com'
   set :db_pass, 'acutZUVT56PoGI'
@@ -66,7 +66,6 @@ end
 # Symlink database.yml, etc.
 before 'deploy:assets:precompile', 'deploy:link_config'
 after  'deploy:update_code',       'deploy:link_config'
-after  'deploy:restart',           'bluepill:restart_monitored'
 after  'deploy',                   'airbrake:notify'
 
 # ----------------------------------------------------------------------------
