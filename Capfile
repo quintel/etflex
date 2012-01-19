@@ -28,15 +28,17 @@ end
 
 # APPLICATION CAPISTRANO CONFIGURATION ---------------------------------------
 
-set :application, 'etflex'
-set :user,        'ubuntu'
-set :use_sudo,     false
+set :application,  'etflex'
+set :user,         'ubuntu'
+set :use_sudo,      false
 
 # Git Repository.
 
-set :scm,         :git
-set :repository,  'git@github.com:dennisschoenmakers/etflex.git'
-set :deploy_via,  :remote_cache
+set :scm,          :git
+set :repository,   'git@github.com:dennisschoenmakers/etflex.git'
+set :deploy_via,   :remote_cache
+
+set :bundle_flags, '--deployment --quiet --binstubs --shebang ruby-local-exec'
 
 ssh_options[:forward_agent] = true
 
