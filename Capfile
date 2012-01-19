@@ -4,7 +4,6 @@ load 'deploy'
 load 'deploy/assets'
 
 load 'lib/capistrano/airbrake'
-load 'lib/capistrano/bluepill'
 load 'lib/capistrano/link_config'
 
 _cset(:stage) { 'production' }
