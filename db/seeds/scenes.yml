@@ -24,7 +24,7 @@
           switching to electric cars, we will save a lot of oil and use a bit
           more electricity. If we generate this electricity using wind
           turbines or solar power, driving a car will no longer produce any
-          CO^2 emissions.
+          CO^(2) emissions.
         information_nl: >
           Een elektrische auto gebruikt 2 tot 3 keer minder energie dan een
           auto op benzine of diesel. Benzine en diesel worden uit olie
@@ -91,7 +91,7 @@
           A coal-fired power plant is almost always running, producing
           electricity at maximum power. Powering it doen regularly reduces the
           amount of electricity we can make from coal. A coal-fired power
-          plant produces more air polluation than any alternative. CO^2
+          plant produces more air polluation than any alternative. CO^(2)
           emissions are twice as high as for a gas-fired power plant.
         information_nl: >
           Een kolencentrale draait het grootste deel van de tijd op volle
@@ -106,7 +106,7 @@
           A gas-fired power plant is cheaper to build than a coal power plant.
           However, they cost more than power plants which burn coal. A
           gas-fired power plant is easily powered up or down. That can come in
-          handy when wind turbines are not turning for a lack of wind. CO^2
+          handy when wind turbines are not turning for a lack of wind. CO^(2)
           emissions are half that of a coal-fired power plant.
         information_nl: >
           Een gascentrale is goedkoper om te bouwen dan een kolencentrale. Wel
@@ -124,7 +124,7 @@
           power plant has been built, making electricity is cheap. That is why
           this type of power plant is almost always running. It cannot be used
           to balance the supply and demand of electricity. One advantage is
-          that there are almost no CO^2 emissions. The radioactive waste is a
+          that there are almost no CO^(2) emissions. The radioactive waste is a
           disadvantage. No one has come up with a good solution for this
           problem yet.
         information_nl: >
@@ -134,14 +134,14 @@
           centrale bijna altijd op volle kracht aan. Een kerncentrale is niet
           geschikt om vraag en aanbod ven stroom in evenwicht te brengen.
           Voordeel is dat je nauwelijks last hebt van CO^(2)-uitstoot. Nadeel
-          is het radioactieve afval dar overblijft. Hiervoor is nog geen goede
+          is het radioactieve afval dat overblijft. Hiervoor is nog geen goede
           oplossing bedacht.
 
       263: # Wind turbines
         max: 5000
         step: 100
         information_en: >
-          A wind turbine produces sustainable power. There are no CO^2
+          A wind turbine produces sustainable power. There are no CO^(2)
           emissions. Wind is its fuel; it is a fuel which does not run out. Of
           course, the wind does not always blow. This means that building
           windmills alone is not enough. You would have a problem if you
@@ -179,9 +179,9 @@
           branches, and saw dust). You can make power by burning biomass. An
           advantage is that biomass will never be exhausted, like coal or oil
           will. Of course, you do have to make sure to plant new trees and
-          plants! CO^2 is released into the air when you burn biomass. The
+          plants! CO^(2) is released into the air when you burn biomass. The
           good thing about using biomass is that those trees and plans
-          absorbed a large part of this CO^2 from the air during their
+          absorbed a large part of this CO^(2) from the air during their
           lifetime.
         information_nl: >
           Met biomassa wordt vooral het afval van planten en bomen bedoeld
@@ -192,6 +192,18 @@
           verbrandt komt er CO^(2) in de lucht. Het mooie can biomassa is dat
           de boom of plant tijdens zijn leven al een groot deel van deze
           CO^(2) uit de lucht heeft opgenomen.
+
+      488: # Green gas
+        information_en: >
+          Green gas is biogas that has been upgraded to natural gas quality. It 
+          can be fed into the gas mains. Biogas is conventionally produced by 
+          bacteria that digest biological material. In the future, such gas may 
+          be produced by 'gasification' of biomass.    
+        information_nl: >
+          Groengas is biogas dat is opgewerkt tot aardgaskwaliteit. Het kan 
+          dus op het gasnet worden ingevoed. Biogas wordt gewoonlijk gemaakt 
+          door bacteriën die biologisch materiaal verteren. In de toekomst 
+          wordt het mogelijk ook gemaakt door biomassa te vergassen.
 
   props:
     center:
@@ -206,6 +218,6 @@
       eco-buildings:       [ 0.15 ]
       energy-sources:      [ 0 ]
       geothermal-pipeline: [ 0.05, 0.25 ]
-      ground:              [ 0.085 ]
+      ground:              [ 0.075 ]
       solar-heater:        [ 0.25 ]
       turbines:            [ 0.01 ]
