@@ -194,6 +194,7 @@
           CO^(2) uit de lucht heeft opgenomen.
 
       488: # Green gas
+      max: 20
         information_en: >
           Green gas is biogas that has been upgraded to natural gas quality. It 
           can be fed into the gas mains. Biogas is conventionally produced by 
