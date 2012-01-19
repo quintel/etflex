@@ -49,10 +49,16 @@ class exports.SupplyDemandView extends Backbone.View
   updateGauge: ->
     difference = @demandQuery.get('future') / @supplyQuery.get('future')
 
+    # The colour change (blue / red) occurs at -45deg and +45deg. Match these
+    # colours up with the hurdle values.
+    perDegree = (1.0 - @options.hurdles[0]) / 45
+
     # The gauge needle extremes are -84 degrees to +84 degrees. For the
     # moment, a one percent difference between supply and demand will be
     # represented by moving the needly by 1.5 degrees.
-    degrees = ( 1 - difference ) * 84 * 1.5
+    degrees = (1 - difference) / perDegree
+
+    console.log difference, perDegree, degrees
 
     degrees =  84 if degrees >  84
     degrees = -84 if degrees < -84
