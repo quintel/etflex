@@ -2,16 +2,16 @@
 { hurdleState } = require 'views/props'
 
 class exports.EcoBuildingsProp extends HeaderIcon
-  @queries: [ 'renewable_electricity_share', 'total_co2_emissions' ]
+  @queries: [ 'renewable_electricity_share' ]
   states:   [ 'coal', 'eco' ]
 
   # After running refresh which chooses between the eco building and quarry,
-  # use the CO2 query to match the style to the ground layer (bright green or
-  # desaturated green.
-  refresh: (renewables, co2) ->
+  # use the renewables query to match the style to the ground layer (bright
+  # green or desaturated green.
+  refresh: (renewables) ->
     stateName = hurdleState(this, renewables)
 
-    if ( co2 / 1000000000 ) >= 155
+    if renewables <= 0.075
       stateName = "#{ stateName }-dry"
     else
       stateName = "#{ stateName }-green"
