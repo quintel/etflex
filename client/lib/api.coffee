@@ -82,7 +82,7 @@ exports.updateInputs = (sessionId, options, callback) ->
   { inputs,   queries } = options
 
   # Data sent to the server.
-  params = { input: {} }
+  params = { input: {}, sanitize_groups: true }
 
   # Queries and inputs may be a Backbone collection.
   inputs  = inputs?.models  or inputs or []
