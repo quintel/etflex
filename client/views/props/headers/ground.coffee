@@ -4,6 +4,6 @@
 # layer and a darker, less saturated "dried out" version.
 #
 class exports.GroundProp extends HeaderIcon
-  @queries: [ 'renewable_electricity_share' ]
+  @queries: [ 'renewability' ]
   states:   [ 'dry', 'green' ]
 
