@@ -139,13 +139,6 @@
   max: 500.0
   start: 0.0
   step: 10.0
-- key: investment_costs_water_blue_energy
-  remote_id: 116
-  unit: ! '%'
-  min: -100.0
-  max: 1000.0
-  start: 0.0
-  step: 10.0
 - key: om_costs_nuclear_nuclear_plant
   remote_id: 121
   unit: ! '%'
@@ -172,13 +165,6 @@
   unit: ! '%'
   min: -100.0
   max: 500.0
-  start: 0.0
-  step: 10.0
-- key: om_costs_water_blue_energy
-  remote_id: 130
-  unit: ! '%'
-  min: -100.0
-  max: 1000.0
   start: 0.0
   step: 10.0
 - key: om_costs_water_mountains
@@ -814,12 +800,6 @@
   remote_id: 267
   min: 0.0
   max: 57.467437699170475
-  start: 0.0
-  step: 1.0
-- key: number_of_blue_energy
-  remote_id: 268
-  min: 0.0
-  max: 66.62842523719407
   start: 0.0
   step: 1.0
 - key: number_of_geothermal_electric
@@ -1901,13 +1881,6 @@
   max: 100000000.0
   start: 176.6488044132595
   step: 1000000.0
-- key: mw_of_hydro_blue_energy
-  remote_id: 520
-  unit: MW
-  min: 0.0
-  max: 12574.28469513405
-  start: 0.0
-  step: 100.0
 - key: mw_of_heat_central_coal_chp_fixed
   remote_id: 521
   unit: MW
