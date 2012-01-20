@@ -3,6 +3,38 @@ render           = require 'lib/render'
 { SceneView }    = require 'views/scene'
 { NotFoundView } = require 'views/not_found'
 
+# HELPERS --------------------------------------------------------------------
+
+notFound = ->
+  $('body').html (new NotFoundView).render().el
+
+# Starts a scene using a collection.
+#
+# For example, you may start a scene by providing the Scenes collection and
+# the ID of the scene to be started; or the Scenarios scene with the scene
+# and scenario IDs. So long as the collection responds to "getOrFetch", and
+# the returned object responds to "start", then all will be well.
+#
+# collection   - A Backbone collection which responds to getOrFetch
+# startArgs... - Additional arguments which will be passed to getOrFetch.
+#
+startScene = (collection, startArgs...) ->
+  collection.getOrFetch startArgs..., (err, thing) ->
+    # Backbone doesn't return a useful error, but it was almost certainly a
+    # 404, so just render the Not Found page...
+    if err? then notFound() else
+      thing.start (err, scene, scenario) ->
+        if err? then console.error err else
+          sessionId = scenario.get 'sessionId'
+
+          # Now that we have fetched the session, we change the URL so that
+          # the user can hit refresh without losing their changes.
+          app.navigate "scenes/#{ scene.id }/with/#{ sessionId }", false
+
+          render new SceneView model: scene, scenario: scenario
+
+# ROUTER ---------------------------------------------------------------------
+
 # Router watches the URL and, as it changes, re-renders the main view
 # mimicking the user navigating from one page to another.
 #
@@ -27,8 +59,7 @@ class exports.Main extends Backbone.Router
   #
   # GET /*undefined
   #
-  notFound: ->
-    $('body').html (new NotFoundView).render().el
+  notFound: notFound
 
   # The root page; simply shows the default scene with the "modern" theme for
   # the moment.
@@ -65,21 +96,7 @@ class exports.Main extends Backbone.Router
   # GET /scenes/:id
   #
   showScene: (id) ->
-    app.collections.scenes.getOrFetch id, (err, scene) =>
-      # Backbone doesn't return a useful error, but it was almost certainly a
-      # 404, so just render the Not Found page...
-      if err? then @notFound() else
-
-        # Otherwise, let's start the scene by starting the ETengine session.
-        scene.start (err, scene, scenario) ->
-          if err? then console.error err else
-            sessionId = scenario.get 'sessionId'
-
-            # Now that we have fetches the session, we change the URL so that
-            # the user can hit refresh without losing their changes.
-            app.navigate "scenes/#{ scene.id }/with/#{ sessionId }", false
-
-            render new SceneView model: scene
+    startScene app.collections.scenes, id
 
   # Given JSON for a scenario (and embedded Scene), renders the scene fetching
   # the scenario from ET-Engine.
@@ -87,12 +104,7 @@ class exports.Main extends Backbone.Router
   # GET /scenes/:scene_id/scenarios/:id
   #
   showSceneWithScenario: (sceneId, id) ->
-    app.collections.scenarios.getOrFetch sceneId, id, (err, scenario) ->
-      if err? then @notFound() else
-        scenario.start (err, scenario, scene, session) ->
-          if err then console.log(err) else
-            render new SceneView model: scene, scenario: scenario
-
+    startScene app.collections.scenarios, sceneId, id
 
   # Used when changing language; a two-character language code is appended to
   # the URL.

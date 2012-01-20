@@ -25,10 +25,7 @@ class exports.Scenario extends Backbone.Model
   #            session instances.
   #
   start: (callback) ->
-    scene = app.collections.scenes.get @get('scene').id
-
-    scene.start this, (err, scene, session) =>
-      callback err, this, scene, session
+    app.collections.scenes.get( @get('scene').id ).start this, callback
 
   # Given a user, determines if the user is permitted to change any part of
   # the scene. Currently, only the owner may change the scene.
