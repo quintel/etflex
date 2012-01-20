@@ -6,7 +6,7 @@ render           = require 'lib/render'
 # HELPERS --------------------------------------------------------------------
 
 notFound = ->
-  $('body').html (new NotFoundView).render().el
+  render new NotFoundView
 
 # Starts a scene using a collection.
 #
