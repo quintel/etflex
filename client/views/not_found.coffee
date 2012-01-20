@@ -7,6 +7,9 @@ class exports.NotFoundView extends Backbone.View
   events:
     'click a': 'navigateToRoot'
 
+  pageTitle: ->
+    I18n.t 'oops'
+
   render: ->
     $(@el).append(
       $("<div class='message'></div>")
