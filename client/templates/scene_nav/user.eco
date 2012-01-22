@@ -16,4 +16,8 @@
 
 <h6><%= I18n.t 'words.no_account' %></h6>
 
-<div class="placeholder">Register</div>
+<ul class="icon-nav">
+  <li><a href='/users/auth/facebook'>Log in with Facebook</a></li>
+</ul>
+
+<div class="placeholder">or register</div>
