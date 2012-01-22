@@ -11,7 +11,7 @@ namespace :etflex do
     # Sends an API request to the given path on ETEngine and returns the
     # HTTP response.
     def api(path)
-      RestClient.get "#{ ETFlex.config.api_url }#{ path }"
+      RestClient.get "#{ ETFlex.config.api_url }/#{ path }"
     end
 
     # Sends an API request for a scenario, returning the HTTP response.
@@ -26,6 +26,7 @@ namespace :etflex do
       if value.is_a?(Array) then value.first.to_f else value.to_f end
     end
 
+    require 'etflex'
     require 'restclient'
     require 'json'
 
