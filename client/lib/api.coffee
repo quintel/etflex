@@ -44,13 +44,6 @@ exports.send = (path, data, callback) ->
   .fail (jqXHR, textStatus, error) ->
     callback error
 
-# Registers the changes in the Client with the Server
-# PUT /backstage/scenes/:scene_id/props/:id
-#
-exports.updateServer = (inputs, co2, costs, renewability) ->
-  
-  
-
 # Given inputs, sends their values to ETengine. Given queries, will also fetch
 # their values.
 #
