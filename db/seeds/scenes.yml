@@ -189,7 +189,7 @@
 
   props:
     center:
-      supply-demand:       [ 0.75, 1.25 ]
+      supply-demand:       [ 0.95, 1.05 ]
     bottom:
       co2-emissions:       [ 140.0, 154.0, 161.0 ]
       renewables:          [ 6.0, 8.0, 10.0 ]
