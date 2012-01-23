@@ -17,7 +17,7 @@ class exports.HeaderIcon extends IconProp
     @refresh = _.debounce @refresh, 25 if @constructor.queries.length > 1
 
   events:
-    'click': 'showInfo'
+    'click .help': 'showInfo'
 
   render: ->
     super
