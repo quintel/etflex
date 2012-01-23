@@ -45,11 +45,16 @@ class exports.Scene extends Backbone.Model
 
         scenario.set { sessionId }
 
-        # Required so that changes to inputs can be sent back to ETengine.
+        # Required so that changes to inputs can be sent back to ETEngine.
         @inputs.persistTo scenario
 
-        # Watch for changes to the inputs, and send them back to ETengine.
-        @inputs.bind 'change:value', (ipt) => ipt.save {}, queries: @queries
+        # Watch for changes to the inputs, and send them back to ETEngine.
+        @inputs.bind 'change:value', (input) => input.save {}, { @queries }
+
+        # Returns input values and query information to ETFlex when received
+        # from ETEngine.
+        @inputs.bind 'updateInputsDone', =>
+          scenario.updateCollections { @inputs, @queries }
 
         callback null, this, @scenario = scenario
 
