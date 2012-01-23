@@ -12,10 +12,10 @@ class exports.Scenario extends Backbone.Model
   # scene ID are missing.
   #
   url: ->
-    unless @id and @get('scene').id
+    unless @get('sessionId') and @get('scene').id
       throw 'Cannot generate scenario URL when missing ID or scene ID'
 
-    "/scenes/#{ @get('scene').id }/scenarios/#{ @id }"
+    "/scenes/#{ @get('scene').id }/with/#{ @get 'sessionId' }"
 
   # Starts the scenario by fetching th ET-Engine session, then starting the
   # scene. The scene must already exist in the Scenes collection.
