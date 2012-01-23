@@ -42,7 +42,7 @@ class ScenariosController < ApplicationController
   #
   def create
     @scenario = Scenario.create new_scenario_attrs
-    respond_with @scenario
+    respond_with [ :scene, @scenario ]
   end
 
 end # ScenariosController
