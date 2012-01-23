@@ -33,6 +33,8 @@ startScene = (collection, startArgs...) ->
 
           render new SceneView model: scene, scenario: scenario
 
+          scenario.save()
+
 # ROUTER ---------------------------------------------------------------------
 
 # Router watches the URL and, as it changes, re-renders the main view
