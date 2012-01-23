@@ -45,6 +45,9 @@ class exports.InputManager
     if err?
       console.error err
       queuedUpdate.rollback()
+    else
+      collection = _.values(currentUpdate.inputs)[0].collection
+      collection.trigger 'updateInputsDone'
 
     if pendingUpdate
       currentUpdate = pendingUpdate

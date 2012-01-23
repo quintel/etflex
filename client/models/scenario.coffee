@@ -27,6 +27,21 @@ class exports.Scenario extends Backbone.Model
   start: (callback) ->
     app.collections.scenes.get( @get('scene').id ).start this, callback
 
+  # Given an inputs and queries collection, sets up events to track changes so
+  # that we can persist the values back to ET-Flex.
+  #
+  updateCollections: ({ queries, inputs }) ->
+    queryResults = {}
+    inputValues  = {}
+
+    queryResults[ query.id ] = query.get('future') for query in queries.models
+    inputValues[ input.id ]  = input.get('value')  for input in inputs.models
+
+    @set { queryResults, inputValues }
+    @save()
+
+    true
+
   # Given a user, determines if the user is permitted to change any part of
   # the scene. Currently, only the owner may change the scene.
   #
@@ -35,3 +50,8 @@ class exports.Scenario extends Backbone.Model
   canChange: (user) ->
     return true unless @get('user')?.id
     user.id and @get('user').id is user.id
+
+  # Don't send the scene information to the server; it doesn't care.
+  #
+  toJSON: ->
+    _.extend _.clone(@attributes), scene: null
