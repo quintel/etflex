@@ -23,7 +23,7 @@ class exports.Scenarios extends Backbone.Collection
   #
   getOrFetch: (sceneId, id, callback) ->
     if scenario = @get(id) then callback(scene) else
-      @add scenario = new Scenario(id: id, scene: { id: sceneId })
+      @add scenario = new Scenario(sessionId: id, scene: { id: sceneId })
 
       scenario.fetch
         error:   (scenario) -> callback true
