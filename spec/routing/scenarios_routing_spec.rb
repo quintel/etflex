@@ -20,9 +20,13 @@ describe 'ScenariosController' do
       get('/scenes/1337/with/1/edit').should_not be_routable
     end
 
-    it 'routes to #create' do
-      post('/scenes/1337/with').should \
-        route_to('scenarios#create', scene_id: '1337')
+    it 'routes to #create with an ID' do
+      post('/scenes/1337/with/42').should \
+        route_to('scenarios#create', scene_id: '1337', id: '42')
+    end
+
+    it 'does not route to #create without an ID' do
+      post('/scenes/1337/with').should_not be_routable
     end
 
     it 'routes to #update' do
