@@ -2,7 +2,6 @@ ETFlex::Application.routes.draw do
 
   resources :scenes, except: %w( new create edit update destroy ) do
     get  'with/:id', to: 'scenarios#show', as: :scenario
-    post 'with/:id', to: 'scenarios#create'
     put  'with/:id', to: 'scenarios#update'
   end
 
