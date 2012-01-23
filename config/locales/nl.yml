@@ -50,8 +50,8 @@ nl:
       savings:      "Besparingen"
       production:   "Energieproductie"
 
-      supply:       "Energieopwek"
-      demand:       "Energievraag"
+      supply:       "Aanbod"
+      demand:       "Vraag"
 
       balanced:     "Evenwichtige"
       supplyExcess: "Aanbod te hoog"
