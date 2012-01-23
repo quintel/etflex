@@ -16,6 +16,11 @@
 #
 class Scenario < ActiveRecord::Base
 
+  serialize :input_values,  Hash
+  serialize :query_results, Hash
+
+  attr_accessible :title, :input_values, :query_results
+
   # Returns the Scenario for a given scene ID, session ID pair, raising a
   # RecordNotFound error if no Scenario exists.
   #
@@ -33,5 +38,15 @@ class Scenario < ActiveRecord::Base
   validates :user_id,    presence: true
   validates :scene_id,   presence: true
   validates :session_id, presence: true, uniqueness: true
+
+  # INSTANCE METHODS ---------------------------------------------------------
+
+  def input_values=(values)
+    write_attribute(:input_values, values.present? ? values.to_hash : {})
+  end
+
+  def query_results=(results)
+    write_attribute(:query_results, results.present? ? results.to_hash : {})
+  end
 
 end

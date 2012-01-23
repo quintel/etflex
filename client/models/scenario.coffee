@@ -54,4 +54,4 @@ class exports.Scenario extends Backbone.Model
   # Don't send the scene information to the server; it doesn't care.
   #
   toJSON: ->
-    _.extend _.clone(@attributes), scene: null
+    { scenario: _.extend(_.clone(@attributes), scene: null) }
