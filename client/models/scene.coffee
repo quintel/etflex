@@ -1,3 +1,5 @@
+app            = require 'app'
+
 { getSession } = require 'lib/engine'
 { getProp }    = require 'views/props'
 
@@ -54,7 +56,8 @@ class exports.Scene extends Backbone.Model
         # Returns input values and query information to ETFlex when received
         # from ETEngine.
         @inputs.bind 'updateInputsDone', =>
-          scenario.updateCollections { @inputs, @queries }
+          if scenario.canSave app.user
+            scenario.updateCollections { @inputs, @queries }
 
         callback null, this, @scenario = scenario
 
