@@ -60,6 +60,7 @@ nl:
       renewables:   "Duurzame energie"
       emissions:    "Emissies"
       costs:        "Kosten"
+      score:        "Score"
       billion:      "miljard"
 
   # Common content on scene pages --------------------------------------------
