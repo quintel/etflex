@@ -80,7 +80,7 @@ class exports.Main extends Backbone.Router
     jQuery.getJSON('/scenes')
       .done (data) ->
         etlite = _.find data['scenes'], (scene) ->
-          scene.name is 'ETlite Recreation'
+          scene.id is 1
 
         if etlite?
           app.navigate etlite.href
