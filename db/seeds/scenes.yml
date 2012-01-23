@@ -1,5 +1,5 @@
 ---
-- name: 'ETlite Recreation'
+- name: 'Balancing Supply and Demand'
   inputs:
     left:
       43: # Low-energy lighting
@@ -214,6 +214,7 @@
       co2-emissions:       [ 140.0, 154.0, 161.0 ]
       renewables:          [ 6.0, 8.0, 10.0 ]
       costs:               [ 38.0, 40.0, 42.0, 44.0, 46.0, 48.0, 50.0, 52.0 ]
+      score:               [ 0 ]
     header:
       car:                 [ 1000000 ]
       city:                [ 140.0, 160.0 ]
