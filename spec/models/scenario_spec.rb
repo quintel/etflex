@@ -3,6 +3,19 @@ require 'spec_helper'
 describe Scenario do
   it { should successfully_save }
 
+  # ATTRIBUTES --------------------------------------------------------------
+
+  it { should_not allow_mass_assignment_of(:user) }
+  it { should_not allow_mass_assignment_of(:user_id) }
+
+  it { should_not allow_mass_assignment_of(:scene) }
+  it { should_not allow_mass_assignment_of(:scene_id) }
+
+  it { should_not allow_mass_assignment_of(:session_id) }
+
+  it { should allow_mass_assignment_of(:title) }
+  it { should allow_mass_assignment_of(:user_values) }
+
   # RELATIONS ----------------------------------------------------------------
 
   it { should belong_to(:user) }
