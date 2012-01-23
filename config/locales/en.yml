@@ -61,6 +61,7 @@ en:
       emissions:    "Emissions"
       costs:        "Costs"
       score:        "Score"
+      reliability:  "Reliability"
       billion:      "billion"
 
   # Common content on scene pages --------------------------------------------

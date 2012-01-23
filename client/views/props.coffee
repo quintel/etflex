@@ -43,6 +43,7 @@ h = (path, constant) ->  p "headers/#{ path }", constant
 props =
   'co2-emissions':       p 'co2_emissions',       'CO2EmissionsView'
   'score':               p 'score',               'ScoreView'
+  'reliability':         p 'reliability',         'ReliabilityView'
   'costs':               p 'costs',               'CostsView'
   'icon':                p 'icon',                'IconProp'
   'renewables':          p 'renewables',          'RenewablesView'

@@ -61,6 +61,7 @@ nl:
       emissions:    "Emissies"
       costs:        "Kosten"
       score:        "Score"
+      reliability:  "Betrouwbaarheid"
       billion:      "miljard"
 
   # Common content on scene pages --------------------------------------------
