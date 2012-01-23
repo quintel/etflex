@@ -4,6 +4,7 @@
 - behaviour: 'renewables'
 - behaviour: 'supply-demand'
 - behaviour: 'score'
+- behaviour: 'reliability'
 
 # Modern theme headerprops.
 - behaviour: 'car'
