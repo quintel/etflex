@@ -50,8 +50,8 @@ en:
       savings:      "Savings"
       production:   "Production"
 
-      supply:       "Energy supply"
-      demand:       "Energy demand"
+      supply:       "Supply"
+      demand:       "Demand"
 
       balanced:     "Balanced"
       supplyExcess: "Supply too high"
