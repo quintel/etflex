@@ -37,7 +37,6 @@ class exports.ScoreView extends GenericProp
     score = @query.get('future') 
 
     # Reduce the shown value to three decimal places.
-    $(@el).find('.output').html(
-      "Score: #{@precision score, 0}")
+    $(@el).find('.output').html(@precision score, 0)
 
     this
