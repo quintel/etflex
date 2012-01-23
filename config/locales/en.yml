@@ -60,6 +60,7 @@ en:
       renewables:   "Renewables"
       emissions:    "Emissions"
       costs:        "Costs"
+      score:        "Score"
       billion:      "billion"
 
   # Common content on scene pages --------------------------------------------
