@@ -173,26 +173,6 @@
           dan in Nederland. Zonnepanelen kun je op je eigen huis leggen. Dat
           is nuttig.
 
-      196: # Biomass
-        information_en: >
-          Biomass in the remains of plans and trees (like hay, wood chips,
-          branches, and saw dust). You can make power by burning biomass. An
-          advantage is that biomass will never be exhausted, like coal or oil
-          will. Of course, you do have to make sure to plant new trees and
-          plants! CO^(2) is released into the air when you burn biomass. The
-          good thing about using biomass is that those trees and plans
-          absorbed a large part of this CO^(2) from the air during their
-          lifetime.
-        information_nl: >
-          Met biomassa wordt vooral het afval van planten en bomen bedoeld
-          (hooi, houtsnippers, takken, zaagsel). Je kan stroom maken door
-          biomassa te verbranden. Voordeel is dat biomassa niet uitgeput raakt
-          zoals kolen en olie. Je moet dan natuurlijk wel zorgen dat er altijd
-          voldoende nieuwe planten en boomen bijkomen! Als je biomassa
-          verbrandt komt er CO^(2) in de lucht. Het mooie can biomassa is dat
-          de boom of plant tijdens zijn leven al een groot deel van deze
-          CO^(2) uit de lucht heeft opgenomen.
-
       488: # Green gas
         max: 20
         step: 0.2
