@@ -14,7 +14,8 @@ describe Scenario do
   it { should_not allow_mass_assignment_of(:session_id) }
 
   it { should allow_mass_assignment_of(:title) }
-  it { should allow_mass_assignment_of(:user_values) }
+  it { should allow_mass_assignment_of(:input_values) }
+  it { should allow_mass_assignment_of(:query_results) }
 
   # RELATIONS ----------------------------------------------------------------
 

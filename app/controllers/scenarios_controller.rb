@@ -16,6 +16,16 @@ class ScenariosController < ApplicationController
     end
   end
 
+  def scenario_attrs
+    attrs = params[:scenario] || Hash.new
+
+    # TODO Have the client send input_values, query_results, instead.
+    attrs[:input_values]  = attrs.delete(:inputValues)
+    attrs[:query_results] = attrs.delete(:queryResults)
+
+    attrs
+  end
+
   # ACTIONS ------------------------------------------------------------------
 
   ######
@@ -50,7 +60,7 @@ class ScenariosController < ApplicationController
       return head :forbidden
     end
 
-    @scenario.attributes = params[:scenario]
+    @scenario.attributes = scenario_attrs if params[:scenario].present?
     @scenario.save
 
     respond_with @scenario, location: scene_scenario_url
