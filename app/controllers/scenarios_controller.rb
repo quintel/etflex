@@ -8,13 +8,12 @@ class ScenariosController < ApplicationController
   private
   #######
 
-  def scenario_attrs
-    scenario = params.fetch(:scenario, Hash.new)
-
-    { user:       current_user,
-      scene:      Scene.find(params[:scene_id]),
-      session_id: params[:id],
-      title:      scenario[:title] }
+  def new_scenario
+    Scenario.new do |scenario|
+      scenario.user       = current_user
+      scenario.scene      = Scene.find(params[:scene_id])
+      scenario.session_id = params[:id]
+    end
   end
 
   # ACTIONS ------------------------------------------------------------------
@@ -31,7 +30,7 @@ class ScenariosController < ApplicationController
   #
   def show
     @scenario   = Scenario.for_session *params.values_at(:scene_id, :id)
-    @scenario ||= Scenario.new scenario_attrs
+    @scenario ||= new_scenario
 
     respond_with @scenario
   end
@@ -45,13 +44,13 @@ class ScenariosController < ApplicationController
   #
   def update
     @scenario   = Scenario.for_session *params.values_at(:scene_id, :id)
-    @scenario ||= Scenario.new
+    @scenario ||= new_scenario
 
     if @scenario.persisted? and @scenario.user_id != current_user.id
       return head :forbidden
     end
 
-    @scenario.attributes = scenario_attrs
+    @scenario.attributes = params[:scenario]
     @scenario.save
 
     respond_with [ :scene, @scenario ]
