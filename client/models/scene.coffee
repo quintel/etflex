@@ -35,7 +35,7 @@ class exports.Scene extends Backbone.Model
       if scenario.get('scene').id isnt @id
         throw 'Scenario scene ID does not match scene ID'
     else
-      scenario = new Scenario sceneId: this
+      scenario = new Scenario scene: _.clone(@attributes)
 
     @queries or= new Queries({ id: id } for id in @dependantQueries())
     @inputs  or= new Inputs @get('inputs')

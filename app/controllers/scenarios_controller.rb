@@ -53,7 +53,7 @@ class ScenariosController < ApplicationController
     @scenario.attributes = params[:scenario]
     @scenario.save
 
-    respond_with [ :scene, @scenario ]
+    respond_with @scenario, location: scene_scenario_url
   end
 
 end # ScenariosController
