@@ -93,7 +93,7 @@ describe ETFlex::ClientController do
 
     it 'should accept JSON' do
       put :update, id: '1', format: :json
-      response.status.should eql(200)
+      response.status.should eql(204)
     end
   end
 
@@ -107,7 +107,7 @@ describe ETFlex::ClientController do
 
     it 'should accept JSON' do
       delete :destroy, id: '1', format: :json
-      response.status.should eql(200)
+      response.status.should eql(204)
     end
   end
 

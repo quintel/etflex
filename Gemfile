@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-RAILS_VERSION = '~> 3.1.2'
+RAILS_VERSION = '~> 3.2.0'
 
 gem 'activesupport',  RAILS_VERSION, :require => 'active_support'
 gem 'actionpack',     RAILS_VERSION, :require => 'action_pack'
@@ -43,11 +43,11 @@ group :assets do
   # Node fires up a new Node process for each source file, slowing things down
   # considerably in development..
   gem 'therubyracer'
-  gem 'sass-rails',   '>= 3.1.4'
-  gem 'coffee-rails', '>= 3.1.1'
-  gem 'compass',      '~> 0.12.alpha.0'
+  gem 'sass-rails',   '>= 3.2.3'
+  gem 'coffee-rails', '>= 3.2.1'
+  gem 'compass',      '~> 0.12.alpha.4'
   gem 'eco',          '~> 1.0'
-  gem 'uglifier'
+  gem 'uglifier',     '>= 1.0.3'
 end
 
 group :production do
