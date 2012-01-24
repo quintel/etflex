@@ -8,6 +8,7 @@ app = require 'app'
 # The session ID is the ET-Engine session ID.
 #
 class exports.Scenario extends Backbone.Model
+
   # Returns the URL to the scenario. Raises an error if the scenario ID or
   # scene ID are missing.
   #
@@ -41,6 +42,17 @@ class exports.Scenario extends Backbone.Model
     @save()
 
     true
+
+  # Returns whether the scenario has enough information so that is can be used
+  # to directly start a scene without having to hit ETEngine first.
+  #
+  canStartLocally: ->
+    inputValues  = @get 'inputValues'
+    queryResults = @get 'queryResults'
+
+    inputValues and queryResults and
+      _.keys(inputValues).length and
+      _.keys(queryResults).length
 
   # Given a user, determines if the user is permitted to change any part of
   # the scene. Currently, only the owner may change the scene.

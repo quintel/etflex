@@ -1,5 +1,8 @@
 json.(@scenario, :id)
-json.sessionId @scenario.session_id
+
+json.sessionId    @scenario.session_id
+json.inputValues  @scenario.input_values
+json.queryResults @scenario.query_results
 
 json.user do |json|
   json.partial! 'embeds/user', user: @scenario.user
