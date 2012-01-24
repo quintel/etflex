@@ -22,6 +22,10 @@ class SceneProp < ActiveRecord::Base
 
   concatenate_attr :hurdles, :to_f
 
+  default_scope do
+    order(:position)
+  end
+
   # RELATIONSHIPS ------------------------------------------------------------
 
   belongs_to :scene

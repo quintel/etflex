@@ -58,6 +58,10 @@ class SceneInput < ActiveRecord::Base
   attr_accessible :input, :input_id, :location, :position, :step, :min, :max,
                   :step, :start, :information_en, :information_nl
 
+  default_scope do
+    order(:position)
+  end
+
   # VALIDATION ---------------------------------------------------------------
 
   validates :location, presence: true
