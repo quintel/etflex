@@ -12,6 +12,7 @@ describe Scenario do
   it { should_not allow_mass_assignment_of(:scene_id) }
 
   it { should_not allow_mass_assignment_of(:session_id) }
+  it { should_not allow_mass_assignment_of(:score) }
 
   it { should allow_mass_assignment_of(:title) }
   it { should allow_mass_assignment_of(:input_values) }
@@ -79,6 +80,18 @@ describe Scenario do
     it 'should set a hash' do
       scenario = Scenario.new query_results: { '1' => '2' }
       scenario.query_results.should eql('1' => '2')
+    end
+
+    it 'should also set a score when present' do
+      scenario = Scenario.new query_results: { 'score' => 1337 }
+      scenario.score.should eql(1337.0)
+    end
+
+    it 'should unset the score when not present' do
+      scenario = Scenario.new { |s| s.score = 42.0 }
+
+      expect { scenario.attributes = { query_results: {} } }.to \
+        change { scenario.score }.from(42.0).to(nil)
     end
   end
 
