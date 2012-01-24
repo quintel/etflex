@@ -41,10 +41,23 @@ class Scenario < ActiveRecord::Base
 
   # INSTANCE METHODS ---------------------------------------------------------
 
+  # Writes the input values hash. When given nil will always set an empty
+  # hash, and converts the hash keys to integers.
+  #
+  # values - A hash of input IDs and the value the user set.
+  #
   def input_values=(values)
-    write_attribute(:input_values, values.present? ? values.to_hash : {})
+    write_attribute(:input_values,
+      (values || {}).each_with_object(Hash.new) do |(key, value), obj|
+        obj[ (key.to_i rescue key) || key ] = value
+      end)
   end
 
+  # Writes the query results hash. When given nil will always set an empty
+  # hash.
+  #
+  # results - A hash of query keys and the value returned by ETEngine.
+  #
   def query_results=(results)
     write_attribute(:query_results, results.present? ? results.to_hash : {})
   end

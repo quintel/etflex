@@ -30,4 +30,56 @@ describe Scenario do
     create :scenario
     should validate_uniqueness_of(:session_id) }
 
+  # SERIALIZE ATTRIBUTES -----------------------------------------------------
+
+  describe '#input_values=' do
+    it 'should set an empty hash when given nil' do
+      scenario = Scenario.new input_values: nil
+      scenario.input_values.should eql(Hash.new)
+    end
+
+    it 'should set an empty hash when given an empty hash' do
+      scenario = Scenario.new input_values: {}
+      scenario.input_values.should eql(Hash.new)
+    end
+
+    it 'should convert a hash-like value to a Hash' do
+      scenario = Scenario.new input_values: {}.with_indifferent_access
+
+      scenario.input_values.class.should eql(Hash)
+      scenario.input_values.class.should_not \
+        eql(ActiveSupport::HashWithIndifferentAccess)
+    end
+
+    it 'should set convert keys to integers when given a hash' do
+      scenario = Scenario.new input_values: { '1' => '2' }
+      scenario.input_values.should eql(1 => '2')
+    end
+  end
+
+  describe '#query_results=' do
+    it 'should set an empty hash when given nil' do
+      scenario = Scenario.new query_results: nil
+      scenario.query_results.should eql(Hash.new)
+    end
+
+    it 'should set an empty hash when given an empty hash' do
+      scenario = Scenario.new query_results: {}
+      scenario.query_results.should eql(Hash.new)
+    end
+
+    it 'should convert a hash-like value to a Hash' do
+      scenario = Scenario.new query_results: {}.with_indifferent_access
+
+      scenario.query_results.class.should eql(Hash)
+      scenario.query_results.class.should_not \
+        eql(ActiveSupport::HashWithIndifferentAccess)
+    end
+
+    it 'should set a hash' do
+      scenario = Scenario.new query_results: { '1' => '2' }
+      scenario.query_results.should eql('1' => '2')
+    end
+  end
+
 end
