@@ -29,7 +29,7 @@ exports.getSession = (scenario, queries, inputs, callback) ->
   inputs  = inputs.models  or inputs
 
   if existingId = scenario.get 'sessionId'
-    if scenario.canStartLocally()
+    if scenario.canStartLocally queries, inputs
       localRestore scenario, queries, inputs, callback
     else
       restoreSession existingId, queries, inputs, callback
@@ -105,19 +105,7 @@ localRestore = (scenario, queries, inputs, callback) ->
   localInputs  = scenario.get 'inputValues'
   localQueries = scenario.get 'queryResults'
 
-  # Before attempting a local restore, we assert that we have values for _all_
-  # of the queries and inputs (since it is possible the scenario is old and an
-  # admin has changed the scene since it was created).
-  inputIds = ( input.def.id.toString() for input in inputs )
-  queryIds = ( query.id for query in queries )
+  input.set(value: localInputs[input.def.id.toString()]) for input in inputs
+  query.set(future: localQueries[query.id]) for query in queries
 
-  if _.difference(inputIds, _.keys(localInputs)).length or
-        _.difference(queryIds, _.keys(localQueries)).length
-
-    # INSUFFICIENT DATA FOR A MEANINGFUL ANSWER.
-    restoreSession scenario.get('sessionId'), queries, inputs, callback
-  else
-    input.set(value: localInputs[input.def.id.toString()]) for input in inputs
-    query.set(future: localQueries[query.id]) for query in queries
-
-    callback null, scenario.get('sessionId')
+  callback null, scenario.get('sessionId')
