@@ -54,12 +54,14 @@ class Scenario < ActiveRecord::Base
   end
 
   # Writes the query results hash. When given nil will always set an empty
-  # hash.
+  # hash. If the "score" query is present, it's value will be copied into the
+  # score column; otherwise the score column will be set to nil.
   #
   # results - A hash of query keys and the value returned by ETEngine.
   #
   def query_results=(results)
     write_attribute(:query_results, results.present? ? results.to_hash : {})
+    self.score = query_results['score']
   end
 
 end
