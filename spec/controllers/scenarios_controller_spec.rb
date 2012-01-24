@@ -12,8 +12,8 @@ describe ScenariosController do
         inputValues: { '1' => '2' }, queryResults: { '3' => '4' } }
     end
 
-    it 'should respond with 200 OK' do
-      response.status.should eql(200)
+    it 'should respond with 204 No Content' do
+      response.status.should eql(204)
     end
 
     it 'should create a new Scenario' do
@@ -48,8 +48,8 @@ describe ScenariosController do
           scenario: { title: 'My new scenario title' }, format: :json
       end
 
-      it 'should return 200 OK' do
-        response.status.should eql(200)
+      it 'should return 204 No Content' do
+        response.status.should eql(204)
       end
 
       it 'should apply the changes' do
@@ -92,8 +92,8 @@ describe ScenariosController do
           scenario: { inputValues: { '1' => '1234' } }, format: :json
       end
 
-      it 'should return 200 OK' do
-        response.status.should eql(200)
+      it 'should return 204 No Content' do
+        response.status.should eql(204)
       end
 
       it 'should save the input values' do
