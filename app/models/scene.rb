@@ -21,6 +21,10 @@
 #
 class Scene < ActiveRecord::Base
 
+  default_scope do
+    includes(scene_props: :prop, scene_inputs: :input)
+  end
+
   # RELATIONSHIPS ------------------------------------------------------------
 
   has_many :scene_props
