@@ -46,6 +46,6 @@ ETFlex::Application.configure do
   # Application Configuration ------------------------------------------------
 
   # Don't hit the live site when testing.
-  config.etflex.api_url = 'http://etengine.dev/api/v2'
+  # config.etflex.api_url = 'http://etengine.dev/api/v2'
 
 end
