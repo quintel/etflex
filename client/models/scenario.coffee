@@ -46,13 +46,23 @@ class exports.Scenario extends Backbone.Model
   # Returns whether the scenario has enough information so that is can be used
   # to directly start a scene without having to hit ETEngine first.
   #
-  canStartLocally: ->
-    inputValues  = @get 'inputValues'
-    queryResults = @get 'queryResults'
+  # queries - The collection of queries which would be restored.
+  # inputs  - The collection of inputs which would be restored.
+  #
+  canStartLocally: (queries, inputs) ->
+    localInputs  = @get 'inputValues'
+    localQueries = @get 'queryResults'
 
-    inputValues and queryResults and
-      _.keys(inputValues).length and
-      _.keys(queryResults).length
+    return false unless localInputs
+    return false unless localQueries
+
+    inputIds  = ( input.def.id for input in inputs )
+    queryIds  = ( query.id for query in queries )
+
+    lInputIds = _.map(_.keys(localInputs), parseFloat)
+
+    _.difference(inputIds, lInputIds).length is 0 and
+      _.difference(queryIds, _.keys(localQueries)).length is 0
 
   # Given a user, determines if the user is permitted to change any part of
   # the scene. Currently, only the owner may change the scene.
