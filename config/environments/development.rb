@@ -30,6 +30,9 @@ ETFlex::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 
+  # Don't log asset requests.
+  config.assets.logger = false
+
   # Raise exception on mass assignment protection for Active Record models
   config.active_record.mass_assignment_sanitizer = :strict
 
