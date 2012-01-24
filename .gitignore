@@ -50,5 +50,4 @@ doc/
 config/database.yml
 public/assets/*
 .rvmrc
-.rbenv-version
 .DS_Store
