@@ -6,7 +6,8 @@ module ApplicationHelper
   #
   def client_options
     rendered_user = if respond_to?(:user_signed_in?) and user_signed_in?
-      render partial: 'embeds/user.json', locals: { user: current_user }
+      render partial: 'embeds/user', formats: [:json],
+        locals: { user: current_user }
     end
 
     { locale:   I18n.locale,
