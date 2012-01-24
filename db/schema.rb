@@ -11,8 +11,8 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120124140713) do
-
+<<<<<<< HEAD
+ActiveRecord::Schema.define(:version => 20120124130202) do
   create_table "inputs", :force => true do |t|
     t.integer "remote_id",                    :null => false
     t.string  "key",                          :null => false
@@ -31,14 +31,18 @@ ActiveRecord::Schema.define(:version => 20120124140713) do
   end
 
   create_table "scenarios", :force => true do |t|
-    t.integer  "user_id",       :null => false
-    t.integer  "scene_id",      :null => false
-    t.integer  "session_id",    :null => false
+    t.integer  "user_id",             :null => false
+    t.integer  "scene_id",            :null => false
+    t.integer  "session_id",          :null => false
     t.string   "title"
     t.text     "input_values"
     t.datetime "updated_at"
     t.text     "query_results"
+    t.float    "total_co2_emissions"
+    t.float    "total_costs"
+    t.float    "renewability"
     t.float    "score"
+    t.datetime "created_at"
   end
 
   add_index "scenarios", ["session_id"], :name => "index_scenarios_on_session_id", :unique => true
