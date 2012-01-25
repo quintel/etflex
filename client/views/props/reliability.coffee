@@ -37,7 +37,4 @@ class exports.ReliabilityView extends GenericProp
 
     @icon.setState @hurdleState @query.get('future')
     
-    console.log("----value-----")
-    console.log(@query.get('future'))
-
     this
