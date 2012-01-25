@@ -68,6 +68,8 @@ RSpec.configure do |config|
   # Capybara
   # --------
 
+  Capybara.javascript_driver = :webkit
+
   Capybara.register_driver :rack_test_api do |app|
     Capybara::RackTest::Driver.new(app, headers: {
       'HTTP_ACCEPT'  => 'application/json',

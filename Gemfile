@@ -88,5 +88,5 @@ group :test do
 
   # Integration / acceptance testing.
   gem 'capybara', '>= 1.1.1'
-  gem 'launchy' # for save_and_open_page
+  gem 'capybara-webkit'
 end
