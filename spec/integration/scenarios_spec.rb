@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 feature 'Viewing scenarios', js: true do
-  let(:scene) { create :scene_with_inputs }
+  let(:scene) { create :scene_with_inputs, name: 'Balancing Supply and Demand' }
   let(:owner) { create :user }
 
   def create_scenario(scene_id, user = nil)
@@ -15,6 +15,9 @@ feature 'Viewing scenarios', js: true do
 
     Scenario.last
   end
+
+  # make sure the scene exists before starting.
+  background { scene }
 
   # --------------------------------------------------------------------------
 
@@ -87,9 +90,8 @@ feature 'Viewing scenarios', js: true do
   # --------------------------------------------------------------------------
 
   scenario 'As a user, creating a new scenario' do
-    num_scenarios = Scenario.count
-
     sign_in owner
+    num_scenarios = Scenario.count
 
     visit "/scenes/#{ scene.id }"
 
@@ -106,10 +108,14 @@ feature 'Viewing scenarios', js: true do
   # --------------------------------------------------------------------------
 
   scenario 'As a user, viewing a scenario I own' do
-    scenario      = create_scenario(scene.id, owner)
-    num_scenarios = Scenario.count
+    scenario = create_scenario(scene.id, owner)
 
     sign_in owner
+
+    # May have created extra scenarios when signing in; we don't care about
+    # them so get rid...
+    Scenario.all.each { |s| s.destroy unless s.id == scenario.id }
+    num_scenarios = Scenario.count
 
     visit "/scenes/#{ scene.id }/with/#{ scenario.session_id }"
 
@@ -126,10 +132,14 @@ feature 'Viewing scenarios', js: true do
   # --------------------------------------------------------------------------
 
   scenario 'As a user, viewing a scenario owned by another user' do
-    scenario      = create_scenario(scene.id, owner)
-    num_scenarios = Scenario.count
+    scenario = create_scenario(scene.id, owner)
 
     sign_in create(:user)
+
+    # May have created extra scenarios when signing in; we don't care about
+    # them so get rid...
+    Scenario.all.each { |s| s.destroy unless s.id == scenario.id }
+    num_scenarios = Scenario.count
 
     visit "/scenes/#{ scene.id }/with/#{ scenario.session_id }"
 
