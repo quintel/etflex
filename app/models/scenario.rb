@@ -19,6 +19,8 @@ class Scenario < ActiveRecord::Base
   serialize :input_values,  Hash
   serialize :query_results, Hash
 
+  attr_accessible :title, :input_values, :query_results
+
   # Returns the Scenario for a given scene ID, session ID pair, raising a
   # RecordNotFound error if no Scenario exists.
   #
@@ -33,7 +35,7 @@ class Scenario < ActiveRecord::Base
 
   # VALIDATION ---------------------------------------------------------------
 
-  validates :user_id,    presence: true
+  validates :user_id,    presence: true, if: -> { guest_uid.blank? }
   validates :scene_id,   presence: true
   validates :session_id, presence: true, uniqueness: true
 

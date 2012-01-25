@@ -10,9 +10,14 @@ class ScenariosController < ApplicationController
 
   def new_scenario
     Scenario.new do |scenario|
-      scenario.user       = current_user
       scenario.scene      = Scene.find(params[:scene_id])
       scenario.session_id = params[:id]
+
+      if user_signed_in?
+        scenario.user = user
+      else
+        scenario.guest_uid = guest_user.uid
+      end
     end
   end
 

@@ -7,6 +7,7 @@ describe Scenario do
 
   it { should_not allow_mass_assignment_of(:user) }
   it { should_not allow_mass_assignment_of(:user_id) }
+  it { should_not allow_mass_assignment_of(:guest_uid) }
 
   it { should_not allow_mass_assignment_of(:scene) }
   it { should_not allow_mass_assignment_of(:scene_id) }
@@ -23,13 +24,32 @@ describe Scenario do
   it { should belong_to(:user) }
   it { should belong_to(:scene) }
 
-  it { should validate_presence_of(:user_id) }
   it { should validate_presence_of(:scene_id) }
   it { should validate_presence_of(:session_id) }
 
   it {
     create :scenario
     should validate_uniqueness_of(:session_id) }
+
+  # USERS --------------------------------------------------------------------
+
+  describe 'user relations' do
+    it 'should be valid when a guest UID is set' do
+      scenario = Scenario.new { |s| s.guest_uid = 'abc' }
+      scenario.should have(:no).errors_on(:user_id)
+    end
+
+    it 'should be valid when a user ID is set' do
+      scenario = Scenario.new { |s| s.user_id = 1 }
+      scenario.should have(:no).errors_on(:user_id)
+    end
+
+    it 'should not be valid when no user ID or guest UID are set' do
+      scenario = Scenario.new
+      scenario.errors_on(:user_id).should \
+        include("can't be blank when no guest UID is set")
+    end
+  end
 
   # SERIALIZE ATTRIBUTES -----------------------------------------------------
 

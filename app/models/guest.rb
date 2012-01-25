@@ -1,0 +1,1 @@
+Guest = Struct.new(:uid)

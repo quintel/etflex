@@ -38,10 +38,10 @@ ActiveRecord::Schema.define(:version => 20120125105136) do
     t.text     "input_values"
     t.datetime "updated_at"
     t.text     "query_results"
+    t.float    "score"
     t.float    "total_co2_emissions"
     t.float    "total_costs"
     t.float    "renewability"
-    t.float    "score"
     t.datetime "created_at"
   end
 

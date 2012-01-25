@@ -5,14 +5,13 @@ module ApplicationHelper
   # Returns a string with the JSON.
   #
   def client_options
-    rendered_user = if respond_to?(:user_signed_in?) and user_signed_in?
-      render partial: 'embeds/user', formats: [:json],
-        locals: { user: current_user }
-    end
+    user_partial  = if user_signed_in? then 'user' else 'guest' end
+    rendered_user = render partial: "embeds/#{user_partial}",
+      formats: [:json], locals: { user: current_or_guest_user }
 
     { locale:   I18n.locale,
       api:      ETFlex.config.api_url,
-      user:     rendered_user ? JSON.parse(rendered_user) : nil
+      user:     JSON.parse(rendered_user)
     }.to_json
   end
 end
