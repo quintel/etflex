@@ -15,8 +15,8 @@ exports.collections = {}
 exports.boot = (window, { locale, api, user }) ->
   installConsolePolyfill window
 
-  exports.user       = user or {}
-  exports.isSignedIn = !! user
+  exports.user       = new (require('models/user').User) user
+  exports.isSignedIn = exports.user.isSignedIn
 
   I18n.locale        = locale
   I18n.fallbacks     = no

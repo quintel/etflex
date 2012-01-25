@@ -73,6 +73,10 @@ en:
   activerecord:
     errors:
       models:
+        scenario:
+          attributes:
+            user_id:
+              blank: "can't be blank when no guest UID is set"
         input:
           attributes:
             max:
