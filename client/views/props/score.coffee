@@ -27,7 +27,7 @@ class exports.ScoreView extends GenericProp
 
     $(@el).prepend("<div class='icon-prop'>
                       <span class='icon'>
-                        <span class='numbers hunderds'></span>
+                        <span class='numbers hundreds'><span class='number-8'></span></span>
                         <span class='numbers tens'></span>
                         <span class='numbers ones'></span>
                       </span>
@@ -41,9 +41,18 @@ class exports.ScoreView extends GenericProp
   # without re-rendering the whole view.
   #
   updateValues: =>
-    score = @query.get('future') 
+    score = @query.get('future')
+    rounded_score = @precision score, 0
+    string_score = rounded_score.toString()
 
-    # Reduce the shown value to three decimal places.
-    $(@el).find('.output').html(@precision score, 0)
+    # Reduce the shown value to whole value.
+    $(@el).find('.output').html @precision score, 0
+    
+    # Show the separate numbers in the image
+    $(@el).find('.numbers').removeClass('number-0 number-1 number-2 number-3 number-4 number-5 number-6 number-7 number-8 number-9')
+
+    $(@el).find('.hundreds').addClass("number-#{string_score[0]}")
+    $(@el).find('.tens').addClass("number-#{string_score[1]}")
+    $(@el).find('.ones').addClass("number-#{string_score[2]}")
 
     this

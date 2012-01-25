@@ -504,15 +504,17 @@
       left: 41px
       width: 192px
       position: relative
+      $height: 35px
       
       span.numbers
+        text-indent: -9999px
         position: absolute
-        top: 61px
+        top: 60px
         width: 25px
         height: 33px
         background-image: image-url("scenes/modern/icons/score_numbers.png")
         
-      span.hunderds
+      span.hundreds
         left: 68px
 
       span.tens
@@ -520,3 +522,34 @@
 
       span.ones
         left: 134px
+
+      span.number-0
+        background-position: 0 348px
+
+      span.number-1
+        background-position: 0 348px - 1 * $height
+
+      span.number-2
+        background-position: 0 348px - 2 * $height
+
+      span.number-3
+        background-position: 0 348px - 3 * $height
+
+      span.number-4
+        background-position: 0 348px - 4 * $height
+
+      span.number-5
+        background-position: 0 348px - 5 * $height
+
+      span.number-6
+        background-position: 0 348px - 6 * $height
+
+      span.number-7
+        background-position: 0 348px - 7 * $height
+
+      span.number-8
+        background-position: 0 348px - 8 * $height
+
+      span.number-9
+        background-position: 0 348px - 9 * $height
+
