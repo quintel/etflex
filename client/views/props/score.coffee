@@ -25,7 +25,14 @@ class exports.ScoreView extends GenericProp
 
     super '', I18n.t 'scenes.etlite.score'
 
-    $(@el).find('.icon').replaceWith @icon.render().el
+    $(@el).prepend("<div class='icon-prop'>
+                      <span class='icon'>
+                        <span class='numbers hunderds'></span>
+                        <span class='numbers tens'></span>
+                        <span class='numbers ones'></span>
+                      </span>
+                    </div>")
+
     @updateValues()
 
     this
