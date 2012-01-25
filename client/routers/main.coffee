@@ -83,12 +83,12 @@ class exports.Main extends Backbone.Router
     jQuery.getJSON('/scenes')
       .done (data) ->
         etlite = _.find data['scenes'], (scene) ->
-          scene.id is 1
+          scene.name is 'Balancing Supply and Demand'
 
         if etlite?
           app.navigate etlite.href
         else
-          console.error "No scene has the name 'ETlite Recreation'"
+          console.error "No scene has the name 'Balancing Supply and Demand'"
 
       .error ->
         console.error "Couldn't fetch a scene list from /scenes"
