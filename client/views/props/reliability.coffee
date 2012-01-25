@@ -3,7 +3,7 @@
 
 class exports.ReliabilityView extends GenericProp
   @queries: [ 'security_of_supply_blackout_risk' ]
-  states:   [ 'off', 'blinking', 'on' ]
+  states:   [ 'on', 'off' ]
 
   className: 'prop reliability'
 
@@ -35,6 +35,9 @@ class exports.ReliabilityView extends GenericProp
     # Reduce the value to three decimal places when shown.
     $(@el).find('.output').html("#{@precision value, 2}%")
 
-    @icon.setState @hurdleState value
+    @icon.setState @hurdleState @query.get('future')
+    
+    console.log("----value-----")
+    console.log(@query.get('future'))
 
     this
