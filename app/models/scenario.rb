@@ -41,6 +41,22 @@ class Scenario < ActiveRecord::Base
 
   # INSTANCE METHODS ---------------------------------------------------------
 
+  # Determines if a given user or guest is permitted to change this scenario.
+  #
+  # check - A User or Guest instance to check.
+  #
+  def can_change?(check)
+    if new_record?
+      true
+    elsif self.user_id.present?
+      check.kind_of?(User) && check.id == user_id
+    elsif self.guest_uid.present?
+      check.kind_of?(Guest) && check.uid == guest_uid
+    else
+      false
+    end
+  end
+
   # Writes the input values hash. When given nil will always set an empty
   # hash, and converts the hash keys to integers.
   #

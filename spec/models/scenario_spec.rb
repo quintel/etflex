@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe Scenario do
   it { should successfully_save }
+  it { should successfully_save(:guest_scenario) }
 
   # ATTRIBUTES --------------------------------------------------------------
 
@@ -48,6 +49,67 @@ describe Scenario do
       scenario = Scenario.new
       scenario.errors_on(:user_id).should \
         include("can't be blank when no guest UID is set")
+    end
+  end
+
+  # CAN CHANGE? --------------------------------------------------------------
+
+  describe 'can_change?' do
+    context "with a user's scenario" do
+      subject { create(:scenario) }
+
+      it 'should be changeable by the owner' do
+        subject.can_change?(subject.user).should be_true
+      end
+
+      it 'should not be changeable by another user' do
+        subject.can_change?(create :user).should be_false
+      end
+
+      it 'should not be changeable by a new user' do
+        subject.can_change?(User.new).should be_false
+      end
+
+      it 'should not be changeable by a guest' do
+        subject.can_change?(Guest.new('abc')).should be_false
+      end
+
+      it 'should not be changeable by an exploiting guest' do
+        subject.can_change?(Guest.new(subject.user.id)).should be_false
+      end
+    end
+
+    context "with a guest's scenario" do
+      subject { create(:guest_scenario) }
+      let(:guest) { Guest.new(subject.guest_uid) }
+
+      it 'should be changeable by the owner' do
+        subject.can_change?(guest).should be_true
+      end
+
+      it 'should not be changeable by another guest' do
+        subject.can_change?(Guest.new('def')).should be_false
+      end
+
+      it 'should not be changeable by a user' do
+        subject.can_change?(create :user).should be_false
+      end
+
+      it 'should not be changeable by a new user' do
+        subject.can_change?(User.new).should be_false
+      end
+    end
+
+    context 'with a new scenario' do
+      subject { Scenario.new }
+
+      it 'should be changeable by a user' do
+        subject.can_change?(create :user).should be_true
+      end
+
+      it 'should be changeable by a guest' do
+        subject.can_change?(Guest.new('abc')).should be_true
+      end
     end
   end
 
