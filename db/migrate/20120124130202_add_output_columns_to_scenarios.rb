@@ -17,11 +17,22 @@
 
 
 class AddOutputColumnsToScenarios < ActiveRecord::Migration
-  def change
+  def up
     add_column :scenarios, :total_co2_emissions,  :float
     add_column :scenarios, :total_costs,          :float
     add_column :scenarios, :renewability,         :float
-    add_column :scenarios, :score,                :float
     add_column :scenarios, :created_at,           :datetime
+
+    unless column_exists? :scenarios, :score
+      add_column :scenarios, :score,              :float
+    end
+  end
+
+  def down
+    remove_column :scenarios, :total_co2_emissions,  :float
+    remove_column :scenarios, :total_costs,          :float
+    remove_column :scenarios, :renewability,         :float
+    remove_column :scenarios, :created_at,           :datetime
+    remove_column :scenarios, :score,                :float
   end
 end
