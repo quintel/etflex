@@ -7,4 +7,10 @@ FactoryGirl.define do
     association :scene
     association :user
   end
+
+  factory :guest_scenario, class: Scenario do
+    sequence    :session_id
+    association :scene
+    guest_uid   'abc'
+  end
 end

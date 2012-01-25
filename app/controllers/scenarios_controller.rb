@@ -14,7 +14,7 @@ class ScenariosController < ApplicationController
       scenario.session_id = params[:id]
 
       if user_signed_in?
-        scenario.user = user
+        scenario.user = current_user
       else
         scenario.guest_uid = guest_user.uid
       end
@@ -61,9 +61,7 @@ class ScenariosController < ApplicationController
     @scenario   = Scenario.for_session *params.values_at(:scene_id, :id)
     @scenario ||= new_scenario
 
-    if @scenario.persisted? and @scenario.user_id != current_user.id
-      return head :forbidden
-    end
+    return head :forbidden unless @scenario.can_change?(current_or_guest_user)
 
     @scenario.attributes = scenario_attrs if params[:scenario].present?
     @scenario.save
