@@ -6,6 +6,10 @@ feature 'Viewing scenarios', js: true do
 
   def create_scenario(scene_id, user = nil)
     sign_in(user) if user
+
+    # Remove any existing scenarios.
+    Scenario.delete_all
+
     visit "/scenes/#{ scene_id }"
 
     # Wait until the scene has loaded.
@@ -13,7 +17,11 @@ feature 'Viewing scenarios', js: true do
 
     visit '/goodbye' if user
 
-    Scenario.last
+    Scenario.first
+  end
+
+  def clear_scenarios_except(scenario)
+    Scenario.all.each { |s| s.destroy unless s.id == scenario.id }
   end
 
   # make sure the scene exists before starting.
@@ -29,10 +37,7 @@ feature 'Viewing scenarios', js: true do
     # Wait until the page scene has loaded.
     page.should have_css('#left-inputs')
 
-    # Should have saved a new guest scenario.
-    Scenario.count.should eql(num_scenarios + 1)
-
-    scenario = Scenario.first
+    scenario = Scenario.last
 
     scenario.guest_uid.should be_present
     scenario.user_id.should   be_blank
@@ -44,8 +49,10 @@ feature 'Viewing scenarios', js: true do
   # --------------------------------------------------------------------------
 
   scenario "As a guest, viewing one's own session" do
-    scenario      = create_scenario(scene.id, owner)
+    scenario      = create_scenario(scene.id)
     num_scenarios = Scenario.count
+
+    scenario.guest_uid.should be_present # Sanity check.
 
     visit "/scenes/#{ scene.id }/with/#{ scenario.session_id }"
 
@@ -62,7 +69,24 @@ feature 'Viewing scenarios', js: true do
   # --------------------------------------------------------------------------
 
   scenario 'As a guest, viewing a scenario belonging to another guest' do
-    pending 'Awaiting guest scenario persistence'
+    scenario      = create_scenario(scene.id)
+    num_scenarios = Scenario.count
+
+    scenario.guest_uid.should be_present # Sanity check.
+
+    scenario.guest_uid = SecureRandom.uuid
+    scenario.save!
+
+    visit "/scenes/#{ scene.id }/with/#{ scenario.session_id }"
+
+    # Wait until the page scene has loaded.
+    page.should have_css('#left-inputs')
+
+    # Should not have saved a new scenario (it already exists).
+    Scenario.count.should eql(num_scenarios)
+
+    # TODO Once we can test slider movement assert that the guest cannot
+    #      change the value of an input.
   end
 
   # --------------------------------------------------------------------------
@@ -70,10 +94,6 @@ feature 'Viewing scenarios', js: true do
   scenario 'As a guest, viewing a scenario belonging to a registered user' do
     scenario      = create_scenario(scene.id, owner)
     num_scenarios = Scenario.count
-
-    scenario.guest_uid = nil
-    scenario.user      = owner
-    scenario.save!
 
     visit "/scenes/#{ scene.id }/with/#{ scenario.session_id }"
 
@@ -101,6 +121,8 @@ feature 'Viewing scenarios', js: true do
     # Should have saved a new scenario.
     Scenario.count.should eql(num_scenarios + 1)
 
+    Scenario.last.user.should eql(owner) # Sanity check.
+
     # TODO Once we can test slider movement assert that the changes are also
     #      saved to the ETFlex scenario.
   end
@@ -109,12 +131,11 @@ feature 'Viewing scenarios', js: true do
 
   scenario 'As a user, viewing a scenario I own' do
     scenario = create_scenario(scene.id, owner)
+    scenario.user.should eql(owner) # Sanity check.
 
     sign_in owner
 
-    # May have created extra scenarios when signing in; we don't care about
-    # them so get rid...
-    Scenario.all.each { |s| s.destroy unless s.id == scenario.id }
+    clear_scenarios_except scenario
     num_scenarios = Scenario.count
 
     visit "/scenes/#{ scene.id }/with/#{ scenario.session_id }"
@@ -133,12 +154,11 @@ feature 'Viewing scenarios', js: true do
 
   scenario 'As a user, viewing a scenario owned by another user' do
     scenario = create_scenario(scene.id, owner)
+    scenario.user.should eql(owner) # Sanity check.
 
     sign_in create(:user)
 
-    # May have created extra scenarios when signing in; we don't care about
-    # them so get rid...
-    Scenario.all.each { |s| s.destroy unless s.id == scenario.id }
+    clear_scenarios_except scenario
     num_scenarios = Scenario.count
 
     visit "/scenes/#{ scene.id }/with/#{ scenario.session_id }"
@@ -156,7 +176,24 @@ feature 'Viewing scenarios', js: true do
   # --------------------------------------------------------------------------
 
   scenario 'As a user, viewing a scenario owned by a guest' do
-    pending 'Awaiting guest scenario persistence'
+    scenario = create_scenario(scene.id)
+    scenario.guest_uid.should be_present # Sanity check.
+
+    sign_in owner
+
+    clear_scenarios_except scenario
+    num_scenarios = Scenario.count
+
+    visit "/scenes/#{ scene.id }/with/#{ scenario.session_id }"
+
+    # Wait until the scene has loaded.
+    page.should have_css('#left-inputs')
+
+    # Should have not have saved a new scenario.
+    Scenario.count.should eql(num_scenarios)
+
+    # TODO Once we can test slider movement assert that the user cannot
+    #      change the value of an input.
   end
 end
 
