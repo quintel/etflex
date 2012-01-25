@@ -6,7 +6,7 @@ describe 'Scenes' do
 
   specify 'Viewing the ETlite scene', js: true do
 
-    scene = create :scene_with_inputs
+    scene = create :scene_with_inputs, name: 'Balancing Supply and Demand'
 
     # Finally...!
 
