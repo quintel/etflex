@@ -46,6 +46,8 @@
 #
 class Input < ActiveRecord::Base
 
+  def acts_like_input? ; true end
+
   # VALIDATION ---------------------------------------------------------------
 
   validates :remote_id, presence: true, uniqueness: true, on: :create
@@ -89,18 +91,19 @@ class Input < ActiveRecord::Base
   #          retrieved.
   #
   def self.siblings(inputs)
-    inputs = if inputs.kind_of?(Input) then [ inputs ] else inputs.dup end
+    inputs = if inputs.acts_like?(:input) then [ inputs ] else inputs.dup end
     inputs.reject! { |input| input.group.blank? }
 
     return [] if inputs.empty?
 
-    groups, exclude =
-      inputs.each_with_object([ Set.new, Set.new ]) do |input, (groups, exclude)|
-        groups.add  input.group
-        exclude.add input.id
+    groups, exclusions =
+      inputs.each_with_object([ Set.new, Set.new ]) do |input, (gr, ex)|
+        gr.add(input.group)
+        ex.add(input.remote_id)
       end
 
-    Input.where(group: groups.to_a).reject { |input| exclude.include?(input.id) }
+    siblings = Input.where(group: groups.to_a)
+    siblings.reject { |input| exclusions.include?(input.remote_id) }
   end
 
 end
