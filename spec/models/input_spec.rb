@@ -83,4 +83,14 @@ describe Input do
     end
   end
 
+  # GROUP --------------------------------------------------------------------
+
+  describe 'group' do
+    it { should_not validate_presence_of(:group) }
+    it { should allow_mass_assignment_of(:group) }
+    it { should allow_value('name').for(:group) }
+    it { should allow_value(nil).for(:group) }
+    it { should ensure_length_of(:group).is_at_most(50) }
+  end
+
 end

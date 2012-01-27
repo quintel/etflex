@@ -45,7 +45,8 @@ namespace :etflex do
       hash[ input['id']['__content__'] ] =
         { 'key'       => input['key']['__content__'],
           'remote_id' => input['id']['__content__'].to_i,
-          'unit'      => input['unit']['__content__'] }
+          'unit'      => input['unit']['__content__'],
+          'group'     => input['share-group']['__content__'] }
     end
 
     # Create a new API scenario, and fetch user_values so that we have the
@@ -73,6 +74,9 @@ namespace :etflex do
 
         # '#' units should not be stored.
         input.delete('unit') if input['unit'] == '#'
+
+        # Don't add a group: row when none is needed.
+        input.delete('group') if input['group'].blank?
 
         # Try to come up with a sensible step value based on the difference
         # between the minimum and maximum.
