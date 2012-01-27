@@ -88,7 +88,8 @@ class Input < ActiveRecord::Base
   # be included in those returned.
   #
   # inputs - The input, or collection of inputs, whose siblings are to be
-  #          retrieved.
+  #          retrieved. This may be an Input, SceneInput, or an array
+  #          containing multiple inputs or scene inputs.
   #
   def self.siblings(inputs)
     inputs = if inputs.acts_like?(:input) then [ inputs ] else inputs.dup end
