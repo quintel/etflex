@@ -79,4 +79,28 @@ class Input < ActiveRecord::Base
     key
   end
 
+  # CLASS METHODS ------------------------------------------------------------
+
+  # Given one or more inputs, returns all of the inputs which are related to
+  # them by the "group" column. The sliders passed in to the method will not
+  # be included in those returned.
+  #
+  # inputs - The input, or collection of inputs, whose siblings are to be
+  #          retrieved.
+  #
+  def self.siblings(inputs)
+    inputs = if inputs.kind_of?(Input) then [ inputs ] else inputs.dup end
+    inputs.reject! { |input| input.group.blank? }
+
+    return [] if inputs.empty?
+
+    groups, exclude =
+      inputs.each_with_object([ Set.new, Set.new ]) do |input, (groups, exclude)|
+        groups.add  input.group
+        exclude.add input.id
+      end
+
+    Input.where(group: groups.to_a).reject { |input| exclude.include?(input.id) }
+  end
+
 end
