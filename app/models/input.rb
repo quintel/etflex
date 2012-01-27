@@ -39,12 +39,19 @@
 #   A text suffix used when showing the user the value of the input. A unit of
 #   "MW" will result in the input value being formatted as "1,500 MW", etc.
 #
+# group (String[1..50])
+#   A group to which the input belongs; sliders which belong to a group need
+#   to be balanced so that the cumulative value of all inputs in the group sum
+#   to 100.
+#
 class Input < ActiveRecord::Base
 
   # VALIDATION ---------------------------------------------------------------
 
   validates :remote_id, presence: true, uniqueness: true, on: :create
   validates :key,       presence: true, uniqueness: true
+
+  validates :group,     length: { maximum: 50, allow_nil: true }
 
   validates :min,       presence: true, numericality: true
   validates :max,       presence: true, numericality: true

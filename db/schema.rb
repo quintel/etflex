@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120125150001) do
+ActiveRecord::Schema.define(:version => 20120127140725) do
 
   create_table "inputs", :force => true do |t|
     t.integer "remote_id",                    :null => false
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20120125150001) do
     t.float   "max",       :default => 100.0, :null => false
     t.float   "start",     :default => 0.0,   :null => false
     t.string  "unit"
+    t.string  "group"
   end
 
   add_index "inputs", ["remote_id"], :name => "index_inputs_on_remote_id", :unique => true
