@@ -53,7 +53,7 @@
 #
 class SceneInput < ActiveRecord::Base
 
-  delegate :key, :unit, to: :input, allow_nil: true
+  delegate :key, :unit, :group, to: :input, allow_nil: true
 
   attr_accessible :input, :input_id, :location, :position, :step, :min, :max,
                   :step, :start, :information_en, :information_nl
