@@ -45,7 +45,7 @@ class exports.SceneView extends Backbone.View
 
       if input.get('location') is 'left'
         leftRangesEl.append view.render().el
-      else
+      else if input.get('location') is 'right'
         rightRangesEl.append view.render().el
 
     # Render each of the Props.
