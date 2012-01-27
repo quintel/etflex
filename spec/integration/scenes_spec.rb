@@ -135,7 +135,7 @@ describe 'Scenes' do
     end
 
     describe 'internal inputs' do
-      let(:inputs) { subject.select { |i| i['location'] == '_internal' } }
+      let(:inputs) { subject.select { |i| i['location'] == '$internal' } }
 
       it 'should have one member' do
         inputs.should have(1).member
