@@ -36,17 +36,16 @@ class exports.SceneView extends Backbone.View
 
     # Render each of the Inputs as a Range.
 
-    canChange     = @model.scenario.canChange(app.user)
-    leftRangesEl  = @$ '#left-inputs'
-    rightRangesEl = @$ '#right-inputs'
+    canChange      = @model.scenario.canChange(app.user)
+    inputLocations = @inputContainers()
 
     for input in @model.inputs.models
-      view = new RangeView model: input, canChange: canChange
+      rangeView = new RangeView model: input, canChange: canChange
 
-      if input.get('location') is 'left'
-        leftRangesEl.append view.render().el
-      else if input.get('location') is 'right'
-        rightRangesEl.append view.render().el
+      # If the input location doesn't exist in the template, the input will not
+      # rendered. This is intentional so that "hidden" and "$internal" inputs
+      # don't raise errors.
+      inputLocations[ input.get('location') ]?.append rangeView.render().el
 
     # Render each of the Props.
 
@@ -96,10 +95,22 @@ class exports.SceneView extends Backbone.View
   # template where props may be rendered. Each hash key is the prop location.
   #
   propContainers: ->
+    @containersFor 'prop'
+
+  # Returns a Hash of div elements, each of which is a location in the
+  # template where inputs may be rendered. Each hash key is the input
+  # location.
+  #
+  inputContainers: ->
+    @containersFor 'input'
+
+  # Used to find locations at which a type of element may be rendered. Used by
+  # propContainers and inputContainers.
+  containersFor: (place) ->
     containers = {}
 
-    for element in @$ '[data-prop-location]'
+    for element in @$ "[data-#{ place }-location]"
       element = $ element
-      containers[ element.attr 'data-prop-location' ] = element
+      containers[ element.attr "data-#{ place }-location" ] = element
 
     containers
