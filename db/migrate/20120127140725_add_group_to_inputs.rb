@@ -1,6 +1,7 @@
 class AddGroupToInputs < ActiveRecord::Migration
   def up
     add_column :inputs, :group, :string, length: 50
+    add_index  :inputs, :group
 
     Input.reset_column_information
 
