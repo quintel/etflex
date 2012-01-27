@@ -204,4 +204,27 @@ describe SceneInput do
     end
   end
 
+  # GROUP --------------------------------------------------------------------
+
+  describe '#group' do
+    let(:input) { create :input, group: 'my-group' }
+    subject { SceneInput.new(input: input) }
+
+    it 'should be a string' do
+      subject.group.should be_kind_of(String)
+    end
+
+    it 'should be delegated to the input' do
+      subject.group.should eql(input.group)
+    end
+
+    it 'should return nil when no input is set' do
+      SceneInput.new.group.should be_nil
+    end
+
+    it 'should not be writable' do
+      expect { subject.group = 'thing' }.to raise_error(NoMethodError)
+    end
+  end
+
 end
