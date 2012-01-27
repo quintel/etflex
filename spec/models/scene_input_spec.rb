@@ -227,4 +227,42 @@ describe SceneInput do
     end
   end
 
+  # SIBLINGS -----------------------------------------------------------------
+
+  describe 'siblings' do
+    let(:scene)     { create :scene_with_inputs }
+    let(:focus)     { scene.scene_inputs.first }
+    let(:sibling_1) { create :input, group: 'my-group' }
+    let(:sibling_2) { create :input, group: 'my-group' }
+
+    before do
+      scene ; sibling_1 ; sibling_2
+      focus.input.update_attributes! group: 'my-group'
+    end
+
+    describe 'when given a single, grouped scene input with two siblings' do
+      subject { SceneInput.siblings focus }
+      let(:inputs) { subject.map(&:input) }
+
+      it 'should contain the siblings' do
+        should have(2).members
+      end
+
+      it 'should contain SceneInput instances' do
+        subject.each { |sibling| sibling.should be_a(SceneInput) }
+      end
+
+      it 'should contain the first sibling' do
+        inputs.should include(sibling_1)
+      end
+
+      it 'should contain the second sibling' do
+        inputs.should include(sibling_2)
+      end
+
+      it 'should not include the focused input' do
+        inputs.should_not include(focus.input)
+      end
+    end
+  end
 end
