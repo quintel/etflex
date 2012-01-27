@@ -62,6 +62,8 @@ class SceneInput < ActiveRecord::Base
     order(:position)
   end
 
+  def acts_like_input? ; true end
+
   # VALIDATION ---------------------------------------------------------------
 
   validates :location, presence: true
