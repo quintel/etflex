@@ -17,19 +17,14 @@ class exports.Balancer
   #     the group remains balanced.
   #
   constructor: (options = {}) ->
-    @inputs    = []
-    @precision = 0
-    @max       = 100
+    @inputs = []
+    @max    = 100
 
   # Adds an input whose value should be balanced.
   #
   add: (input) ->
     @inputs.push input
     input.change 'value', @onChange
-
-    @precision = _.max([ @precision,
-      getPrecision(input.get('value')),
-      getPrecision(input.def.step) ])
 
   # Triggered when the user alters a slider; performs balancing of the
   # subordinates.
@@ -93,11 +88,6 @@ class exports.Balancer
       subordinates
 
 # Misc Helpers ---------------------------------------------------------------
-
-# Given a number, returns the precision (number of decimal places).
-#
-getPrecision = (number) ->
-  number.toString().split('.')?[1]?.length or 0
 
 # Given a collection of inputs, returns the collection minus the "master" and
 # and members which cannot be changed any further.
