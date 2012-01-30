@@ -71,6 +71,9 @@ class exports.SceneView extends Backbone.View
     loader.ajaxStart -> loader.stop().animate bottom:   '0px', 'fast'
     loader.ajaxStop  -> loader.stop().animate bottom: '-36px', 'fast'
 
+    # Social media links.
+    @initShareLinks()
+
     this
 
   # Renders the modern theme by extending the default scene template.
@@ -81,6 +84,17 @@ class exports.SceneView extends Backbone.View
   renderTheme: ->
     modernHeader = require 'templates/scenes/modern/header'
     @$('#core').prepend modernHeader()
+
+  # Sets up the social media "share" links.
+  #
+  initShareLinks: ->
+    link = encodeURIComponent(
+      "http://etflex.et-model.com/scenes/" +
+      "#{ @model.id }/#{ @model.scenario.get('sessionId') }")
+
+    # Facebook.
+    fbLink = "http://www.facebook.com/sharer.php?u=#{link}&t=ETFlex"
+    @$('#social-media .facebook a').attr('href', fbLink)
 
   # Creates a new instance of a prop. Takes the key of the prop and and
   # additional arguments to be passed the constructor.
