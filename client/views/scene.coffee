@@ -27,7 +27,7 @@ class exports.SceneView extends Backbone.View
   #   $('body').html view.render().el
   #
   render: ->
-    $(@el).html template()
+    @$el.html template()
 
     # Render additional elements used in the modern theme (the animated
     # header element, etc).

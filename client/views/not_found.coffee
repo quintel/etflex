@@ -11,7 +11,7 @@ class exports.NotFoundView extends Backbone.View
     I18n.t 'oops'
 
   render: ->
-    $(@el).append(
+    @$el.append(
       $("<div class='message'></div>")
         .append($("<h1>#{ I18n.t 'oops' }!</h1>"))
         .append($("<p>#{ I18n.t 'fourOhFour' }</p>"))

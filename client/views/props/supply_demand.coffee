@@ -28,7 +28,7 @@ class exports.SupplyDemandView extends Backbone.View
     @supplyQuery.bind 'change:future', @redrawSupply
 
   render: =>
-    $(@el).html supplyDemandTpl()
+    @$el.html supplyDemandTpl()
 
     @redrawSupply false
     @redrawDemand false

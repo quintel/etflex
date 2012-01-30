@@ -36,7 +36,7 @@ class exports.RangeView extends Backbone.View
       when 'km2' then " km<sup>2</sup>"
       else            @model.def.unit
 
-    $(@el).html rangeTemplate
+    @$el.html rangeTemplate
       name:        @rangeName
       hasInfo:     @model.def.info?
       unit:        unit
