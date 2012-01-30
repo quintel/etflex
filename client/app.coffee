@@ -45,11 +45,11 @@ exports.boot = (window, { locale, api, user }) ->
 # depending on the URL, and by default will run the action defined the router
 # (Backbone by default does not do this).
 #
-exports.navigate = (url, trigger = true) ->
+exports.navigate = (url, options) ->
   # Remove leading slash, if present.
   url = url.slice(1, url.length) if url.slice(0, 1) is '/'
 
-  exports.routers.main.navigate url, trigger
+  exports.routers.main.navigate url, options
 
 # Bootstrap Functions, execute in parallel -----------------------------------
 
