@@ -171,7 +171,6 @@ class BalancedInput
   setValue: (newValue) ->
     # Snap the new value to the @precision.
     newValue = roundToPrecision newValue, @precision
-    given = newValue
 
     # Round it to the step value.
     multiplier = 1 / @input.def.step
