@@ -24,8 +24,8 @@ class exports.SupplyDemandView extends Backbone.View
     @demandQuery = options.queries.get 'final_demand_of_electricity'
     @supplyQuery = options.queries.get 'total_electricity_produced'
 
-    @demandQuery.bind 'change:future', @redrawDemand
-    @supplyQuery.bind 'change:future', @redrawSupply
+    @demandQuery.on 'change:future', @redrawDemand
+    @supplyQuery.on 'change:future', @redrawSupply
 
   render: =>
     @$el.html supplyDemandTpl()

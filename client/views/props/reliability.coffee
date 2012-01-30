@@ -16,7 +16,7 @@ class exports.ReliabilityView extends GenericProp
     @icon = new IconProp
 
     @query = options.queries.get 'security_of_supply_blackout_risk'
-    @query.bind 'change:future', @updateValues
+    @query.on 'change:future', @updateValues
 
   render: ->
     super '', I18n.t 'scenes.etlite.reliability'

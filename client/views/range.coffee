@@ -54,7 +54,7 @@ class exports.RangeView extends Backbone.View
       onChange:    @updateOutput
       onCommit:    @updateModel
 
-    @model.bind 'change:value', @updateQuinnFromModel
+    @model.on 'change:value', @updateQuinnFromModel
 
     @delegateEvents()
     this
