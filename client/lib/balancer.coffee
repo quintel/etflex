@@ -100,6 +100,19 @@ class exports.Balancer
 
       previousFlex = flex
 
+    # If we still have flex left over, we probably couldn't divide what
+    # remains between the inputs, so we try to "brute-force" by giving all
+    # that remains to each input.
+    #
+    if flex isnt 0 then for input in iterationInputs
+      prevValue = input.value
+      newValue  = input.setValue prevValue + flex
+
+      # Round here otherwise floating point errors start to pile up.
+      flex = roundToPrecision flex - (newValue - prevValue), @precision
+
+      break if flex is 0
+
     # if flex is 0 then _.invoke(balancedInputs, 'commit') else false
     if flex isnt 0 then [] else
       _.invoke balancedInputs, 'commit'
@@ -158,6 +171,7 @@ class BalancedInput
   setValue: (newValue) ->
     # Snap the new value to the @precision.
     newValue = roundToPrecision newValue, @precision
+    given = newValue
 
     # Round it to the step value.
     multiplier = 1 / @input.def.step
