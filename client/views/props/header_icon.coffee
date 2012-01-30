@@ -10,7 +10,7 @@ class exports.HeaderIcon extends IconProp
 
     # Trigger doRefresh when any of the queries used by the prop are updated.
     for key in @constructor.queries
-      options.queries.get(key).bind 'change:future', @doRefresh
+      options.queries.get(key).on 'change:future', @doRefresh
 
     # Since all the queries are (normally) updated at the same time, wait
     # until we have results for them all before updating the prop.

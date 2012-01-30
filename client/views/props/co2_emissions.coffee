@@ -17,7 +17,7 @@ class exports.CO2EmissionsView extends GenericProp
     @icon = new IconProp
 
     @query = options.queries.get 'total_co2_emissions'
-    @query.bind 'change:future', @updateValues
+    @query.on 'change:future', @updateValues
 
   # Renders the UI; calculates the C02 emissions. Can be safely called
   # repeatedly to update the UI.
