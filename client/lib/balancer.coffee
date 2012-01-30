@@ -50,8 +50,7 @@ class exports.Balancer
     # Return quickly if none of the subordinates can be changed.
     return [] unless subordinates.length
 
-    balancedInputs  = ( new BalancedInput input for input in subordinates )
-    iterationInputs = _.clone balancedInputs
+    balancedInputs = ( new BalancedInput input for input in subordinates )
 
     sumValues = _.invoke @inputs, 'get', 'value'
     sumValues = _.inject sumValues, ((m, v) -> m + v), 0
@@ -70,48 +69,8 @@ class exports.Balancer
     #
     flex = roundToPrecision @max - sumValues, @precision
 
-    while iterations--
-      nextIterationInputs = []
-
-      for input, i in iterationInputs
-        # The amount of flex given to each input. Calculated each time we
-        # balance a slider since the previous one may have used up all the
-        # available flex (due to rounding).
-        flexPerSlider = roundToPrecision flex / (balancedInputs.length - i)
-
-        prevValue = input.value
-        newValue  = input.setValue prevValue + flexPerSlider
-
-        # Reduce the flex by the amount by which the input was changed, ready
-        # for subsequent iterations.
-        flex -= newValue - prevValue
-
-        # Finally, if this input can still be changed futher, it may be used
-        # again in the next iteration.
-        if (flex < 0 and input.value isnt input.input.def.min) or
-           (flex > 0 and input.value isnt input.input.def.max)
-          nextIterationInputs.push input
-
-      iterationInputs = nextIterationInputs
-
-      # If the flex is all used, or the iteration failed to assign any more
-      # of the flex, don't iterate again.
-      break if flex is 0 or previousFlex is flex
-
-      previousFlex = flex
-
-    # If we still have flex left over, we probably couldn't divide what
-    # remains between the inputs, so we try to "brute-force" by giving all
-    # that remains to each input.
-    #
-    if flex isnt 0 then for input in iterationInputs
-      prevValue = input.value
-      newValue  = input.setValue prevValue + flex
-
-      # Round here otherwise floating point errors start to pile up.
-      flex = roundToPrecision flex - (newValue - prevValue), @precision
-
-      break if flex is 0
+    [ flex, remainingInputs ] = balanceEqually    flex, balancedInputs
+    [ flex, remainingInputs ] = balanceForcefully flex, remainingInputs
 
     # if flex is 0 then _.invoke(balancedInputs, 'commit') else false
     if flex isnt 0 then [] else
@@ -136,6 +95,73 @@ getPrecision = (number) ->
 #
 getSubordinates = (inputs, master) ->
   ( input for input in inputs when input.id isnt master.id )
+
+# Balancing Algorithms -------------------------------------------------------
+
+# Seeks to balance the given "flex" amount between the given "sliders" by
+# assigning an equal amount of the flex to each input. For example, given four
+# inputs and a flex of 100, it will ideally try to assign 25 to each input.
+#
+# The exact amount assigned to each input will depend on the current, minimum,
+# and maximum values of the input.
+#
+balanceEqually = (flex, inputs) ->
+  iterations      = 20
+  previousFlex    = null
+  iterationInputs = _.clone inputs
+
+  if flex isnt 0 then while iterations--
+    nextIterationInputs = []
+
+    for input, i in iterationInputs
+      # The amount of flex given to each input. Calculated each time we
+      # balance a slider since the previous one may have used up all the
+      # available flex (due to rounding).
+      flexPerSlider = roundToPrecision flex / (iterationInputs.length - i)
+
+      prevValue = input.value
+      newValue  = input.setValue prevValue + flexPerSlider
+
+      # Reduce the flex by the amount by which the input was changed, ready
+      # for subsequent iterations.
+      flex -= newValue - prevValue
+
+      # Finally, if this input can still be changed futher, it may be used
+      # again in the next iteration.
+      if (flex < 0 and input.value isnt input.input.def.min) or
+         (flex > 0 and input.value isnt input.input.def.max)
+        nextIterationInputs.push input
+
+    iterationInputs = nextIterationInputs
+
+    # If the flex is all used, or the iteration failed to assign any more
+    # of the flex, don't iterate again.
+    break if flex is 0 or previousFlex is flex
+
+    previousFlex = flex
+
+  [ flex, iterationInputs ]
+
+# Seeks to balance the given "flex" amount by assigning the full amount to
+# each input in turn.
+#
+# For example  given four inputs and a flex of 100, it will try to assign the
+# full 100 to the first input. If this input only permits assigning 50, then
+# it will seek to assign the remaining 50 to the second slider, and so on...
+#
+balanceForcefully = (flex, inputs) ->
+  iterationInputs = _.clone inputs
+
+  if flex isnt 0 then for input in iterationInputs
+    prevValue = input.value
+    newValue  = input.setValue prevValue + flex
+
+    # Round here otherwise floating point errors start to pile up.
+    flex = roundToPrecision flex - (newValue - prevValue), @precision
+
+    break if flex is 0
+
+  [ flex, iterationInputs ]
 
 # BalancedInput --------------------------------------------------------------
 
