@@ -45,6 +45,7 @@ class exports.Scene extends Backbone.Model
 
     getSession scenario, @queries, @inputs, (err, sessionId) =>
       if err? then callback(err) else
+        @inputs.initializeBalancers()
 
         scenario.set { sessionId }
 

@@ -65,9 +65,8 @@ createSession = (queries, inputs, callback) ->
     # The ETengine API does not presently support requesting query results
     # when creating a session. We need to start the session, and _then_
     # fetch the values.
-    api.updateInputs sessionId, { queries, inputs }, (err, userValues) ->
-      if err? then callback(err) else
-        callback null, sessionId
+    api.updateInputs sessionId, { queries, inputs, balance: false }, (err) ->
+      if err? then callback(err) else callback null, sessionId
 
 # Restores the session state by retrieving it from ETengine.
 #
