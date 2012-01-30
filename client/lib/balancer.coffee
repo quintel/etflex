@@ -242,11 +242,7 @@ class BalancedInput
   #
   setValue: (newValue) ->
     # Snap the new value to the @precision.
-    # newValue = roundToPrecision newValue, @precision
-
-    # Round it to the step value.
-    multiplier = 1 / @input.def.step
-    newValue   = Math.round(newValue * multiplier) / multiplier
+    newValue = roundToPrecision newValue, @precision
 
     newValue = @input.def.min if newValue < @input.def.min
     newValue = @input.def.max if newValue > @input.def.max
