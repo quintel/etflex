@@ -26,7 +26,7 @@ class exports.CostsView extends GenericProp
   render: ->
     super '', I18n.t 'scenes.etlite.costs'
 
-    $(@el).find('.icon').replaceWith @icon.render().el
+    @$el.find('.icon').replaceWith @icon.render().el
     @updateValues()
 
     this
@@ -39,7 +39,7 @@ class exports.CostsView extends GenericProp
     value = @query.get('future') / 1000000000
 
     # Reduce the shown value to three decimal places.
-    $(@el).find('.output').html(
+    @$el.find('.output').html(
       "€#{@precision value, 3} #{I18n.t 'scenes.etlite.billion'}")
 
     @icon.setState @hurdleState value

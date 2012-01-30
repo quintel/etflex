@@ -8,7 +8,7 @@ class exports.GenericProp extends Backbone.View
   className: 'prop'
 
   render: (value, unit) ->
-    $(@el).html propTemplate value: value, unit: unit
+    @$el.html propTemplate value: value, unit: unit
 
     @delegateEvents()
     this

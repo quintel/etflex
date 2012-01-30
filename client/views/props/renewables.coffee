@@ -24,7 +24,7 @@ class exports.RenewablesView extends GenericProp
   render: ->
     super '', I18n.t 'scenes.etlite.renewables'
 
-    $(@el).find('.icon').replaceWith @icon.render().el
+    @$el.find('.icon').replaceWith @icon.render().el
     @updateValues()
 
     this
@@ -37,7 +37,7 @@ class exports.RenewablesView extends GenericProp
     value = @query.get('future') * 100
 
     # Reduce the value to three decimal places when shown.
-    $(@el).find('.output').html "#{@precision value, 3}%"
+    @$el.find('.output').html "#{@precision value, 3}%"
 
     @icon.setState @hurdleState value
 

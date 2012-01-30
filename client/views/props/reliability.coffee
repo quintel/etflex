@@ -21,7 +21,7 @@ class exports.ReliabilityView extends GenericProp
   render: ->
     super '', I18n.t 'scenes.etlite.reliability'
 
-    $(@el).find('.icon').replaceWith @icon.render().el
+    @$el.find('.icon').replaceWith @icon.render().el
     @updateValues()
 
     this
@@ -33,8 +33,8 @@ class exports.ReliabilityView extends GenericProp
     value = (1 - @query.get('future')) * 100 # risk is bad, no risk is good
 
     # Reduce the value to three decimal places when shown.
-    $(@el).find('.output').html("#{@precision value, 2}%")
+    @$el.find('.output').html("#{@precision value, 2}%")
 
     @icon.setState @hurdleState @query.get('future')
-    
+
     this

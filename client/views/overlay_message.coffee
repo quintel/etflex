@@ -16,10 +16,8 @@ class exports.OverlayMessageView extends Backbone.View
   # message - The message to be shown.
   #
   render: (title, message) ->
-    element = $ @el
-
-    element.append @make('h3', {}, title)
-    element.append @make('p', {}, message)
+    @$el.append @make('h3', {}, title)
+    @$el.append @make('p', {}, message)
 
     this
 
@@ -34,7 +32,7 @@ class exports.OverlayMessageView extends Backbone.View
     element.prepend @el
 
     unless Modernizr.cssanimations
-      $(@el).hide().fadeIn 300
+      @$el.hide().fadeIn 300
 
     @shownAt = new Date
 
@@ -54,6 +52,6 @@ class exports.OverlayMessageView extends Backbone.View
     window.setTimeout (=> @remove()), 325
 
     if Modernizr.cssanimations
-      $(@el).addClass('out')
+      @$el.addClass('out')
     else
-      $(@el).fadeOut 300
+      @$el.fadeOut 300

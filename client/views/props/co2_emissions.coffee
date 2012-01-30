@@ -25,7 +25,7 @@ class exports.CO2EmissionsView extends GenericProp
   render: ->
     super '', I18n.t 'scenes.etlite.emissions'
 
-    $(@el).find('.icon').replaceWith @icon.render().el
+    @$el.find('.icon').replaceWith @icon.render().el
     @updateValues()
 
     this
@@ -39,7 +39,7 @@ class exports.CO2EmissionsView extends GenericProp
     value = @query.get('future') / (1000 * 1000000)
 
     # Reduce the value to one decimal place when shown.
-    $(@el).find('.output').html "#{@precision value, 1} Mton CO<sub>2</sub>"
+    @$el.find('.output').html "#{@precision value, 1} Mton CO<sub>2</sub>"
 
     @icon.setState @hurdleState value
 

@@ -14,7 +14,7 @@ class exports.IconProp extends Backbone.View
     @activeIcon   = $ @make 'span', class: 'icon'
     @inactiveIcon = $ @make 'span', class: 'icon'
 
-    $(@el).append @activeIcon, @inactiveIcon
+    @$el.append @activeIcon, @inactiveIcon
 
     this
 
