@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20120127140725) do
     t.string  "group"
   end
 
+  add_index "inputs", ["group"], :name => "index_inputs_on_group"
   add_index "inputs", ["remote_id"], :name => "index_inputs_on_remote_id", :unique => true
 
   create_table "props", :force => true do |t|
