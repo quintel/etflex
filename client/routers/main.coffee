@@ -29,7 +29,8 @@ startScene = (collection, startArgs...) ->
 
           # Now that we have fetched the session, we change the URL so that
           # the user can hit refresh without losing their changes.
-          app.navigate "scenes/#{ scene.id }/with/#{ sessionId }", false
+          app.navigate "scenes/#{ scene.id }/with/#{ sessionId }",
+            trigger: false, replace: true
 
           render new SceneView model: scene, scenario: scenario
 
