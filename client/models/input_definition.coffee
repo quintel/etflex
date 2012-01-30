@@ -7,10 +7,11 @@
 class exports.InputDefinition
 
   constructor: (attributes) ->
-    @id   = attributes.id   or attributes.remoteId
-    @key  = attributes.key
-    @min  = attributes.min  or 0
-    @max  = attributes.max  or 100
-    @step = attributes.step or 1
-    @unit = attributes.unit or ''
-    @info = attributes.info or null
+    @id    = attributes.id    or attributes.remoteId
+    @key   = attributes.key
+    @min   = attributes.min   or 0
+    @max   = attributes.max   or 100
+    @step  = attributes.step  or 1
+    @unit  = attributes.unit  or ''
+    @info  = attributes.info  or null
+    @group = attributes.group or null

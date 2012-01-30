@@ -82,11 +82,16 @@ exports.updateInputs = (sessionId, options, callback) ->
   { inputs,   queries } = options
 
   # Data sent to the server.
-  params = { input: {}, sanitize_groups: true }
+  params = { input: {} }
 
   # Queries and inputs may be a Backbone collection.
   inputs  = inputs?.models  or inputs or []
   queries = queries?.models or queries
+
+  # Perform balancing.
+  unless options.balance is false
+    for input in inputs when input.def.group
+      inputs.push input.collection.balance(input.def.group, input)...
 
   # Map the input IDs and their values.
   params.input[ input.get('id') ] = input.get('value') for input in inputs

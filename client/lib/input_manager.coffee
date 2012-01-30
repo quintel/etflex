@@ -90,7 +90,7 @@ class QueuedUpdate
   perform: (sessionId) ->
     queries  = ( query for own k, query of @queries )
     inputs   = ( input for own k, input of @inputs  )
-    data     = { inputs: inputs, queries: queries, sanitize_groups: true }
+    data     = { inputs: inputs, queries: queries }
 
     deferred = $.Deferred()
 
