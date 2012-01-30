@@ -42,12 +42,16 @@ class exports.Balancer
   #          be altered during balancing.
   #
   performBalancing: (master) ->
+    iterations   = 20
+    previousFlex = null
+
     subordinates = getSubordinates @inputs, master
 
     # Return quickly if none of the subordinates can be changed.
     return [] unless subordinates.length
 
-    balancedInputs = ( new BalancedInput input for input in subordinates )
+    balancedInputs  = ( new BalancedInput input for input in subordinates )
+    iterationInputs = _.clone balancedInputs
 
     sumValues = _.invoke @inputs, 'get', 'value'
     sumValues = _.inject sumValues, ((m, v) -> m + v), 0
@@ -66,18 +70,35 @@ class exports.Balancer
     #
     flex = roundToPrecision @max - sumValues, @precision
 
-    for input in balancedInputs
-      # The balancer seeks to assign the full flex amount to one slider; if
-      # this can't be done, it moves onto the next input and keeps going until
-      # either all of the flex has been assigned, or we run out of inputs.
-      origValue = input.value
+    while iterations--
+      nextIterationInputs = []
 
-      # Change the input value, and reduce the flex by however much we were
-      # able to change the input.
-      newInputValue = input.setValue(origValue + flex)
-      flex += ( origValue - newInputValue )
+      for input, i in iterationInputs
+        # The amount of flex given to each input. Calculated each time we
+        # balance a slider since the previous one may have used up all the
+        # available flex (due to rounding).
+        flexPerSlider = roundToPrecision flex / (balancedInputs.length - i)
 
-      break if flex is 0
+        prevValue = input.value
+        newValue  = input.setValue prevValue + flexPerSlider
+
+        # Reduce the flex by the amount by which the input was changed, ready
+        # for subsequent iterations.
+        flex -= newValue - prevValue
+
+        # Finally, if this input can still be changed futher, it may be used
+        # again in the next iteration.
+        if (flex < 0 and input.value isnt input.input.def.min) or
+           (flex > 0 and input.value isnt input.input.def.max)
+          nextIterationInputs.push input
+
+      iterationInputs = nextIterationInputs
+
+      # If the flex is all used, or the iteration failed to assign any more
+      # of the flex, don't iterate again.
+      break if flex is 0 or previousFlex is flex
+
+      previousFlex = flex
 
     # if flex is 0 then _.invoke(balancedInputs, 'commit') else false
     if flex isnt 0 then [] else
