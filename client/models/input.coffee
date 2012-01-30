@@ -11,6 +11,8 @@ class exports.Input extends Backbone.Model
   # such as its key, min value, max value, unit, etc.
   #
   constructor: (attributes, options) ->
+    @def = new InputDefinition attributes
+
     super
       id:       attributes.remoteId
       value:    attributes.start or attributes.min or 0
@@ -18,8 +20,6 @@ class exports.Input extends Backbone.Model
       position: attributes.position
       disabled: attributes.disabled
     , options
-
-    @def = new InputDefinition attributes
 
   # Handles persistance of the Input back to ETengine; delegates to the main
   # collection instance of InputManager.
