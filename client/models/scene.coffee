@@ -38,6 +38,7 @@ class exports.Scene extends Backbone.Model
         throw 'Scenario scene ID does not match scene ID'
     else
       scenario = new Scenario scene: _.clone(@attributes), user:  app.user
+      app.collections.scenarios.add scenario
 
     @queries or= new Queries({ id: id } for id in @dependantQueries())
     @inputs  or= new Inputs @get('inputs')
