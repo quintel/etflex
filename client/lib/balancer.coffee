@@ -27,8 +27,9 @@ class exports.Balancer
     @inputs.push input
     input.change 'value', @onChange
 
-    inputPrecision = getPrecision input.def.step
-    @precision = inputPrecision if inputPrecision > @precision
+    @precision = _.max([ @precision,
+      getPrecision(input.get('value')),
+      getPrecision(input.def.step) ])
 
   # Triggered when the user alters a slider; performs balancing of the
   # subordinates.
@@ -41,51 +42,57 @@ class exports.Balancer
   #          be altered during balancing.
   #
   performBalancing: (master) ->
-    iterations   = 20
-    previousFlex = null
-
-    subordinates = getSubordinates @inputs, master
+    subordinates   = getSubordinates @inputs, master
+    balancedInputs = ( new BalancedInput input for input in subordinates )
 
     # Return quickly if none of the subordinates can be changed.
     return [] unless subordinates.length
 
-    balancedInputs = for input in subordinates
-      new BalancedInput input, @precision
-
-    remainingInputs = balancedInputs
-
     sumValues = _.invoke @inputs, 'get', 'value'
     sumValues = _.inject sumValues, ((m, v) -> m + v), 0
 
-    # Return quickly if the collection is already balanced.
-    return [] if sumValues is @max
+    # Flex is the amount of "value" which needs to be adjusted for, e.g. if an
+    # input in a group is increased from 0 to 20, the sum of all the inputs
+    # will come to 120; the flex will be -20 indicating that other inputs in
+    # the group need to be reduced by 20 to compensate.
+    flex = @max - sumValues
 
-    # Flex is the amount of "value" which needs to be adjusted for. e.g.,
-    #
-    #   max: 100
-    #   input 1: 0
-    #   input 2: 100
-    #
-    # If slider 1 is moved to 25, the flex is -25 since, in order to balance
-    # the inputs, we need to subtract 25 from the subordinates.
-    #
-    flex = roundToPrecision @max - sumValues, @precision
+    # Try a max of 20 times to balance.
+    iterations      = 20
+    iterationInputs = _.clone balancedInputs
 
-    for algo in [ balanceEquitably, balanceEqually, balanceForcefully ]
-      [ flex, remainingInputs ] = algo(flex, remainingInputs)
+    while iterations--
+      nextIterationInputs = []
+      iterStartFlex       = flex
+      iterDelta           = cumulativeDelta(iterationInputs)
 
-    # if flex is 0 then _.invoke(balancedInputs, 'commit') else false
-    if flex isnt 0 then [] else
+      for input in iterationInputs
+        # The amount of flex given to each input. Calculated each time we
+        # balance an input since the previous one may have used up all the
+        # available flex (due to rounding).
+        flexPerSlider = iterStartFlex * (input.delta / iterDelta)
+
+        prevValue = input.value
+        newValue  = input.setValue prevValue + flexPerSlider
+
+        flex -= newValue - prevValue
+
+        # Finally, if this input can still be changed further, it may be used
+        # again in the next iteration.
+        nextIterationInputs.push input if input.canChangeDirection flex
+
+      # These inputs will be used next time around...
+      iterationInputs = nextIterationInputs
+
+      # If the flex is all used up, or wasn't changed, don't waste time doing
+      # more iterations.
+      break if flex is 0 or flex is iterStartFlex
+
+    if flex >= 0.1 or flex <= -0.1 then [] else
       _.invoke balancedInputs, 'commit'
       subordinates
 
 # Misc Helpers ---------------------------------------------------------------
-
-# Given a value and precision, "snaps" it to match the precision. For example,
-# if the precision is 1 it will round the value to the nearest 0.1.
-#
-roundToPrecision = (number, precision) ->
-  parseFloat number.toFixed precision
 
 # Given a number, returns the precision (number of decimal places).
 #
@@ -98,115 +105,11 @@ getPrecision = (number) ->
 getSubordinates = (inputs, master) ->
   ( input for input in inputs when input.id isnt master.id )
 
-# Balancing Algorithms -------------------------------------------------------
-
-# Seeks to balance the given "flex" amount between the given inputs by
-# assigning a "fair" amount to each one, where "fair" is defined as an equal
-# amount relative to the difference between the input minumum and maximum.
-#
-# For example, given a flex of 75, an input whose min/max is 0/100, and a
-# second input whose min/max is 0/50, the first input would receive 50, and
-# the second input would receive 25.
-#
-balanceEquitably = (flex, inputs, precision) ->
-  iterations      = 20
-  previousFlex    = null
-  iterationInputs = _.clone inputs
-
-  divisors = {}
-
-  if flex isnt 0 then while iterations--
-    nextIterationInputs = []
-    iterStartFlex = flex
-    iterDelta = _.inject iterationInputs, ((m, i) -> m + i.delta), 0
-
-    for input in iterationInputs
-      # The amount of flex given to each input. Calculated each time we
-      # balance a slider since the previous one may have used up all the
-      # available flex (due to rounding).
-      flexPerSlider = iterStartFlex * (input.delta / iterDelta)
-
-      prevValue = input.value
-      newValue  = input.setValue prevValue + flexPerSlider
-
-      flex -= newValue - prevValue
-
-      # Finally, if this input can still be changed futher, it may be used
-      # again in the next iteration.
-      nextIterationInputs.push input if input.canChangeDirection flex
-
-    iterationInputs = nextIterationInputs
-
-    # If the flex is all used, or the iteration failed to assign any more
-    # of the flex, don't iterate again.
-    break if flex is 0 or previousFlex is flex
-
-    previousFlex = flex
-
-  [ flex, iterationInputs ]
-
-# Seeks to balance the given "flex" amount between the given "inputs" by
-# assigning an equal amount of the flex to each input. For example, given four
-# inputs and a flex of 100, it will ideally try to assign 25 to each input.
-#
-# The exact amount assigned to each input will depend on the current, minimum,
-# and maximum values of the input.
-#
-balanceEqually = (flex, inputs, precision) ->
-  iterations      = 20
-  previousFlex    = null
-  iterationInputs = _.clone inputs
-
-  if flex isnt 0 then while iterations--
-    nextIterationInputs = []
-
-    for input, i in iterationInputs
-      # The amount of flex given to each input. Calculated each time we
-      # balance a slider since the previous one may have used up all the
-      # available flex (due to rounding).
-      flexPerSlider = roundToPrecision flex / (iterationInputs.length - i)
-
-      prevValue = input.value
-      newValue  = input.setValue prevValue + flexPerSlider
-
-      # Reduce the flex by the amount by which the input was changed, ready
-      # for subsequent iterations.
-      flex -= newValue - prevValue
-
-      # Finally, if this input can still be changed futher, it may be used
-      # again in the next iteration.
-      nextIterationInputs.push input if input.canChangeDirection flex
-
-    iterationInputs = nextIterationInputs
-
-    # If the flex is all used, or the iteration failed to assign any more
-    # of the flex, don't iterate again.
-    break if flex is 0 or previousFlex is flex
-
-    previousFlex = flex
-
-  [ flex, iterationInputs ]
-
-# Seeks to balance the given "flex" amount by assigning the full amount to
-# each input in turn.
-#
-# For example  given four inputs and a flex of 100, it will try to assign the
-# full 100 to the first input. If this input only permits assigning 50, then
-# it will seek to assign the remaining 50 to the second slider, and so on...
-#
-balanceForcefully = (flex, inputs, precision) ->
-  iterationInputs = _.clone inputs
-
-  if flex isnt 0 then for input in iterationInputs
-    prevValue = input.value
-    newValue  = input.setValue prevValue + flex
-
-    # Round here otherwise floating point errors start to pile up.
-    flex = roundToPrecision flex - (newValue - prevValue), precision
-
-    break if flex is 0
-
-  [ flex, iterationInputs ]
+# Sums the delta of all the given inputs.
+cumulativeDelta = (inputs) ->
+  delta = 0
+  delta += input.delta for input in inputs
+  delta
 
 # BalancedInput --------------------------------------------------------------
 
@@ -225,10 +128,9 @@ balanceForcefully = (flex, inputs, precision) ->
 #
 class BalancedInput
   constructor: (@input, @precicion) ->
-    @id        = @input.id
-    @value     = @input.get 'value'
-    @delta     = @input.def.max - @input.def.min
-    # @precision = getPrecision @input.def.step
+    @id    = @input.id
+    @value = @input.get 'value'
+    @delta = @input.def.max - @input.def.min
 
   # Given a new value, will seek to set the (internal) value for the input.
   # The value will be checked to ensure that it is within the min-max range,
@@ -241,9 +143,6 @@ class BalancedInput
   #                 commit().
   #
   setValue: (newValue) ->
-    # Snap the new value to the @precision.
-    newValue = roundToPrecision newValue, @precision
-
     newValue = @input.def.min if newValue < @input.def.min
     newValue = @input.def.max if newValue > @input.def.max
 
