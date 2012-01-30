@@ -83,4 +83,106 @@ describe Input do
     end
   end
 
+  # GROUP --------------------------------------------------------------------
+
+  describe 'group' do
+    it { should_not validate_presence_of(:group) }
+    it { should allow_mass_assignment_of(:group) }
+    it { should allow_value('name').for(:group) }
+    it { should allow_value(nil).for(:group) }
+    it { should ensure_length_of(:group).is_at_most(50) }
+  end
+
+  # SIBLINGS -----------------------------------------------------------------
+
+  describe 'siblings' do
+    let(:focus)     { create :input, group: 'my-group' }
+    let(:sibling_1) { create :input, group: 'my-group' }
+    let(:sibling_2) { create :input, group: 'my-group' }
+    let(:cousin_1)  { create :input, group: 'another-group' }
+
+    before { sibling_1; sibling_2; cousin_1 }
+
+    describe 'when the given input belongs to no group' do
+      it 'should return an empty array' do
+        Input.siblings(create :input).should be_empty
+      end
+    end
+
+    describe 'when given a single, grouped input with two siblings' do
+      subject { Input.siblings focus }
+
+      it 'should contain the siblings' do
+        should have(2).members
+      end
+
+      it 'should contain the first sibling' do
+        should include(sibling_1)
+      end
+
+      it 'should contain the second sibling' do
+        should include(sibling_2)
+      end
+
+      it 'should not include the focused input' do
+        should_not include(focus)
+      end
+    end
+
+    describe 'when given multiple, grouped inputs with three siblings' do
+      let(:focus_2) { create :input, group: 'another-group' }
+
+      subject { Input.siblings [ focus, focus_2 ] }
+
+      it 'should contain the siblings' do
+        should have(3).members
+      end
+
+      it 'should contain the first sibling' do
+        should include(sibling_1)
+      end
+
+      it 'should contain the second sibling' do
+        should include(sibling_2)
+      end
+
+      it 'should contain the third sibling' do
+        should include(cousin_1)
+      end
+
+      it 'should not include the focused inputs' do
+        should_not include(focus)
+        should_not include(focus_2)
+      end
+    end
+
+    describe 'when given multiple, grouped scene inputs with three siblings' do
+      let(:focus_2) { create :input, group: 'another-group' }
+
+      subject { Input.siblings [
+        SceneInput.new(input: focus), SceneInput.new(input: focus_2) ] }
+
+      it 'should contain the siblings' do
+        should have(3).members
+      end
+
+      it 'should contain the first sibling' do
+        should include(sibling_1)
+      end
+
+      it 'should contain the second sibling' do
+        should include(sibling_2)
+      end
+
+      it 'should contain the third sibling' do
+        should include(cousin_1)
+      end
+
+      it 'should not include the focused inputs' do
+        should_not include(focus)
+        should_not include(focus_2)
+      end
+    end
+  end # siblings
+
 end

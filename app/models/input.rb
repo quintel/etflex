@@ -39,12 +39,21 @@
 #   A text suffix used when showing the user the value of the input. A unit of
 #   "MW" will result in the input value being formatted as "1,500 MW", etc.
 #
+# group (String[1..50])
+#   A group to which the input belongs; sliders which belong to a group need
+#   to be balanced so that the cumulative value of all inputs in the group sum
+#   to 100.
+#
 class Input < ActiveRecord::Base
+
+  def acts_like_input? ; true end
 
   # VALIDATION ---------------------------------------------------------------
 
   validates :remote_id, presence: true, uniqueness: true, on: :create
   validates :key,       presence: true, uniqueness: true
+
+  validates :group,     length: { maximum: 50, allow_nil: true }
 
   validates :min,       presence: true, numericality: true
   validates :max,       presence: true, numericality: true
@@ -70,6 +79,32 @@ class Input < ActiveRecord::Base
 
   def to_s
     key
+  end
+
+  # CLASS METHODS ------------------------------------------------------------
+
+  # Given one or more inputs, returns all of the inputs which are related to
+  # them by the "group" column. The sliders passed in to the method will not
+  # be included in those returned.
+  #
+  # inputs - The input, or collection of inputs, whose siblings are to be
+  #          retrieved. This may be an Input, SceneInput, or an array
+  #          containing multiple inputs or scene inputs.
+  #
+  def self.siblings(inputs)
+    inputs = if inputs.acts_like?(:input) then [ inputs ] else inputs.dup end
+    inputs.reject! { |input| input.group.blank? }
+
+    return [] if inputs.empty?
+
+    groups, exclusions =
+      inputs.each_with_object([ Set.new, Set.new ]) do |input, (gr, ex)|
+        gr.add(input.group)
+        ex.add(input.remote_id)
+      end
+
+    siblings = Input.where(group: groups.to_a)
+    siblings.reject { |input| exclusions.include?(input.remote_id) }
   end
 
 end
