@@ -24,11 +24,9 @@ class ScenariosController < ApplicationController
   def scenario_attrs
     attrs = params[:scenario] || Hash.new
 
-    # TODO Have the client send input_values, query_results, instead.
-    attrs[:input_values]  = attrs.delete(:inputValues)
-    attrs[:query_results] = attrs.delete(:queryResults)
-
-    attrs
+    { title:         attrs[:title],
+      input_values:  attrs[:inputValues],
+      query_results: attrs[:queryResults] }
   end
 
   # ACTIONS ------------------------------------------------------------------

@@ -24,7 +24,11 @@ Installation
     rbenv: `rbenv local 1.9.3-p0`
     RVM: Create an .rvmrc with "rvm gemset use 1.9.3" then `rvm rvmrc load`.
 
- 3. `bundle install`
+ 3. Install the Qt framework (see "Running the Tests" below for more
+    information). This is one required when installing Gems for the "test"
+    environment, and is not needed for production installs.
+
+ 4. `bundle install`
 
 Running the Tests
 -----------------
