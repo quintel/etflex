@@ -14,10 +14,10 @@ en:
     # -------------------
 
     car:
-      name: "Eco Car / SUV"
+      name: "What type of cars will prevail in the streets in the future?"
       info:
-        eco: 'Information about the Eco car'
-        suv: 'Information about the SUV'
+        eco: 'In your scenario, there are more than a million electric cars in the Netherlands in 2040! Electric cars will be abundantly visible in the streets of the Netherlands.'
+        suv: 'In the current situation you just have 0.X million electric cars and X.XX million fossil cars in the Netherlands in 2040. If you want to change the division, try to increase the percentage of electric cars to witness the impact.'
     city:
       name: "Futuristic City"
     eco_buildings:
