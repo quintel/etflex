@@ -28,6 +28,7 @@ class exports.SceneView extends Backbone.View
   #
   render: ->
     @$el.html template()
+    @propInstances = []
 
     # Render additional elements used in the modern theme (the animated
     # header element, etc).
@@ -61,6 +62,8 @@ class exports.SceneView extends Backbone.View
       # rendered. This is intentional so that "hidden" props don't raise
       # errors.
       propLocations[ prop.location ]?.append propView.render().el
+
+      @propInstances.push propView
 
     # Initialize the nav menu.
     @$('#footer').before (new SceneNav model: @model).render().el
