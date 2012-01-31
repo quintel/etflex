@@ -22,7 +22,7 @@ startScene = (collection, startArgs...) ->
   collection.getOrFetch startArgs..., (err, thing) ->
     # Backbone doesn't return a useful error, but it was almost certainly a
     # 404, so just render the Not Found page...
-    if err? then console.log err else
+    if err? then console.error err else
       thing.start (err, scene, scenario) ->
         if err? then console.error err else
           sessionId = scenario.get 'sessionId'
