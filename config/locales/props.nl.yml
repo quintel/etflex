@@ -14,18 +14,21 @@ nl:
     # -------------------
 
     car:
-      name: "Header: Eco Car / SUV"
+      name: "Eco Car / SUV"
+      info:
+        eco: 'Informatie over de Eco-car'
+        suv: 'Informatie over de SUV'
     city:
-      name: "Header: Futuristische Stad"
+      name: "Futuristische Stad"
     eco_buildings:
-      name: "Header: Eco-Gebouwen / Quarry"
+      name: "Eco-Gebouwen / Quarry"
     turbines:
-      name: "Header: Windturbines / Kolen Power Plant"
+      name: "Windturbines / Kolen Power Plant"
     energy_sources:
-      name: "Header: Energiebronnen"
+      name: "Energiebronnen"
     geothermal_pipeline:
-      name: "Header: Geothermie"
+      name: "Geothermie"
     ground:
-      name: "Header: Grond"
+      name: "Grond"
     solar_heater:
-      name: "Header: Zonneboiler"
+      name: "Zonneboiler"

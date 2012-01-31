@@ -1,5 +1,46 @@
-{ HeaderIcon } = require 'views/props/header_icon'
+{ HeaderIcon }  = require 'views/props/header_icon'
+{ showMessage } = require 'lib/messages'
 
 class exports.CarProp extends HeaderIcon
   @queries: [ 'number_of_electric_cars' ]
   states:   [ 'suv', 'eco' ]
+
+  events:
+    'click .help': 'showInfo'
+    'mouseenter':  'showInfoButton'
+    'mouseleave':  'hideInfoButton'
+
+  helpText: 'My thing'
+
+  render: ->
+    super
+    @$el.append '<span class="help"></span>'
+    this
+
+  refresh: ->
+    beforeState = @currentState
+    super
+
+    if @currentState isnt beforeState
+      @showInfoButton 1000
+      @infoTimeout = window.setTimeout @hideInfoButton, 4000
+
+  # The Info (?) button
+  # -------------------
+  #
+  # If the prop has some help text defined, add a question mark so that the
+  # user may find out more. This is a bit of a hack at the moment to be
+  # ready for the 01/02/12 client meeting and will be refactored later.
+
+  showInfoButton: (fadeTime = 500) =>
+    # Prevent the button being hidden if the hideInfo timeout is present.
+    window.clearTimeout @infoTimeout if @infoTimeout
+    @$('.help').stop().animate opacity: 1, fadeTime
+
+  hideInfoButton: =>
+    @$('.help').stop().animate opacity: 0, 500
+    @infoTimeout = null
+
+  showInfo: ->
+    showMessage I18n.t('props.car.name'),
+                I18n.t("props.car.info.#{ @currentState }")

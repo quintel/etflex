@@ -14,18 +14,21 @@ en:
     # -------------------
 
     car:
-      name: "Header: Eco Car / SUV"
+      name: "Eco Car / SUV"
+      info:
+        eco: 'Information about the Eco car'
+        suv: 'Information about the SUV'
     city:
-      name: "Header: Futuristic City"
+      name: "Futuristic City"
     eco_buildings:
-      name: "Header: Eco-Buildings / Quarry"
+      name: "Eco-Buildings / Quarry"
     turbines:
-      name: "Header: Wind Turbines / Coal Power Plant"
+      name: "Wind Turbines / Coal Power Plant"
     energy_sources:
-      name: "Header: Energy Sources"
+      name: "Energy Sources"
     geothermal_pipeline:
-      name: "Header: Geothermal-pipeline"
+      name: "Geothermal-pipeline"
     ground:
-      name: "Header: Ground"
+      name: "Ground"
     solar_heater:
-      name: "Header: Solar Heater"
+      name: "Solar Heater"
