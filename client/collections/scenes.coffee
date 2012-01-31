@@ -11,9 +11,6 @@
 class exports.Scenes extends Backbone.Collection
   model: Scene
 
-  # Returns the URL to the scene.
-  url: -> "/scenes/#{ @id }.json"
-
   # Returns the Scene whose ID matches "id". If the scene already exists in
   # the collection, the supplied "callback" will be run immediately. Otherwise
   # an XHR request will retrieve the scene from the server, and the callback
