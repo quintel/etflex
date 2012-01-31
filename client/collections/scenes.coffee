@@ -10,7 +10,9 @@
 #
 class exports.Scenes extends Backbone.Collection
   model: Scene
-  url:  '/scenes'
+
+  # Returns the URL to the scene.
+  url: -> "/scenes/#{ @id }.json"
 
   # Returns the Scene whose ID matches "id". If the scene already exists in
   # the collection, the supplied "callback" will be run immediately. Otherwise
