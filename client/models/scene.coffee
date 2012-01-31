@@ -19,6 +19,9 @@ class exports.Scene extends Backbone.Model
   # Stores a Query collection used by the scene.
   queries: null
 
+  # Returns the URL to the scene.
+  url: -> "/scenes/#{ @id }.json"
+
   # Starts the scene by fetching the ETengine session (if one already exists;
   # creates a new session otherwise).
   #
