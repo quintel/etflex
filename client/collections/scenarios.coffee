@@ -26,7 +26,7 @@ class exports.Scenarios extends Backbone.Collection
       @add scenario = new Scenario(sessionId: id, scene: { id: sceneId })
 
       scenario.fetch
-        error:   (scenario) -> callback true
+        error:   (args...)  -> callback [ args... ]
         success: (scenario) ->
           scenes    = app.collections.scenes
           sceneData = scenario.get('scene')

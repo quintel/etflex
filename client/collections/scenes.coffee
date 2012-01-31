@@ -24,8 +24,8 @@ class exports.Scenes extends Backbone.Collection
       @add(scene = new Scene id: id)
 
       scene.fetch
-        error:   (scene) -> callback true
-        success: (scene) -> callback null, scene
+        error:   (args...) -> callback [ args... ]
+        success: (scene)   -> callback null, scene
 
   # Given JSON for a scene, returns the scene adding it to the collection. If
   # the scene already exists in the collection, it will be returned without
