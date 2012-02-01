@@ -34,8 +34,11 @@ nl:
 
     email_address:      E-mailadres
     password:           Wachtwoord
+    confirm_password:   Bevestig wachtwoord
     remember_me:        Herinner mij
     sign_in:            Aanmelden
+    sign_in_long:       Meld u aan bij mijn account
+    sign_up:            Meld je nu aan
 
   # 404 Not Found ------------------------------------------------------------
 

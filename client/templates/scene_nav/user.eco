@@ -1,23 +1,58 @@
-<h6><%= I18n.t 'words.sign_in_to_account' %></h6>
-
-<form action="/users/sign_in" method="post">
-  <input name="user[email]" id="user_email" type="email" value="" placeholder="<%= I18n.t 'words.email_address' %>" />
-  <input name="user[password]" id="user_password" type="password" value="" placeholder="<%= I18n.t 'words.password' %>" />
-
-  <div class="buttons">
-    <label id="user-remember" for="user_remember_me">
-      <input name="user[remember_me]" id="user_remember_me" type="checkbox" checked="checked" value="1" />
-      <%= I18n.t 'words.remember_me' %>
-    </label>
-
-    <input id="user-sign-in" type="submit" value="<%= I18n.t 'words.sign_in' %>" class="button green" />
+<div id="sign-in-modal">
+  <div class="nav">
+    <ul>
+      <li class="active"><a href="#" class="in"><%= I18n.t 'words.sign_in_to_account' %></a></li>
+      <li><a href="#" class="up">Sign up</a></li>
+    </ul>
   </div>
-</form>
 
-<h6><%= I18n.t 'words.no_account' %></h6>
+  <form id="sign-in-form" action="/users/sign_in" method="post">
+    <div class="fields">
+      <label for="user_email" class="half"><%= I18n.t 'words.email_address' %>
+        <input name="user[email]" id="user_email" type="email" value="" /></label>
 
-<ul class="icon-nav">
-  <li><a href='/users/auth/facebook'>Log in with Facebook</a></li>
-</ul>
+      <label for="user_password" class="half right"><%= I18n.t 'words.password' %>
+        <input name="user[password]" id="user_password" type="password" value="" /></label>
 
-<div class="placeholder">or register</div>
+      <label for="user_remember_me" class="half remember-me">
+        <input name="user[remember_me]" id="user_remember_me" type="checkbox" checked="checked" value="1" />
+        <%= I18n.t 'words.remember_me' %>
+      </label>
+
+      <label class="half right forgotten-password">
+        <a href="#">Forgotten your password?</a>
+      </label>
+    </div>
+
+    <div class="buttons">
+      <input id="user-sign-in" type="submit" value="<%= I18n.t 'words.sign_in_long' %>" class="button green" />
+    </div>
+  </form>
+
+  <form id="sign-up-form" action="/users" method="post" style="display: none">
+    <div class="fields">
+      <label for="user_email" class="half wide"><%= I18n.t 'words.email_address' %>
+        <input name="user[email]" id="user_email" type="email" value="" /></label>
+
+      <label for="user_password" class="half"><%= I18n.t 'words.password' %>
+        <input name="user[password]" id="user_password" type="password" value="" /></label>
+
+      <label for="user_password_confirmation" class="half right"><%= I18n.t 'words.confirm_password' %>
+        <input name="user[password_confirmation]" id="user_password_confirmation" type="password" value="" /></label>
+    </div>
+
+    <div class="buttons">
+      <input id="user-sign-in" type="submit" value="<%= I18n.t 'words.sign_up' %>" class="button green" />
+    </div>
+  </form>
+
+  <!--<h6><%= I18n.t 'words.no_account' %></h6>-->
+
+  <div class="or"><span>or</span></div>
+
+  <ul class="icon-nav">
+    <li><a href="/users/auth/facebook">Sign in with Facebook</a></li>
+    <li><a href="#">Sign in with Twitter</a></li>
+    <li><a href="#">Sign in with Google+</a></li>
+  </ul>
+</div>

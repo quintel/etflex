@@ -38,7 +38,31 @@ renderInfo = ({ model }) ->
 renderSettings = -> settingsTemplate()
 
 # Renders the contents of the user menu.
-renderUser = -> userTemplate()
+renderUser = ->
+  modalDialog = $('#modal-dialog')
+
+  $('#modal-content', modalDialog).html userTemplate()
+
+  showForm = (show) ->
+    if show is 'sign-in'
+      $('#sign-in-form', modalDialog).show()
+      $('#sign-up-form', modalDialog).hide()
+    else
+      $('#sign-in-form', modalDialog).hide()
+      $('#sign-up-form', modalDialog).show()
+
+    $('li.active').removeClass('active')
+    $(event.target).parents('li').addClass('active')
+
+    event.preventDefault()
+
+  $('.nav a.in').click (event) -> showForm 'sign-in'
+  $('.nav a.up').click (event) -> showForm 'sign-up'
+
+  modalDialog.reveal()
+
+
+  false
 
 # Renders the contents of the user account menu.
 renderAccount = -> accountTemplate()
@@ -79,28 +103,29 @@ class exports.SceneNav extends Backbone.View
     if @activeItem is itemName then return @deactivate()
     if @activeItem?            then @itemEl(@activeItem).removeClass('active')
 
-    @itemEl(itemName).addClass('active')
-
-    @pulldown.html switch itemName
+    content = switch itemName
       when 'info'     then renderInfo     this
       when 'settings' then renderSettings this
       when 'user'     then renderUser     this
       when 'account'  then renderAccount  this
 
-    @pulldown.show()
+    if content
+      @itemEl(itemName).addClass('active')
+      @pulldown.html content
+      @pulldown.show()
 
-    # The first and last items overlap the left and right of the menu, so we
-    # need to disable the correct border radius so that the menu doesn't look
-    # weird.
-    radii = switch itemName
-      when 'info'            then [ 'addClass',    'removeClass' ]
-      when 'user', 'account' then [ 'removeClass', 'addClass'    ]
-      else                        [ 'removeClass', 'removeClass' ]
+      # The first and last items overlap the left and right of the menu, so we
+      # need to disable the correct border radius so that the menu doesn't look
+      # weird.
+      radii = switch itemName
+        when 'info'            then [ 'addClass',    'removeClass' ]
+        when 'user', 'account' then [ 'removeClass', 'addClass'    ]
+        else                        [ 'removeClass', 'removeClass' ]
 
-    @pulldown[radii[0]]('first')
-    @pulldown[radii[1]]('last')
+      @pulldown[radii[0]]('first')
+      @pulldown[radii[1]]('last')
 
-    @activeItem = itemName
+      @activeItem = itemName
 
   # Deactivates the menu by removing the "active" class from the currently
   # active anchor, and hiding the menu.

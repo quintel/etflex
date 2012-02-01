@@ -34,8 +34,11 @@ en:
 
     email_address:      E-mail address
     password:           Password
+    confirm_password:   Confirm password
     remember_me:        Remember me
     sign_in:            Sign in
+    sign_in_long:       Sign in to my account
+    sign_up:            Sign up
 
   # 404 Not Found ------------------------------------------------------------
 
