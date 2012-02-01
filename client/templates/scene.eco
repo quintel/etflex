@@ -27,4 +27,9 @@
   </div>
 
   <div id="loader">Loading...</div>
+
+  <div id="modal-dialog" class="reveal-modal">
+    <div id="modal-content"></div>
+    <a class="close-reveal-modal">&#215;</a>
+  </div>
 </div>
