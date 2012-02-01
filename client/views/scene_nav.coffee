@@ -43,7 +43,7 @@ renderUser = ->
 
   $('#modal-content', modalDialog).html userTemplate()
 
-  showForm = (show) ->
+  showForm = (show, event) ->
     if show is 'sign-in'
       $('#sign-in-form', modalDialog).show()
       $('#sign-up-form', modalDialog).hide()
@@ -56,8 +56,8 @@ renderUser = ->
 
     event.preventDefault()
 
-  $('.nav a.in').click (event) -> showForm 'sign-in'
-  $('.nav a.up').click (event) -> showForm 'sign-up'
+  $('.nav a.in').click (event) -> showForm 'sign-in', event
+  $('.nav a.up').click (event) -> showForm 'sign-up', event
 
   modalDialog.reveal()
 
