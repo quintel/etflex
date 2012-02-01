@@ -61,7 +61,7 @@ class exports.Scene extends Backbone.Model
         # Returns input values and query information to ETFlex when received
         # from ETEngine.
         @inputs.on 'updateInputsDone', =>
-          if scenario.canSave app.user
+          if scenario.canChange app.user
             scenario.updateCollections { @inputs, @queries }
 
         callback null, this, @scenario = scenario

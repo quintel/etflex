@@ -5,10 +5,10 @@ json.inputValues  @scenario.input_values
 json.queryResults @scenario.query_results
 
 json.user do |json|
-  if user_signed_in?
-    json.partial! 'embeds/user', user: @scenario.user
+  if @scenario.user
+    json.partial! 'embeds/user',  user: @scenario.user
   else
-    json.partial! 'embeds/guest', user: guest_user
+    json.partial! 'embeds/guest', user: Guest.new(@scenario.guest_uid)
   end
 end
 

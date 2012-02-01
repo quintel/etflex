@@ -34,7 +34,7 @@ startScene = (collection, startArgs...) ->
 
           render new SceneView model: scene, scenario: scenario
 
-          if scenario.isNew() and scenario.canSave app.user
+          if scenario.isNew() and scenario.canChange app.user
             scene.inputs.trigger 'updateInputsDone'
 
 # ROUTER ---------------------------------------------------------------------

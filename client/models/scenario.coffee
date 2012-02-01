@@ -72,14 +72,6 @@ class exports.Scenario extends Backbone.Model
   canChange: (user) ->
     user.id and @get('user').id is user.id
 
-  # Determines if a user can save updates for the scenario to the ETFlex
-  # server.
-  #
-  # user - The user to test.
-  #
-  canSave: (user) ->
-    @canChange user
-
   # Don't send the scene information to the server; it doesn't care.
   #
   toJSON: ->
