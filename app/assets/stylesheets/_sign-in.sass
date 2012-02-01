@@ -7,7 +7,7 @@
     color: white
     right: 17px
     text-shadow: 0 1px 0 #2f4876
-    top: 20px
+    top: 18px
 
     &:hover
       text-decoration: none
@@ -16,21 +16,24 @@
 
   .nav
     +pie-clearfix
-    +background(linear-gradient(#7d9ed5, #4a69a1))
+    +background(linear-gradient(#789ed6, #4567a1))
     +border-top-radius(4px)
-    border-top: 1px solid #a6c4ff
-    border-bottom: 1px solid #263866
+    border-top: 1px solid #a3c5ff
+    border-bottom: 1px solid #293f73
     line-height: 1
     margin: -30px -40px 30px
     padding: 0 20px
 
     li
       float: left
-      padding: 5px 0 0
+      margin-top: 5px
 
       &.active
-        border-bottom: 1px solid #eee
-        margin-bottom: -1px
+        +border-top-radius(4px)
+        border: 1px solid #416299
+        border-top-color: #4567a1
+        border-bottom-color: #eee
+        margin: 4px -1px -1px
 
         a
           +border-top-radius(4px)
@@ -43,7 +46,7 @@
       color: white
       display: block
       font-weight: bold
-      padding: 18px 20px 16px
+      padding: 16px 20px 14px
       text-shadow: 0 1px 1px #2f4876
 
       &:hover
