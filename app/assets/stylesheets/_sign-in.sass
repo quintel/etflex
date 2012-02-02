@@ -99,7 +99,7 @@
     background: #f8f8f8
     border-top: 1px solid #ddd
     height: 1px
-    margin: 23px 0 20px
+    margin: 23px 0 40px
 
     span
       +border-radius(50px)
@@ -115,3 +115,17 @@
       text-transform: uppercase
       text-shadow: 0 1px 0 #999
       width: 17px
+
+  .social-nav
+    text-align: center
+
+    .zocial
+      font-family: "Helvetica Neue", Arial, Helvetica, sans-serif
+      margin-bottom: 5px
+
+      span
+        font-size: 11px
+
+    // Temporarily grey out the unusable sign-in buttons.
+    .twitter, .googleplus
+      opacity: 0.5
