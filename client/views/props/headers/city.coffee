@@ -5,9 +5,9 @@
 # containing the element in the header.
 #
 class exports.CityProp extends HeaderIcon
-  @queries: [ 'total_co2_emissions' ]
+  @queries: [ 'final_demand_from_households' ]
   states:   [ 'small', 'medium', 'large' ]
 
-  # Query result is in kilograms. Divide by 1000 to get tons, then 1000000
-  # to get Mtons.
+  # Query result is in megajoules. Divide by 1000 to get giga, 1000 to get tera
+  # then 1000 to get peta.
   refresh: (value) -> super value / 1000000000
