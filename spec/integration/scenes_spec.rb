@@ -12,19 +12,19 @@ describe 'Scenes' do
 
     visit "/scenes/#{ scene.id }"
 
-    # Low-energy lighting.
+    # Switch off appliances.
 
-    page.should have_css('.label', text: 'Electric cars')
+    page.should have_css('.label', text: 'Switch off appliances')
 
     # Test that the Low-energy lighting range value is 0
     #
     # TODO Find a nice way to extract this into a method. Perhaps an
     #      RSpec matcher?
     #
-    #      page.should have_range('Electric cars', value: 0)
+    #      page.should have_range('Switch off appliances', value: 0)
     #
     page.all('.range').each do |range|
-      if range.has_css?('.label', text: 'Electric cars')
+      if range.has_css?('.label', text: 'Switch off appliances')
         range.should have_css('.output', text: '0')
 
         # No info; a (?) should not be present.
@@ -32,7 +32,7 @@ describe 'Scenes' do
       end
     end
 
-    # Electric cars.
+    # Coal power plants.
 
     page.should have_css('.label', text: 'Coal-fired power plants')
 
