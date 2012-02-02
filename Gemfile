@@ -45,7 +45,7 @@ group :assets do
   gem 'therubyracer'
   gem 'sass-rails',   '>= 3.2.3'
   gem 'coffee-rails', '>= 3.2.1'
-  gem 'compass',      '~> 0.12.alpha.4'
+  gem 'compass',      '=  0.12.alpha.4'
   gem 'eco',          '~> 1.0'
   gem 'uglifier',     '>= 1.0.3'
 end
