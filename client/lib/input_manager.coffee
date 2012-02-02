@@ -44,6 +44,10 @@ class exports.InputManager
   afterUpdate: (err, queuedUpdate) =>
     if err?
       console.error err
+
+      pendingUpdate or= new QueuedUpdate
+      pendingUpdate.isRollback = true
+
       queuedUpdate.rollback()
     else
       collection = _.values(currentUpdate.inputs)[0].collection
@@ -69,6 +73,12 @@ class QueuedUpdate
     @inputs     = {}
     @origValues = {}
     @queries    = {}
+
+    # If isRollback is true, then the update is being used to rollback input
+    # values which were rejected by ET-Engine. We should not allow a rollback
+    # to also rollback, otherwise we may end up in an infinite loop
+    # alternating between two invalid input values.
+    @isRollback = false
 
   # Adds an input update to the queue so that it may be performed.
   #
@@ -102,5 +112,6 @@ class QueuedUpdate
   # Restores the inputs to their original values.
   #
   rollback: ->
-    for own k, input of @inputs
-      input.set(value: @origValues[ input.id ])
+    if @isRollback then throw 'Cannot rollback a rollback' else
+      for own k, input of @inputs
+        input.set(value: @origValues[ input.id ])
