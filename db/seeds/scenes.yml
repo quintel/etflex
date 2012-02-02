@@ -199,7 +199,7 @@
       renewables:          [ 6.0, 8.0, 10.0 ]
     header:
       car:                 [ 1000000 ]
-      city:                [ 140.0, 160.0 ]
+      city:                [ 220.0, 422.0 ]
       eco-buildings:       [ 0.15 ]
       energy-sources:      [ 0 ]
       geothermal-pipeline: [ 0.05, 0.25 ]
