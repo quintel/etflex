@@ -105,7 +105,7 @@ exports.updateInputs = (sessionId, options, callback) ->
         # ETengine currently returns a 200 OK even when an input is invalid;
         # work around this by forming our own error and running the callback
         # as a failure:
-        error = new Error('API Error')
+        error = new Error("API Error: #{ data.errors[0] }")
         error.errors = data.errors
 
         callback? error
