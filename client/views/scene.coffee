@@ -42,6 +42,8 @@ class exports.SceneView extends Backbone.View
     for input in @model.inputs.models
       rangeView = new RangeView model: input, canChange: canChange
 
+      rangeView.bind 'notAuthorizedToChange', @showNotAuthorizedModal
+
       # If the input location doesn't exist in the template, the input will not
       # rendered. This is intentional so that "hidden" and "$internal" inputs
       # don't raise errors.
@@ -95,6 +97,22 @@ class exports.SceneView extends Backbone.View
     # Facebook.
     fbLink = "http://www.facebook.com/sharer.php?u=#{link}&t=ETFlex"
     @$('#social-media .facebook a').attr('href', fbLink)
+
+  # When a user tries to alter inputs on a scenario which isn't theirs, a "not
+  # authorized" modal dialog appears allowing them to take suitable action.
+  #
+  showNotAuthorizedModal: =>
+    modalDialog = $ '#modal-dialog'
+
+    modalDialog.children('#modal-content').html(
+      "<h6>Cannot change scene: it belongs to someone else.</h6>").append(
+      """<p>
+        A dialog box will soon be added which informs the user of this fact,
+        and provides the option of "forking" the scenario so that they may
+        customise the values, or of starting the scenario from scratch.
+      </p>""")
+
+    modalDialog.reveal()
 
   # Creates a new instance of a prop. Takes the key of the prop and and
   # additional arguments to be passed the constructor.

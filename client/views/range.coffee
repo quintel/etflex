@@ -76,14 +76,7 @@ class exports.RangeView extends Backbone.View
   #
   updateModel: (value, quinn) =>
     if @canChange then @model.set(value: value) else
-      console.warn """
-        Cannot change scene: it belongs to someone else.
-
-        A dialog box will soon be added which informs the user of this fact,
-        and provides the option of "forking" the scenario so that they may
-        customise the values, or of starting the scenario from scratch.
-      """
-
+      @trigger 'notAuthorizedToChange'
       false
 
   # Triggered when the model value changes (such as when an API request
