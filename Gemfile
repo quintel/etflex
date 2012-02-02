@@ -23,7 +23,8 @@ gem 'simple_form'
 gem 'redcarpet'
 
 gem 'devise'
-gem "omniauth-facebook"
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
 
 gem 'jquery-rails'
 
