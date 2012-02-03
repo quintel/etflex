@@ -64,10 +64,18 @@ class exports.IconProp extends Backbone.View
         @activeIcon.fadeIn 1000
         @inactiveIcon.fadeOut 1000
       else if @fadeType is 'drop'
-        @activeIcon.show().css(top: '-192px').
-          animate(top: '0px', 750, 'easeOutBounce')
+        # Adds a little randomness to the animation lengths; this means that
+        # if multiple icons change simultaneously, the changes don't look
+        # quite so "perfect".
+        variance     = Math.round(Math.random() * 100) * 3
+        activeTime   = 600 + variance
+        inactiveTime = 400 + variance
 
-        @inactiveIcon.animate(top: '192px', 500, => @inactiveIcon.hide())
+        @activeIcon.show().css(top: '-192px').
+          animate(top: '0px', activeTime, 'easeOutBounce')
+
+        @inactiveIcon.animate top: '192px', inactiveTime, =>
+          @inactiveIcon.hide()
       else
         @activeIcon.fadeIn 1000, => @inactiveIcon.hide()
     else
