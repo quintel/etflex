@@ -16,6 +16,7 @@ class exports.CostsView extends GenericProp
     super options
 
     @icon = new IconProp
+    @icon.fadeType = 'drop'
 
     @query = options.queries.get 'total_costs'
     @query.on 'change:future', @updateValues

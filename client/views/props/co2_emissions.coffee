@@ -15,6 +15,7 @@ class exports.CO2EmissionsView extends GenericProp
     super options
 
     @icon = new IconProp
+    @icon.fadeType = 'drop'
 
     @query = options.queries.get 'total_co2_emissions'
     @query.on 'change:future', @updateValues

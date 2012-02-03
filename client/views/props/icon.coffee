@@ -14,6 +14,12 @@ class exports.IconProp extends Backbone.View
     @activeIcon   = $ @make 'span', class: 'icon'
     @inactiveIcon = $ @make 'span', class: 'icon'
 
+    if @fadeType is 'drop'
+      @activeIcon.css   'top', '0px'
+      @inactiveIcon.css 'top', '-192px'
+
+      @$el.css 'overflow', 'hidden'
+
     @$el.append @activeIcon, @inactiveIcon
 
     this
@@ -57,11 +63,20 @@ class exports.IconProp extends Backbone.View
       if @fadeType is 'parallel'
         @activeIcon.fadeIn 1000
         @inactiveIcon.fadeOut 1000
+      else if @fadeType is 'drop'
+        @activeIcon.show().css(top: '-192px').
+          animate(top: '0px', 750, 'easeOutBounce')
+
+        @inactiveIcon.animate(top: '192px', 500, => @inactiveIcon.hide())
       else
         @activeIcon.fadeIn 1000, => @inactiveIcon.hide()
     else
       # Current state is only falsey when the view is first loaded.
-      @activeIcon.show()
-      @inactiveIcon.hide()
+      if @fadeType is 'drop'
+        @activeIcon.show().css('top', '0px')
+        @inactiveIcon.hide().css('top', '-192px')
+      else
+        @activeIcon.show()
+        @inactiveIcon.hide()
 
     @currentState = name
