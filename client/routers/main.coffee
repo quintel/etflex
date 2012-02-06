@@ -1,5 +1,7 @@
 app              = require 'app'
 render           = require 'lib/render'
+
+{ RootView }     = require 'views/root'
 { SceneView }    = require 'views/scene'
 { NotFoundView } = require 'views/not_found'
 
@@ -71,7 +73,7 @@ class exports.Main extends Backbone.Router
   # GET /
   #
   root: ->
-    @redirectToDefaultScene()
+    render new RootView
 
   # Fetches the list of all Scenes, and redirects to the ETlite recreation.
   #
