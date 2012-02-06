@@ -3,13 +3,12 @@
     <a href="/" id="logo">Energy Transition Model (lite)</a>
   </div>
 
-  <h1>Hello</h1>
-  <p>World</p>
-
   <div id="scenes">
     <% for scene in @scenes: %>
       <div class="scene" id="scene-<%= scene.id %>">
-        <%= scene.get 'name' %>
+        <a href="<%= scene.get 'href' %>" title="<%= scene.get 'name' %>">
+          <%= scene.get 'name' %>
+        </a>
       </div>
     <% end %>
   </div>
