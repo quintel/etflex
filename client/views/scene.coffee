@@ -1,12 +1,13 @@
-app           = require 'app'
+app                = require 'app'
 
-api           = require 'lib/api'
-template      = require 'templates/scene'
+api                = require 'lib/api'
+template           = require 'templates/scene'
 
-{ RangeView } = require 'views/range'
-{ SceneNav }  = require 'views/scene_nav'
+{ RangeView }      = require 'views/range'
+{ SceneNav }       = require 'views/scene_nav'
 
-{ getProp }   = require 'views/props'
+{ getProp }        = require 'views/props'
+{ clientNavigate } = require 'lib/client_navigate'
 
 # Scene ----------------------------------------------------------------------
 
@@ -18,6 +19,7 @@ class exports.SceneView extends Backbone.View
   className: 'modern' # TODO Set dynamically based on server-sent JSON.
 
   pageTitle: -> @model.get('name')
+  events: { 'click a': clientNavigate }
 
   # Creates the HTML elements for the view, and binds events. Returns self.
   #
