@@ -1,4 +1,4 @@
-json.(@scene, :id, :name)
+json.(@scene, :id, :name, :name_key)
 json.href scene_path(@scene.id)
 
 # We need to send the $internal inputs which are used to balance groups when
