@@ -6,6 +6,7 @@ load 'deploy/assets'
 load 'lib/capistrano/airbrake'
 load 'lib/capistrano/link_config'
 load 'lib/capistrano/unicorn'
+load 'lib/capistrano/assets'
 
 _cset(:stage) { 'production' }
 
