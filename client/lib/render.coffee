@@ -7,6 +7,14 @@ module.exports = (view) ->
   $('body').html  view.render().el
   $('title').text pageTitle view
 
+  # Add the modal dialog elements used by Reveal.
+  $('body').append $("""
+    <div id="modal-dialog" class="reveal-modal">
+      <div id="modal-content"></div>
+      <a class="close-reveal-modal">&#215;</a>
+    </div>
+  """)
+
   view.postRender?()
 
   true
