@@ -58,11 +58,10 @@ describe 'Scenes' do
     subject { json }
 
     it { page.status_code.should eql(200) }
-    it { should be_kind_of(Hash) }
-    it { should have_key('scenes') }
+    it { should be_kind_of(Array) }
 
     context 'a Scene in the collection' do
-      subject { json['scenes'].first }
+      subject { json.first }
 
       it { should have_key('id')       }
       it { should have_key('href')     }

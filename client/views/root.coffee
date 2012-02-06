@@ -7,6 +7,6 @@ class exports.RootView extends Backbone.View
   className: 'static-message'
 
   render: ->
-    @$el.html rootTemplate()
+    @$el.html rootTemplate(scenes: @options.scenes.models)
     @$('#header').append (new SceneNav).render().el
     this
