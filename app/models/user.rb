@@ -12,7 +12,8 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :name, :remember_me,
-                  :password, :password_confirmation
+                  :password, :password_confirmation,
+                  :city, :country, :latitude, :longitude, :ip
 
   def self.find_or_create_with_facebook!(auth_hash)
     if user = User.find_by_email(auth_hash.info.email) then user else
