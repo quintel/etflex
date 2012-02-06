@@ -28,7 +28,7 @@ itemNameFromEvent = (event) ->
 # Renders the contents of the information menu.
 renderInfo = ({ model }) ->
   infoTemplate
-    etmURL:   urlToScenarioOnETM(model.scenario)
+    etmURL:   if model? then urlToScenarioOnETM(model.scenario)
     about:    I18n.t('navigation.about')
     feedback: I18n.t('navigation.feedback')
     privacy:  I18n.t('navigation.privacy')
@@ -60,7 +60,6 @@ renderUser = ->
   $('.nav a.up').click (event) -> showForm 'sign-up', event
 
   modalDialog.reveal()
-
 
   false
 
