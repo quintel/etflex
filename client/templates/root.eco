@@ -1,6 +1,6 @@
 <div id="core">
   <div id="header">
-    Header!
+    <a href="/" id="logo">Energy Transition Model (lite)</a>
   </div>
 
   <h1>Hello</h1>
