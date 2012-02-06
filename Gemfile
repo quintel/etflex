@@ -22,6 +22,8 @@ gem 'jbuilder'
 gem 'simple_form'
 gem 'redcarpet'
 
+gem 'httparty'
+
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
