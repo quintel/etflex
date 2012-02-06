@@ -12,8 +12,11 @@ app = require 'app'
 #       'click a': clientNavigate
 #
 exports.clientNavigate = (event) ->
-  href = $(event.target).attr 'href'
+  target = $(event.target)
+  target = target.parent('a') unless target.is 'a'
 
-  if href[0..7] isnt 'http://'
+  href = target.attr 'href'
+
+  if href? and href[0..7] isnt 'http://'
     app.navigate href
     event.preventDefault()
