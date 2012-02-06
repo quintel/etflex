@@ -21,7 +21,7 @@ class exports.Scenes extends Backbone.Collection
   # callback - Function to be run after the scene is retrieved.
   #
   getOrFetch: (id, callback) ->
-    if scene = @get(id) then callback scene else
+    if scene = @get(id) then callback null, scene else
       @add(scene = new Scene id: id)
 
       scene.fetch
