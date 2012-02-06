@@ -73,7 +73,9 @@ class exports.Main extends Backbone.Router
   # GET /
   #
   root: ->
-    render new RootView
+    app.collections.scenes.fetch
+      error:   (args...) -> console.error args...
+      success: (scenes)  -> render new RootView scenes: scenes
 
   # Fetches the list of all Scenes, and redirects to the ETlite recreation.
   #
