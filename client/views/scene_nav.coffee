@@ -125,6 +125,8 @@ class exports.SceneNav extends Backbone.View
       @pulldown[radii[1]]('last')
 
       @activeItem = itemName
+    else
+      @deactivate()
 
   # Deactivates the menu by removing the "active" class from the currently
   # active anchor, and hiding the menu.
