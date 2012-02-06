@@ -13,14 +13,15 @@ app            = require 'app'
 # Each scene is linked to an ETengine session which performs calculations.
 #
 class exports.Scene extends Backbone.Model
-  # Stores an Inputs collection used by the scene.
-  inputs: null
-
-  # Stores a Query collection used by the scene.
-  queries: null
 
   # Returns the URL to the scene.
   url: -> "/scenes/#{ @id }.json"
+
+  constructor: ->
+    super
+
+    @inputs  = null
+    @queries = null
 
   # Starts the scene by fetching the ETengine session (if one already exists;
   # creates a new session otherwise).
