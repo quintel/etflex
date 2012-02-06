@@ -1,3 +1,4 @@
-json.scenes(@scenes) do |json, scene|
-  json.partial! 'embeds/scene', scene: scene
+json.array!(@scenes) do |json, scene|
+  @scene = scene
+  render template: 'scenes/show', locals: { json: json }
 end
