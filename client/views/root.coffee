@@ -8,5 +8,5 @@ class exports.RootView extends Backbone.View
 
   render: ->
     @$el.html rootTemplate()
-    @$('#core').prepend (new SceneNav).render().el
+    @$('#header').append (new SceneNav).render().el
     this
