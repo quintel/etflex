@@ -91,6 +91,7 @@ class exports.SceneNav extends Backbone.View
   handleClick: (event) ->
     @activate itemNameFromEvent(event)
     event.preventDefault()
+    event.stopPropagation()
 
   # Activates an item in the navigation by the key. If the item is already
   # active the menu will be deactivated instead.
