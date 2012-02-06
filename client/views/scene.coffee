@@ -5,6 +5,7 @@ template           = require 'templates/scene'
 
 { RangeView }      = require 'views/range'
 { SceneNav }       = require 'views/scene_nav'
+{ ScenarioView }   = require 'views/scenario'
 
 { getProp }        = require 'views/props'
 { clientNavigate } = require 'lib/client_navigate'
@@ -77,6 +78,14 @@ class exports.SceneView extends Backbone.View
 
     # Social media links.
     @initShareLinks()
+    
+    # Showing off other people's scenarios
+    # TODO now we have a conlict with collections/scenarios.coffee, since
+    #      it is stated there that a user can only *know* about it's own
+    #      scenarios
+
+    for scenario in app.collections.scenarios.models
+      @$('#scenario_updates').append (new ScenarioView model: scenario).render().el
 
     this
 

@@ -1,0 +1,22 @@
+<div class="scenario">
+  <div class="score">
+    811
+  </div>
+  <div class="user">
+    <img class="profile" src=""/>
+    <span class="name">
+      <%= @userName %>
+    </span>
+  </div> <!-- .user -->
+  <div class="location">
+    <span class="country">
+      The Netherlands
+    </span>
+    <span class="city">
+      Amsterdam
+    </span>
+  </div> <!-- .location -->
+  <div class="time">
+    10 min. ago
+  </div>
+</div> <!-- .scenario -->
