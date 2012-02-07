@@ -29,6 +29,7 @@ class Scene < ActiveRecord::Base
 
   has_many :scene_props
   has_many :props, :through => :scene_props
+  has_many :scenarios
 
   with_options class_name: 'SceneInput' do |opts|
     opts.has_many :scene_inputs
