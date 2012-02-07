@@ -35,7 +35,11 @@ renderInfo = ({ model }) ->
     etmodel:  I18n.t('navigation.etmodel')
 
 # Renders the contents of the settings menu.
-renderSettings = -> settingsTemplate()
+renderSettings = -> 
+  settingsTemplate
+    country:  api.defaults.country
+    end_year: api.defaults.end_year
+    locale:   I18n.locale
 
 # Renders the contents of the user menu.
 renderUser = ->

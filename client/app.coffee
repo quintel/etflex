@@ -8,6 +8,7 @@
 exports.isBooted = false
 
 # Indicates if the visitor is currently signed in to a registered account.
+# TODO: Move this to settings hash
 exports.isSignedIn = false
 
 # Holds the instantiated routers so that we can refer to them later.

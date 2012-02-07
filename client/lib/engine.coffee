@@ -1,4 +1,5 @@
 api = require 'lib/api'
+app = require 'app'
 
 # Exports --------------------------------------------------------------------
 
@@ -57,7 +58,7 @@ fetchUserValues = (sessionId, inputs, callback) ->
 # explicitly will not actually create a session on ETengine.
 #
 createSession = (queries, inputs, callback) ->
-  api.send 'new', (err, sessionData) ->
+  api.send 'new', api.defaults, (err, sessionData) ->
     return callback(err) if err?
 
     sessionId = parseInt(sessionData.api_scenario.id, 10)
@@ -108,3 +109,6 @@ localRestore = (scenario, queries, inputs, callback) ->
   query.set(future: localQueries[query.id]) for query in queries
 
   callback null, scenario.get('sessionId')
+  
+settings = () ->
+  app.settings
