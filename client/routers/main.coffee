@@ -1,7 +1,6 @@
 app              = require 'app'
 render           = require 'lib/render'
 
-{ RootView }     = require 'views/root'
 { SceneView }    = require 'views/scene'
 { NotFoundView } = require 'views/not_found'
 
@@ -46,8 +45,6 @@ startScene = (collection, startArgs...) ->
 #
 class exports.Main extends Backbone.Router
   routes:
-    '':                     'root'
-
     'scenes':               'redirectToDefaultScene'
     'scenes/:id':           'showScene'
 
@@ -66,16 +63,6 @@ class exports.Main extends Backbone.Router
   # GET /*undefined
   #
   notFound: notFound
-
-  # The root page; simply shows the default scene with the "modern" theme for
-  # the moment.
-  #
-  # GET /
-  #
-  root: ->
-    app.collections.scenes.fetch
-      error:   (args...) -> console.error args...
-      success: (scenes)  -> render new RootView scenes: scenes
 
   # Fetches the list of all Scenes, and redirects to the ETlite recreation.
   #

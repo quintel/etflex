@@ -7,6 +7,13 @@ module.exports = (view) ->
   $('body').html  view.render().el
   $('title').text pageTitle view
 
+  module.exports.appendModalDialog()
+  view.postRender?()
+
+  true
+
+# Appends the modal dialog HTML to the page.
+module.exports.appendModalDialog = ->
   # Add the modal dialog elements used by Reveal.
   $('body').append $("""
     <div id="modal-dialog" class="reveal-modal">
@@ -14,10 +21,6 @@ module.exports = (view) ->
       <a class="close-reveal-modal">&#215;</a>
     </div>
   """)
-
-  view.postRender?()
-
-  true
 
 # Given a view, returns the page title which shoud be set.
 #
