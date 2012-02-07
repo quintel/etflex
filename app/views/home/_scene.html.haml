@@ -1,0 +1,25 @@
+- scenarios = scene.scenarios.for_user(current_or_guest_user).recent
+
+.scene[ scene ]
+  %h2
+    = link_to scene.name, scene
+
+  %p.description
+    Try to balance the demand for energy in your country with the costs of
+    building new power stations, and the need for clean renewable energy.
+
+  - if scenarios.any?
+    %p.scene-actions
+      = link_to 'Resume', scene_scenario_url(scene, scenarios.first)
+      = link_to 'Start Over', scene_url(scene)
+  - else
+    %p.scene-actions
+      = link_to 'Try the Challenge&hellip;'.html_safe, scene_url(scene)
+
+  .your-scenarios.scenario-list
+    %ul
+      - scenarios.each do |scenario|
+        %li
+          %a(href="#{scene_scenario_url(scene, scenario)}")
+            .score #{ scenario.score.round }
+            .time== #{ time_ago_in_words scenario.updated_at } #{ I18n.t 'words.ago' }

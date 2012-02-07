@@ -39,6 +39,8 @@ nl:
     sign_in_long:       Meld u aan bij mijn account
     sign_up:            Meld je nu aan
 
+    ago:                geleden
+
   # 404 Not Found ------------------------------------------------------------
 
   oops: "Whoops"

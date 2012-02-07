@@ -23,5 +23,4 @@
 
     #scenes
       - @scenes.each do |scene|
-        .scene[ scene ]
-          = link_to scene.name, scene
+        = render partial: 'scene', locals: { scene: scene }

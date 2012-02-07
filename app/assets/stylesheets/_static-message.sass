@@ -6,6 +6,8 @@
   text-align: left
   width: 100%
 
+#static-message-view
+
   .message
     background: rgba(#eafafd, 0.7)
     margin: 100px 0 0
@@ -33,12 +35,17 @@
 
 .static-message
   #core
-    margin: 0 auto
+    background: rgba(255, 255, 255, 0.7)
+    margin: -20px auto 0
+    padding: 20px 50px
     width: 960px
+
+    p
+      margin-bottom: 1.5em
 
   #header
     position: relative
-    margin-bottom: 20px
+    margin-bottom: 40px
 
     #logo
       background: image-url("logo.png") no-repeat
@@ -47,3 +54,50 @@
       margin: 20px 0 0 1px
       text-indent: -10000px
       width: 303px
+
+  #scenes .scene
+    margin: 20px 0
+
+    h2
+      margin-left: -10px
+      margin-bottom: 20px
+      margin: 40px 0 20px -10px
+
+      a
+        background: #677590
+        color: #eafafd
+        font-size: 36px
+        font-weight: normal
+        padding: 5px 10px
+
+    p.description
+      font-size: 14px
+      width: 480px
+
+  .your-scenarios
+    width: 480px
+
+  .scenario-list
+    li
+      @extend .clearfix
+      margin-bottom: 10px
+
+    a:hover
+      text-decoration: none
+
+    .score, .time
+      float: left
+
+    .score
+      background: #6f8f6e
+      color: white
+      font-size: 16px
+      margin-right: 10px
+      padding: 10px 0
+      text-align: center
+      width: 80px
+
+    .time
+      font-size: 14px
+      padding-top: 10px
+      width: 390px

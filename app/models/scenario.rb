@@ -38,6 +38,10 @@ class Scenario < ActiveRecord::Base
     where conditions
   end
 
+  def self.recent
+    order 'updated_at DESC'
+  end
+
   # RELATIONSHIPS ------------------------------------------------------------
 
   belongs_to :user
