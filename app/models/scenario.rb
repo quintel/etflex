@@ -51,6 +51,12 @@ class Scenario < ActiveRecord::Base
 
   # INSTANCE METHODS ---------------------------------------------------------
 
+  # Use the ETEngine session as the URL parameter.
+  #
+  def to_param
+    session_id
+  end
+
   # Determines if a given user or guest is permitted to change this scenario.
   #
   # check - A User or Guest instance to check.
