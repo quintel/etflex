@@ -4,16 +4,14 @@ describe 'The Backbone client' do
 
   # --------------------------------------------------------------------------
 
-  specify 'Should load at the root path' do
+  specify 'Should load in minimal mode at the root path' do
     visit '/'
 
-    # Loading message should be shown.
-    page.should have_css('.loading', text: 'Loading')
-
     # English by default.
-    page.should have_css('script', text: "boot(window,")
+    page.should     have_css('script', text: "minimal(window,")
+    page.should_not have_css('script', text: "boot(window,")
 
-    script = find('script', text: "boot(window,")
+    script = find('script', text: "minimal(window,")
     script.text.should match(/"locale":"en"/)
   end
 
