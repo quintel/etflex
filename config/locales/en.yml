@@ -4,7 +4,6 @@
 en:
   loading: "Loading"
   loadingMsg: "The application is being loaded. Hang tight; it won't be long!"
-  loadingNothing: "Nothing happening?"
 
   # Navigation Elements ------------------------------------------------------
 
@@ -29,7 +28,7 @@ en:
     about:    About this application
     feedback: Feedback
     privacy:  Privacy statement
-    etmodel:  View on ET-Model
+    etmodel:  Open in the Energy Transition Model
     
   # Misc Words & Phrases -----------------------------------------------------
 

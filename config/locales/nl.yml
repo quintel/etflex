@@ -2,9 +2,8 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 nl:
-  loading: "Het laden"
-  loadingMsg: "De applicatie wordt geladen. Het ene moment, het zal niet lang meer duren!"
-  loadingNothing: "Niets gebeurt er?"
+  loading: "Bezig met laden"
+  loadingMsg: "De applicatie wordt geladen..."
 
   # Navigation Elements ------------------------------------------------------
 
@@ -13,7 +12,7 @@ nl:
     inputs:   Inputs
     queries:  Queries
     props:    Props
-    loading:  Het laden
+    loading:  Loading
     sign_out: Afmelden
 
     info:     Informatie
@@ -22,9 +21,9 @@ nl:
     account:  Uw account
 
     about:    Over deze applicatie
-    feedback: Terugkoppeling
+    feedback: Feedback
     privacy:  Privacy statement
-    etmodel:  Zicht op ET-Model
+    etmodel:  Open in Energietransitiemodel
 
   # Misc Words & Phrases -----------------------------------------------------
 
@@ -35,7 +34,7 @@ nl:
     email_address:      E-mailadres
     password:           Wachtwoord
     confirm_password:   Bevestig wachtwoord
-    remember_me:        Herinner mij
+    remember_me:        Onthoud mijn login
     sign_in:            Aanmelden
     sign_in_long:       Meld u aan bij mijn account
     sign_up:            Meld je nu aan
@@ -44,7 +43,7 @@ nl:
 
   oops: "Whoops"
   frontPage: "Terug naar de homepage"
-  fourOhFour: "De pagina die u zocht kon niet worden gevonden. Het spijt me dat&hellip;"
+  fourOhFour: "De pagina die je zocht kan niet worden gevonden."
 
   # Text used on the ETlite recreation ---------------------------------------
 
@@ -56,7 +55,7 @@ nl:
       supply:       "Aanbod"
       demand:       "Vraag"
 
-      balanced:     "Evenwichtige"
+      balanced:     "Balans"
       supplyExcess: "Aanbod te hoog"
       demandExcess: "Vraag te hoog"
 

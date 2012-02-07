@@ -4,16 +4,16 @@ nl:
     navigation:
       scenes:
         name:  'Scenes'
-        title: 'Toevoegen, bewerken en verwijderen Scenes'
+        title: 'Toevoegen, bewerken en verwijderen van Scenes'
       inputs:
-        name:  'Ingangen'
-        title: 'Bewerk de ingangen gedefinieerd door ETengine'
+        name:  'Inputs'
+        title: 'Bewerk de inputs gedefinieerd door ETengine'
       queries:
         name:  'Queries'
-        title: 'Bewerk de querys worden gebruikt door ETengine'
+        title: 'Bewerk de gqueries die worden gebruikt vanaf ETengine'
       props:
         name:  'Props'
-        title: 'Toevoegen, bewerken en verwijderen props'
+        title: 'Toevoegen, bewerken en verwijderen van Props'
       sign_out:
-        name:  'Afmelden'
-        title: 'Meld u af van uw ETflex-account'
+        name:  'Log uit'
+        title: 'Uitloggen bij ETflex'
