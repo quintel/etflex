@@ -28,6 +28,16 @@ class Scenario < ActiveRecord::Base
     where(scene_id: scene_id, session_id: session_id).first
   end
 
+  def self.for_user(user)
+    conditions = case user
+      when User  then { user_id:   user.id }
+      when Guest then { guest_uid: user.uid }
+      else raise 'Scenario.for_user requires a User or Guest'
+    end
+
+    where conditions
+  end
+
   # RELATIONSHIPS ------------------------------------------------------------
 
   belongs_to :user

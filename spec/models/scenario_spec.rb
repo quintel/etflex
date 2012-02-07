@@ -113,6 +113,41 @@ describe Scenario do
     end
   end
 
+  # FOR USER -----------------------------------------------------------------
+
+  describe '#for_user' do
+    let(:user)     { create :user }
+    let(:scene)    { create :scene }
+    let(:scenario) { create :scenario, user: user, scene: scene }
+    before         { scenario }
+
+    context 'when given a User' do
+      it "should return the user's scenarios" do
+        scenarios = Scenario.for_user(user)
+        scenarios.should have(1).member
+        scenarios.first.should eql(scenario)
+      end
+    end
+
+    context 'when given a Guest' do
+      it "should return the guest's scenarios" do
+        scenario.user_id = nil
+        scenario.guest_uid = 'abcdef'
+        scenario.save!
+
+        scenarios = Scenario.for_user(Guest.new('abcdef'))
+        scenarios.should have(1).member
+        scenarios.first.should eql(scenario)
+      end
+    end
+
+    context 'when given something else' do
+      it 'should raise an error' do
+        expect { Scenario.for_user(1) }.to raise_error
+      end
+    end
+  end
+
   # SERIALIZE ATTRIBUTES -----------------------------------------------------
 
   describe '#input_values=' do
