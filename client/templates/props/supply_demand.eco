@@ -13,6 +13,7 @@
 </div>
 
 <div class="gauge">
+  <div class="beeping"></div>
   <div class="needle"></div>
   <div class="info"></div>
 </div>
