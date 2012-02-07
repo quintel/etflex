@@ -2,6 +2,10 @@ require 'spec_helper'
 
 describe 'The Backbone client' do
 
+  before do
+    @scene = create :scene
+  end
+
   # --------------------------------------------------------------------------
 
   specify 'Should load in minimal mode at the root path' do
@@ -17,36 +21,49 @@ describe 'The Backbone client' do
 
   # --------------------------------------------------------------------------
 
-  specify 'Should load at /en' do
-    pending 'Pending re-addition of language swapping' do
-      visit '/en'
+  specify 'Should load in English by default' do
+    # TODO This should probably be Dutch, not English?
 
-      # Loading message should be shown.
-      page.should have_css('.loading', text: 'Loading')
+    visit "/scenes/#{ @scene.id }"
 
-      # English when specified in the URL.
-      page.should have_css('script', text: "boot(window, 'en')")
+    # Should boot in "full" mode.
+    page.should have_css('script', text: "boot(window,")
 
-      script = find('script', text: "boot(window,")
-      script.text.should match(/"locale":"en"/)
-    end
+    # English by default.
+    script = find('script', text: "boot(window,")
+    script.text.should match(/"locale":"en"/)
   end
 
   # --------------------------------------------------------------------------
 
-  specify 'Should load at /nl' do
-    pending 'Pending re-addition of language swapping' do
-      visit '/nl'
+  specify 'Should load in English with ?locale=en' do
+    visit "/scenes/#{ @scene.id }?locale=en"
 
-      # Loading message should be shown.
-      page.should have_css('.loading', text: 'Het laden')
+    # Loading message should be shown.
+    page.should have_css('.loading', text: 'Loading')
 
-      # Dutch when specified in the URL.
-      page.should have_css('script', text: "boot(window, 'nl')")
+    # Should boot in "full" mode.
+    page.should have_css('script', text: "boot(window")
 
-      script = find('script', text: "boot(window,")
-      script.text.should match(/"locale":"nl"/)
-    end
+    # English when specified in the URL.
+    script = find('script', text: "boot(window,")
+    script.text.should match(/"locale":"en"/)
+  end
+
+  # --------------------------------------------------------------------------
+
+  specify 'Should load in Dutch with ?locale=nl' do
+    visit "/scenes/#{ @scene.id }?locale=nl"
+
+    # Loading message should be shown.
+    page.should have_css('.loading', text: 'Bezig met laden')
+
+    # Should boot in "full" mode.
+    page.should have_css('script', text: "boot(window")
+
+    # Dutch when specified in the URL.
+    script = find('script', text: "boot(window,")
+    script.text.should match(/"locale":"nl"/)
   end
 
   # --------------------------------------------------------------------------
