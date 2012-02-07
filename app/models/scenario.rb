@@ -40,7 +40,7 @@ class Scenario < ActiveRecord::Base
   def self.for_user(user)
     conditions = case user
       when User  then { user_id:   user.id }
-      when Guest then { guest_uid: user.uid }
+      when Guest then { guest_uid: user.id }
       else raise 'Scenario.for_user requires a User or Guest'
     end
 
@@ -58,7 +58,7 @@ class Scenario < ActiveRecord::Base
   def self.for_users_other_than(user)
     attrs = case user
       when User  then [ 'user_id',   :id ]
-      when Guest then [ 'guest_uid', :uid ]
+      when Guest then [ 'guest_uid', :id ]
       else raise 'Scenario.for_users_other_than requires a User or Guest'
     end
 
@@ -103,7 +103,7 @@ class Scenario < ActiveRecord::Base
     elsif self.user_id.present?
       check.kind_of?(User) && check.id == user_id
     elsif self.guest_uid.present?
-      check.kind_of?(Guest) && check.uid == guest_uid
+      check.kind_of?(Guest) && check.id == guest_uid
     else
       false
     end

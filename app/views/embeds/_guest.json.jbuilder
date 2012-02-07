@@ -1,1 +1,1 @@
-json.id "g:#{ user.uid }"
+json.id "g:#{ user.id }"
