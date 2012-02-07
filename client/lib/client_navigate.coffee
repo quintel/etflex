@@ -15,6 +15,10 @@ exports.clientNavigate = (event) ->
   target = $(event.target)
   target = target.parent('a') unless target.is 'a'
 
+  # Links with data-navigate="noclient" will not use clientNavigate but
+  # instead the browser's default behaviour.
+  return true if target.attr('data-navigate') is 'noclient'
+
   href = target.attr 'href'
 
   if href? and href[0..7] isnt 'http://'
