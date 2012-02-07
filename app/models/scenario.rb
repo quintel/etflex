@@ -21,6 +21,8 @@ class Scenario < ActiveRecord::Base
 
   attr_accessible :title, :input_values, :query_results
 
+  # SCOPES -------------------------------------------------------------------
+
   # Returns the Scenario for a given scene ID, session ID pair, raising a
   # RecordNotFound error if no Scenario exists.
   #
@@ -28,6 +30,13 @@ class Scenario < ActiveRecord::Base
     where(scene_id: scene_id, session_id: session_id).first
   end
 
+  # Returns scenarios which belong to the given user or guest. Handy when
+  # chained onto a scene, for example:
+  #
+  #   scene.scenarios.for_user(user).recent
+  #
+  # user - A User or Guest whose scenarios are to be retrieved.
+  #
   def self.for_user(user)
     conditions = case user
       when User  then { user_id:   user.id }
@@ -38,6 +47,29 @@ class Scenario < ActiveRecord::Base
     where conditions
   end
 
+  # Returns scenarios which do not belong to the given user or guest. Useful
+  # if chained onto a scene, for example:
+  #
+  #   scene.scenarios.for_users_other_than(user).recent
+  #
+  # user - A User or Guest whose scenarios should not be included in those
+  #        retrieved from the DB.
+  #
+  def self.for_users_other_than(user)
+    attrs = case user
+      when User  then [ 'user_id',   :id ]
+      when Guest then [ 'guest_uid', :uid ]
+      else raise 'Scenario.for_users_other_than requires a User or Guest'
+    end
+
+    conditions = [
+      "#{attrs[0]} != ? OR #{attrs[0]} IS NULL", user.send(attrs[1]) ]
+
+    where conditions
+  end
+
+  # Orders the retrieved scenarios from newest to oldest.
+  #
   def self.recent
     order 'updated_at DESC'
   end

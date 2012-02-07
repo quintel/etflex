@@ -148,6 +148,69 @@ describe Scenario do
     end
   end
 
+  # FOR USER -----------------------------------------------------------------
+
+  describe '#for_users_other_than' do
+    let(:user)  { create :user }
+    let(:guest) { Guest.new('abcdef') }
+    let(:scene) { create :scene }
+
+    let(:scenario)       { create :scenario,
+                             user: user, scene: scene }
+
+    let(:user_scenario)  { create :scenario,
+                             user: create(:user), scene: scene }
+
+    let(:guest_scenario) { create :scenario,
+                             user: nil, scene: scene, guest_uid: 'zxy' }
+
+    before { scenario ; user_scenario ; guest_scenario }
+
+    context 'when there exists another guest scenario and user scenario' do
+      context 'when given a User' do
+        it 'should return one scenario' do
+          Scenario.for_users_other_than(user).should have(2).members
+        end
+
+        it 'should return a scenario belonging to another person' do
+          scenarios = Scenario.for_users_other_than(user)
+
+          scenarios.should_not include(scenario)
+          scenarios.should     include(user_scenario)
+          scenarios.should     include(guest_scenario)
+        end
+      end
+
+      context 'when given a Guest' do
+        let(:guest) { Guest.new('abcdef') }
+
+        before do
+          scenario.user_id   = nil
+          scenario.guest_uid = guest.uid
+          scenario.save!
+        end
+
+        it 'should return one scenario' do
+          Scenario.for_users_other_than(guest).should have(2).members
+        end
+
+        it 'should return a scenario belonging to another person' do
+          scenarios = Scenario.for_users_other_than(guest)
+
+          scenarios.should_not include(scenario)
+          scenarios.should     include(user_scenario)
+          scenarios.should     include(guest_scenario)
+        end
+      end
+
+      context 'when given something else' do
+        it 'should raise an error' do
+          expect { Scenario.for_user(1) }.to raise_error
+        end
+      end
+    end
+  end
+
   # SERIALIZE ATTRIBUTES -----------------------------------------------------
 
   describe '#input_values=' do
