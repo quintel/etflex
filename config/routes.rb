@@ -28,6 +28,6 @@ ETFlex::Application.routes.draw do
 
   # Default Path -------------------------------------------------------------
 
-  root to: 'scenes#index'
+  root to: 'home#root'
 
 end

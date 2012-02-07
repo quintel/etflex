@@ -1,5 +1,5 @@
 <div id="theme-header">
-  <a href="/" id="logo">Energie Transitie Model (lite)</a>
+  <a href="/" id="logo" data-navigate="noclient">Energie Transitie Model (lite)</a>
 
   <!-- illustration props -->
   <div class="world" data-prop-location="header">

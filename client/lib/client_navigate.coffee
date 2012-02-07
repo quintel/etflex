@@ -12,6 +12,9 @@ app = require 'app'
 #       'click a': clientNavigate
 #
 exports.clientNavigate = (event) ->
+  # Pages which don't boot the client should not use JS redirects.
+  return true unless app.isBooted
+
   target = $(event.target)
   target = target.parent('a') unless target.is 'a'
 
