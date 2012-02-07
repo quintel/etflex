@@ -17,7 +17,12 @@ en:
     sign_out: Sign out
 
     info:     Information
+
     settings: Settings
+    region:   Region/Country
+    end_year: End Year
+    locale:   Language
+          
     sign_in:  Sign in
     account:  Account
 
@@ -25,7 +30,7 @@ en:
     feedback: Feedback
     privacy:  Privacy statement
     etmodel:  View on ET-Model
-
+    
   # Misc Words & Phrases -----------------------------------------------------
 
   words:
@@ -84,3 +89,35 @@ en:
           attributes:
             max:
               less_than_min: "The maximum value must be equal or greater than the minimum value"
+
+  locales:
+    nl: Dutch
+    en: English
+    de: German
+  
+  regions:
+    nl:               Netherlands
+    uk:               United Kingdom
+    de:               Germany
+    pl:               Poland
+    ro:               Romania
+    za:               South Africa
+    tr:               Turkey
+    nl-drenthe:       Drenthe
+    nl-flevoland:     Flevoland
+    nl-friesland:     Friesland
+    nl-gelderland:    Gelderland
+    nl-groningen:     Groningen
+    nl-limburg:       Limburg
+    nl-noord-brabant: Noord-Brabant
+    nl-noord-holland: Noord-Holland
+    nl-overijssel:    Overijssel
+    nl-utrecht:       Utrecht
+    nl-zeeland:       Zeeland
+    nl-zuid-holland:  Zuid-Holland
+    nl-noord:         North Netherlands
+    grs:              Groningen (city)
+    ame:              Ameland
+    ams:              Amsterdam
+    be-vlg:           Flanders
+    br:               Brandenburg

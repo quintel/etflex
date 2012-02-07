@@ -80,3 +80,35 @@ nl:
           attributes:
             max:
               less_than_min: "De maximale waarde moet gelijk of groter dan de minimale waarde"
+
+  locales:
+    nl: Nederlands
+    en: Engels
+    de: Duits
+  
+  regions:
+    nl:               Nederland
+    uk:               Verenigd Koninkrijk
+    de:               Duitsland
+    pl:               Polen
+    ro:               Romenie
+    za:               Zuid-Afrika
+    tr:               Turkije
+    nl-drenthe:       Drenthe
+    nl-flevoland:     Flevoland
+    nl-friesland:     Friesland
+    nl-gelderland:    Gelderland
+    nl-groningen:     Groningen
+    nl-limburg:       Limburg
+    nl-noord-brabant: Noord-Brabant
+    nl-noord-holland: Noord-Holland
+    nl-overijssel:    Overijssel
+    nl-utrecht:       Utrecht
+    nl-zeeland:       Zeeland
+    nl-zuid-holland:  Zuid-Holland
+    nl-noord:         North Netherlands
+    grs:              Groningen (stad)
+    ame:              Ameland
+    ams:              Amsterdam
+    be-vlg:           Vlaanderen
+    br:               Brandenburg

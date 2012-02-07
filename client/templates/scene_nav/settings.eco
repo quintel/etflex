@@ -1,1 +1,5 @@
-<div class="placeholder">Settings</div>
+<ul class="icon-nav">
+  <li><a href='#'><%= I18n.t 'navigation.region' %>: <%= I18n.t "regions.#{@country}" %></a></li>
+  <li><a href='#'><%= I18n.t 'navigation.end_year' %>: <%= @end_year %></a></li>
+  <li><a href='#'><%= I18n.t 'navigation.locale' %>: <%= I18n.t "locales.#{@locale}" %></a></li>
+</ul>

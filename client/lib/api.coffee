@@ -1,5 +1,10 @@
 PATH = null
 
+#Holds the default settings
+exports.defaults = 
+  country:  'nl',
+  end_year: 2050
+
 # Sets the path used when sending API requests to ETEngine. Self-destructs
 # after the first time it is called.
 #
