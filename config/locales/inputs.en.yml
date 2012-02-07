@@ -2,7 +2,6 @@
 en:
   inputs:
     new: "New input"
-
     households_behavior_standby_killer_turn_off_appliances: "Switch off appliances"
     households_heating_heat_pump_ground_share: "Heat pump for the home"
     households_hot_water_solar_water_heater_share: "Solar water heater"

@@ -16,8 +16,8 @@ nl:
     car:
       name: "Eco Car / SUV"
       info:
-        eco: 'Informatie over de Eco-car'
-        suv: 'Informatie over de SUV'
+        eco: "In jouw scenario zijn er meer dan 1 millioen elektrische auto's!"
+        suv: "In jouw scenario heb je nu nog 'maar' 0.X miljoen elektrische auto's. Als je meer elektrische auto's voorziet, probeer dan het percentage elektrische auto's te verhogen zonder dat er een tekort aan elektriciteit ontstaat."
     city:
       name: "Futuristische Stad"
     eco_buildings:
