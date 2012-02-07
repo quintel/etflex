@@ -16,6 +16,12 @@ nl:
     sign_out: Afmelden
 
     info:     Informatie
+
+    settings: Instellingen
+    region:   Regio/land
+    end_year: Eindjaar
+    locale:   Taal
+    
     settings: Instellingen
     sign_in:  Meld je aan
     account:  Uw account
@@ -86,6 +92,7 @@ nl:
     nl: Nederlands
     en: Engels
     de: Duits
+    switch_to: Schakel over naar
   
   regions:
     nl:               Nederland

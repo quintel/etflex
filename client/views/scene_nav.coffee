@@ -37,9 +37,10 @@ renderInfo = ({ model }) ->
 # Renders the contents of the settings menu.
 renderSettings = -> 
   settingsTemplate
-    country:  api.defaults.country
-    end_year: api.defaults.end_year
-    locale:   I18n.locale
+    country:            api.defaults.country
+    end_year:           api.defaults.end_year
+    locale:             I18n.locale
+    alternative_locale: (if I18n.locale == 'nl' then 'en' else 'nl')
 
 # Renders the contents of the user menu.
 renderUser = ->
