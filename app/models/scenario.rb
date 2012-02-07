@@ -23,56 +23,61 @@ class Scenario < ActiveRecord::Base
 
   # SCOPES -------------------------------------------------------------------
 
-  # Returns the Scenario for a given scene ID, session ID pair, raising a
-  # RecordNotFound error if no Scenario exists.
-  #
-  def self.for_session(scene_id, session_id)
-    where(scene_id: scene_id, session_id: session_id).first
-  end
-
-  # Returns scenarios which belong to the given user or guest. Handy when
-  # chained onto a scene, for example:
-  #
-  #   scene.scenarios.for_user(user).recent
-  #
-  # user - A User or Guest whose scenarios are to be retrieved.
-  #
-  def self.for_user(user)
-    conditions = case user
-      when User  then { user_id:   user.id }
-      when Guest then { guest_uid: user.id }
-      else raise 'Scenario.for_user requires a User or Guest'
+  class << self
+    # Returns the Scenario for a given scene ID, session ID pair, raising a
+    # RecordNotFound error if no Scenario exists.
+    #
+    def for_session(scene_id, session_id)
+      where(scene_id: scene_id, session_id: session_id).first
     end
 
-    where conditions
-  end
-
-  # Returns scenarios which do not belong to the given user or guest. Useful
-  # if chained onto a scene, for example:
-  #
-  #   scene.scenarios.for_users_other_than(user).recent
-  #
-  # user - A User or Guest whose scenarios should not be included in those
-  #        retrieved from the DB.
-  #
-  def self.for_users_other_than(user)
-    attrs = case user
-      when User  then [ 'user_id',   :id ]
-      when Guest then [ 'guest_uid', :id ]
-      else raise 'Scenario.for_users_other_than requires a User or Guest'
+    # Returns scenarios which belong to the given user or guest. Handy when
+    # chained onto a scene, for example:
+    #
+    #   scene.scenarios.for_user(user).recent
+    #
+    # user - A User or Guest whose scenarios are to be retrieved.
+    #
+    def for_user(user)
+      where user_attribute_for(user) => user.id
     end
 
-    conditions = [
-      "#{attrs[0]} != ? OR #{attrs[0]} IS NULL", user.send(attrs[1]) ]
+    # Returns scenarios which do not belong to the given user or guest. Useful
+    # if chained onto a scene, for example:
+    #
+    #   scene.scenarios.for_users_other_than(user).recent
+    #
+    # user - A User or Guest whose scenarios should not be included in those
+    #        retrieved from the DB.
+    #
+    def for_users_other_than(user)
+      attribute = user_attribute_for user
 
-    where conditions
-  end
+      where [ "#{attribute} != ? OR #{attribute} IS NULL", user.id ]
+    end
 
-  # Orders the retrieved scenarios from newest to oldest.
-  #
-  def self.recent
-    order 'updated_at DESC'
-  end
+    # Orders the retrieved scenarios from newest to oldest.
+    #
+    def recent
+      order 'updated_at DESC'
+    end
+
+    #######
+    private
+    #######
+
+    # Returns the column used to look up a given object (a User or Guest)
+    #
+    # Returns :user_id or :guest_id depending on the type of object given.
+    #
+    def user_attribute_for(thing)
+      case thing
+        when User  then :user_id
+        when Guest then :guest_uid
+        else raise 'Scenario.user_attribute_for requires a User or Guest'
+      end
+    end
+  end # class << self
 
   # RELATIONSHIPS ------------------------------------------------------------
 
