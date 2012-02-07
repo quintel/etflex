@@ -15,7 +15,6 @@
  *= require backbone
  *= require jquery.quinn
  *= require async
- *= require d3/d3
  *= require i18n
  *= require i18n/translations
  *= require ./stitch_preamble
