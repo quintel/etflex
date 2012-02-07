@@ -26,8 +26,18 @@ class ApplicationController < ActionController::Base
   # +locale+ query param.
   #
   def set_locale
-    I18n.locale = params[:locale] || session[:locale] || I18n.default_locale
-    session[:locale] = I18n.locale
+    locale = (params[:locale].presence || session[:locale].presence).to_s
+
+    # A temporary workaround for Backbone including ?locale=... in its routes;
+    # we should probably add /:locale/... instead, or a single actions which
+    # changes the locale to avoid having to manually remove the locale param
+    # in every Backbone action.
+    locale.gsub! /\.json/, ''
+
+    locale = if locale.present? then locale.to_sym else nil end
+    locale = I18n.default_locale if locale != :nl && locale != :en
+
+    session[:locale] = I18n.locale = locale
   end
 
   # Guests have a unique ID set so that they may save their scenarios.
