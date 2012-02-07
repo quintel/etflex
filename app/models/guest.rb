@@ -1,1 +1,1 @@
-Guest = Struct.new(:uid)
+Guest = Struct.new(:id)

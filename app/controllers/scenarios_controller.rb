@@ -16,7 +16,7 @@ class ScenariosController < ApplicationController
       if user_signed_in?
         scenario.user = current_user
       else
-        scenario.guest_uid = guest_user.uid
+        scenario.guest_uid = guest_user.id
       end
     end
   end

@@ -186,7 +186,7 @@ describe Scenario do
 
         before do
           scenario.user_id   = nil
-          scenario.guest_uid = guest.uid
+          scenario.guest_uid = guest.id
           scenario.save!
         end
 

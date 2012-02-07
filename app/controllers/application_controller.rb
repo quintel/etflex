@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   layout :layout_by_resource
 
   before_filter :set_locale
-  before_filter :handle_guest_uid
+  before_filter :handle_guest_id
 
   helper_method :guest_user
   helper_method :current_or_guest_user
@@ -42,11 +42,11 @@ class ApplicationController < ActionController::Base
 
   # Guests have a unique ID set so that they may save their scenarios.
   #
-  def handle_guest_uid
-    if user_signed_in? and cookies[:guest_uid]
-      cookies.delete :guest_uid
-    elsif ! user_signed_in? and cookies[:guest_uid].blank?
-      cookies.permanent.signed[:guest_uid] = {
+  def handle_guest_id
+    if user_signed_in? and cookies[:guest_id]
+      cookies.delete :guest_id
+    elsif ! user_signed_in? and cookies[:guest_id].blank?
+      cookies.permanent.signed[:guest_id] = {
         httponly: true, value: SecureRandom.uuid }
     end
   end
@@ -55,7 +55,7 @@ class ApplicationController < ActionController::Base
   # user is signed into a registered account.
   #
   def guest_user
-    @_guest ||= Guest.new cookies.signed[:guest_uid] unless user_signed_in?
+    @_guest ||= Guest.new cookies.signed[:guest_id] unless user_signed_in?
   end
 
   # Returns the currently signed in user, or the Guest instance if the user
