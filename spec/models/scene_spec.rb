@@ -7,6 +7,7 @@ describe Scene do
   # RELATIONS ----------------------------------------------------------------
 
   it { should have_many(:scene_props) }
+  it { should have_many(:scenarios) }
 
   it { should have_many(:scene_inputs) }
   it { should have_many(:left_scene_inputs) }
