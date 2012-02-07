@@ -8,7 +8,10 @@ ETFlex::Application.routes.draw do
 
   # Devise -------------------------------------------------------------------
 
-  devise_for :users, :controllers => { omniauth_callbacks: "omniauth_callbacks", registrations: "users"} do
+  devise_for :users, controllers: {
+    omniauth_callbacks: 'omniauth_callbacks', registrations: 'users' }
+
+  devise_scope :user do
     get '/hello',   to: 'devise/sessions#new'
     get '/goodbye', to: 'devise/sessions#destroy'
   end
