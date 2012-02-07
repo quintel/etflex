@@ -7,10 +7,6 @@
 # booting the whole client.
 exports.isBooted = false
 
-# Indicates if the visitor is currently signed in to a registered account.
-# TODO: Move this to settings hash
-exports.isSignedIn = false
-
 # Holds the instantiated routers so that we can refer to them later.
 exports.routers = {}
 
@@ -91,11 +87,10 @@ postBoot = (err, result) ->
 commonBoot = (window, locale, user) ->
   installConsolePolyfill window
 
-  exports.user       = new (require('models/user').User) user
-  exports.isSignedIn = exports.user.isSignedIn
+  exports.user   = new (require('models/user').User) user
 
-  I18n.locale        = locale
-  I18n.fallbacks     = no
+  I18n.locale    = locale
+  I18n.fallbacks = no
 
 installConsolePolyfill = (window) ->
   unless 'console' of window

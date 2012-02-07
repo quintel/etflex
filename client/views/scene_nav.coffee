@@ -83,7 +83,7 @@ class exports.SceneNav extends Backbone.View
   activeItem: null
 
   render: ->
-    @$el.append sceneNavTemplate(isSignedIn: app.isSignedIn)
+    @$el.append sceneNavTemplate(isSignedIn: app.user.isSignedIn)
     @pulldown = @$ '.main-nav-pulldown'
 
     this
