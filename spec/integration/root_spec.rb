@@ -48,7 +48,7 @@ feature 'Viewing the root page' do
   scenario 'As a user who has attempted a scene', js: true do
     user = create :user
 
-    create :scenario, scene: @scene, user: user
+    create :scenario, scene: @scene, user: user, score: 518
 
     sign_in user
     visit '/'
