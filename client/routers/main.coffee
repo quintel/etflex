@@ -45,6 +45,7 @@ startScene = (collection, startArgs...) ->
 #
 class exports.Main extends Backbone.Router
   routes:
+    '':                     'redirectToDefaultScene'
     'scenes':               'redirectToDefaultScene'
     'scenes/:id':           'showScene'
 
