@@ -61,9 +61,8 @@ class ApplicationController < ActionController::Base
 
   # Set the layout to Backstage's for all Devise views
   #
-  #
   def layout_by_resource
-    devise_controller? ? 'backstage' : nil
+    devise_controller? ? 'backstage' : 'application'
   end
 
 end
