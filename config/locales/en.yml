@@ -44,6 +44,8 @@ en:
     sign_in_long:       Sign in to my account
     sign_up:            Sign up
 
+    ago:                ago
+
   # 404 Not Found ------------------------------------------------------------
 
   oops: "Whoops"
