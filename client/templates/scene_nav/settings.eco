@@ -6,7 +6,7 @@
     <select id="change-country">
       <option value="nl" <%= if @country is 'nl' then 'selected' %>><%= I18n.t('regions.nl') %></option>
       <option value="uk" <%= if @country is 'uk' then 'selected' %>><%= I18n.t('regions.uk') %></option>
-      <option value="de" <%= if @country is 'gb' then 'selected' %>><%= I18n.t('regions.de') %></option>
+      <option value="de" <%= if @country is 'de' then 'selected' %>><%= I18n.t('regions.de') %></option>
     </select>
   </li>
   <li class='static'>
