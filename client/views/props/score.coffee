@@ -43,6 +43,8 @@ class exports.ScoreView extends GenericProp
   #
   updateValues: =>
     score = @query.get('future')
+    previous = @query.previous('future')
+    
     rounded_score = @precision score, 0
     string_score = rounded_score.toString()
 
@@ -56,4 +58,6 @@ class exports.ScoreView extends GenericProp
     @$el.find('.tens').addClass("number-#{string_score[1]}")
     @$el.find('.ones').addClass("number-#{string_score[2]}")
 
+    @setDifference @precision score-previous, 0
+    
     this

@@ -45,3 +45,16 @@ class exports.GenericProp extends Backbone.View
   #
   hurdleState: (value) ->
     hurdleState this, value
+
+  setDifference: (difference) ->
+    element = @$el.find('.difference')
+    
+    # Clear out other classes by default
+    element.attr(class:'difference')
+
+    if difference > 0
+      element.addClass('up').html "#{difference}"
+    else if difference < 0
+      element.addClass('down').html "#{difference}"
+    else
+      element.html ""
