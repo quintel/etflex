@@ -1,4 +1,4 @@
-- scenarios = scene.scenarios.for_user(current_or_guest_user).recent
+- latest_scenario = scenarios_for_current_user(scene).all.first
 
 .scene[ scene ]
   %h2
@@ -8,18 +8,27 @@
     Try to balance the demand for energy in your country with the costs of
     building new power stations, and the need for clean renewable energy.
 
-  - if scenarios.any?
+  - if latest_scenario.present?
     %p.scene-actions
-      = link_to 'Resume', scene_scenario_url(scene, scenarios.first)
+      = link_to 'Resume', scene_scenario_url(scene, latest_scenario)
       = link_to 'Start Over', scene_url(scene)
   - else
     %p.scene-actions
       = link_to 'Try the Challenge&hellip;'.html_safe, scene_url(scene)
 
-  .your-scenarios.scenario-list
-    %ul
-      - scenarios.each do |scenario|
-        %li
-          %a(href="#{scene_scenario_url(scene, scenario)}")
-            .score #{ scenario.score.round }
-            .time== #{ time_ago_in_words scenario.updated_at } #{ I18n.t 'words.ago' }
+  .scenarios
+    .your-scenarios.scenario-list
+      %ul
+        - scenarios_for_current_user(scene).each do |scenario|
+          %li
+            %a(href="#{ scene_scenario_url(scene, scenario) }")
+              .score= scenario_score scenario
+              .time= scenario_age scenario
+
+    .others-scenarios.scenario-list
+      %ul
+        - scenarios_for_other_users(scene).each do |scenario|
+          %li
+            %a(href="#{scene_scenario_url(scene, scenario)}")
+              .score= scenario_score scenario
+              .time= scenario_age scenario
