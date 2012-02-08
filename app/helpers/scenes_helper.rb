@@ -49,6 +49,18 @@ module ScenesHelper
     scene.scenarios.for_users_other_than(current_or_guest_user).by_score
   end
 
+  # Returns the name of the person who owns the given scenario.
+  #
+  def scenario_owner(scenario)
+    name = if scenario.guest_uid.present? or scenario.user.blank?
+      I18n.t('words.anonymous')
+    else
+      scenario.user.name.presence or I18n.t('words.anonymous')
+    end
+
+    %(#{ I18n.t 'words.by' } <span class="name">#{ name }</span>).html_safe
+  end
+
   # Given a scenario, returns it's score. Doesn't blow up if the scenario has
   # no score available.
   #
