@@ -35,12 +35,22 @@ renderInfo = ({ model }) ->
     etmodel:  I18n.t('navigation.etmodel')
 
 # Renders the contents of the settings menu.
-renderSettings = -> 
-  settingsTemplate
-    country:            api.defaults.country
-    end_year:           api.defaults.end_year
+renderSettings = (nav) ->
+  scenario = nav.model.scenario
+
+  element = $ settingsTemplate
+    country:            scenario.get('country')
+    end_year:           scenario.get('end_year')
     locale:             I18n.locale
     alternative_locale: (if I18n.locale == 'nl' then 'en' else 'nl')
+
+  year = $ '#change-end-year', element
+  year.on 'change', -> scenario.set end_year: year.val()
+
+  country = $ '#change-country', element
+  country.on 'change', -> scenario.set country: country.val()
+
+  element
 
 # Renders the contents of the user menu.
 renderUser = ->

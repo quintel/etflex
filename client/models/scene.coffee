@@ -59,6 +59,10 @@ class exports.Scene extends Backbone.Model
         # Watch for changes to the inputs, and send them back to ETEngine.
         @inputs.on 'change:value', (input) => input.save {}, { @queries }
 
+        scenario.on 'change', =>
+          if scenario.hasChanged('end_year') or scenario.hasChanged('country')
+            scenario.saveSettings @queries if scenario.canChange app.user
+
         # Returns input values and query information to ETFlex when received
         # from ETEngine.
         @inputs.on 'updateInputsDone', =>

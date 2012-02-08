@@ -1,4 +1,5 @@
 app = require 'app'
+api = require 'lib/api'
 
 # Scenario keeps track of a user's attempt to complete a scene. Holding on to
 # the scene ID, user ID, and the corresponding ET-Engine session ID, it allows
@@ -8,6 +9,12 @@ app = require 'app'
 # The session ID is the ET-Engine session ID.
 #
 class exports.Scenario extends Backbone.Model
+
+  constructor: (attributes) ->
+    attributes.country  or= 'nl'
+    attributes.end_year or= 2050
+
+    super
 
   # Returns the URL to the scenario. Raises an error if the scenario ID or
   # scene ID are missing.
@@ -35,13 +42,33 @@ class exports.Scenario extends Backbone.Model
     queryResults = {}
     inputValues  = {}
 
-    queryResults[ query.id ] = query.get('future') for query in queries.models
-    inputValues[ input.id ]  = input.get('value')  for input in inputs.models
-
-    @set { queryResults, inputValues }
+    @set { queryResults } if queryResults.length
+    @set { inputValues }  if inputValues.length
     @save()
 
     true
+
+  # Run after one of the settings attributes (end year, country) has changed,
+  # and persists the values back to both ETFlex and ETEngine.
+  #
+  # queries - A collection of queries whose results should be fetched /
+  #           updated when the settings are changed.
+  #
+  saveSettings: (queries) ->
+    data =
+      queries:    queries
+      settings: { end_year: @get('end_year'), country: @get('country') }
+
+    # Update ET-Engine
+    api.updateInputs @get('sessionId'), data, (err) =>
+      if err?
+        @set {
+          end_year: @previousValues 'end_year'
+          country:  @previousValues 'country'
+        }, silent: true
+      else
+        # Update ET-Flex
+        @updateCollections queries: queries
 
   # Returns whether the scenario has enough information so that is can be used
   # to directly start a scene without having to hit ETEngine first.
