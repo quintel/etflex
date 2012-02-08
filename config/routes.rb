@@ -5,7 +5,9 @@ ETFlex::Application.routes.draw do
     post 'with/:id', to: 'scenarios#update'
     put  'with/:id', to: 'scenarios#update'
   end
-
+  
+  resources :scenarios, only: %w( index )
+  
   # Devise -------------------------------------------------------------------
 
   devise_for :users, controllers: {

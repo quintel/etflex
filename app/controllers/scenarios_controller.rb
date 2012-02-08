@@ -36,6 +36,10 @@ class ScenariosController < ApplicationController
   ######
   public
   ######
+  
+  def index
+    respond_with Scenario.by_score.limit(10)
+  end
 
   # Shows the JSON for a given scene, with extra information about the
   # scenario embedded within so that they client loads a specific ET-Engine
