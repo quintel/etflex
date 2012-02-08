@@ -23,7 +23,9 @@ describe ETFlex::PropAnalyzer do
         content = File.read(Rails.root.join(
           'spec/fixtures/prop_with_one_query.coffee'))
 
-        File.stub!(:read).and_return(content)
+        File.should_receive(:read).
+          with(Rails.root.join('client/views/props/co2_emissions.coffee')).
+          and_return(content)
       end
 
       it 'should return one query' do
@@ -40,10 +42,12 @@ describe ETFlex::PropAnalyzer do
         content = File.read(Rails.root.join(
           'spec/fixtures/prop_with_four_queries.coffee'))
 
-        File.stub!(:read).and_return(content)
+        File.should_receive(:read).
+          with(Rails.root.join('client/views/props/co2_emissions.coffee')).
+          at_least(:once).and_return(content)
       end
 
-      it 'should return one query' do
+      it 'should return four queries' do
         subject.queries.should have(4).members
       end
 
