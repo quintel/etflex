@@ -6,7 +6,7 @@
     = stylesheet_link_tag 'application'
     = csrf_meta_tags
 
-  %body#minimal
+  %body#minimal.message
     = yield
 
   // These go at the end so that loading JS doesn't block the page load...
