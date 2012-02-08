@@ -104,6 +104,9 @@ exports.updateInputs = (sessionId, options, callback) ->
   # If there are any queries, tell ETEngine to give us those results.
   params.result = ( query.get('id') for query in queries ) if queries?
 
+  # Send any custom scenario settings (end year, country, etc).
+  params.settings = options.settings
+
   exports.send sessionId, params, (err, data) ->
     if err? then callback(err) else
       if data.errors and data.errors.length

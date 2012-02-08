@@ -26,7 +26,9 @@ class ScenariosController < ApplicationController
 
     { title:         attrs[:title],
       input_values:  attrs[:inputValues],
-      query_results: attrs[:queryResults] }
+      query_results: attrs[:queryResults],
+      end_year:      attrs[:end_year],
+      country:       attrs[:country] }
   end
 
   # ACTIONS ------------------------------------------------------------------

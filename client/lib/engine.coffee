@@ -35,7 +35,7 @@ exports.getSession = (scenario, queries, inputs, callback) ->
     else
       restoreSession existingId, queries, inputs, callback
   else
-    createSession queries, inputs, callback
+    createSession queries, inputs, scenario, callback
 
 # Session Helpers ------------------------------------------------------------
 
@@ -57,8 +57,12 @@ fetchUserValues = (sessionId, inputs, callback) ->
 # Use this in preference over `new Session` since creating a session
 # explicitly will not actually create a session on ETengine.
 #
-createSession = (queries, inputs, callback) ->
-  api.send 'new', api.defaults, (err, sessionData) ->
+createSession = (queries, inputs, scenario, callback) ->
+  data = settings:
+    end_year: scenario.get('end_year')
+    country:  scenario.get('country')
+
+  api.send 'new', data, (err, sessionData) ->
     return callback(err) if err?
 
     sessionId = parseInt(sessionData.api_scenario.id, 10)
