@@ -62,6 +62,12 @@ class Scenario < ActiveRecord::Base
       order 'updated_at DESC'
     end
 
+    # Orders the retrieved scenarios by score from highest to lowest.
+    #
+    def by_score
+      order 'score DESC'
+    end
+
     #######
     private
     #######
