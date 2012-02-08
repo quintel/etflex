@@ -24,7 +24,7 @@
           switching to electric cars, we will save a lot of oil and use a bit
           more electricity. If we generate this electricity using wind
           turbines or solar power, driving a car will no longer produce any
-          CO^(2) emissions.
+          CO<sub>2</sub> emissions.
           ![image](/assets/information/electric_versus_gasoline.png)
         information_nl: >
           Een elektrische auto gebruikt 2 tot 3 keer minder energie dan een
@@ -32,7 +32,7 @@
           gemaakt. Met elektrische auto's besparen we dus heel veel olie en
           gebruiken we een beetje meer elektriciteit. Als we deze
           elektriciteit opwekken met wind of zon, dan heeft autorijden geen
-          CO^(2)-uitstoot meer tot gevolg.
+          CO<sub>2</sub>-uitstoot meer tot gevolg.
 
       336: # Insulation
         information_en: >
@@ -92,13 +92,13 @@
           A coal-fired power plant is almost always running, producing
           electricity at maximum power. Powering it doen regularly reduces the
           amount of electricity we can make from coal. A coal-fired power
-          plant produces more air polluation than any alternative. CO^(2)
+          plant produces more air polluation than any alternative. CO<sub>2</sub>
           emissions are twice as high as for a gas-fired power plant.
         information_nl: >
           Een kolencentrale draait het grootste deel van de tijd op volle
           kracht. Regelmatig uitzetten verlaagt de hoeveelheid stroom die we
           uit kolen kunnen halen. Van alle manieren om stroom te maken geeft
-          een kolencentrale de grootste luchtvervuiling. De CO^(2)-uitstoot is
+          een kolencentrale de grootste luchtvervuiling. De CO<sub>2</sub>-uitstoot is
           ongeveer 2 keer zo groot als die van een gascentrale.
 
       256: # Gas power
@@ -107,14 +107,14 @@
           A gas-fired power plant is cheaper to build than a coal power plant.
           However, they cost more than power plants which burn coal. A
           gas-fired power plant is easily powered up or down. That can come in
-          handy when wind turbines are not turning for a lack of wind. CO^(2)
+          handy when wind turbines are not turning for a lack of wind. CO<sub>2</sub>
           emissions are half that of a coal-fired power plant.
         information_nl: >
           Een gascentrale is goedkoper om te bouwen dan een kolencentrale. Wel
           zijn ze duurder als ze draaien dan centrales op kolen. Een
           gascentrale kun je makkelijk aan of uit zetten. Dat is handig om
           stroom te makken als de windmolen even stilstaat om dat het niet
-          waait. De CO^(2)-uitstoot van een gascentrale is ongeveer de helft
+          waait. De CO<sub>2</sub>-uitstoot van een gascentrale is ongeveer de helft
           van een kolencentrale.
 
       259: # Nuclear power
@@ -125,7 +125,7 @@
           power plant has been built, making electricity is cheap. That is why
           this type of power plant is almost always running. It cannot be used
           to balance the supply and demand of electricity. One advantage is
-          that there are almost no CO^(2) emissions. The radioactive waste is a
+          that there are almost no CO<sub>2</sub> emissions. The radioactive waste is a
           disadvantage. No one has come up with a good solution for this
           problem yet.
         information_nl: >
@@ -134,7 +134,7 @@
           eenmaal staat is het hoedkoop om stroom te maken. Daarom staat de
           centrale bijna altijd op volle kracht aan. Een kerncentrale is niet
           geschikt om vraag en aanbod ven stroom in evenwicht te brengen.
-          Voordeel is dat je nauwelijks last hebt van CO^(2)-uitstoot. Nadeel
+          Voordeel is dat je nauwelijks last hebt van CO<sub>2</sub>-uitstoot. Nadeel
           is het radioactieve afval dat overblijft. Hiervoor is nog geen goede
           oplossing bedacht.
 
@@ -142,7 +142,7 @@
         max: 5000
         step: 100
         information_en: >
-          A wind turbine produces sustainable power. There are no CO^(2)
+          A wind turbine produces sustainable power. There are no CO<sub>2</sub>
           emissions. Wind is its fuel; it is a fuel which does not run out. Of
           course, the wind does not always blow. This means that building
           windmills alone is not enough. You would have a problem if you
@@ -150,7 +150,7 @@
           being put into making wind turbines cheaper.
         information_nl: >
           Een windmolen produceert duurzame stroom omdat je geen last hebt van
-          CO^(2)-uitstoot. Wind wordt als brandstof gebruikt. En wind is
+          CO<sub>2</sub>-uitstoot. Wind wordt als brandstof gebruikt. En wind is
           onuitputtelijk aanwezig. Het waait allen niet altijd. Daarom kun je
           niet volstaan met alleen windmolens. Dat heb je een probleem als je
           stroom nodig hebt en het waait niet. Er wordt momenteel hard gewerkt
