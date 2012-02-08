@@ -24,7 +24,7 @@ class exports.CO2EmissionsView extends GenericProp
   # repeatedly to update the UI.
   #
   render: ->
-    super '', I18n.t 'scenes.etlite.emissions'
+    super '', 'CO<sub>2</sub>'
 
     @$el.find('.icon').replaceWith @icon.render().el
     @updateValues()
@@ -38,10 +38,15 @@ class exports.CO2EmissionsView extends GenericProp
     # Query result is in kilograms. Divide by 1000 to get tons, then 1000_000
     # to get Mtons.
     value = @query.get('future') / (1000 * 1000000)
-
+    previous = @query.previous('future') / (1000 * 1000000)
+    
     # Reduce the value to one decimal place when shown.
-    @$el.find('.output').html "#{@precision value, 1} Mton CO<sub>2</sub>"
+    @$el.find('.output').html "#{@precision value, 1} Mton"
 
-    @icon.setState @hurdleState value
+    # Show difference with same precision
+    @setDifference @precision value-previous, 1
+
+    # Set icon according to value and hurdle value
+    @icon.setState @hurdleState value    
 
     this
