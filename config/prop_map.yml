@@ -1,0 +1,25 @@
+---
+# Maps prop "behaviour" values to the name of the file in which the prop may
+# be found, and the name of the constant which is exported from the file.
+#
+# The format is "behaviour-name: [ file_name, constant_name ]" where file_name
+# is relative to Rails.root/views/props.
+
+co2-emissions:       [ co2_emissions,              CO2EmissionsView ]
+score:               [ score,                      ScoreView ]
+reliability:         [ reliability,                ReliabilityView ]
+costs:               [ costs,                      CostsView ]
+icon:                [ icon,                       IconProp ]
+renewables:          [ renewables,                 RenewablesView ]
+supply-demand:       [ supply_demand,              SupplyDemandView ]
+
+# Header Props.
+
+car:                 [ headers/car,                 CarProp ]
+city:                [ headers/city,                CityProp ]
+eco-buildings:       [ headers/eco_buildings,       EcoBuildingsProp ]
+energy-sources:      [ headers/energy_sources,      EnergySourcesProp ]
+geothermal-pipeline: [ headers/geothermal_pipeline, GeothermalPipelineProp ]
+ground:              [ headers/ground,              GroundProp ]
+solar-heater:        [ headers/solar_heater,        SolarHeaterProp ]
+turbines:            [ headers/turbines,            TurbinesProp ]
