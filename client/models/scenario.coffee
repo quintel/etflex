@@ -42,8 +42,18 @@ class exports.Scenario extends Backbone.Model
     queryResults = {}
     inputValues  = {}
 
-    @set { queryResults } if queryResults.length
-    @set { inputValues }  if inputValues.length
+    if queries?.length
+      for query in queries.models
+        queryResults[ query.id ] = query.get('future')
+
+      @set { queryResults }
+
+    if inputs?.length
+      for input in inputs.models
+        inputValues[ input.id ] = input.get('value')
+
+      @set { inputValues }
+
     @save()
 
     true
