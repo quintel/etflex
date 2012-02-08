@@ -14,7 +14,6 @@ module ScenesHelper
     if information.nil? then nil else
       markdown = Redcarpet::Markdown.new(
         Redcarpet::Render::SmartyHTML.new(
-          filter_html:    true,
           no_styles:      true,
           safe_link_only: true,
           xhtml:          true
