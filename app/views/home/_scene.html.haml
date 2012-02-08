@@ -23,7 +23,7 @@
           %li
             %a(href="#{ scene_scenario_url(scene, scenario) }")
               .score= scenario_score scenario
-              .time= scenario_age scenario
+              .info= scenario_age scenario
 
     .others-scenarios.scenario-list
       %ul
@@ -31,4 +31,6 @@
           %li
             %a(href="#{scene_scenario_url(scene, scenario)}")
               .score= scenario_score scenario
-              .time= scenario_age scenario
+              .info
+                %span.author= scenario_owner scenario
+                %span.time= scenario_age scenario
