@@ -15,7 +15,7 @@ module ETFlex
     def self.populate_map!
       config = Rails.root.join('config/prop_map.yml')
 
-      YAML.load_file(config).each do |behaviour, path|
+      YAML.load_file(config).each do |behaviour, (path)|
         path = Rails.root.join("client/views/props/#{ path }.coffee")
         MAP[behaviour] = Mapping.new(path, behaviour).freeze
       end
