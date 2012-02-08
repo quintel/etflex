@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe ApplicationController, 'routing' do
   it 'routes / to home#root' do
-    get('/').should route_to('home#root')
+    get('/root').should route_to('home#root')
   end
 
   it 'routes /en to render_client' do

@@ -9,7 +9,7 @@ feature 'Viewing the root page' do
   # --------------------------------------------------------------------------
 
   scenario 'As a guest, listing the scenes', js: true do
-    visit '/'
+    visit '/root'
 
     page.status_code.should eql(200)
     page.should have_css("#scene_#{ @scene.id }", content: @scene.name)
@@ -23,7 +23,7 @@ feature 'Viewing the root page' do
   scenario 'As a user, listing the scenes', js: true do
     sign_in create(:user)
 
-    visit '/'
+    visit '/root'
 
     page.status_code.should eql(200)
     page.should have_css("#scene_#{ @scene.id }", content: @scene.name)
@@ -35,7 +35,7 @@ feature 'Viewing the root page' do
   # --------------------------------------------------------------------------
 
   scenario 'As a user who has not attempted a scene', js: true do
-    visit '/'
+    visit '/root'
 
     page.should_not have_content('Resume')
     page.should_not have_content('Start Over')
@@ -51,7 +51,7 @@ feature 'Viewing the root page' do
     create :scenario, scene: @scene, user: user, score: 518
 
     sign_in user
-    visit '/'
+    visit '/root'
 
     page.should have_content('Resume')
     page.should have_content('Start Over')
