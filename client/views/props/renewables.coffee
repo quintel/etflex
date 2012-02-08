@@ -41,7 +41,7 @@ class exports.RenewablesView extends GenericProp
     @setDifference @precision value-previous, 1
 
     # Reduce the value to three decimal places when shown.
-    @$el.find('.output').html "#{@precision value, 3}%"
+    @$el.find('.output').html "#{@precision value, 1}%"
 
     @icon.setState @hurdleState value
 

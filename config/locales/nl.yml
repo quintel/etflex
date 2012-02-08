@@ -69,7 +69,7 @@ nl:
       supplyExcess: "Aanbod te hoog"
       demandExcess: "Vraag te hoog"
 
-      renewables:   "Duurzame energie"
+      renewables:   "Duurzaam"
       emissions:    "Emissies"
       costs:        "Kosten"
       score:        "Score"
