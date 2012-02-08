@@ -68,6 +68,8 @@ class exports.SupplyDemandView extends Backbone.View
     # Update the label underneath the gauge.
     @$('.gauge .info').text(
       I18n.t "scenes.etlite.#{ hurdleState this, difference }")
+      
+    @beep(hurdleState this, difference)
 
   # Sets the height of the graph bars, and the marker positions without
   # rerendering the whole view. Returns self.
@@ -84,3 +86,13 @@ class exports.SupplyDemandView extends Backbone.View
     @$("#{selector} .bar")[action]    height: "#{position * 204}px", 'fast'
     @$("#{selector} .marker")[action] top: "#{100 - position * 100}%", 'fast'
     @$("#{selector} .marker").text    "#{value}PJ"
+
+  beep: (state) ->
+    @$('.gauge .beeping').removeClass('beeping-left beeping-right')
+    switch state 
+      when 'demandExcess'
+        @$('.gauge .beeping').addClass('beeping-left').fadeIn("slow").fadeOut("slow").fadeIn("slow").fadeOut("slow").fadeIn("slow")
+      when 'supplyExcess'
+        @$('.gauge .beeping').addClass('beeping-right').fadeIn("slow").fadeOut("slow").fadeIn("slow").fadeOut("slow").fadeIn("slow")
+      else
+        @$('.gauge .beeping').hide()
