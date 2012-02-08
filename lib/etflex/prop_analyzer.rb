@@ -4,16 +4,24 @@ module ETFlex
   #
   class PropAnalyzer
 
+    # Contains a Ruby version of the prop_map configuration. Will be empty
+    # until the first PropAnalyzer is initialized.
+    MAP = {}
+
     # Maps information about a single CoffeeScript prop.
-    Mapping = Struct.new(:path, :key, :behaviour)
+    Mapping = Struct.new(:path, :behaviour)
 
-    MAP =
-      YAML.load_file(Rails.root.join('config/prop_map.yml')).
-            each_with_object({}) do |(behaviour, info), map|
+    # Populates the MAP constant the first time a PropAnalyzer is created.
+    def self.populate_map!
+      config = Rails.root.join('config/prop_map.yml')
 
-        path = Rails.root.join("client/views/props/#{ info[0] }.coffee")
-        map[behaviour] = Mapping.new(path, info[1], behaviour).freeze
-      end.freeze
+      YAML.load_file(config).each do |behaviour, path|
+        path = Rails.root.join("client/views/props/#{ path }.coffee")
+        MAP[behaviour] = Mapping.new(path, behaviour).freeze
+      end
+
+      MAP.freeze
+    end
 
     # ------------------------------------------------------------------------
 
@@ -24,6 +32,8 @@ module ETFlex
     # prop - The prop whose CoffeeScript source you want to analyze.
     #
     def initialize(prop)
+      self.class.populate_map! if MAP.empty?
+
       if (@mapping = MAP[ prop.behaviour ]).blank?
         raise "No such prop behaviour in the map: #{ prop.behaviour }"
       end
