@@ -2,6 +2,13 @@ require 'spec_helper'
 
 describe SceneProp do
 
+  it { should allow_mass_assignment_of(:scene_id) }
+  it { should allow_mass_assignment_of(:scene) }
+  it { should allow_mass_assignment_of(:prop_id) }
+  it { should allow_mass_assignment_of(:prop) }
+  it { should allow_mass_assignment_of(:location) }
+  it { should allow_mass_assignment_of(:query_extrema) }
+
   it { should validate_presence_of(:scene_id) }
   it { should validate_presence_of(:prop_id) }
 
@@ -89,4 +96,33 @@ describe SceneProp do
       prop.hurdles.should eql([1.0, 2.0, 3.0])
     end
   end
+
+  # QUERY EXTREMA ------------------------------------------------------------
+
+  describe '#query_extrema' do
+    context 'when set to nil' do
+      subject { SceneProp.new(query_extrema: nil) }
+      it { should have(:no).errors_on(:query_extrema) }
+    end # when set to nil
+
+    context 'when set to an empty hash' do
+      subject { SceneProp.new(query_extrema: {}) }
+      it { should have(:no).errors_on(:query_extrema) }
+    end
+
+    context 'when set to a hash containing a two-character country code' do
+      subject { SceneProp.new(query_extrema: { 'nl' => [] }) }
+      it { should have(:no).errors_on(:query_extrema) }
+    end
+
+    context 'when set to a hash containing a two-character country code' \
+          'with data' do
+      let(:data) { { 'query_key' => [ 0, 100 ] } }
+      subject { SceneProp.new(query_extrema: { 'nl' => data }) }
+
+      it { should have(:no).errors_on(:query_extrema) }
+      its(:query_extrema) { should eql('nl' => { 'query_key' => [0, 100] }) }
+    end
+  end
+
 end

@@ -27,15 +27,16 @@ end
 # Embedded Props -------------------------------------------------------------
 
 shared_examples_for 'an embedded scene prop' do
-  before { subject and subject.symbolize_keys!    }
+  before { subject and subject.symbolize_keys!          }
 
-  it { should_not be_nil                          }
+  it { should_not be_nil                                }
 
-  it { should include(key:       prop.key)        }
-  it { should include(behaviour: prop.behaviour)  }
-  it { should include(position:  prop.position)   }
-  it { should include(location:  prop.location)   }
-  it { should include(hurdles:   prop.hurdles)    }
+  it { should include(key:          prop.key)           }
+  it { should include(behaviour:    prop.behaviour)     }
+  it { should include(position:     prop.position)      }
+  it { should include(location:     prop.location)      }
+  it { should include(hurdles:      prop.hurdles)       }
+  it { should include(queryExtrema: prop.query_extrema) }
 end
 
 # Scene ----------------------------------------------------------------------

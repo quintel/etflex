@@ -1,5 +1,7 @@
-{ GenericProp } = require 'views/props/generic'
-{ IconProp }    = require 'views/props/icon'
+{ GenericProp }    = require 'views/props/generic'
+{ IconProp }       = require 'views/props/icon'
+
+{ hurdleStateNew } = require 'views/props'
 
 class exports.CO2EmissionsView extends GenericProp
   @queries: [ 'total_co2_emissions' ]
@@ -39,14 +41,15 @@ class exports.CO2EmissionsView extends GenericProp
     # to get Mtons.
     value = @query.get('future') / (1000 * 1000000)
     previous = @query.previous('future') / (1000 * 1000000)
-    
+
     # Reduce the value to one decimal place when shown.
     @$el.find('.output').html "#{@precision value, 1} Mton"
 
     # Show difference with same precision
     @setDifference @precision value-previous, 1
 
-    # Set icon according to value and hurdle value
-    @icon.setState @hurdleState value    
+    # Testing the new extrema / percentage-based hurdle...
+    extrema = @options.extrema[ @query.id ][ @options.region() ]
+    @icon.setState hurdleStateNew this, extrema, value
 
     this
