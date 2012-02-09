@@ -10,7 +10,7 @@ app          = require 'app'
 #
 class exports.Scenarios extends Backbone.Collection
   model: Scenarios
-  url:   ''
+  url:   '/scenarios'
 
   # Returns the Scene whose ID matches "id". if the scenario already exists in
   # the collection, the supplied "callback" will be run immediately. Otherwise
