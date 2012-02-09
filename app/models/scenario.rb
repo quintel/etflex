@@ -30,7 +30,7 @@ class Scenario < ActiveRecord::Base
     def for_session(scene_id, session_id)
       where(scene_id: scene_id, session_id: session_id).first
     end
-
+    
     # Returns scenarios which belong to the given user or guest. Handy when
     # chained onto a scene, for example:
     #

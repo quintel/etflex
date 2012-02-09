@@ -28,7 +28,7 @@
 
   <div id="loader">Loading...</div>
 
-  <div id="scenario_updates" style="display: none;">
+  <div id="updates">
   </div>
 
 </div>

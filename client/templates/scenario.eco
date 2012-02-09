@@ -1,22 +1,24 @@
 <div class="scenario">
-  <div class="score">
-    811
-  </div>
-  <div class="user">
-    <img class="profile" src=""/>
-    <span class="name">
-      <%= @userName %>
-    </span>
-  </div> <!-- .user -->
-  <div class="location">
-    <span class="country">
-      The Netherlands
-    </span>
-    <span class="city">
-      Amsterdam
-    </span>
-  </div> <!-- .location -->
-  <div class="time">
-    10 min. ago
-  </div>
+  <a href="<%= @scene.href %>/with/<%= @sessionId  %>">
+    <div class="score">
+      <span class="value"><%= @score %></span>
+    </div>
+    <div class="user">
+      <img class="profile" src=""/>
+      <span class="name">
+        <%= @userName %>
+      </span>
+    </div> <!-- .user -->
+    <div class="location">
+      <span class="country">
+        <%= @userCountry %>
+      </span>
+      <span class="city">
+        <%= @userCity %>
+      </span>
+    </div> <!-- .location -->
+    <div class="time">
+      10 min. ago
+    </div>
+  </a>
 </div> <!-- .scenario -->
