@@ -60,7 +60,9 @@ class exports.SceneView extends Backbone.View
       propView = @prop prop.behaviour,
         key:     prop.key
         hurdles: prop.hurdles
+        extrema: prop.queryExtrema
         queries: @model.queries
+        region:  => @model.scenario.get('country')
 
       # If the prop location doesn't exist in the template, the prop will not
       # rendered. This is intentional so that "hidden" props don't raise

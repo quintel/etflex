@@ -15,10 +15,18 @@
 #   example, the modern theme has a "center" location containing the supply /
 #   demand graph, and a "bottom" location containing three icons.
 #
+# query_extrema (Hash)
+#   A serialized copy of the minimum and maximum values used by the scene prop
+#   organized first by country, and then by the query key. For example:
+#
+#   { 'uk' => { 'query_key' => [ 0, 185 ] },
+#     'nl' => { 'query_key' => [ 0, 101 ] } }
+#
 class SceneProp < ActiveRecord::Base
   extend ETFlex::ConcatenatedAttributes
 
   delegate :key, :behaviour, to: :prop, allow_nil: true
+  serialize :query_extrema, Hash
 
   concatenate_attr :hurdles, :to_f
 
