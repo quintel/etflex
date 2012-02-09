@@ -38,7 +38,7 @@ class ScenariosController < ApplicationController
   ######
   
   def index
-    respond_with Scenario.by_score.limit(10)
+    respond_with @scenarios = Scenario.by_score.limit(10).where("`session_id` != ?", params[:current_session_id])
   end
 
   # Shows the JSON for a given scene, with extra information about the

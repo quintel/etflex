@@ -13,6 +13,9 @@ class exports.GenericProp extends Backbone.View
     @delegateEvents()
     this
 
+  # TODO: move this function to a generic class of Application wide helpers
+  #       It now also lives in generic.coffee
+  #
   # Given a number, rounds to to a certain number of decimal places. Returns
   # a string.
   #

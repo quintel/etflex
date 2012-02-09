@@ -2,10 +2,10 @@ app                = require 'app'
 
 api                = require 'lib/api'
 template           = require 'templates/scene'
+scenarioTempl      = require 'templates/scenario'
 
 { RangeView }      = require 'views/range'
 { SceneNav }       = require 'views/scene_nav'
-{ ScenarioView }   = require 'views/scenario'
 
 { getProp }        = require 'views/props'
 { clientNavigate } = require 'lib/client_navigate'
@@ -82,14 +82,28 @@ class exports.SceneView extends Backbone.View
     @initShareLinks()
     
     # Showing off other people's scenarios
-    # TODO now we have a conlict with collections/scenarios.coffee, since
-    #      it is stated there that a user can only *know* about it's own
-    #      scenarios
-
-    for scenario in app.collections.scenarios.models
-      @$('#scenario_updates').append (new ScenarioView model: scenario).render().el
+    app.collections.scenarios.fetch
+      add: true
+      data: { current_session_id: @model.scenario.get 'sessionId' }
+      success: @showScenarios
 
     this
+
+  showScenarios: (collection) =>
+    for scenario in collection.models
+      @$('#updates').append scenarioTempl
+        scene:       scenario.get('scene')
+        sessionId:   scenario.get('sessionId')
+        score:       @precision scenario.get('queryResults').score, 0
+        userName:    scenario.get('user').id[0..10]
+        userCountry: 'United Kingdom'
+        userCity:    'London'
+
+    #We need to hide it when it's
+    if $(window).width() < 1400 then @$('#updates').hide() else @$('#updates').show()
+
+    $(window).resize =>
+      if $(window).width() < 1400 then @$('#updates').hide() else @$('#updates').show()
 
   # Renders the modern theme by extending the default scene template.
   #
@@ -159,3 +173,29 @@ class exports.SceneView extends Backbone.View
       containers[ element.attr "data-#{ place }-location" ] = element
 
     containers
+
+  # TODO: move this function to a generic class of Application wide helpers
+  #       It now also lives in generic.coffee
+  #
+  # Given a number, rounds to to a certain number of decimal places. Returns
+  # a string.
+  #
+  # number    - The number to be rounded.
+  # precision - The number of decimal places to be shown.
+  #
+  precision: (number, precision) ->
+    if precision is 0
+      "#{Math.round number}"
+    else
+      # When precision is >= 1, we first round the number using the desired
+      # precision and then, since floating-point arithmetic means that we may
+      # still end up with a number with too many decimal places, forcefully
+      # truncate the number.
+
+      multiplier = Math.pow 10, precision
+
+      rounded = Math.round(number * multiplier) / multiplier
+      rounded = rounded.toString().split '.'
+
+      if rounded.length is 1 then rounded else
+        "#{rounded[0]}.#{rounded[1][0...precision]}"
