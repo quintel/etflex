@@ -14,7 +14,7 @@ class exports.ScoreView extends GenericProp
 
     @icon = new IconProp
 
-    @query = options.queries.get 'score'
+    @query = options.queries.get 'etflex_score'
     @query.on 'change:future', @updateValues
 
   # Renders the UI; calculates score. Can be safely called
