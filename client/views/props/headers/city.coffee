@@ -6,8 +6,4 @@
 #
 class exports.CityProp extends HeaderIcon
   @queries: [ 'number_of_electric_cars' ]
-  states:   [ 'medium', 'large' ]
-
-  # Query result is in megajoules. Divide by 1000 to get giga, 1000 to get tera
-  # then 1000 to get peta.
-  refresh: (value) -> super value / 1000000000
+  states:   [ 'large', 'medium' ]
