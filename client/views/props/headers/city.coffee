@@ -5,8 +5,8 @@
 # containing the element in the header.
 #
 class exports.CityProp extends HeaderIcon
-  @queries: [ 'final_demand_from_households' ]
-  states:   [ 'small', 'medium', 'large' ]
+  @queries: [ 'number_of_electric_cars' ]
+  states:   [ 'medium', 'large' ]
 
   # Query result is in megajoules. Divide by 1000 to get giga, 1000 to get tera
   # then 1000 to get peta.

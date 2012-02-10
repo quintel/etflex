@@ -3,7 +3,7 @@ scoreTpl = require 'templates/props/score'
 { IconProp }    = require 'views/props/icon'
 
 class exports.ScoreView extends GenericProp
-  @queries: [ 'score' ]
+  @queries: [ 'etflex_score' ]
 
   className: 'prop score'
 
