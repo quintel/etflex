@@ -14,7 +14,6 @@ class exports.ReliabilityView extends GenericProp
     super options
 
     @icon = new IconProp
-    @icon.fadeType = 'drop'
 
     @query = options.queries.get 'security_of_supply_blackout_risk'
     @query.on 'change:future', @updateValues
