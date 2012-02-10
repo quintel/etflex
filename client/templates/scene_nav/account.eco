@@ -1,3 +1,3 @@
 <ul class="icon-nav">
-  <li><a href='/goodbye'>log out</a></li>
+  <li><a href='/goodbye' data-navigate="noclient">log out</a></li>
 </ul>
