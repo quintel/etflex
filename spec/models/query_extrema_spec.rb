@@ -7,7 +7,7 @@ describe ETFlex::QueryExtrema do
         'uk' => { 'query_key' => [ 1, 185 ] } }
     end
 
-    subject { QueryExtrema.new(data) }
+    subject { ETFlex::QueryExtrema.new(data) }
 
     describe 'for_query' do
       context 'given a valid query key' do
@@ -30,10 +30,10 @@ describe ETFlex::QueryExtrema do
     end
 
     describe 'as_json' do
-      it { subject.to_json.should eql(data) }
+      it { subject.as_json.should eql(data) }
 
       it 'should clone the original hash, not return it' do
-        subject.to_json.object_id.should_not eql(data.object_id)
+        subject.as_json.object_id.should_not eql(data.object_id)
       end
     end
   end
