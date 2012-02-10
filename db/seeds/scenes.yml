@@ -175,7 +175,7 @@
           is nuttig.
 
       488: # Green gas
-        max: 20
+        max: 10
         step: 0.2
         information_en: >
           Green gas is biogas that has been upgraded to natural gas quality.
