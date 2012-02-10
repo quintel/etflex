@@ -3,6 +3,7 @@ require 'etflex/client_responder'
 require 'etflex/concatenated_attributes'
 require 'etflex/etengine_proxy'
 require 'etflex/prop_analyzer'
+require 'etflex/query_extrema'
 
 module ETFlex
   # A simpler way to access the ETFlex configuration.
