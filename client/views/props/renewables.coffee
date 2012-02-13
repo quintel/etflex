@@ -36,7 +36,7 @@ class exports.RenewablesView extends GenericProp
     # Multiply the query value by 100 to get a percentage.
     value = @query.get('future') * 100
     previous = @query.previous('future') * 100
-    
+
     @setDifference @precision value-previous, 1
 
     # Reduce the value to three decimal places when shown.

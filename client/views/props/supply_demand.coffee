@@ -68,7 +68,7 @@ class exports.SupplyDemandView extends Backbone.View
     # Update the label underneath the gauge.
     @$('.gauge .info').text(
       I18n.t "scenes.etlite.#{ hurdleState this, difference }")
-      
+
     @beep(hurdleState this, difference)
 
   # Sets the height of the graph bars, and the marker positions without
@@ -87,12 +87,24 @@ class exports.SupplyDemandView extends Backbone.View
     @$("#{selector} .marker")[action] top: "#{100 - position * 100}%", 'fast'
     @$("#{selector} .marker").text    "#{value}PJ"
 
+  # When the demand or supply falls into the "red" zone, the red area flashes
+  # in order to attract the user's attention and encourage them to fix the
+  # problem.
+  #
   beep: (state) ->
-    @$('.gauge .beeping').removeClass('beeping-left beeping-right')
-    switch state 
+    overlay = @$('.gauge .beeping')
+    overlay.removeClass('beeping-left beeping-right')
+
+    flashAnimation = (element) ->
+      element.fadeIn('slow').fadeOut('slow').
+        fadeIn('slow').fadeOut('slow').fadeIn('slow')
+
+    switch state
       when 'demandExcess'
-        @$('.gauge .beeping').addClass('beeping-left').fadeIn("slow").fadeOut("slow").fadeIn("slow").fadeOut("slow").fadeIn("slow")
+        overlay.addClass('beeping-left')
+        flashAnimation overlay
       when 'supplyExcess'
-        @$('.gauge .beeping').addClass('beeping-right').fadeIn("slow").fadeOut("slow").fadeIn("slow").fadeOut("slow").fadeIn("slow")
+        overlay.addClass('beeping-right')
+        flashAnimation overlay
       else
-        @$('.gauge .beeping').hide()
+        overlay.hide()

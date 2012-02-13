@@ -47,9 +47,9 @@ class exports.SceneView extends Backbone.View
 
       rangeView.bind 'notAuthorizedToChange', @showNotAuthorizedModal
 
-      # If the input location doesn't exist in the template, the input will not
-      # rendered. This is intentional so that "hidden" and "$internal" inputs
-      # don't raise errors.
+      # If the input location doesn't exist in the template, the input will
+      # not rendered. This is intentional so that "hidden" and "$internal"
+      # inputs don't raise errors.
       inputLocations[ input.get('location') ]?.append rangeView.render().el
 
     # Render each of the Props.
@@ -80,7 +80,7 @@ class exports.SceneView extends Backbone.View
 
     # Social media links.
     @initShareLinks()
-    
+
     # Showing off other people's scenarios
     app.collections.scenarios.fetch
       add: true

@@ -51,7 +51,7 @@ class exports.GenericProp extends Backbone.View
 
   setDifference: (difference) ->
     element = @$el.find('.difference')
-    
+
     # Clear out other classes by default
     element.attr(class:'difference')
 
