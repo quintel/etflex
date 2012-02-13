@@ -183,6 +183,7 @@
       z-index: 15
 
     #updates
+      display: none
       position: fixed
       right: 0
       width: 200px
@@ -205,3 +206,8 @@
           font-size: 24px
           font-weight: bold
           
+
+// "Updates" aren't visible on narrow screens.
+@media (min-device-width:1024px) and (min-width:1400px)
+  #scene-view #core #updates
+    display: block
