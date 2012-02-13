@@ -6,6 +6,7 @@ nl:
     households_heating_heat_pump_ground_share: "Warmtepomp in huis"
     households_hot_water_solar_water_heater_share: "Zonneboiler"
     households_insulation_level_old_houses: "Betere isolatie"
+    households_hot_water_fuel_cell_share: "Brandstofcel voor heet water"
     households_lighting_light_emitting_diode_share: "Zuinige lampen"
     number_of_pulverized_coal: "Steenkoolcentrales"
     number_of_gas_ccgt: "Gascentrales"
