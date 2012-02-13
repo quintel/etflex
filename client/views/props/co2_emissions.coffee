@@ -7,7 +7,7 @@ class exports.CO2EmissionsView extends GenericProp
   @queries: [ 'total_co2_emissions' ]
   states:   [ 'low', 'medium', 'high', 'extreme' ]
 
-  className: 'prop co2-emissions'
+  className: 'prop co2-emissions lower-better'
 
   # Creates a new CO2Emissions prop. In addition to the usual Backbone
   # options, requires `gas` containing the gas-fired power plants input, and
