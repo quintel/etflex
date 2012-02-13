@@ -2,16 +2,17 @@
 nl:
   inputs:
     new: "Nieuwe input"
-    households_behavior_standby_killer_turn_off_appliances: "Apparaten uit"
+    households_hot_water_micro_chp_share: "Micro-WKK voor warm water"
     households_heating_heat_pump_ground_share: "Warmtepomp in huis"
     households_hot_water_solar_water_heater_share: "Zonneboiler"
     households_insulation_level_old_houses: "Betere isolatie"
-    households_lighting_low_energy_light_bulb_share: "Zuinige lampen"
-    number_of_coal_conventional: "Steenkoolcentrales"
-    number_of_gas_conventional: "Gascentrales"
+    households_lighting_light_emitting_diode_share: "Zuinige lampen"
+    number_of_pulverized_coal: "Steenkoolcentrales"
+    number_of_gas_ccgt: "Gascentrales"
     number_of_nuclear_3rd_gen: "Kerncentrales"
     households_market_penetration_solar_panels: "Zonnepanelen"
-    number_of_wind_onshore_land: "Windmolens"
+    number_of_wind_offshore: "Windmolens"
     policy_area_biomass: "Biomassa"
     transport_cars_electric_share: "Elektrische autos"
     green_gas_total_share: "Groen gas"
+
