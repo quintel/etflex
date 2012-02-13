@@ -50,8 +50,6 @@ class exports.ScoreView extends GenericProp
     
     string_score = "0" + string_score until string_score.length == 3
     
-    console.log string_score
-
     # Reduce the shown value to whole value.
     @$el.find('.output').html @precision score, 0
 
