@@ -12,7 +12,7 @@ en:
     number_of_gas_ccgt: "Gas-fired power plants"
     number_of_nuclear_3rd_gen: "Nuclear power plants"
     households_market_penetration_solar_panels: "Solar panels"
-    number_of_wind_onshore_land: "Wind turbines"
+    number_of_wind_offshore: "Wind turbines"
     policy_area_biomass: "Biomass"
     transport_cars_electric_share: "Electric cars"
     green_gas_total_share: "Green gas"
