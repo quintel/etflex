@@ -6,12 +6,12 @@ propTemplate     = require 'templates/prop'
 #
 # In your subclasses, you may customise the "className" attribute to add
 # extra CSS classes to the prop. You must, however, always include "prop" as
-# one of the classes. For example, you may add "higher-better" to indicate
+# one of the classes. For example, you may add "lower-better" to indicate
 # that the difference arrows be reversed so that a lower value is considered
 # good (shown in green) and a higher value is considered bad:
 #
 #   class MyProp extends GenericProp
-#     className: 'prop reverse'
+#     className: 'prop lower-better'
 #
 class exports.GenericProp extends Backbone.View
   className: 'prop'
