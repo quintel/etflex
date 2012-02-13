@@ -73,8 +73,8 @@ class exports.Scenario extends Backbone.Model
     api.updateInputs @get('sessionId'), data, (err) =>
       if err?
         @set {
-          end_year: @previousValues 'end_year'
-          country:  @previousValues 'country'
+          end_year: @previous 'end_year'
+          country:  @previous 'country'
         }, silent: true
       else
         # Update ET-Flex
