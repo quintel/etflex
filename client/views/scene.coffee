@@ -99,12 +99,6 @@ class exports.SceneView extends Backbone.View
         userCountry: 'United Kingdom'
         userCity:    'London'
 
-    #We need to hide it when it's
-    if $(window).width() < 1400 then @$('#updates').hide() else @$('#updates').show()
-
-    $(window).resize =>
-      if $(window).width() < 1400 then @$('#updates').hide() else @$('#updates').show()
-
   # Renders the modern theme by extending the default scene template.
   #
   # This will likely be extracted to a separete "ModernView extends
