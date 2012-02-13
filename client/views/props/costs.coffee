@@ -7,7 +7,7 @@ class exports.CostsView extends GenericProp
   states:   [ 'nine', 'eight', 'seven', 'six', 'five',
               'four', 'three', 'two', 'one' ]
 
-  className: 'prop costs'
+  className: 'prop costs lower-better'
 
   # Creates a new Costs prop. Calculates the cost of the choices the user
   # makes in the ETLite scene.

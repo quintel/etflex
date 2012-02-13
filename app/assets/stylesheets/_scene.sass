@@ -96,15 +96,6 @@
           .output
             font-weight: bold
 
-          .difference
-            padding: 1px 0 1px 20px
-
-          .up
-            background: image-url("scenes/modern/icons/up.png") center left no-repeat
-
-          .down
-            background: image-url("scenes/modern/icons/down.png") center left no-repeat
-
           sub, sup
             font-size: 9px
             line-height: 0
@@ -112,6 +103,31 @@
 
           sup
             vertical-align: text-top
+
+        // "Up" and "down" arrows shown next to the values on dashboard props.
+
+        .difference
+
+          &.down, &.up
+            background: image-url("scenes/modern/icons/arrows.png") top left no-repeat
+            padding: 1px 0 1px 20px
+
+          &.down
+            // red down
+            background-position: 0 0
+
+          &.up
+            // green up
+            background-position: 0 -60px
+
+        &.lower-better .difference
+          &.down
+            // green down
+            background-position: 0 -90px
+
+          &.up
+            // red up
+            background-position: 0 -30px
 
     // The footer; contains social media links and sponsor logos.
 

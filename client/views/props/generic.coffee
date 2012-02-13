@@ -4,6 +4,15 @@ propTemplate     = require 'templates/prop'
 # A generic, placeholder prop which has an empty space for some sort of icon
 # or illustration, and a formatted value.
 #
+# In your subclasses, you may customise the "className" attribute to add
+# extra CSS classes to the prop. You must, however, always include "prop" as
+# one of the classes. For example, you may add "higher-better" to indicate
+# that the difference arrows be reversed so that a lower value is considered
+# good (shown in green) and a higher value is considered bad:
+#
+#   class MyProp extends GenericProp
+#     className: 'prop reverse'
+#
 class exports.GenericProp extends Backbone.View
   className: 'prop'
 
