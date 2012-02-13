@@ -95,7 +95,7 @@ class exports.SceneView extends Backbone.View
         scene:       scenario.get('scene')
         sessionId:   scenario.get('sessionId')
         score:       @precision scenario.get('queryResults').score, 0
-        userName:    scenario.get('user').id[0..10]
+        userName:    scenario.get('user').id.toString()[0..10]
         userCountry: 'United Kingdom'
         userCity:    'London'
 
