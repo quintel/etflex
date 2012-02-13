@@ -37,7 +37,7 @@ class exports.ReliabilityView extends GenericProp
     @$el.find('.output').html("#{@precision value, 2}%")
 
     @icon.setState @hurdleState @query.get('future')
-    
+
     @setDifference @precision value-previous, 1
 
     this

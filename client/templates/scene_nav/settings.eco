@@ -19,5 +19,9 @@
       <option value="2050" <%= if @end_year is 2050 then 'selected' %>>2050</option>
     </select>
   </li>
-  <li><a href='<%= window.location.pathname %>?locale=<%= @alternative_locale%>' data-navigate="noclient"><%= I18n.t 'locales.switch_to' %> <%= I18n.t "locales.#{@alternative_locale}" %></a></li>
+  <li>
+    <a href='<%= window.location.pathname %>?locale=<%= @alternative_locale%>' data-navigate="noclient">
+      <%= I18n.t 'locales.switch_to' %> <%= I18n.t "locales.#{@alternative_locale}" %>
+    </a>
+  </li>
 </ul>
