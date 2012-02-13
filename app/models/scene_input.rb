@@ -66,7 +66,6 @@ class SceneInput < ActiveRecord::Base
 
   # VALIDATION ---------------------------------------------------------------
 
-  validates :location, presence: true
   validates :scene_id, presence: true
   validates :input_id, presence: true, uniqueness: { scope: :scene_id }
 
