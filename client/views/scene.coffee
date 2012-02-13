@@ -32,92 +32,15 @@ class exports.SceneView extends Backbone.View
   render: ->
     @$el.html template()
 
-    # Render additional elements used in the modern theme (the animated
-    # header element, etc).
-
     @renderTheme()
-
-    # Render each of the Inputs as a Range.
-
-    canChange      = @model.scenario.canChange(app.user)
-    inputLocations = @inputContainers()
-
-    for input in @model.inputs.models
-      rangeView = new RangeView model: input, canChange: canChange
-
-      rangeView.bind 'notAuthorizedToChange', @showNotAuthorizedModal
-
-      # If the input location doesn't exist in the template, the input will
-      # not rendered. This is intentional so that "hidden" and "$internal"
-      # inputs don't raise errors.
-      inputLocations[ input.get('location') ]?.append rangeView.render().el
-
-    # Render each of the Props.
-
-    propLocations = @propContainers()
-
-    for prop in @model.get('props')
-      propView = @prop prop.behaviour,
-        key:     prop.key
-        hurdles: prop.hurdles
-        extrema: prop.queryExtrema
-        queries: @model.queries
-        region:  => @model.scenario.get('country')
-
-      # If the prop location doesn't exist in the template, the prop will not
-      # rendered. This is intentional so that "hidden" props don't raise
-      # errors.
-      propLocations[ prop.location ]?.append propView.render().el
-
-    # Initialize the nav menu.
-    @$('#footer').before (new SceneNav model: @model).render().el
-
-    # The "Loading..." events.
-    loader = @$ '#loader'
-
-    loader.ajaxStart -> loader.stop().animate bottom:   '0px', 'fast'
-    loader.ajaxStop  -> loader.stop().animate bottom: '-36px', 'fast'
-
-    # Social media links.
+    @renderInputs()
+    @renderProps()
+    @renderNavigation()
+    @initLoadingNotice()
     @initShareLinks()
-
-    # Showing off other people's scenarios
-    app.collections.scenarios.fetch
-      add: true
-      data: { current_session_id: @model.scenario.get 'sessionId' }
-      success: @showScenarios
+    @initOtherScenarios()
 
     this
-
-  showScenarios: (collection) =>
-    for scenario in collection.models
-      @$('#updates').append scenarioTempl
-        scene:       scenario.get('scene')
-        sessionId:   scenario.get('sessionId')
-        score:       @precision scenario.get('queryResults').score, 0
-        userName:    scenario.get('user').id?.toString()[0..10]
-        userCountry: 'United Kingdom'
-        userCity:    'London'
-
-  # Renders the modern theme by extending the default scene template.
-  #
-  # This will likely be extracted to a separete "ModernView extends
-  # SceneView" class later.
-  #
-  renderTheme: ->
-    modernHeader = require 'templates/scenes/modern/header'
-    @$('#core').prepend modernHeader()
-
-  # Sets up the social media "share" links.
-  #
-  initShareLinks: ->
-    link = encodeURIComponent(
-      "http://etflex.et-model.com/scenes/" +
-      "#{ @model.id }/#{ @model.scenario.get('sessionId') }")
-
-    # Facebook.
-    fbLink = "http://www.facebook.com/sharer.php?u=#{link}&t=ETFlex"
-    @$('#social-media .facebook a').attr('href', fbLink)
 
   # When a user tries to alter inputs on a scenario which isn't theirs, a "not
   # authorized" modal dialog appears allowing them to take suitable action.
@@ -193,3 +116,99 @@ class exports.SceneView extends Backbone.View
 
       if rounded.length is 1 then rounded else
         "#{rounded[0]}.#{rounded[1][0...precision]}"
+
+  # RENDERING STEPS ----------------------------------------------------------
+
+  # Renders the modern theme by extending the default scene template.
+  #
+  # This will likely be extracted to a separete "ModernView extends
+  # SceneView" class later.
+  #
+  renderTheme: ->
+    modernHeader = require 'templates/scenes/modern/header'
+    @$('#core').prepend modernHeader()
+
+  # Renders the inputs into the scene using RangeView instances, which contain
+  # the Quinn sliders.
+  #
+  renderInputs: ->
+    canChange      = @model.scenario.canChange(app.user)
+    inputLocations = @inputContainers()
+
+    for input in @model.inputs.models
+      rangeView = new RangeView model: input, canChange: canChange
+
+      rangeView.bind 'notAuthorizedToChange', @showNotAuthorizedModal
+
+      # If the input location doesn't exist in the template, the input will
+      # not rendered. This is intentional so that "hidden" and "$internal"
+      # inputs don't raise errors.
+      inputLocations[ input.get('location') ]?.append rangeView.render().el
+
+  # Renders each of the props into the scene.
+  #
+  # Props are inserted into the correct elements by looking for
+  # "data-prop-location" attributes, and rendering the prop views into
+  # elements which correspond with the prop's "location" attribute.
+  #
+  renderProps: ->
+    propLocations = @propContainers()
+
+    for prop in @model.get('props')
+      propView = @prop prop.behaviour,
+        key:     prop.key
+        hurdles: prop.hurdles
+        extrema: prop.queryExtrema
+        queries: @model.queries
+        region:  => @model.scenario.get('country')
+
+      # If the prop location doesn't exist in the template, the prop will not
+      # rendered. This is intentional so that "hidden" props don't raise
+      # errors.
+      propLocations[ prop.location ]?.append propView.render().el
+
+  # Sets up the top navigation element for the scene, providing the ability
+  # to navigate to other pages, view the scene on ET-Model, etc.
+  #
+  renderNavigation: ->
+    @$('#footer').before (new SceneNav model: @model).render().el
+
+  # Creates the "Loading..." box which pops up at the bottom-left of the
+  # scene view whenever an XHR request is pending.
+  #
+  initLoadingNotice: ->
+    loader = @$ '#loader'
+
+    loader.ajaxStart -> loader.stop().animate bottom:   '0px', 'fast'
+    loader.ajaxStop  -> loader.stop().animate bottom: '-36px', 'fast'
+
+  # Initializes the scenarios list which appears on the right-hand side of the
+  # scene and links to scenarios belonging to other users.
+  #
+  # Note that this method is asynchronous; the scenes are shown only after
+  # completing a request to the ET-Flex server.
+  #
+  initOtherScenarios: ->
+    app.collections.scenarios.fetch
+      add:  true
+      data: { current_session_id: @model.scenario.get 'sessionId' }
+      success: (collection) =>
+        for scenario in collection.models
+          @$('#updates').append scenarioTempl
+            scene:       scenario.get('scene')
+            sessionId:   scenario.get('sessionId')
+            score:       @precision scenario.get('queryResults').score, 0
+            userName:    scenario.get('user').id?.toString()[0..10]
+            userCountry: 'United Kingdom'
+            userCity:    'London'
+
+  # Sets up the social media "share" links.
+  #
+  initShareLinks: ->
+    link = encodeURIComponent(
+      "http://etflex.et-model.com/scenes/" +
+      "#{ @model.id }/#{ @model.scenario.get('sessionId') }")
+
+    # Facebook.
+    fbLink = "http://www.facebook.com/sharer.php?u=#{link}&t=ETFlex"
+    @$('#social-media .facebook a').attr('href', fbLink)
