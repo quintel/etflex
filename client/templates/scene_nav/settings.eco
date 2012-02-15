@@ -1,8 +1,6 @@
 <ul class="icon-nav settings">
   <li class='static'>
-    <label for='change-country'>
-      <%= I18n.t 'navigation.region' %>:
-    </label>
+    <%= I18n.t 'navigation.region' %>:
     <select id="change-country">
       <option value="nl" <%= if @country is 'nl' then 'selected' %>><%= I18n.t('regions.nl') %></option>
       <option value="uk" <%= if @country is 'uk' then 'selected' %>><%= I18n.t('regions.uk') %></option>
@@ -10,9 +8,7 @@
     </select>
   </li>
   <li class='static'>
-    <label for='change-end-year'>
-      <%= I18n.t 'navigation.end_year' %>:
-    </label>
+    <%= I18n.t 'navigation.end_year' %>:
     <select id="change-end-year">
       <option value="2030" <%= if @end_year is 2030 then 'selected' %>>2030</option>
       <option value="2040" <%= if @end_year is 2040 then 'selected' %>>2040</option>
