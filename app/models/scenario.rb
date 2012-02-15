@@ -140,7 +140,7 @@ class Scenario < ActiveRecord::Base
   #
   def query_results=(results)
     write_attribute(:query_results, results.present? ? results.to_hash : {})
-    self.score               = query_results['score']
+    self.score               = query_results['etflex_score']
     self.total_co2_emissions = query_results['total_co2_emissions']
     self.total_costs         = query_results['total_costs']
     self.renewability        = query_results['renewability']
