@@ -22,7 +22,6 @@
 
     <ul id="partners">
       <li><a href="#" class="partner gasterra">GasTerra</a></li>
-      <li class="by"><%= I18n.t('sponsoredBy') %></li>
     </ul>
   </div>
 
