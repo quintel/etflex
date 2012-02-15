@@ -7,6 +7,7 @@ load 'lib/capistrano/airbrake'
 load 'lib/capistrano/link_config'
 load 'lib/capistrano/unicorn'
 load 'lib/capistrano/assets'
+load 'lib/capistrano/database'
 
 _cset(:stage) { 'production' }
 
