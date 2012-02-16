@@ -1,13 +1,13 @@
 <div id="core">
   <div id="controls">
     <div id="left-inputs" data-input-location="left">
-      <h2><span><%= I18n.t 'scenes.etlite.savings' %></span></h2>
+      <h2><span><%= I18n.t 'scenes.etlite.demand' %></span></h2>
     </div>
 
     <div data-prop-location="center" id="center-props"></div>
 
     <div id="right-inputs" data-input-location="right">
-      <h2><span><%= I18n.t 'scenes.etlite.production' %></span></h2>
+      <h2><span><%= I18n.t 'scenes.etlite.supply' %></span></h2>
     </div>
   </div>
 
