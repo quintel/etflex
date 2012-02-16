@@ -64,6 +64,7 @@ class exports.SupplyDemandView extends Backbone.View
     @$('.gauge .needle')
       .css('-moz-transform', "rotate(#{degrees}deg)")
       .css('-webkit-transform', "rotate(#{degrees}deg)")
+      .css('-ms-transform', "rotate(#{degrees}deg)")
 
     # Update the label underneath the gauge.
     @$('.gauge .info').text(
