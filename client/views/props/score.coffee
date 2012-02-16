@@ -42,11 +42,12 @@ class exports.ScoreView extends GenericProp
   # without re-rendering the whole view.
   #
   updateValues: =>
-    score = @query.get('future')
+    score    = @query.get('future')
+    score    = 0 if score < 0
+
     previous = @query.previous('future')
 
     rounded_score = @precision score, 0
-    rounded_score = 0 if rounded_score < 0
     string_score = rounded_score.toString()
 
     string_score = "0" + string_score until string_score.length == 3
