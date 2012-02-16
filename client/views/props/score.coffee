@@ -42,10 +42,8 @@ class exports.ScoreView extends GenericProp
   # without re-rendering the whole view.
   #
   updateValues: =>
-    score    = @query.get('future')
-    score    = 0 if score < 0
-
-    previous = @query.previous('future')
+    score    = @brickwallScore @query.get('future')
+    previous = @brickwallScore @query.previous('future')
 
     rounded_score = @precision score, 0
     string_score = rounded_score.toString()
@@ -67,3 +65,11 @@ class exports.ScoreView extends GenericProp
     @setDifference @precision score-previous, 0
 
     this
+
+  # Ensures that a score for display is not lower than 0, and not higher than
+  # 999 (otherwise the display cannot accommodate them).
+  #
+  brickwallScore: (score) ->
+    if      score <   0 then 0
+    else if score > 999 then 999
+    else                     score
