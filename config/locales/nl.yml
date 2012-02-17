@@ -3,7 +3,7 @@
 
 nl:
   loading: "Bezig met laden"
-  loadingMsg: "De applicatie wordt geladen..."
+  loadingMsg: "Even geduld het duurt niet lang..."
 
   # Navigation Elements ------------------------------------------------------
 
@@ -18,19 +18,19 @@ nl:
     info:     Informatie
 
     settings: Instellingen
-    region:   Regio/land
-    end_year: Eindjaar
+    region:   Gebied
+    end_year: Toekomstjaar
     locale:   Taal
     
     settings: Instellingen
     sign_in:  Meld je aan
     account:  Uw account
 
-    about:    Over deze applicatie
-    feedback: Feedback
-    privacy:  Privacy statement
-    etmodel:  Open in Energietransitiemodel
-
+    about:    Een energiespel met echte cijfers
+    feedback: Wat vind je van dit spel
+    privacy:  Wat doen we met je gegevens 
+    etmodel:  Door naar het volgende level van dit spel
+    
   # Misc Words & Phrases -----------------------------------------------------
 
   words:
@@ -51,7 +51,7 @@ nl:
 
   # 404 Not Found ------------------------------------------------------------
 
-  oops: "Whoops"
+  oops: "Er gaat iets fout sorry"
   frontPage: "Terug naar de homepage"
   fourOhFour: "De pagina die je zocht kan niet worden gevonden."
 
@@ -60,7 +60,7 @@ nl:
   scenes:
     etlite:
       savings:      "Besparingen"
-      production:   "Energieproductie"
+      production:   "Productie"
 
       supply:       "Aanbod"
       demand:       "Vraag"
@@ -70,10 +70,10 @@ nl:
       demandExcess: "Vraag te hoog"
 
       renewables:   "Duurzaam"
-      emissions:    "Emissies"
+      emissions:    "CO2"
       costs:        "Kosten"
       score:        "Score"
-      reliability:  "Betrouwbaarheid"
+      reliability:  "Betrouwbaar"
       billion:      "miljard"
 
   # Common content on scene pages --------------------------------------------
