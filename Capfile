@@ -57,9 +57,23 @@ task :production do
   set :db_name, 'etflex'
   set :db_user, 'etflex'
 
-  # One server currently handles everything.
   server 'etflex.et-model.com', :web, :app, :db, primary: true
 end
+
+task :staging do
+  set :stage,   'staging'
+  set :branch,  'staging'
+
+  set :deploy_to, "/u/apps/#{application_name}"
+
+  set :db_host, 'etm.cr6sxqj0itls.eu-west-1.rds.amazonaws.com'
+  set :db_pass, 'V20KpwldSTFSDr'
+  set :db_name, 'etflex_staging'
+  set :db_user, 'etflex_staging'
+
+  server 'beta.etflex.et-model.com', :web, :app, :db, primary: true
+end
+
 
 # COMMON CONFIGURATION -------------------------------------------------------
 
