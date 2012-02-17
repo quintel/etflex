@@ -71,7 +71,7 @@ task :staging do
   set :db_name, 'etflex_staging'
   set :db_user, 'etflex_staging'
 
-  server 'beta.etflex.et-model.com', :web, :app, :db, primary: true
+  server '176.34.255.193', :web, :app, :db, primary: true
 end
 
 
