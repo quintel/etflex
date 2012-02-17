@@ -153,18 +153,17 @@
     // Ranges / sliders
 
     .range
+      padding: 0 9px
+
       .info
         @extend .clearfix
-        padding-right: 6px
 
         .label
           float: left
-          padding-left: 7px
-          width: 185px
+          width: 182px
 
         .value
           float: left
-          padding-right: 0px
           text-align: right
           width: 100px
 
@@ -178,19 +177,25 @@
 
       .control
         background: image-url("scenes/modern/range.png") left top no-repeat
+        padding-top: 12px
+        padding-bottom: 12px
 
-        &, .bar, .movable-range, .left, .main, .right
-          height: 30px
+        .handle
+          margin-top: -11px
+          margin-left: -9px
 
-        .active-bar
+        &, .bar, .delta-bar, .left, .main, .right
+          height: 6px
+
+        .delta-bar
           .left, .main, .right
-            background: image-url("scenes/modern/range.png") 0 -30px no-repeat
+            background: image-url("scenes/modern/range.png") 0 -42px no-repeat
 
           .main
-            background-position: -5px -30px
+            background-position: -5px -42px
 
           .right
-            background-position: -279px -30px
+            background-position: -279px -42px
 
         .handle
           background: image-url("scenes/modern/range.png") 0 -60px no-repeat
