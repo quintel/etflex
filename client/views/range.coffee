@@ -43,16 +43,16 @@ class exports.RangeView extends Backbone.View
 
     @quinn = new $.Quinn @$('.control'),
       value:       @model.get('value')
-      range:     [ @model.def.min, @model.def.max ]
+      min:         @model.def.min
+      max:         @model.def.max
       step:        @model.def.step
-      handleWidth: 28
-      width:       300
+      width:       282
 
       disable:     @model.get('disabled')
 
-      onSetup:     @updateOutput
-      onChange:    @updateOutput
-      onCommit:    @updateModel
+      setup:       @updateOutput
+      drag:        @updateOutput
+      change:      @updateModel
 
     @model.on 'change:value', @updateQuinnFromModel
 
