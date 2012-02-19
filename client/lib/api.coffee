@@ -4,7 +4,8 @@ PATH = null
 # after the first time it is called.
 #
 exports.setPath = (path) ->
-  PATH = if jQuery.support.cors then path else '/ete'
+  ios4 = navigator.userAgent?.match(/CPU OS 4_/)
+  PATH = if jQuery.support.cors and not ios4 then path else '/ete'
 
   exports.isBeta  = path.match(/^https?:\/\/beta\./)?
   exports.setPath = (->)
@@ -28,6 +29,7 @@ exports.isBeta = false
 #
 exports.send = (path, data, callback) ->
   [ callback, data ] = [ data, null ] unless callback?
+  console.log exports.path "api_scenarios/#{path}.json"
 
   jQuery.ajax
     url:          exports.path "api_scenarios/#{path}.json"
