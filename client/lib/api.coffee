@@ -29,7 +29,6 @@ exports.isBeta = false
 #
 exports.send = (path, data, callback) ->
   [ callback, data ] = [ data, null ] unless callback?
-  console.log exports.path "api_scenarios/#{path}.json"
 
   jQuery.ajax
     url:          exports.path "api_scenarios/#{path}.json"
