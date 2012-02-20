@@ -33,7 +33,6 @@ class exports.SceneView extends Backbone.View
     @$el.html template()
 
     @renderTheme()
-    @renderInputs()
     @renderProps()
     @renderNavigation()
     @initLoadingNotice()
@@ -41,6 +40,9 @@ class exports.SceneView extends Backbone.View
     @initOtherScenarios()
 
     this
+
+  postRender: ->
+    @renderInputs()
 
   # When a user tries to alter inputs on a scenario which isn't theirs, a "not
   # authorized" modal dialog appears allowing them to take suitable action.
@@ -143,7 +145,8 @@ class exports.SceneView extends Backbone.View
       # If the input location doesn't exist in the template, the input will
       # not rendered. This is intentional so that "hidden" and "$internal"
       # inputs don't raise errors.
-      inputLocations[ input.get('location') ]?.append rangeView.render().el
+      if into = inputLocations[ input.get 'location' ]
+        rangeView.renderInto into
 
   # Renders each of the props into the scene.
   #
