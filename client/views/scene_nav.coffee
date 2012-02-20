@@ -28,7 +28,7 @@ itemNameFromEvent = (event) ->
 # Renders the contents of the information menu.
 renderInfo = ({ model }) ->
   infoTemplate
-    etmURL:   if model? then urlToScenarioOnETM(model.scenario)
+    etmURL:   urlToScenarioOnETM(model.scenario)
     about:    I18n.t('navigation.about')
     feedback: I18n.t('navigation.feedback')
     privacy:  I18n.t('navigation.privacy')
@@ -41,6 +41,7 @@ renderSettings = (nav) ->
   element = $ settingsTemplate
     country:            scenario.get('country')
     end_year:           scenario.get('end_year')
+    show_score:         scenario.get('show_score')
     locale:             I18n.locale
     alternative_locale: (if I18n.locale == 'nl' then 'en' else 'nl')
 
@@ -50,6 +51,12 @@ renderSettings = (nav) ->
   country = $ '#change-country', element
   country.on 'change', -> scenario.set country: country.val()
 
+  show_score = $ '#show-score', element
+  show_score.on 'change', -> 
+    hide_or_show = show_score.is(':checked')
+    scenario.set show_score: hide_or_show
+    $('#main-props .score').css('opacity': if hide_or_show then 1 else 0)
+    
   element
 
 # Renders the contents of the user menu.
