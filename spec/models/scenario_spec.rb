@@ -263,7 +263,7 @@ describe Scenario do
     end
 
     it 'should also set a score when present' do
-      scenario = Scenario.new query_results: { 'score' => 1337 }
+      scenario = Scenario.new query_results: { 'etflex_score' => 1337 }
       scenario.score.should eql(1337.0)
     end
 
