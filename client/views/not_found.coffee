@@ -19,6 +19,9 @@ class exports.NotFoundView extends Backbone.View
 
     this
 
+  postRender: ->
+    $('body').addClass 'message'
+
   navigateToRoot: (event) ->
     app.navigate '', true
     event.preventDefault()
