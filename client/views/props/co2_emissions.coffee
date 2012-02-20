@@ -45,10 +45,8 @@ class exports.CO2EmissionsView extends GenericProp
     @$el.find('.output').html "#{@precision value, 1} Mton"
 
     # Show difference with same precision
-    @setDifference @precision value-previous, 1
+    @setDifference @precision value - previous, 1
 
-    # Testing the new extrema / percentage-based hurdle...
-    extrema = @options.extrema[ @query.id ][ @options.region() ]
-    @icon.setState hurdleStateNew this, extrema, value
+    @icon.setState @hurdleState value
 
     this

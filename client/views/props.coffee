@@ -43,19 +43,3 @@ exports.hurdleState = (view, value) ->
       # Is the value less than the hurdle value (we check each hurdle in
       # ascending order)?
       value < view.options.hurdles[ index ]
-
-# A new version of hurdleState which determines the state of a prop by using
-# percentage-based hurdle values -- instead of explicit values -- using the
-# query extrema provided by the server.
-#
-# query   - The query ID whose value is being used to get the hurdle state.
-# extrema - An array containing two elements - the minimum and maximum values
-#           for the query in the current scenario region.
-# value   - The query value
-#
-# TODO Should provide the hurdle and state values explicitly instead of
-#      passing a view instance.
-#
-exports.hurdleStateNew = (view, [ min, max ], value) ->
-  unless min? and max? then null else
-    exports.hurdleState view, ( value - min ) / ( max - min )
