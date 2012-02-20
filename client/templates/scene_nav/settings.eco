@@ -6,7 +6,10 @@
   <li class='static'>
     <%= I18n.t 'navigation.end_year' %>:
     <%= @end_year %>
-    </select>
+  </li>
+  <li class='static'>
+    <input name='show-score' id='show-score' type='checkbox' value=1 <%= "checked='checked'" if @show_score %> />
+    <label for='show-score'>Show score</label>
   </li>
   <li>
     <a href='<%= window.location.pathname %>?locale=<%= @alternative_locale%>' data-navigate="noclient">
