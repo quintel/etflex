@@ -24,6 +24,6 @@ exports.clientNavigate = (event) ->
 
   href = target.attr 'href'
 
-  if href? and href[0..7] isnt 'http://'
+  if href? and href[0...7] isnt 'http://'
     app.navigate href
     event.preventDefault()
