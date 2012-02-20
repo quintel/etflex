@@ -3,7 +3,7 @@
   <li><a href="/feedback"><%= @feedback %></a></li>
   <li><a href="/privacy"><%= @privacy %></a></li>
 
-  <% if @etmUrl: %>
+  <% if @etmURL: %>
     <li id="nav-etmodel"><a href="<%= @etmURL %>" target="_blank"><%= @etmodel %></a></li>
   <% end %>
 </ul>
