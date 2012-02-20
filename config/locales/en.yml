@@ -3,7 +3,7 @@
 
 en:
   loading: "Loading"
-  loadingMsg: "The application is being loaded. Hang tight; it won't be long!"
+  loadingMsg: "The application is being loaded. One moment; it won't be long!"
 
   # Navigation Elements ------------------------------------------------------
 
