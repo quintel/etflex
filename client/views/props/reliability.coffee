@@ -30,14 +30,16 @@ class exports.ReliabilityView extends GenericProp
   # without re-rendering the whole view.
   #
   updateValues: =>
-    value = (1 - @query.get('future')) * 100 # risk is bad, no risk is good
-    previous = (1 - @query.previous('future')) * 100
+    value     = (1 - @query.get('future')) * 100 # risk is bad, none is good
+    previous  = (1 - @query.previous('future')) * 100
+
+    formatted = I18n.toNumber value, precision: 1
 
     # Reduce the value to three decimal places when shown.
-    @$el.find('.output').html("#{@precision value, 2}%")
+    @$el.find('.output').html("#{formatted}%")
 
     @icon.setState @hurdleState @query.get('future')
 
-    @setDifference @precision value-previous, 1
+    @setDifference value - previous, precision: 1
 
     this

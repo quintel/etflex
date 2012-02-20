@@ -36,15 +36,17 @@ class exports.CostsView extends GenericProp
   #
   updateValues: =>
     # Divide to get the cost in billions.
-    value = @query.get('future') / 1000000000
-    previous = @query.previous('future') / 1000000000
+    value     = @query.get('future') / 1000000000
+    previous  = @query.previous('future') / 1000000000
+
+    formatted = I18n.toNumber value, precision: 1
 
     # Reduce the shown value to three decimal places.
     @$el.find('.output').html(
-      "€ #{@precision value, 1} #{I18n.t 'scenes.etlite.billion'}")
+      "€ #{formatted} #{I18n.t 'scenes.etlite.billion'}")
 
     # Show difference with same precision
-    @setDifference @precision value-previous, 1
+    @setDifference value - previous
 
     @icon.setState @hurdleState value
 

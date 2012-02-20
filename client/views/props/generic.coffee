@@ -58,15 +58,24 @@ class exports.GenericProp extends Backbone.View
   hurdleState: (value) ->
     hurdleState this, value
 
-  setDifference: (difference) ->
-    element = @$el.find('.difference')
+  # Shows the user the difference between the previous value of a prop, and
+  # the new value. Formats the number appropriately for the user locale.
+  #
+  # difference - The difference between the old and new values.
+  # options    - Options which are passed to the I18n formatted.
+  #
+  setDifference: (difference, options = { precision: 1 }) ->
+    element = @$el.find '.difference'
 
     # Clear out other classes by default
-    element.attr(class:'difference')
+    element.attr class: 'difference'
+
+    # The locale-formatted difference.
+    formatted = I18n.toNumber difference, options
 
     if difference > 0
-      element.addClass('up').html "#{difference}"
+      element.addClass('up').html "#{formatted}"
     else if difference < 0
-      element.addClass('down').html "#{difference}"
+      element.addClass('down').html "#{formatted}"
     else
       element.html ""
