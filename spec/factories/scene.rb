@@ -33,7 +33,7 @@ FactoryGirl.define do
         key: 'households_behavior_standby_killer_turn_off_appliances')
 
       input_two = FactoryGirl.create(:input, remote_id: 315,
-        key: 'number_of_coal_conventional')
+        key: 'number_of_pulverized_coal')
 
       scene.scene_inputs.create!(location: 'left', input: input_one)
 
