@@ -45,7 +45,7 @@ class exports.GenericProp extends Backbone.View
       rounded = Math.round(number * multiplier) / multiplier
       rounded = rounded.toString().split '.'
 
-      if rounded.length is 1 then rounded else
+      if rounded.length is 1 then rounded[0] else
         "#{rounded[0]}.#{rounded[1][0...precision]}"
 
   # Given a query value, returns which "state" that value corresponds to based
@@ -71,7 +71,13 @@ class exports.GenericProp extends Backbone.View
     element.attr class: 'difference'
 
     # The locale-formatted difference.
-    formatted = I18n.toNumber difference, options
+    formatted  = I18n.toNumber difference, options
+
+    # Don't display the difference if, when rounded to the precision, it would
+    # equal 0 (e.g. score increases by 0.1, but we only care when it increases
+    # in whole numbers).
+    difference = parseFloat @precision(difference,
+      if options.precision? then options.precision else 1)
 
     if difference > 0
       element.addClass('up').html "#{formatted}"
