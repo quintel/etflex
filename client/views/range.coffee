@@ -28,9 +28,17 @@ class exports.RangeView extends Backbone.View
 
   # Renders the range, and sets up events.
   #
+  # Unlike most other Backbone views, Range takes the element into which the
+  # DOM elements should be inserted, and performs the insertion itself. This
+  # is because setting up Quinn requires that the destination nodes be present
+  # in the DOM in order to know their widths.
+  #
+  # This means that the parent view (probably Scene) needs to render the Range
+  # views in the postRender() method instead of render().
+  #
   # @return {Range} Returns self.
   #
-  render: () ->
+  renderInto: (destination) ->
     # TODO Add a "unitHtml helper somewhere.
     unit = switch @model.def.unit
       when 'km2' then " km<sup>2</sup>"
@@ -41,23 +49,23 @@ class exports.RangeView extends Backbone.View
       hasInfo:     @model.def.info?
       unit:        unit
 
+    destination.append @$el
+
     @quinn = new $.Quinn @$('.control'),
-      value:       @model.get('value')
-      min:         @model.def.min
-      max:         @model.def.max
-      step:        @model.def.step
-      width:       282
+      value:   @model.get('value')
+      min:     @model.def.min
+      max:     @model.def.max
+      step:    @model.def.step
 
-      disable:     @model.get('disabled')
+      disable: @model.get('disabled')
 
-      setup:       @updateOutput
-      drag:        @updateOutput
-      change:      @updateModel
+      setup:   @updateOutput
+      drag:    @updateOutput
+      change:  @updateModel
 
     @model.on 'change:value', @updateQuinnFromModel
 
     @delegateEvents()
-    this
 
   # Updates the .output element with the input value. Used as an onChange
   # callback when creating the Quinn instance.

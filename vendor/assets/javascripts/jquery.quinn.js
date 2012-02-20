@@ -27,8 +27,6 @@
             return oEvent.touches[0].pageX;
         } else if (oEvent.changedTouches && oEvent.changedTouches.length) {
             return oEvent.changedTouches[0].pageX;
-            // if (event.type === 'touchmove') {
-                // return event.originalEvent.targetTouches[0].pageX;
         }
 
         return event.pageX;
@@ -97,7 +95,7 @@
     }
 
     // The current Quinn version.
-    Quinn.VERSION = '1.0.0.rc1';
+    Quinn.VERSION = '1.0.0.rc2';
 
     // ### Event Handling
 
@@ -473,7 +471,8 @@
 
         if (this.start()) {
             this.activateHandleWithEvent(event);
-            this.setTentativeValue(this.valueFromMouse(event.pageX));
+            this.setTentativeValue(
+                this.valueFromMouse(locationOfEvent(event)));
             this.startDrag(event, true);
         }
 
@@ -731,9 +730,10 @@
      * render() is called automatically when creating a new Quinn instance.
      */
     Quinn.Renderer.prototype.render = function () {
-        var i, length;
+        var i, length, marginLeft;
 
-        this.width = this.options.width || this.wrapper.width();
+        this.width  = this.wrapper.width();
+        this.adjust = -this.wrapper.height();
 
         function addRoundingElements (element) {
             element.append($('<div class="left" />'));
@@ -761,8 +761,19 @@
         // Add each of the handles to the bar, and bind the click events.
         for (i = 0, length = this.model.values.length; i < length; i++) {
             this.handles[i] = $('<span class="handle"></span>');
+
             this.handles[i].on(DRAG_START_E, this.quinn.startDrag);
             this.bar.append(this.handles[i]);
+        }
+
+        // Adjust the positioning of the handles so that they appear to
+        // "dangle" over the edge of the bar.
+
+        marginLeft = this.handles[0].width() + this.adjust;
+        marginLeft = -(marginLeft / 2) + 'px';
+
+        for (i = 0, length = this.handles.length; i < length; i++) {
+            this.handles[i].css('marginLeft', marginLeft);
         }
 
         // Finally, these events are triggered when the user seeks to
@@ -793,7 +804,7 @@
             }
 
             handle   = self.handles[i].stop();
-            position = self.position(self.model.values[i], -12) + 'px';
+            position = self.position(value, self.adjust) + 'px';
 
             if (animate && self.options.effects) {
                 handle.animate({ left: position }, {
@@ -883,14 +894,15 @@
     };
 
     /**
-     * ### positin
+     * ### position
      *
      * Given a slider value, returns the position in pixels where the value is
      * on the slider bar. For example, in a 200px wide bar whose values are
      * 1->100, the value 20 is found 40px from the left of the bar.
      *
      * If adjust is present, the position will be calculated for a handle so
-     * that it "dangles" over the edge of the bar.
+     * that it "dangles" over the edge of the bar by the given number of
+     * pixels.
      */
     Quinn.Renderer.prototype.position = function (value, adjust) {
         var delta    = this.quinn.drawTo.right - this.quinn.drawTo.left,
