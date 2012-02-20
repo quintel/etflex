@@ -34,13 +34,15 @@ class exports.RenewablesView extends GenericProp
   #
   updateValues: =>
     # Multiply the query value by 100 to get a percentage.
-    value = @query.get('future') * 100
-    previous = @query.previous('future') * 100
+    value     = @query.get('future') * 100
+    previous  = @query.previous('future') * 100
 
-    @setDifference @precision value-previous, 1
+    formatted = I18n.toNumber value, precision: 1
+
+    @setDifference value - previous
 
     # Reduce the value to three decimal places when shown.
-    @$el.find('.output').html "#{@precision value, 1}%"
+    @$el.find('.output').html "#{formatted}%"
 
     @icon.setState @hurdleState value
 

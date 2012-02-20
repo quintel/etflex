@@ -62,7 +62,7 @@ class exports.ScoreView extends GenericProp
     @$el.find('.tens').addClass("number-#{string_score[1]}")
     @$el.find('.ones').addClass("number-#{string_score[2]}")
 
-    @setDifference @precision score-previous, 0
+    @setDifference score - previous, precision: 0
 
     this
 

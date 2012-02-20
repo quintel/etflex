@@ -38,14 +38,16 @@ class exports.CO2EmissionsView extends GenericProp
   updateValues: =>
     # Query result is in kilograms. Divide by 1000 to get tons, then 1000_000
     # to get Mtons.
-    value = @query.get('future') / (1000 * 1000000)
-    previous = @query.previous('future') / (1000 * 1000000)
+    value     = @query.get('future') / (1000 * 1000000)
+    previous  = @query.previous('future') / (1000 * 1000000)
+
+    formatted = I18n.toNumber value, precision: 1
 
     # Reduce the value to one decimal place when shown.
-    @$el.find('.output').html "#{@precision value, 1} Mton"
+    @$el.find('.output').html "#{formatted} Mton"
 
     # Show difference with same precision
-    @setDifference @precision value - previous, 1
+    @setDifference value - previous
 
     @icon.setState @hurdleState value
 
