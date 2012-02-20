@@ -158,7 +158,6 @@ class exports.SceneView extends Backbone.View
       propView = @prop prop.behaviour,
         key:     prop.key
         hurdles: prop.hurdles
-        extrema: prop.queryExtrema
         queries: @model.queries
         region:  => @model.scenario.get('country')
 
