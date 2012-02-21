@@ -39,25 +39,25 @@ renderSettings = (nav) ->
   scenario = nav.model.scenario
 
   element = $ settingsTemplate
-    country:            scenario.get('country')
-    end_year:           scenario.get('end_year')
-    show_score:         scenario.get('show_score')
-    locale:             I18n.locale
-    scene_id:           nav.model.id
-    alternative_locale: (if I18n.locale == 'nl' then 'en' else 'nl')
+    country:           scenario.get('country')
+    endYear:           scenario.get('endYear')
+    showScore:         scenario.get('showScore')
+    locale:            I18n.locale
+    sceneId:           nav.model.id
+    alternativeLocale: (if I18n.locale == 'nl' then 'en' else 'nl')
 
   year = $ '#change-end-year', element
-  year.on 'change', -> scenario.set end_year: year.val()
+  year.on 'change', -> scenario.set endYear: year.val()
 
   country = $ '#change-country', element
   country.on 'change', -> scenario.set country: country.val()
 
-  show_score = $ '#show-score', element
-  show_score.on 'change', -> 
-    hide_or_show = show_score.is(':checked')
-    scenario.set show_score: hide_or_show
-    $('#main-props .score').css('opacity': if hide_or_show then 1 else 0)
-    
+  showScore = $ '#show-score', element
+  showScore.on 'change', ->
+    hideOrShow = showScore.is(':checked')
+    scenario.set showScore: hideOrShow
+    $('#main-props .score').css('opacity': if hideOrShow then 1 else 0)
+
   element
 
 # Renders the contents of the user menu.

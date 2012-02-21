@@ -59,7 +59,7 @@ fetchUserValues = (sessionId, inputs, callback) ->
 #
 createSession = (queries, inputs, scenario, callback) ->
   data = settings:
-    end_year: scenario.get('end_year')
+    end_year: scenario.get('endYear')
     country:  scenario.get('country')
 
   api.send 'new', data, (err, sessionData) ->
@@ -113,6 +113,3 @@ localRestore = (scenario, queries, inputs, callback) ->
   query.set(future: localQueries[query.id]) for query in queries
 
   callback null, scenario.get('sessionId')
-  
-settings = () ->
-  app.settings

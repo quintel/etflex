@@ -5,19 +5,19 @@
   </li>
   <li class='static'>
     <%= I18n.t 'navigation.end_year' %>:
-    <%= @end_year %>
+    <%= @endYear %>
   </li>
   <li class='static'>
-    <input name='show-score' id='show-score' type='checkbox' value=1 <%= "checked='checked'" if @show_score %> />
+    <input name='show-score' id='show-score' type='checkbox' value=1 <%= "checked='checked'" if @showScore %> />
     <label for='show-score'>Show score</label>
   </li>
   <li>
-    <a href='<%= window.location.pathname %>?locale=<%= @alternative_locale%>' data-navigate="noclient">
-      <%= I18n.t 'navigation.switch_to' %> <%= I18n.t "locales.#{@alternative_locale}" %>
+    <a href='<%= window.location.pathname %>?locale=<%= @alternativeLocale%>' data-navigate="noclient">
+      <%= I18n.t 'navigation.switch_to' %> <%= I18n.t "locales.#{@alternativeLocale}" %>
     </a>
   </li>
   <li class='new-category'>
-    <a href='/scenes/<%= @scene_id %>' data-navigate='noclient'>
+    <a href='/scenes/<%= @sceneId %>' data-navigate='noclient'>
       <%= I18n.t 'navigation.reset_model' %>
     </a>
   </li>

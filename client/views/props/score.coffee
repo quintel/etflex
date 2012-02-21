@@ -45,10 +45,10 @@ class exports.ScoreView extends GenericProp
     score    = @brickwallScore @query.get('future')
     previous = @brickwallScore @query.previous('future')
 
-    rounded_score = @precision score, 0
-    string_score = rounded_score.toString()
+    roundedScore = @precision score, 0
+    stringScore = roundedScore.toString()
 
-    string_score = "0" + string_score until string_score.length == 3
+    stringScore = "0" + stringScore until stringScore.length == 3
 
     # Reduce the shown value to whole value.
     @$el.find('.output').html @precision score, 0
@@ -58,11 +58,11 @@ class exports.ScoreView extends GenericProp
       number-0 number-1 number-2 number-3 number-4 number-5
       number-6 number-7 number-8 number-9')
 
-    @$el.find('.hundreds').addClass("number-#{string_score[0]}")
-    @$el.find('.tens').addClass("number-#{string_score[1]}")
-    @$el.find('.ones').addClass("number-#{string_score[2]}")
+    @$el.find('.hundreds').addClass "number-#{stringScore[0]}"
+    @$el.find('.tens').addClass     "number-#{stringScore[1]}"
+    @$el.find('.ones').addClass     "number-#{stringScore[2]}"
 
-    @setDifference @precision(score, 0) - @precision(previous,0), precision: 0
+    @setDifference score - previous, precision: 0
 
     this
 

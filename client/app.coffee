@@ -95,6 +95,7 @@ commonBoot = (window, locale, user) ->
 installConsolePolyfill = (window) ->
   unless 'console' of window
     window.console = { log: (->), info: (->), warn: (->), error: (->) }
-    
+
+# Returns if the application is being run in the staging environment.
 exports.isBeta = () ->
   window.location.hostname.match(/beta/)?
