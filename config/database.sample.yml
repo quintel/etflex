@@ -28,3 +28,7 @@ test:
 production:
   <<: *common
   database: etflex_production
+
+staging:
+  <<: *common
+  database: etflex_staging
