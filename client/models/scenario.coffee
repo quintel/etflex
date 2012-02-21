@@ -11,9 +11,9 @@ api = require 'lib/api'
 class exports.Scenario extends Backbone.Model
 
   constructor: (attributes) ->
-    attributes.country  or= 'nl'
-    attributes.end_year or= 2050
-    attributes.show_score or= true
+    attributes.country   or= 'nl'
+    attributes.endYear   or= 2050
+    attributes.showScore or= true
 
     super
 
@@ -68,14 +68,14 @@ class exports.Scenario extends Backbone.Model
   saveSettings: (queries) ->
     data =
       queries:    queries
-      settings: { end_year: @get('end_year'), country: @get('country') }
+      settings: { endYear: @get('endYear'), country: @get('country') }
 
     # Update ET-Engine
     api.updateInputs @get('sessionId'), data, (err) =>
       if err?
         @set {
-          end_year: @previous 'end_year'
-          country:  @previous 'country'
+          endYear: @previous 'endYear'
+          country: @previous 'country'
         }, silent: true
       else
         # Update ET-Flex

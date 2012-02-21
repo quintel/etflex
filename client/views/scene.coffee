@@ -175,7 +175,7 @@ class exports.SceneView extends Backbone.View
   #
   renderNavigation: ->
     @$('#footer').before (new SceneNav model: @model).render().el
-    
+
   # Creates the "Loading..." box which pops up at the bottom-left of the
   # scene view whenever an XHR request is pending.
   #
