@@ -31,7 +31,7 @@ en:
     feedback: Feedback
     privacy:  Privacy statement
     etmodel:  Open in the Energy Transition Model
-    
+
   # Misc Words & Phrases -----------------------------------------------------
 
   words:
@@ -99,7 +99,7 @@ en:
     nl: Dutch
     en: English
     de: German
-  
+
   regions:
     nl:               Netherlands
     uk:               United Kingdom
@@ -126,3 +126,14 @@ en:
     ams:              Amsterdam
     be-vlg:           Flanders
     br:               Brandenburg
+
+  # Legacy Browser Warnings --------------------------------------------------
+
+  legacy_browser:
+    title: You are using an old browser.
+    continue: Continue anyway
+    message: >
+      The browser you are using is quite old and is not fully supported by this
+      website. You may continue if you wish, but we recommend either upgrading
+      your current browser, or consider swapping to either Google Chrome or
+      Mozilla Firefox.

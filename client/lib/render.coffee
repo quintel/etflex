@@ -10,6 +10,9 @@ module.exports = (view) ->
   module.exports.appendModalDialog()
   view.postRender?()
 
+  if $.browser.msie and $.browser.version < 9.0
+    showLegacyBrowserWarning()
+
   true
 
 # Appends the modal dialog HTML to the page.
@@ -31,3 +34,19 @@ module.exports.appendModalDialog = ->
 pageTitle = (view) ->
   unless view.pageTitle? then 'ETFlex' else
     "#{view.pageTitle?() or view.pageTitle} - ETFlex"
+
+# Users of old browsers should be warned that we don't support them and
+# informed that the site may not work correctly.
+#
+# This message is only shown the on the first visit.
+#
+showLegacyBrowserWarning = ->
+  unless $.cookie 'legacy_browser'
+    modalDialog  = $ '#modal-dialog'
+    modalContent = $ '#modal-content', modalDialog
+    warningMsg   = require 'templates/legacy_browser'
+
+    modalContent.html warningMsg()
+    modalDialog.reveal dismissmodalclass: 'continue-anyway'
+
+    $.cookie 'legacy_browser', '1', expires: 14, path: '/'

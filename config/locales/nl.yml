@@ -23,17 +23,16 @@ nl:
     locale:      Taal
     switch_to:   Schakel over naar
     reset_model: Reset je scenario
-    
-    
+
     settings: Instellingen
     sign_in:  Meld je aan
     account:  Uw account
 
     about:    Een energiespel met echte cijfers
     feedback: Wat vind je van dit spel
-    privacy:  Wat doen we met je gegevens 
+    privacy:  Wat doen we met je gegevens
     etmodel:  Door naar het volgende level van dit spel
-    
+
   # Misc Words & Phrases -----------------------------------------------------
 
   words:
@@ -97,7 +96,7 @@ nl:
     nl: Nederlands
     en: Engels
     de: Duits
-  
+
   regions:
     nl:               Nederland
     uk:               Verenigd Koninkrijk
@@ -124,3 +123,14 @@ nl:
     ams:              Amsterdam
     be-vlg:           Vlaanderen
     br:               Brandenburg
+
+  # Legacy Browser Warnings --------------------------------------------------
+
+  legacy_browser:
+    title: U gebruikt een oude browser.
+    continue: Toch doorgaan
+    message: >
+      De browser die u gebruikt is vrij oud en wordt niet volledig ondersteund
+      door deze website. Je mag doorgaan als je wilt, maar wij raden ofwel het
+      upgraden van uw huidige browser, of overwegen te wisselen om ofwel
+      Google Chrome of Mozilla Firefox.
