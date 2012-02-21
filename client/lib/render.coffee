@@ -4,7 +4,7 @@
 # view - The view instance to be rendered and added to the body.
 #
 module.exports = (view) ->
-  $('title').text pageTitle view
+  document.title = pageTitle view
   $('body').html(view.render().el).removeClass 'message'
 
   module.exports.appendModalDialog()
