@@ -1,13 +1,13 @@
 namespace :deploy do
   def set_unicorn_variables
     set :unicorn_binary, "#{current_path}/bin/unicorn"
-    set :unicorn_config, "#{current_path}/config/unicorn/#{stage}.rb"
+    set :unicorn_config, "#{current_path}/config/unicorn/#{rails_env}.rb"
     set :unicorn_pid,    "#{current_path}/tmp/pids/unicorn.pid"
   end
 
   task :start, roles: :app, except: { no_release: true } do
     set_unicorn_variables
-    run "cd #{current_path} && #{unicorn_binary} -c #{unicorn_config} -E #{stage} -D"
+    run "cd #{current_path} && #{unicorn_binary} -c #{unicorn_config} -E #{rails_env} -D"
   end
 
   task :stop, roles: :app, except: { no_release: true } do
