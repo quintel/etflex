@@ -37,7 +37,6 @@ class exports.SceneView extends Backbone.View
     @renderNavigation()
     @initLoadingNotice()
     @initShareLinks()
-    @initOtherScenarios()
 
     this
 

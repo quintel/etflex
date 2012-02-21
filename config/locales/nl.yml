@@ -17,10 +17,13 @@ nl:
 
     info:     Informatie
 
-    settings: Instellingen
-    region:   Gebied
-    end_year: Toekomstjaar
-    locale:   Taal
+    settings:    Instellingen
+    region:      Gebied
+    end_year:    Toekomstjaar
+    locale:      Taal
+    switch_to:   Schakel over naar
+    reset_model: Reset je scenario
+    
     
     settings: Instellingen
     sign_in:  Meld je aan
@@ -94,7 +97,6 @@ nl:
     nl: Nederlands
     en: Engels
     de: Duits
-    switch_to: Schakel over naar
   
   regions:
     nl:               Nederland
