@@ -9,7 +9,7 @@ describe ScenariosController do
     before(:each) do
       sign_in create(:user)
       put :update, scene_id: scene.id, id: 42, format: :json, scenario: {
-        country: 'nl', end_year: '2050',
+        country: 'nl', endYear: '2050',
         inputValues: { '1' => '2' }, queryResults: { '3' => '4' } }
     end
 
