@@ -28,7 +28,7 @@ class exports.ScoreView extends GenericProp
     @$el.prepend """
       <div class='icon-prop'>
         <span class='icon'>
-          <span class='numbers hundreds'><span class='number-8'></span></span>
+          <span class='numbers hundreds'></span>
           <span class='numbers tens'></span>
           <span class='numbers ones'></span>
         </span>
