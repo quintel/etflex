@@ -3,6 +3,7 @@ app                = require 'app'
 api                = require 'lib/api'
 template           = require 'templates/scene'
 scenarioTempl      = require 'templates/scenario'
+badgeTempl         = require 'templates/badge'
 
 { RangeView }      = require 'views/range'
 { SceneNav }       = require 'views/scene_nav'
@@ -42,6 +43,7 @@ class exports.SceneView extends Backbone.View
 
   postRender: ->
     @renderInputs()
+    @renderBadge() if app.isBeta()
 
   # When a user tries to alter inputs on a scenario which isn't theirs, a "not
   # authorized" modal dialog appears allowing them to take suitable action.
@@ -173,7 +175,7 @@ class exports.SceneView extends Backbone.View
   #
   renderNavigation: ->
     @$('#footer').before (new SceneNav model: @model).render().el
-
+    
   # Creates the "Loading..." box which pops up at the bottom-left of the
   # scene view whenever an XHR request is pending.
   #
@@ -182,6 +184,9 @@ class exports.SceneView extends Backbone.View
 
     loader.ajaxStart -> loader.stop().animate bottom:   '0px', 'fast'
     loader.ajaxStop  -> loader.stop().animate bottom: '-36px', 'fast'
+
+  renderBadge: ->
+    $('body').append badgeTempl()
 
   # Initializes the scenarios list which appears on the right-hand side of the
   # scene and links to scenarios belonging to other users.

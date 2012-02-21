@@ -95,3 +95,6 @@ commonBoot = (window, locale, user) ->
 installConsolePolyfill = (window) ->
   unless 'console' of window
     window.console = { log: (->), info: (->), warn: (->), error: (->) }
+    
+exports.isBeta = () ->
+  window.location.hostname.match(/beta/)?
