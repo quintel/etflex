@@ -8,11 +8,15 @@ module ETFlex
 
         @host = api.host.freeze
         @path = api.path.freeze
+        @port = api.port
       end
 
       def rewrite_env(env)
-        env['HTTP_HOST'] = @host
-        env['PATH_INFO'] = "#{@path}#{env['PATH_INFO'][4..-1]}"
+        env = env.dup
+
+        env['HTTP_HOST']   = @host
+        env['PATH_INFO']   = "#{@path}#{env['PATH_INFO'][4..-1]}"
+        env['SERVER_PORT'] = @port || 80
 
         env
       end
