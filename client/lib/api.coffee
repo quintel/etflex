@@ -4,7 +4,6 @@ PATH = null
 # after the first time it is called.
 #
 exports.setPath = (path) ->
-  console.log navigator.userAgent
   ios4 = navigator.userAgent?.match(/CPU (iPhone )?OS 4_/)
   PATH = if jQuery.support.cors and not ios4 then path else '/ete'
 
