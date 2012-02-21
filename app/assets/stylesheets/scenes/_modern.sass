@@ -555,13 +555,28 @@
       position: relative
       $height: 35px
 
-      span.numbers
-        text-indent: -9999px
+      span.numbers, span.number-overlay
+        color: #f5f2ee
+        font-size: 23px
+        font-weight: bold
+        height: 26px
+        padding-top: 7px
         position: absolute
+        text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.8)
         top: 64px
         width: 25px
-        height: 33px
-        background-image: image-url("scenes/modern/icons/score_numbers.png")
+
+      span.number-overlay
+        background: image-url("scenes/modern/icons/score-overlay.png") no-repeat
+
+        &.flip1
+          background-position: 0 -30px
+
+        &.flip2
+          background-position: 0 -60px
+
+        &.flip3
+          background-position: 0 -90px
 
       span.hundreds
         left: 68px

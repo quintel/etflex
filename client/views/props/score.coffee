@@ -12,7 +12,8 @@ class exports.ScoreView extends GenericProp
   constructor: (options) ->
     super options
 
-    @icon = new IconProp
+    @icon   = new IconProp
+    @timers = { ones: [], tens: [], hundreds: [] }
 
     @query = options.queries.get 'etflex_score'
     @query.on 'change:future', @updateValues
@@ -31,6 +32,10 @@ class exports.ScoreView extends GenericProp
           <span class='numbers hundreds'></span>
           <span class='numbers tens'></span>
           <span class='numbers ones'></span>
+
+          <span class='number-overlay hundreds'></span>
+          <span class='number-overlay flip1 tens'></span>
+          <span class='number-overlay flip2 ones'></span>
         </span>
       </div>"""
 
@@ -46,25 +51,62 @@ class exports.ScoreView extends GenericProp
     previous = @brickwallScore @query.previous('future')
 
     roundedScore = @precision score, 0
-    stringScore = roundedScore.toString()
+    stringScore  = roundedScore.toString()
 
-    stringScore = "0" + stringScore until stringScore.length == 3
+    # Ensure the score is left-padded with zeros when < 100 and < 10.
+    stringScore = "0" + stringScore until stringScore.length is 3
 
     # Reduce the shown value to whole value.
     @$el.find('.output').html @precision score, 0
 
-    # Show the separate numbers in the image
-    @$el.find('.numbers').removeClass('
-      number-0 number-1 number-2 number-3 number-4 number-5
-      number-6 number-7 number-8 number-9')
-
-    @$el.find('.hundreds').addClass "number-#{stringScore[0]}"
-    @$el.find('.tens').addClass     "number-#{stringScore[1]}"
-    @$el.find('.ones').addClass     "number-#{stringScore[2]}"
+    @updateMultiple 'ones',     stringScore[2]
+    @updateMultiple 'tens',     stringScore[1]
+    @updateMultiple 'hundreds', stringScore[0]
 
     @setDifference score - previous, precision: 0
 
     this
+
+  # Given the name of a multiple -- "hundreds", "tens", or "ones" -- updates
+  # the UI to show the new score. Animates the change from the old number to
+  # the new number asynchronously.
+  #
+  # factor - The multiple name.
+  # digit  - The digit to be shown for the multiple. Nothing will happen if
+  #          the number is already shown.
+  #
+  updateMultiple: (multiple, digit) ->
+    # If there are any existing animation timers running for this multiple,
+    # stop them before going any further.
+    clearTimeout timerId for timerId in @timers[multiple]
+
+    element = @$ ".numbers.#{multiple}"
+    overlay = @$ ".number-overlay.#{multiple}"
+
+    # Don't do anything if the new digit is the same as the old one.
+    return if element.text() is "#{digit}"
+
+    # Make sure we're starting from scratch.
+    overlay.removeClass 'flip2'
+    overlay.removeClass 'flip3'
+
+    # Set up the animations...
+    overlay.addClass 'flip1'
+
+    @timers[multiple].push(setTimeout ->
+      overlay.removeClass 'flip1'
+      overlay.addClass 'flip2'
+    , 60)
+
+    @timers[multiple].push(setTimeout ->
+      overlay.removeClass 'flip2'
+      overlay.addClass 'flip3'
+      element.text "#{digit}"
+    , 120)
+
+    @timers[multiple].push(setTimeout ->
+      overlay.removeClass 'flip3'
+    , 180)
 
   # Ensures that a score for display is not lower than 0, and not higher than
   # 999 (otherwise the display cannot accommodate them).
