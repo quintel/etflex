@@ -13,7 +13,12 @@
   </li>
   <li>
     <a href='<%= window.location.pathname %>?locale=<%= @alternative_locale%>' data-navigate="noclient">
-      <%= I18n.t 'locales.switch_to' %> <%= I18n.t "locales.#{@alternative_locale}" %>
+      <%= I18n.t 'navigation.switch_to' %> <%= I18n.t "locales.#{@alternative_locale}" %>
+    </a>
+  </li>
+  <li class='new-category'>
+    <a href='/scenes/<%= @scene_id %>' data-navigate='noclient'>
+      <%= I18n.t 'navigation.reset_model' %>
     </a>
   </li>
 </ul>

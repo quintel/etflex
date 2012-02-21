@@ -17,11 +17,13 @@ en:
 
     info:     Information
 
-    settings: Settings
-    region:   Region/Country
-    end_year: End Year
-    locale:   Language
-          
+    settings:    Settings
+    region:      Region/Country
+    end_year:    End Year
+    locale:      Language
+    switch_to:   Switch to
+    reset_model: Reset your scenario
+
     sign_in:  Sign in
     account:  Account
 
@@ -97,7 +99,6 @@ en:
     nl: Dutch
     en: English
     de: German
-    switch_to: Switch to
   
   regions:
     nl:               Netherlands

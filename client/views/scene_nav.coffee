@@ -43,6 +43,7 @@ renderSettings = (nav) ->
     end_year:           scenario.get('end_year')
     show_score:         scenario.get('show_score')
     locale:             I18n.locale
+    scene_id:           nav.model.id
     alternative_locale: (if I18n.locale == 'nl' then 'en' else 'nl')
 
   year = $ '#change-end-year', element
