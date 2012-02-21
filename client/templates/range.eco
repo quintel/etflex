@@ -1,6 +1,6 @@
 <div class="info">
   <span class="label">
-    <%= @name %>
+    <span class="label-text"><%= @name %></span>
     <% if @hasInfo: %><span class="help"></span><% end %>
   </span>
 
