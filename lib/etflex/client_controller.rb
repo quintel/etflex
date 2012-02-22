@@ -14,8 +14,8 @@ module ETFlex
 
       layout 'client'
 
-      respond_to :json
       respond_to :html, except: [ :create, :update, :destroy ]
+      respond_to :json
     end
 
     # Used as a before_filter in ClientControllers and forcefully denies HTML
