@@ -12,7 +12,7 @@ class exports.Scenario extends Backbone.Model
 
   constructor: (attributes) ->
     attributes.country   or= 'nl'
-    attributes.endYear   or= 2050
+    attributes.endYear   or= 2030
     attributes.showScore or= true
 
     super
