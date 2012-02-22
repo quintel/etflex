@@ -476,9 +476,26 @@
         padding-top: 90px
         text-align: center
 
-  // The three props which sit at the bottom of the page.
+  // The five props which sit at the bottom of the page.
 
   #core .dashboard .prop
+    position: relative
+
+    .help
+      background: image-url("range-help.png") no-repeat
+      cursor: pointer
+      display: inline-block
+      height: 18px
+      position: absolute
+      vertical-align: middle
+      left: 35px
+      top: 60px
+      width: 18px
+      z-index: 20
+
+      &:active
+        background-position: 0 -20px  
+  
     &.co2-emissions .icon
       background-image: image-url("scenes/modern/icons/polar-bear.png")
       left: 0px

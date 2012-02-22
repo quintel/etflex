@@ -1,5 +1,6 @@
-propTemplate     = require 'templates/prop'
-{ hurdleState }  = require 'views/props'
+propTemplate    = require 'templates/prop'
+{ hurdleState } = require 'views/props'
+{ showMessage } = require 'lib/messages'
 
 # A generic, placeholder prop which has an empty space for some sort of icon
 # or illustration, and a formatted value.
@@ -21,6 +22,10 @@ class exports.GenericProp extends Backbone.View
 
     @delegateEvents()
     this
+
+
+  events:
+    'click .help': 'showHelp'
 
   # TODO: move this function to a generic class of Application wide helpers
   #       It now also lives in generic.coffee
@@ -85,3 +90,9 @@ class exports.GenericProp extends Backbone.View
       element.addClass('down').html "#{formatted}"
     else
       element.html ""
+
+  # Shows a modal help message, providing the user with more information about
+  # the prop
+  #
+  showHelp: ->
+    showMessage "Some information about this item here", "Lorem Ipsum..."
