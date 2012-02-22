@@ -1,8 +1,8 @@
-<div id="legacy-browser-warning">
+<div id="legacy-browser-warning" class="message">
   <h2><%= I18n.t 'legacy_browser.title' %></h2>
   <p><%= I18n.t 'legacy_browser.message' %></p>
 
   <div class="buttons">
-    <button class="continue-anyway button green"><%= I18n.t 'legacy_browser.continue' %>&hellip;</button>
+    <button class="dismiss button"><%= I18n.t 'legacy_browser.continue' %>&hellip;</button>
   </div>
 </div>

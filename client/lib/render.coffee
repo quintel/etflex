@@ -4,14 +4,18 @@
 # view - The view instance to be rendered and added to the body.
 #
 module.exports = (view) ->
+  body = $ 'body'
   document.title = pageTitle view
-  $('body').html(view.render().el).removeClass 'message'
 
-  module.exports.appendModalDialog()
-  view.postRender?()
+  body.html view.render().el
 
   if $.browser.msie and $.browser.version < 9.0
     showLegacyBrowserWarning()
+
+  body.removeClass 'message'
+
+  module.exports.appendModalDialog()
+  view.postRender?()
 
   true
 
@@ -41,12 +45,13 @@ pageTitle = (view) ->
 # This message is only shown the on the first visit.
 #
 showLegacyBrowserWarning = ->
-  unless $.cookie 'legacy_browser'
-    modalDialog  = $ '#modal-dialog'
-    modalContent = $ '#modal-content', modalDialog
-    warningMsg   = require 'templates/legacy_browser'
+  unless $.cookie 'ignore_eol_browser'
+    view = new (require('views/legacy_browser').LegacyBrowser) dismiss: ->
+      $.cookie 'ignore_eol_browser', '1', expires: 14, path: '/'
 
-    modalContent.html warningMsg()
-    modalDialog.reveal dismissmodalclass: 'continue-anyway'
+      # If the user moved their mousewheel on the message page, ensure that
+      # the view is restored back to the top of the page.
+      if (bodyElement = $ 'body').scrollTop() isnt 0
+        $('body').scrollTop 0
 
-    $.cookie 'legacy_browser', '1', expires: 14, path: '/'
+    $('body').append view.render().el
