@@ -6,9 +6,9 @@ class exports.CarProp extends HeaderIcon
   states:   [ 'suv', 'eco' ]
 
   events:
-    'click .help': 'showInfo'
-    'mouseenter':  'showInfoButton'
-    'mouseleave':  'hideInfoButton'
+    'click .help': 'showHelp'
+    'mouseenter':  'showHelpButton'
+    'mouseleave':  'hideHelpButton'
 
   helpText: 'My thing'
 
@@ -22,7 +22,7 @@ class exports.CarProp extends HeaderIcon
     super
 
     if @currentState isnt beforeState
-      @showInfoButton 1000
+      @showHelpButton 1000
       @infoTimeout = window.setTimeout @hideInfoButton, 4000
 
   # The Info (?) button
@@ -32,15 +32,16 @@ class exports.CarProp extends HeaderIcon
   # user may find out more. This is a bit of a hack at the moment to be
   # ready for the 01/02/12 client meeting and will be refactored later.
 
-  showInfoButton: (fadeTime = 500) =>
+  showHelpButton: (fadeTime = 500) =>
     # Prevent the button being hidden if the hideInfo timeout is present.
     window.clearTimeout @infoTimeout if @infoTimeout
     @$('.help').stop().animate opacity: 1, fadeTime
 
-  hideInfoButton: =>
+  hideHelpButton: =>
     @$('.help').stop().animate opacity: 0, 500
     @infoTimeout = null
 
-  showInfo: ->
+  # TODO: this should be moved to Generic
+  showHelp: ->
     showMessage I18n.t('props.car.name'),
                 I18n.t("props.car.info.#{ @currentState }")

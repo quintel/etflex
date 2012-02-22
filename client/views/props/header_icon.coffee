@@ -16,9 +16,6 @@ class exports.HeaderIcon extends IconProp
     # until we have results for them all before updating the prop.
     @refresh = _.debounce @refresh, 25 if @constructor.queries.length > 1
 
-  events:
-    'click .help': 'showInfo'
-
   render: ->
     super
 
@@ -52,6 +49,3 @@ class exports.HeaderIcon extends IconProp
   # Internally used to call refresh with the value of each query.
   doRefresh: =>
     @refresh ( @q(key) for key in @constructor.queries )...
-
-  showInfo: ->
-    showMessage "Some information about this item here", "Lorem Ipsum..."
