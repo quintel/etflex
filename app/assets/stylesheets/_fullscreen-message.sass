@@ -1,0 +1,66 @@
+// A reimplementation of "static message" which acquired rather too many
+// additional selectors recently.
+
+.fullscreen-message
+  background: #eafafd image-url("static-msg.png") fixed bottom left no-repeat
+  bottom: 0px
+  color: #5d5f5f
+  left: 0px
+  right: 0px
+  top: 0px
+  position: fixed
+  text-align: center
+  z-index: 20
+
+  .message
+    background: #fbfefe
+    background: rgba(#fff, 0.85)
+    border-radius: 5px
+    margin: 150px auto 0
+    padding: 40px 50px
+    width: 425px
+
+    h2
+      border-bottom: 1px solid #d2d8d9
+
+      padding-bottom: 25px
+      margin-bottom: 24px
+
+    p
+      line-height: 22px
+
+  // Legacy Browsers
+  // ---------------
+  //
+  // Messages shown to users of legacy browsers on their first visit.
+
+  #legacy-browser-warning
+    p a
+      color: #5d89be
+      font-weight: bold
+      padding-bottom: 1px
+
+      &:hover
+        border-bottom: 1px solid #5d89be
+        text-decoration: none
+
+    .buttons
+      margin-top: 30px
+
+    button
+      background: #6a9bd8
+      display: inline-block
+      border: none
+      box-shadow: none
+      color: white
+      font-size: 15px
+      padding: 8px 14px 9px
+      text-shadow: none
+      +transition(background-color .1s ease-out)
+      -webkit-font-smoothing: antialiased
+
+      &:hover
+        background-color: #7caae4
+
+      &:active
+        background-color: #568bd8
