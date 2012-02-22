@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120220135202) do
+ActiveRecord::Schema.define(:version => 20120222152402) do
 
   create_table "inputs", :force => true do |t|
     t.integer "remote_id",                    :null => false
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(:version => 20120220135202) do
     t.float    "renewability"
     t.datetime "created_at"
     t.string   "guest_uid",           :limit => 36
-    t.integer  "end_year",                          :default => 2050, :null => false
+    t.integer  "end_year",                          :default => 2030, :null => false
     t.string   "country",             :limit => 2,  :default => "nl", :null => false
   end
 
