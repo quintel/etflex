@@ -73,7 +73,7 @@ class exports.Main extends Backbone.Router
   #      complete...
   #
   redirectToDefaultScene: ->
-    jQuery.getJSON('/scenes')
+    jQuery.getJSON('/scenes.json')
       .done (data) ->
         etlite = _.find data, (scene) ->
           scene.name is 'Balancing Supply and Demand'
