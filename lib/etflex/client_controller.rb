@@ -1,7 +1,7 @@
 module ETFlex
   # Mixes in functionality common to controllers which render the Backbone
   # client by default (which should be the vast majority of controllers in
-  # ETFlex.
+  # ETFlex).
   #
   module ClientController
     extend ActiveSupport::Concern
@@ -31,7 +31,7 @@ module ETFlex
     #
     #   render client
     #
-    # Pass extra rendering options to `client` has a hash, like so:
+    # Pass extra rendering options to `client` as a hash, like so:
     #
     #   render client(meaning: 42)
     #
