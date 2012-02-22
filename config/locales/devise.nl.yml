@@ -9,10 +9,10 @@ nl:
     failure:
       unauthenticated: 'Je dient in te loggen of je in te schrijven.'
       unconfirmed: 'Je dient eerst je account te bevestigen.'
-      locked: 'Je account is gelocked.'
+      locked: 'Je account is geblokkeerd.'
       invalid: 'Ongeldig e-mail of wachtwoord.'
-      invalid_token: 'Invalide authenticiteit token.'
-      timeout: 'Je sessie is verlopen, log a.u.b. opnieuw in.'
+      invalid_token: 'Ongeldig authenticiteit token.'
+      timeout: 'Je sessie is verlopen, log a.j.b. opnieuw in.'
       inactive: 'Je account is nog niet geactiveerd.'
     sessions:
       signed_in: 'Je bent succesvol ingelogd.'
@@ -27,12 +27,12 @@ nl:
       signed_up: 'Je bent inschreven.'
       updated: 'Je account gegevens zijn opgeslagen.'
       destroyed: 'Je account is verwijderd, wellicht tot ziens!'
-      signed_up_but_unconfirmed: 'Een bericht met een bevestiging link is verzonden naar uw e-mailadres. Open de link om je account te activeren.'
-      signed_up_but_inactive: 'U heeft zich aangemeld met succes. We konden echter niet aanmelden omdat u in uw account is nog niet geactiveerd.'
-      signed_up_but_locked: 'U heeft zich aangemeld met succes. We konden echter niet aanmelden omdat u in uw account is geblokkeerd.'
+      signed_up_but_unconfirmed: 'Een bericht met een bevestigingslink is verzonden naar uw e-mailadres. Open de link om uw account te activeren.'
+      signed_up_but_inactive: 'U heeft zich met succes aangemeld, maar uw account is nog niet geactiveerd.'
+      signed_up_but_locked: 'U heeft zich met succes aangemeld, maar uw account is geblokkeerd.'
     unlocks:
-      send_instructions: 'Je ontvangt via e-mail instructies hoe je je account kan un-locken.'
-      unlocked: 'Je account is ge-unlocked. Je kan nu weer inloggen.'
+      send_instructions: 'Je ontvangt via e-mail instructies hoe je je account kan deblokkeren.'
+      unlocked: 'Je account is gedeblokkeerd. Je kan nu weer inloggen.'
     mailer:
       confirmation_instructions:
         subject: 'Bevestiging'
