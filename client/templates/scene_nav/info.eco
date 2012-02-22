@@ -4,6 +4,6 @@
   <li><a href="/privacy"><%= @privacy %></a></li>-->
 
   <% if @etmURL: %>
-    <li class="new-category"><a href="<%= @etmURL %>" target="_blank" data-navigate="noclient"><%= @etmodel %></a></li>
+    <li><a href="<%= @etmURL %>" target="_blank" data-navigate="noclient"><%= @etmodel %></a></li>
   <% end %>
 </ul>
