@@ -2,6 +2,7 @@ require 'etflex/client_controller'
 require 'etflex/client_responder'
 require 'etflex/concatenated_attributes'
 require 'etflex/etengine_proxy'
+require 'etflex/locale_controller'
 require 'etflex/prop_analyzer'
 
 module ETFlex

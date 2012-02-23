@@ -109,6 +109,7 @@ GEM
     hashie (1.2.0)
     highline (1.6.11)
     hike (1.2.1)
+    http_accept_language (1.0.2)
     httparty (0.8.1)
       multi_json
       multi_xml
@@ -272,6 +273,7 @@ DEPENDENCIES
   guard
   guard-rspec
   haml (~> 3.1)
+  http_accept_language
   httparty
   i18n-js
   jbuilder
