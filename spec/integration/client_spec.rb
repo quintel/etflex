@@ -2,9 +2,7 @@ require 'spec_helper'
 
 describe 'The Backbone client' do
 
-  before do
-    @scene = create :scene
-  end
+  let(:scene) { create :scene }
 
   # --------------------------------------------------------------------------
 
@@ -24,7 +22,7 @@ describe 'The Backbone client' do
   specify 'Should load in English by default' do
     # TODO This should probably be Dutch, not English?
 
-    visit "/scenes/#{ @scene.id }"
+    visit "/scenes/#{ scene.id }"
 
     # Should boot in "full" mode.
     page.should have_css('script', text: "boot(window,")
@@ -36,11 +34,107 @@ describe 'The Backbone client' do
 
   # --------------------------------------------------------------------------
 
-  specify 'Should load in English with ?locale=en' do
-    visit "/scenes/#{ @scene.id }?locale=en"
+  specify 'Should load in English with Accept-Language: en' do
+    page.driver.header 'Accept-Language', 'en'
 
-    # Loading message should be shown.
-    page.should have_css('.loading', text: 'Loading')
+    visit "/scenes/#{ scene.id }"
+
+    # English when specified in the URL.
+    script = find('script', text: "boot(window,")
+    script.text.should match(/"locale":"en"/)
+  end
+
+  # --------------------------------------------------------------------------
+
+  specify 'Should load in English with Accept-Language: en-GB' do
+    page.driver.header 'Accept-Language', 'en-GB'
+
+    visit "/scenes/#{ scene.id }"
+
+    # English when specified in the URL.
+    script = find('script', text: "boot(window,")
+    script.text.should match(/"locale":"en"/)
+  end
+
+  # --------------------------------------------------------------------------
+
+  specify 'Should load in English with Accept-Language: en-US' do
+    page.driver.header 'Accept-Language', 'en-US'
+
+    visit "/scenes/#{ scene.id }"
+
+    # English when specified in the URL.
+    script = find('script', text: "boot(window,")
+    script.text.should match(/"locale":"en"/)
+  end
+
+  # --------------------------------------------------------------------------
+
+  specify 'Should load in Dutch with Accept-Language: nl' do
+    page.driver.header 'Accept-Language', 'nl'
+
+    visit "/scenes/#{ scene.id }"
+
+    # English when specified in the URL.
+    script = find('script', text: "boot(window,")
+    script.text.should match(/"locale":"nl"/)
+  end
+
+  # --------------------------------------------------------------------------
+
+  specify 'Should load in Dutch with Accept-Language: nl-NL' do
+    page.driver.header 'Accept-Language', 'nl-NL'
+
+    visit "/scenes/#{ scene.id }"
+
+    # English when specified in the URL.
+    script = find('script', text: "boot(window,")
+    script.text.should match(/"locale":"nl"/)
+  end
+
+  # --------------------------------------------------------------------------
+
+  specify 'Should load in Dutch with Accept-Language: nl-BE' do
+    page.driver.header 'Accept-Language', 'nl-BE'
+
+    visit "/scenes/#{ scene.id }"
+
+    # English when specified in the URL.
+    script = find('script', text: "boot(window,")
+    script.text.should match(/"locale":"nl"/)
+  end
+
+  # --------------------------------------------------------------------------
+
+  specify 'Should load in English with Accept-Language: de' do
+    page.driver.header 'Accept-Language', 'de'
+
+    visit "/scenes/#{ scene.id }"
+
+    # English when specified in the URL.
+    script = find('script', text: "boot(window,")
+    script.text.should match(/"locale":"en"/)
+  end
+
+  # --------------------------------------------------------------------------
+
+  specify 'Should load in English with ?locale=en' do
+    visit "/scenes/#{ scene.id }?locale=en"
+
+    # Should boot in "full" mode.
+    page.should have_css('script', text: "boot(window")
+
+    # English when specified in the URL.
+    script = find('script', text: "boot(window,")
+    script.text.should match(/"locale":"en"/)
+  end
+
+  # --------------------------------------------------------------------------
+
+  specify 'Should load in English with ?locale=en.json' do
+    # Tests an odd error witih Backbone.
+
+    visit "/scenes/#{ scene.id }?locale=en.json"
 
     # Should boot in "full" mode.
     page.should have_css('script', text: "boot(window")
@@ -53,10 +147,7 @@ describe 'The Backbone client' do
   # --------------------------------------------------------------------------
 
   specify 'Should load in Dutch with ?locale=nl' do
-    visit "/scenes/#{ @scene.id }?locale=nl"
-
-    # Loading message should be shown.
-    page.should have_css('.loading', text: 'Bezig met laden')
+    visit "/scenes/#{ scene.id }?locale=nl"
 
     # Should boot in "full" mode.
     page.should have_css('script', text: "boot(window")
@@ -64,6 +155,19 @@ describe 'The Backbone client' do
     # Dutch when specified in the URL.
     script = find('script', text: "boot(window,")
     script.text.should match(/"locale":"nl"/)
+  end
+
+  # --------------------------------------------------------------------------
+
+  specify 'Should load in English with ?locale=de' do
+    visit "/scenes/#{ scene.id }?locale=de"
+
+    # Should boot in "full" mode.
+    page.should have_css('script', text: "boot(window")
+
+    # Dutch when specified in the URL.
+    script = find('script', text: "boot(window,")
+    script.text.should match(/"locale":"en"/)
   end
 
   # --------------------------------------------------------------------------

@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
+  include ETFlex::LocaleController
+
   # RESCUES ------------------------------------------------------------------
 
   rescue_from User::NotAuthorised do
@@ -16,29 +18,10 @@ class ApplicationController < ActionController::Base
 
   layout :layout_by_resource
 
-  before_filter :set_locale
   before_filter :handle_guest_id
 
   helper_method :guest_user
   helper_method :current_or_guest_user
-
-  # Sets the language to be used for the user; permits setting it through the
-  # +locale+ query param.
-  #
-  def set_locale
-    locale = (params[:locale].presence || session[:locale].presence).to_s
-
-    # A temporary workaround for Backbone including ?locale=... in its routes;
-    # we should probably add /:locale/... instead, or a single actions which
-    # changes the locale to avoid having to manually remove the locale param
-    # in every Backbone action.
-    locale.gsub! /\.json/, ''
-
-    locale = if locale.present? then locale.to_sym else nil end
-    locale = I18n.default_locale if locale != :nl && locale != :en
-
-    session[:locale] = I18n.locale = locale
-  end
 
   # Guests have a unique ID set so that they may save their scenarios.
   #
