@@ -51,20 +51,17 @@ class exports.RangeView extends Backbone.View
 
     destination.append @$el
 
-    @quinn = new $.Quinn @$('.control'),
-      value:   @model.get('value')
-      min:     @model.def.min
-      max:     @model.def.max
-      step:    @model.def.step
+    @quinn = @model.quinn
 
-      disable: @model.get('disabled')
+    # Render the range using the default Quinn renderer.
+    @quinn.wrapper  = @$ '.control'
+    @quinn.renderer = new $.Quinn.Renderer @quinn
+    @quinn.renderer.render()
 
-      setup:   @updateOutput
-      drag:    @updateOutput
-      change:  @updateModel
+    @quinn.on 'drag',   @updateOutput
+    @quinn.on 'change', @updateModel
 
-    @model.on 'change:value', @updateQuinnFromModel
-
+    @updateOutput @quinn.model.value, @quinn
     @delegateEvents()
 
   # Updates the .output element with the input value. Used as an onChange
@@ -86,15 +83,6 @@ class exports.RangeView extends Backbone.View
     if @canChange then @model.set(value: value) else
       @trigger 'notAuthorizedToChange'
       false
-
-  # Triggered when the model value changes (such as when an API request
-  # failed).
-  #
-  # model - The model instance.
-  # value - The new value.
-  #
-  updateQuinnFromModel: (model, value) =>
-    @quinn.setValue value, true
 
   # Shows a modal help message, providing the user with more information about
   # the input and how it affects the outcome.
