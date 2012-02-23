@@ -21,6 +21,22 @@ class exports.Input extends Backbone.Model
       disabled: attributes.disabled
     , options
 
+    @quinn = new $.Quinn $('<div/>'),
+      value:   @get 'value'
+      min:     @def.min
+      max:     @def.max
+      step:    @def.step
+      disable: @get 'disabled'
+      renderer: ->
+
+    @on 'change:value', @updateQuinnFromModel
+
+  # Triggered when the value is updated so that the Quinn value may be kept in
+  # sync with the model vlaue.
+  #
+  updateQuinnFromModel: (model, value) =>
+    @quinn.setValue value
+
   # Handles persistance of the Input back to ETengine; delegates to the main
   # collection instance of InputManager.
   #
