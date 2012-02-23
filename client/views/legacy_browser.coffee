@@ -1,4 +1,5 @@
-message = require 'templates/legacy_browser'
+contents              = require 'templates/legacy_browser'
+{ FullscreenMessage } = require 'views/fullscreen_message'
 
 # Displays a message to the user informing them that their choice of browser
 # is... less than optimal.
@@ -7,28 +8,9 @@ message = require 'templates/legacy_browser'
 # anyway, setting a cookie so that the message isn't displayed on repeat
 # visits (or render() calls, for that matter).
 #
-class exports.LegacyBrowser extends Backbone.View
-  className: 'fullscreen-message'
-
-  events:
-    'click .dismiss': 'doDismiss'
-
-  # Create a LegacyBrowser view.
-  #
-  # If given, an optional "dismiss" option (a function) will be run whenever
-  # the user dismisses the warning message.
-  #
-  constructor: ({ @dismiss }) -> super
-
-  # Triggered when the user clicks the "Continue anyway..." button. Fades out
-  # the message and removes it from the DOM.
-  #
-  doDismiss: ->
-    @dismiss?()
-    @$el.fadeOut => @remove()
-
+class exports.LegacyBrowser extends FullscreenMessage
   render: ->
-    renderedMessage = message()
+    renderedMessage = contents()
 
     # Add links to Chrome and Firefox.
     renderedMessage = renderedMessage.replace(
@@ -38,4 +20,5 @@ class exports.LegacyBrowser extends Backbone.View
       /Mozilla Firefox/, '<a href="http://getfirefox.com">Mozilla Firefox</a>')
 
     @$el.html renderedMessage
-    this
+
+    super
