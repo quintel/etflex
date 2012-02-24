@@ -23,7 +23,7 @@ class exports.CarProp extends HeaderIcon
 
     if @currentState isnt beforeState
       @showHelpButton 1000
-      @infoTimeout = window.setTimeout (=> @hideInfoButton), 4000
+      @infoTimeout = window.setTimeout @hideHelpButton, 4000
 
   # The Info (?) button
   # -------------------
@@ -37,7 +37,7 @@ class exports.CarProp extends HeaderIcon
     window.clearTimeout @infoTimeout if @infoTimeout
     @$('.help').stop().animate opacity: 1, fadeTime
 
-  hideHelpButton: ->
+  hideHelpButton: =>
     @$('.help').stop().animate opacity: 0, 500
     @infoTimeout = null
 
