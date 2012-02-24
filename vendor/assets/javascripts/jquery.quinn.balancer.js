@@ -294,83 +294,26 @@
      * A balancing algorithm which seeks to assign the flex amount as fairly
      * as possible between all of the subordinates.
      */
-    Balancer.algo.fair = function ( flex ) {
-        var iterations  = 20,
-            iterSliders = _.clone( this.subordinates ),
-            length      = iterSliders.length,
-
-            slider, nextIterSliders, iterStartFlex, iterDelta,
-            flexPerSlider, prevValue, i;
-
-        for ( i = 0; i < length; i++ ) {
-            slider = iterSliders[i];
-            slider.balanceDelta = slider.model.maximum -
-                                  slider.model.minimum;
-        }
-
-        while ( iterations-- ) {
-            nextIterSliders = [];
-            iterStartFlex   = flex;
-            iterDelta       = 0;
-
-            // Calculate the *total* delta of all the subordinates combined.
-            // Allows us to assign an amount of flex which is appropriate to
-            // the slider (those with a large delta will get more of the flex
-            // then those with a small delta).
-            for ( i = 0; i < length; i++ ) {
-                iterDelta += iterSliders[i].balanceDelta;
-            }
-
-            for ( i = 0; i < length; i++ ) {
-                slider = iterSliders[i];
-
-                // The amount of flex given to each input. Calculated each
-                // time we balance an input since the previous one may have
-                // used up all the available flex (due to rounding).
-                flexPerSlider = iterStartFlex * (
-                    slider.balanceDelta / iterDelta );
-
-                if ( iterations === 19 ) {
-                    // First iteration.
-                    prevValue = this.oValues.value( slider );
-                } else {
-                    prevValue = slider.model.value;
-                }
-
-                slider.setTentativeValue( prevValue + flexPerSlider, false );
-
-                flex -= ( slider.model.value - prevValue );
-
-                // Finally, if this input can still be changed further, it may
-                // be used again in the next iteration.
-                nextIterSliders.push( slider );
-            }
-
-            // The inputs will be used in the next iteration...
-            iterSliders = nextIterSliders;
-            length      = iterSliders.length;
-
-            // If the flex is all used up, or hasn't changed in this
-            // iteration, don't waste time with more iterations.
-            if ( flex === 0 || flex === iterStartFlex ) {
-                break;
-            }
-        }
-
-        return flex;
-    };
-
     Balancer.algo.fair = function( flex ) {
         var iteration = 0,
             sliders   = _.clone( this.subordinates ),
             length    = sliders.length,
-            nextIterationSliders, i, flexPerSlider, slider,
-            prevValue, prevFlex;
+            totalDelta, iterationFlex, nextIterationSliders, i,
+            flexPerSlider, slider, prevValue, prevFlex;
 
         while( 20 >= iteration++ ) {
             nextIterationSliders = [];
+            iterationFlex = flex;
+            totalDelta    = cumulativeDeltas( sliders );
 
             for( i = 0; i < length; i++ ) {
+                slider    = sliders[i];
+                prevValue = slider.model.value;
+
+                if( iteration === 1 ) {
+                    prevValue = this.oValues.value( slider );
+                }
+
                 // The amount of flex given to each slider. Calculated each
                 // time we balance a slider since the previous one may have
                 // used up all the available flex (depending on rounding).
@@ -378,14 +321,9 @@
                 // For example, a flexPerSlider of 0.05, and a slider step
                 // value of 0.1 would result in 0.05 being round up, leaving
                 // no flex for the second slider.
-                flexPerSlider = this.snap( flex / ( length - i ) );
-
-                slider    = sliders[i];
-                prevValue = slider.model.value;
-
-                if( iteration === 1 ) {
-                    prevValue = this.oValues.value( slider );
-                }
+                flexPerSlider = this.snap( iterationFlex * (
+                    ( slider.model.maximum - slider.model.minimum ) / totalDelta
+                ) );
 
                 slider.setTentativeValue( prevValue + flexPerSlider, false );
 
@@ -395,8 +333,7 @@
 
                 // Finally, if this slider can be moved further still, it may
                 // be used in the next iteration.
-                if ( ( flex < 0 && slider.model.value !== slider.model.minimum ) ||
-                     ( flex > 0 && slider.model.value !== slider.model.maximum ) ) {
+                if ( canMove( slider, flex ) ) {
                     nextIterationSliders.push( slider );
                 }
             }
@@ -410,7 +347,7 @@
                 break;
             }
 
-            previousFlex = flex;
+            prevFlex = flex;
         }
 
         return flex;
@@ -468,6 +405,32 @@
             quinn.setTentativeValue( this.values[ quinn.balanceId ] );
         }
     };
+
+    // Helpers ---------------------------------------------------------------
+
+    /**
+     * Given a collection of sliders, returns the sum of all their deltas
+     * (i.e. determine the difference between each of their minimum and
+     * maximum acceptable values, and sum them all together).
+     */
+    function cumulativeDeltas( sliders ) {
+        var sum = 0, length = sliders.length, i;
+
+        for( i = 0; i < length; i++ ) {
+            sum += ( sliders[i].model.maximum - sliders[i].model.minimum );
+        }
+
+        return sum;
+    }
+
+    /**
+     * Given a flex amount, determines if the given slider may be moved in the
+     * direction of that flex.
+     */
+    function canMove( slider, flex ) {
+        return ( flex < 0 && slider.model.value > slider.model.minimum ) ||
+            ( flex > 0 && slider.model.value < slider.model.maximum )
+    }
 
     // -----------------------------------------------------------------------
 
