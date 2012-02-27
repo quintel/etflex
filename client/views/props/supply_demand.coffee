@@ -9,6 +9,7 @@ EXTENT = 1000
 #
 class exports.SupplyDemandView extends Backbone.View
   @queries:  [ 'total_electricity_produced', 'final_demand_of_electricity' ]
+  hurdles:   [ 0.95, 1.05 ]
   states:    [ 'supplyExcess', 'balanced', 'demandExcess' ]
 
   id:        'energy-generation'
@@ -51,7 +52,7 @@ class exports.SupplyDemandView extends Backbone.View
 
     # The colour change (blue / red) occurs at -45deg and +45deg. Match these
     # colours up with the hurdle values.
-    perDegree = (1.0 - @options.hurdles[0]) / 45
+    perDegree = (1.0 - @hurdles[0]) / 45
 
     # The gauge needle extremes are -84 degrees to +84 degrees. For the
     # moment, a one percent difference between supply and demand will be

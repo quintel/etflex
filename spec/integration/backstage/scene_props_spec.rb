@@ -86,7 +86,6 @@ feature 'Editing scene props' do
     within('form.scene_prop') do
       fill_in 'Location',             with: 'center'
       fill_in 'Position',             with: '42'
-      fill_in 'Concatenated hurdles', with: '1, 2, 8, 9'
 
       click_button 'Update Scene prop'
     end
@@ -104,7 +103,6 @@ feature 'Editing scene props' do
     # Ensure that the scene prop was updated.
     @scene_prop.location.should eql('center')
     @scene_prop.position.should eql(42)
-    @scene_prop.hurdles.should  eql([ 1.0, 2.0, 8.0, 9.0 ])
 
     # ... and that the Prop wasn't.
     @prop.key.should       eql(prop_originals[:key])

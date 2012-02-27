@@ -34,12 +34,14 @@ exports.getProp = (name) ->
 # value - The query value.
 #
 exports.hurdleState = (view, value) ->
-  return null unless view.options?.hurdles and view.states?
+  hurdles = view.hurdles or view.options?.hurdles
+
+  return null unless hurdles and view.states?
 
   _.detect view.states, (state, index) =>
     # If no such hurdle value exists, it means we have run out... the value
     # is higher than the last hurdle value; use the last state.
-    view.options.hurdles[ index ] is undefined or
+    hurdles[ index ] is undefined or
       # Is the value less than the hurdle value (we check each hurdle in
       # ascending order)?
-      value < view.options.hurdles[ index ]
+      value < hurdles[ index ]

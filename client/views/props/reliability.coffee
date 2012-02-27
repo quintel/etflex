@@ -3,6 +3,8 @@
 
 class exports.ReliabilityView extends GenericProp
   @queries: [ 'security_of_supply_blackout_risk' ]
+
+  hurdles:  [ 0.05 ]
   states:   [ 'on', 'off' ]
 
   className: 'prop reliability'

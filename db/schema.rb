@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120222152402) do
+ActiveRecord::Schema.define(:version => 20120227163049) do
 
   create_table "inputs", :force => true do |t|
     t.integer "remote_id",                    :null => false
@@ -71,7 +71,6 @@ ActiveRecord::Schema.define(:version => 20120222152402) do
     t.integer "scene_id",               :null => false
     t.integer "prop_id",                :null => false
     t.string  "location", :limit => 50, :null => false
-    t.text    "hurdles"
     t.integer "position"
   end
 

@@ -8,10 +8,6 @@
   = f.input :position, as: :string, input_html: { class: 'small' }
   = f.hint "Leave empty for a hidden Dashboard item, which later can be choosen by a user"
 
-  = f.input :concatenated_hurdles
-  = f.hint "Please provide in the following format: '<strong>0.1, 0.3, 0.6, 0.8, 1.2, 10.3</strong>'".html_safe
-
-
   %ul.buttons
     %li= f.button :submit, class: 'green'
     %li= link_to 'Cancel', backstage_scene_props_path

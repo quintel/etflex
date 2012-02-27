@@ -3,6 +3,8 @@
 
 class exports.EcoBuildingsProp extends HeaderIcon
   @queries: [ 'renewability' ]
+
+  hurdles:  [ 0.15 ]
   states:   [ 'coal', 'eco' ]
 
   # After running refresh which chooses between the eco building and quarry,

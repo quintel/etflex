@@ -5,6 +5,7 @@
 
 class exports.CO2EmissionsView extends GenericProp
   @queries: [ 'total_co2_emissions' ]
+  hurdles:  [ 140, 154, 161 ]
   states:   [ 'low', 'medium', 'high', 'extreme' ]
 
   className: 'prop co2-emissions lower-better'

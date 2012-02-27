@@ -22,8 +22,7 @@ FactoryGirl.define do
         prop: FactoryGirl.create(:prop), location: 'center')
 
       scene.scene_props.create!(
-        prop: FactoryGirl.create(:prop), location: 'bottom',
-        hurdles: [1, 2, 3])
+        prop: FactoryGirl.create(:prop), location: 'bottom')
     end }
 
     factory(:scene_with_inputs) { after_create do |scene|

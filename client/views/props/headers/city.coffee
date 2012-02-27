@@ -6,4 +6,6 @@
 #
 class exports.CityProp extends HeaderIcon
   @queries: [ 'number_of_electric_cars' ]
+
+  hurdles:  [ 2000000 ]
   states:   [ 'large', 'medium' ]
