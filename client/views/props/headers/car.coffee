@@ -46,4 +46,17 @@ class exports.CarProp extends HeaderIcon
   # TODO: this should be moved to Generic
   showHelp: ->
     showMessage I18n.t('props.car.name'),
-                I18n.t("props.car.info.#{ @currentState }")
+                @parseInfo(I18n.t("props.car.info.#{ @currentState }"))
+
+  # An experimental method used to parse the help text for a prop, replacing
+  # any requests for query results with those currently available.
+  #
+  parseInfo: (raw) ->
+    unless raw.match (/\(Q:/) then raw else
+      raw = raw.replace /\(Q:([^}]+)\)/, (ignore, key) =>
+        value = @options.queries.get(key)?.get('future')
+        value = I18n.toNumber(value, precision: 0) if value
+
+        value or '???'
+
+      raw

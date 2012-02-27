@@ -17,7 +17,7 @@ en:
       name: "What type of cars will prevail in the streets in the future?"
       info:
         eco: 'In your scenario, there are more than a million electric cars in the Netherlands in 2040! Electric cars will be abundantly visible in the streets.'
-        suv: 'In the current situation there are only 0.X million electric cars and X.XX million fossil-fueled cars in the Netherlands in 2040. If you want to change the division, try to increase the percentage of electric cars to see the impact.'
+        suv: 'In the current situation there are only (Q:number_of_electric_cars) electric cars and X.XX million fossil-fueled cars in the Netherlands in 2040. If you want to change the division, try to increase the percentage of electric cars to see the impact.'
     city:
       name: "Futuristic City"
     eco_buildings:
