@@ -55,8 +55,9 @@ class exports.CarProp extends HeaderIcon
     unless raw.match (/\(Q:/) then raw else
       raw = raw.replace /\(Q:([^}]+)\)/, (ignore, key) =>
         value = @options.queries.get(key)?.get('future')
-        value = I18n.toNumber(value, precision: 0) if value
-
-        value or '???'
+        if _.isNumber(value)
+          I18n.toNumber(value, precision: 0)
+        else
+          '???'
 
       raw
