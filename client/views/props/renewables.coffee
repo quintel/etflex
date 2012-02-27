@@ -3,6 +3,8 @@
 
 class exports.RenewablesView extends GenericProp
   @queries: [ 'renewability' ]
+
+  hurdles:  [ 6, 8, 10 ]
   states:   [ 'low', 'medium', 'high', 'extreme' ]
 
   className: 'prop renewables'

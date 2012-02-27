@@ -1,1 +1,1 @@
-json.(prop, :key, :position, :location, :behaviour, :hurdles)
+json.(prop, :key, :position, :location, :behaviour)

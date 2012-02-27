@@ -5,5 +5,6 @@
 #
 class exports.GroundProp extends HeaderIcon
   @queries: [ 'renewability' ]
-  states:   [ 'dry', 'green' ]
 
+  hurdles:  [ 0.06 ]
+  states:   [ 'dry', 'green' ]

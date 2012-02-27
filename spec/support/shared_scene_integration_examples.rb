@@ -35,7 +35,6 @@ shared_examples_for 'an embedded scene prop' do
   it { should include(behaviour: prop.behaviour) }
   it { should include(position:  prop.position)  }
   it { should include(location:  prop.location)  }
-  it { should include(hurdles:   prop.hurdles)   }
 end
 
 # Scene ----------------------------------------------------------------------

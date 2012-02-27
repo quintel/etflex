@@ -3,6 +3,8 @@
 
 class exports.CarProp extends HeaderIcon
   @queries: [ 'number_of_electric_cars' ]
+
+  hurdles:  [ 1000000 ]
   states:   [ 'suv', 'eco' ]
 
   events:

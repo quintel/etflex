@@ -8,7 +8,6 @@
       %th.name     Prop
       %th.location Location
       %th.location Position
-      %th.key      Hurdles
       %th.key      Front-end Behaviour
       %th.action   &nbsp;
       %th.action   &nbsp;
@@ -22,8 +21,6 @@
           = prop.location
         %td
           = if prop.position.blank? then 'none' else prop.position end
-        %td.key
-          = prop.concatenated_hurdles
         %td.link
           = link_to_prop_behaviour prop
         %td.link.action

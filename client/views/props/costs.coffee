@@ -4,6 +4,7 @@
 class exports.CostsView extends GenericProp
   @queries: [ 'total_costs' ]
 
+  hurdles:  [ 38, 40, 42, 44, 48, 50, 52 ]
   states:   [ 'nine', 'eight', 'seven', 'six', 'five',
               'four', 'three', 'two', 'one' ]
 

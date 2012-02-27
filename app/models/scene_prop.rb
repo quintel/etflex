@@ -16,11 +16,7 @@
 #   demand graph, and a "bottom" location containing three icons.
 #
 class SceneProp < ActiveRecord::Base
-  extend ETFlex::ConcatenatedAttributes
-
   delegate :key, :behaviour, to: :prop, allow_nil: true
-
-  concatenate_attr :hurdles, :to_f
 
   default_scope do
     order(:position)
@@ -30,10 +26,6 @@ class SceneProp < ActiveRecord::Base
 
   belongs_to :scene
   belongs_to :prop
-
-  # SERIALIZATION ------------------------------------------------------------
-
-  serialize :hurdles, Array
 
   # VALIDATION ---------------------------------------------------------------
 
