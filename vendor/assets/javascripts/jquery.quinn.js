@@ -240,7 +240,6 @@
         }
 
         newValue = this.model.setValue(newValue);
-        // console.log( this.balanceId, newValue );
 
         if (newValue === false ||
                 (! silent && ! this.trigger('drag', newValue))) {
@@ -549,15 +548,15 @@
          *      to just use sanitizeValue?
          */
 
-        this.minimum = this.roundToStep(opts.min);
-        this.maximum = this.roundToStep(opts.max);
+        this.min = this.roundToStep(opts.min);
+        this.max = this.roundToStep(opts.max);
 
-        if (this.minimum < opts.min) {
-            this.minimum += this.step;
+        if (this.min < opts.min) {
+            this.min += this.step;
         }
 
-        if (this.maximum > opts.max) {
-            this.maximum -= this.step;
+        if (this.max > opts.max) {
+            this.max -= this.step;
         }
 
         /* Determine the initial value of the slider. Prefer an explicitly set
@@ -566,7 +565,7 @@
          */
 
         if (typeof opts.value === 'undefined' || opts.value === null) {
-            initialValue = this.minimum;
+            initialValue = this.min;
         } else if (_.isArray(opts.value)) {
             initialValue = opts.value;
         } else {
@@ -642,9 +641,9 @@
             });
         }
 
-        if (rounded > this.maximum) {
+        if (rounded > this.max) {
             return rounded - this.step;
-        } else if (rounded < this.minimum) {
+        } else if (rounded < this.min) {
             return rounded + this.step;
         }
 
@@ -660,10 +659,10 @@
     Model.prototype.sanitizeValue = function (value) {
         value = this.roundToStep(value);
 
-        if (value > this.maximum) {
-            return this.maximum;
-        } else if (value < this.minimum) {
-            return this.minimum;
+        if (value > this.max) {
+            return this.max;
+        } else if (value < this.min) {
+            return this.min;
         }
 
         return value;
