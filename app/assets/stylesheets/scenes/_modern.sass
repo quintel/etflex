@@ -443,7 +443,7 @@
       overflow: hidden
       position: relative
       width: 130px
-      
+
       .beeping
         position: absolute
         top: 0
@@ -472,9 +472,20 @@
 
       .info
         color: #333
-        font-size: 14px
+        font-size: 12px
+        font-weight: bold
         padding-top: 90px
         text-align: center
+        text-transform: uppercase
+
+        .message
+          +transition(background .25s ease-in-out, color .25s ease-in-out)
+          border-radius: 3px
+          padding: 2px 4px
+
+          &.warning
+            background: #db5215
+            color: white
 
   // The five props which sit at the bottom of the page.
 
@@ -494,8 +505,8 @@
       z-index: 20
 
       &:active
-        background-position: 0 -20px  
-  
+        background-position: 0 -20px
+
     &.co2-emissions .icon
       background-image: image-url("scenes/modern/icons/polar-bear.png")
       left: 0px

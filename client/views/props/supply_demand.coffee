@@ -67,7 +67,7 @@ class exports.SupplyDemandView extends Backbone.View
       .css('-ms-transform', "rotate(#{degrees}deg)")
 
     # Update the label underneath the gauge.
-    @$('.gauge .info').text(
+    @$('.gauge .info .message').text(
       I18n.t "scenes.etlite.#{ hurdleState this, difference }")
 
     @beep(hurdleState this, difference)
@@ -96,6 +96,8 @@ class exports.SupplyDemandView extends Backbone.View
     overlay = @$('.gauge .beeping')
     overlay.removeClass('beeping-left beeping-right')
 
+    message = @$('.gauge .info .message')
+
     flashAnimation = (element) ->
       element.fadeIn('slow').fadeOut('slow').
         fadeIn('slow').fadeOut('slow').fadeIn('slow')
@@ -104,8 +106,11 @@ class exports.SupplyDemandView extends Backbone.View
       when 'demandExcess'
         overlay.addClass('beeping-left')
         flashAnimation overlay
+        message.addClass 'warning'
       when 'supplyExcess'
         overlay.addClass('beeping-right')
         flashAnimation overlay
+        message.addClass 'warning'
       else
         overlay.hide()
+        message.removeClass 'warning'
