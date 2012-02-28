@@ -51,6 +51,10 @@ nl:
     anonymous:          Anoniem
     by:                 Door
 
+  magnitudes:
+    million: "%{amount} miljoen"
+    billion: "%{amount} miljard"
+
   # 404 Not Found ------------------------------------------------------------
 
   oops: "Sorry, er gaat iets fout"

@@ -1,5 +1,6 @@
 { HeaderIcon }  = require 'views/props/header_icon'
 { showMessage } = require 'lib/messages'
+humanize        = require 'lib/humanize'
 
 class exports.CarProp extends HeaderIcon
   @queries: [ 'number_of_electric_cars' ]
@@ -54,10 +55,6 @@ class exports.CarProp extends HeaderIcon
   parseInfo: (raw) ->
     unless raw.match (/\(Q:/) then raw else
       raw = raw.replace /\(Q:([^}]+)\)/, (ignore, key) =>
-        value = @options.queries.get(key)?.get('future')
-        if _.isNumber(value)
-          I18n.toNumber(value, precision: 0)
-        else
-          '???'
+        humanize.number @options.queries.get(key)?.get('future')
 
       raw
