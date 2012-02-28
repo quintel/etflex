@@ -1,8 +1,10 @@
 # Holds all of the Prop classes with their "key" names, used in the database
 # to identify the class.
 
-PROPS = {}
-MAP   = require 'lib/prop_map'
+PROPS    = {}
+MAP      = require 'lib/prop_map'
+
+humanize = require 'lib/humanize'
 
 # Helpers --------------------------------------------------------------------
 
@@ -45,3 +47,14 @@ exports.hurdleState = (view, value) ->
       # Is the value less than the hurdle value (we check each hurdle in
       # ascending order)?
       value < hurdles[ index ]
+
+# Given the localized description of a prop, pre-parses the text to add query
+# values where applicable.
+#
+# Query values are inserted using the pattern (Q:query_key) with the number
+# being nicely formatted by humanize::number.
+#
+exports.preParseInfo = (raw, queries) ->
+  unless raw.match (/\(Q:/) then raw else
+    raw.replace /\(Q:([^}]+)\)/, (ignore, key) =>
+      humanize.number queries.get(key)?.get('future')
