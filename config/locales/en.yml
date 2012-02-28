@@ -50,6 +50,10 @@ en:
     anonymous:          Anonymous
     by:                 By
 
+  magnitudes:
+    million: "%{amount} million"
+    billion: "%{amount} billion"
+
   # 404 Not Found ------------------------------------------------------------
 
   oops: "Whoops"
