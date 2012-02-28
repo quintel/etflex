@@ -1,6 +1,6 @@
 { HeaderIcon }  = require 'views/props/header_icon'
 { showMessage } = require 'lib/messages'
-humanize        = require 'lib/humanize'
+props           = require 'views/props'
 
 class exports.CarProp extends HeaderIcon
   @queries: [ 'number_of_electric_cars' ]
@@ -46,15 +46,7 @@ class exports.CarProp extends HeaderIcon
 
   # TODO: this should be moved to Generic
   showHelp: ->
-    showMessage I18n.t('props.car.name'),
-                @parseInfo(I18n.t("props.car.info.#{ @currentState }"))
+    message = props.preParseInfo(
+      I18n.t("props.car.info.#{ @currentState }"), @options.queries)
 
-  # An experimental method used to parse the help text for a prop, replacing
-  # any requests for query results with those currently available.
-  #
-  parseInfo: (raw) ->
-    unless raw.match (/\(Q:/) then raw else
-      raw = raw.replace /\(Q:([^}]+)\)/, (ignore, key) =>
-        humanize.number @options.queries.get(key)?.get('future')
-
-      raw
+    showMessage I18n.t('props.car.name'), message
