@@ -28,7 +28,7 @@ class exports.DashboardProp extends GenericProp
   constructor: (options) ->
     super
 
-    @query = options?.queries.get @constructor.queries?[0]
+    @query = options?.queries.get @queries?[0]
     @query.on 'change:future', @updateValues if @query
 
     @icon = new IconProp

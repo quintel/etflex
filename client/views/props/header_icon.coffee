@@ -9,12 +9,12 @@ class exports.HeaderIcon extends IconProp
     super
 
     # Trigger doRefresh when any of the queries used by the prop are updated.
-    for key in @constructor.queries
+    for key in @queries
       options.queries.get(key).on 'change:future', @doRefresh
 
     # Since all the queries are (normally) updated at the same time, wait
     # until we have results for them all before updating the prop.
-    @refresh = _.debounce @refresh, 25 if @constructor.queries.length > 1
+    @refresh = _.debounce @refresh, 25 if @queries.length > 1
 
   render: ->
     super
@@ -48,4 +48,4 @@ class exports.HeaderIcon extends IconProp
 
   # Internally used to call refresh with the value of each query.
   doRefresh: =>
-    @refresh ( @q(key) for key in @constructor.queries )...
+    @refresh ( @q(key) for key in @queries )...

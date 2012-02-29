@@ -2,10 +2,10 @@
 { hurdleState } = require 'views/props'
 
 class exports.EcoBuildingsProp extends HeaderIcon
-  @queries: [ 'renewability' ]
+  queries: [ 'renewability' ]
 
-  hurdles:  [ 0.15 ]
-  states:   [ 'coal', 'eco' ]
+  hurdles: [ 0.15 ]
+  states:  [ 'coal', 'eco' ]
 
   # After running refresh which chooses between the eco building and quarry,
   # use the renewables query to match the style to the ground layer (bright

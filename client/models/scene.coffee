@@ -82,6 +82,6 @@ class exports.Scene extends Backbone.Model
     ids = []
 
     for prop in @get('props')
-      ids.push ( getProp(prop.behaviour).queries or [] )...
+      ids.push ( getProp(prop.behaviour)::queries or [] )...
 
     _.uniq ids

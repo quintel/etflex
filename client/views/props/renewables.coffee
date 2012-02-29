@@ -9,9 +9,9 @@ class exports.RenewablesView extends IconDashboardProp
 
   # Queries and hurdle values.
 
-  @queries: [ 'renewability' ]
-  hurdles:  [ 6, 8, 10 ]
-  states:   [ 'low', 'medium', 'high', 'extreme' ]
+  queries: [ 'renewability' ]
+  hurdles: [ 6, 8, 10 ]
+  states:  [ 'low', 'medium', 'high', 'extreme' ]
 
   # Display settings.
 
