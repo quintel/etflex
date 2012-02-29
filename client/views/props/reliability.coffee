@@ -1,7 +1,9 @@
-{ DashboardProp } = require 'views/props/dashboard'
-{ IconProp }      = require 'views/props/icon'
+{ IconDashboardProp } = require 'views/props/dashboard'
 
-class exports.ReliabilityView extends DashboardProp
+# Calculates the percentage of total energy generated which is derived from
+# solar and window energy.
+#
+class exports.ReliabilityView extends IconDashboardProp
   @queries: [ 'security_of_supply_blackout_risk' ]
 
   hurdles:  [ 0.05 ]
@@ -9,23 +11,9 @@ class exports.ReliabilityView extends DashboardProp
 
   className: 'reliability'
 
-  # Creates a new renewability prop. Calculates the percentage of total energy
-  # generated which is derived from solar and window energy.
-  #
-  constructor: (options) ->
-    super options
-
-    @icon = new IconProp
-
-    @query = options.queries.get 'security_of_supply_blackout_risk'
-    @query.on 'change:future', @updateValues
-
   render: ->
     super I18n.t 'scenes.etlite.reliability'
-
-    @$el.find('.icon').replaceWith @icon.render().el
     @updateValues()
-
     this
 
   # Updates the value shown to the user, and swaps the icon if necessary,

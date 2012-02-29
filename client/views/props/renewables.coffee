@@ -1,5 +1,8 @@
 { IconDashboardProp } = require 'views/props/dashboard'
 
+# Calculates the percentage of total energy generated which is derived from
+# solar and window energy.
+#
 class exports.RenewablesView extends IconDashboardProp
   @queries: [ 'renewability' ]
 
@@ -7,15 +10,6 @@ class exports.RenewablesView extends IconDashboardProp
   states:   [ 'low', 'medium', 'high', 'extreme' ]
 
   className: 'renewables'
-
-  # Creates a new Renewables prop. Calculates the percentage of total energy
-  # generated which is derived from solar and window energy.
-  #
-  constructor: (options) ->
-    super options
-
-    @query = options.queries.get 'renewability'
-    @query.on 'change:future', @updateValues
 
   # Renders the UI; calculates the CO2 emissions. Can be safely called
   # repeatedly to update the UI.

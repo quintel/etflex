@@ -9,15 +9,6 @@ class exports.CostsView extends IconDashboardProp
 
   className: 'costs lower-better'
 
-  # Creates a new Costs prop. Calculates the cost of the choices the user
-  # makes in the ETLite scene.
-  #
-  constructor: (options) ->
-    super options
-
-    @query = options.queries.get 'total_costs'
-    @query.on 'change:future', @updateValues
-
   # Renders the UI; calculates the C02 emissions. Can be safely called
   # repeatedly to update the UI.
   #
