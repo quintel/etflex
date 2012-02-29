@@ -1,5 +1,6 @@
 template        = require 'templates/props/dashboard'
 { GenericProp } = require 'views/props/generic'
+{ IconProp }    = require 'views/props/icon'
 
 # A base class used by props which appear in the dashboard section. Shows an
 # icon visualisation, and a nicely formatted version of the query value, and
@@ -43,3 +44,23 @@ class exports.DashboardProp extends GenericProp
       element.addClass('down').html "#{formatted}"
     else
       element.html ""
+
+# A common version of the dashboard prop which swaps between two or more icons
+# which represent the state of a single query.
+#
+class exports.IconDashboardProp extends exports.DashboardProp
+
+  # Creates the IconProp used to display the query state.
+  #
+  constructor: ->
+    super
+    @icon = new IconProp
+
+  # Renders the icon template.
+  #
+  render: (metric) ->
+    super metric
+
+    @$('.icon').replaceWith @icon.render().el
+
+    this

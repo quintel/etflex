@@ -1,7 +1,6 @@
-{ DashboardProp } = require 'views/props/dashboard'
-{ IconProp }      = require 'views/props/icon'
+{ IconDashboardProp } = require 'views/props/dashboard'
 
-class exports.CostsView extends DashboardProp
+class exports.CostsView extends IconDashboardProp
   @queries: [ 'total_costs' ]
 
   hurdles:  [ 38, 40, 42, 44, 48, 50, 52 ]
@@ -16,8 +15,6 @@ class exports.CostsView extends DashboardProp
   constructor: (options) ->
     super options
 
-    @icon = new IconProp
-
     @query = options.queries.get 'total_costs'
     @query.on 'change:future', @updateValues
 
@@ -26,10 +23,7 @@ class exports.CostsView extends DashboardProp
   #
   render: ->
     super I18n.t 'scenes.etlite.costs'
-
-    @$el.find('.icon').replaceWith @icon.render().el
     @updateValues()
-
     this
 
   # Updates the value shown to the user, and swaps the icon if necessary,
