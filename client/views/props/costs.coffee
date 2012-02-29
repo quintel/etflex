@@ -7,12 +7,12 @@ class exports.CostsView extends IconDashboardProp
 
   # Queries and hurdle values.
 
-  @queries: [ 'total_costs' ]
+  queries: [ 'total_costs' ]
 
-  hurdles:  [ 38, 40, 42, 44, 48, 50, 52 ]
+  hurdles: [ 38, 40, 42, 44, 48, 50, 52 ]
 
-  states:   [ 'nine', 'eight', 'seven', 'six', 'five',
-              'four', 'three', 'two', 'one' ]
+  states:  [ 'nine', 'eight', 'seven', 'six', 'five',
+             'four', 'three', 'two', 'one' ]
 
   # Display settings.
 

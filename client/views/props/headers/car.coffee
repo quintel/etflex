@@ -3,10 +3,10 @@
 props           = require 'views/props'
 
 class exports.CarProp extends HeaderIcon
-  @queries: [ 'number_of_electric_cars' ]
+  queries: [ 'number_of_electric_cars' ]
 
-  hurdles:  [ 1000000 ]
-  states:   [ 'suv', 'eco' ]
+  hurdles: [ 1000000 ]
+  states:  [ 'suv', 'eco' ]
 
   events:
     'click .help': 'showHelp'

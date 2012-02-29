@@ -8,9 +8,9 @@ EXTENT = 1000
 # based on the selections made by the user on the ETlite recreation.
 #
 class exports.SupplyDemandView extends Backbone.View
-  @queries:  [ 'total_electricity_produced', 'final_demand_of_electricity' ]
-  hurdles:   [ 0.95, 1.05 ]
-  states:    [ 'supplyExcess', 'balanced', 'demandExcess' ]
+  queries: [ 'total_electricity_produced', 'final_demand_of_electricity' ]
+  hurdles: [ 0.95, 1.05 ]
+  states:  [ 'supplyExcess', 'balanced', 'demandExcess' ]
 
   id:        'energy-generation'
   className: 'energy-graph'
