@@ -1,5 +1,4 @@
 template        = require 'templates/props/dashboard'
-newTemplate     = require 'templates/props/dashboard_new'
 { GenericProp } = require 'views/props/generic'
 { IconProp }    = require 'views/props/icon'
 
@@ -85,7 +84,7 @@ class exports.DashboardProp extends GenericProp
   #           rendererd, but prior to calling updateValues and super.
   #
   render: (execute) ->
-    @$el.html newTemplate { @name, @unit, @lowerBetter }
+    @$el.html template { @name, @unit, @lowerBetter }
     execute?()
     @updateValues()
 
