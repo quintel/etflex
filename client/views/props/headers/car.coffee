@@ -46,7 +46,4 @@ class exports.CarProp extends HeaderIcon
 
   # TODO: this should be moved to Generic
   showHelp: ->
-    message = props.preParseInfo(
-      I18n.t("props.car.info.#{ @currentState }"), @options.queries)
-
-    showMessage I18n.t('props.car.name'), message
+    super 'car', @currentState

@@ -1,6 +1,7 @@
 propTemplate    = require 'templates/prop'
-{ hurdleState } = require 'views/props'
 { showMessage } = require 'lib/messages'
+
+{ hurdleState, insertQueryData } = require 'views/props'
 
 # A generic, placeholder prop which has an empty space for some sort of icon
 # or illustration, and a formatted value.
@@ -17,15 +18,14 @@ propTemplate    = require 'templates/prop'
 class exports.GenericProp extends Backbone.View
   className: 'prop'
 
+  events:
+    'click .help': 'showHelp'
+
   render: (value, unit) ->
     @$el.html propTemplate value: value, unit: unit
 
     @delegateEvents()
     this
-
-
-  events:
-    'click .help': 'showHelp'
 
   # TODO: move this function to a generic class of Application wide helpers
   #       It now also lives in generic.coffee
@@ -92,7 +92,36 @@ class exports.GenericProp extends Backbone.View
       element.html ""
 
   # Shows a modal help message, providing the user with more information about
-  # the prop
+  # the prop.
   #
-  showHelp: ->
-    showMessage "Some information about this item here", "Lorem Ipsum..."
+  # You are expected to provide an I18n key so that showHelp can determine
+  # what text should be shown. For example:
+  #
+  #   showHelp 'car'
+  #
+  # ... will show as the title I18n.t "props.car.name" and as the main text
+  # "props.car.info". The info text will be pre-parsed to insert query data as
+  # necessary.
+  #
+  # You may optionally pass a "state" string to further customise the I18n
+  # translation used:
+  #
+  #   showHelp 'co2_emissions', 'extreme'
+  #
+  # ... will show "props.co2_emissions.info.extreme" as the message.
+  #
+  showHelp: (key, state) ->
+    # key may be an event if showInfo is triggered without being overridden
+    # in a subclass.
+    return false unless _.isString key
+
+    messageKey = "props.#{ key }.info"
+    messageKey = "#{ messageKey }.#{ state }" if state
+
+    title   = I18n.t "props.#{ key }.name"
+    message = I18n.t messageKey
+
+    # Insert query data.
+    message = insertQueryData message, @options.queries
+
+    showMessage title, message

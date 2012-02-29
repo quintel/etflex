@@ -54,7 +54,7 @@ exports.hurdleState = (view, value) ->
 # Query values are inserted using the pattern (Q:query_key) with the number
 # being nicely formatted by humanize::number.
 #
-exports.preParseInfo = (raw, queries) ->
+exports.insertQueryData = (raw, queries) ->
   unless raw.match (/\(Q:/) then raw else
     raw.replace /\(Q:([^}]+)\)/, (ignore, key) =>
       humanize.number queries.get(key)?.get('future')
