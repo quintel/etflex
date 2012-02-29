@@ -1,11 +1,10 @@
-scoreTpl = require 'templates/props/score'
-{ GenericProp } = require 'views/props/generic'
-{ IconProp }    = require 'views/props/icon'
+{ DashboardProp } = require 'views/props/dashboard'
+{ IconProp }      = require 'views/props/icon'
 
-class exports.ScoreView extends GenericProp
+class exports.ScoreView extends DashboardProp
   @queries: [ 'etflex_score' ]
 
-  className: 'prop score'
+  className: 'score'
 
   # Creates a new Score prop
   #
@@ -22,8 +21,6 @@ class exports.ScoreView extends GenericProp
   # repeatedly to update the UI.
   #
   render: ->
-    @$el.html scoreTpl()
-
     super '', I18n.t 'scenes.etlite.score'
 
     @$el.prepend """

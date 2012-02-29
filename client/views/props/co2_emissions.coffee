@@ -1,14 +1,14 @@
-{ GenericProp }    = require 'views/props/generic'
-{ IconProp }       = require 'views/props/icon'
+{ DashboardProp } = require 'views/props/dashboard'
+{ IconProp }      = require 'views/props/icon'
 
 { hurdleStateNew } = require 'views/props'
 
-class exports.CO2EmissionsView extends GenericProp
+class exports.CO2EmissionsView extends DashboardProp
   @queries: [ 'total_co2_emissions' ]
   hurdles:  [ 140, 154, 161 ]
   states:   [ 'low', 'medium', 'high', 'extreme' ]
 
-  className: 'prop co2-emissions lower-better'
+  className: 'co2-emissions lower-better'
 
   # Creates a new CO2Emissions prop. In addition to the usual Backbone
   # options, requires `gas` containing the gas-fired power plants input, and

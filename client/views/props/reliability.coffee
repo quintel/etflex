@@ -1,13 +1,13 @@
-{ GenericProp } = require 'views/props/generic'
-{ IconProp }    = require 'views/props/icon'
+{ DashboardProp } = require 'views/props/dashboard'
+{ IconProp }      = require 'views/props/icon'
 
-class exports.ReliabilityView extends GenericProp
+class exports.ReliabilityView extends DashboardProp
   @queries: [ 'security_of_supply_blackout_risk' ]
 
   hurdles:  [ 0.05 ]
   states:   [ 'on', 'off' ]
 
-  className: 'prop reliability'
+  className: 'reliability'
 
   # Creates a new renewability prop. Calculates the percentage of total energy
   # generated which is derived from solar and window energy.
