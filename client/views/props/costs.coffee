@@ -25,7 +25,7 @@ class exports.CostsView extends DashboardProp
   # repeatedly to update the UI.
   #
   render: ->
-    super '', I18n.t 'scenes.etlite.costs'
+    super I18n.t 'scenes.etlite.costs'
 
     @$el.find('.icon').replaceWith @icon.render().el
     @updateValues()

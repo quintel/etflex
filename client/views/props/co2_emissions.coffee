@@ -26,7 +26,7 @@ class exports.CO2EmissionsView extends DashboardProp
   # repeatedly to update the UI.
   #
   render: ->
-    super '', 'CO<sub>2</sub>'
+    super 'CO<sub>2</sub>'
 
     @$el.find('.icon').replaceWith @icon.render().el
     @updateValues()
