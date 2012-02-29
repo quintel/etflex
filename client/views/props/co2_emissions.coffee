@@ -1,9 +1,8 @@
-{ DashboardProp } = require 'views/props/dashboard'
-{ IconProp }      = require 'views/props/icon'
+{ IconDashboardProp } = require 'views/props/dashboard'
 
 { hurdleStateNew } = require 'views/props'
 
-class exports.CO2EmissionsView extends DashboardProp
+class exports.CO2EmissionsView extends IconDashboardProp
   @queries: [ 'total_co2_emissions' ]
   hurdles:  [ 140, 154, 161 ]
   states:   [ 'low', 'medium', 'high', 'extreme' ]
@@ -17,8 +16,6 @@ class exports.CO2EmissionsView extends DashboardProp
   constructor: (options) ->
     super options
 
-    @icon = new IconProp
-
     @query = options.queries.get 'total_co2_emissions'
     @query.on 'change:future', @updateValues
 
@@ -27,10 +24,7 @@ class exports.CO2EmissionsView extends DashboardProp
   #
   render: ->
     super 'CO<sub>2</sub>'
-
-    @$el.find('.icon').replaceWith @icon.render().el
     @updateValues()
-
     this
 
   # Updates the value shown to the user, and swaps the icon if necessary,

@@ -1,7 +1,6 @@
-{ DashboardProp } = require 'views/props/dashboard'
-{ IconProp }      = require 'views/props/icon'
+{ IconDashboardProp } = require 'views/props/dashboard'
 
-class exports.RenewablesView extends DashboardProp
+class exports.RenewablesView extends IconDashboardProp
   @queries: [ 'renewability' ]
 
   hurdles:  [ 6, 8, 10 ]
@@ -15,8 +14,6 @@ class exports.RenewablesView extends DashboardProp
   constructor: (options) ->
     super options
 
-    @icon = new IconProp
-
     @query = options.queries.get 'renewability'
     @query.on 'change:future', @updateValues
 
@@ -25,10 +22,7 @@ class exports.RenewablesView extends DashboardProp
   #
   render: ->
     super I18n.t 'scenes.etlite.renewables'
-
-    @$el.find('.icon').replaceWith @icon.render().el
     @updateValues()
-
     this
 
   # Updates the value shown to the user, and swaps the icon if necessary,
