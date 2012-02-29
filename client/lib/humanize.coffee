@@ -37,6 +37,4 @@ formatNumber = (number, key) ->
     else if number >=  10 then 1
     else                       2
 
-  console.log precision
-
   I18n.toNumber number, precision: precision
