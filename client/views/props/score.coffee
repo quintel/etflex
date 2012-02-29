@@ -21,7 +21,7 @@ class exports.ScoreView extends DashboardProp
   # repeatedly to update the UI.
   #
   render: ->
-    super '', I18n.t 'scenes.etlite.score'
+    super I18n.t 'scenes.etlite.score'
 
     @$el.prepend """
       <div class='icon-prop'>

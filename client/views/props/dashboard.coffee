@@ -9,8 +9,11 @@ class exports.DashboardProp extends GenericProp
 
   # Renders a simple template, and assigns values and events.
   #
-  render: (value, unit) ->
-    @$el.html template value: value, unit: unit
+  # metric - The template will be rendered, and the given metric inserted. For
+  #          example, "Costs", "Reliability", etc.
+  #
+  render: (metric) ->
+    @$el.html template metric: metric
     super
 
   # Shows the user the difference between the previous value of a prop, and

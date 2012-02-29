@@ -21,7 +21,7 @@ class exports.ReliabilityView extends DashboardProp
     @query.on 'change:future', @updateValues
 
   render: ->
-    super '', I18n.t 'scenes.etlite.reliability'
+    super I18n.t 'scenes.etlite.reliability'
 
     @$el.find('.icon').replaceWith @icon.render().el
     @updateValues()
