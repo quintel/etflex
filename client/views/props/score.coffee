@@ -1,64 +1,68 @@
 { DashboardProp } = require 'views/props/dashboard'
-{ IconProp }      = require 'views/props/icon'
 
 class exports.ScoreView extends DashboardProp
-  @queries: [ 'etflex_score' ]
 
   className: 'score'
 
-  # Creates a new Score prop
+  # Queries and hurdle values.
+
+  @queries: [ 'etflex_score' ]
+
+  # Display settings.
+
+  name: I18n.t 'scenes.etlite.score'
+
+  # Ensure that 0 <= score >= 999
+  mutateValue: (value) -> @brickwallScore Math.round value
+
+  # Converts the score to a string, adding leading zeros as necessary.
+  displayValue: (value) ->
+    value = "#{ value }"
+
+    # Ensure the score is left-padded with zeros when < 100 and < 10.
+    value = "0" + value until value.length is 3
+
+    value
+
+  # Custom Rendering ---------------------------------------------------------
+
+  # Creates a new Score prop.
   #
   constructor: (options) ->
     super options
 
     @timers = { ones: [], tens: [], hundreds: [] }
 
-  # Renders the UI; calculates score. Can be safely called
-  # repeatedly to update the UI.
+  # Renders the UI; calculates score. Can be safely called repeatedly to
+  # update the UI.
   #
   render: ->
-    super I18n.t 'scenes.etlite.score'
+    super =>
+      @$el.prepend """
+        <div class='icon-prop'>
+          <span class='icon'>
+            <span class='numbers hundreds'></span>
+            <span class='numbers tens'></span>
+            <span class='numbers ones'></span>
 
-    @$el.prepend """
-      <div class='icon-prop'>
-        <span class='icon'>
-          <span class='numbers hundreds'></span>
-          <span class='numbers tens'></span>
-          <span class='numbers ones'></span>
-
-          <span class='number-overlay hundreds'></span>
-          <span class='number-overlay flip1 tens'></span>
-          <span class='number-overlay flip2 ones'></span>
-        </span>
-      </div>"""
-
-    @updateValues()
-
-    this
+            <span class='number-overlay hundreds'></span>
+            <span class='number-overlay flip1 tens'></span>
+            <span class='number-overlay flip2 ones'></span>
+          </span>
+        </div>"""
 
   # Updates the value shown to the user, and swaps the icon if necessary,
   # without re-rendering the whole view.
   #
   updateValues: =>
-    score    = @brickwallScore @query.get('future')
-    previous = @brickwallScore @query.previous('future')
-
-    roundedScore = @precision score, 0
-    stringScore  = roundedScore.toString()
-
-    # Ensure the score is left-padded with zeros when < 100 and < 10.
-    stringScore = "0" + stringScore until stringScore.length is 3
-
-    # Reduce the shown value to whole value.
-    @$el.find('.output').html @precision score, 0
+    score       = super
+    stringScore = @displayValue score
 
     @updateMultiple 'ones',     stringScore[2]
     @updateMultiple 'tens',     stringScore[1]
     @updateMultiple 'hundreds', stringScore[0]
 
-    @setDifference score - previous, precision: 0
-
-    this
+    score
 
   # Given the name of a multiple -- "hundreds", "tens", or "ones" -- updates
   # the UI to show the new score. Animates the change from the old number to
