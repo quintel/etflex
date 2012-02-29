@@ -109,7 +109,9 @@ class exports.DashboardProp extends GenericProp
   # difference - The difference between the old and new values.
   # options    - Options which are passed to the I18n formatted.
   #
-  setDifference: (difference, options = { precision: 1 }) ->
+  setDifference: (difference, options) ->
+    options or= { precision: 1, strip_insignificant_zeros: true }
+
     element = @$el.find '.difference'
 
     # Clear out other classes by default
