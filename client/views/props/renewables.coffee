@@ -1,13 +1,13 @@
-{ GenericProp } = require 'views/props/generic'
-{ IconProp }    = require 'views/props/icon'
+{ DashboardProp } = require 'views/props/dashboard'
+{ IconProp }      = require 'views/props/icon'
 
-class exports.RenewablesView extends GenericProp
+class exports.RenewablesView extends DashboardProp
   @queries: [ 'renewability' ]
 
   hurdles:  [ 6, 8, 10 ]
   states:   [ 'low', 'medium', 'high', 'extreme' ]
 
-  className: 'prop renewables'
+  className: 'renewables'
 
   # Creates a new Renewables prop. Calculates the percentage of total energy
   # generated which is derived from solar and window energy.

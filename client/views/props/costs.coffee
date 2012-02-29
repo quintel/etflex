@@ -1,14 +1,14 @@
-{ GenericProp } = require 'views/props/generic'
-{ IconProp }    = require 'views/props/icon'
+{ DashboardProp } = require 'views/props/dashboard'
+{ IconProp }      = require 'views/props/icon'
 
-class exports.CostsView extends GenericProp
+class exports.CostsView extends DashboardProp
   @queries: [ 'total_costs' ]
 
   hurdles:  [ 38, 40, 42, 44, 48, 50, 52 ]
   states:   [ 'nine', 'eight', 'seven', 'six', 'five',
               'four', 'three', 'two', 'one' ]
 
-  className: 'prop costs lower-better'
+  className: 'costs lower-better'
 
   # Creates a new Costs prop. Calculates the cost of the choices the user
   # makes in the ETLite scene.

@@ -1,6 +1,4 @@
-propTemplate    = require 'templates/prop'
 { showMessage } = require 'lib/messages'
-
 { hurdleState, insertQueryData } = require 'views/props'
 
 # A generic, placeholder prop which has an empty space for some sort of icon
@@ -16,15 +14,23 @@ propTemplate    = require 'templates/prop'
 #     className: 'prop lower-better'
 #
 class exports.GenericProp extends Backbone.View
-  className: 'prop'
 
-  events:
-    'click .help': 'showHelp'
+  # Subclasses should call `super` within their render method, *last*. For
+  # example:
+  #
+  #   render: ->
+  #     # code
+  #     # more code...
+  #     super
+  #
+  render: ->
+    # Here we set generic CSS classes, and assign common events. These are
+    # not added using the Backbone convention "className" and "events"
+    # attributes so that subclasses don't need to worry about duplicating
+    # them.
+    @$el.addClass 'prop'
+    @$el.on 'click', '.help', => @showHelp()
 
-  render: (value, unit) ->
-    @$el.html propTemplate value: value, unit: unit
-
-    @delegateEvents()
     this
 
   # TODO: move this function to a generic class of Application wide helpers
@@ -62,34 +68,6 @@ class exports.GenericProp extends Backbone.View
   #
   hurdleState: (value) ->
     hurdleState this, value
-
-  # Shows the user the difference between the previous value of a prop, and
-  # the new value. Formats the number appropriately for the user locale.
-  #
-  # difference - The difference between the old and new values.
-  # options    - Options which are passed to the I18n formatted.
-  #
-  setDifference: (difference, options = { precision: 1 }) ->
-    element = @$el.find '.difference'
-
-    # Clear out other classes by default
-    element.attr class: 'difference'
-
-    # The locale-formatted difference.
-    formatted  = I18n.toNumber difference, options
-
-    # Don't display the difference if, when rounded to the precision, it would
-    # equal 0 (e.g. score increases by 0.1, but we only care when it increases
-    # in whole numbers).
-    difference = parseFloat @precision(difference,
-      if options.precision? then options.precision else 1)
-
-    if difference > 0
-      element.addClass('up').html "#{formatted}"
-    else if difference < 0
-      element.addClass('down').html "#{formatted}"
-    else
-      element.html ""
 
   # Shows a modal help message, providing the user with more information about
   # the prop.
