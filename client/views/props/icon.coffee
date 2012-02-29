@@ -5,7 +5,7 @@
 # an icon showing a jar with lots of money, to an empty jar, based on the
 # total cost of a scenario.
 #
-class exports.IconProp extends Backbone.View
+class exports.IconProp extends GenericProp
 
   className: 'icon-prop'
   fadeType:  'serial'
