@@ -1,4 +1,4 @@
-template        = require 'templates/prop'
+template        = require 'templates/props/dashboard'
 { GenericProp } = require 'views/props/generic'
 
 # A base class used by props which appear in the dashboard section. Shows an
