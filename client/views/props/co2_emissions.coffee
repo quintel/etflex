@@ -9,16 +9,6 @@ class exports.CO2EmissionsView extends IconDashboardProp
 
   className: 'co2-emissions lower-better'
 
-  # Creates a new CO2Emissions prop. In addition to the usual Backbone
-  # options, requires `gas` containing the gas-fired power plants input, and
-  # `coal` containing the coal-fired power plans input.
-  #
-  constructor: (options) ->
-    super options
-
-    @query = options.queries.get 'total_co2_emissions'
-    @query.on 'change:future', @updateValues
-
   # Renders the UI; calculates the C02 emissions. Can be safely called
   # repeatedly to update the UI.
   #

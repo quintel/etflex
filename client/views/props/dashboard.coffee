@@ -8,6 +8,21 @@ template        = require 'templates/props/dashboard'
 #
 class exports.DashboardProp extends GenericProp
 
+  # Creates a new DashboardProp.
+  #
+  # Since props on the dashboard use only a single query to change the state
+  # of the icon, the first query key in the @queries array will be assumed to
+  # be the correct one.
+  #
+  # The query instance will be set to @query, and @updateValues will be run
+  # every time the query value changes.
+  #
+  constructor: (options) ->
+    super
+
+    @query = options?.queries.get @constructor.queries?[0]
+    @query.on 'change:future', @updateValues if @query
+
   # Renders a simple template, and assigns values and events.
   #
   # metric - The template will be rendered, and the given metric inserted. For

@@ -11,11 +11,7 @@ class exports.ScoreView extends DashboardProp
   constructor: (options) ->
     super options
 
-    @icon   = new IconProp
     @timers = { ones: [], tens: [], hundreds: [] }
-
-    @query = options.queries.get 'etflex_score'
-    @query.on 'change:future', @updateValues
 
   # Renders the UI; calculates score. Can be safely called
   # repeatedly to update the UI.
