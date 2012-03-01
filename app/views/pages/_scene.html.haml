@@ -1,0 +1,36 @@
+- latest_scenario = scenarios_for_current_user(scene).all.first
+
+.scene[ scene ]
+  %h2
+    = link_to scene.name, scene
+
+  %p.description
+    Try to balance the demand for energy in your country with the costs of
+    building new power stations, and the need for clean renewable energy.
+
+  - if latest_scenario.present?
+    %p.scene-actions
+      = link_to 'Resume', scene_scenario_url(scene, latest_scenario)
+      = link_to 'Start Over', scene_url(scene)
+  - else
+    %p.scene-actions
+      = link_to 'Try the Challenge&hellip;'.html_safe, scene_url(scene)
+
+  .scenarios
+    .your-scenarios.scenario-list
+      %ul
+        - scenarios_for_current_user(scene).each do |scenario|
+          %li
+            %a(href="#{ scene_scenario_url(scene, scenario) }")
+              .score= scenario_score scenario
+              .info= scenario_age scenario
+
+    .others-scenarios.scenario-list
+      %ul
+        - scenarios_for_other_users(scene).each do |scenario|
+          %li
+            %a(href="#{scene_scenario_url(scene, scenario)}")
+              .score= scenario_score scenario
+              .info
+                %span.author= scenario_owner scenario
+                %span.time= scenario_age scenario

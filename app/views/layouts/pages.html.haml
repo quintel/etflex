@@ -1,0 +1,13 @@
+!!! 5
+%html
+  %head
+    %title= I18n.t "etm_light"
+
+    = stylesheet_link_tag 'pages'
+    = javascript_include_tag 'modernizr-2.0.6.js'
+    = csrf_meta_tags
+
+    %meta(name="viewport" content="width=1100")
+
+  %body.pages
+    = yield

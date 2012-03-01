@@ -34,7 +34,7 @@ ETFlex::Application.routes.draw do
   # Default Path -------------------------------------------------------------
 
   # A temporary page for viewing / testing what will become the root page.
-  get '/root', to: 'home#root'
+  get '/root', to: 'pages#root'
 
   root to: 'scenes#index'
 
