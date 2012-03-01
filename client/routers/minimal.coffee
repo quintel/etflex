@@ -1,4 +1,5 @@
-app = require 'app'
+app          = require 'app'
+notification = require 'templates/scenario_notification'
 
 # MINIMAL ROUTER -------------------------------------------------------------
 
@@ -20,17 +21,7 @@ class exports.Minimal extends Backbone.Router
     channel = pusher.subscribe 'etflex-development'
 
     informUpdate = (event, thing) ->
-      data = ''
-
-      for own key, value of thing
-        value = "\"#{ value }\"" if _.isString value
-        data += "#{ key }=#{ value } "
-
-      $('#scenarios .none').remove()
-
-      $('#scenarios').prepend $('<li/>').html """
-        <strong>#{ event }</strong> <span class="data">#{ data }</span>
-      """
+      $('#scenarios').prepend $('<li/>').html notification { event, data }
 
     channel.bind 'scenario.created', (thing) ->
       informUpdate 'scenario.created', thing
