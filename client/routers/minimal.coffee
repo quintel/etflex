@@ -20,7 +20,11 @@ class exports.Minimal extends Backbone.Router
     channel = pusher.subscribe 'etflex-development'
 
     informUpdate = (event, thing) ->
-      data = ( "#{ key }=#{ value }" for own key, value of thing ).join ' '
+      data = ''
+
+      for own key, value of thing
+        value = "\"#{ value }\"" if _.isString value
+        data += "#{ key }=#{ value } "
 
       $('#scenarios .none').remove()
 
