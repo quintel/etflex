@@ -5,9 +5,9 @@ ETFlex::Application.routes.draw do
     post 'with/:id', to: 'scenarios#update'
     put  'with/:id', to: 'scenarios#update'
   end
-  
+
   resources :scenarios, only: %w( index )
-  
+
   # Devise -------------------------------------------------------------------
 
   devise_for :users, controllers: {
@@ -34,7 +34,8 @@ ETFlex::Application.routes.draw do
   # Default Path -------------------------------------------------------------
 
   # A temporary page for viewing / testing what will become the root page.
-  get '/root', to: 'pages#root'
+  get '/root',   to: 'pages#root'
+  get '/pusher', to: 'pages#pusher'
 
   root to: 'scenes#index'
 

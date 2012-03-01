@@ -1,8 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  include ETFlex::LocaleController
   include ETFlex::GuestController
+  include ETFlex::LocaleController
+  include ETFlex::PusherController
 
   layout :layout_by_resource
 

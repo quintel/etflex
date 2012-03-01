@@ -45,10 +45,10 @@ exports.boot = (window, { locale, api, user }) ->
 exports.minimal = (window, { locale, api, user }) ->
   commonBoot window, locale, user
 
-  nav = new (require('views/scene_nav').SceneNav)
-  jQuery('#header').prepend nav.render().el
+  exports.routers.minimal = new (require('routers/minimal').Minimal)
 
-  require('lib/render').appendModalDialog()
+  # Fire up Backbone routing...
+  Backbone.history.start pushState: true
 
 # A wrapper around Backbone.Router::navigate which selects the correct router
 # depending on the URL, and by default will run the action defined the router
