@@ -18,7 +18,7 @@ class exports.Minimal extends Backbone.Router
   #
   pusher: ->
     pusher  = new Pusher '415cc8feb622f665d49a'
-    channel = pusher.subscribe 'etflex-development'
+    channel = pusher.subscribe "etflex-#{ app.env }"
 
     informUpdate = (event, data) ->
       console.log data
