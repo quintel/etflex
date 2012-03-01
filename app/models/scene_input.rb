@@ -163,4 +163,20 @@ class SceneInput < ActiveRecord::Base
     end
   end
 
+  # Given a collection of inputs, returns an array containing all of the
+  # sibling inputs (those with the same group names) wrapped inside a
+  # SceneInput for convenient use within a view.
+  #
+  # See Input.siblings.
+  #
+  # inputs - The input, or collection of inputs, whose siblings are to be
+  #          retrieved. This may be an Input, SceneInput, or an array
+  #          containing multiple inputs or scene inputs.
+  #
+  def self.dependent_siblings(inputs)
+    Input.dependent_siblings(inputs).map do |sibling|
+      SceneInput.new input: sibling, location: '$internal'
+    end
+  end
+
 end
