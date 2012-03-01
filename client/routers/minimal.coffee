@@ -20,7 +20,9 @@ class exports.Minimal extends Backbone.Router
     pusher  = new Pusher '415cc8feb622f665d49a'
     channel = pusher.subscribe 'etflex-development'
 
-    informUpdate = (event, thing) ->
+    informUpdate = (event, data) ->
+      console.log data
+      $('#scenarios .none').remove()
       $('#scenarios').prepend $('<li/>').html notification { event, data }
 
     channel.bind 'scenario.created', (thing) ->
