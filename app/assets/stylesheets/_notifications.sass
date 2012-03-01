@@ -10,7 +10,9 @@
   ul#scenarios
     font: 14px monospace
     list-style: none
-    padding-left: 25px
+    margin-left: 25px
+    margin-right: -25px
+    padding-left: 0
 
     li
       white-space: nowrap
@@ -18,6 +20,16 @@
     strong
       font-weight: normal
 
-    .data
+    dl
       color: #777
-      display: block
+      margin-left: 25px
+      margin-top: 0
+      overflow: hidden
+
+      dt, dd
+        float: left
+        width: 175px
+
+      dd
+        margin-left: 25px
+        width: 325px

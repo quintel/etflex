@@ -1,7 +1,7 @@
 <li>
   <strong><%= @event %></strong>
   <dl>
-    <% for own key, value in @data: %>
+    <% for own key, value of @data: %>
       <%# I see your DT, and raise you a one Raven. %>
       <dt><%= key %></dt>
       <dd><%= value %></dt>
