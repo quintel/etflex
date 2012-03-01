@@ -99,4 +99,4 @@ installConsolePolyfill = (window) ->
 
 # Returns if the application is being run in the staging environment.
 exports.isBeta = () ->
-  window.location.hostname.match(/beta/)?
+  exports.env is 'staging'
