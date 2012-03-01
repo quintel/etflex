@@ -5,6 +5,7 @@ require 'etflex/etengine_proxy'
 require 'etflex/guest_controller'
 require 'etflex/locale_controller'
 require 'etflex/prop_analyzer'
+require 'etflex/pusher_controller'
 
 module ETFlex
   # A simpler way to access the ETFlex configuration.

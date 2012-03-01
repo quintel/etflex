@@ -9,4 +9,11 @@ class PagesController < ApplicationController
     @scenes = Scene.limit(10)
   end
 
+  # A test page for Pusher.
+  #
+  # GET /pusher
+  #
+  def pusher
+  end
+
 end

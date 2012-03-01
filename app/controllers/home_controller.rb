@@ -9,4 +9,11 @@ class HomeController < ApplicationController
     @scenes = Scene.all
   end
 
+  # A test page for Pusher.
+  #
+  # GET /pusher
+  #
+  def pusher
+  end
+
 end

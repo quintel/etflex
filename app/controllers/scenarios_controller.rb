@@ -31,6 +31,19 @@ class ScenariosController < ApplicationController
       country:       attrs[:country] }
   end
 
+  # Sends notification to Pusher that a user did something.
+  #
+  # event    - The event type: "created" or "updated" depending on whether the
+  #            user modified their existing scenario, or started a new one.
+  #
+  # scenario - The scenario in question.
+  #
+  def scenario_pusher(event, scenario)
+    pusher "scenario.#{ event }",
+      session_id: scenario.session_id,
+      score:      scenario.score.round
+  end
+
   # ACTIONS ------------------------------------------------------------------
 
   ######
@@ -68,10 +81,15 @@ class ScenariosController < ApplicationController
 
     return head :forbidden unless @scenario.can_change?(current_or_guest_user)
 
+    event = if @scenario.new_record? then 'created' else 'updated' end
+
     @scenario.attributes = scenario_attrs if params[:scenario].present?
     @scenario.save
 
     respond_with @scenario, location: scene_scenario_url
+
+    # Send information about the update to connected clients.
+    scenario_pusher event, @scenario
   end
 
 end # ScenariosController
