@@ -107,4 +107,28 @@ class Input < ActiveRecord::Base
     siblings.reject { |input| exclusions.include?(input.remote_id) }
   end
 
+  # Given one or more inputs, returns all of the inputs which are related to
+  # them by the "group" column. The inputs passed in to the method will not
+  # be included in those returned.
+  #
+  # If, of the sliders passed in, there are two or more which are already in
+  # the same group, none of the groups siblings will be included. This
+  # happens so that client-side balancing only happens on sliders which the
+  # user can see.
+  #
+  # inputs - The input, or collection of inputs, whose siblings are to be
+  #          retrieved. This may be an Input, SceneInput, or an array
+  #          containing multiple inputs or scene inputs.
+  #
+  def self.dependent_siblings(inputs)
+    groups_with_multiples =
+      inputs.group_by(&:group).map do |group, inputs|
+        if inputs.count > 1 then group else nil end
+      end
+
+    siblings(inputs).reject do |input|
+      groups_with_multiples.include? input.group
+    end
+  end
+
 end
