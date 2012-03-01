@@ -39,9 +39,7 @@ class ScenariosController < ApplicationController
   # scenario - The scenario in question.
   #
   def scenario_pusher(event, scenario)
-    pusher "scenario.#{ event }",
-      session_id: scenario.session_id,
-      score:      scenario.score.round
+    pusher "scenario.#{ event }", scenario.to_pusher_event
   end
 
   # ACTIONS ------------------------------------------------------------------

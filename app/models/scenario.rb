@@ -30,7 +30,7 @@ class Scenario < ActiveRecord::Base
     def for_session(scene_id, session_id)
       where(scene_id: scene_id, session_id: session_id).first
     end
-    
+
     # Returns scenarios which belong to the given user or guest. Handy when
     # chained onto a scene, for example:
     #
@@ -144,6 +144,20 @@ class Scenario < ActiveRecord::Base
     self.total_co2_emissions = query_results['total_co2_emissions']
     self.total_costs         = query_results['total_costs']
     self.renewability        = query_results['renewability']
+  end
+
+  # Returns a copy of the scenario as a hash containing data which should be
+  # sent to Pusher whenever the scenario is created or updated.
+  #
+  # TODO This should be a JBuilder template so we have access to URL helpers.
+  #
+  def to_pusher_event
+    { href:               "/scenes/#{ scene_id }/with/#{ session_id }",
+      session_id:          session_id,
+      score:               score,
+      renewability:        renewability,
+      total_costs:         total_costs,
+      total_co2_emissions: total_co2_emissions }
   end
 
 end
