@@ -1,3 +1,14 @@
+- # DEBT: Move this definition to controller...
+
+- @icon_props = { car:                 %w[eco suv],
+                  city:                %w[large small],
+                  eco_buildings:       %w[green coal_dry],
+                  energy_sources:      %w[solar nuclear oil],
+                  geothermal_pipeline: %w[geothermal none pipeline],
+                  ground:              %w[dry green],
+                  solar_heater:        %w[none heater],
+                  turbines:            %w[coal wind] }
+
 #page-view
   #core
     #theme-header
@@ -5,31 +16,12 @@
       .world{"data-prop-location" => "header"}
         .plane
         .sun
-        .icon-prop.car
-          %span.icon{:style => "display: none; "}
-          %span.icon.suv.active
-          %span.help{:style => "opacity: 0; "}
-        .icon-prop.city
-          %span.icon{:style => "display: none; "}
-          %span.icon.large.active
-        .icon-prop.eco-buildings
-          %span.icon{:style => "display: none; "}
-          %span.icon.coal-dry.active
-        .icon-prop.energy-sources
-          %span.icon{:style => "display: none; "}
-          %span.icon.solar.active
-        .icon-prop.geothermal-pipeline
-          %span.icon{:style => "display: none; "}
-          %span.icon.pipeline.active
-        .icon-prop.ground
-          %span.icon{:style => "display: none; "}
-          %span.icon.dry.active
-        .icon-prop.solar-heater
-          %span.icon{:style => "display: none; "}
-          %span.icon.none.active
-        .icon-prop.turbines
-          %span.icon{:style => "display: none; "}
-          %span.icon.coal.active      
+        - @icon_props.each do |key, states|
+          .icon-prop{class: key.to_s.gsub(/_/,"-")}
+            - active_state = states.sample # Just pick a random state
+            - states.each do |state|
+              %span.icon{ class: state.gsub(/_/,"-"),
+                          style: ('display:none;' unless active_state == state) }
 
     %section#main
     
