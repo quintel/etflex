@@ -1,6 +1,27 @@
 app          = require 'app'
 notification = require 'templates/scenario_notification'
 
+{ ScenarioSummary }   = require 'models/scenario_summary'
+{ ScenarioSummaries } = require 'collections/scenario_summaries'
+{ HighScores }        = require 'views/high_scores'
+
+# Callback triggered whenever Pusher notifies us of a new or updates scenario.
+# We update the given ScenarioSummaries collection, creating or updating the
+# summary as necessary.
+#
+scenarioNotification = (collection) ->
+  (data) ->
+    if summary = collection.get data.id
+      event = 'scenario.updated'
+      summary.set data
+    else
+      event = 'scenario.created'
+      summary = new ScenarioSummary data
+      collection.add summary
+
+    $('#scenarios .none').remove()
+    $('#scenarios').prepend $('<li/>').html notification { event, data }
+
 # MINIMAL ROUTER -------------------------------------------------------------
 
 # A Router which is used to progressively enhance otherwise static pages, such
@@ -17,16 +38,13 @@ class exports.Minimal extends Backbone.Router
   # GET /pusher
   #
   pusher: ->
-    pusher  = new Pusher '415cc8feb622f665d49a'
-    channel = pusher.subscribe "etflex-#{ app.env }"
+    summaries  = new ScenarioSummaries
+    highScores = new HighScores collection: summaries
 
-    informUpdate = (event, data) ->
-      console.log data
-      $('#scenarios .none').remove()
-      $('#scenarios').prepend $('<li/>').html notification { event, data }
+    pusher     = new Pusher '415cc8feb622f665d49a'
+    channel    = pusher.subscribe "etflex-#{ app.env }"
 
-    channel.bind 'scenario.created', (thing) ->
-      informUpdate 'scenario.created', thing
+    channel.bind 'scenario.created', scenarioNotification(summaries)
+    channel.bind 'scenario.updated', scenarioNotification(summaries)
 
-    channel.bind 'scenario.updated', (thing) ->
-      informUpdate 'scenario.updated', thing
+    $('#scores').append highScores.render().el
