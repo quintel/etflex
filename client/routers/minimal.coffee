@@ -38,7 +38,6 @@ class exports.Minimal extends Backbone.Router
   # GET /pusher
   #
   pusher: ->
-    console.log window.bootstrap
     summaries  = new ScenarioSummaries(window.bootstrap or [])
     highScores = new HighScores collection: summaries
 
@@ -48,4 +47,5 @@ class exports.Minimal extends Backbone.Router
     channel.bind 'scenario.created', scenarioNotification(summaries)
     channel.bind 'scenario.updated', scenarioNotification(summaries)
 
+    $('#notifications .loading').remove()
     $('#scores').append highScores.render().el
