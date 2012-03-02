@@ -16,6 +16,10 @@ class exports.HighScores extends Backbone.View
     # Keep track of the summaries which are shown in the UI.
     @visible = []
 
+    # Used while rendering so that elements immediately appear instead of
+    # animating into place.
+    @animate = true
+
     # We need the collection to re-sort whenever a summary score changes.
     @collection.on 'change:score', @collection.sort
 
@@ -27,22 +31,20 @@ class exports.HighScores extends Backbone.View
   # top five have changed.
   render: =>
     @$el.empty()
-
-    if @collection.length isnt 0
-      $('li.none').remove()
+    @animate = false
 
     for scenario in @collection.models
-      @summaryUpdated scenario, false
+      @summaryUpdated scenario, null, false
 
+    @animate = true
     this
 
   # Given a ScenarioSummary, adds it to the UI. If the scenario is already
   # visible, the existing UI will be updated.
   #
-  summaryUpdated: (summary) =>
+  summaryUpdated: (summary, ignore) =>
     isVisible = _.include @visible, summary.id
     isTopN    = @collection.isTopN  summary, @show
-    position  = @collection.indexOf summary if isTopN
 
     if isVisible and not isTopN
 
@@ -55,11 +57,10 @@ class exports.HighScores extends Backbone.View
     else if isVisible and isTopN
 
       # Was previously a top-five scenario, and still is.
-      @summaryEl(summary.get 'session_id').
-        find('.score').text Math.round summary.get 'score'
+      element = @summaryEl summary.get 'session_id'
+      element.find('.score').text Math.round summary.get 'score'
 
-      # TODO We need to re-sort the DOM elements to keep the scenarios sorted
-      #      in score order.
+      @sortSummaryEl summary, element
 
     else if isTopN
 
@@ -73,9 +74,6 @@ class exports.HighScores extends Backbone.View
 
       @promote summary
 
-      # TODO We need to re-sort the DOM elements to keep the scenarios sorted
-      #      in score order.
-
   # Private ------------------------------------------------------------------
 
   # Returns the DOM element for a summary which corresponds with a given
@@ -88,7 +86,7 @@ class exports.HighScores extends Backbone.View
   promote: (summary) ->
     @visible.push summary.id
 
-    @$el.append template
+    @sortSummaryEl summary, $ template
       sessionId: summary.get 'session_id'
       score:     Math.round summary.get 'score'
 
@@ -98,3 +96,32 @@ class exports.HighScores extends Backbone.View
   demote: (summary) ->
     @visible = _(@visible).without summary.id
     @summaryEl(summary.get 'session_id').remove()
+
+  # Sorts the DOM elements so that they appear in descending order by score.
+  #
+  # It is assumed that all of the elements are already sorted, except for the
+  # given scenario / element, whose score having changes, needs to be moved
+  # to the correct position.
+  #
+  # summary - The ScenarioSummary.
+  # element - The existing DOM element which represents the summary.
+  #
+  sortSummaryEl: (summary, element) ->
+    elementId = element.attr 'id'
+    position  = @collection.indexOf(summary) + 1
+    currentAt = @$ "li:nth-child(#{ position })"
+
+    # Don't mess about with the DOM if the element is already in the correct
+    # place.
+    unless currentAt.attr('id') is elementId
+      element.detach()
+
+      if currentAt.length and position isnt 5
+        element.insertBefore currentAt
+      else
+        @$el.append element
+
+    if @animate
+      element.css('margin-left', '20px').
+        animate({ 'margin-left': '0px' },
+          duration: 750, easing: 'easeOutBounce')
