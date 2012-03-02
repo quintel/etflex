@@ -32,7 +32,7 @@ class exports.HighScores extends Backbone.View
       $('li.none').remove()
 
     for scenario in @collection.models
-      @scenarioUpdated scenario, false
+      @summaryUpdated scenario, false
 
     this
 
@@ -67,8 +67,9 @@ class exports.HighScores extends Backbone.View
       # present (there may not be a #5 if scenarioUpdated is being called from
       # within the render method, or if it was triggered after the demotion of
       # another scenario.
-      if (demoteEl = @$ 'li:nth-child(4)').length
-        @demote parseInt(demoteEl.attr('id').replace(/^high-score-/, ''), 10)
+      if (demoteEl = @$ "li:nth-child(#{ @show })").length
+        dId = parseInt demoteEl.attr('id').replace(/^high-score-/, ''), 10
+        @demote @collection.find (model) -> model.get('session_id') is dId
 
       @promote summary
 
