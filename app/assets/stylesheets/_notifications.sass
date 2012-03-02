@@ -1,5 +1,6 @@
 // Temporary styles used when testing receipt of Pusher messages.
 #notifications
+  +pie-clearfix
   padding: 34px 50px
   width: 550px
 
@@ -7,11 +8,17 @@
     color: #777
     font-weight: normal
 
+  #raw, #scores
+    float: left
+    width: 500px
+
+  #scores
+    margin-right: -450px
+
   ul#scenarios
     font: 14px monospace
     list-style: none
     margin-left: 25px
-    margin-right: -25px
     padding-left: 0
 
     li
@@ -28,8 +35,12 @@
 
       dt, dd
         float: left
-        width: 175px
+        width: 150px
 
       dd
         margin-left: 25px
-        width: 325px
+        width: 250px
+
+  ol.high-scoring-scenarios
+    list-style: none
+    padding-left: 25px
