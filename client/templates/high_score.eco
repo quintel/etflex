@@ -1,3 +1,3 @@
 <li id="high-score-<%= @sessionId %>">
-  <%= @score %> &mdash; <%= @sessionId %>
+  <span class="score"><%= @score %></span> &mdash; <%= @sessionId %>
 </li>
