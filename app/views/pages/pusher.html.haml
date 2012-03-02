@@ -16,3 +16,6 @@
     %h4
       High scores:
       %span.info (highest first)
+
+:javascript
+  window.bootstrap = #{ Scenario.by_score.limit(5).map(&:to_pusher_event).to_json }
