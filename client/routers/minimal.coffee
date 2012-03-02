@@ -38,7 +38,8 @@ class exports.Minimal extends Backbone.Router
   # GET /pusher
   #
   pusher: ->
-    summaries  = new ScenarioSummaries
+    console.log window.bootstrap
+    summaries  = new ScenarioSummaries(window.bootstrap or [])
     highScores = new HighScores collection: summaries
 
     pusher     = new Pusher '415cc8feb622f665d49a'
