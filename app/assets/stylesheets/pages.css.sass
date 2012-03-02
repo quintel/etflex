@@ -19,16 +19,24 @@
 
 // Application Stylesheets ---------------------------------------------------
 
+@import "base"
 @import "scenes/modern"
 @import "scenes/header"
 @import "notifications"
 
-#core
-  margin: auto
-  position: relative
-  width: 960px
+#page-view
+  background: #8abcdb image-url("scenes/modern/bg.png") center top repeat-y
+  background: image-url("scenes/modern/footer.jpg") center bottom no-repeat, #8abcdb image-url("scenes/modern/bg.png") center top repeat-y
+  min-height: 100%
+  overflow: hidden
+  padding: 0
 
-  #main
-    margin-top: -250px
+  #core
+    margin: auto
     position: relative
-    z-index: 2
+    width: 960px
+
+    #main
+      margin-top: -250px
+      position: relative
+      z-index: 2
