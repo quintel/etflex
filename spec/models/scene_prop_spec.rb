@@ -2,11 +2,13 @@ require 'spec_helper'
 
 describe SceneProp do
 
-  it { should allow_mass_assignment_of(:scene_id) }
-  it { should allow_mass_assignment_of(:scene) }
-  it { should allow_mass_assignment_of(:prop_id) }
-  it { should allow_mass_assignment_of(:prop) }
   it { should allow_mass_assignment_of(:location) }
+  it { should allow_mass_assignment_of(:prop_id) }
+  it { should allow_mass_assignment_of(:position) }
+
+  it { should_not allow_mass_assignment_of(:scene) }
+  it { should_not allow_mass_assignment_of(:scene_id) }
+  it { should_not allow_mass_assignment_of(:prop) }
 
   it { should validate_presence_of(:scene_id) }
   it { should validate_presence_of(:prop_id) }
@@ -17,10 +19,11 @@ describe SceneProp do
   # KEY ----------------------------------------------------------------------
 
   describe '#key' do
-    subject { SceneProp.new(prop: Prop.new(key: 'hello')) }
+    subject { build :scene_prop }
 
     it 'should be delegated to the prop' do
-      subject.key.should eql('hello')
+      subject.key.should_not be_nil
+      subject.key.should eql(subject.prop.key)
     end
 
     it 'should return nil when no prop is set' do
@@ -35,10 +38,11 @@ describe SceneProp do
   # BEHAVIOUR ----------------------------------------------------------------
 
   describe '#behaviour' do
-    subject { SceneProp.new(prop: Prop.new(behaviour: 'hello')) }
+    subject { build :scene_prop }
 
     it 'should be delegated to the prop' do
-      subject.behaviour.should eql('hello')
+      subject.behaviour.should_not be_nil
+      subject.behaviour.should eql(subject.prop.behaviour)
     end
 
     it 'should return nil when no prop is set' do
