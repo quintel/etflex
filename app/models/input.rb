@@ -48,6 +48,8 @@ class Input < ActiveRecord::Base
 
   def acts_like_input? ; true end
 
+  attr_accessible :remote_id, :key, :group, :min, :max, :start, :step, :unit
+
   # VALIDATION ---------------------------------------------------------------
 
   validates :remote_id, presence: true, uniqueness: true, on: :create

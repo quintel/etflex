@@ -25,6 +25,8 @@ class Scene < ActiveRecord::Base
     includes(scene_props: :prop, scene_inputs: :input)
   end
 
+  attr_accessible :name, :name_key
+
   # RELATIONSHIPS ------------------------------------------------------------
 
   has_many :scene_props

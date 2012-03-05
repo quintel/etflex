@@ -6,7 +6,9 @@ feature 'Editing scene props' do
     @scene = create :scene
     @prop  = create :prop
 
-    @scene_prop = @scene.scene_props.create(prop: @prop, location: 'bottom')
+    @scene_prop = @scene.scene_props.create(location: 'bottom') do |sp|
+      sp.prop = @prop
+    end
 
     sign_in create(:admin)
   end

@@ -20,6 +20,13 @@ describe Input do
     it { should allow_mass_assignment_of(:remote_id) }
   end
 
+  # UNIT ---------------------------------------------------------------------
+
+  describe '#unit' do
+    it { should_not validate_presence_of(:unit) }
+    it { should allow_mass_assignment_of(:unit) }
+  end
+
   # MINIMUM VALUE ------------------------------------------------------------
 
   describe 'minimum value' do
@@ -160,7 +167,8 @@ describe Input do
       let(:focus_2) { create :input, group: 'another-group' }
 
       subject { Input.siblings [
-        SceneInput.new(input: focus), SceneInput.new(input: focus_2) ] }
+        SceneInput.new { |si| si.input = focus },
+        SceneInput.new { |si| si.input = focus_2} ] }
 
       it 'should contain the siblings' do
         should have(3).members

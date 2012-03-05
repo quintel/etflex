@@ -55,7 +55,7 @@ class SceneInput < ActiveRecord::Base
 
   delegate :key, :unit, :group, to: :input, allow_nil: true
 
-  attr_accessible :input, :input_id, :location, :position, :step, :min, :max,
+  attr_accessible :input_id, :location, :position, :step, :min, :max,
                   :step, :start, :information_en, :information_nl
 
   default_scope do
@@ -159,7 +159,7 @@ class SceneInput < ActiveRecord::Base
   #
   def self.siblings(inputs)
     Input.siblings(inputs).map do |sibling|
-      SceneInput.new input: sibling, location: '$internal'
+      SceneInput.new(location: '$internal') { |si| si.input = sibling }
     end
   end
 
@@ -175,7 +175,7 @@ class SceneInput < ActiveRecord::Base
   #
   def self.dependent_siblings(inputs)
     Input.dependent_siblings(inputs).map do |sibling|
-      SceneInput.new input: sibling, location: '$internal'
+      SceneInput.new(location: '$internal') { |si| si.input = sibling }
     end
   end
 

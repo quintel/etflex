@@ -8,6 +8,13 @@ describe User do
   it { should allow_mass_assignment_of(:password) }
   it { should allow_mass_assignment_of(:password_confirmation) }
   it { should allow_mass_assignment_of(:name) }
+  it { should allow_mass_assignment_of(:remember_me) }
+
+  it { should allow_mass_assignment_of(:city) }
+  it { should allow_mass_assignment_of(:country) }
+  it { should allow_mass_assignment_of(:latitude) }
+  it { should allow_mass_assignment_of(:longitude) }
+  it { should allow_mass_assignment_of(:ip) }
 
   it { should_not allow_mass_assignment_of(:image) }
   it { should_not allow_mass_assignment_of(:origin) }

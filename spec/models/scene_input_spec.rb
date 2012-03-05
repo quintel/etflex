@@ -28,7 +28,7 @@ describe SceneInput do
   # STEP ---------------------------------------------------------------------
 
   describe '#step' do
-    subject { SceneInput.new(input: Input.new(step: 50)) }
+    subject { build :scene_input }
 
     it 'should return the value when set' do
       subject.step = 75
@@ -36,7 +36,8 @@ describe SceneInput do
     end
 
     it 'should delegate to the input when no value is set' do
-      subject.step.should eql(50.0)
+      subject.step.should_not be_nil
+      subject.step.should eql(subject.input.step)
     end
 
     it 'should return nil if no value, and no input is set' do
@@ -47,7 +48,7 @@ describe SceneInput do
   # MIN ----------------------------------------------------------------------
 
   describe '#min' do
-    subject { SceneInput.new(input: Input.new(min: 50)) }
+    subject { build :scene_input }
 
     it 'should return the value when set' do
       subject.min = 75
@@ -55,7 +56,8 @@ describe SceneInput do
     end
 
     it 'should delegate to the input when no value is set' do
-      subject.min.should eql(50.0)
+      subject.min.should_not be_nil
+      subject.min.should eql(subject.input.min)
     end
 
     it 'should return nil if no value, and no input is set' do
@@ -65,6 +67,7 @@ describe SceneInput do
     # Minimum must not be less than input minimum...
 
     it 'should not be higher than the Input min' do
+      subject.input.min = 50
       subject.min = 49
 
       subject.errors_on(:min).should include(
@@ -85,7 +88,7 @@ describe SceneInput do
   # MAX ----------------------------------------------------------------------
 
   describe '#max' do
-    subject { SceneInput.new(input: Input.new(max: 50)) }
+    subject { build :scene_input }
 
     it 'should return the value when set' do
       subject.max = 75
@@ -93,7 +96,8 @@ describe SceneInput do
     end
 
     it 'should delegate to the input when no value is set' do
-      subject.max.should eql(50.0)
+      subject.max.should_not be_nil
+      subject.max.should eql(subject.input.max)
     end
 
     it 'should return nil if no value, and no input is set' do
@@ -103,6 +107,7 @@ describe SceneInput do
     # Maximum must not be less than input maximum...
 
     it 'should not be higher than the Input max' do
+      subject.input.max = 50
       subject.max = 51
 
       subject.errors_on(:max).should include(
@@ -123,7 +128,7 @@ describe SceneInput do
   # START --------------------------------------------------------------------
 
   describe '#start' do
-    subject { SceneInput.new(input: Input.new(start: 50)) }
+    subject { build :scene_input }
 
     it 'should return the value when set' do
       subject.start = 75
@@ -131,7 +136,8 @@ describe SceneInput do
     end
 
     it 'should delegate to the input when no value is set' do
-      subject.start.should eql(50.0)
+      subject.start.should_not be_nil
+      subject.start.should eql(subject.input.start)
     end
 
     it 'should return nil if no value, and no input is set' do
@@ -143,7 +149,7 @@ describe SceneInput do
 
   describe '#remote_id' do
     let(:input) { create :input }
-    subject { SceneInput.new(input: input) }
+    subject { SceneInput.new { |si| si.input = input } }
 
     it 'should be an integer' do
       subject.remote_id.should be_kind_of(Integer)
@@ -165,10 +171,11 @@ describe SceneInput do
   # KEY ----------------------------------------------------------------------
 
   describe '#key' do
-    subject { SceneInput.new(input: Input.new(key: 'hello')) }
+    subject { build :scene_input}
 
     it 'should be delegated to the input' do
-      subject.key.should eql('hello')
+      subject.key.should_not be_nil
+      subject.key.should eql(subject.input.key)
     end
 
     it 'should return nil when no input is set' do
@@ -183,10 +190,11 @@ describe SceneInput do
   # UNIT ---------------------------------------------------------------------
 
   describe '#unit' do
-    subject { SceneInput.new(input: Input.new(unit: 'PJ')) }
+    subject { build :scene_input }
 
     it 'should be delegated to the input' do
-      subject.unit.should eql('PJ')
+      subject.unit.should_not be_nil
+      subject.unit.should eql(subject.input.unit)
     end
 
     it 'should return nil when no input is set' do
@@ -202,7 +210,7 @@ describe SceneInput do
 
   describe '#group' do
     let(:input) { create :input, group: 'my-group' }
-    subject { SceneInput.new(input: input) }
+    subject { SceneInput.new { |si| si.input = input } }
 
     it 'should be a string' do
       subject.group.should be_kind_of(String)
@@ -237,6 +245,10 @@ describe SceneInput do
     describe 'when given a single, grouped scene input with two siblings' do
       subject { SceneInput.siblings focus }
       let(:inputs) { subject.map(&:input) }
+
+      it 'should set the location to $internal' do
+        subject.each { |s| s.location.should eql('$internal') }
+      end
 
       it 'should contain the siblings' do
         should have(2).members
@@ -276,6 +288,10 @@ describe SceneInput do
     describe 'when given a single, grouped scene input with two siblings' do
       subject { SceneInput.siblings focus }
       let(:inputs) { subject.map(&:input) }
+
+      it 'should set the location to $internal' do
+        subject.each { |s| s.location.should eql('$internal') }
+      end
 
       it 'should contain the siblings' do
         should have(2).members

@@ -6,7 +6,9 @@ feature 'Editing scene inputs' do
     @scene = create :scene
     @input = create :input
 
-    @scene_input = @scene.scene_inputs.create(input: @input, location: 'left')
+    @scene_input = @scene.scene_inputs.create(location: 'left') do |si|
+      si.input = @input
+    end
 
     sign_in create(:admin)
   end
