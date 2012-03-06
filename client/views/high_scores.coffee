@@ -153,6 +153,7 @@ class SummaryRow extends Backbone.View
     'change:total_co2_emissions': 'updateEmissions'
     'change:total_costs':         'updateCost'
     'change:renewability':        'updateRenewability'
+    'change:updated_at':          'updateTime'
 
   constructor: (options) ->
     options.id = "high-score-#{ options.model.get('session_id') }"
@@ -194,6 +195,9 @@ class SummaryRow extends Backbone.View
 
   updateRenewability: (summary, renewables) =>
     @$('.renewables').text I18n.toPercentage(renewables * 100, precision: 1)
+
+  updateTime: (summary, time) =>
+    @$('.when').text I18n.l('time.formats.long', time)
 
   updatePosition: (position) ->
     @$('.position').text "##{position}"
