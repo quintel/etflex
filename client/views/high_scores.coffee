@@ -220,8 +220,6 @@ class SummaryRow extends Backbone.View
   updateMetric: (selector, value, min, max) ->
     container = @$ selector
 
-    console.log selector
-
     switch selector
       when '.emissions'
         formatted = "#{ I18n.toNumber value, precision: 1 } Mton"
@@ -231,8 +229,6 @@ class SummaryRow extends Backbone.View
         formatted = "#{ I18n.toCurrency value, precision: 1, unit: '€' }b"
 
     container.find('.value').text formatted
-
-    console.log container
 
     # Draw the horizontal bar graph.
     container.find('.bar').css 'width', @barWidth(value, min, max)
