@@ -1,9 +1,9 @@
-template = require 'templates/high_score'
+listTemplate = require 'templates/high_scores'
+rowTemplate  = require 'templates/high_score'
 
 # Shows the top five scoring scenario summaries in a list.
 class exports.HighScores extends Backbone.View
   className: 'high-scoring-scenarios'
-  tagName:   'ol'
 
   # Provide HighScores with a ScenarioSummaries collection in the options
   # hash.
@@ -31,7 +31,9 @@ class exports.HighScores extends Backbone.View
   # is called each time the collection is changed regardless of whether the
   # top five have changed.
   render: =>
-    @$el.empty()
+    @$el.html listTemplate()
+
+    @listElement = @$ 'ol'
     @animate = false
 
     for scenario in @collection.models
@@ -125,7 +127,7 @@ class exports.HighScores extends Backbone.View
         # when moving the row down requires first detaching the current row.
         row.$el.insertBefore nextRow.$el
       else
-        @$el.append row.$el
+        @listElement.append row.$el
 
       # Update the #1, #2, etc.
       for index in [ 0...@show ]
@@ -160,7 +162,7 @@ class SummaryRow extends Backbone.View
     super options
 
   render: ->
-    @$el.html template
+    @$el.html rowTemplate
       user:      'Some User'
       time:      '2 minutes ago'
       href:      @model.get 'href'

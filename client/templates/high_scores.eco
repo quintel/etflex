@@ -1,0 +1,8 @@
+<div class="legend">
+  <span class="score">Score</span>
+  <span class="metric emissions">CO<sub>2</sub> Emissions</span>
+  <span class="metric renewables">Renewables</span>
+  <span class="metric costs">Costs</span>
+</div>
+
+<ol></ol>
