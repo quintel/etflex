@@ -131,10 +131,10 @@ class exports.HighScores extends Backbone.View
       for index in [ 0...@show ]
         @rows[ @collection.at(index).id ]?.updatePosition index + 1
 
-    if @animate
-      row.$el.css('margin-left', '20px').
-        animate({ 'margin-left': '0px' },
-          duration: 750, easing: 'easeOutBounce')
+      if @animate
+        row.$el.css('margin-left', '20px').
+          animate({ 'margin-left': '0px' },
+            duration: 750, easing: 'easeOutBounce')
 
 # SummaryRow -----------------------------------------------------------------
 
