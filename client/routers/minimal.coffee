@@ -11,7 +11,7 @@ notification = require 'templates/scenario_notification'
 #
 scenarioNotification = (collection) ->
   (data) ->
-    if summary = collection.get data.id
+    if summary = collection.get data.session_id
       event = 'scenario.updated'
       summary.set data
     else
