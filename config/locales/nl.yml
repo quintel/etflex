@@ -53,6 +53,9 @@ nl:
     anonymous:          Anoniem
     by:                 Door
 
+    high_scores:        Hoge scores
+    loading:            Het laden
+
   magnitudes:
     million: "%{amount} miljoen"
     billion: "%{amount} miljard"
