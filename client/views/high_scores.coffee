@@ -154,7 +154,7 @@ class SummaryRow extends Backbone.View
     'change:score':               'updateScore'
     'change:total_co2_emissions': 'updateEmissions'
     'change:total_costs':         'updateCost'
-    'change:renewability':        'updateRenewability'
+    'change:renewability':        'updateRenewables'
     'change:updated_at':          'updateTime'
 
   constructor: (options) ->
@@ -184,22 +184,78 @@ class SummaryRow extends Backbone.View
     # Unbind events from the model.
     @model.off event, @[func] for own event, func of @modelEvents
 
+  # Model update callbacks ---------------------------------------------------
+
   updateScore: (summary, score) =>
     @$('.score').text Math.round(score)
-
-  updateEmissions: (summary, emissions) =>
-    @$('.emissions').text(
-      "#{I18n.toNumber(emissions / 1000000000, precision: '1')} Mton")
-
-  updateCost: (summary, cost) =>
-    @$('.costs').text(
-      "#{ I18n.toCurrency(cost / 1000000000, unit: '€', precision: 1) }b")
-
-  updateRenewability: (summary, renewables) =>
-    @$('.renewables').text I18n.toPercentage(renewables * 100, precision: 1)
 
   updateTime: (summary, time) =>
     @$('.when').text I18n.l('time.formats.long', time)
 
   updatePosition: (position) ->
     @$('.position').text "##{position}"
+
+  updateCost: (summary, cost) =>
+    @updateMetric '.costs', cost / 1000000000, 40, 50
+
+  updateRenewables: (summary, renewables) =>
+    @updateMetric '.renewables', renewables * 100, 0, 20
+
+  updateEmissions: (summary, emissions) =>
+    @updateMetric '.emissions', emissions / 1000000000, 120, 145
+
+  # Helpers ------------------------------------------------------------------
+
+  # Updates a displayed metric.
+  #
+  # selector - The CSS class corresponding with the metric ot be updated. For
+  #            example, ".renewables" or ".costs".
+  #
+  # value    - The new value of the metric.
+  #
+  # min      - The minimum expected value.
+  #
+  # max      - The maximum expected value.
+  #
+  updateMetric: (selector, value, min, max) ->
+    container = @$ selector
+
+    console.log selector
+
+    switch selector
+      when '.emissions'
+        formatted = "#{ I18n.toNumber value, precision: 1 } Mton"
+      when '.renewables'
+        formatted = I18n.toPercentage value, precision: 1
+      when '.costs'
+        formatted = "#{ I18n.toCurrency value, precision: 1, unit: '€' }b"
+
+    container.find('.value').text formatted
+
+    console.log container
+
+    # Draw the horizontal bar graph.
+    container.find('.bar').css 'width', @barWidth(value, min, max)
+
+  # Returns the width of a horizontal bar graph based on the given value, when
+  # compared with the minimum and maximum extrema.
+  #
+  # value - The current value of a metric.
+  #
+  # min   - The minimum expected value. If the value matches this, the bar
+  #         will be drawn at 0%.
+  #
+  # max   - The maximum expected value. If the value matches this, the bar
+  #         will be drawn at 100%.
+  #
+  # Returns a string in the format "50%".
+  #
+  barWidth: (value, min, max) ->
+    delta    = max - min
+    fromMin  = value - min
+    fraction = fromMin / delta
+
+    fraction = 0 if fraction < 0
+    fraction = 1 if fraction > 1
+
+    "#{ Math.round(fraction * 100) }%"
