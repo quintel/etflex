@@ -25,7 +25,10 @@
 
     %section#main
 
-      %h1 How does your <strong>Energy Future</strong> look like?
+      %h1 
+        How does your <strong>Energy Future</strong> look like?
+        %em
+          ="...and can you get the high score?"
 
       %p
         Pour-over in trust fund, quinoa forage fanny pack keffiyeh chillwave
@@ -44,9 +47,15 @@
         helvetica nihil, gluten-free cupidatat twee messenger bag sunt
         gentrify portland cray nisi assumenda terry richardson.
 
+      %section.buttons
+        %a.blue.launch{ href: "/scenes/1" } Create your own Future!
+
       #scores
         %h2== #{ I18n.t 'words.high_scores' }:
         .loading== #{ I18n.t 'words.loading' }...
 
+
 :javascript
   window.bootstrap = #{ @high_scenarios.map(&:to_pusher_event).to_json }
+
+  
