@@ -12,7 +12,7 @@
     <label for='show-score'>Show score</label>
   </li>
   <li>
-    <a href='<%= window.location.pathname %>?locale=<%= @alternativeLocale%>' data-navigate="noclient">
+    <a href='/lang/<%= @alternativeLocale %>?backto=<%= encodeURI window.location.pathname %>' data-navigate="noclient">
       <%= I18n.t 'navigation.switch_to' %> <%= I18n.t "locales.#{@alternativeLocale}" %>
     </a>
   </li>
