@@ -152,8 +152,7 @@ class Scenario < ActiveRecord::Base
   # TODO This should be a JBuilder template so we have access to URL helpers.
   #
   def to_pusher_event
-    { id:                  id,
-      session_id:          session_id,
+    { session_id:          session_id,
       href:               "/scenes/#{ scene_id }/with/#{ session_id }",
       score:               score,
       renewability:        renewability,
