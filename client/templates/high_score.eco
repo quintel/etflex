@@ -9,5 +9,5 @@
 <span class="metric renewables">Renewables</span>
 <span class="metric costs">Costs</span>
 <span class="buttons">
-  <a href="/" title="View this high score">View</a>
+  <a href="<%= @href %>" title="View this high score">View</a>
 </span>
