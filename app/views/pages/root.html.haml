@@ -24,9 +24,9 @@
                           style: ('display:none;' unless active_state == state) }
 
     %section#main
-    
+
       %h1 How does your <strong>Energy Future</strong> look like?
-      
+
       %p
         Pour-over in trust fund, quinoa forage fanny pack keffiyeh chillwave
         helvetica jean shorts. Qui biodiesel master cleanse, gluten-free
@@ -44,3 +44,15 @@
         helvetica nihil, gluten-free cupidatat twee messenger bag sunt
         gentrify portland cray nisi assumenda terry richardson.
 
+      #scores
+        %h4
+          High scores:
+          %span.info
+            (highest first)
+            Work-in-progress
+
+        .loading
+          Loading...
+
+:javascript
+  window.bootstrap = #{ @high_scenarios.map(&:to_pusher_event).to_json }

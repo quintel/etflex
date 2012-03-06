@@ -29,6 +29,7 @@ scenarioNotification = (collection) ->
 #
 class exports.Minimal extends Backbone.Router
   routes:
+    'root':   'pusher'
     'pusher': 'pusher'
 
   # A test page which is used to listen to events sent by Pusher, such as
@@ -47,5 +48,5 @@ class exports.Minimal extends Backbone.Router
     channel.bind 'scenario.created', scenarioNotification(summaries)
     channel.bind 'scenario.updated', scenarioNotification(summaries)
 
-    $('#notifications .loading').remove()
+    $('#scores .loading').remove()
     $('#scores').append highScores.render().el

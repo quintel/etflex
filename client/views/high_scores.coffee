@@ -15,6 +15,7 @@ class exports.HighScores extends Backbone.View
 
     # Keep track of the summaries which are shown in the UI.
     @visible = []
+    @rows    = {}
 
     # Used while rendering so that elements immediately appear instead of
     # animating into place.
@@ -57,10 +58,12 @@ class exports.HighScores extends Backbone.View
     else if isVisible and isTopN
 
       # Was previously a top-five scenario, and still is.
-      element = @summaryEl summary.get 'session_id'
-      element.find('.score').text Math.round summary.get 'score'
+      # element = @summaryEl summary.get 'session_id'
+      # element.find('.score').text Math.round summary.get 'score'
 
-      @sortSummaryEl summary, element
+      # Move the element to its new position; the SummaryRow will update the
+      # values shown.
+      @sortSummaryEl @rows[summary.id]
 
     else if isTopN
 
@@ -85,17 +88,18 @@ class exports.HighScores extends Backbone.View
   # re-sort the elements in the DOM, nor demotes the previous #5 scenario.
   promote: (summary) ->
     @visible.push summary.id
+    @rows[summary.id] = new SummaryRow(model: summary).render()
 
-    @sortSummaryEl summary, $ template
-      sessionId: summary.get 'session_id'
-      score:     Math.round summary.get 'score'
+    @sortSummaryEl @rows[ summary.id ]
 
   # Given a scenario summary, removes the DOM element which shows the summary.
   # Does not re-sort the elements in the DOM, nor does it promote the #6
   # element to #5.
   demote: (summary) ->
     @visible = _(@visible).without summary.id
-    @summaryEl(summary.get 'session_id').remove()
+
+    @rows[summary.id].remove()
+    delete @rows[summary.id] # GC.
 
   # Sorts the DOM elements so that they appear in descending order by score.
   #
@@ -103,25 +107,83 @@ class exports.HighScores extends Backbone.View
   # given scenario / element, whose score having changes, needs to be moved
   # to the correct position.
   #
-  # summary - The ScenarioSummary.
-  # element - The existing DOM element which represents the summary.
+  # row - The SummaryRow view.
   #
-  sortSummaryEl: (summary, element) ->
-    elementId = element.attr 'id'
-    position  = @collection.indexOf(summary) + 1
+  sortSummaryEl: (row) ->
+    position  = @collection.indexOf(row.model) + 1
     currentAt = @$ "li:nth-child(#{ position })"
 
     # Don't mess about with the DOM if the element is already in the correct
     # place.
-    unless currentAt.attr('id') is elementId
-      element.detach()
+    unless currentAt.attr('id') is row.id
+      row.$el.detach()
 
       if currentAt.length and position isnt 5
-        element.insertBefore currentAt
+        # Note that we get the nth-child again, as getting the correct element
+        # when moving the row down requires first detaching the current row.
+        row.$el.insertBefore @$("li:nth-child(#{ position })")
       else
-        @$el.append element
+        @$el.append row.$el
 
     if @animate
-      element.css('margin-left', '20px').
+      row.$el.css('margin-left', '20px').
         animate({ 'margin-left': '0px' },
           duration: 750, easing: 'easeOutBounce')
+
+# SummaryRow -----------------------------------------------------------------
+
+# Encapsulates a single high score row, binding events, etc.
+#
+# When using SummaryRow within another view (e.g. HighScores) remember to
+# always call SummaryRow::remove() so that the events may be removed from the
+# model. Failure to do so will result in the callbacks in SummaryRow being run
+# when the model changes, even if the Row is no longer visible.
+#
+class SummaryRow extends Backbone.View
+  tagName: 'li'
+
+  modelEvents:
+    'change:score':               'updateScore'
+    'change:total_co2_emissions': 'updateEmissions'
+    'change:total_costs':         'updateCost'
+    'change:renewability':        'updateRenewability'
+
+  constructor: (options) ->
+    options.id = "high-score-#{ options.model.get('session_id') }"
+    super options
+
+  render: ->
+    @$el.html template
+      user:      'Some User'
+      time:      '2 minutes ago'
+      sessionId: @model.get 'session_id'
+
+    for own event, func of @modelEvents
+      # Bind the model events to update the view when they change.
+      @model.on event, this[func]
+
+      # Immediately run the event callbacks so that the correct values are
+      # present in the view.
+      @[func] @model, @model.get(event.split(':')[1])
+
+    this
+
+  remove: ->
+    super # Remove elements from the DOM.
+
+    # Unbind events from the model.
+    @model.off event, @[func] for own event, func of @modelEvents
+
+  updateScore: (summary, score) =>
+    @$('.score').text Math.round(score)
+
+  updateEmissions: (summary, emissions) =>
+    @$('.emissions').text(
+      "#{I18n.toNumber(emissions / 1000000000, precision: '1')} Mton")
+
+  updateCost: (summary, cost) =>
+    @$('.costs').text(
+      "#{ I18n.toCurrency(cost / 1000000000, unit: '€', precision: 1) }b")
+
+  updateRenewability: (summary, renewables) =>
+    @$('.renewables').text I18n.toPercentage(renewables * 100, precision: 1)
