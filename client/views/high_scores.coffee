@@ -156,6 +156,7 @@ class SummaryRow extends Backbone.View
     @$el.html template
       user:      'Some User'
       time:      '2 minutes ago'
+      href:      @model.get 'href'
       sessionId: @model.get 'session_id'
 
     for own event, func of @modelEvents
