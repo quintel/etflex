@@ -1,13 +1,27 @@
 <span class="position">#n</span>
 <span class="score"><%= @score %></span>
+
 <span class="user">
   <img width="35" height="35" src="https://secure.gravatar.com/avatar/b760488be99d26d98e5ab10b84e4cccd?s=140" alt="User Avatar" />
   <span class="name"><%= @user %></span>
   <span class="when"><%= @time %></span>
 </span>
-<span class="metric emissions">CO2 Emissions</span>
-<span class="metric renewables">Renewables</span>
-<span class="metric costs">Costs</span>
+
+<span class="metric emissions">
+  <span class="graph"><span class="bar"></span></span>
+  <span class="value"></span>
+</span>
+
+<span class="metric renewables">
+  <span class="graph"><span class="bar"></span></span>
+  <span class="value"></span>
+</span>
+
+<span class="metric costs">
+  <span class="graph"><span class="bar"></span></span>
+  <span class="value"></span>
+</span>
+
 <span class="buttons">
   <a href="<%= @href %>" title="View this high score">View</a>
 </span>
