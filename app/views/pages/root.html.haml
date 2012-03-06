@@ -45,14 +45,8 @@
         gentrify portland cray nisi assumenda terry richardson.
 
       #scores
-        %h4
-          High scores:
-          %span.info
-            (highest first)
-            Work-in-progress
-
-        .loading
-          Loading...
+        %h2== #{ I18n.t 'words.high_scores' }:
+        .loading== #{ I18n.t 'words.loading' }...
 
 :javascript
   window.bootstrap = #{ @high_scenarios.map(&:to_pusher_event).to_json }

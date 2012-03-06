@@ -52,6 +52,9 @@ en:
     anonymous:          Anonymous
     by:                 By
 
+    high_scores:        High scores
+    loading:            Loading
+
   magnitudes:
     million: "%{amount} million"
     billion: "%{amount} billion"
