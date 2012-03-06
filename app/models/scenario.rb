@@ -158,7 +158,8 @@ class Scenario < ActiveRecord::Base
       score:               score,
       renewability:        renewability,
       total_costs:         total_costs,
-      total_co2_emissions: total_co2_emissions }
+      total_co2_emissions: total_co2_emissions,
+      updated_at:          updated_at }
   end
 
 end
