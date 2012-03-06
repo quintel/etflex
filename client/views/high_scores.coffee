@@ -118,12 +118,18 @@ class exports.HighScores extends Backbone.View
     unless currentAt.attr('id') is row.id
       row.$el.detach()
 
-      if currentAt.length and position isnt 5
+      if currentAt.length and position isnt @show
+        nextRow = @rows[ @collection.at(position).id ]
+
         # Note that we get the nth-child again, as getting the correct element
         # when moving the row down requires first detaching the current row.
-        row.$el.insertBefore @$("li:nth-child(#{ position })")
+        row.$el.insertBefore nextRow.$el
       else
         @$el.append row.$el
+
+      # Update the #1, #2, etc.
+      for index in [ 0...@show ]
+        @rows[ @collection.at(index).id ]?.updatePosition index + 1
 
     if @animate
       row.$el.css('margin-left', '20px').
@@ -188,3 +194,6 @@ class SummaryRow extends Backbone.View
 
   updateRenewability: (summary, renewables) =>
     @$('.renewables').text I18n.toPercentage(renewables * 100, precision: 1)
+
+  updatePosition: (position) ->
+    @$('.position').text "##{position}"
