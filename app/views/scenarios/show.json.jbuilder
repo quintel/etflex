@@ -1,4 +1,4 @@
-json.(@scenario, :id, :end_year, :country)
+json.(@scenario, :end_year, :country)
 
 json.sessionId    @scenario.session_id
 json.inputValues  @scenario.input_values

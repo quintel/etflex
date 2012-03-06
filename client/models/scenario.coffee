@@ -9,6 +9,7 @@ api = require 'lib/api'
 # The session ID is the ET-Engine session ID.
 #
 class exports.Scenario extends Backbone.Model
+  idAttribute: 'sessionId'
 
   constructor: (attributes) ->
     attributes.country   or= 'nl'

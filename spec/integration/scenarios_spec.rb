@@ -223,7 +223,7 @@ describe 'Scenarios' do
     context 'JSON' do
       subject { json.symbolize_keys }
 
-      it { should include(id: scenario.id) }
+      it { should include(sessionId: scenario.session_id) }
       it { should include(queryResults: scenario.query_results) }
       it { should include(inputValues: scenario.input_values.stringify_keys) }
     end
