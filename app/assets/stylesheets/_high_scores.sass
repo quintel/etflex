@@ -1,68 +1,92 @@
+$score-metric-width: 95px
 // Lists of the highest scoring scenarios.
-#main #scores
-  ol.high-scoring-scenarios
-    list-style: none
-    padding-left: 0
 
-    li
-      margin-bottom: 8px
+#main #scores
+  .high-scoring-scenarios
+    .legend
       overflow: hidden
 
-    .position, .score, .user, .metric, .buttons
-      background: #eee
-      border-top: 1px solid #ddd
-      border-bottom: 1px solid #ddd
-      display: block
-      float: left
-      line-height: 1
-      padding: 10px
-
-    .position
-      background: none
-      border: none
-      font-size: 24px
-      padding-top: 17px
-      width: 35px
-
-    .score
-      background: #ddd
-      border-color: #ccc
-      border-left: 1px solid #ccc
-      border-top-left-radius: 4px
-      border-bottom-left-radius: 4px
-      padding-top: 16px
-      padding-bottom: 15px
-      font-size: 24px
-
-    .user
-      width: 200px
-
-      img
-        border-radius: 3px
+      .score, .metric
+        color: #777
+        display: block
+        font-size: 11px
         float: left
-        margin-right: 7px
-        vertical-align: top
+        text-align: center
 
-      .name, .when
+        // Width, plus padding.
+        width: $score-metric-width + 20px
+
+      .score
+        margin-left: 55px
+        width: 60px
+
+      .emissions
+        margin-left: 220px
+
+    ol
+      list-style: none
+      padding-left: 0
+
+      li
+        margin-bottom: 8px
+        overflow: hidden
+
+      .position, .score, .user, .metric, .buttons
+        background: #eee
+        border-top: 1px solid #ddd
+        border-bottom: 1px solid #ddd
         display: block
         float: left
-        width: 150px
+        line-height: 1
+        padding: 10px
 
-      .name
-        font-size: 15px
-        padding-bottom: 3px
-        padding-top: 3px
+      .position
+        background: none
+        border: none
+        font-size: 24px
+        padding-top: 17px
+        width: 35px
 
-      .when
-        font-size: 11px
-        color: #777
+      .score
+        background: #ddd
+        border-color: #ccc
+        border-left: 1px solid #ccc
+        border-top-left-radius: 4px
+        border-bottom-left-radius: 4px
+        padding-top: 16px
+        padding-bottom: 15px
+        font-size: 24px
 
-    .metric, .buttons
-      padding-top: 21px
-      padding-bottom: 21px
-      width: 95px
+      .user
+        width: 200px
 
-    .buttons
-      border-right: 1px solid #ddd
-      border-top-right-radius: 4px
-      border-bottom-right-radius: 4px
+        img
+          border-radius: 3px
+          float: left
+          margin-right: 7px
+          vertical-align: top
+
+        .name, .when
+          display: block
+          float: left
+          width: 150px
+
+        .name
+          font-size: 15px
+          padding-bottom: 3px
+          padding-top: 3px
+
+        .when
+          font-size: 11px
+          color: #777
+
+      .metric, .buttons
+        padding-top: 21px
+        padding-bottom: 21px
+        text-align: center
+        width: $score-metric-width
+
+      .buttons
+        border-right: 1px solid #ddd
+        border-top-right-radius: 4px
+        border-bottom-right-radius: 4px
