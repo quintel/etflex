@@ -27,7 +27,7 @@ module ETFlex
       if params[:locale].present?
         # Allow changing the locale by passing a locale parameter when making
         # the request.
-        locale = params[:locale].to_s
+        locale = params.delete(:locale).to_s
 
         # A temporary workaround for Backbone including ?locale=... in its
         # routes; we should probably add /:locale/... instead, or a single

@@ -25,4 +25,21 @@ class PagesController < ApplicationController
   def pusher
   end
 
+  # Changes the user language. The actual change will be handled by
+  # ETFlex::LocaleController#set_locale prior to ever arriving at the action.
+  #
+  # GET /lang/:locale
+  #
+  def lang
+    if path = params[:backto].presence
+      # Make sure the first character is a / to prevent possible manipulation
+      # of the backto parameter.
+      path = '/' unless path.first == ?/
+    else
+      path = '/'
+    end
+
+    redirect_to path
+  end
+
 end
