@@ -13,7 +13,7 @@ class exports.EcoBuildingsProp extends HeaderIcon
   refresh: (renewables) ->
     stateName = hurdleState(this, renewables)
 
-    if renewables <= 0.06
+    if renewables <= 0.04
       stateName = "#{ stateName }-dry"
     else
       stateName = "#{ stateName }-green"
