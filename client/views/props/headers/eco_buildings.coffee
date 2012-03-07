@@ -1,4 +1,5 @@
 { HeaderIcon }  = require 'views/props/header_icon'
+{ GroundProp }  = require 'views/props/headers/ground'
 { hurdleState } = require 'views/props'
 
 class exports.EcoBuildingsProp extends HeaderIcon
@@ -13,7 +14,7 @@ class exports.EcoBuildingsProp extends HeaderIcon
   refresh: (renewables) ->
     stateName = hurdleState(this, renewables)
 
-    if renewables <= 0.04
+    if renewables <= GroundProp::hurdles[0]
       stateName = "#{ stateName }-dry"
     else
       stateName = "#{ stateName }-green"
