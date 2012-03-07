@@ -82,6 +82,7 @@ end
 puts "Setting admin user..."
 
 User.create!(email: 'admin@quintel.com', password: 'Energy') do |user|
+  user.name  = 'ETFlex Test'
   user.admin = true
 end
 
