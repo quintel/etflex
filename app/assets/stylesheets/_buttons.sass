@@ -33,12 +33,16 @@ $button-border-color: #a9b2bc !default
       border-color: darken($button-border-color, 8%)
 
     &.green
-      background-color: #66ab5c
+      background: #66ab5c
       @include background(linear-gradient(#80c060, #57984d))
       border-color: #227e17 #227e17 #1d4e1b
       box-shadow: inset 0 1px 0 #a3d488, 0 1px 0 rgba(0, 0, 0, 0.15)
       color: white
       text-shadow: 0 1px 1px #235d21
+
+      &:hover
+        background: #76b362
+        @include background(linear-gradient(#8dc76f, #67a35d))
 
       &:active
         background: #67a754
@@ -46,8 +50,18 @@ $button-border-color: #a9b2bc !default
         border-color: #235d21
 
     &.blue
-      @include background(linear-gradient(#0091E0, #004E8E))
-      border-color: #004E8E #004E8E #004E8E
+      background: #2d72b8
+      @include background(linear-gradient(#2b88d8, #2f5d9a))
+      border-color: #265592 #234c82 #183760
       color: white
-      box-shadow: inset 0 1px 0 #00B3ED, 0 1px 0 rgba(0, 0, 0, 0.15)
-      text-shadow: none
+      box-shadow: inset 0 1px 0 #00b3ed, 0 1px 0 rgba(0, 0, 0, 0.15)
+      text-shadow: 0 1px 1px #183760
+      -webkit-font-smoothing: antialiased
+
+      &:hover
+        background: #397ebf
+        @include background(linear-gradient(#3792dc, #3c69a3))
+
+      &:active
+        background: #275fa2
+        border-color: #183760
