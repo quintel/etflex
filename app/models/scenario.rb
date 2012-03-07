@@ -104,6 +104,12 @@ class Scenario < ActiveRecord::Base
     session_id
   end
 
+  # Returns the user if present, otherwise returns a Guest.
+  #
+  def user_or_guest
+    user or Guest.new
+  end
+
   # Determines if a given user or guest is permitted to change this scenario.
   #
   # check - A User or Guest instance to check.
@@ -159,7 +165,9 @@ class Scenario < ActiveRecord::Base
       total_costs:         total_costs,
       total_co2_emissions: total_co2_emissions,
       updated_at:          updated_at,
-      profile_image:     ( user or Guest.new ).image_url }
+      user_name:           user_or_guest.name.presence ||
+                             I18n.t('words.anonymous'),
+      profile_image:       user_or_guest.image_url }
   end
 
 end

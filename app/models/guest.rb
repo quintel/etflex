@@ -12,4 +12,12 @@ Guest = Struct.new(:id) do
   def image_url
     IMAGE_URL
   end
+
+  # Returns a string which shows the user name. Since this is a guest, it just
+  # returns ":guest" so that JS can translate that into "Guest" in the current
+  # locale.
+  #
+  def name
+    I18n.t 'words.anonymous'
+  end
 end
