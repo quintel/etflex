@@ -4,6 +4,7 @@ notification = require 'templates/scenario_notification'
 { ScenarioSummary }   = require 'models/scenario_summary'
 { ScenarioSummaries } = require 'collections/scenario_summaries'
 { HighScores }        = require 'views/high_scores'
+{ StaticHeader }      = require 'views/static_header'
 
 # Callback triggered whenever Pusher notifies us of a new or updates scenario.
 # We update the given ScenarioSummaries collection, creating or updating the
@@ -29,8 +30,18 @@ scenarioNotification = (collection) ->
 #
 class exports.Minimal extends Backbone.Router
   routes:
-    'root':   'pusher'
+    'root':   'root'
     'pusher': 'pusher'
+
+  # The main landing page for ETFlex.
+  #
+  # Contains information about the application, and the top n scores list
+  # using Pusher.
+  #
+  # GET /root
+  #
+  root: ->
+    @pusher()
 
   # A test page which is used to listen to events sent by Pusher, such as
   # listing scenario creation and updates, so that we can update the list of
@@ -50,3 +61,5 @@ class exports.Minimal extends Backbone.Router
 
     $('#scores .loading').remove()
     $('#scores').append highScores.render().el
+
+    new StaticHeader( el: $('#theme-header') ).render()
