@@ -8,7 +8,7 @@ class exports.CO2EmissionsView extends IconDashboardProp
   # Queries and hurdle values.
 
   queries: [ 'total_co2_emissions' ]
-  hurdles: [ 140, 154, 161 ]
+  hurdles: [ 140, 162.5, 166 ]
   states:  [ 'low', 'medium', 'high', 'extreme' ]
 
   # Display settings.

@@ -6,5 +6,5 @@
 class exports.GroundProp extends HeaderIcon
   queries: [ 'renewability' ]
 
-  hurdles: [ 0.06 ]
+  hurdles: [ 0.04 ]
   states:  [ 'dry', 'green' ]
