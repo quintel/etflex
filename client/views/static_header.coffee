@@ -27,14 +27,23 @@ class exports.StaticHeader extends Backbone.View
     randomIndex  = Math.floor( Math.random() * @propCount )
     selectedProp = @props.eq randomIndex
 
-    toHide = selectedProp.find('.active')
-    toShow = selectedProp.find('.inactive').first()
+    # Ignore any attempt to animate the eco buildings layer; we will change
+    # that into a quarry when the ground layer changes to "dry".
+    return @performAnimation() if selectedProp.hasClass 'eco-buildings'
 
-    toHide.removeClass('active').addClass('inactive').fadeOut 1000
-    toShow.removeClass('inactive').addClass('active').fadeIn  1000
+    @performSwap(selectedProp)
+    @performSwap($ '.eco-buildings') if selectedProp.hasClass 'ground'
 
     @queueNextAnimation()
 
   # Queues the next animation to happen in three seconds.
   queueNextAnimation: ->
     _.delay @performAnimation, 3000
+
+  # Swaps the active and inactive icons for a prop.
+  performSwap: (prop) ->
+    toHide = prop.find('.active')
+    toShow = prop.find('.inactive').first()
+
+    toHide.removeClass('active').addClass('inactive').fadeOut 1000
+    toShow.removeClass('inactive').addClass('active').fadeIn  1000
