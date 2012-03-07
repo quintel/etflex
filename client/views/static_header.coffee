@@ -30,8 +30,6 @@ class exports.StaticHeader extends Backbone.View
     toHide = selectedProp.find('.active')
     toShow = selectedProp.find('.inactive').first()
 
-    console.log toHide, toShow
-
     toHide.removeClass('active').addClass('inactive').fadeOut 1000
     toShow.removeClass('inactive').addClass('active').fadeIn  1000
 
