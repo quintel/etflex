@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   class NotAuthorised < StandardError ; end
 
   include Gravtastic
-  gravtastic rating: 'G', secure: false, size: 128, default: '/assets/guest.png'
+  gravtastic rating: 'G', secure: false, size: 128, default: Guest::IMAGE_URL
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :trackable, :encryptable, :confirmable, :lockable,
