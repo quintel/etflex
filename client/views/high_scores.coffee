@@ -163,8 +163,7 @@ class SummaryRow extends Backbone.View
 
   render: ->
     @$el.html rowTemplate
-      user:      'Some User'
-      time:      '2 minutes ago'
+      user:      @model.get 'user_name'
       href:      @model.get 'href'
       sessionId: @model.get 'session_id'
       imageUrl:  @model.get 'profile_image'
