@@ -167,6 +167,7 @@ class SummaryRow extends Backbone.View
       time:      '2 minutes ago'
       href:      @model.get 'href'
       sessionId: @model.get 'session_id'
+      imageUrl:  @model.get 'profile_image'
 
     for own event, func of @modelEvents
       # Bind the model events to update the view when they change.

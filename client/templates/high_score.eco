@@ -2,7 +2,7 @@
 <span class="score"><%= @score %></span>
 
 <span class="user">
-  <img width="35" height="35" src="https://secure.gravatar.com/avatar/b760488be99d26d98e5ab10b84e4cccd?s=140" alt="User Avatar" />
+  <img width="35" height="35" src="<%= @imageUrl %>" alt="User Avatar" />
   <span class="name"><%= @user %></span>
   <span class="when"><%= @time %></span>
 </span>
