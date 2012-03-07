@@ -158,7 +158,8 @@ class Scenario < ActiveRecord::Base
       renewability:        renewability,
       total_costs:         total_costs,
       total_co2_emissions: total_co2_emissions,
-      updated_at:          updated_at }
+      updated_at:          updated_at,
+      profile_image:     ( user or Guest.new ).image_url }
   end
 
 end

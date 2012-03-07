@@ -3,6 +3,9 @@ class User < ActiveRecord::Base
   # have sufficient authorisation.
   class NotAuthorised < StandardError ; end
 
+  include Gravtastic
+  gravtastic rating: 'G', secure: false, size: 128, default: '/assets/guest.png'
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :trackable, :encryptable, :confirmable, :lockable,
   # :timeoutable and :omniauthable
@@ -27,6 +30,21 @@ class User < ActiveRecord::Base
         user.token    = auth_hash.credentials.token
       end
     end
+  end
+
+  # INSTANCE METHODS ---------------------------------------------------------
+
+  # The URL to a users profile image.
+  #
+  # In the event the user signed up through Facebook, the returned string will
+  # contain a URL to their Facebook profile image. Otherwise, the it will seek
+  # to use the users e-mail address to fetch a gravatar image; falling back to
+  # the default (guest) profile image.
+  #
+  # Returns a string.
+  #
+  def image_url
+    image.presence or (email.present? and gravatar_url) or Guest::IMAGE_URL
   end
 
 end # User

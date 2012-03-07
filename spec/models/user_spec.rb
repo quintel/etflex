@@ -33,6 +33,28 @@ describe User do
     end
   end # admin
 
+  describe 'image_url' do
+    context 'when a facebook image is set' do
+      it 'should return the facebook image path' do
+        image = User.new { |u| u.image = 'my-fb-image' }.image_url
+        image.should eql('my-fb-image')
+      end
+    end
+
+    context 'when no facebook image is set' do
+      it 'should return a gravatar path when an e-mail is set' do
+        image = User.new(email: 'me@example.com').image_url
+        image.should match(/^http:\/\/gravatar\.com/)
+      end
+
+      it 'should return the guest image when no e-mail is set' do
+        image = User.new.image_url
+        image.should eql(Guest::IMAGE_URL)
+      end
+    end
+
+  end
+
   # FIND OR CREATE WITH FACEBOOK ---------------------------------------------
 
   describe 'find_or_create_with_facebook!' do

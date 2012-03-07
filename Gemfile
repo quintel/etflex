@@ -21,6 +21,7 @@ gem 'haml', '~> 3.1'
 gem 'jbuilder'
 gem 'simple_form'
 gem 'redcarpet'
+gem 'gravtastic'
 
 gem 'httparty'
 
