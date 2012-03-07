@@ -86,6 +86,11 @@ en:
       reliability:  "Reliability"
       billion:      "billion"
 
+      landingTitle:    "What does your <strong>%{future}</strong> look like?"
+      landingFuture:   "Energy Future"
+      landingSubtitle: "... and can you get the high score?"
+      landingButton:   "Create your own future!"
+
   # Common content on scene pages --------------------------------------------
 
   sponsoredBy: "Sponsored by"
