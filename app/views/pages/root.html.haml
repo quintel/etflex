@@ -1,13 +1,13 @@
 - # DEBT: Move this definition to controller...
 
-- @icon_props = { car:                 %w[eco suv],
-                  city:                %w[large small],
+- @icon_props = { car:                 %w[suv eco],
+                  city:                %w[medium small large],
                   eco_buildings:       %w[green coal_dry],
                   energy_sources:      %w[solar nuclear oil],
-                  geothermal_pipeline: %w[geothermal none pipeline],
-                  ground:              %w[dry green],
+                  geothermal_pipeline: %w[none geothermal pipeline],
+                  ground:              %w[green dry],
                   solar_heater:        %w[none heater],
-                  turbines:            %w[coal wind] }
+                  turbines:            %w[wind coal] }
 
 #page-view.root
   #core
@@ -18,7 +18,7 @@
         .sun
         - @icon_props.each do |key, states|
           .icon-prop{class: key.to_s.gsub(/_/,"-")}
-            - active_state = states.sample
+            - active_state = states.first
             - states.each do |state|
               %span.icon{ class: "#{state.gsub(/_/,'-')} #{active_state == state ? 'active' : 'inactive'}",
                           style: ("display: none;" unless active_state == state ) }
