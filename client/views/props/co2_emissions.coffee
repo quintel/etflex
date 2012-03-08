@@ -18,3 +18,7 @@ class exports.CO2EmissionsView extends IconDashboardProp
 
   # Convert tons into megatons.
   mutateValue: (value) -> value / 1000000000
+
+  # Help Texts
+  helpHeader: -> "props.co2_emissions.header"
+  helpBody:   -> "props.co2_emissions.body"

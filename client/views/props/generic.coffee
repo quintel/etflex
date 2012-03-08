@@ -88,18 +88,13 @@ class exports.GenericProp extends Backbone.View
   #
   # ... will show "props.co2_emissions.info.extreme" as the message.
   #
-  showHelp: (key, state) ->
-    # key may be an event if showInfo is triggered without being overridden
-    # in a subclass.
-    return false unless _.isString key
+  showHelp: ->
 
-    messageKey = "props.#{ key }.info"
-    messageKey = "#{ messageKey }.#{ state }" if state
-
-    title   = I18n.t "props.#{ key }.name"
-    message = I18n.t messageKey
+    title   = I18n.t @helpHeader()
+    message = I18n.t @helpBody()
 
     # Insert query data.
+    title   = insertQueryData title,   @options.queries
     message = insertQueryData message, @options.queries
 
     showMessage title, message

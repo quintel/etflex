@@ -112,3 +112,7 @@ class exports.ScoreView extends DashboardProp
     if      score <   0 then 0
     else if score > 999 then 999
     else                     score
+
+  # Help Texts
+  helpHeader: -> "props.score.header"
+  helpBody:   -> "props.score.body"

@@ -22,6 +22,7 @@ class exports.IconProp extends GenericProp
 
     @$el.append @activeIcon, @inactiveIcon
 
+    @$el.on 'click', '.help', => @showHelp()
     this
 
   # Sets the view to the given state name. Adds the state name to the main
