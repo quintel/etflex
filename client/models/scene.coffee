@@ -37,12 +37,16 @@ class exports.Scene extends Backbone.Model
   #            session instance.
   #
   start: ([ scenario ]..., callback) ->
+    isNewScenario = false
+
     if scenario
       if scenario.get('scene').id isnt @id
         throw 'Scenario scene ID does not match scene ID'
     else
-      scenario = new Scenario scene: _.clone(@attributes), user:  app.user
+      scenario = new Scenario scene: _.clone(@attributes), user: app.user
       app.collections.scenarios.add scenario
+
+      isNewScenario = true
 
     @queries or= new Queries({ id: id } for id in @dependantQueries())
     @inputs  or= new Inputs @get('inputs')
@@ -70,6 +74,10 @@ class exports.Scene extends Backbone.Model
             scenario.updateCollections { @inputs, @queries }
 
         callback null, this, @scenario = scenario
+
+        # New scenarios need to be saved back to the ETFlex server.
+        if isNewScenario
+          @inputs.trigger 'updateInputsDone'
 
   # Returns an array of query IDs used by the scene.
   #

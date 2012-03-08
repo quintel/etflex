@@ -35,9 +35,6 @@ startScene = (collection, startArgs...) ->
 
           render new SceneView model: scene, scenario: scenario
 
-          if scenario.isNew() and scenario.canChange app.user
-            scene.inputs.trigger 'updateInputsDone'
-
 # ROUTER ---------------------------------------------------------------------
 
 # Router watches the URL and, as it changes, re-renders the main view
