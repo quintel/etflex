@@ -38,6 +38,6 @@ ETFlex::Application.routes.draw do
   get '/pusher',       to: 'pages#pusher'
   get '/lang/:locale', to: 'pages#lang'
 
-  root to: 'scenes#index'
+  root to: 'pages#root'
 
 end
