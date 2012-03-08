@@ -1,6 +1,8 @@
 app          = require 'app'
 notification = require 'templates/scenario_notification'
 
+render       = require 'lib/render'
+
 { ScenarioSummary }   = require 'models/scenario_summary'
 { ScenarioSummaries } = require 'collections/scenario_summaries'
 { HighScores }        = require 'views/high_scores'
@@ -63,3 +65,5 @@ class exports.Minimal extends Backbone.Router
     $('#scores').append highScores.render().el
 
     new StaticHeader( el: $('#theme-header') ).render()
+
+    render.enhance()

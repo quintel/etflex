@@ -19,6 +19,20 @@ module.exports = (view) ->
 
   true
 
+# A helper method which behaves like render, but acts on the existing page
+# elements rather than replacing them.
+#
+# Used on semi-static pages like the front-page so that we can use Backbone.
+#
+module.exports.enhance = (view) ->
+  if $.browser.msie and $.browser.version < 9.0
+    showLegacyBrowserWarning()
+
+  # Schedule another time update in 60s.
+  _.delay refreshRelativeDates, 60000
+
+  true
+
 # Appends the modal dialog HTML to the page.
 module.exports.appendModalDialog = ->
   # Add the modal dialog elements used by Reveal.
@@ -55,3 +69,21 @@ showLegacyBrowserWarning = ->
         $('body').scrollTop 0
 
     $('body').append view.render().el
+
+# Refreshes all relative dates every 60 seconds, except those which are over
+# an hour old.
+#
+# Note that this also queues up the *next* update to occur in 60 seconds.
+#
+refreshRelativeDates = ->
+  now = new Date
+
+  $('.js-relative-date:visible').each (i, element) ->
+    element = $ element
+    date    = moment element.attr('datetime')
+
+    if now - date.toDate() < 3600000
+      element.text date.fromNow()
+
+  # Schedule another update in 60s.
+  _.delay refreshRelativeDates, 60000
