@@ -32,6 +32,7 @@ scenarioNotification = (collection) ->
 #
 class exports.Minimal extends Backbone.Router
   routes:
+    '':       'root'
     'root':   'root'
     'pusher': 'pusher'
 
