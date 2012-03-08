@@ -14,6 +14,8 @@
  *= require jquery.cookie
  *= require underscore
  *= require backbone
+ *= require moment
+ *= require moment.nl.js
  *= require jquery.quinn
  *= require jquery.quinn.balancer
  *= require async
