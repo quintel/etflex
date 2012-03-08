@@ -6,7 +6,8 @@
 ( (_____\  \ \ \    / /____/ ( (_____(( (_____\/ / /\ \ \ 
  \/_____/  /_/_/    \/_/      \/_____/ \/_____/\/__\/__\/ 
 
----------------------------
+
+# Purpose
 
 ETFlex aims to make the Energy Transition Model accessible to ordinary people
 who want to learn more about the subject, as well as help QI better serve
@@ -15,8 +16,8 @@ educational users.
 Most of the application is implemented in CoffeeScript and can be found in
 /client, while Rails serves up little more than a REST API.
 
-Installation
-------------
+## Installation
+
 
  1. Copy config/database.sample.yml to config/database.yml. Edit any settings
     as necessary for your local machine.
@@ -31,8 +32,7 @@ Installation
 
  4. `bundle install`
 
-Running the Tests
------------------
+## Running the Tests
 
 The ETFlex integration tests use the capybara-webkit Gem to do headless
 full-stack tests, which include the JavaScript client. In order to run these
