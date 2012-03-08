@@ -4,7 +4,7 @@
 <span class="user">
   <img width="35" height="35" src="<%= @imageUrl %>" alt="User Avatar" />
   <span class="name"><%= @user %></span>
-  <span class="when"><%= @time %></span>
+  <time></time>
 </span>
 
 <span class="metric emissions">
