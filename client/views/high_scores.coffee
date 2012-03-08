@@ -158,6 +158,8 @@ class SummaryRow extends Backbone.View
     'change:updated_at':          'updateTime'
 
   constructor: (options) ->
+    @timeUpdate = null
+
     options.id = "high-score-#{ options.model.get('session_id') }"
     super options
 
@@ -190,7 +192,16 @@ class SummaryRow extends Backbone.View
     @$('.score').text Math.round(score)
 
   updateTime: (summary, time) =>
-    @$('.when').text I18n.l('time.formats.long', time)
+    @$('.when').text moment(time).fromNow()
+
+    if new Date - new Date( Date.parse(time) ) < 3600000
+      clearTimeout @timeUpdate if @timeUpdate
+
+      # When the summary was last updated within the past 60 minutes,
+      # refresh the time shown every 60 seconds.
+      @timeUpdate = _.delay =>
+        @updateTime(null, @model.get('updated_at')) if @$el.is(':visible')
+      , 60000
 
   updatePosition: (position) ->
     @$('.position').text "##{position}"

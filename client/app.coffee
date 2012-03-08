@@ -93,6 +93,8 @@ commonBoot = (window, locale, env, user) ->
   I18n.locale    = locale
   I18n.fallbacks = no
 
+  moment.lang locale
+
 installConsolePolyfill = (window) ->
   unless 'console' of window
     window.console = { log: (->), info: (->), warn: (->), error: (->) }
