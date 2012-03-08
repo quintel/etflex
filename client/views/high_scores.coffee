@@ -1,5 +1,6 @@
-listTemplate = require 'templates/high_scores'
-rowTemplate  = require 'templates/high_score'
+listTemplate     = require 'templates/high_scores'
+rowTemplate      = require 'templates/high_score'
+{ relativeTime } = require 'lib/time_helpers'
 
 # Shows the top five scoring scenario summaries in a list.
 class exports.HighScores extends Backbone.View
@@ -165,10 +166,10 @@ class SummaryRow extends Backbone.View
 
   render: ->
     @$el.html rowTemplate
-      user:      @model.get 'user_name'
-      href:      @model.get 'href'
-      sessionId: @model.get 'session_id'
-      imageUrl:  @model.get 'profile_image'
+      user:         @model.get 'user_name'
+      href:         @model.get 'href'
+      sessionId:    @model.get 'session_id'
+      imageUrl:     @model.get 'profile_image'
 
     for own event, func of @modelEvents
       # Bind the model events to update the view when they change.
@@ -192,7 +193,7 @@ class SummaryRow extends Backbone.View
     @$('.score').text Math.round(score)
 
   updateTime: (summary, time) =>
-    @$('.when').text moment(time).fromNow()
+    @$('time').replaceWith relativeTime(time)
 
     if new Date - new Date( Date.parse(time) ) < 3600000
       clearTimeout @timeUpdate if @timeUpdate
