@@ -38,7 +38,7 @@ Most of the application is implemented in CoffeeScript and can be found in
 The ETFlex integration tests use the capybara-webkit Gem to do headless
 full-stack tests, which include the JavaScript client. In order to run these
 you will first need to install the Qt4 framework. Mac OS X users with Homebrew
-should be able to achieve this simply by running ...
+should be able to achieve this simply by running
 
   `$ brew install qt`
 
