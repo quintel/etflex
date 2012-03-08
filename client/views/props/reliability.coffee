@@ -20,3 +20,7 @@ class exports.ReliabilityView extends IconDashboardProp
   # Risk is bad, none is good.
   mutateValue:  (value) -> (1 - value) * 100
   displayValue: DISPLAY_PERCENTAGE
+
+  # Help Texts
+  helpHeader: -> "props.score.header.#{@currentState}"
+  helpBody:   -> "props.score.body"

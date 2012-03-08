@@ -343,20 +343,15 @@
   #core .dashboard .prop
     position: relative
 
-    .help
-      background: image-url("range-help.png") no-repeat
+    .value
+      padding-left: 23px
+      background: image-url("range-help.png") no-repeat 0 4px
+      color: inherit
+      text-decoration: none
       cursor: pointer
-      display: inline-block
-      height: 18px
-      position: absolute
-      vertical-align: middle
-      left: 35px
-      top: 60px
-      width: 18px
-      z-index: 20
-
+      
       &:active
-        background-position: 0 -20px
+        background-position: 0 -16px
 
     &.co2-emissions .icon
       background-image: image-url("scenes/modern/icons/polar-bear.png")

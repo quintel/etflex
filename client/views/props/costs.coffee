@@ -4,7 +4,7 @@ class exports.CostsView extends IconDashboardProp
 
   className:   'costs'
   lowerBetter: true
-
+  
   # Queries and hurdle values.
 
   queries: [ 'total_costs' ]
@@ -23,3 +23,8 @@ class exports.CostsView extends IconDashboardProp
 
   mutateValue:  (value) -> value / 1000000000
   displayValue: DISPLAY_EUROS
+
+  # Help Texts
+  helpHeader: -> "props.costs.header"
+  helpBody:   -> "props.costs.body"
+

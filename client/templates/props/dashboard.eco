@@ -1,6 +1,6 @@
 <div class="icon"></div>
 
-<span class="value <% if @lowerBetter: %>lower-better<% end %>">
+<span class="help value <% if @lowerBetter: %>lower-better<% end %>">
   <span class="name"><%- @name %>:</span>
   <span class="output"><%- @value or '' %></span>
   <% if @unit: %><span class="unit"><%- @unit %></span><% end %>

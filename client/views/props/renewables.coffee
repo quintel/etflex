@@ -20,3 +20,7 @@ class exports.RenewablesView extends IconDashboardProp
   # Convert fractions to a percentage.
   mutateValue:  (value) -> value * 100
   displayValue: DISPLAY_PERCENTAGE
+
+  # Help Texts
+  helpHeader: -> "props.renewability.header"
+  helpBody:   -> "props.renewability.body"

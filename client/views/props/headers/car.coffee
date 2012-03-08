@@ -9,15 +9,13 @@ class exports.CarProp extends HeaderIcon
   states:  [ 'suv', 'eco' ]
 
   events:
-    'click .help': 'showHelp'
     'mouseenter':  'showHelpButton'
     'mouseleave':  'hideHelpButton'
 
-  helpText: 'My thing'
-
   render: ->
-    super
     @$el.append '<span class="help"></span>'
+
+    super
     this
 
   refresh: ->
@@ -31,9 +29,7 @@ class exports.CarProp extends HeaderIcon
   # The Info (?) button
   # -------------------
   #
-  # If the prop has some help text defined, add a question mark so that the
-  # user may find out more. This is a bit of a hack at the moment to be
-  # ready for the 01/02/12 client meeting and will be refactored later.
+  # Can be refactored and moved to headerIcon.
 
   showHelpButton: (fadeTime = 500) =>
     # Prevent the button being hidden if the hideInfo timeout is present.
@@ -44,6 +40,6 @@ class exports.CarProp extends HeaderIcon
     @$('.help').stop().animate opacity: 0, 500
     @infoTimeout = null
 
-  # TODO: this should be moved to Generic
-  showHelp: ->
-    super 'car', @currentState
+  # Help Texts
+  helpHeader: -> "props.car.name"
+  helpBody: -> "props.car.info.#{@currentState}"
