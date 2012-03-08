@@ -40,8 +40,6 @@ full-stack tests, which include the JavaScript client. In order to run these
 you will first need to install the Qt4 framework. Mac OS X users with Homebrew
 should be able to achieve this simply by running ...
 
-  $ brew install qt
+  `$ brew install qt`
 
-Full instructions can be found on the capybara-webkit wiki:
-
-  https://github.com/thoughtbot/capybara-webkit/wiki/Installing-QT
+Full instructions can be found on the [capybara-webkit wiki](https://github.com/thoughtbot/capybara-webkit/wiki/Installing-QT)
