@@ -9,21 +9,19 @@ render       = require 'lib/render'
 { StaticHeader }      = require 'views/static_header'
 
 # Callback triggered whenever Pusher notifies us of a new or updates scenario.
-# We update the given ScenarioSummaries collection, creating or updating the
-# summary as necessary.
+# We update the scenario summaries collection within the HighScores view,
+# since the collection may change when the user alters the date limit (1 days,
+# 7 days, etc).
 #
-scenarioNotification = (collection) ->
+scenarioNotification = (view) ->
   (data) ->
-    if summary = collection.get data.session_id
+    if summary = view.collection.get data.session_id
       event = 'scenario.updated'
       summary.set data
     else
       event = 'scenario.created'
       summary = new ScenarioSummary data
-      collection.add summary
-
-    $('#scenarios .none').remove()
-    $('#scenarios').prepend $('<li/>').html notification { event, data }
+      view.collection.add summary
 
 # MINIMAL ROUTER -------------------------------------------------------------
 
@@ -50,8 +48,8 @@ class exports.Minimal extends Backbone.Router
     pusher     = new Pusher '415cc8feb622f665d49a'
     channel    = pusher.subscribe "etflex-#{ app.env }"
 
-    channel.bind 'scenario.created', scenarioNotification(summaries)
-    channel.bind 'scenario.updated', scenarioNotification(summaries)
+    channel.bind 'scenario.created', scenarioNotification(highScores)
+    channel.bind 'scenario.updated', scenarioNotification(highScores)
 
     $('#scores').html highScores.render().el
 
