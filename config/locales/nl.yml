@@ -87,6 +87,11 @@ nl:
       reliability:  "Betrouwbaar"
       billion:      "miljard"
 
+      landingTitle:    "Hoe ziet jouw Energietoekomst er uit?"
+      landingFuture:   "Energietoekomst"
+      landingSubtitle: "... en kun je de hoogste score halen?"
+      landingButton:   "Maak je eigen toekomst!"
+
   # Common content on scene pages --------------------------------------------
 
   sponsoredBy: "Gesponsord door"
