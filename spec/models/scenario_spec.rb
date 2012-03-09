@@ -211,6 +211,55 @@ describe Scenario do
     end
   end
 
+  # SINCE -------------------------------------------------------------------
+
+  describe '.since' do
+    context 'given 7 days ago' do
+      let(:time)    { 7.days.ago }
+      let(:inside)  { create :scenario, updated_at: time + 1 }
+      let(:outside) { create :scenario, updated_at: time - 1 }
+
+      before { inside ; outside }
+
+      subject { Scenario.since(time) }
+
+      it 'should return scenarios created within the last seven days' do
+        subject.should have(1).member
+        subject.should include(inside)
+      end
+
+      it 'should not include scenarios older than seven days' do
+        subject.should_not include(outside)
+      end
+    end
+
+    context 'given 1 day ago' do
+      let(:time)    { 1.day.ago }
+      let(:inside)  { create :scenario, updated_at: time + 1 }
+      let(:outside) { create :scenario, updated_at: time - 1 }
+
+      before { inside ; outside }
+
+      subject { Scenario.since(time) }
+
+      it 'should return scenarios created within the day' do
+        subject.should have(1).member
+        subject.should include(inside)
+      end
+
+      it 'should not include scenarios older than one day' do
+        subject.should_not include(outside)
+      end
+    end
+
+    context 'given nil' do
+      it 'should raise an ArgumentError' do
+        expect { Scenario.since(nil) }.to \
+          raise_error(ArgumentError, /must not be nil/)
+      end
+    end
+  end
+
   # SERIALIZE ATTRIBUTES -----------------------------------------------------
 
   describe '#input_values=' do

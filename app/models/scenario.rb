@@ -61,17 +61,32 @@ class Scenario < ActiveRecord::Base
     def recent
       order 'updated_at DESC'
     end
-    
+
+    # Returns scenarios which were updated on or after the given time.
+    #
+    # time - A Time or Date object. Scenarios which haven't been updated since
+    #        the time will be excluded from the returned collection.
+    #
+    # Raises an ArgumentError if time is nil.
+    #
+    def since(time)
+      unless time.acts_like?(:time) or time.acts_like?(:date)
+        raise ArgumentError, 'time must not be nil'
+      end
+
+      where 'updated_at > ?', time
+    end
+
     # Selects the scenarios from the last 24 hours only
     #
     def last_24hours
-      where "updated_at > '#{(Time.now - 1.day).strftime("%Y-%m-%d %H:%M:%S")}'"
+      since 1.days.ago
     end
 
-    # Selects the scenarios from last week only 
+    # Selects the scenarios from last week only
     #
     def last_week
-      where "updated_at > '#{(Time.now - 7.days).strftime("%Y-%m-%d %H:%M:%S")}'"
+      since 7.days.ago
     end
 
     # Orders the retrieved scenarios by score from highest to lowest.
