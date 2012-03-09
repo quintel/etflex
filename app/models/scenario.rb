@@ -61,6 +61,18 @@ class Scenario < ActiveRecord::Base
     def recent
       order 'updated_at DESC'
     end
+    
+    # Selects the scenarios from the last 24 hours only
+    #
+    def last_24hours
+      where "updated_at > '#{(Time.now - 1.day).strftime("%Y-%m-%d %H:%M:%S")}'"
+    end
+
+    # Selects the scenarios from last week only 
+    #
+    def last_week
+      where "updated_at > '#{(Time.now - 7.days).strftime("%Y-%m-%d %H:%M:%S")}'"
+    end
 
     # Orders the retrieved scenarios by score from highest to lowest.
     #
