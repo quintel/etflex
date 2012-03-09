@@ -53,8 +53,7 @@ class exports.Minimal extends Backbone.Router
     channel.bind 'scenario.created', scenarioNotification(summaries)
     channel.bind 'scenario.updated', scenarioNotification(summaries)
 
-    $('#scores .loading').remove()
-    $('#scores').append highScores.render().el
+    $('#scores').html highScores.render().el
 
     new StaticHeader( el: $('#theme-header') ).render()
 

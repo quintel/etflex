@@ -48,6 +48,32 @@ class ScenariosController < ApplicationController
   public
   ######
 
+  # JSON-only action which returns a list of high-scoring scenarios which have
+  # been updated within the previous :days. Days may also be the string
+  # "alltime" indicating that there should be no time limit.
+  #
+  # GET /scenarios/since/:days
+  #
+  def since
+    @scenarios =
+      case params[:days]
+        when '1', '7'  then Scenario.since(params[:days].to_i.days.ago)
+        when 'alltime' then Scenario.scoped
+        else                raise ActiveRecord::RecordNotFound
+      end
+
+    # We need to select twice as many scenarios as are actually displayed; if
+    # a scenario currently in the top five is demoted, we need the next
+    # highest so that it can be promoted in the UI. So, twice as many allows
+    # all of the top five to be demoted without the UI crapping out.
+    #
+    # In the real world, (number_shown) + 2 should be enough...
+    #
+    @scenarios = @scenarios.by_score.limit(20).map(&:to_pusher_event)
+
+    respond_with @scenarios
+  end
+
   # Shows the JSON for a given scene, with extra information about the
   # scenario embedded within so that they client loads a specific ET-Engine
   # session.

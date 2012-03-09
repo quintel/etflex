@@ -6,6 +6,9 @@ ETFlex::Application.routes.draw do
     put  'with/:id', to: 'scenarios#update'
   end
 
+  # High scoring scenarios for the high scores list.
+  get 'scenarios/since/:days', to: 'scenarios#since'
+
   # Devise -------------------------------------------------------------------
 
   devise_for :users, controllers: {
