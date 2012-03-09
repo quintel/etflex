@@ -42,7 +42,14 @@ class exports.HighScores extends Backbone.View
   # Given a ScenarioSummaries collection, tells the HighScores to change the
   # current collection, and re-render the high scores list.
   #
-  setCollection: (@collection) ->
+  setCollection: (newCollection) ->
+    # Unbind events from the old collection.
+    @collection.off 'change:score', @collection.sort
+    @collection.off 'add',          @summaryUpdated
+    @collection.off 'change',       @summaryUpdated
+
+    @collection = newCollection
+
     # We need the collection to re-sort whenever a summary score changes.
     @collection.on 'change:score', @collection.sort
 
@@ -164,7 +171,10 @@ class exports.HighScores extends Backbone.View
 
       # Update the #1, #2, etc.
       for index in [ 0...@show ]
-        @rows[ @collection.at(index).id ]?.updatePosition index + 1
+        if modelId = @collection.at(index)?.id
+          @rows[ modelId ]?.updatePosition index + 1
+        else
+          break
 
       if @animate
         row.$el.css('margin-left', '20px').
