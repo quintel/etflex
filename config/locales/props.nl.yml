@@ -2,11 +2,49 @@
 nl:
   props:
     co2_emissions:
-      name: "CO2-uitstoot"
+      header: "Je stoot (Q:total_co2_emissions) ton aan CO<sub>2</sub> uit"
+      body:   "Auto's, verwarmingen en electriciteitscentrales stoten koolstofmonoxide uit.
+               Volgens veel klimaatwetenschappers, heeft een grote toename in 
+               CO<sub>2</sub>-uitstoot gedurende de laatste 200 jaar
+               er voor gezorgd dat het klimaat langszaam opwarmt en dat de poolkappen
+               smelten
+
+               Probeer de uitstoot van CO<sub>2</sub> zo veel mogelijk te beperken om een
+               zo hoog mogelijke score te krijgen. Je kan echter nooit op nul uitkomen,
+               omdat er ook veel uitstoot is die niet wordt bepaald door je schuifjes op
+               deze pagina (denk aan vrachtauto's, de industrie, etctera.)"
+
     costs:
-      name: "Totale Kosten"
-    renewables:
-      name: "Percentage van hernieuwbare energiebronnen"
+      header: "Je geeft ieder jaar (Q:total_costs) euro uit aan energie!"
+      body:   "This includes all the energy used to make exported products and the 
+               exported energy itself."
+
+    score:
+      header: "Je scoort (Q:etflex_score) punten."
+      body:   "Je score gaat omhoog als je kosten, CO<sub>2</sub> en nucleair afval dalen,
+               en als je duurzaamheid en betrouwbaarheid stijgen. Ook als je te veel inzet op
+               een opwekkingstechniek daalt je score en als je een onbalans hebt tussen
+               vraag en aanbod."
+
+    reliability:
+      header:
+        on:    "Je energievoorziening is betrouwbaar!"
+        off:   "Oh nee, je zit weleens in het donker met jouw instelling."
+      body:    "Hernieuwbare bronnen zijn minder goed voorspelbaar dan (fossiele) centrales, want
+                soms schijnt de zon niet of waait het niet. Dit betekent dat je er niet van uit kan
+                gaan dat de windmolens en de zonnepanelen elektriciteit leveren op het moment dat je
+                wil internetten, tv wil kijken, of de wasmachine aan wil zetten. Tenzij je die energie
+                natuurlijk ergens kan opslaan..."
+
+    renewability:
+      header:  "(Q:renewability) deel van je energievoorziening is duurzaam"
+      body:    "Wil je duurzamere energie maken? Kies dan voor wind, zon of meng meer 'groen' gas
+                bij.
+                
+                Als je nog meer mogelijkheden wilt hebben om het duurzaamheidspercentage te verhogen,
+                ga dan naar de profesionele versie van het Energietransitiemodel, daar kun je o.a. ook de
+                transportsector en de industriesector (verder) proberen te verduurzamen."
+
     supply_demand:
       name: "Saldo van Vraag en Aanbod"
 

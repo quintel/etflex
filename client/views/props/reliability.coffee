@@ -22,5 +22,5 @@ class exports.ReliabilityView extends IconDashboardProp
   displayValue: DISPLAY_PERCENTAGE
 
   # Help Texts
-  helpHeader: -> "props.score.header.#{@currentState}"
-  helpBody:   -> "props.score.body"
+  helpHeader: -> "props.reliability.header.#{@currentState}"
+  helpBody:   -> "props.reliability.body"
