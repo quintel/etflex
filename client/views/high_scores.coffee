@@ -1,10 +1,15 @@
-listTemplate     = require 'templates/high_scores'
-rowTemplate      = require 'templates/high_score'
-{ relativeTime } = require 'lib/time_helpers'
+listTemplate          = require 'templates/high_scores'
+rowTemplate           = require 'templates/high_score'
+
+{ relativeTime }      = require 'lib/time_helpers'
+{ ScenarioSummaries } = require 'collections/scenario_summaries'
 
 # Shows the top five scoring scenario summaries in a list.
 class exports.HighScores extends Backbone.View
   className: 'high-scoring-scenarios'
+
+  events:
+    'click h2 a': 'changeDateLimit'
 
   # Provide HighScores with a ScenarioSummaries collection in the options
   # hash.
@@ -22,26 +27,36 @@ class exports.HighScores extends Backbone.View
     # animating into place.
     @animate = true
 
+  # Renders a list containing the top five scoring scenarios. Presently render
+  # is called each time the collection is changed regardless of whether the
+  # top five have changed.
+  render: =>
+    @$el.html listTemplate()
+    @listElement = @$ 'ol'
+
+    # Render the list.
+    @setCollection @collection
+
+    this
+
+  # Given a ScenarioSummaries collection, tells the HighScores to change the
+  # current collection, and re-render the high scores list.
+  #
+  setCollection: (@collection) ->
     # We need the collection to re-sort whenever a summary score changes.
     @collection.on 'change:score', @collection.sort
 
     @collection.on 'add',    @summaryUpdated
     @collection.on 'change', @summaryUpdated
 
-  # Renders a list containing the top five scoring scenarios. Presently render
-  # is called each time the collection is changed regardless of whether the
-  # top five have changed.
-  render: =>
-    @$el.html listTemplate()
-
-    @listElement = @$ 'ol'
+    # Re-render the list.
+    @listElement.empty()
     @animate = false
 
     for scenario in @collection.models
       @summaryUpdated scenario, null, false
 
     @animate = true
-    this
 
   # Given a ScenarioSummary, adds it to the UI. If the scenario is already
   # visible, the existing UI will be updated.
@@ -79,6 +94,23 @@ class exports.HighScores extends Backbone.View
         @demote @collection.find (model) -> model.get('session_id') is dId
 
       @promote summary
+
+  # Callback triggered when the user clicks on of the date links which are
+  # part of the header ("today", "seven days", etc). Does nothing if the
+  # clicked link is the currently active period.
+  #
+  changeDateLimit: (event) ->
+    target = $ event.target
+
+    unless target.hasClass 'current'
+      @$('h2 a.current').removeClass('current')
+      target.addClass('current')
+
+      jQuery.getJSON("/scenarios/since/#{ target.data('since') }")
+        .done( (data) => @setCollection new ScenarioSummaries data)
+        .fail(        -> console.error 'Failed to fetch high scores')
+
+    return event.preventDefault()
 
   # Private ------------------------------------------------------------------
 
