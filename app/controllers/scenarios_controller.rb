@@ -48,11 +48,6 @@ class ScenariosController < ApplicationController
   public
   ######
 
-  def index
-    respond_with @scenarios = Scenario.last_24hours.by_score.limit(10).where(
-      "`session_id` != ?", params[:current_session_id])
-  end
-
   # Shows the JSON for a given scene, with extra information about the
   # scenario embedded within so that they client loads a specific ET-Engine
   # session.
