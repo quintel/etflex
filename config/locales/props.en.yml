@@ -5,9 +5,8 @@ en:
     # Dashboard
     
     co2_emissions:
-      header: "CO2 Emissions"
-      body:   "How much carbon dioxide CO<sub>2</sub> does the Netherlands emit? 
-               When fuel is burnt by cars, heaters or power plants, they emit CO<sub>2</sub>.
+      header: "Your country emits (Q:total_co2_emissions) million tonnes of CO<sub>2</sub>"
+      body:   "When fuel is burnt by cars, heaters or power plants, they emit carbon dioxide (CO<sub>2</sub>).
                A big increase in global CO<sub>2</sub> emissions during the last two 
                centuries, is widely assumed to be responsible for global warming and melting
                polar ice caps.
@@ -16,12 +15,12 @@ en:
                trucks, industry, etcetera) cannot be influenced here."
 
     costs:
-      header: "Total Costs"
-      body:   "What are the total yearly costs for energy in your country? This includes all
+      header: "Your country spends (Q:total_costs) billion euros on energy every year"
+      body:   "This includes all
                the energy used to make exported products and the exported energy itself."
 
     score:
-      header:  "You score (Q:etflex_score) points."
+      header:  "You score (Q:etflex_score) points"
       body:    "Your score goes up when you decrease costs, CO<sub>2</sub> emissions and 
                nuclear waste, and when you increase renewabilty and reliability. Relying too 
                much on one technology or option decreases your score. Good balance between 
@@ -30,9 +29,8 @@ en:
     reliability:
       header:
         on:    "You have a reliable energy supply"
-        off:   "You do face blackouts now and then with your current set-up"
-      body:    "How reliable is electricity delivery as a result of your choices? Renewable
-                power is less predictable than power from power plants, and sometimes there
+        off:   "You face blackouts now and then with your current set-up"
+      body:    "Renewable power is less predictable than power from power plants, and sometimes there
                 is no wind or sunshine. This means you cannot be sure to have power, unless
                 you manage to store it somewhere or have a backup plan."
 
