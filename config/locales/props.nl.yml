@@ -4,7 +4,7 @@ nl:
     co2_emissions:
       header: "Je stoot (Q:total_co2_emissions) ton aan CO<sub>2</sub> uit"
       body:   "Auto's, verwarmingen en electriciteitscentrales stoten koolstofmonoxide uit.
-               Volgens veel klimaatwetenschappers, heeft een grote toename in 
+               Volgens veel klimaatwetenschappers, heeft een grote toename in
                CO<sub>2</sub>-uitstoot gedurende de laatste 200 jaar
                er voor gezorgd dat het klimaat langszaam opwarmt en dat de poolkappen
                smelten
@@ -16,7 +16,7 @@ nl:
 
     costs:
       header: "Je geeft ieder jaar (Q:total_costs) euro uit aan energie!"
-      body:   "This includes all the energy used to make exported products and the 
+      body:   "This includes all the energy used to make exported products and the
                exported energy itself."
 
     score:
@@ -40,7 +40,7 @@ nl:
       header:  "(Q:renewability) deel van je energievoorziening is duurzaam"
       body:    "Wil je duurzamere energie maken? Kies dan voor wind, zon of meng meer 'groen' gas
                 bij.
-                
+
                 Als je nog meer mogelijkheden wilt hebben om het duurzaamheidspercentage te verhogen,
                 ga dan naar de profesionele versie van het Energietransitiemodel, daar kun je o.a. ook de
                 transportsector en de industriesector (verder) proberen te verduurzamen."
