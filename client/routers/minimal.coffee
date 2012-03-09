@@ -44,15 +44,6 @@ class exports.Minimal extends Backbone.Router
   # GET /root
   #
   root: ->
-    @pusher()
-
-  # A test page which is used to listen to events sent by Pusher, such as
-  # listing scenario creation and updates, so that we can update the list of
-  # highest scoring scenarios.
-  #
-  # GET /pusher
-  #
-  pusher: ->
     summaries  = new ScenarioSummaries(window.bootstrap or [])
     highScores = new HighScores collection: summaries
 
