@@ -6,59 +6,69 @@ en:
 
     co2_emissions:
       header: "You emit (Q:total_co2_emissions) tonnes of CO<sub>2</sub>"
-      body:   "When fuel is burnt by cars, heaters or power plants, they emit carbon dioxide.
-               A big increase in CO<sub>2</sub> emissions during the last 200 years
-               is assumed to be responsible for global warming and melting polar ice caps
-               by scientists.
+      body: |-
+        When fuel is burnt by cars, heaters or power plants, they emit carbon
+        dioxide. A big increase in CO<sub>2</sub> emissions during the last
+        200 years is assumed to be responsible for global warming and melting
+        polar ice caps by scientists.
 
-               Try to reduce this number to get a higher score, but you cannot get to zero,
-               because some emissions (for example from trucks, industry, etcetera) cannot
-               be influenced with sliders here. (You might want to go to the professional model
-               of the ETM to try to further decrease this number.)"
+        Try to reduce this number to get a higher score, but you cannot get to
+        zero, because some emissions (for example from trucks, industry,
+        etcetera) cannot be influenced with sliders here. (You might want to
+        go to the professional model of the ETM to try to further decrease
+        this number.)
 
     costs:
       header: "You spend (Q:total_costs) euros on energy every year!"
-      body:   "This includes all the energy used to make exported products and the
-               exported energy itself."
+      body: |-
+        This includes all the energy used to make exported products and the
+        exported energy itself.
 
     score:
-      header:  "You score (Q:etflex_score) points"
-      body:    "Your score goes up when you decrease costs, CO<sub>2</sub> emissions and
-                nuclear waste, and when you increase renewabilty and reliability. Relying too
-                much on one technology or option decreases your score. Good balance between
-                supply and demand increases it."
+      header: "You score (Q:etflex_score) points"
+      body: |-
+        Your score goes up when you decrease costs, CO<sub>2</sub> emissions
+        and nuclear waste, and when you increase renewabilty and reliability.
+        Relying too much on one technology or option decreases your score.
+        Good balance between supply and demand increases it.
 
     reliability:
       header:
         'on':  "You have a reliable energy supply!"
         'off': "Oh no, you'll be in the dark now and then with your current set-up!"
-      body:    "Renewable power is less predictable than power from (fossil) power plants, because
-                sometimes there is no wind or sunshine. This means you cannot be sure to have
-                power, unless you manage to store it somewhere or have a backup plan."
+      body: |-
+        Renewable power is less predictable than power from (fossil) power
+        plants, because sometimes there is no wind or sunshine. This means you
+        cannot be sure to have power, unless you manage to store it somewhere
+        or have a backup plan."
 
     renewability:
-      header:  "(Q:renewability) of your energy is renewable."
-      body:    "Do you want to produce more renewable types of energy? Then build more wind,
-                solar or add more green gas to your gas network.
+      header: "(Q:renewability) of your energy is renewable."
+      body: |-
+        Do you want to produce more renewable types of energy? Then build more
+        wind, solar or add more green gas to your gas network.
 
-                If you want to increase the number above 20%, you will need to go to the
-                (free) professional version of the ETM in order to adjust setting in other
-                sectors, such as transportationa and the industry."
+        If you want to increase the number above 20%, you will need to go to
+        the (free) professional version of the ETM in order to adjust setting
+        in other sectors, such as transportationa and the industry."
 
     supply_demand:
       header: "Balance of Supply and Demand"
-
 
     # Header
 
     car:
       name: "What type of cars will prevail in the streets in the future?"
       info:
-        eco: 'In your scenario, there are more than a million electric cars in the Netherlands
-              in 2040! Electric cars will be abundantly visible in the streets.'
-        suv: 'In the current situation there are only (Q:number_of_electric_cars) electric cars
-              and X.XX million fossil-fueled cars in the Netherlands in 2040. If you want to
-              change the division, try to increase the percentage of electric cars to see the impact.'
+        eco: |-
+          In your scenario, there are more than a million electric cars in the
+          Netherlands in 2040! Electric cars will be abundantly visible in the
+          streets.
+        suv: |-
+          In the current situation there are only (Q:number_of_electric_cars)
+          electric cars and X.XX million fossil-fueled cars in the Netherlands
+          in 2040. If you want to change the division, try to increase the
+          percentage of electric cars to see the impact.'
 
     city:
       name: "Futuristic City"
