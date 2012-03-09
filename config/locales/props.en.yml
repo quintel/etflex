@@ -30,8 +30,8 @@ en:
 
     reliability:
       header:
-        on:    "You have a reliable energy supply!"
-        off:   "Oh no, you'll be in the dark now and then with your current set-up!"
+        'on':  "You have a reliable energy supply!"
+        'off': "Oh no, you'll be in the dark now and then with your current set-up!"
       body:    "Renewable power is less predictable than power from (fossil) power plants, because
                 sometimes there is no wind or sunshine. This means you cannot be sure to have 
                 power, unless you manage to store it somewhere or have a backup plan."
