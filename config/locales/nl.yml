@@ -87,7 +87,7 @@ nl:
       reliability:  "Betrouwbaar"
       billion:      "miljard"
 
-      landingTitle:    "Hoe ziet jouw Energietoekomst er uit?"
+      landingTitle:    "Hoe ziet jouw <strong>Energietoekomst</strong> er uit?"
       landingFuture:   "Energietoekomst"
       landingSubtitle: "... en kun je de hoogste score halen?"
       landingButton:   "Maak je eigen toekomst!"
