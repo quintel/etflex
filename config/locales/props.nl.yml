@@ -28,8 +28,8 @@ nl:
 
     reliability:
       header:
-        on:    "Je energievoorziening is betrouwbaar!"
-        off:   "Oh nee, je zit weleens in het donker met jouw instelling."
+        'on':  "Je energievoorziening is betrouwbaar!"
+        'off': "Oh nee, je zit weleens in het donker met jouw instelling."
       body:    "Hernieuwbare bronnen zijn minder goed voorspelbaar dan (fossiele) centrales, want
                 soms schijnt de zon niet of waait het niet. Dit betekent dat je er niet van uit kan
                 gaan dat de windmolens en de zonnepanelen elektriciteit leveren op het moment dat je
