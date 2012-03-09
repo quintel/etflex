@@ -17,7 +17,9 @@ class exports.OverlayMessageView extends Backbone.View
   #
   render: (title, message) ->
     @$el.append @make('h3', {}, title)
-    @$el.append @make('p', {}, message)
+
+    for paragraph in message.split("\n")
+      @$el.append @make('p', {}, paragraph)
 
     this
 
