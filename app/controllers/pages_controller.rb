@@ -18,13 +18,6 @@ class PagesController < ApplicationController
     @high_scenarios = Scenario.by_score.limit(10)
   end
 
-  # A test page for Pusher.
-  #
-  # GET /pusher
-  #
-  def pusher
-  end
-
   # Changes the user language. The actual change will be handled by
   # ETFlex::LocaleController#set_locale prior to ever arriving at the action.
   #
