@@ -11,6 +11,8 @@
 
 #page-view.root
   #core
+
+
     #theme-header
       %a#logo(href="/") Energy Transition Model light
       .world{"data-prop-location" => "header"}
@@ -38,6 +40,12 @@
       #scores
         %h2== #{ I18n.t 'words.high_scores' }:
         .loading== #{ I18n.t 'words.loading' }...
+
+    %footer
+      %ul#partners
+        %li
+          %a{href: "http://www.gasterra.nl", "data-navigate" => "noclient", target:"_new", class:"partner gasterra"} GasTerra
+        %li.by= I18n.t "leading_partner"
 
 :javascript
   window.bootstrap = #{ @high_scenarios.map(&:to_pusher_event).to_json }
