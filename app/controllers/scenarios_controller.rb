@@ -49,7 +49,7 @@ class ScenariosController < ApplicationController
   ######
 
   def index
-    respond_with @scenarios = Scenario.by_score.limit(10).where(
+    respond_with @scenarios = Scenario.last_24hours.by_score.limit(10).where(
       "`session_id` != ?", params[:current_session_id])
   end
 
