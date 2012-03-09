@@ -15,7 +15,7 @@ class PagesController < ApplicationController
     #
     # In the real world, (number_shown) + 2 should be enough...
     #
-    @high_scenarios = Scenario.by_score.limit(10)
+    @high_scenarios = Scenario.last_week.by_score.limit(20)
   end
 
   # Changes the user language. The actual change will be handled by
