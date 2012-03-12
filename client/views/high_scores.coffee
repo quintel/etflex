@@ -121,11 +121,19 @@ class exports.HighScores extends Backbone.View
       @$('h2 a.current').removeClass('current')
       target.addClass('current')
 
-      jQuery.getJSON("/scenarios/since/#{ target.data('since') }")
-        .done( (data) => @setCollection new ScenarioSummaries data)
-        .fail(        -> console.error 'Failed to fetch high scores')
+      @loadSince target.data('since')
 
     return event.preventDefault()
+
+  # Sets how far back we should go when retrieving high scores.
+  #
+  # Days may be 1, 7, or "alltime". Note that setSince is asynchronous and
+  # only applies the change after successful completion of an XHR request.
+  #
+  loadSince: (days) ->
+    jQuery.getJSON("/scenarios/since/#{ days }.json")
+      .done( (data) => @setCollection new ScenarioSummaries data)
+      .fail(        -> console.error 'Failed to fetch high scores')
 
   # Callback triggered by Pusher whenever a scenario is added or updated by
   # another visitor to the website.
