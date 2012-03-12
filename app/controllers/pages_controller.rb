@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   helper ScenesHelper
+  layout 'pages'
 
   # The root page.
   #
