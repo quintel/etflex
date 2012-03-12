@@ -43,7 +43,7 @@ class exports.Minimal extends Backbone.Router
   #
   root: ->
     summaries  = new ScenarioSummaries(window.bootstrap or [])
-    highScores = new HighScores collection: summaries, show: 10
+    highScores = new HighScores collection: summaries
 
     channel    = app.pusher.subscribe "etflex-#{ app.env }"
 
