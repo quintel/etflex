@@ -51,6 +51,8 @@ exports.hurdleState = (view, value) ->
 # Given the localized description of a prop, pre-parses the text to add query
 # values where applicable.
 #
+# E.g.: "You emit (Q:total_co2_emissions) tonnes of CO<sub>2</sub>"
+#
 # Query values are inserted using the pattern (Q:query_key) with the number
 # being nicely formatted by humanize::number.
 #
