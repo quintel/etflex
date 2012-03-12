@@ -17,7 +17,7 @@ class exports.HighScores extends Backbone.View
     super
 
     # Show, by default, the five highest scores.
-    @show or= 5
+    @show or= 10
 
     # Keep track of the summaries which are shown in the UI.
     @visible = []
