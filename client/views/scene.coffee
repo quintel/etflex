@@ -188,6 +188,9 @@ class exports.SceneView extends Backbone.View
 
     @$('#scores').html highScores.render().el
 
+    # Trigger loading the seven-day high scores.
+    highScores.loadSince 7
+
   # Creates the "Loading..." box which pops up at the bottom-left of the
   # scene view whenever an XHR request is pending.
   #
