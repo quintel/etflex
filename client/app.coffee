@@ -13,6 +13,9 @@ exports.routers = {}
 # Holds each of the main model collections (Sliders, Widgets, etc).
 exports.collections = {}
 
+# The global Pusher connection.
+exports.pusher = null
+
 # Called _once_ when the application is first loaded in the browser. Rails
 # controllers which mixin ClientController will use this method, while those
 # which do not will instead use exports.minimal().
@@ -65,6 +68,21 @@ exports.navigate = (url, options = {}) ->
 
 # Bootstrap Functions, execute in parallel -----------------------------------
 
+# Tasks performed when loading CoffeeScripts by both the full client, and the
+# minimal version.
+commonBoot = (window, locale, env, user) ->
+  installConsolePolyfill window
+
+  exports.env    = env
+  exports.user   = new (require('models/user').User) user
+
+  I18n.locale    = locale
+  I18n.fallbacks = no
+
+  moment.lang locale
+
+  exports.pusher = new Pusher '415cc8feb622f665d49a'
+
 # Called after all the other boot functions have completed.
 #
 # Issues a warning if one of the functions failed, otherwise finishes set-up
@@ -81,19 +99,6 @@ postBoot = (err, result) ->
     Backbone.history.start pushState: true
 
 # Helper Functions -----------------------------------------------------------
-
-# Tasks performed when loading CoffeeScripts by both the full client, and the
-# minimal version.
-commonBoot = (window, locale, env, user) ->
-  installConsolePolyfill window
-
-  exports.env    = env
-  exports.user   = new (require('models/user').User) user
-
-  I18n.locale    = locale
-  I18n.fallbacks = no
-
-  moment.lang locale
 
 installConsolePolyfill = (window) ->
   unless 'console' of window
