@@ -20,7 +20,7 @@ class exports.ScoreView extends DashboardProp
     value = "#{ value }"
 
     # Ensure the score is left-padded with zeros when < 100 and < 10.
-    value = "0" + value until value.length is 3
+    value = "0" + value until value.length is 3 if value.length < 3
 
     value
 
