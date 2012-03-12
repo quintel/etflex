@@ -50,19 +50,16 @@ group :assets do
   # Node fires up a new Node process for each source file, slowing things down
   # considerably in development..
   gem 'therubyracer'
-  gem 'sass-rails',   '>= 3.2.3'
-  gem 'coffee-rails', '>= 3.2.1'
-  gem 'compass',      '=  0.12.alpha.4'
-  gem 'eco',          '~> 1.0'
-  gem 'uglifier',     '>= 1.0.3'
+  gem 'sass-rails',    '>= 3.2.3'
+  gem 'coffee-rails',  '>= 3.2.1'
+  gem 'compass-rails', '>= 1.0.0'
+  gem 'eco',           '~> 1.0'
+  gem 'uglifier',      '>= 1.0.3'
 end
 
 group :production do
   # Use unicorn as the web server
   gem 'unicorn'
-
-  # Used for monitoring processes; not actually loaded in the Rails app.
-  gem 'bluepill', require: false
 end
 
 group :development do
