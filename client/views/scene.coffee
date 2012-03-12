@@ -1,15 +1,18 @@
-app                = require 'app'
+app                   = require 'app'
 
-api                = require 'lib/api'
-template           = require 'templates/scene'
-scenarioTempl      = require 'templates/scenario'
-badgeTempl         = require 'templates/badge'
+api                   = require 'lib/api'
+template              = require 'templates/scene'
+scenarioTempl         = require 'templates/scenario'
+badgeTempl            = require 'templates/badge'
 
-{ RangeView }      = require 'views/range'
-{ SceneNav }       = require 'views/scene_nav'
+{ RangeView }         = require 'views/range'
+{ SceneNav }          = require 'views/scene_nav'
+{ HighScores }        = require 'views/high_scores'
 
-{ getProp }        = require 'views/props'
-{ clientNavigate } = require 'lib/client_navigate'
+{ ScenarioSummaries } = require 'collections/scenario_summaries'
+
+{ getProp }           = require 'views/props'
+{ clientNavigate }    = require 'lib/client_navigate'
 
 # Scene ----------------------------------------------------------------------
 
@@ -36,6 +39,7 @@ class exports.SceneView extends Backbone.View
     @renderTheme()
     @renderProps()
     @renderNavigation()
+    @renderHighScores()
     @initLoadingNotice()
     @initShareLinks()
 
@@ -175,6 +179,14 @@ class exports.SceneView extends Backbone.View
   #
   renderNavigation: ->
     @$('#footer').before (new SceneNav model: @model).render().el
+
+  # Creates the high scores list also present on the root page.
+  #
+  renderHighScores: ->
+    summaries  = new ScenarioSummaries(window.bootstrap or [])
+    highScores = new HighScores collection: summaries
+
+    @$('#scores').html highScores.render().el
 
   # Creates the "Loading..." box which pops up at the bottom-left of the
   # scene view whenever an XHR request is pending.
