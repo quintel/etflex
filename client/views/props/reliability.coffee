@@ -1,4 +1,4 @@
-{ IconDashboardProp, DISPLAY_PERCENTAGE } = require 'views/props/dashboard'
+{ IconDashboardProp } = require 'views/props/dashboard'
 
 # Calculates the percentage of total energy generated which is derived from
 # solar and window energy.
@@ -16,10 +16,6 @@ class exports.ReliabilityView extends IconDashboardProp
   # Display settings.
 
   name: I18n.t 'scenes.etlite.reliability'
-
-  # Risk is bad, none is good.
-  mutateValue:  (value) -> (1 - value) * 100
-  displayValue: DISPLAY_PERCENTAGE
 
   # Help Texts
   helpHeader: -> "props.reliability.header.#{@icon.currentState}"

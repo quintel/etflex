@@ -17,10 +17,6 @@ class exports.RenewablesView extends IconDashboardProp
 
   name: I18n.t 'scenes.etlite.renewables'
 
-  # Convert fractions to a percentage.
-  mutateValue:  (value) -> value * 100
-  displayValue: DISPLAY_PERCENTAGE
-
   # Help Texts
   helpHeader: -> "props.renewability.header"
   helpBody:   -> "props.renewability.body"

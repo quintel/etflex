@@ -12,17 +12,10 @@ class exports.ScoreView extends DashboardProp
 
   name: I18n.t 'scenes.etlite.score'
 
-  # Ensure that 0 <= score >= 999
-  mutateValue: (value) -> @brickwallScore Math.round value
+  # Help Texts
 
-  # Converts the score to a string, adding leading zeros as necessary.
-  displayValue: (value) ->
-    value = "#{ value }"
-
-    # Ensure the score is left-padded with zeros when < 100 and < 10.
-    value = "0" + value until value.length is 3 if value.length < 3
-
-    value
+  helpHeader: -> "props.score.header"
+  helpBody:   -> "props.score.body"
 
   # Custom Rendering ---------------------------------------------------------
 
@@ -56,7 +49,10 @@ class exports.ScoreView extends DashboardProp
   #
   updateValues: =>
     score       = super
-    stringScore = @displayValue score
+    stringScore = "#{score}"
+
+    if 0 >= stringScore.length < 3
+      stringScore = "0" + stringScore until stringScore.length is 3
 
     @updateMultiple 'ones',     stringScore[2]
     @updateMultiple 'tens',     stringScore[1]
@@ -112,7 +108,3 @@ class exports.ScoreView extends DashboardProp
     if      score <   0 then 0
     else if score > 999 then 999
     else                     score
-
-  # Help Texts
-  helpHeader: -> "props.score.header"
-  helpBody:   -> "props.score.body"

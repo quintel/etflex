@@ -57,4 +57,4 @@ exports.hurdleState = (view, value) ->
 exports.insertQueryData = (raw, queries) ->
   unless raw.match (/\(Q:/) then raw else
     raw.replace /\(Q:([^}]+)\)/, (ignore, key) =>
-      humanize.number queries.get(key)?.get('future')
+      queries.get(key)?.formatted('future')
