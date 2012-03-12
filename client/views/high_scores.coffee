@@ -1,7 +1,10 @@
+app                   = require 'app'
+
 listTemplate          = require 'templates/high_scores'
 rowTemplate           = require 'templates/high_score'
 
 { relativeTime }      = require 'lib/time_helpers'
+{ ScenarioSummary }   = require 'models/scenario_summary'
 { ScenarioSummaries } = require 'collections/scenario_summaries'
 
 # Shows the top five scoring scenario summaries in a list.
@@ -36,6 +39,11 @@ class exports.HighScores extends Backbone.View
 
     # Render the list.
     @setCollection @collection
+
+    channel = app.pusher.subscribe "etflex-#{ app.env }"
+
+    channel.bind 'scenario.created', @scenarioNotification
+    channel.bind 'scenario.updated', @scenarioNotification
 
     this
 
@@ -118,6 +126,15 @@ class exports.HighScores extends Backbone.View
         .fail(        -> console.error 'Failed to fetch high scores')
 
     return event.preventDefault()
+
+  # Callback triggered by Pusher whenever a scenario is added or updated by
+  # another visitor to the website.
+  #
+  scenarioNotification: (data) =>
+    if summary = @collection.get data.session_id
+      summary.set data
+    else
+      @collection.add new ScenarioSummary data
 
   # Private ------------------------------------------------------------------
 

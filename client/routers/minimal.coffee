@@ -45,11 +45,6 @@ class exports.Minimal extends Backbone.Router
     summaries  = new ScenarioSummaries(window.bootstrap or [])
     highScores = new HighScores collection: summaries
 
-    channel    = app.pusher.subscribe "etflex-#{ app.env }"
-
-    channel.bind 'scenario.created', scenarioNotification(highScores)
-    channel.bind 'scenario.updated', scenarioNotification(highScores)
-
     $('#scores').html highScores.render().el
 
     new StaticHeader( el: $('#theme-header') ).render()
