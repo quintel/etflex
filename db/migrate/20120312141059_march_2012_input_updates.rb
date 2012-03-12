@@ -31,6 +31,6 @@ class March2012InputUpdates < ActiveRecord::Migration
   end
 
   def down
-    # raise ActiveRecord::IrreversibleMigration
+    raise ActiveRecord::IrreversibleMigration
   end
 end
