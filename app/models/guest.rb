@@ -1,4 +1,4 @@
-Guest = Struct.new(:id) do
+class Guest < Struct.new(:id)
   # Path to the guest user profile image.
   #
   # TODO This should be part of a view, not the model; move as soon as
