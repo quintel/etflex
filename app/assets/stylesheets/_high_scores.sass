@@ -2,10 +2,10 @@ $score-metric-width: 110px
 // Lists of the highest scoring scenarios.
 
 #main #scores
-  border:
-    top: 1px solid #eee
-    left: 1px solid #eee
-    right: 1px solid #eee
+  background: image-url('tile.gif')
+  box-shadow: 0 0px 3px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2)
+
+  border: 1px solid #eee
   padding:
     bottom: 20px
   border-radius: 5px
@@ -16,8 +16,6 @@ $score-metric-width: 110px
     border-top-left-radius: 5px
     border-top-right-radius: 5px
     font-size: 16px
-    @include background(linear-gradient(#f4f4f4, #eee))
-    
     .since
       margin-left: 20px
       font-size: 12px
