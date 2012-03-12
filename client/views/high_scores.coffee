@@ -60,7 +60,7 @@ class exports.HighScores extends Backbone.View
     @listElement.empty()
     @animate = false
 
-    for scenario in @collection.models
+    for scenario in @collection.models[ 0...@show ]
       @summaryUpdated scenario, null, false
 
     @animate = true
@@ -171,8 +171,8 @@ class exports.HighScores extends Backbone.View
 
       # Update the #1, #2, etc.
       for index in [ 0...@show ]
-        if modelId = @collection.at(index)?.id
-          @rows[ modelId ]?.updatePosition index + 1
+        if model = @collection.at(index)
+          @rows[ model.id ]?.updatePosition index + 1
         else
           break
 

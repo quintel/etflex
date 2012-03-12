@@ -10,4 +10,4 @@ class exports.ScenarioSummaries extends Backbone.Collection
     return true if @length < n
 
     atN = @at n - 1
-    atN.id is summary.id or atN.get('score') < summary.get('score')
+    atN.id is summary.id or atN.get('score') <= summary.get('score')
