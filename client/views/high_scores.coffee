@@ -186,10 +186,11 @@ class exports.HighScores extends Backbone.View
       row.$el.detach()
 
       if currentAt.length and position isnt @show
-        nextRow = @rows[ @collection.at(position).id ]
-
         # Note that we get the nth-child again, as getting the correct element
         # when moving the row down requires first detaching the current row.
+        nextRow = @rows[ @collection.at(position)?.id ]
+
+      if nextRow
         row.$el.insertBefore nextRow.$el
       else
         @listElement.append row.$el
