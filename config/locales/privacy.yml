@@ -1,0 +1,41 @@
+en:
+  information:
+    privacy: |-
+      <h2>Privacy</h2>
+      <p>This site is governed by Dutch law. This site is property of and maintained by Quintel Intelligence B.V.. All questions concerning privacy should in first instance be addressed to <a href='mailto:etflex@quintel.com'>etflex@quintel.com</a>.</p>
+
+      <h3>Data collection</h3>
+      <p>This website collects e-mail addresses for the purpose of logging into the website, so that users can load and save scenarios. Other than for this purpose, the addresses in question are stored and used exclusively to inform the users of available updates and new versions of the Energy Transition Model.
+      </p>
+
+      <p>The data the Energy Transition Model sends from users personal computers to the web server are anonymous (i.e., they do not contain e-mail addresses or other data that can be used to identify the user) and cannot be linked in any way to the previously stored e-mail-addresses. The data the Energy Transition Model sends from users computers to the web server include the IP-addresses of these PCs. IP-addresses can be logged in order to prevent users from sending data several times and corrupting the energy statistics.
+      </p>
+
+      <p>The server logs and databases are used for locating problems on the web server and are accessible to the police and other judicial authorities both in- and outside the Netherlands.</p>
+
+      <h3>Cookies &amp; Sessions</h3>
+      <p>This website uses cookies for storing users' settings, such as the language and for temporarily storing data during a scenario.</p>
+
+      <p>We take your privacy very seriously and will not provide access to your data to third parties. The collected data that cannot be linked to individual users, such as energy statistics, Can be shared via the website of the Energy Transition Model.</p>
+      
+      <p>Quintel Intelligence B.V.</p>
+
+nl:
+  information:
+    privacy: |-
+      <h2>Privacy</h2>
+      <p>Deze site valt onder het Nederlands recht. Deze site is eigendom van en wordt onderhouden door Quintel Intelligence B.V.. Alle vragen m.b.t. privacy moeten in eerste instantie gericht worden aan <a href='mailto:etflex@quintel.com'>etflex@quintel.com</a>.</p>
+
+      <h3>Verzameling van data</h3>
+      <p>Deze website verzamelt e-mailadressen ten behoeve van het inloggen van de gebruiker, waardoor deze scenario's kan opslaan en laden. De betreffende adressen worden daarnaast alleen bewaard en desgevraagd benut om de gebruikers bij updates op de hoogte te stellen van nieuwe versies van het Energietransitiemodel.
+      </p>
+
+      <p>De data die het Energietransitiemodel vanaf de computer (PC) van een gebruiker naar de webserver stuurt (o.a. <a href='http://www.energietransitiemodel.nl/'>www.energietransitiemodel.nl</a>), zijn anoniem en bevatten geen e-mailadres of andere gegevens die de gebruiker kunnen identificeren. In de data die het Energietransitiemodel vanaf de PC van een gebruiker naar de webserver verstuurt, lan wel het IP-adres worden gelogd, om te voorkomen dat gebruikers buitensporig veel data versturen en zo de webserver verstoren. De verstuurde data bestaat uit alle modelparameters die men in het model heeft ingesteld, en eventueel andere bijkomstigheden, zoals naam en beschrijving van een scenario.</p>
+
+      <p>De serverlogs en databases worden gebruikt bij het opsporen van problemen met de webserver en zijn toegankelijk voor de politie en andere gerechtelijke autoriteiten in en buiten Nederland.</p>
+
+      <h3>Cookies &amp; Sessies</h3>
+      <p>Deze website maakt gebruik van cookies ten behoeve van de instellingen en de waaren van het scenario van de gebruiker.</p>
+
+      <p>We gaan zeer serieus om met uw privacy en stellen uw gegevens niet beschikbaar aan derden. De verzamelde gegevens/statistieken die niet op individuen kunnen worden teruggeleid kunnen wel door ons met derden worden gedeeld, o.a. via de websites van het Energietransitiemodel.</p>
+      <p>Quintel Intelligence B.V.</p>

@@ -1,7 +1,7 @@
 en:
   information:
     about: |-
-      <h3>About this Application</h3>
+      <h2>About this Application</h2>
       <p>This application was developed by <a href='http://www.energytransitionmodel.com/about'>Quintel Intelligence</a> for <a href='http://www.energytransitionmodel.com/partners/gasterra'> GasTerra</a> as an easy and accessible introduction to the theme of energy transition.</p>
       
       <p>This application is based on the professional version of the <a href='http://www.energytransitionmodel.com'>Energy Transition Model</a>, a more comprehensive (and hence, more complicated) tool. The ETM aims to provide users with a factual basis for understanding and discussing the impact of changes in the energy system on the future of energy.</p>
@@ -11,6 +11,7 @@ en:
 nl:
   information:
     about: |-
+      <h2>Over deze applicatie</h2>
       <p>Deze applicatie is ontwikkeld door <a href='http://www.energietransitiemodel.nl/about'>Quintel Intelligence</a> voor <a href='http://www.energietransitiemodel.nl/partners/gasterra'>GasTerra</a> als een eenvoudige en toegankelijke inleiding op het thema van energietransitie.</p>
 
       <p>Het is gebaseerd op het <a href='http://www.energietransitiemodel.nl/'>Energietransitiemodel</a> (ETM), een vollediger (en dus ingewikkelder) hulpmiddel. Het ETM biedt gebruikers een feitelijke basis voor discussies over de toekomst van energie en de gevolgen van hun aannames over deze toekomst.</p>

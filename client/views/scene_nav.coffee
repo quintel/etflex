@@ -115,6 +115,9 @@ class exports.SceneNav extends Backbone.View
     
     modalDialog.reveal()
 
+    event.preventDefault()
+    event.stopPropagation()
+
   # Handler for the onClick event for each link element.
   #
   # event - The jQuery event triggered during the click.
