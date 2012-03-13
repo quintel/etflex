@@ -66,9 +66,9 @@ en:
           streets.
         suv: |-
           In the current situation there are only (Q:number_of_electric_cars)
-          electric cars and X.XX million fossil-fueled cars in the Netherlands
-          in 2040. If you want to change the division, try to increase the
-          percentage of electric cars to see the impact.'
+          electric cars in the Netherlands in 2030. If you want to increase the
+          number to above a million, try to see what percentage of electric
+          cars you need.'
 
     city:
       name: "Futuristic City"
