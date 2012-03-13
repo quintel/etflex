@@ -74,7 +74,7 @@ commonBoot = (window, locale, env, user) ->
   installConsolePolyfill window
 
   exports.env    = env
-  exports.user   = new (require('models/user').User) user
+  exports.user   = require('models/user').createUser user
 
   I18n.locale    = locale
   I18n.fallbacks = no
