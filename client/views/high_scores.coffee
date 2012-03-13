@@ -196,11 +196,8 @@ class exports.HighScores extends Backbone.View
         @listElement.append row.$el
 
       # Update the #1, #2, etc.
-      for index in [ 0...@show ]
-        if model = @collection.at(index)
-          @rows[ model.id ]?.updatePosition index + 1
-        else
-          break
+      @$('li').each (index, element) ->
+        $('.position', elememt).text index + 1
 
       if @animate
         row.$el.css('margin-left', '20px').
