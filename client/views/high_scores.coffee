@@ -197,7 +197,7 @@ class exports.HighScores extends Backbone.View
 
       # Update the #1, #2, etc.
       @$('li').each (index, element) ->
-        $('.position', elememt).text index + 1
+        $('.position', element).text index + 1
 
       if @animate
         row.$el.css('margin-left', '20px').
