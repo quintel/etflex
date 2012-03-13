@@ -13,8 +13,6 @@
 
   <div data-prop-location="bottom" class="dashboard" id="main-props"></div>
 
-  <div id="scores"></div>
-
   <div id="footer">
     <ul id="social-media">
       <li class="twitter"><a href="#">Share on Twitter</a></li>
@@ -27,6 +25,8 @@
       <li class="by"><%= I18n.t 'leading_partner' %></li>
     </ul>
   </div>
+
+  <div id="scores"></div>
 
   <div id="loader">Loading...</div>
 </div>
