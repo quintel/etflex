@@ -55,6 +55,8 @@ en:
     high_scores:        High scores
     loading:            Loading
 
+    you:                You
+
   magnitudes:
     million: "%{amount} million"
     billion: "%{amount} billion"

@@ -5,7 +5,7 @@
   <img width="35" height="35" src="<%= @imageUrl %>" alt="User Avatar" />
 
   <% if @isMine: %>
-    <span class="you">You!</span>
+    <span class="you"><%= I18n.t 'words.you' %>!</span>
   <% else: %>
     <span class="name"><%= @user %></span>
   <% end %>
