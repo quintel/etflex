@@ -261,7 +261,7 @@ class SummaryRow extends Backbone.View
     @$('time').replaceWith relativeTime(time)
 
   updatePosition: (position) ->
-    @$('.position').text "##{position}"
+    @$('.position').text "#{position}"
 
   updateCost: (summary, cost) =>
     @updateMetric '.costs', cost / 1000000000, 40, 50
