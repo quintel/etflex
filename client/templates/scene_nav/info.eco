@@ -1,7 +1,7 @@
 <ul class="icon-nav">
-  <!--<li><a href="/about"><%= @about %></a></li>
-  <li><a href="/feedback"><%= @feedback %></a></li>
-  <li><a href="/privacy"><%= @privacy %></a></li>-->
+  <li><a href="#" data-modal-key="information.about" data-navigate="noclient"><%= @about %></a></li>
+  <li><a href="mailto:etflex@quintel.com" data-navigate="noclient"><%= @feedback %></a></li>
+  <li><a href="/privacy"><%= @privacy %></a></li>
 
   <% if @etmURL: %>
     <li><a href="<%= @etmURL %>" target="_blank" data-navigate="noclient"><%= @etmodel %></a></li>

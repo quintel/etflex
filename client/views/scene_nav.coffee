@@ -95,9 +95,10 @@ class exports.SceneNav extends Backbone.View
   id: 'main-nav'
 
   events:
-    'click ul.scene-nav a':       'handleClick'
-    'click .main-nav-pulldown a': 'deactivate'
-    'clickoutside':               'deactivate'
+    'click ul.scene-nav a':        'handleClick'
+    'click .main-nav-pulldown a':  'deactivate'
+    'clickoutside':                'deactivate'
+    'click ul a[:data-modal-key]': 'showModalMessage'
 
   activeItem: null
 
@@ -106,6 +107,13 @@ class exports.SceneNav extends Backbone.View
     @pulldown = @$ '.main-nav-pulldown'
 
     this
+
+  showModalMessage: (event) ->
+    modalDialog = $('#modal-dialog')
+    
+    $('#modal-content', modalDialog).html I18n.t $(event.target).attr 'data-modal-key'
+    
+    modalDialog.reveal()
 
   # Handler for the onClick event for each link element.
   #

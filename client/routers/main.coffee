@@ -52,7 +52,7 @@ class exports.Main extends Backbone.Router
     'nl':                   'languageRedirect'
     'en/*actions':          'languageRedirect'
     'nl/*actions':          'languageRedirect'
-
+    
     '*undefined':           'notFound'
 
   # A 404 Not Found page. Presents the user with a localised message guiding
