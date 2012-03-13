@@ -3,7 +3,7 @@
 # Guest instance instead.
 #
 exports.createUser = (data) ->
-  if "#{ data.id }"[0..1] is 'g:'
+  if "#{ data.id }"[0..1] is 'g:' or not data.id?
     new Guest _.extend({}, data, { id: "#{data.id}"[2..-1] })
   else
     new User data
