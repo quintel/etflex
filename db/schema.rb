@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120312141059) do
+ActiveRecord::Schema.define(:version => 20120313155743) do
 
   create_table "inputs", :force => true do |t|
     t.integer "remote_id",                    :null => false
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(:version => 20120312141059) do
     t.string   "guest_uid",           :limit => 36
     t.integer  "end_year",                          :default => 2030, :null => false
     t.string   "country",             :limit => 2,  :default => "nl", :null => false
+    t.string   "guest_name",          :limit => 50
   end
 
   add_index "scenarios", ["session_id"], :name => "index_scenarios_on_session_id", :unique => true

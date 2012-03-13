@@ -19,7 +19,8 @@ class Scenario < ActiveRecord::Base
   serialize :input_values,  Hash
   serialize :query_results, Hash
 
-  attr_accessible :title, :input_values, :query_results, :end_year, :country
+  attr_accessible :title, :guest_name, :input_values, :query_results,
+                  :end_year, :country
 
   # SCOPES -------------------------------------------------------------------
 
