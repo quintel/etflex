@@ -1,6 +1,8 @@
 app = require 'app'
 api = require 'lib/api'
 
+{ createUser } = require 'models/user'
+
 # Scenario keeps track of a user's attempt to complete a scene. Holding on to
 # the scene ID, user ID, and the corresponding ET-Engine session ID, it allows
 # a user to attempt a scene multiple times, and to share their scenes with
@@ -15,6 +17,8 @@ class exports.Scenario extends Backbone.Model
     attributes.country   or= 'nl'
     attributes.endYear   or= 2030
     attributes.showScore or= true
+
+    @on 'change:user', => @owner = createUser(@get('user') or {})
 
     super
 
@@ -109,7 +113,7 @@ class exports.Scenario extends Backbone.Model
   # user - The user to test.
   #
   canChange: (user) ->
-    user.id and @get('user').id is user.id
+    user.id and @owner.id is user.id
 
   # Don't send the scene information to the server; it doesn't care.
   #
