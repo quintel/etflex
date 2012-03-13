@@ -6,6 +6,7 @@ en:
   loadingMsg: "The application is being loaded. One moment; it won't be long!"
   etm: "Energy Transition Model"
   etm_light: "Energy Transition Model light"
+  switch_to_this_language: "Switch to English"
 
   # Navigation Elements ------------------------------------------------------
 

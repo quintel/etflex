@@ -6,6 +6,7 @@ nl:
   loadingMsg: "Even geduld het duurt niet lang..."
   etm: "Energietransitiemodel"
   etm_light: "Energietransitiemodel light"
+  switch_to_this_language: "Schakel naar het Nederlands"
 
   # Navigation Elements ------------------------------------------------------
 

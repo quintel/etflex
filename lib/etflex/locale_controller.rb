@@ -47,6 +47,10 @@ module ETFlex
 
       I18n.locale = session[:locale]
     end
+    
+    def alternative_locales
+      AVAILABLE_LOCALES.reject{ |locale| locale == I18n.locale.to_s }
+    end
 
   end # LocaleController
 end # ETFlex
