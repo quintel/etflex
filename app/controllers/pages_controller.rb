@@ -7,6 +7,7 @@ class PagesController < ApplicationController
   # GET /
   #
   def root
+    @alternative_locales = alternative_locales
     @scenes = Scene.limit(10)
 
     # We need to select twice as many scenarios as are actually displayed; if

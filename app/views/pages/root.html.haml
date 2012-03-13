@@ -12,6 +12,9 @@
 #page-view.root
   #core
 
+    %nav#language-select
+      - @alternative_locales.each do |alt_locale|
+        %a{href: "/lang/#{alt_locale}"}= I18n.t "switch_to_this_language", locale: alt_locale
 
     #theme-header
       %a#logo(href="/") Energy Transition Model light
