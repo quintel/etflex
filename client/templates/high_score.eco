@@ -3,7 +3,13 @@
 
 <span class="user">
   <img width="35" height="35" src="<%= @imageUrl %>" alt="User Avatar" />
-  <span class="name"><%= @user %></span>
+
+  <% if @isMine: %>
+    <span class="you">You!</span>
+  <% else: %>
+    <span class="name"><%= @user %></span>
+  <% end %>
+
   <time></time>
 </span>
 
