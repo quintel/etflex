@@ -2,7 +2,13 @@
 
 FactoryGirl.define do
   factory :input do
-    sequence(:remote_id) { |n| n + 1 }
+    sequence(:remote_id) do |remote_id|
+      # Add 10_000 to the remote ID since this should prevent conflicting
+      # with manually-set remote IDs on the occasions that we need to use
+      # real-world remote IDs (such as in integration tests).
+      remote_id + 10_000
+    end
+
     key { "factory_input_#{remote_id}" }
 
     factory :mwh_input do
