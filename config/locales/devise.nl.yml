@@ -18,6 +18,8 @@ nl:
       signed_in: 'Je bent succesvol ingelogd.'
       signed_out: 'Je bent succesvol uitgelogd.'
     passwords:
+      forgotten: 'Wachtwoord vergeten?'
+      send: 'Stuur me opnieuw in te stellen wachtwoord instructies'
       send_instructions: 'Je ontvangt via e-mail instructies hoe je je wachtwoord moet resetten.'
       updated: 'Je wachtwoord is gewijzigd. Je bent nu ingelogd.'
     confirmations:
