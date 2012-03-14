@@ -13,6 +13,7 @@ class exports.HighScores extends Backbone.View
 
   events:
     'click h2 a': 'changeDateLimit'
+    'click li':   'navigateToScenario'
 
   # Provide HighScores with a ScenarioSummaries collection in the options
   # hash.
@@ -146,6 +147,25 @@ class exports.HighScores extends Backbone.View
       summary.set data
     else
       @collection.add new ScenarioSummary data
+
+  # Callback triggered when the user clicks on a scenario list element. On
+  # compact high score lists, where no "Show" button is visible, clicking on
+  # the element directs the user to the scenario.
+  #
+  navigateToScenario: (event) =>
+    if @style is 'compact'
+      scenarioId = event.currentTarget.id.replace(/^high-score-/, '')
+      scenarioId = parseInt scenarioId, 10
+
+      if scenario = @collection.get scenarioId
+        console.log "Would navigate to #{ scenario.get('href') }"
+
+        # Navigation temporarily disabled until a view "destructor" is
+        # created so that we can properly remove the old scenario before
+        # starting the new one.
+        # app.navigate scenario.get('href')
+
+      return false
 
   # Private ------------------------------------------------------------------
 
