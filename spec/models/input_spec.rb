@@ -103,12 +103,10 @@ describe Input do
   # SIBLINGS -----------------------------------------------------------------
 
   describe 'siblings' do
-    let(:focus)     { create :input, group: 'my-group' }
-    let(:sibling_1) { create :input, group: 'my-group' }
-    let(:sibling_2) { create :input, group: 'my-group' }
-    let(:cousin_1)  { create :input, group: 'another-group' }
-
-    before { sibling_1; sibling_2; cousin_1 }
+    let!(:focus)     { create :input, group: 'my-group' }
+    let!(:sibling_1) { create :input, group: 'my-group' }
+    let!(:sibling_2) { create :input, group: 'my-group' }
+    let!(:cousin_1)  { create :input, group: 'another-group' }
 
     describe 'when the given input belongs to no group' do
       it 'should return an empty array' do
@@ -137,7 +135,7 @@ describe Input do
     end
 
     describe 'when given multiple, grouped inputs with three siblings' do
-      let(:focus_2) { create :input, group: 'another-group' }
+      let!(:focus_2) { create :input, group: 'another-group' }
 
       subject { Input.siblings [ focus, focus_2 ] }
 
@@ -164,7 +162,7 @@ describe Input do
     end
 
     describe 'when given multiple, grouped scene inputs with three siblings' do
-      let(:focus_2) { create :input, group: 'another-group' }
+      let!(:focus_2) { create :input, group: 'another-group' }
 
       subject { Input.siblings [
         SceneInput.new { |si| si.input = focus },
@@ -196,11 +194,9 @@ describe Input do
   # DEPENDENT SIBLINGS -------------------------------------------------------
 
   describe 'dependent siblings' do
-    let(:focus_1)   { create :input, group: 'my-group' }
-    let(:sibling_1) { create :input, group: 'my-group' }
-    let(:cousin_1)  { create :input, group: 'another-group' }
-
-    before { focus_1; sibling_1; cousin_1 }
+    let!(:focus_1)   { create :input, group: 'my-group' }
+    let!(:sibling_1) { create :input, group: 'my-group' }
+    let!(:cousin_1)  { create :input, group: 'another-group' }
 
     describe 'when the given input belongs to no group' do
       it 'should return an empty array' do
@@ -209,8 +205,7 @@ describe Input do
     end
 
     describe 'when given a single, grouped input with two siblings' do
-      let(:sibling_2) { create :input, group: 'my-group' }
-      before { sibling_2 }
+      let!(:sibling_2) { create :input, group: 'my-group' }
 
       subject { Input.siblings focus_1 }
 
@@ -232,8 +227,7 @@ describe Input do
     end
 
     describe 'when given two grouped inputs with one sibling' do
-      let(:focus_2) { create :input, group: 'my-group' }
-      before { focus_2 }
+      let!(:focus_2) { create :input, group: 'my-group' }
 
       subject { Input.dependent_siblings([ focus_1, focus_2 ]) }
 
@@ -252,9 +246,8 @@ describe Input do
     end # when given two grouped inputs with one sibling
 
     describe 'when given multiple grouped inputs' do
-      let(:cousin_2) { create :input, group: 'another-group' }
-      let(:focus_2)  { create :input, group: 'my-group' }
-      before { cousin_2 ; focus_2 }
+      let!(:cousin_2) { create :input, group: 'another-group' }
+      let!(:focus_2)  { create :input, group: 'my-group' }
 
       subject { Input.dependent_siblings [ focus_1, focus_2, cousin_1 ] }
 

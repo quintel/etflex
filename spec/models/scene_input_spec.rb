@@ -232,13 +232,12 @@ describe SceneInput do
   # SIBLINGS -----------------------------------------------------------------
 
   describe 'siblings' do
-    let(:scene)     { create :scene_with_inputs }
-    let(:focus)     { scene.scene_inputs.first }
-    let(:sibling_1) { create :input, group: 'my-group' }
-    let(:sibling_2) { create :input, group: 'my-group' }
+    let!(:scene)     { create :scene_with_inputs }
+    let!(:focus)     { scene.scene_inputs.first }
+    let!(:sibling_1) { create :input, group: 'my-group' }
+    let!(:sibling_2) { create :input, group: 'my-group' }
 
     before do
-      scene ; sibling_1 ; sibling_2
       focus.input.update_attributes! group: 'my-group'
     end
 
@@ -275,13 +274,12 @@ describe SceneInput do
   # DEPENDENT SIBLINGS -------------------------------------------------------
 
   describe 'dependent siblings' do
-    let(:scene)     { create :scene_with_inputs }
-    let(:focus)     { scene.scene_inputs.first }
-    let(:sibling_1) { create :input, group: 'my-group' }
-    let(:sibling_2) { create :input, group: 'my-group' }
+    let!(:scene)     { create :scene_with_inputs }
+    let!(:focus)     { scene.scene_inputs.first }
+    let!(:sibling_1) { create :input, group: 'my-group' }
+    let!(:sibling_2) { create :input, group: 'my-group' }
 
     before do
-      scene ; sibling_1 ; sibling_2
       focus.input.update_attributes! group: 'my-group'
     end
 
