@@ -184,7 +184,7 @@ class exports.SceneView extends Backbone.View
   #
   renderHighScores: ->
     summaries  = new ScenarioSummaries(window.bootstrap or [])
-    highScores = new HighScores collection: summaries
+    highScores = new HighScores collection: summaries, show: 8, style: 'compact'
 
     @$('#scores').html highScores.render().el
 

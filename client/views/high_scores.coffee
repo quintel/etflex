@@ -16,11 +16,12 @@ class exports.HighScores extends Backbone.View
 
   # Provide HighScores with a ScenarioSummaries collection in the options
   # hash.
-  constructor: ({ @collection, @show }) ->
+  constructor: ({ @collection, @show, @style }) ->
     super
 
     # Show, by default, the five highest scores.
-    @show or= 10
+    @show  or= 10
+    @style or= 'full'
 
     # Keep track of the summaries which are shown in the UI.
     @visible = []
@@ -35,6 +36,8 @@ class exports.HighScores extends Backbone.View
   # top five have changed.
   render: =>
     @$el.html listTemplate()
+    @$el.addClass @style
+
     @listElement = @$ 'ol'
 
     # Render the list.
