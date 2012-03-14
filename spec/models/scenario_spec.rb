@@ -119,10 +119,9 @@ describe Scenario do
   # FOR USER -----------------------------------------------------------------
 
   describe '#for_user' do
-    let(:user)     { create :user }
-    let(:scene)    { create :scene }
-    let(:scenario) { create :scenario, user: user, scene: scene }
-    before         { scenario }
+    let(:user)      { create :user }
+    let(:scene)     { create :scene }
+    let!(:scenario) { create :scenario, user: user, scene: scene }
 
     context 'when given a User' do
       it "should return the user's scenarios" do
@@ -158,16 +157,14 @@ describe Scenario do
     let(:guest) { Guest.new('abcdef') }
     let(:scene) { create :scene }
 
-    let(:scenario)       { create :scenario,
+    let!(:scenario)       { create :scenario,
                              user: user, scene: scene }
 
-    let(:user_scenario)  { create :scenario,
+    let!(:user_scenario)  { create :scenario,
                              user: create(:user), scene: scene }
 
-    let(:guest_scenario) { create :scenario,
+    let!(:guest_scenario) { create :scenario,
                              user: nil, scene: scene, guest_uid: 'zxy' }
-
-    before { scenario ; user_scenario ; guest_scenario }
 
     context 'when there exists another guest scenario and user scenario' do
       context 'when given a User' do
@@ -218,11 +215,9 @@ describe Scenario do
 
   describe '.since' do
     context 'given 7 days ago' do
-      let(:time)    { 7.days.ago }
-      let(:inside)  { create :scenario, updated_at: time + 1 }
-      let(:outside) { create :scenario, updated_at: time - 1 }
-
-      before { inside ; outside }
+      let(:time)     { 7.days.ago }
+      let!(:inside)  { create :scenario, updated_at: time + 1 }
+      let!(:outside) { create :scenario, updated_at: time - 1 }
 
       subject { Scenario.since(time) }
 
@@ -237,11 +232,9 @@ describe Scenario do
     end
 
     context 'given 1 day ago' do
-      let(:time)    { 1.day.ago }
-      let(:inside)  { create :scenario, updated_at: time + 1 }
-      let(:outside) { create :scenario, updated_at: time - 1 }
-
-      before { inside ; outside }
+      let(:time)     { 1.day.ago }
+      let!(:inside)  { create :scenario, updated_at: time + 1 }
+      let!(:outside) { create :scenario, updated_at: time - 1 }
 
       subject { Scenario.since(time) }
 
