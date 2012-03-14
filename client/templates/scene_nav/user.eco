@@ -20,7 +20,7 @@
       </label>
 
       <label class="half right forgotten-password">
-        <a href="#">Forgotten your password?</a>
+        <a href="/users/password/new">Forgotten your password?</a>
       </label>
     </div>
 
