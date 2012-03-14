@@ -20,11 +20,6 @@ class exports.Scenario extends Backbone.Model
 
     super
 
-    @owner = createUser(@get('user') or {})
-
-    @on 'change:user', (scenario, user...) =>
-      @owner = createUser(user or {})
-
   # Returns the URL to the scenario. Raises an error if the scenario ID or
   # scene ID are missing.
   #
@@ -116,7 +111,7 @@ class exports.Scenario extends Backbone.Model
   # user - The user to test.
   #
   canChange: (user) ->
-    user.id and @owner.id is user.id
+    user.id and createUser(@get('user') or {}).id is user.id
 
   # Don't send the scene information to the server; it doesn't care.
   #
