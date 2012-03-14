@@ -28,7 +28,7 @@ feature 'Administering inputs' do
     page.should have_css('#input_key[disabled=disabled]')
 
     # Pre-populated form.
-    find 'form.input' do |form|
+    find 'form.edit_input' do |form|
       form.should have_css("#input_key",   value: input.key)
       form.should have_css("#input_step",  value: input.step)
       form.should have_css("#input_min",   value: input.min)
@@ -37,7 +37,7 @@ feature 'Administering inputs' do
       form.should have_css("#input_unit",  value: input.unit)
     end
 
-    within 'form.input' do
+    within 'form.edit_input' do
       fill_in 'Step' , with: '5'
       fill_in 'Min',   with: '50'
       fill_in 'Max',   with: '60.5'
@@ -48,7 +48,7 @@ feature 'Administering inputs' do
     end
 
     # Should not be an error page.
-    page.should_not have_css('form.input')
+    page.should_not have_css('form.edit_input')
     page.should     have_css('table#inputs')
 
     # Should be on the inputs page, not a scene inputs page.
@@ -72,7 +72,7 @@ feature 'Administering inputs' do
     visit "/backstage/inputs/#{ input.id }/edit"
 
     # Fill in the "key" field so that it is empty.
-    within 'form.input' do
+    within 'form.edit_input' do
       fill_in 'Step', with: ''
       click_button 'Update Input'
     end

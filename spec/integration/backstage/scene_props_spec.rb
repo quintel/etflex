@@ -32,7 +32,7 @@ feature 'Editing scene props' do
     page.should     have_css('#scene_prop_prop_id')
     page.should_not have_css('#scene_prop_prop_id[disabled=disabled]')
 
-    within('form.scene_prop') do
+    within('form.new_scene_prop') do
       select @other.id.to_s, from: 'Prop'
       fill_in 'Location',    with: 'bottom'
 
@@ -54,7 +54,7 @@ feature 'Editing scene props' do
     visit "/backstage/scenes/#{ @scene.id }/props/new"
 
     # Empty a required field.
-    within('form.scene_prop') do
+    within('form.new_scene_prop') do
       fill_in 'Location', with: ''
 
       expect { click_button 'Create Scene prop' }.to_not \
@@ -85,7 +85,7 @@ feature 'Editing scene props' do
     page.should_not have_css('#scene_prop_prop_id')
 
     # Fill in required values.
-    within('form.scene_prop') do
+    within('form.edit_scene_prop') do
       fill_in 'Location',             with: 'center'
       fill_in 'Position',             with: '42'
 
@@ -118,7 +118,7 @@ feature 'Editing scene props' do
     visit "/backstage/scenes/#{ @scene.id }/props/#{ @scene_prop.id }/edit"
 
     # Empty a required field.
-    within('form.scene_prop') do
+    within('form.edit_scene_prop') do
       fill_in      'Location', with: ''
       click_button 'Update Scene prop'
     end

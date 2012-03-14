@@ -28,7 +28,7 @@ feature 'Editing scene inputs' do
     visit "/backstage/scenes/#{ @scene.id }/inputs"
     click_link 'Create Scene Input'
 
-    within('form.scene_input') do
+    within('form.new_scene_input') do
       select @other.key, from: 'Input'
       select 'Left',     from: 'Location'
 
@@ -81,7 +81,7 @@ feature 'Editing scene inputs' do
     page.should_not have_css('#scene_input_unit')
 
     # Fill in custom values for all fields.
-    within('form.scene_input') do
+    within('form.edit_scene_input') do
       fill_in 'Step by',        with: '5.5'
       fill_in 'Minimum value',  with: '12'
       fill_in 'Maximum value',  with: '72'
