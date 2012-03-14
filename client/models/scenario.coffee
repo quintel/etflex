@@ -18,9 +18,12 @@ class exports.Scenario extends Backbone.Model
     attributes.endYear   or= 2030
     attributes.showScore or= true
 
-    @on 'change:user', => @owner = createUser(@get('user') or {})
-
     super
+
+    @owner = createUser(@get('user') or {})
+
+    @on 'change:user', (scenario, user...) =>
+      @owner = createUser(user or {})
 
   # Returns the URL to the scenario. Raises an error if the scenario ID or
   # scene ID are missing.

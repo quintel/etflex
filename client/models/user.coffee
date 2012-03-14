@@ -3,21 +3,26 @@
 # Guest instance instead.
 #
 exports.createUser = (data) ->
-  if "#{ data.id }"[0..1] is 'g:' or not data.id?
-    new Guest _.extend({}, data, { id: "#{data.id}"[2..-1] })
+  userId = data?.id or ''
+
+  if data?.actsLikeUser
+    data
+  else if "#{ userId }"[0..1] is 'g:'
+    new Guest _.extend({}, data, { id: "#{ userId }"[2..-1] })
   else
     new User data
-
-# Represents a person who has signed up to ETFlex, either by providing their
-# e-mail and password, or through Facebook.
-#
-class User
-  constructor: ({ @id }) ->
-    @isSignedIn = true
-    @isGuest    = false
 
 # Represents a visitor to ETFlex who has not yet signed up.
 class Guest
   constructor: ({ @id }) ->
-    @isSignedIn = false
-    @isGuest    = true
+    @actsLikeUser = true
+    @isSignedIn   = false
+    @isGuest      = true
+
+# Represents a person who has signed up to ETFlex, either by providing their
+# e-mail and password, or through Facebook.
+#
+class User extends Guest
+  constructor: ({ @id }) ->
+    @isSignedIn = true
+    @isGuest    = false
