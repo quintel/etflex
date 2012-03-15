@@ -13,16 +13,19 @@ class exports.HighScores extends Backbone.View
 
   events:
     'click h2 a': 'changeDateLimit'
-    'click li':   'navigateToScenario'
+    # 'click li':   'navigateToScenario'
 
   # Provide HighScores with a ScenarioSummaries collection in the options
   # hash.
-  constructor: ({ @collection, @show, @style }) ->
+  constructor: ({ @collection, @show, @style, @realtime }) ->
     super
 
     # Show, by default, the five highest scores.
     @show  or= 10
     @style or= 'full'
+
+    # Disable pusher by passing realtime: false.
+    @realtime = true unless @realtime is false
 
     # Keep track of the summaries which are shown in the UI.
     @visible = []
@@ -42,12 +45,16 @@ class exports.HighScores extends Backbone.View
     @listElement = @$ 'ol'
 
     # Render the list.
-    @setCollection @collection
+    if @collection
+      @setCollection @collection
+    else
+      @loadSince 7
 
-    channel = app.pusher.subscribe "etflex-#{ app.env }"
+    if @realtime
+      channel = app.pusher.subscribe "etflex-#{ app.env }"
 
-    channel.bind 'scenario.created', @scenarioNotification
-    channel.bind 'scenario.updated', @scenarioNotification
+      channel.bind 'scenario.created', @scenarioNotification
+      channel.bind 'scenario.updated', @scenarioNotification
 
     this
 
@@ -55,10 +62,11 @@ class exports.HighScores extends Backbone.View
   # current collection, and re-render the high scores list.
   #
   setCollection: (newCollection) ->
-    # Unbind events from the old collection.
-    @collection.off 'change:score', @collection.sort
-    @collection.off 'add',          @summaryUpdated
-    @collection.off 'change',       @summaryUpdated
+    if @collection
+      # Unbind events from the old collection.
+      @collection.off 'change:score', @collection.sort
+      @collection.off 'add',          @summaryUpdated
+      @collection.off 'change',       @summaryUpdated
 
     @collection = newCollection
 
@@ -143,6 +151,9 @@ class exports.HighScores extends Backbone.View
   # another visitor to the website.
   #
   scenarioNotification: (data) =>
+    # Collection may not yet be loaded when no data is bootstrapped.
+    return true unless @collection
+
     if summary = @collection.get data.session_id
       summary.set data
     else
