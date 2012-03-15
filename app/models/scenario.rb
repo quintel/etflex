@@ -186,6 +186,11 @@ class Scenario < ActiveRecord::Base
   # TODO This should be a JBuilder template so we have access to URL helpers.
   #
   def to_pusher_event
+    user_name = if user.present? then user.name else nil end
+
+    user_name = guest_name                unless user_name.present?
+    user_name = I18n.t('words.anonymous') unless user_name.present?
+
     { session_id:          session_id,
       href:               "/scenes/#{ scene_id }/with/#{ session_id }",
       score:               score,
@@ -194,8 +199,7 @@ class Scenario < ActiveRecord::Base
       total_co2_emissions: total_co2_emissions,
       updated_at:          updated_at,
       user_id:             user_id || guest_uid,
-      user_name:           user_or_guest.name.presence ||
-                             I18n.t('words.anonymous'),
+      user_name:           user_name,
       profile_image:       user_or_guest.image_url }
   end
 

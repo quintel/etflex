@@ -1,4 +1,7 @@
+app            = require 'app'
+
 template       = require 'templates/scenarios_window'
+summaryTpl     = require 'templates/summaries/scenario'
 
 { ScenarioSummaries } = require 'collections/scenario_summaries'
 { HighScores }        = require 'views/high_scores'
@@ -39,17 +42,31 @@ class exports.ScenariosWindow extends Backbone.View
       @scores.$('li').removeClass 'active'
       $( event.currentTarget ).addClass 'active'
 
-      console.log @$('.info .content').html """
-        Score: #{ scenario.query('score').formatted('future') }<br />
-        Renewability: #{ scenario.query('renewability').formatted('future') }<br />
-        Costs: #{ scenario.query('total_costs').formatted('future') }<br />
-        CO2: #{ scenario.query('total_co2_emissions').formatted('future') }<br />
-        By: #{ scenario.get('user_name') }<br />
-      """
+      @$('.info .content').html summaryTpl
+        selected:
+          who:          userName scenario
+          emissions:    queryVal scenario, 'total_co2_emissions'
+          renewability: queryVal scenario, 'renewability'
+          score:        queryVal scenario, 'score'
+          costs:        queryVal scenario, 'costs'
+        current:
+          who:          '{who}'
+          emissions:    '{emissions}'
+          renewability: '{renewability}'
+          score:        '{score}'
+          costs:        '{costs}'
 
-      console.log "Would navigate to #{ scenario.get('href') }"
+# Helpers --------------------------------------------------------------------
 
-      # Navigation temporarily disabled until a view "destructor" is
-      # created so that we can properly remove the old scenario before
-      # starting the new one.
-      # app.navigate scenario.get('href')
+# Given a scenario summary and query key, returns the formatted value of the
+# query as a string.
+queryVal = (summary, queryKey) ->
+  summary.query(queryKey).formatted 'future'
+
+# Returns the name of the owner of a scenario summary as a string. Will return
+# "You" if it is the current user.
+userName = (summary) ->
+  if summary.get('user_id') is app.user.id
+    I18n.t('words.you').toLowerCase()
+  else
+    summary.get 'user_name'
