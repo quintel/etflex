@@ -5,21 +5,21 @@ en:
     # Dashboard
 
     co2_emissions:
-      header: "You emit (Q:total_co2_emissions) tonnes of CO<sub>2</sub>"
+      header: "You emit (Q:total_co2_emissions) of CO<sub>2</sub>"
       body: |-
         When fuel is burnt by cars, heaters or power plants, they emit carbon
-        dioxide. A big increase in CO<sub>2</sub> emissions during the last
-        200 years is assumed to be responsible for global warming and melting
-        polar ice caps by scientists.
+        dioxide. Scientists assume a big increase in CO<sub>2</sub> 
+        emissions during the last 200 years are responsible for global 
+        warming and melting polar ice caps.
 
         Try to reduce this number to get a higher score, but you cannot get to
         zero, because some emissions (for example from trucks, industry,
-        etcetera) cannot be influenced with sliders here. (You might want to
-        go to the professional model of the ETM to try to further decrease
-        this number.)
+        etcetera) cannot be influenced with sliders here. (If you want, 
+        try to further decrease this number in the free professional version 
+        of the ETM.)
 
     costs:
-      header: "You spend (Q:total_costs) euros on energy every year!"
+      header: "You spend (Q:total_costs) on energy every year!"
       body: |-
         This includes all the energy used to make exported products and the
         exported energy itself.
@@ -35,7 +35,7 @@ en:
     reliability:
       header:
         'on':  "You have a reliable energy supply!"
-        'off': "Oh no, you'll be in the dark now and then with your current set-up!"
+        'off': "Oh no, your current settings will leave you in the dark now and then!"
       body: |-
         Renewable power is less predictable than power from (fossil) power
         plants, because sometimes there is no wind or sunshine. This means you
@@ -43,14 +43,14 @@ en:
         or have a backup plan."
 
     renewability:
-      header: "(Q:renewability) of your energy is renewable."
+      header: "(Q:renewability) of your energy is renewable"
       body: |-
-        Do you want to produce more renewable types of energy? Then build more
-        wind, solar or add more green gas to your gas network.
+        Do you want to produce more renewable energy? Then build more
+        wind and solar or add more green gas to your gas network.
 
         If you want to increase the number above 20%, you will need to go to
-        the (free) professional version of the ETM in order to adjust setting
-        in other sectors, such as transportationa and the industry."
+        the free professional version of the ETM in order to adjust settings
+        in other sectors, such as transportation and industry."
 
     supply_demand:
       header: "Balance of Supply and Demand"
@@ -58,16 +58,15 @@ en:
     # Header
 
     car:
-      name: "What type of cars will prevail in the streets in the future?"
+      name: "What type of cars will rule the streets in the future?"
       info:
         eco: |-
           In your scenario, there are more than a million electric cars in the
-          Netherlands in 2040! Electric cars will be abundantly visible in the
-          streets.
+          Netherlands in 2030! Electric cars will everywhere!
         suv: |-
           In the current situation there are only (Q:number_of_electric_cars)
           electric cars in the Netherlands in 2030. If you want to increase the
-          number to above a million, try to see what percentage of electric
+          number to more than a million, try to see what percentage of electric
           cars you need.'
 
     city:

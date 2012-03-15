@@ -3,7 +3,7 @@ nl:
     messages:
       not_found: "niet gevonden"
       already_confirmed: "is reeds bevestigd"
-      not_locked: "is niet gesloten"
+      not_locked: "is niet geblokkeerd"
 
   devise:
     failure:
@@ -19,7 +19,7 @@ nl:
       signed_out: 'Je bent succesvol uitgelogd.'
     passwords:
       forgotten: 'Wachtwoord vergeten?'
-      send: 'Stuur me opnieuw in te stellen wachtwoord instructies'
+      send: 'Stuur me instructies om mijn wachtwoord opnieuw in te stellen.'
       send_instructions: 'Je ontvangt via e-mail instructies hoe je je wachtwoord moet resetten.'
       updated: 'Je wachtwoord is gewijzigd. Je bent nu ingelogd.'
     confirmations:
@@ -27,7 +27,7 @@ nl:
       confirmed: 'Je account is bevestigd.'
     registrations:
       signed_up: 'Je bent inschreven.'
-      updated: 'Je account gegevens zijn opgeslagen.'
+      updated: 'Je accountgegevens zijn opgeslagen.'
       destroyed: 'Je account is verwijderd, wellicht tot ziens!'
       signed_up_but_unconfirmed: 'Een bericht met een bevestigingslink is verzonden naar uw e-mailadres. Open de link om uw account te activeren.'
       signed_up_but_inactive: 'U heeft zich met succes aangemeld, maar uw account is nog niet geactiveerd.'
@@ -41,4 +41,4 @@ nl:
       reset_password_instructions:
         subject: 'Wachtwoord resetten'
       unlock_instructions:
-        subject: 'Unlock instructies'
+        subject: 'Instructies voor deblokkeren'
