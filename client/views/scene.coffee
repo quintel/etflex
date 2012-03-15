@@ -8,6 +8,7 @@ badgeTempl            = require 'templates/badge'
 { RangeView }         = require 'views/range'
 { SceneNav }          = require 'views/scene_nav'
 { HighScores }        = require 'views/high_scores'
+{ ScenariosWindow }   = require 'views/scenarios_window'
 
 { ScenarioSummaries } = require 'collections/scenario_summaries'
 
@@ -42,6 +43,14 @@ class exports.SceneView extends Backbone.View
     @renderHighScores()
     @initLoadingNotice()
     @initShareLinks()
+
+    @$('.score').click =>
+      scenariosWindow = new ScenariosWindow scenario: @model.scenario
+      scenariosWindow = scenariosWindow.render().el
+
+      overlayElement  = $ '<div id="fade-overlay" style="display:none"></div>'
+
+      $('body').append overlayElement.append(scenariosWindow).fadeIn 250
 
     this
 

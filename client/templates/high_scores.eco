@@ -1,5 +1,5 @@
 <h2>
-  High scores:
+  High Scores
   <span class="since">
     <a href="#" data-navigate="noclient" data-since="alltime">All time</a>
     <a href="#" data-navigate="noclient" data-since="7" class="current">Seven days</a>
