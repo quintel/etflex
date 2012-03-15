@@ -26,7 +26,5 @@
     </ul>
   </div>
 
-  <div id="scores" class="compact"></div>
-
   <div id="loader">Loading...</div>
 </div>
