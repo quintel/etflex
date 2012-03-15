@@ -2,54 +2,55 @@
 nl:
   props:
     co2_emissions:
-      header: "Je stoot (Q:total_co2_emissions) ton aan CO<sub>2</sub> uit"
+      header: "Je stoot (Q:total_co2_emissions) aan CO<sub>2</sub> uit"
       body: |-
-        Auto's, verwarmingen en electriciteitscentrales stoten
-        koolstofmonoxide uit. Volgens veel klimaatwetenschappers, heeft een
+        Auto's, verwarmingsketels en electriciteitscentrales stoten
+        koolstofmonoxide uit. Volgens veel klimaatwetenschappers heeft een
         grote toename in CO<sub>2</sub>-uitstoot gedurende de laatste 200 jaar
-        er voor gezorgd dat het klimaat langszaam opwarmt en dat de poolkappen
-        smelten
+        ervoor gezorgd dat het klimaat langzaam opwarmt en dat de poolkappen
+        smelten.
 
         Probeer de uitstoot van CO<sub>2</sub> zo veel mogelijk te beperken om
-        een zo hoog mogelijke score te krijgen. Je kan echter nooit op nul
+        een zo hoog mogelijke score te krijgen. Je kan alleen nooit op nul
         uitkomen, omdat er ook veel uitstoot is die niet wordt bepaald door je
         schuifjes op deze pagina (denk aan vrachtauto's, de industrie,
-        etctera.)
+        enzovoorts). In de professionele versie van het ETM kun je dit getal 
+        wel lager krijgen.
 
     costs:
-      header: "Je geeft ieder jaar (Q:total_costs) euro uit aan energie!"
+      header: "Je geeft ieder jaar (Q:total_costs) uit aan energie!"
       body: |-
-        This includes all the energy used to make exported products and the
-        exported energy itself.
+        Dit is inclusief de energie die nodig is om geëxporteerde producten 
+        te maken en geëxporteerde energie zelf.
 
     score:
-      header: "Je scoort (Q:etflex_score) punten."
+      header: "Je scoort (Q:etflex_score) punten"
       body: |-
-        Je score gaat omhoog als je kosten, CO<sub>2</sub> en nucleair afval
-        dalen, en als je duurzaamheid en betrouwbaarheid stijgen. Ook als je
-        te veel inzet op een opwekkingstechniek daalt je score en als je een
-        onbalans hebt tussen vraag en aanbod.
+        Je score gaat omhoog als je kosten, CO<sub>2</sub> en kernafval
+        dalen, en als je duurzaamheid en betrouwbaarheid stijgen. Als je
+        teveel inzet op één opwekkingstechniek of als je geen
+        balans hebt tussen vraag en aanbod daalt je score.
 
     reliability:
       header:
         'on':  "Je energievoorziening is betrouwbaar!"
-        'off': "Oh nee, je zit weleens in het donker met jouw instelling."
+        'off': "Oh nee, met jouw instellingen zit je weleens in het donker!"
       body: |-
         Hernieuwbare bronnen zijn minder goed voorspelbaar dan (fossiele)
         centrales, want soms schijnt de zon niet of waait het niet. Dit
         betekent dat je er niet van uit kan gaan dat de windmolens en de
-        zonnepanelen elektriciteit leveren op het moment dat je wil
+        zonnepanelen stroom leveren op het moment dat je wil
         internetten, tv wil kijken, of de wasmachine aan wil zetten. Tenzij je
         die energie natuurlijk ergens kan opslaan...
 
     renewability:
-      header: "(Q:renewability) deel van je energievoorziening is duurzaam"
+      header: "(Q:renewability) deel van je energievoorziening is hernieuwbaar"
       body: |-
-        Wil je duurzamere energie maken? Kies dan voor wind, zon of meng meer
+        Wil je hernieuwbare energie maken? Kies dan voor wind, zon of meng meer
         'groen' gas bij.
 
         Als je nog meer mogelijkheden wilt hebben om het
-        duurzaamheidspercentage te verhogen, ga dan naar de profesionele
+        hernieuwbaarheidspercentage te verhogen, ga dan naar de professionele
         versie van het Energietransitiemodel, daar kun je o.a. ook de
         transportsector en de industriesector (verder) proberen te
         verduurzamen.
@@ -69,14 +70,14 @@ nl:
           In jouw scenario heb je nu nog 'maar' (Q:number_of_electric_cars)
           elektrische auto's. Als je meer elektrische auto's voorziet, probeer
           dan het percentage elektrische auto's te verhogen zonder dat er een
-          tekort aan elektriciteit ontstaat."
+          tekort aan stroom ontstaat."
 
     city:
       name: "Futuristische Stad"
     eco_buildings:
-      name: "Eco-Gebouwen / Quarry"
+      name: "Eco-Gebouwen / Steengroeve"
     turbines:
-      name: "Windturbines / Kolen Power Plant"
+      name: "Windturbines / Kolencentrale"
     energy_sources:
       name: "Energiebronnen"
     geothermal_pipeline:
