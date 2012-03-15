@@ -238,6 +238,40 @@ class exports.HighScores extends Backbone.View
           animate({ 'margin-left': '0px' },
             duration: 750, easing: 'easeOutBounce')
 
+# Helpers --------------------------------------------------------------------
+
+exports.costsWidth = (value) ->
+  widthOf value / 1000000000, 40, 50
+
+exports.renewablesWidth = (value) ->
+  widthOf value * 100, 0, 20
+
+exports.emissionsWidth = (value) ->
+  widthOf value / 1000000000, 105, 165
+
+# Returns the width of a horizontal bar graph based on the given value, when
+# compared with the minimum and maximum extrema.
+#
+# value - The current value of a metric.
+#
+# min   - The minimum expected value. If the value matches this, the bar
+#         will be drawn at 0%.
+#
+# max   - The maximum expected value. If the value matches this, the bar
+#         will be drawn at 100%.
+#
+# Returns a string in the format "50%".
+#
+widthOf = (value, min, max) ->
+  delta    = max - min
+  fromMin  = value - min
+  fraction = fromMin / delta
+
+  fraction = 0 if fraction < 0
+  fraction = 1 if fraction > 1
+
+  "#{ Math.round(fraction * 100) }%"
+
 # SummaryRow -----------------------------------------------------------------
 
 # Encapsulates a single high score row, binding events, etc.
@@ -297,13 +331,13 @@ class SummaryRow extends Backbone.View
     @$('.position').text "#{position}"
 
   updateCost: (summary, cost) =>
-    @updateMetric '.costs', cost / 1000000000, 40, 50
+    @updateMetric '.costs', cost / 1000000000, exports.costsWidth(cost)
 
-  updateRenewables: (summary, renewables) =>
-    @updateMetric '.renewables', renewables * 100, 0, 20
+  updateRenewables: (summary, renew) =>
+    @updateMetric '.renewables', renew * 100, exports.renewablesWidth(renew)
 
-  updateEmissions: (summary, emissions) =>
-    @updateMetric '.emissions', emissions / 1000000000, 120, 145
+  updateEmissions: (summary, emit) =>
+    @updateMetric '.emissions', emit / 1000000000, exports.emissionsWidth(emit)
 
   # Helpers ------------------------------------------------------------------
 
@@ -314,11 +348,9 @@ class SummaryRow extends Backbone.View
   #
   # value    - The new value of the metric.
   #
-  # min      - The minimum expected value.
+  # barWidth - The width of the bar; a string as a percentage ("50%")
   #
-  # max      - The maximum expected value.
-  #
-  updateMetric: (selector, value, min, max) ->
+  updateMetric: (selector, value, barWidth) ->
     container = @$ selector
 
     switch selector
@@ -332,27 +364,4 @@ class SummaryRow extends Backbone.View
     container.find('.value').text formatted
 
     # Draw the horizontal bar graph.
-    container.find('.bar').css 'width', @barWidth(value, min, max)
-
-  # Returns the width of a horizontal bar graph based on the given value, when
-  # compared with the minimum and maximum extrema.
-  #
-  # value - The current value of a metric.
-  #
-  # min   - The minimum expected value. If the value matches this, the bar
-  #         will be drawn at 0%.
-  #
-  # max   - The maximum expected value. If the value matches this, the bar
-  #         will be drawn at 100%.
-  #
-  # Returns a string in the format "50%".
-  #
-  barWidth: (value, min, max) ->
-    delta    = max - min
-    fromMin  = value - min
-    fraction = fromMin / delta
-
-    fraction = 0 if fraction < 0
-    fraction = 1 if fraction > 1
-
-    "#{ Math.round(fraction * 100) }%"
+    container.find('.bar').css 'width', barWidth
