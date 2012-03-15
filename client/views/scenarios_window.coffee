@@ -40,10 +40,10 @@ class exports.ScenariosWindow extends Backbone.View
       $( event.currentTarget ).addClass 'active'
 
       console.log @$('.info .content').html """
-        Score: #{ scenario.get('score') }<br />
-        Renewability: #{ scenario.get('renewability') }<br />
-        Costs: #{ scenario.get('total_costs') }<br />
-        CO2: #{ scenario.get('total_co2_emissions') }<br />
+        Score: #{ scenario.query('score').formatted('future') }<br />
+        Renewability: #{ scenario.query('renewability').formatted('future') }<br />
+        Costs: #{ scenario.query('total_costs').formatted('future') }<br />
+        CO2: #{ scenario.query('total_co2_emissions').formatted('future') }<br />
         By: #{ scenario.get('user_name') }<br />
       """
 
