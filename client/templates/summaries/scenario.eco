@@ -1,15 +1,14 @@
 <p class="doing-comparisson">
-  Comparing your current scenario, with the selected scenario by
-  <%= @selected.who or I18n.t 'words.anonymous' %>&hellip;
+  <%= I18n.t 'scenes.comparing', name: @selected.who %>&hellip;
 </p>
 
 <div class="legend">
-  <span>Current</span>
-  <span>Selected</span>
+  <span><%= I18n.t 'words.current' %></span>
+  <span><%= I18n.t 'words.selected' %></span>
 </div>
 
 <dl class="scenario-stats">
-  <dt>Emissions</dd>
+  <dt><%= I18n.t 'scenes.etlite.emissions' %></dd>
   <dd class="emissions">
     <span class="graph"><span class="bar" style="width: <%= @width.emissions(@current.emissions) %>"></span></span>
     <span class="value"><%= @current.emissions.formatted('future') %></span>
@@ -19,7 +18,7 @@
     <span class="value"><%= @selected.emissions.formatted('future') %></span>
   </dd>
 
-  <dt>Renewables</dd>
+  <dt><%= I18n.t 'scenes.etlite.renewables' %></dd>
   <dd class="renewables">
     <span class="graph"><span class="bar" style="width: <%= @width.renewability(@current.renewability) %>"></span></span>
     <span class="value"><%= @current.renewability.formatted('future') %></span>
@@ -29,7 +28,7 @@
     <span class="value"><%= @selected.renewability.formatted('future') %></span>
   </dd>
 
-  <dt>Costs</dd>
+  <dt><%= I18n.t 'scenes.etlite.costs' %></dd>
   <dd class="costs">
     <span class="graph"><span class="bar" style="width: <%= @width.costs(@current.costs) %>"></span></span>
     <span class="value"><%= @current.costs.formatted('future') %></span>
@@ -39,7 +38,7 @@
     <span class="value"><%= @selected.costs.formatted('future') %></span>
   </dd>
 
-  <dt>Score</dd>
+  <dt><%= I18n.t 'scenes.etlite.score' %></dd>
   <dd class="score">
     <span class="value"><%= @current.score.formatted('future') %></span>
   </dd>

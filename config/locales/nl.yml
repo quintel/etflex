@@ -59,6 +59,15 @@ nl:
     loading:            Het laden
 
     you:                Je
+    by_person:          "van %{name}"
+
+    current:            Actuele
+    selected:           Gekozen
+
+  periods:
+    today:   Vandaag
+    week:    Deze week
+    alltime: Alle tijd
 
   magnitudes:
     million: "%{amount} miljoen"
@@ -73,6 +82,9 @@ nl:
   # Text used on the ETlite recreation ---------------------------------------
 
   scenes:
+    current_scenario: "Huidige Scenario"
+    comparing: "Vergelijken van uw huidige scenario, met het geselecteerde scenario door %{name}"
+
     etlite:
       savings:      "Besparingen"
       production:   "Productie"

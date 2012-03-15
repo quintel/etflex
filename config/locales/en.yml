@@ -58,6 +58,15 @@ en:
     loading:            Loading
 
     you:                You
+    by_person:          "by %{name}"
+
+    current:            Current
+    selected:           Selected
+
+  periods:
+    today:   Today
+    week:    This week
+    alltime: All time
 
   magnitudes:
     million: "%{amount} million"
@@ -72,6 +81,9 @@ en:
   # Text used on the ETlite recreation ---------------------------------------
 
   scenes:
+    current_scenario: 'Current Scenario'
+    comparing: "Comparing your current scenario, with the selected scenario by %{name}"
+
     etlite:
       savings:      "Savings"
       production:   "Production"
