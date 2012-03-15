@@ -18,4 +18,34 @@
     <span class="graph"><span class="bar" style="width: 10%"></span></span>
     <span class="value"><%= @selected.emissions %></span>
   </dd>
+
+  <dt>Renewables</dd>
+  <dd class="renewables">
+    <span class="graph"><span class="bar" style="width: 100%"></span></span>
+    <span class="value"><%= @current.renewability %></span>
+  </dd>
+  <dd class="renewables">
+    <span class="graph"><span class="bar" style="width: 10%"></span></span>
+    <span class="value"><%= @selected.renewability %></span>
+  </dd>
+
+  <dt>Costs</dd>
+  <dd class="costs">
+    <span class="graph"><span class="bar" style="width: 100%"></span></span>
+    <span class="value"><%= @current.costs %></span>
+  </dd>
+  <dd class="costs">
+    <span class="graph"><span class="bar" style="width: 10%"></span></span>
+    <span class="value"><%= @selected.costs %></span>
+  </dd>
+
+  <dt>Score</dd>
+  <dd class="score">
+    <span class="graph"><span class="bar" style="width: 100%"></span></span>
+    <span class="value"><%= @current.score %></span>
+  </dd>
+  <dd class="score">
+    <span class="graph"><span class="bar" style="width: 10%"></span></span>
+    <span class="value"><%= @selected.score %></span>
+  </dd>
 </dl>
