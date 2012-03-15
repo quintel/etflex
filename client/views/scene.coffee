@@ -45,7 +45,7 @@ class exports.SceneView extends Backbone.View
     @initShareLinks()
 
     @$('.score').click =>
-      scenariosWindow = new ScenariosWindow scenario: @model.scenario
+      scenariosWindow = new ScenariosWindow scene: @model
       scenariosWindow = scenariosWindow.render().el
 
       overlayElement  = $ '<div id="fade-overlay" style="display:none"></div>'
