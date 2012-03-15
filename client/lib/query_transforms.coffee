@@ -45,7 +45,7 @@ TRANSFORMS =
   # CO2 emissions arrive in kg so we convert to megatons.
   total_co2_emissions:
     mutate: divide 1000000000
-    format: as 'Mtons'
+    format: as 'tonnes'
 
   # Total costs come in Euros; convert to billions.
   total_costs:
