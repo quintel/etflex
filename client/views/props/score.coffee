@@ -44,6 +44,8 @@ class exports.ScoreView extends DashboardProp
           </span>
         </div>"""
 
+      @$el.append '<a href="#">View High Scores</a>'
+
   # Updates the value shown to the user, and swaps the icon if necessary,
   # without re-rendering the whole view.
   #

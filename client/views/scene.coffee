@@ -40,17 +40,9 @@ class exports.SceneView extends Backbone.View
     @renderTheme()
     @renderProps()
     @renderNavigation()
-    @renderHighScores()
+    @initHighScores()
     @initLoadingNotice()
     @initShareLinks()
-
-    @$('.score').click =>
-      scenariosWindow = new ScenariosWindow scene: @model
-      scenariosWindow = scenariosWindow.render().el
-
-      overlayElement  = $ '<div id="fade-overlay" style="display:none"></div>'
-
-      $('body').append overlayElement.append(scenariosWindow).fadeIn 250
 
     this
 
@@ -191,14 +183,16 @@ class exports.SceneView extends Backbone.View
 
   # Creates the high scores list also present on the root page.
   #
-  renderHighScores: ->
-    summaries  = new ScenarioSummaries(window.bootstrap or [])
-    highScores = new HighScores collection: summaries, show: 8, style: 'compact'
+  initHighScores: ->
+    @$('.score a').click =>
+      scenariosWindow = new ScenariosWindow scene: @model
+      scenariosWindow = scenariosWindow.render().el
 
-    @$('#scores').html highScores.render().el
+      overlayElement  = $ '<div id="fade-overlay" style="display:none"></div>'
 
-    # Trigger loading the seven-day high scores.
-    highScores.loadSince 7
+      $('body').append overlayElement.append(scenariosWindow).fadeIn 250
+
+      return false
 
   # Creates the "Loading..." box which pops up at the bottom-left of the
   # scene view whenever an XHR request is pending.
