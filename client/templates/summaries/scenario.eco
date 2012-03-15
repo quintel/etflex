@@ -1,0 +1,21 @@
+<p class="doing-comparisson">
+  Comparing your current scenario, with the selected scenario by
+  <%= @selected.who or I18n.t 'words.anonymous' %>&hellip;
+</p>
+
+<div class="legend">
+  <span>Current</span>
+  <span>Selected</span>
+</div>
+
+<dl class="scenario-stats">
+  <dt>Emissions</dd>
+  <dd class="emissions">
+    <span class="graph"><span class="bar" style="width: 100%"></span></span>
+    <span class="value"><%= @selected.emissions %></span>
+  </dd>
+  <dd class="emissions">
+    <span class="graph"><span class="bar" style="width: 10%"></span></span>
+    <span class="value"><%= @current.emissions %></span>
+  </dd>
+</dl>
