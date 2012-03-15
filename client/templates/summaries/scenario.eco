@@ -12,10 +12,10 @@
   <dt>Emissions</dd>
   <dd class="emissions">
     <span class="graph"><span class="bar" style="width: 100%"></span></span>
-    <span class="value"><%= @selected.emissions %></span>
+    <span class="value"><%= @current.emissions %></span>
   </dd>
   <dd class="emissions">
     <span class="graph"><span class="bar" style="width: 10%"></span></span>
-    <span class="value"><%= @current.emissions %></span>
+    <span class="value"><%= @selected.emissions %></span>
   </dd>
 </dl>

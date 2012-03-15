@@ -14,8 +14,8 @@ class exports.ScenariosWindow extends Backbone.View
 
   # Creates a new ScenariosWindow. Loads the high scores and stuff. :D
   constructor: (options) ->
-    @scores   = new HighScores show: 8, style: 'compact', realtime: false
-    @scenario = options.scenario
+    @scores = new HighScores show: 8, style: 'compact', realtime: false
+    @scene  = options.scene
 
     super
 
@@ -45,23 +45,28 @@ class exports.ScenariosWindow extends Backbone.View
       @$('.info .content').html summaryTpl
         selected:
           who:          userName scenario
-          emissions:    queryVal scenario, 'total_co2_emissions'
-          renewability: queryVal scenario, 'renewability'
-          score:        queryVal scenario, 'score'
-          costs:        queryVal scenario, 'costs'
+          emissions:    summaryVal scenario, 'total_co2_emissions'
+          renewability: summaryVal scenario, 'renewability'
+          score:        summaryVal scenario, 'score'
+          costs:        summaryVal scenario, 'costs'
         current:
           who:          '{who}'
-          emissions:    '{emissions}'
-          renewability: '{renewability}'
-          score:        '{score}'
-          costs:        '{costs}'
+          emissions:    scenarioVal @scene, 'total_co2_emissions'
+          renewability: scenarioVal @scene, 'renewability'
+          score:        scenarioVal @scene, 'etflex_score'
+          costs:        scenarioVal @scene, 'total_costs'
 
 # Helpers --------------------------------------------------------------------
 
 # Given a scenario summary and query key, returns the formatted value of the
 # query as a string.
-queryVal = (summary, queryKey) ->
+summaryVal = (summary, queryKey) ->
   summary.query(queryKey).formatted 'future'
+
+# Given a scene and query key, returns the formatted value of the query as a
+# string.
+scenarioVal = (scenario, queryKey) ->
+  scenario.queries.get(queryKey).formatted 'future'
 
 # Returns the name of the owner of a scenario summary as a string. Will return
 # "You" if it is the current user.
