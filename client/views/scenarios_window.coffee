@@ -48,7 +48,7 @@ class exports.ScenariosWindow extends Backbone.View
           emissions:    summaryVal scenario, 'total_co2_emissions'
           renewability: summaryVal scenario, 'renewability'
           score:        summaryVal scenario, 'score'
-          costs:        summaryVal scenario, 'costs'
+          costs:        summaryVal scenario, 'total_costs'
         current:
           who:          '{who}'
           emissions:    scenarioVal @scene, 'total_co2_emissions'
