@@ -11,41 +11,39 @@
 <dl class="scenario-stats">
   <dt>Emissions</dd>
   <dd class="emissions">
-    <span class="graph"><span class="bar" style="width: 100%"></span></span>
-    <span class="value"><%= @current.emissions %></span>
+    <span class="graph"><span class="bar" style="width: <%= @width.emissions(@current.emissions) %>"></span></span>
+    <span class="value"><%= @current.emissions.formatted('future') %></span>
   </dd>
   <dd class="emissions">
-    <span class="graph"><span class="bar" style="width: 10%"></span></span>
-    <span class="value"><%= @selected.emissions %></span>
+    <span class="graph"><span class="bar" style="width: <%= @width.emissions(@selected.emissions) %>"></span></span>
+    <span class="value"><%= @selected.emissions.formatted('future') %></span>
   </dd>
 
   <dt>Renewables</dd>
   <dd class="renewables">
-    <span class="graph"><span class="bar" style="width: 100%"></span></span>
-    <span class="value"><%= @current.renewability %></span>
+    <span class="graph"><span class="bar" style="width: <%= @width.renewability(@current.renewability) %>"></span></span>
+    <span class="value"><%= @current.renewability.formatted('future') %></span>
   </dd>
   <dd class="renewables">
-    <span class="graph"><span class="bar" style="width: 10%"></span></span>
-    <span class="value"><%= @selected.renewability %></span>
+    <span class="graph"><span class="bar" style="width: <%= @width.renewability(@selected.renewability) %>"></span></span>
+    <span class="value"><%= @selected.renewability.formatted('future') %></span>
   </dd>
 
   <dt>Costs</dd>
   <dd class="costs">
-    <span class="graph"><span class="bar" style="width: 100%"></span></span>
-    <span class="value"><%= @current.costs %></span>
+    <span class="graph"><span class="bar" style="width: <%= @width.costs(@current.costs) %>"></span></span>
+    <span class="value"><%= @current.costs.formatted('future') %></span>
   </dd>
   <dd class="costs">
-    <span class="graph"><span class="bar" style="width: 10%"></span></span>
-    <span class="value"><%= @selected.costs %></span>
+    <span class="graph"><span class="bar" style="width: <%= @width.costs(@selected.costs) %>"></span></span>
+    <span class="value"><%= @selected.costs.formatted('future') %></span>
   </dd>
 
   <dt>Score</dd>
   <dd class="score">
-    <span class="graph"><span class="bar" style="width: 100%"></span></span>
-    <span class="value"><%= @current.score %></span>
+    <span class="value"><%= @current.score.formatted('future') %></span>
   </dd>
   <dd class="score">
-    <span class="graph"><span class="bar" style="width: 10%"></span></span>
-    <span class="value"><%= @selected.score %></span>
+    <span class="value"><%= @selected.score.formatted('future') %></span>
   </dd>
 </dl>

@@ -4,7 +4,11 @@ template       = require 'templates/scenarios_window'
 summaryTpl     = require 'templates/summaries/scenario'
 
 { ScenarioSummaries } = require 'collections/scenario_summaries'
-{ HighScores }        = require 'views/high_scores'
+
+{ costsWidth, renewablesWidth, emissionsWidth, HighScores } =
+  require 'views/high_scores'
+
+# ScenariosWindow ------------------------------------------------------------
 
 class exports.ScenariosWindow extends Backbone.View
   className: 'overlay-content high-scores-overlay'
@@ -42,31 +46,41 @@ class exports.ScenariosWindow extends Backbone.View
       @scores.$('li').removeClass 'active'
       $( event.currentTarget ).addClass 'active'
 
-      @$('.info .content').html summaryTpl
-        selected:
-          who:          userName scenario
-          emissions:    summaryVal scenario, 'total_co2_emissions'
-          renewability: summaryVal scenario, 'renewability'
-          score:        summaryVal scenario, 'score'
-          costs:        summaryVal scenario, 'total_costs'
-        current:
-          who:          '{who}'
-          emissions:    scenarioVal @scene, 'total_co2_emissions'
-          renewability: scenarioVal @scene, 'renewability'
-          score:        scenarioVal @scene, 'etflex_score'
-          costs:        scenarioVal @scene, 'total_costs'
+      # Get the widths for each bar.
+
+      @$('.info .content').html(new ScenarioComparison(
+        current: @scene, selected: scenario).render().el)
+
+# ScenarioComparison ---------------------------------------------------------
+
+class ScenarioComparison extends Backbone.View
+  # Creates a new ScenarioComparison; compares the currently active scenario
+  # with one chosen from a list in the ScenarioWindow.
+  constructor: ({ @current, @selected }) -> super
+
+  # Renders HTML which compares the outcomes of two scenarios.
+  render: ->
+    @$el.html summaryTpl
+      width:
+        emissions:    (q) -> emissionsWidth  q.get 'future'
+        costs:        (q) -> costsWidth      q.get 'future'
+        renewability: (q) -> renewablesWidth q.get 'future'
+      selected:
+        who:          userName @selected
+        emissions:    @selected.query 'total_co2_emissions'
+        renewability: @selected.query 'renewability'
+        score:        @selected.query 'score'
+        costs:        @selected.query 'total_costs'
+      current:
+        who:          '{who}'
+        emissions:    @current.queries.get 'total_co2_emissions'
+        renewability: @current.queries.get 'renewability'
+        score:        @current.queries.get 'etflex_score'
+        costs:        @current.queries.get 'total_costs'
+
+    this
 
 # Helpers --------------------------------------------------------------------
-
-# Given a scenario summary and query key, returns the formatted value of the
-# query as a string.
-summaryVal = (summary, queryKey) ->
-  summary.query(queryKey).formatted 'future'
-
-# Given a scene and query key, returns the formatted value of the query as a
-# string.
-scenarioVal = (scenario, queryKey) ->
-  scenario.queries.get(queryKey).formatted 'future'
 
 # Returns the name of the owner of a scenario summary as a string. Will return
 # "You" if it is the current user.
