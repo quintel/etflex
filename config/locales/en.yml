@@ -18,7 +18,7 @@ en:
     loading:  Loading
     sign_out: Sign out
 
-    info:     Information
+    info:     More
 
     settings:    Settings
     region:      Region/Country
@@ -33,7 +33,7 @@ en:
     about:    About this application
     feedback: Feedback
     privacy:  Privacy statement
-    etmodel:  Open in the Energy Transition Model
+    etmodel:  Go on to the Professional version
 
   # Misc Words & Phrases -----------------------------------------------------
 
