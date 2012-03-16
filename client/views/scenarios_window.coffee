@@ -16,6 +16,7 @@ class exports.ScenariosWindow extends Backbone.View
 
   events:
     'click .high-scores li': 'activateScenario'
+    'click .close':          'close'
     'clickoutside':          'close'
 
   # Creates a new ScenariosWindow. Loads the high scores and stuff. :D
@@ -43,11 +44,13 @@ class exports.ScenariosWindow extends Backbone.View
   # Triggered when the user clicks an element with the ".close" class, or when
   # they click outside the main window.
   #
-  close: ->
+  close: (event) =>
     overlay = $ '#fade-overlay'
     overlay.stop().animate opacity: 0, =>
       overlay.detach()
       @remove()
+
+    return false if event
 
   # Callback triggered when the user click on one of the high scoring
   # scenarios. Shows a summary of the scenarios in the right-hand pane.

@@ -121,7 +121,23 @@
   line-height: 1
   margin: 100px auto 0
   overflow: hidden
+  position: relative
   width: 750px
+
+  .window-close
+    color: white
+    cursor: pointer
+    font-size: 22px
+    font-weight: bold
+    line-height: .5
+    position: absolute
+    right: 14px
+    text-shadow: 0 -1px 1px rbga(0,0,0,.6)
+    text-shadow: 0 -1px 0 #487d41
+    top: 10px
+
+    &:hover
+      text-decoration: none
 
   h2
     +background(linear-gradient(#96c48c, #629459))
