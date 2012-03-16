@@ -204,6 +204,7 @@ describe 'Scenarios' do
     let(:scene)    { create(:detailed_scene) }
 
     let(:scenario) { create(:scenario, scene: scene,
+                       guest_name: 'A Person',
                        input_values:  { '1' => '2' },
                        query_results: { '3' => '4' }) }
 
@@ -223,6 +224,7 @@ describe 'Scenarios' do
     context 'JSON' do
       subject { json.symbolize_keys }
 
+      it { should include(guestName: 'A Person') }
       it { should include(sessionId: scenario.session_id) }
       it { should include(queryResults: scenario.query_results) }
       it { should include(inputValues: scenario.input_values.stringify_keys) }

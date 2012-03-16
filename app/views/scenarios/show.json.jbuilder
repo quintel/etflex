@@ -1,5 +1,6 @@
 json.(@scenario, :end_year, :country)
 
+json.guestName    @scenario.guest_name
 json.sessionId    @scenario.session_id
 json.inputValues  @scenario.input_values
 json.queryResults @scenario.query_results

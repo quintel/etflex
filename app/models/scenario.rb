@@ -187,9 +187,7 @@ class Scenario < ActiveRecord::Base
   #
   def to_pusher_event
     user_name = if user.present? then user.name else nil end
-
-    user_name = guest_name                unless user_name.present?
-    user_name = I18n.t('words.anonymous') unless user_name.present?
+    user_name = guest_name unless user_name.present?
 
     { session_id:          session_id,
       href:               "/scenes/#{ scene_id }/with/#{ session_id }",

@@ -49,6 +49,7 @@ en:
     sign_in_long:       Sign in to my account
     sign_up:            Sign up
     cancel:             Cancel
+    save:               Save
 
     ago:                ago
     anonymous:          Anonymous Visitor
@@ -62,6 +63,7 @@ en:
 
     current:            Current
     selected:           Selected
+    your_name:          Your name
 
   periods:
     today:   Today
@@ -85,6 +87,13 @@ en:
     comparing: "Comparing your current scenario, with the selected scenario by %{name}"
     compare_landing_header: "Compare Scenarios"
     compare_landing: "Select a high score from the left to compare it to your current scenario"
+
+    high_score:
+      header:       "You got a high score!"
+      text: >-
+        Congratulations, your selections have resulted in a positive outcome, and
+        your score is one of the highest. How would you like to be named on the
+        score board?
 
     etlite:
       savings:      "Savings"
