@@ -55,12 +55,14 @@ class exports.SceneView extends Backbone.View
       return false unless coll.isTopN(summary, @scenariosWindow.scores.show)
 
       # Don't prompt for a name if we already know one.
-      return false if summary.get('guest_name')?
+      return false if summary.get('user_name')?.length
       return false if app.user.name?
 
       # Show "You got a high score!"
       name = window.prompt "You got a high score. How would you like to be identified?"
-      console.log name
+
+      @model.scenario.set guestName: name
+      @model.scenario.save()
 
     this
 
