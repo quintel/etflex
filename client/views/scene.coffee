@@ -61,8 +61,9 @@ class exports.SceneView extends Backbone.View
       # Show "You got a high score!"
       name = window.prompt "You got a high score. How would you like to be identified?"
 
-      @model.scenario.set guestName: name
-      @model.scenario.save()
+      if name and name.length
+        @model.scenario.set guestName: name
+        @model.scenario.save()
 
     this
 
