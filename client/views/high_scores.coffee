@@ -303,7 +303,7 @@ class SummaryRow extends Backbone.View
 
   render: ->
     @$el.html rowTemplate
-      user:         @model.get 'user_name'
+      user:         @model.get('user_name') or I18n.t('words.anonymous')
       href:         @model.get 'href'
       sessionId:    @model.get 'session_id'
       imageUrl:     @model.get 'profile_image'
