@@ -3,6 +3,7 @@ app            = require 'app'
 template       = require 'templates/scenarios_window'
 summaryTpl     = require 'templates/summaries/scenario'
 landingTpl     = require 'templates/summaries/landing'
+highScoreTpl   = require 'templates/summaries/high_score'
 
 { ScenarioSummaries } = require 'collections/scenario_summaries'
 
@@ -50,6 +51,12 @@ class exports.ScenariosWindow extends Backbone.View
       overlay.detach()
       @remove()
 
+      # If the content is the "you got a high score" message, replace it with
+      # the generic comparison message for the next time the user opens the
+      # scores list.
+      if @$('.high-score-notification').length
+        @$('.info .content').html landingTpl()
+
     return false if event
 
   # Callback triggered when the user click on one of the high scoring
@@ -67,6 +74,17 @@ class exports.ScenariosWindow extends Backbone.View
 
       @$('.info .content').html(new ScenarioComparison(
         current: @scene, selected: scenario).render().el)
+
+  # Changes the content of the info element to inform the user their their
+  # current scenario has become a high scoring scenario and asking them for
+  # their name.
+  #
+  requestHighScoreName: (summary) ->
+    @$('.info .content').html highScoreTpl()
+
+    # Highlight the scenario.
+    @scores.$('li').removeClass 'active'
+    @scores.$("#high-score-#{ summary.get('session_id') }").addClass 'active'
 
 # ScenarioComparison ---------------------------------------------------------
 

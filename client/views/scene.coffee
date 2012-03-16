@@ -59,11 +59,19 @@ class exports.SceneView extends Backbone.View
       return false if app.user.name?
 
       # Show "You got a high score!"
-      name = window.prompt "You got a high score. How would you like to be identified?"
+      @$('.score a').click()
+      @scenariosWindow.requestHighScoreName summary
 
-      if name and name.length
-        @model.scenario.set guestName: name
-        @model.scenario.save()
+      @scenariosWindow.$('form.high-score-notification').submit =>
+        name = @scenariosWindow.$('#scenario-guest-name').val()
+
+        if name?.length
+          @model.scenario.set guestName: name
+          @model.scenario.save()
+
+        @scenariosWindow.close()
+
+        return false
 
     this
 
