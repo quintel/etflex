@@ -44,7 +44,10 @@ class exports.ScoreView extends DashboardProp
           </span>
         </div>"""
 
-      @$el.append "<a href='#'>#{ I18n.t 'words.high_scores' }</a>"
+      @$el.append """
+        <a data-navigate='noclient' href='#'>
+          #{ I18n.t 'words.high_scores' }
+        </a>"""
 
   # Updates the value shown to the user, and swaps the icon if necessary,
   # without re-rendering the whole view.

@@ -25,7 +25,10 @@ class exports.SceneView extends Backbone.View
   className: 'modern' # TODO Set dynamically based on server-sent JSON.
 
   pageTitle: -> @model.get('name')
-  events: { 'click a': clientNavigate }
+
+  events:
+    'click .score a': 'showHighScores'
+    'click a':         clientNavigate
 
   # Creates the HTML elements for the view, and binds events. Returns self.
   #
@@ -40,7 +43,6 @@ class exports.SceneView extends Backbone.View
     @renderTheme()
     @renderProps()
     @renderNavigation()
-    @initHighScores()
     @initLoadingNotice()
     @initShareLinks()
 
@@ -183,16 +185,16 @@ class exports.SceneView extends Backbone.View
 
   # Creates the high scores list also present on the root page.
   #
-  initHighScores: ->
-    @$('.score a').click =>
-      scenariosWindow = new ScenariosWindow scene: @model
-      scenariosWindow = scenariosWindow.render().el
+  showHighScores: (event) ->
+    scenariosWindow = new ScenariosWindow scene: @model
+    scenariosWindow = scenariosWindow.render().el
 
-      overlayElement  = $ '<div id="fade-overlay" style="display:none"></div>'
+    overlayElement  = $ '<div id="fade-overlay" style="display:none"></div>'
 
-      $('body').append overlayElement.append(scenariosWindow).fadeIn 250
+    $('body').append overlayElement.append(scenariosWindow).fadeIn 250
 
-      return false
+    event.preventDefault()
+    event.stopPropagation()
 
   # Creates the "Loading..." box which pops up at the bottom-left of the
   # scene view whenever an XHR request is pending.
