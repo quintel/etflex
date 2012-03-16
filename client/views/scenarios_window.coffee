@@ -2,6 +2,7 @@ app            = require 'app'
 
 template       = require 'templates/scenarios_window'
 summaryTpl     = require 'templates/summaries/scenario'
+landingTpl     = require 'templates/summaries/landing'
 
 { ScenarioSummaries } = require 'collections/scenario_summaries'
 
@@ -33,6 +34,7 @@ class exports.ScenariosWindow extends Backbone.View
     @$el.html template()
     @$('.high-scores').append @scores.render().el
     @$('.since').addClass 'nav'
+    @$('.info .content').html landingTpl()
 
     this
 

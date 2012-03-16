@@ -84,6 +84,8 @@ nl:
   scenes:
     current_scenario: "Huidige Scenario"
     comparing: "Vergelijken van uw huidige scenario, met het geselecteerde scenario door %{name}"
+    compare_landing_header: "Vergelijk Scenarios"
+    compare_landing: "Selecteer een hoge score van de links om deze te vergelijken met uw huidige scenario"
 
     etlite:
       savings:      "Besparingen"
