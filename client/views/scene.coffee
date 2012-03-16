@@ -206,6 +206,7 @@ class exports.SceneView extends Backbone.View
   #
   showHighScores: (event) ->
     @scenariosWindow.delegateEvents()
+    @scenariosWindow.scores.delegateEvents()
 
     element = @scenariosWindow.el
     overlayElement  = $ '<div id="fade-overlay" style="display:none"></div>'
@@ -220,6 +221,7 @@ class exports.SceneView extends Backbone.View
   #
   highScorePrompt: (summary) ->
     @scenariosWindow.delegateEvents()
+    @scenariosWindow.scores.delegateEvents()
 
     element = @scenariosWindow.el
     overlayElement  = $ '<div id="fade-overlay" style="display:none"></div>'
