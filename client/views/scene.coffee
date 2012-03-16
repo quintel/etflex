@@ -213,13 +213,14 @@ class exports.SceneView extends Backbone.View
   # Creates the high scores list also present on the root page.
   #
   showHighScores: (event) ->
-    @scenariosWindow.delegateEvents()
-    @scenariosWindow.scores.delegateEvents()
+    if $('#fade-overlay').length is 0
+      @scenariosWindow.delegateEvents()
+      @scenariosWindow.scores.delegateEvents()
 
-    element = @scenariosWindow.el
-    overlayElement  = $ '<div id="fade-overlay" style="display:none"></div>'
+      element = @scenariosWindow.el
+      overlayElement  = $ '<div id="fade-overlay" style="display:none"></div>'
 
-    $('body').append overlayElement.append(element).fadeIn 250
+      $('body').append overlayElement.append(element).fadeIn 250
 
     event.preventDefault()
     event.stopPropagation()
