@@ -21,7 +21,7 @@ class exports.ScenariosWindow extends Backbone.View
 
   # Creates a new ScenariosWindow. Loads the high scores and stuff. :D
   constructor: (options) ->
-    @scores = new HighScores show: 8, style: 'compact', realtime: false
+    @scores = new HighScores show: 8, style: 'compact'
     @scene  = options.scene
 
     super

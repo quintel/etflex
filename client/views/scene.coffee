@@ -46,6 +46,22 @@ class exports.SceneView extends Backbone.View
     @initLoadingNotice()
     @initShareLinks()
 
+    @scenariosWindow = new ScenariosWindow scene: @model
+    @scenariosWindow.render().scores.loadSince 7
+
+    @scenariosWindow.scores.on 'update', (summary, coll) =>
+      return false unless summary.get('session_id') is @model.scenario.id
+      return false unless summary.get('user_id') is app.user.id
+      return false unless coll.isTopN(summary, @scenariosWindow.scores.show)
+
+      # Don't prompt for a name if we already know one.
+      return false if summary.get('guest_name')?
+      return false if app.user.name?
+
+      # Show "You got a high score!"
+      name = window.prompt "You got a high score. How would you like to be identified?"
+      console.log name
+
     this
 
   postRender: ->
@@ -186,15 +202,26 @@ class exports.SceneView extends Backbone.View
   # Creates the high scores list also present on the root page.
   #
   showHighScores: (event) ->
-    scenariosWindow = new ScenariosWindow scene: @model
-    scenariosWindow = scenariosWindow.render().el
+    @scenariosWindow.delegateEvents()
 
+    element = @scenariosWindow.el
     overlayElement  = $ '<div id="fade-overlay" style="display:none"></div>'
 
-    $('body').append overlayElement.append(scenariosWindow).fadeIn 250
+    $('body').append overlayElement.append(element).fadeIn 250
 
     event.preventDefault()
     event.stopPropagation()
+
+  # When the user achieves a high score, and we don't know their name, prompt
+  # them to let us know how to identify them.
+  #
+  highScorePrompt: (summary) ->
+    @scenariosWindow.delegateEvents()
+
+    element = @scenariosWindow.el
+    overlayElement  = $ '<div id="fade-overlay" style="display:none"></div>'
+
+    $('body').append overlayElement.append(element).fadeIn 250
 
   # Creates the "Loading..." box which pops up at the bottom-left of the
   # scene view whenever an XHR request is pending.

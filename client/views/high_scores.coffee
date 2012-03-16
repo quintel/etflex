@@ -76,6 +76,9 @@ class exports.HighScores extends Backbone.View
     @collection.on 'add',    @summaryUpdated
     @collection.on 'change', @summaryUpdated
 
+    # Stop here if the scores haven't been rendered yet.
+    return unless @listElement?
+
     # Re-render the list.
     @listElement.empty()
     @animate = false
@@ -142,10 +145,10 @@ class exports.HighScores extends Backbone.View
   # Days may be 1, 7, or "alltime". Note that setSince is asynchronous and
   # only applies the change after successful completion of an XHR request.
   #
-  loadSince: (days) ->
+  loadSince: (days, callback) ->
     jQuery.getJSON("/scenarios/since/#{ days }.json")
-      .done( (data) => @setCollection new ScenarioSummaries data)
       .fail(        -> console.error 'Failed to fetch high scores')
+      .done( (data) => @setCollection new ScenarioSummaries data)
 
   # Callback triggered by Pusher whenever a scenario is added or updated by
   # another visitor to the website.
@@ -157,7 +160,10 @@ class exports.HighScores extends Backbone.View
     if summary = @collection.get data.session_id
       summary.set data
     else
-      @collection.add new ScenarioSummary data
+      summary = new ScenarioSummary data
+      @collection.add summary
+
+    @trigger 'update', summary, @collection
 
   # Callback triggered when the user clicks on a scenario list element. On
   # compact high score lists, where no "Show" button is visible, clicking on
