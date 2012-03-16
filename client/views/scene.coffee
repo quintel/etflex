@@ -47,7 +47,7 @@ class exports.SceneView extends Backbone.View
     @initShareLinks()
 
     @scenariosWindow = new ScenariosWindow scene: @model
-    @scenariosWindow.render().scores.loadSince 7
+    @scenariosWindow.render()
 
     @scenariosWindow.scores.on 'update', (summary, coll) =>
       return false unless summary.get('session_id') is @model.scenario.id
