@@ -105,4 +105,4 @@ userName = (summary) ->
   if summary.get('user_id') is app.user.id
     I18n.t('words.you').toLowerCase()
   else
-    summary.get 'user_name'
+    summary.get('user_name') or I18n.t('words.anonymous')
