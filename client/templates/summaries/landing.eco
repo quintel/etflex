@@ -1,4 +1,4 @@
-<h3><span><%= I18n.t 'scenes.compare_landing_header' %></span></h3>
+<h3 class="grey"><span><%= I18n.t 'scenes.compare_landing_header' %></span></h3>
 <p class="doing-comparisson">
   <%= I18n.t 'scenes.compare_landing' %>&hellip;
 </p>

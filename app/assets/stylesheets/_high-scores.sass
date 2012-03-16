@@ -416,11 +416,13 @@ $score-metric-width: 110px
       margin: -15px -15px 15px
 
     h3
-      color: #333
+      text-align: center
       font-size: 17px
+
+    h3.grey
+      color: #333
       font-weight: normal
       margin-top: 170px
-      text-align: center
 
       span
         border-radius: 4px
@@ -505,3 +507,37 @@ $score-metric-width: 110px
 
       .best .value
         color: #407d35
+
+    .high-score-notification
+      text-align: center
+
+      p
+        text-align: center
+        line-height: 20px
+        padding: 0 35px
+
+      label
+        display: block
+        font-weight: bold
+        padding-bottom: 8px
+        font-size: 14px
+
+      input#scenario-guest-name
+        border: 1px solid #ccc
+        border-top-color: #bbb
+        box-shadow: inset 0 1px 0 #eee
+        border-radius: 2px
+        padding: 5px 8px
+        font: 13px "Helvetica Neue", Arial, sans-serif
+        text-align: center
+        width: 200px
+
+        &:focus
+          border-color: #999
+          outline: 0
+
+      .buttons
+        padding-top: 8px
+
+      .button
+        display: inline-block
