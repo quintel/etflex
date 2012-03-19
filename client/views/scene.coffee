@@ -238,26 +238,6 @@ class exports.SceneView extends Backbone.View
   renderBadge: ->
     $('body').append badgeTempl()
 
-  # Initializes the scenarios list which appears on the right-hand side of the
-  # scene and links to scenarios belonging to other users.
-  #
-  # Note that this method is asynchronous; the scenes are shown only after
-  # completing a request to the ET-Flex server.
-  #
-  initOtherScenarios: ->
-    app.collections.scenarios.fetch
-      add:  true
-      data: { current_session_id: @model.scenario.get 'sessionId' }
-      success: (collection) =>
-        for scenario in collection.models
-          @$('#updates').append scenarioTempl
-            scene:       scenario.get('scene')
-            sessionId:   scenario.get('sessionId')
-            score:       @precision scenario.get('queryResults').score, 0
-            userName:    scenario.get('user').id?.toString()[0..10]
-            userCountry: 'United Kingdom'
-            userCity:    'London'
-
   # Sets up the social media "share" links.
   #
   initShareLinks: ->

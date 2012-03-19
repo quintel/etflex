@@ -220,32 +220,3 @@
 
       &:hover
         text-decoration: none
-
-    #updates
-      display: none
-      position: fixed
-      right: 0
-      width: 200px
-      bottom: 0
-      height: 60%
-      color: #333
-      font-size: 12px
-      line-height: 1
-      z-index: 16
-      border-left: 1px solid #ccc
-      border-top: 1px solid #ccc
-
-      .scenario
-        padding: 10px
-        border-bottom: 1px solid #ccc
-        a
-          color: inherit
-
-        .score
-          font-size: 24px
-          font-weight: bold
-
-// "Updates" aren't visible on narrow screens.
-@media (min-device-width:1024px) and (min-width:1400px)
-  #scene-view #core #updates
-    display: block
