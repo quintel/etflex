@@ -26,5 +26,11 @@
     </ul>
   </div>
 
+  <div id="scores" class="full">
+    <h2><%= I18n.t 'words.high_scores' %></h2>
+    <div class="loading"><%= I18n.t 'words.loading' %></div>
+  </div>
+
   <div id="loader">Loading...</div>
+  <a href="#scores" id="score-notifier" data-navigate="noclient">You got a high score!</a>
 </div>
