@@ -1,19 +1,16 @@
-app                   = require 'app'
+app                = require 'app'
 
-api                   = require 'lib/api'
-template              = require 'templates/scene'
-scenarioTempl         = require 'templates/scenario'
-badgeTempl            = require 'templates/badge'
+api                = require 'lib/api'
+template           = require 'templates/scene'
+scenarioTempl      = require 'templates/scenario'
+badgeTempl         = require 'templates/badge'
 
-{ RangeView }         = require 'views/range'
-{ SceneNav }          = require 'views/scene_nav'
-{ HighScores }        = require 'views/high_scores'
-{ ScenariosWindow }   = require 'views/scenarios_window'
+{ RangeView }      = require 'views/range'
+{ SceneNav }       = require 'views/scene_nav'
+{ HighScores }     = require 'views/high_scores'
 
-{ ScenarioSummaries } = require 'collections/scenario_summaries'
-
-{ getProp }           = require 'views/props'
-{ clientNavigate }    = require 'lib/client_navigate'
+{ getProp }        = require 'views/props'
+{ clientNavigate } = require 'lib/client_navigate'
 
 # Scene ----------------------------------------------------------------------
 
@@ -27,8 +24,7 @@ class exports.SceneView extends Backbone.View
   pageTitle: -> @model.get('name')
 
   events:
-    'click .score a': 'showHighScores'
-    'click a':         clientNavigate
+    'click a': clientNavigate
 
   # Creates the HTML elements for the view, and binds events. Returns self.
   #
@@ -45,33 +41,34 @@ class exports.SceneView extends Backbone.View
     @renderNavigation()
     @initLoadingNotice()
     @initShareLinks()
+    @initHighScores()
 
-    @scenariosWindow = new ScenariosWindow scene: @model
-    @scenariosWindow.render()
+    # @scenariosWindow = new ScenariosWindow scene: @model
+    # @scenariosWindow.render()
 
-    @scenariosWindow.scores.on 'update', (summary, coll) =>
-      return false unless summary.get('session_id') is @model.scenario.id
-      return false unless summary.get('user_id') is app.user.id
-      return false unless coll.isTopN(summary, @scenariosWindow.scores.show)
+    # @scenariosWindow.scores.on 'update', (summary, coll) =>
+      # return false unless summary.get('session_id') is @model.scenario.id
+      # return false unless summary.get('user_id') is app.user.id
+      # return false unless coll.isTopN(summary, @scenariosWindow.scores.show)
 
-      # Don't prompt for a name if we already know one.
-      return false if summary.get('user_name')?.length
-      return false if app.user.name?
+      # # Don't prompt for a name if we already know one.
+      # return false if summary.get('user_name')?.length
+      # return false if app.user.name?
 
-      # Show "You got a high score!"
-      @$('.score a').click()
-      @scenariosWindow.requestHighScoreName summary
+      # # Show "You got a high score!"
+      # @$('.score a').click()
+      # @scenariosWindow.requestHighScoreName summary
 
-      @scenariosWindow.$('form.high-score-notification').submit =>
-        name = @scenariosWindow.$('#scenario-guest-name').val()
+      # @scenariosWindow.$('form.high-score-notification').submit =>
+        # name = @scenariosWindow.$('#scenario-guest-name').val()
 
-        if name?.length
-          @model.scenario.set guestName: name
-          @model.scenario.save()
+        # if name?.length
+          # @model.scenario.set guestName: name
+          # @model.scenario.save()
 
-        @scenariosWindow.close()
+        # @scenariosWindow.close()
 
-        return false
+        # return false
 
     this
 
@@ -210,32 +207,51 @@ class exports.SceneView extends Backbone.View
   renderNavigation: ->
     @$('#footer').before (new SceneNav model: @model).render().el
 
-  # Creates the high scores list also present on the root page.
-  #
-  showHighScores: (event) ->
-    if $('#fade-overlay').length is 0
-      @scenariosWindow.delegateEvents()
-      @scenariosWindow.scores.delegateEvents()
+  initHighScores: ->
+    highScores = new HighScores {}
 
-      element = @scenariosWindow.el
-      overlayElement  = $ '<div id="fade-overlay" style="display:none"></div>'
+    @$('#scores').html highScores.render().el
 
-      $('body').append overlayElement.append(element).fadeIn 250
+    highScores.on 'update', (summary, coll) =>
+      return false unless summary.get('session_id') is @model.scenario.id
+      return false unless summary.get('user_id') is app.user.id
 
-    event.preventDefault()
-    event.stopPropagation()
+      notifier = @$ '#score-notifier'
 
-  # When the user achieves a high score, and we don't know their name, prompt
-  # them to let us know how to identify them.
-  #
-  highScorePrompt: (summary) ->
-    @scenariosWindow.delegateEvents()
-    @scenariosWindow.scores.delegateEvents()
+      unless coll.isTopN(summary, highScores.show)
+        # Hide the high score notifier.
+        if notifier.css('bottom') is '0px'
+          notifier.animate bottom: '-38px', 250, 'easeInOutCubic'
 
-    element = @scenariosWindow.el
-    overlayElement  = $ '<div id="fade-overlay" style="display:none"></div>'
+        return false
 
-    $('body').append overlayElement.append(element).fadeIn 250
+      # Show "You got a high score!"
+      if notifier.css('bottom') is '-38px'
+        @$('#score-notifier').animate bottom: '0px', 350, 'easeInOutCubic'
+
+      # Don't prompt for a name if we already know one.
+      return false if summary.get('user_name')?.length
+      return false if app.user.name?
+
+      # TODO Ask for the users name.
+      overlay = $ '<div id="fade-overlay"></div>'
+      wrapper = $ '<div class="overlay-content high-score-request"></div>'
+
+      wrapper.append require('templates/high_score_request')()
+      overlay.append wrapper
+
+      $('form.high-score-notification', wrapper).submit =>
+        name = $('#scenario-guest-name').val()
+
+        if name?.length
+          @model.scenario.set guestName: name
+          @model.scenario.save()
+
+        overlay.fadeOut 350, -> overlay.remove()
+
+        return false
+
+      $('body').append overlay.fadeIn(350)
 
   # Creates the "Loading..." box which pops up at the bottom-left of the
   # scene view whenever an XHR request is pending.
@@ -287,4 +303,3 @@ class exports.SceneView extends Backbone.View
     # Google Plus (+)
     googleLink = "http://plusone.google.com/_/+1/confirm?hl=en&url=#{link}"
     @$('#social-media .google a').attr('href', googleLink)
-  

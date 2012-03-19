@@ -29,5 +29,5 @@
 </span>
 
 <span class="actions">
-  <a href="<%= @href %>" title="View this high score">View</a>
+  <a href="<%= @href %>" data-navigate="noclient" title="View this high score">View</a>
 </span>
