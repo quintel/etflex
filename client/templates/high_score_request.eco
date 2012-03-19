@@ -1,14 +1,16 @@
-<h3><%= I18n.t 'scenes.high_score.header' %></h3>
-<p><%= I18n.t 'scenes.high_score.text' %></p>
+<div class="overlay-content high-score-request">
+  <h3><%= I18n.t 'scenes.high_score.header' %></h3>
+  <p><%= I18n.t 'scenes.high_score.text' %></p>
 
-<form class="high-score-notification">
-  <label for="scenario-guest-name"><%= I18n.t 'words.your_name' %></label>
+  <form class="high-score-notification">
+    <label for="scenario-guest-name"><%= I18n.t 'words.your_name' %></label>
 
-  <fieldset>
-    <input name="name" id="scenario-guest-name" placeholder="<%= I18n.t('words.anonymous') %>" type="text" />
+    <fieldset>
+      <input name="name" id="scenario-guest-name" value="<%= @name %>" placeholder="<%= I18n.t('words.anonymous') %>" type="text" />
 
-    <span class="buttons">
-      <input type="submit" value="<%= I18n.t 'words.save' %>" class="button green" />
-    </span>
-  </fieldset>
-</form>
+      <span class="buttons">
+        <input type="submit" value="<%= I18n.t 'words.save' %>" class="button green" />
+      </span>
+    </fieldset>
+  </form>
+</div>
