@@ -36,6 +36,9 @@ class exports.HighScoreRequest extends Backbone.View
     if name?.length
       @model.set guestName: name
       @model.save()
+    else
+      # User wants to remain anonymous. Don't ask again for their name.
+      @model.stayAnonymous = true
 
     @close()
     event.preventDefault()

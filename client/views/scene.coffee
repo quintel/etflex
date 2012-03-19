@@ -225,7 +225,8 @@ class exports.SceneView extends Backbone.View
       notifier.show()
 
       # Don't prompt for a name if we already know one.
-      return false if summary.get('user_name')?.length
+      if summary.get('user_name')?.length or @model.scenario.stayAnonymous
+        return false
 
       @requestScenarioGuestName()
 
