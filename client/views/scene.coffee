@@ -1,16 +1,17 @@
-app                = require 'app'
+app                  = require 'app'
 
-api                = require 'lib/api'
-template           = require 'templates/scene'
-scenarioTempl      = require 'templates/scenario'
-badgeTempl         = require 'templates/badge'
+api                  = require 'lib/api'
+template             = require 'templates/scene'
+scenarioTempl        = require 'templates/scenario'
+badgeTempl           = require 'templates/badge'
 
-{ RangeView }      = require 'views/range'
-{ SceneNav }       = require 'views/scene_nav'
-{ HighScores }     = require 'views/high_scores'
+{ RangeView }        = require 'views/range'
+{ SceneNav }         = require 'views/scene_nav'
+{ HighScores }       = require 'views/high_scores'
+{ HighScoreRequest } = require 'views/high_score_request'
 
-{ getProp }        = require 'views/props'
-{ clientNavigate } = require 'lib/client_navigate'
+{ getProp }          = require 'views/props'
+{ clientNavigate }   = require 'lib/client_navigate'
 
 # Scene ----------------------------------------------------------------------
 
@@ -24,7 +25,8 @@ class exports.SceneView extends Backbone.View
   pageTitle: -> @model.get('name')
 
   events:
-    'click a': clientNavigate
+    'click a':                clientNavigate
+    'click #score-notifier': 'requestScenarioGuestName'
 
   # Creates the HTML elements for the view, and binds events. Returns self.
   #
@@ -42,33 +44,6 @@ class exports.SceneView extends Backbone.View
     @initLoadingNotice()
     @initShareLinks()
     @initHighScores()
-
-    # @scenariosWindow = new ScenariosWindow scene: @model
-    # @scenariosWindow.render()
-
-    # @scenariosWindow.scores.on 'update', (summary, coll) =>
-      # return false unless summary.get('session_id') is @model.scenario.id
-      # return false unless summary.get('user_id') is app.user.id
-      # return false unless coll.isTopN(summary, @scenariosWindow.scores.show)
-
-      # # Don't prompt for a name if we already know one.
-      # return false if summary.get('user_name')?.length
-      # return false if app.user.name?
-
-      # # Show "You got a high score!"
-      # @$('.score a').click()
-      # @scenariosWindow.requestHighScoreName summary
-
-      # @scenariosWindow.$('form.high-score-notification').submit =>
-        # name = @scenariosWindow.$('#scenario-guest-name').val()
-
-        # if name?.length
-          # @model.scenario.set guestName: name
-          # @model.scenario.save()
-
-        # @scenariosWindow.close()
-
-        # return false
 
     this
 
@@ -151,6 +126,21 @@ class exports.SceneView extends Backbone.View
       if rounded.length is 1 then rounded else
         "#{rounded[0]}.#{rounded[1][0...precision]}"
 
+  # Shows an overlay message asking the user for a guest name to be associated
+  # with the scenario.
+  #
+  # This does nothing if the visitor is a logged-in user whose name is set. It
+  # will always trigger for guests (allowing them to change the name if
+  # they want).
+  #
+  requestScenarioGuestName: (event) ->
+    if app.user.isGuest or app.user.name.length is 0
+      new HighScoreRequest(model: @model.scenario).renderInto $ 'body'
+
+    if event
+      event.stopPropagation()
+      event.preventDefault()
+
   # RENDERING STEPS ----------------------------------------------------------
 
   # Renders the modern theme by extending the default scene template.
@@ -231,27 +221,9 @@ class exports.SceneView extends Backbone.View
 
       # Don't prompt for a name if we already know one.
       return false if summary.get('user_name')?.length
-      return false if app.user.name?
 
-      # TODO Ask for the users name.
-      overlay = $ '<div id="fade-overlay"></div>'
-      wrapper = $ '<div class="overlay-content high-score-request"></div>'
-
-      wrapper.append require('templates/high_score_request')()
-      overlay.append wrapper
-
-      $('form.high-score-notification', wrapper).submit =>
-        name = $('#scenario-guest-name').val()
-
-        if name?.length
-          @model.scenario.set guestName: name
-          @model.scenario.save()
-
-        overlay.fadeOut 350, -> overlay.remove()
-
-        return false
-
-      $('body').append overlay.fadeIn(350)
+      # Ask for the users name.
+      @requestScenarioGuestName()
 
   # Creates the "Loading..." box which pops up at the bottom-left of the
   # scene view whenever an XHR request is pending.
