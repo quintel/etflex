@@ -3,7 +3,7 @@
 
 nl:
   loading: "Bezig met laden"
-  loadingMsg: "Even geduld het duurt niet lang..."
+  loadingMsg: "Even geduld..."
   etm: "Energietransitiemodel"
   etm_light: "Energietransitiemodel light"
   switch_to_this_language: "Nederlandse versie"
@@ -56,7 +56,7 @@ nl:
     anonymous:          Anonieme Bezoeker
     by:                 Door
 
-    high_scores:        Hoge scores
+    high_scores:        High Scores
     loading:            Bezig met laden
 
     you:                Jijzelf
@@ -74,7 +74,7 @@ nl:
 
   # 404 Not Found ------------------------------------------------------------
 
-  oops: "Sorry, er gaat iets fout"
+  oops: "Sorry, er is iets fout gegaan"
   frontPage: "Terug naar de homepage"
   fourOhFour: "De pagina die je zocht kan niet worden gevonden."
 
@@ -163,7 +163,7 @@ nl:
     title: U gebruikt een oude browser.
     continue: Toch doorgaan
     message: >
-      De browser die je gebruikt is vrij oud en wordt niet volledig ondersteund
-      door deze website. Je mag doorgaan als je wilt, maar wij raden aan uw 
+      De browser die je gebruikt is verouderd en wordt niet volledig ondersteund
+      door het ETM. Je mag doorgaan als je wilt, maar wij raden je aan je 
       huidige browser te upgraden, of Google Chrome of Mozilla Firefox 
       te gebruiken – beide zijn gratis.
