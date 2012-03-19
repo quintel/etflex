@@ -6,8 +6,7 @@ class exports.HighScoreRequest extends Backbone.View
   id: 'fade-overlay'
 
   events:
-    'submit form':                   'commitName'
-    'clickoutside .overlay-content': 'close'
+    'submit form': 'commitName'
 
   render: ->
     @$el.append require('templates/high_score_request')
@@ -22,6 +21,10 @@ class exports.HighScoreRequest extends Backbone.View
 
     # Immediately close if the user hits escape.
     $('html').on 'keyup', @keyUpClose
+
+    # Close if the user click outside the modal message. This isn't working
+    # when in the events hash.
+    @$('.overlay-content').on 'clickoutside', @close
 
     @show()
 
