@@ -15,9 +15,9 @@
 
   <div id="footer">
     <ul id="social-media">
-      <li class="twitter"><a href="#">Share on Twitter</a></li>
-      <li class="google"><a href="#">Share on Google Plus</a></li>
-      <li class="facebook"><a href="#">Share on Facebook</a></li>
+      <li class="twitter"><a href="#" target="_new">Share on Twitter</a></li>
+      <li class="google"><a href="#" target="_new">Share on Google Plus</a></li>
+      <li class="facebook"><a href="#" target="_new">Share on Facebook</a></li>
     </ul>
 
     <ul id="partners">
