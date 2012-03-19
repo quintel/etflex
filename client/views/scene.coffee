@@ -204,6 +204,7 @@ class exports.SceneView extends Backbone.View
 
   initHighScores: ->
     highScores = new HighScores {}
+    notifier   = new Notifier @$('#score-notifier')
 
     @$('#scores').html highScores.render().el
 
@@ -211,18 +212,13 @@ class exports.SceneView extends Backbone.View
       return false unless summary.get('session_id') is @model.scenario.id
       return false unless summary.get('user_id') is app.user.id
 
-      notifier = @$ '#score-notifier'
-
       unless coll.isTopN(summary, highScores.show)
         # Hide the high score notifier.
-        if notifier.css('bottom') is '0px'
-          notifier.animate bottom: '-38px', 350, 'easeInOutCubic'
-
+        notifier.hide()
         return false
 
       # Show "You got a high score!"
-      if notifier.css('bottom') is '-38px'
-        @$('#score-notifier').animate bottom: '0px', 350, 'easeInOutCubic'
+      notifier.show()
 
       # Don't prompt for a name if we already know one.
       return false if summary.get('user_name')?.length
@@ -280,3 +276,16 @@ class exports.SceneView extends Backbone.View
     # Google Plus (+)
     googleLink = "http://plusone.google.com/_/+1/confirm?hl=en&url=#{link}"
     @$('#social-media .google a').attr('href', googleLink)
+
+# Handles the "You got a high score" notification message.
+class Notifier
+  # Expects a single argument; the notifier DOM element.
+  constructor: (@el) -> @$el = $ @el
+
+  show: ->
+    if @$el.css('bottom') is '-38px'
+      @$el.animate bottom: '0px', 350, 'easeInOutCubic'
+
+  hide: ->
+    if @$el.css('bottom') is '0px'
+      @$el.animate bottom: '-38px', 350, 'easeInOutCubic'
