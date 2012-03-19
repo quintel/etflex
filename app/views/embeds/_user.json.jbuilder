@@ -1,3 +1,3 @@
 if user.present?
-  json.(user, :id)
+  json.(user, :id, :name)
 end

@@ -1,3 +1,5 @@
+{ Query } = require 'models/query'
+
 # The Summary class contains basic information about a scenario such as the
 # score, session ID, etc, so that we can display basic information (such as
 # high-scores) without sending the considerable amount of JSON required by
@@ -5,3 +7,9 @@
 #
 class exports.ScenarioSummary extends Backbone.Model
   idAttribute: 'session_id'
+
+  # Returns a Query, setting the future value to the value in the summary.
+  query: (key) ->
+    new Query
+      id:     if key is 'score' then 'etflex_score' else key
+      future: @get key

@@ -1,0 +1,10 @@
+<a class="close window-close">&#215;</a>
+
+<div class="high-scores"></div>
+
+<div class="info">
+  <h2><%= I18n.t 'scenes.current_scenario' %></h2>
+
+  <div class="nav by"><%= I18n.t 'words.by_person', name: I18n.t 'words.you' %></div>
+  <div class="content"></div>
+</div>

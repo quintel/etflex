@@ -18,7 +18,7 @@ nl:
     loading:  Loading
     sign_out: Afmelden
 
-    info:     Informatie
+    info:     Meer
 
     settings:    Instellingen
     region:      Gebied
@@ -34,7 +34,7 @@ nl:
     about:    Een energiespel met echte cijfers
     feedback: Wat vind je van dit spel
     privacy:  Wat doen we met je gegevens
-    etmodel:  Door naar het volgende level van dit spel
+    etmodel:  Ga door naar de Professionele versie
 
   # Misc Words & Phrases -----------------------------------------------------
 
@@ -59,6 +59,15 @@ nl:
     loading:            Het laden
 
     you:                Je
+    by_person:          "van %{name}"
+
+    current:            Actuele
+    selected:           Gekozen
+
+  periods:
+    today:   Vandaag
+    week:    Deze week
+    alltime: Alle tijd
 
   magnitudes:
     million: "%{amount} miljoen"
@@ -73,6 +82,11 @@ nl:
   # Text used on the ETlite recreation ---------------------------------------
 
   scenes:
+    current_scenario: "Huidige Scenario"
+    comparing: "Vergelijken van uw huidige scenario, met het geselecteerde scenario door %{name}"
+    compare_landing_header: "Vergelijk Scenarios"
+    compare_landing: "Selecteer een hoge score van de links om deze te vergelijken met uw huidige scenario"
+
     etlite:
       savings:      "Besparingen"
       production:   "Productie"

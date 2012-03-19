@@ -103,6 +103,24 @@ describe ScenariosController do
         scenario.input_values.should include(1 => '1234')
       end
     end
+
+    context 'when setting the guest name' do
+      before(:each) do
+        sign_in owner
+
+        put :update, scene_id: scene.id, id: scenario.session_id,
+          scenario: { guestName: 'thing' }, format: :json
+      end
+
+      it 'should return 204 No Content' do
+        response.status.should eql(204)
+      end
+
+      it 'should save the guestname' do
+        scenario.reload
+        scenario.guest_name.should eql('thing')
+      end
+    end
   end # Updating an existing scenario
 
 end

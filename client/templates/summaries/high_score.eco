@@ -1,0 +1,10 @@
+<form class="high-score-notification">
+  <h3><%= I18n.t 'scenes.high_score.header' %></h3>
+  <p><%= I18n.t 'scenes.high_score.text' %></p>
+  <label for="scenario-guest-name"><%= I18n.t 'words.your_name' %>:</label>
+  <input name="name" id="scenario-guest-name" type="text" />
+
+  <div class="buttons">
+    <input type="submit" value="<%= I18n.t 'words.save' %>" class="button green" />
+  </div>
+</form>
