@@ -26,7 +26,7 @@ class exports.SceneView extends Backbone.View
 
   events:
     'click a':                clientNavigate
-    'click #score-notifier': 'requestScenarioGuestName'
+    'click #score-notifier': 'clickScoreNotifier'
 
   # Creates the HTML elements for the view, and binds events. Returns self.
   #
@@ -126,6 +126,15 @@ class exports.SceneView extends Backbone.View
       if rounded.length is 1 then rounded else
         "#{rounded[0]}.#{rounded[1][0...precision]}"
 
+  # Triggered when the user clicks the "You got a high score" box. Smoothly
+  # scrolls to the high scores list, and shows the user name form.
+  clickScoreNotifier: (event) ->
+    $.scrollTo('#scores', offset: { top: -20 }, duration: 350)
+    @requestScenarioGuestName()
+
+    event.stopPropagation()
+    event.preventDefault()
+
   # Shows an overlay message asking the user for a guest name to be associated
   # with the scenario.
   #
@@ -133,13 +142,9 @@ class exports.SceneView extends Backbone.View
   # will always trigger for guests (allowing them to change the name if
   # they want).
   #
-  requestScenarioGuestName: (event) ->
+  requestScenarioGuestName: ->
     if app.user.isGuest or app.user.name.length is 0
       new HighScoreRequest(model: @model.scenario).renderInto $ 'body'
-
-    if event
-      event.stopPropagation()
-      event.preventDefault()
 
   # RENDERING STEPS ----------------------------------------------------------
 
@@ -211,7 +216,7 @@ class exports.SceneView extends Backbone.View
       unless coll.isTopN(summary, highScores.show)
         # Hide the high score notifier.
         if notifier.css('bottom') is '0px'
-          notifier.animate bottom: '-38px', 250, 'easeInOutCubic'
+          notifier.animate bottom: '-38px', 350, 'easeInOutCubic'
 
         return false
 

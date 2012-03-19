@@ -10,6 +10,7 @@
  *= require jquery_ujs
  *= require jquery.easing.1.3
  *= require jquery.ba-outside-events
+ *= require jquery.scrollTo-1.4.2
  *= require jquery.reveal
  *= require jquery.cookie
  *= require underscore
