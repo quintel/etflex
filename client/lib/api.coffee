@@ -35,8 +35,6 @@ exports.send = (path, data, callback) ->
     data:         data
     type:        'GET'
     dataType:    'json'
-    accepts:     'json'
-    contentType: 'json'
     headers:   { 'X-Api-Agent': 'ETflex Client' }
 
   .done (data, textStatus, jqXHR) ->
