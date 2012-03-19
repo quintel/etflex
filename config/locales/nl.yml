@@ -50,6 +50,7 @@ nl:
     sign_in_long:       Meld u aan bij mijn account
     sign_up:            Meld je nu aan
     cancel:             Annuleren
+    save:               Bewaren
 
     ago:                geleden
     anonymous:          Anonieme Bezoeker
@@ -60,9 +61,7 @@ nl:
 
     you:                Jijzelf
     by_person:          "van %{name}"
-
-    current:            Actuele
-    selected:           Gekozen
+    your_name:          Uw naam
 
   periods:
     today:   Vandaag
@@ -82,10 +81,11 @@ nl:
   # Text used on the ETlite recreation ---------------------------------------
 
   scenes:
-    current_scenario: "Huidige Scenario"
-    comparing: "Vergelijken van uw huidige scenario, met het geselecteerde scenario door %{name}"
-    compare_landing_header: "Vergelijk Scenarios"
-    compare_landing: "Selecteer een hoge score van de links om deze te vergelijken met uw huidige scenario"
+    high_score:
+      header:       "Je hebt een hoge score!"
+      text: >-
+        Gefeliciteerd, uw selecties geresulteerd in een positief resultaat, en
+        je score is een van de hoogste. Hoe wilt u de naam op het scorebord?
 
     etlite:
       savings:      "Besparingen"
