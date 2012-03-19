@@ -91,6 +91,7 @@ class exports.SceneView extends Backbone.View
 
   # Used to find locations at which a type of element may be rendered. Used by
   # propContainers and inputContainers.
+  #
   containersFor: (place) ->
     containers = {}
 
@@ -128,6 +129,7 @@ class exports.SceneView extends Backbone.View
 
   # Triggered when the user clicks the "You got a high score" box. Smoothly
   # scrolls to the high scores list, and shows the user name form.
+  #
   clickScoreNotifier: (event) ->
     $.scrollTo('#scores', offset: { top: -20 }, duration: 350)
     @requestScenarioGuestName()
@@ -202,6 +204,10 @@ class exports.SceneView extends Backbone.View
   renderNavigation: ->
     @$('#footer').before (new SceneNav model: @model).render().el
 
+  # Fires up the high scores list, and monitors changes to the active list so
+  # that we can inform the user if their scenario appear or disappears from
+  # the list.
+  #
   initHighScores: ->
     highScores = new HighScores {}
     notifier   = new Notifier @$('#score-notifier')
@@ -213,17 +219,14 @@ class exports.SceneView extends Backbone.View
       return false unless summary.get('user_id') is app.user.id
 
       unless coll.isTopN(summary, highScores.show)
-        # Hide the high score notifier.
         notifier.hide()
         return false
 
-      # Show "You got a high score!"
       notifier.show()
 
       # Don't prompt for a name if we already know one.
       return false if summary.get('user_name')?.length
 
-      # Ask for the users name.
       @requestScenarioGuestName()
 
   # Creates the "Loading..." box which pops up at the bottom-left of the
