@@ -279,3 +279,7 @@ class exports.SceneView extends Backbone.View
     # Facebook.
     fbLink = "http://www.facebook.com/sharer.php?u=#{link}&t=ETFlex"
     @$('#social-media .facebook a').attr('href', fbLink)
+    
+    # Twitter
+    twitterLink = "http://www.twitter.com/share?url=#{link}"
+    @$('#social-media .twitter a').attr('href', twitterLink)
