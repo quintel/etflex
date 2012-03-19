@@ -56,9 +56,9 @@ nl:
     by:                 Door
 
     high_scores:        Hoge scores
-    loading:            Het laden
+    loading:            Bezig met laden
 
-    you:                Je
+    you:                Jijzelf
     by_person:          "van %{name}"
 
     current:            Actuele
