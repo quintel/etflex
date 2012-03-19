@@ -8,6 +8,7 @@ badgeTempl            = require 'templates/badge'
 { RangeView }         = require 'views/range'
 { SceneNav }          = require 'views/scene_nav'
 { HighScores }        = require 'views/high_scores'
+{ ScenariosWindow }   = require 'views/scenarios_window'
 
 { ScenarioSummaries } = require 'collections/scenario_summaries'
 
@@ -24,7 +25,10 @@ class exports.SceneView extends Backbone.View
   className: 'modern' # TODO Set dynamically based on server-sent JSON.
 
   pageTitle: -> @model.get('name')
-  events: { 'click a': clientNavigate }
+
+  events:
+    'click .score a': 'showHighScores'
+    'click a':         clientNavigate
 
   # Creates the HTML elements for the view, and binds events. Returns self.
   #
@@ -39,9 +43,35 @@ class exports.SceneView extends Backbone.View
     @renderTheme()
     @renderProps()
     @renderNavigation()
-    @renderHighScores()
     @initLoadingNotice()
     @initShareLinks()
+
+    @scenariosWindow = new ScenariosWindow scene: @model
+    @scenariosWindow.render()
+
+    @scenariosWindow.scores.on 'update', (summary, coll) =>
+      return false unless summary.get('session_id') is @model.scenario.id
+      return false unless summary.get('user_id') is app.user.id
+      return false unless coll.isTopN(summary, @scenariosWindow.scores.show)
+
+      # Don't prompt for a name if we already know one.
+      return false if summary.get('user_name')?.length
+      return false if app.user.name?
+
+      # Show "You got a high score!"
+      @$('.score a').click()
+      @scenariosWindow.requestHighScoreName summary
+
+      @scenariosWindow.$('form.high-score-notification').submit =>
+        name = @scenariosWindow.$('#scenario-guest-name').val()
+
+        if name?.length
+          @model.scenario.set guestName: name
+          @model.scenario.save()
+
+        @scenariosWindow.close()
+
+        return false
 
     this
 
@@ -182,14 +212,30 @@ class exports.SceneView extends Backbone.View
 
   # Creates the high scores list also present on the root page.
   #
-  renderHighScores: ->
-    summaries  = new ScenarioSummaries(window.bootstrap or [])
-    highScores = new HighScores collection: summaries, show: 8, style: 'compact'
+  showHighScores: (event) ->
+    if $('#fade-overlay').length is 0
+      @scenariosWindow.delegateEvents()
+      @scenariosWindow.scores.delegateEvents()
 
-    @$('#scores').html highScores.render().el
+      element = @scenariosWindow.el
+      overlayElement  = $ '<div id="fade-overlay" style="display:none"></div>'
 
-    # Trigger loading the seven-day high scores.
-    highScores.loadSince 7
+      $('body').append overlayElement.append(element).fadeIn 250
+
+    event.preventDefault()
+    event.stopPropagation()
+
+  # When the user achieves a high score, and we don't know their name, prompt
+  # them to let us know how to identify them.
+  #
+  highScorePrompt: (summary) ->
+    @scenariosWindow.delegateEvents()
+    @scenariosWindow.scores.delegateEvents()
+
+    element = @scenariosWindow.el
+    overlayElement  = $ '<div id="fade-overlay" style="display:none"></div>'
+
+    $('body').append overlayElement.append(element).fadeIn 250
 
   # Creates the "Loading..." box which pops up at the bottom-left of the
   # scene view whenever an XHR request is pending.
@@ -233,3 +279,7 @@ class exports.SceneView extends Backbone.View
     # Facebook.
     fbLink = "http://www.facebook.com/sharer.php?u=#{link}&t=ETFlex"
     @$('#social-media .facebook a').attr('href', fbLink)
+    
+    # Twitter
+    twitterLink = "http://www.twitter.com/share?url=#{link}"
+    @$('#social-media .twitter a').attr('href', twitterLink)

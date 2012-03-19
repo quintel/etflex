@@ -101,3 +101,79 @@
     font-size: 10px
     line-height: 0
     vertical-align: sub
+
+// New, "Fade Overlay", Style ------------------------------------------------
+
+#fade-overlay
+  background: rgba(0, 0, 0, 0.5)
+  +background(radial-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.6) 100%))
+  bottom: 0px
+  left: 0px
+  position: fixed
+  right: 0px
+  top: 0px
+  z-index: 100
+
+.overlay-content
+  background: white
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(0, 0, 0, 0.2)
+  border-radius: 4px
+  line-height: 1
+  margin: 100px auto 0
+  overflow: hidden
+  position: relative
+  width: 750px
+
+  .window-close
+    color: white
+    cursor: pointer
+    font-size: 22px
+    font-weight: bold
+    line-height: .5
+    position: absolute
+    right: 14px
+    text-shadow: 0 -1px 1px rbga(0,0,0,.6)
+    text-shadow: 0 -1px 0 #487d41
+    top: 10px
+
+    &:hover
+      text-decoration: none
+
+  h2
+    +background(linear-gradient(#96c48c, #629459))
+    border-radius: 4px 4px 0 0
+    border-bottom: 1px solid #375c31
+    box-shadow: inset 0 1px 0 #bbdfb5
+    color: white
+    font-size: 15px
+    margin: 0
+    padding: 10px 0
+    text-align: center
+    text-shadow: 0 -1px 0 #487d41
+    -webkit-font-smoothing: antialiased
+
+  .nav
+    background: #eee
+    +background(linear-gradient(#f6f6f6, #e6e6e6))
+    border-bottom: 1px solid #bbb
+    color: #444
+    font-size: 12px
+    font-weight: bold
+    padding: 7px 0 7px
+    text-align: center
+    text-shadow: 0 1px 0 white
+    width: 100%
+
+    a
+      margin-right: 8px
+
+      &:last-child
+        margin-right: 0
+
+      &.current
+        color: #444
+        -webkit-font-smoothing: auto
+
+        &:hover
+          cursor: default
+          text-decoration: none

@@ -13,16 +13,19 @@ class exports.HighScores extends Backbone.View
 
   events:
     'click h2 a': 'changeDateLimit'
-    'click li':   'navigateToScenario'
+    # 'click li':   'navigateToScenario'
 
   # Provide HighScores with a ScenarioSummaries collection in the options
   # hash.
-  constructor: ({ @collection, @show, @style }) ->
+  constructor: ({ @collection, @show, @style, @realtime }) ->
     super
 
     # Show, by default, the five highest scores.
     @show  or= 10
     @style or= 'full'
+
+    # Disable pusher by passing realtime: false.
+    @realtime = true unless @realtime is false
 
     # Keep track of the summaries which are shown in the UI.
     @visible = []
@@ -42,12 +45,16 @@ class exports.HighScores extends Backbone.View
     @listElement = @$ 'ol'
 
     # Render the list.
-    @setCollection @collection
+    if @collection
+      @setCollection @collection
+    else
+      @loadSince 7
 
-    channel = app.pusher.subscribe "etflex-#{ app.env }"
+    if @realtime
+      channel = app.pusher.subscribe "etflex-#{ app.env }"
 
-    channel.bind 'scenario.created', @scenarioNotification
-    channel.bind 'scenario.updated', @scenarioNotification
+      channel.bind 'scenario.created', @scenarioNotification
+      channel.bind 'scenario.updated', @scenarioNotification
 
     this
 
@@ -55,10 +62,11 @@ class exports.HighScores extends Backbone.View
   # current collection, and re-render the high scores list.
   #
   setCollection: (newCollection) ->
-    # Unbind events from the old collection.
-    @collection.off 'change:score', @collection.sort
-    @collection.off 'add',          @summaryUpdated
-    @collection.off 'change',       @summaryUpdated
+    if @collection
+      # Unbind events from the old collection.
+      @collection.off 'change:score', @collection.sort
+      @collection.off 'add',          @summaryUpdated
+      @collection.off 'change',       @summaryUpdated
 
     @collection = newCollection
 
@@ -67,6 +75,9 @@ class exports.HighScores extends Backbone.View
 
     @collection.on 'add',    @summaryUpdated
     @collection.on 'change', @summaryUpdated
+
+    # Stop here if the scores haven't been rendered yet.
+    return unless @listElement?
 
     # Re-render the list.
     @listElement.empty()
@@ -134,19 +145,25 @@ class exports.HighScores extends Backbone.View
   # Days may be 1, 7, or "alltime". Note that setSince is asynchronous and
   # only applies the change after successful completion of an XHR request.
   #
-  loadSince: (days) ->
+  loadSince: (days, callback) ->
     jQuery.getJSON("/scenarios/since/#{ days }.json")
-      .done( (data) => @setCollection new ScenarioSummaries data)
       .fail(        -> console.error 'Failed to fetch high scores')
+      .done( (data) => @setCollection new ScenarioSummaries data)
 
   # Callback triggered by Pusher whenever a scenario is added or updated by
   # another visitor to the website.
   #
   scenarioNotification: (data) =>
+    # Collection may not yet be loaded when no data is bootstrapped.
+    return true unless @collection
+
     if summary = @collection.get data.session_id
       summary.set data
     else
-      @collection.add new ScenarioSummary data
+      summary = new ScenarioSummary data
+      @collection.add summary
+
+    @trigger 'update', summary, @collection
 
   # Callback triggered when the user clicks on a scenario list element. On
   # compact high score lists, where no "Show" button is visible, clicking on
@@ -227,6 +244,40 @@ class exports.HighScores extends Backbone.View
           animate({ 'margin-left': '0px' },
             duration: 750, easing: 'easeOutBounce')
 
+# Helpers --------------------------------------------------------------------
+
+exports.costsWidth = (value) ->
+  widthOf value / 1000000000, 40, 50
+
+exports.renewablesWidth = (value) ->
+  widthOf value * 100, 0, 20
+
+exports.emissionsWidth = (value) ->
+  widthOf value / 1000000000, 105, 165
+
+# Returns the width of a horizontal bar graph based on the given value, when
+# compared with the minimum and maximum extrema.
+#
+# value - The current value of a metric.
+#
+# min   - The minimum expected value. If the value matches this, the bar
+#         will be drawn at 0%.
+#
+# max   - The maximum expected value. If the value matches this, the bar
+#         will be drawn at 100%.
+#
+# Returns a string in the format "50%".
+#
+widthOf = (value, min, max) ->
+  delta    = max - min
+  fromMin  = value - min
+  fraction = fromMin / delta
+
+  fraction = 0 if fraction < 0
+  fraction = 1 if fraction > 1
+
+  "#{ Math.round(fraction * 100) }%"
+
 # SummaryRow -----------------------------------------------------------------
 
 # Encapsulates a single high score row, binding events, etc.
@@ -252,7 +303,7 @@ class SummaryRow extends Backbone.View
 
   render: ->
     @$el.html rowTemplate
-      user:         @model.get 'user_name'
+      user:         @model.get('user_name') or I18n.t('words.anonymous')
       href:         @model.get 'href'
       sessionId:    @model.get 'session_id'
       imageUrl:     @model.get 'profile_image'
@@ -286,13 +337,13 @@ class SummaryRow extends Backbone.View
     @$('.position').text "#{position}"
 
   updateCost: (summary, cost) =>
-    @updateMetric '.costs', cost / 1000000000, 40, 50
+    @updateMetric '.costs', cost / 1000000000, exports.costsWidth(cost)
 
-  updateRenewables: (summary, renewables) =>
-    @updateMetric '.renewables', renewables * 100, 0, 20
+  updateRenewables: (summary, renew) =>
+    @updateMetric '.renewables', renew * 100, exports.renewablesWidth(renew)
 
-  updateEmissions: (summary, emissions) =>
-    @updateMetric '.emissions', emissions / 1000000000, 120, 145
+  updateEmissions: (summary, emit) =>
+    @updateMetric '.emissions', emit / 1000000000, exports.emissionsWidth(emit)
 
   # Helpers ------------------------------------------------------------------
 
@@ -303,11 +354,9 @@ class SummaryRow extends Backbone.View
   #
   # value    - The new value of the metric.
   #
-  # min      - The minimum expected value.
+  # barWidth - The width of the bar; a string as a percentage ("50%")
   #
-  # max      - The maximum expected value.
-  #
-  updateMetric: (selector, value, min, max) ->
+  updateMetric: (selector, value, barWidth) ->
     container = @$ selector
 
     switch selector
@@ -321,27 +370,4 @@ class SummaryRow extends Backbone.View
     container.find('.value').text formatted
 
     # Draw the horizontal bar graph.
-    container.find('.bar').css 'width', @barWidth(value, min, max)
-
-  # Returns the width of a horizontal bar graph based on the given value, when
-  # compared with the minimum and maximum extrema.
-  #
-  # value - The current value of a metric.
-  #
-  # min   - The minimum expected value. If the value matches this, the bar
-  #         will be drawn at 0%.
-  #
-  # max   - The maximum expected value. If the value matches this, the bar
-  #         will be drawn at 100%.
-  #
-  # Returns a string in the format "50%".
-  #
-  barWidth: (value, min, max) ->
-    delta    = max - min
-    fromMin  = value - min
-    fraction = fromMin / delta
-
-    fraction = 0 if fraction < 0
-    fraction = 1 if fraction > 1
-
-    "#{ Math.round(fraction * 100) }%"
+    container.find('.bar').css 'width', barWidth

@@ -28,7 +28,8 @@ class ScenariosController < ApplicationController
       input_values:  attrs[:inputValues],
       query_results: attrs[:queryResults],
       end_year:      attrs[:endYear],
-      country:       attrs[:country] }
+      country:       attrs[:country],
+      guest_name:    attrs[:guestName] }
   end
 
   # Sends notification to Pusher that a user did something.
