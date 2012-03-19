@@ -46,13 +46,4 @@
     </div>
   </form>
 
-  <!--<h6><%= I18n.t 'words.no_account' %></h6>-->
-
-  <div class="or"><span>or</span></div>
-
-  <div class="social-nav">
-    <a class="zocial facebook" href="/users/auth/facebook"><span>Sign in with Facebook</span></a>
-    <a class="zocial twitter" href="#"><span>Sign in with Twitter</span></a>
-    <a class="zocial googleplus" href="#"><span>Sign in with Google+</span></a>
-  </div>
 </div>
