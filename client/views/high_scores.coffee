@@ -27,9 +27,10 @@ class exports.HighScores extends Backbone.View
     # Disable pusher by passing realtime: false.
     @realtime = true unless @realtime is false
 
-    # Keep track of the summaries which are shown in the UI.
-    @visible = []
-    @rows    = {}
+    # Keep track of the summaries which are shown in the UI. Actual values are
+    # set in setCollection.
+    @visible = null
+    @rows    = null
 
     # Used while rendering so that elements immediately appear instead of
     # animating into place.
@@ -67,6 +68,9 @@ class exports.HighScores extends Backbone.View
       @collection.off 'change:score', @collection.sort
       @collection.off 'add',          @summaryUpdated
       @collection.off 'change',       @summaryUpdated
+
+    @visible = []
+    @rows    = {}
 
     @collection = newCollection
 
