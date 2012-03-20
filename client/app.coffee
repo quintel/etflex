@@ -31,7 +31,8 @@ exports.boot = (window, { locale, api, env, user }) ->
   moment.lang locale
 
   # Pusher notifications.
-  exports.pusher = new Pusher '415cc8feb622f665d49a'
+  exports.pusher = new Pusher('415cc8feb622f665d49a').
+    subscribe("etflex-#{ exports.env }")
 
   # Engine API.
   require('lib/api').setPath api

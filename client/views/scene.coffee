@@ -41,7 +41,6 @@ class exports.SceneView extends Backbone.View
     @renderTheme()
     @renderProps()
     @renderNavigation()
-    @initLoadingNotice()
     @initShareLinks()
     @initHighScores()
 
@@ -229,15 +228,6 @@ class exports.SceneView extends Backbone.View
         return false
 
       @requestScenarioGuestName()
-
-  # Creates the "Loading..." box which pops up at the bottom-left of the
-  # scene view whenever an XHR request is pending.
-  #
-  initLoadingNotice: ->
-    loader = @$ '#loader'
-
-    loader.ajaxStart -> loader.stop().animate bottom:   '0px', 'fast'
-    loader.ajaxStop  -> loader.stop().animate bottom: '-36px', 'fast'
 
   renderBadge: ->
     $('body').append badgeTempl()
