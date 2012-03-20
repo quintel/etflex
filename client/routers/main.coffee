@@ -42,18 +42,36 @@ startScene = (collection, startArgs...) ->
 #
 class exports.Main extends Backbone.Router
   routes:
-    '':                     'redirectToDefaultScene'
+    '':                     'root'
+
     'scenes':               'redirectToDefaultScene'
     'scenes/:id':           'showScene'
-
     'scenes/:sid/with/:id': 'showSceneWithScenario'
 
-    'en':                   'languageRedirect'
-    'nl':                   'languageRedirect'
-    'en/*actions':          'languageRedirect'
-    'nl/*actions':          'languageRedirect'
-    
     '*undefined':           'notFound'
+
+  # The main landing page for ET-Flex.
+  #
+  # Contains information about the application, and the top n scores list
+  # using Pusher.
+  #
+  # GET /
+  #
+  root: ->
+    { ScenarioSummaries } = require 'collections/scenario_summaries'
+    { HighScores }        = require 'views/high_scores'
+    { StaticHeader }      = require 'views/static_header'
+    { clientNavigate }    = require 'lib/client_navigate'
+
+    summaries  = new ScenarioSummaries(window.bootstrap or [])
+    highScores = new HighScores collection: summaries
+
+    $('#scores').html highScores.render().el
+    $('.buttons .launch').on 'click', clientNavigate
+
+    new StaticHeader( el: $('#theme-header') ).render()
+
+    render.enhance()
 
   # A 404 Not Found page. Presents the user with a localised message guiding
   # them back to the front page.

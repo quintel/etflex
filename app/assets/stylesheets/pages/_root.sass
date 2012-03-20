@@ -1,4 +1,36 @@
 #page-view.root
+  background: #fff image-url("scenes/modern/bg.png") center top repeat-y
+  background: image-url("scenes/modern/footer.jpg") center bottom no-repeat, #fff image-url("scenes/modern/bg.png") center top repeat-y
+  min-height: 100%
+  overflow: hidden
+  padding: 0
+
+  #core
+    margin: auto
+    position: relative
+    width: 960px
+
+    #main
+      margin-top: -275px
+      position: relative
+      z-index: 2
+
+  nav#language-select
+    position: absolute
+    z-index: 11
+    top: 15px
+    right: 5px
+    a
+      color: #5975A9
+      padding-left: 22px
+      border-radius: 5px
+    &:visited
+      color: #5975A9
+    a.nl
+      background: image-url("nl.png") center left no-repeat
+    a.en
+      background: image-url("gb.png") center left no-repeat
+
   h1
     line-height: 1.2em
     font-size: 48px
