@@ -40,7 +40,7 @@ en:
         Renewable power is less predictable than power from (fossil) power
         plants, because sometimes there is no wind or sunshine. This means you
         cannot be sure to have power, unless you manage to store it somewhere
-        or have a backup plan."
+        or have a backup plan.
 
     renewability:
       header: "(Q:renewability) of your energy is renewable"
@@ -50,7 +50,7 @@ en:
 
         If you want to increase the number above 20%, you will need to go to
         the free professional version of the ETM in order to adjust settings
-        in other sectors, such as transportation and industry."
+        in other sectors, such as transportation and industry.
 
     supply_demand:
       header: "Balance of Supply and Demand"
@@ -67,7 +67,7 @@ en:
           In the current situation there are only (Q:number_of_electric_cars)
           electric cars in the Netherlands in 2030. If you want to increase the
           number to more than a million, try to see what percentage of electric
-          cars you need.'
+          cars you need.
 
     city:
       name: "Futuristic City"
