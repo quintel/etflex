@@ -95,10 +95,10 @@ class exports.SceneNav extends Backbone.View
   id: 'main-nav'
 
   events:
-    'click ul.scene-nav a':        'handleClick'
-    'click .main-nav-pulldown a':  'deactivate'
-    'clickoutside':                'deactivate'
-    'click ul a[:data-modal-key]': 'showModalMessage'
+    'click ul.scene-nav a':       'handleClick'
+    'click .main-nav-pulldown a': 'deactivate'
+    'clickoutside':               'deactivate'
+    'click ul a[data-modal-key]': 'showModalMessage'
 
   activeItem: null
 
