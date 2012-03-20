@@ -61,7 +61,6 @@ module ETFlex
 
     config.assets.precompile.push('modernizr-2.0.6.js')
     config.assets.precompile.push('backstage.css')
-    config.assets.precompile.push('pages.css')
     config.assets.precompile.push('backstage.js')
 
     # Version of your assets, change this if you want to expire all your
