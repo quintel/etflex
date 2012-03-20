@@ -82,10 +82,10 @@ nl:
 
   scenes:
     high_score:
-      header:       "Je hebt een hoge score!"
+      header:       "Je hebt de high score gehaald!"
       text: >-
-        Gefeliciteerd, uw selecties geresulteerd in een positief resultaat, en
-        je score is een van de hoogste. Hoe wilt u de naam op het scorebord?
+        Gefeliciteerd, jouw score is een van de hoogste!
+        Hoe wilt je je naam op het scorebord?
 
     etlite:
       savings:      "Besparingen"
