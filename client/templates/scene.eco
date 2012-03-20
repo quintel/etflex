@@ -26,7 +26,7 @@
     </ul>
   </div>
 
-  <div id="scores" class="full">
+  <div id="scores">
     <h2><%= I18n.t 'words.high_scores' %></h2>
     <div class="loading"><%= I18n.t 'words.loading' %></div>
   </div>

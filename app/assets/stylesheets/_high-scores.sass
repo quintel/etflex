@@ -1,7 +1,7 @@
 $score-metric-width: 110px
 // Lists of the highest scoring scenarios.
 
-#scores.full
+#scores
   background: image-url('tile.gif')
   box-shadow: 0 0px 3px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2)
 
@@ -173,131 +173,6 @@ $score-metric-width: 110px
         a
           display: block
           padding: 21px 0 22px
-
-#scores.compact
-  background: white
-  border: 1px solid #ccc
-  border-bottom: none
-  border-radius: 4px 4px 0 0
-  // position: fixed
-  // bottom: 0px
-  // margin-left: 305px
-  width: 350px
-  z-index: 50
-
-  .position, .legend, .metric, .actions
-    display: none
-
-  .since
-    background: #eee
-    +background(linear-gradient(#f6f6f6, #e6e6e6))
-    border-bottom: 1px solid #bbb
-    border-left: 1px solid #bbb
-    border-right: 1px solid #bbb
-    display: block
-    float: left
-    font-size: 12px
-    margin: 11px -1px 0
-    padding: 6px 0 4px
-    text-shadow: 0 1px 0 white
-    width: 350px
-
-    a
-      margin-right: 8px
-
-      &:last-child
-        margin-right: 0
-
-      &.current
-        color: #444
-        -webkit-font-smoothing: auto
-
-        &:hover
-          cursor: default
-          text-decoration: none
-
-  h2
-    background: #86c07c
-    +background(linear-gradient(#a1d997, #6aa560))
-    box-shadow: inset 0 1px 0 #b5e1ae
-    border: 1px solid #528749
-    border-top-color: #66a25d
-    border-bottom-color: #3d6b36
-    border-radius: 4px 4px 0 0
-    color: white
-    font-size: 15px
-    margin: -1px -1px 0
-    padding: 10px 0
-    text-align: center
-    text-shadow: 0 -1px 0 #66a25d
-    -webkit-font-smoothing: antialiased
-
-  ol
-    list-style: none
-    margin: 0
-    padding: 0
-
-    li
-      border-bottom: 1px solid #ddd
-      clear: both
-      overflow: hidden
-
-      &:hover
-        background: #fff7d5
-        cursor: pointer
-
-      &:last-child
-        border-bottom: none
-
-  .score, .user
-    display: block
-    float: left
-    padding: 10px
-
-  .score
-    float: right
-    font-size: 16px
-    font-weight: bold
-    text-align: center
-    padding-top: 14px
-    width: 44px
-
-    &:after
-      display: block
-      color: #777
-      content: "points"
-      font-size: 11px
-      font-weight: normal
-
-  .user
-    overflow: hidden
-    text-overflow: ellipsis
-    padding-left: 15px
-    width: 250px
-
-    img
-      border-radius: 3px
-      float: left
-      margin-top: 3px
-      margin-right: 7px
-
-    .name, .you, time
-      display: block
-      float: left
-      width: 150px
-
-    .name, .you
-      font-size: 14px
-      padding-bottom: 1px
-      padding-top: 4px
-
-    .you
-      color: #469b45
-      font-weight: bold
-
-    time
-      font-size: 11px
-      color: #777
 
 // High Scores Overlay Popup Thing (TM) --------------------------------------
 
