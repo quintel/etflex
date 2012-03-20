@@ -14,7 +14,7 @@ nl:
         een zo hoog mogelijke score te krijgen. Je kan alleen nooit op nul
         uitkomen, omdat er ook veel uitstoot is die niet wordt bepaald door je
         schuifjes op deze pagina (denk aan vrachtauto's, de industrie,
-        enzovoorts). In de professionele versie van het ETM kun je dit getal 
+        enzovoorts). In de professionele versie van het ETM kun je dit getal
         wel lager krijgen.
 
     costs:
@@ -70,7 +70,7 @@ nl:
           In jouw scenario heb je nu nog 'maar' (Q:number_of_electric_cars)
           elektrische auto's. Als je meer elektrische auto's voorziet, probeer
           dan het percentage elektrische auto's te verhogen zonder dat er een
-          tekort aan stroom ontstaat."
+          tekort aan stroom ontstaat.
 
     city:
       name: "Futuristische Stad"
