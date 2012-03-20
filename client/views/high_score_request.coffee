@@ -48,6 +48,7 @@ class exports.HighScoreRequest extends Backbone.View
   show: ->
     @$el.hide()
     @$el.fadeIn 250
+    @$('#scenario-guest-name').focus()
 
   # Bound to the page keyUp event so that hitting escape removes the overlay.
   keyUpClose: (event) =>
