@@ -30,6 +30,20 @@ module.exports.enhance = (view) ->
   # Schedule another time update in 60s.
   _.delay refreshRelativeDates, 60000
 
+  # Add an XHR "loading" message displayed to the user when a request is
+  # pending.
+  unless $('#loading-notifier').length
+    loader = $ """
+      <div id='loading-notifier'>
+        #{ I18n.t 'words.loading' }&hellip;
+      </div>
+    """
+
+    loader.ajaxStart -> loader.stop().animate bottom:   '0px', 'fast'
+    loader.ajaxStop  -> loader.stop().animate bottom: '-36px', 'fast'
+
+    $('body').append loader
+
   true
 
 # Appends the modal dialog HTML to the page.

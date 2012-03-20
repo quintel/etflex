@@ -31,6 +31,5 @@
     <div class="loading"><%= I18n.t 'words.loading' %></div>
   </div>
 
-  <div id="loader"><%= I18n.t 'words.loading' %>&hellip;</div>
   <a href="#scores" id="score-notifier" data-navigate="noclient"><%= I18n.t 'scenes.high_score.header' %></a>
 </div>

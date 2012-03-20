@@ -52,10 +52,8 @@ class exports.HighScores extends Backbone.View
       @loadSince 7
 
     if @realtime
-      channel = app.pusher.subscribe "etflex-#{ app.env }"
-
-      channel.bind 'scenario.created', @scenarioNotification
-      channel.bind 'scenario.updated', @scenarioNotification
+      app.pusher.bind 'scenario.created', @scenarioNotification
+      app.pusher.bind 'scenario.updated', @scenarioNotification
 
     this
 
