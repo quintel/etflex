@@ -9,8 +9,7 @@ module.exports = (view) ->
 
   body.html view.render().el
 
-  if $.browser.msie and $.browser.version < 9.0
-    showLegacyBrowserWarning()
+  module.exports.enhance()
 
   body.removeClass 'message'
 
