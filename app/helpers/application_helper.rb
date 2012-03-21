@@ -15,4 +15,24 @@ module ApplicationHelper
       user:     JSON.parse(rendered_user)
     }.to_json
   end
+
+  def unsupported_browser?
+    not ETFlex.config.supported_browsers.include? user_agent
+  end
+
+  def user_agent
+    user_agent = request.env['HTTP_USER_AGENT']
+    return 'android' if user_agent =~ /Android/
+    return 'ipad' if user_agent =~ /iPad/    
+    return 'iphone' if user_agent =~ /iPhone/    
+    return 'firefox' if user_agent =~ /Firefox/
+    return 'chrome' if user_agent =~ /Chrome/
+    return 'safari' if user_agent =~ /Safari/
+    return 'opera' if user_agent =~ /Opera/
+    return 'ie9' if user_agent =~ /MSIE 9/
+    return 'ie8' if user_agent =~ /MSIE 8/
+    return 'ie7' if user_agent =~ /MSIE 7/
+    return 'ie6' if user_agent =~ /MSIE 6/
+  end
+
 end

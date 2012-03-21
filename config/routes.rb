@@ -37,6 +37,8 @@ ETFlex::Application.routes.draw do
   # A temporary page for viewing / testing what will become the root page.
   get '/lang/:locale', to: 'pages#lang'
 
+  get '/supported_browsers', to: 'pages#supported_browsers'
+
   root to: 'pages#root'
 
 end
