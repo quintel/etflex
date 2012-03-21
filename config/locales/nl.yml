@@ -85,7 +85,7 @@ nl:
       header:       "Je hebt de high score gehaald!"
       text: >-
         Gefeliciteerd, jouw score is een van de hoogste!
-        Hoe wilt je je naam op het scorebord?
+        Hoe wilt je je naam hebben op het scorebord?
 
     etlite:
       savings:      "Besparingen"
