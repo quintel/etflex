@@ -1,0 +1,26 @@
+#page-view.root
+  #core
+
+    = render 'theme_header'
+
+    %section#main
+
+      %h1 Why your browser is not (fully) supported...
+
+      %p
+        The ETM is a modern web application that tries to be available on as many
+        browsers as possible.
+        
+        Currently we support the following browsers and devices:
+
+      %ul
+        = raw ETFlex.config.supported_browsers.map{|b|"<li>#{b.humanize}</li>"}.join
+        
+      %p
+        If you encounter a bug on your browser, you can help us improve the
+        ETM-light by sending us the name of your browser with a description
+        (or screenshot) of what went wrong to: 
+        <a href="mailto:etm@quintel.com">etflex@quintel.com</a>.
+        
+      %p
+        Thank you very much, Quintel Intelligence

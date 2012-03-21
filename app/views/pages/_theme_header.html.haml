@@ -1,0 +1,20 @@
+- @icon_props = { car:                 %w[suv eco],
+                  city:                %w[medium small large],
+                  eco_buildings:       %w[green coal_dry],
+                  energy_sources:      %w[solar nuclear oil],
+                  geothermal_pipeline: %w[none geothermal pipeline],
+                  ground:              %w[green dry],
+                  solar_heater:        %w[none heater],
+                  turbines:            %w[wind coal] }
+
+#theme-header
+  %a#logo(href="/") Energy Transition Model light
+  .world{"data-prop-location" => "header"}
+    .plane
+    .sun
+    - @icon_props.each do |key, states|
+      .icon-prop{class: key.to_s.gsub(/_/,"-")}
+        - active_state = states.first
+        - states.each do |state|
+          %span.icon{ class: "#{state.gsub(/_/,'-')} #{active_state == state ? 'active' : 'inactive'}",
+                      style: ("display: none;" unless active_state == state ) }

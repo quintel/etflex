@@ -47,6 +47,8 @@ class exports.Main extends Backbone.Router
     'scenes':               'redirectToDefaultScene'
     'scenes/:id':           'showScene'
     'scenes/:sid/with/:id': 'showSceneWithScenario'
+    
+    'supported_browsers':   'doNothing'
 
     '*undefined':           'notFound'
 
@@ -72,6 +74,9 @@ class exports.Main extends Backbone.Router
     new StaticHeader( el: $('#theme-header') ).render()
 
     render.enhance()
+
+  # Keep silence when a static page needs to be rendered
+  doNothing: ->
 
   # A 404 Not Found page. Presents the user with a localised message guiding
   # them back to the front page.

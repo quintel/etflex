@@ -7,6 +7,8 @@ nl:
   etm: "Energietransitiemodel"
   etm_light: "Energietransitiemodel light"
   switch_to_this_language: "Nederlandse versie"
+  browser_warning: "Waarschuwing: je browser wordt niet (volledig) ondersteund"
+  more_info: "meer info"
 
   # Navigation Elements ------------------------------------------------------
 
