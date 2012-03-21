@@ -9,24 +9,12 @@ class exports.HighScoreRequest extends Backbone.View
     'submit form': 'commitName'
 
   render: ->
-    @$el.append require('templates/high_score_request')
+    @$el.html require('templates/high_score_request')
       name: app.user.name or @model.get('guestName')
 
+    @delegateEvents()
+
     this
-
-  # Inserts the contents of the view into the given element, and then fades
-  # the overlay into view.
-  renderInto: (element) ->
-    element.append @render().el
-
-    # Immediately close if the user hits escape.
-    $('html').on 'keyup', @keyUpClose
-
-    # Close if the user click outside the modal message. This isn't working
-    # when in the events hash.
-    @$('.overlay-content').on 'clickoutside', @close
-
-    @show()
 
   # Callback triggered upon submission of the username form. Updates the
   # scenario with the name chosen by the user.
@@ -36,16 +24,28 @@ class exports.HighScoreRequest extends Backbone.View
     if name?.length
       @model.set guestName: name
       @model.save()
-    else
-      # User wants to remain anonymous. Don't ask again for their name.
-      @model.stayAnonymous = true
 
     @close()
     event.preventDefault()
 
   # Shows the overlay message, fading it into view. This presumes that the
   # element has already been added to the DOM.
-  show: ->
+  #
+  # If the user has previously entered a name (or opted to stay anonymous),
+  # the name prompt won't be shown unless the "force" argument is true.
+  show: (force) ->
+    return true if @alreadyPrompted and force isnt true
+    return true if @$el.is(':visible')
+
+    @options.into.append @render().el
+
+    # Immediately close if the user hits escape.
+    $('html').on 'keyup', @keyUpClose
+
+    # Close if the user click outside the modal message. This isn't working
+    # when in the events hash.
+    @$('.overlay-content').on 'clickoutside', @close
+
     @$el.hide()
     @$el.fadeIn 250
     @$('#scenario-guest-name').focus()
@@ -57,5 +57,7 @@ class exports.HighScoreRequest extends Backbone.View
   # Closes the overlay message, removing it from the DOM after the animation
   # has completed.
   close: =>
+    @alreadyPrompted = true
+
     $('html').off 'keyup', @keyUpClose
     @$el.fadeOut 350, => @remove()

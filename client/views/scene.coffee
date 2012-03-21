@@ -131,7 +131,7 @@ class exports.SceneView extends Backbone.View
   #
   clickScoreNotifier: (event) ->
     $.scrollTo('#scores', offset: { top: -20 }, duration: 350)
-    @requestScenarioGuestName()
+    @requestScenarioGuestName(true)
 
     event.stopPropagation()
     event.preventDefault()
@@ -143,9 +143,13 @@ class exports.SceneView extends Backbone.View
   # will always trigger for guests (allowing them to change the name if
   # they want).
   #
-  requestScenarioGuestName: ->
+  requestScenarioGuestName: (force) ->
     if app.user.isGuest or app.user.name.length is 0
-      new HighScoreRequest(model: @model.scenario).renderInto $ 'body'
+      @highScoreRequest or= new HighScoreRequest
+        model: @model.scenario
+        into:  $ 'body'
+
+      @highScoreRequest.show force
 
   # RENDERING STEPS ----------------------------------------------------------
 
