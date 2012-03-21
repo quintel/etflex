@@ -4,11 +4,12 @@
     %title= I18n.t "etm_light"
 
     = stylesheet_link_tag 'application'
+    = javascript_include_tag 'modernizr-2.0.6.js'
     = csrf_meta_tags
 
-    %meta(name="viewport" content="width=device-width, initial-scale=0.8, minimum-scale=0.8")
+    %meta(name="viewport" content="width=1100")
 
-  %body#minimal.message
+  %body.message
     = yield
 
   // These go at the end so that loading JS doesn't block the page load...
@@ -16,4 +17,4 @@
   = javascript_include_tag 'http://js.pusher.com/1.11/pusher.min.js'
 
   :javascript
-    require('app').minimal(window, #{ client_options })
+    require('app').boot(window, #{ client_options })

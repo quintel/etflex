@@ -12,8 +12,6 @@ module ETFlex
     included do
       before_filter :restrict_html_to_get
 
-      layout 'client'
-
       respond_to :html, except: [ :create, :update, :destroy ]
       respond_to :json
     end
