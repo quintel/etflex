@@ -40,7 +40,7 @@ module.exports.enhance = (view) ->
     """
 
     loader.ajaxStart -> loader.stop().animate bottom:   '0px', 'fast'
-    loader.ajaxStop  -> loader.stop().animate bottom: '-36px', 'fast'
+    loader.ajaxStop  -> loader.stop().animate bottom: '-37px', 'fast'
 
     $('body').append loader
 
