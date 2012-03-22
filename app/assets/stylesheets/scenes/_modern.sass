@@ -255,9 +255,7 @@
 
     .legend
       -webkit-font-smoothing: antialiased
-      -webkit-transform: rotate(270deg)
-      -moz-transform: rotate(270deg)
-      -ms-transform: rotate(270deg)
+      +transform(rotate(270deg))
       left: 41px
       bottom: 85px
       color: white
@@ -316,6 +314,7 @@
         width: 110px
 
         // Enables smooth animation of the needle when it changes.
+        -o-transition:      -o-transform      0.5s
         -ms-transition:     -ms-transform     0.5s
         -moz-transition:    -moz-transform    0.5s
         -webkit-transition: -webkit-transform 0.5s
