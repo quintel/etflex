@@ -1,3 +1,8 @@
+# Indicates whether the "refreshRelativeDates" interval has been set up. We
+# only want to do this once per page load, otherwise subsequent calls to
+# render.enhance() will add additional intervals each time.
+datesInitialized = false
+
 # A simple helper method which renders a view and replaces the <body> element
 # contents with the view's element.
 #
@@ -25,7 +30,11 @@ module.exports.enhance = (view) ->
     showLegacyBrowserWarning()
 
   # Schedule another time update in 60s.
-  _.delay refreshRelativeDates, 60000
+  datesInitialized or= _.delay refreshRelativeDates, 60000
+
+  # The body.message class displays a splash page informing the user that the
+  # application is being loaded; remove it.
+  $('body').removeClass 'message'
 
   # Add an XHR "loading" message displayed to the user when a request is
   # pending.
