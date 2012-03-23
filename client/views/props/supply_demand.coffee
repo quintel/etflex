@@ -66,6 +66,9 @@ class exports.SupplyDemandView extends Backbone.View
     degrees =  84 if degrees >  84
     degrees = -84 if degrees < -84
 
+    unless Modernizr.csstransforms
+      @positionLegacyNeedle degrees
+
     @$('.gauge .needle')
       .css('-moz-transform', "rotate(#{degrees}deg)")
       .css('-webkit-transform', "rotate(#{degrees}deg)")
@@ -120,3 +123,24 @@ class exports.SupplyDemandView extends Backbone.View
       else
         overlay.hide()
         message.removeClass 'warning'
+
+  # Older browsers do not support CSS transforms, so we have to use a sprite
+  # of the needle in different positions. We choose a sprite position based on
+  # the number of degrees at which the needle should be displayed.
+  #
+  positionLegacyNeedle: (degrees) ->
+    abs       = Math.abs degrees
+    direction = if degrees >= 0 then 'pos' else 'neg'
+
+    if abs > 74
+      sprite = "#{ direction }-85"
+    else if abs > 52.5
+      sprite = "#{ direction }-63"
+    else if abs > 31.5
+      sprite = "#{ direction }-42"
+    else if abs > 10.5
+      sprite = "#{ direction }-21"
+    else
+      sprite = 'zero'
+
+    @$('.needle').attr 'class', "needle #{ sprite }"
