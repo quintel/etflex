@@ -10,7 +10,8 @@
     %meta(name="viewport" content="width=1100")
 
   %body.message
-    = yield
+    #master-content
+      = yield
 
   // These go at the end so that loading JS doesn't block the page load...
   = javascript_include_tag 'application'
