@@ -31,6 +31,10 @@ class exports.SupplyDemandView extends Backbone.View
   render: =>
     @$el.html supplyDemandTpl()
 
+    # unless Modernizr.csstransforms
+    @$el.addClass 'legacy'
+    @$el.addClass I18n.locale
+
     @redrawSupply false
     @redrawDemand false
 
