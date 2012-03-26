@@ -156,7 +156,7 @@
       padding: 0 9px
 
       .info
-        @extend .clearfix
+        +pie-clearfix
 
         .label
           float: left
@@ -165,8 +165,7 @@
           .label-text
             display: inline-block
             max-width: 194px
-            overflow: hidden
-            text-overflow: ellipsis
+            line-height: 1
             white-space: nowrap
 
         .value
@@ -402,7 +401,7 @@
       text-decoration: none
 
       &:active
-        background-position: 0 -16px
+        background-position: 0 -66px
 
     &.co2-emissions .icon
       background-image: image-url("scenes/modern/icons/polar-bear.png")
