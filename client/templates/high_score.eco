@@ -1,33 +1,36 @@
 <span class="position">#n</span>
-<span class="score"><%= @score %></span>
 
-<span class="user">
-  <img width="35" height="35" src="<%= @imageUrl %>" alt="User Avatar" />
+<div class="details">
+  <span class="score"><%= @score %></span>
 
-  <% if @isMine: %>
-    <span class="you" title="<%= I18n.t "words.you" %>"><%= @user %></span>
-  <% else: %>
-    <span class="name"><%= @user %></span>
-  <% end %>
+  <span class="user">
+    <img width="35" height="35" src="<%= @imageUrl %>" alt="User Avatar" />
 
-  <time></time>
-</span>
+    <% if @isMine: %>
+      <span class="you" title="<%= I18n.t "words.you" %>"><%= @user %></span>
+    <% else: %>
+      <span class="name"><%= @user %></span>
+    <% end %>
 
-<span class="metric emissions">
-  <span class="graph"><span class="bar"></span></span>
-  <span class="value"></span>
-</span>
+    <time></time>
+  </span>
 
-<span class="metric renewables">
-  <span class="graph"><span class="bar"></span></span>
-  <span class="value"></span>
-</span>
+  <span class="metric emissions">
+    <span class="graph"><span class="bar"></span></span>
+    <span class="value"></span>
+  </span>
 
-<span class="metric costs">
-  <span class="graph"><span class="bar"></span></span>
-  <span class="value"></span>
-</span>
+  <span class="metric renewables">
+    <span class="graph"><span class="bar"></span></span>
+    <span class="value"></span>
+  </span>
 
-<span class="actions">
-  <a href="<%= @href %>" data-navigate="noclient" title="View this high score">View</a>
-</span>
+  <span class="metric costs">
+    <span class="graph"><span class="bar"></span></span>
+    <span class="value"></span>
+  </span>
+
+  <span class="actions">
+    <a href="<%= @href %>" data-navigate="noclient" title="View this high score">View</a>
+  </span>
+</div>
