@@ -1,3 +1,5 @@
+{ LoadingGrowl, ENABLE_GROWL } = require 'views/growl'
+
 # Indicates whether the "refreshRelativeDates" interval has been set up. We
 # only want to do this once per page load, otherwise subsequent calls to
 # render.enhance() will add additional intervals each time.
@@ -38,17 +40,17 @@ module.exports.enhance = (view) ->
 
   # Add an XHR "loading" message displayed to the user when a request is
   # pending.
-  unless $('#loading-notifier').length
-    loader = $ """
+  unless $('#loading-notifier').length or not ENABLE_GROWL
+    loader = new LoadingGrowl $ """
       <div id='loading-notifier'>
         #{ I18n.t 'words.loading' }&hellip;
       </div>
     """
 
-    loader.ajaxStart -> loader.stop().animate bottom:   '0px', 'fast'
-    loader.ajaxStop  -> loader.stop().animate bottom: '-37px', 'fast'
+    $('body').append loader.$el
 
-    $('body').append loader
+    loader.$el.ajaxStart loader.show
+    loader.$el.ajaxStop  loader.hide
 
   true
 

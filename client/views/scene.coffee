@@ -9,6 +9,7 @@ badgeTempl           = require 'templates/badge'
 { SceneNav }         = require 'views/scene_nav'
 { HighScores }       = require 'views/high_scores'
 { HighScoreRequest } = require 'views/high_score_request'
+{ HighScoreGrowl }   = require 'views/growl'
 
 { getProp }          = require 'views/props'
 { clientNavigate }   = require 'lib/client_navigate'
@@ -213,7 +214,7 @@ class exports.SceneView extends Backbone.View
   #
   initHighScores: ->
     highScores = new HighScores {}
-    notifier   = new Notifier @$('#score-notifier')
+    notifier   = new HighScoreGrowl @$('#score-notifier')
 
     @$('#scores').html highScores.render().el
 
@@ -255,15 +256,3 @@ class exports.SceneView extends Backbone.View
     googleLink = "http://plusone.google.com/_/+1/confirm?hl=en&url=#{link}"
     @$('#social-media .google a').attr('href', googleLink)
 
-# Handles the "You got a high score" notification message.
-class Notifier
-  # Expects a single argument; the notifier DOM element.
-  constructor: (@el) -> @$el = $ @el
-
-  show: ->
-    if @$el.css('bottom') is '-38px'
-      @$el.animate bottom: '0px', 350, 'easeInOutCubic'
-
-  hide: ->
-    if @$el.css('bottom') is '0px'
-      @$el.animate bottom: '-38px', 350, 'easeInOutCubic'
