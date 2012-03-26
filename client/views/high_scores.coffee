@@ -144,8 +144,8 @@ class exports.HighScores extends Backbone.View
 
   # Sets how far back we should go when retrieving high scores.
   #
-  # Days may be 1, 7, or "alltime". Note that setSince is asynchronous and
-  # only applies the change after successful completion of an XHR request.
+  # Days may be 1, 7. Note that setSince is asynchronous and only applies the
+  # change after successful completion of an XHR request.
   #
   loadSince: (days, callback) ->
     jQuery.getJSON("/scenarios/since/#{ days }.json")
