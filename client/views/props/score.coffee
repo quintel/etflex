@@ -54,9 +54,9 @@ class exports.ScoreView extends DashboardProp
     if 0 <= stringScore.length < 3
       stringScore = "0" + stringScore until stringScore.length is 3
 
-    @updateMultiple 'ones',     stringScore[2]
-    @updateMultiple 'tens',     stringScore[1]
-    @updateMultiple 'hundreds', stringScore[0]
+    @updateMultiple 'ones',     stringScore.substr 2, 1
+    @updateMultiple 'tens',     stringScore.substr 1, 1
+    @updateMultiple 'hundreds', stringScore.substr 0, 1
 
     score
 
