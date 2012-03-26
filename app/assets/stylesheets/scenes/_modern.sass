@@ -395,11 +395,11 @@
     position: relative
 
     .value
-      padding-left: 23px
       background: image-url("range-help.png") no-repeat 0 4px
       color: inherit
-      text-decoration: none
       cursor: pointer
+      padding-left: 23px
+      text-decoration: none
 
       &:active
         background-position: 0 -16px
@@ -417,6 +417,10 @@
 
       &.extreme
         background-position: -600px 0
+
+      sub
+        line-height: 0
+        zoom: 1
 
     &.renewables .icon
       background-image: image-url("scenes/modern/icons/tree.png")
