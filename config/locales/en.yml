@@ -7,8 +7,8 @@ en:
   etm: "Energy Transition Model"
   etm_light: "Energy Transition Model light"
   switch_to_this_language: "English version"
-  browser_warning: "Warning: Your browser is not (fully) supported"
-  more_info: "more info"
+  browser_warning: "Warning: Your browser is not fully supported"
+  more_info: "More info"
 
   # Navigation Elements ------------------------------------------------------
 
