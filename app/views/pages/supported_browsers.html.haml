@@ -20,7 +20,7 @@
             Currently we support the following browsers and devices:
 
           %ul
-            = raw ETFlex.config.supported_browsers.map{|b|"<li>#{b.humanize}</li>"}.join
+            = raw ETFlex.config.supported_browsers.sort.map{ |b| "<li>#{ b.humanize }</li>" }.join
 
           %p
             If you encounter a bug on your browser, you can help us improve the
