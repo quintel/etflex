@@ -1,9 +1,7 @@
 module ApplicationHelper
-  # The options hash used to configure the Backbone client. Provides the
-  # locale, API url, etc.
+  # Public: The configuration hash for the Backbone client.
   #
-  # Returns a string with the JSON.
-  #
+  # Returns a string representation of the JSON.
   def client_options
     user_partial  = if user_signed_in? then 'user' else 'guest' end
     rendered_user = render partial: "embeds/#{user_partial}",
@@ -16,23 +14,35 @@ module ApplicationHelper
     }.to_json
   end
 
-  def unsupported_browser?
-    not ETFlex.config.supported_browsers.include? user_agent
+  # Public: Returns if the user browser is one we support.
+  #
+  # Unsupported browsers may still use the site, but will have a message
+  # displayed.
+  #
+  # Returns true or false.
+  def supported_browser?
+    ETFlex.config.supported_browsers.include? user_agent
   end
 
+  # Public: A simplified version of the browser UserAgent.
+  #
+  # Some devices which may have the same OS/browser versions are
+  # differentiated (e.g. iPhone, iPad) since their lower resolutions are not
+  # yet fully supported by ET-Flex.
+  #
+  # Returns a string.
   def user_agent
-    user_agent = request.env['HTTP_USER_AGENT']
-    return 'android' if user_agent =~ /Android/
-    return 'ipad' if user_agent =~ /iPad/    
-    return 'iphone' if user_agent =~ /iPhone/    
-    return 'firefox' if user_agent =~ /Firefox/
-    return 'chrome' if user_agent =~ /Chrome/
-    return 'safari' if user_agent =~ /Safari/
-    return 'opera' if user_agent =~ /Opera/
-    return 'ie9' if user_agent =~ /MSIE 9/
-    return 'ie8' if user_agent =~ /MSIE 8/
-    return 'ie7' if user_agent =~ /MSIE 7/
-    return 'ie6' if user_agent =~ /MSIE 6/
+    case request.env['HTTP_USER_AGENT']
+      when /MSIE (\d+)/ then "ie#{ $1 }"
+      when /Chrome/     then 'chrome'
+      when /Firefox/    then 'firefox'
+      when /iPhone/     then 'iphone'
+      when /iPad/       then 'ipad'
+      when /Android/    then 'android'
+      when /Safari/     then 'safari'
+      when /Opera/      then 'opera'
+      else                   'unknown'
+    end
   end
 
 end

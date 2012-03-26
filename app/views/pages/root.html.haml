@@ -1,6 +1,6 @@
 - # DEBT: Move this definition to controller...
 
-- if unsupported_browser?
+- unless supported_browser?
   = render 'browser_warning'
 
 #page-view.root

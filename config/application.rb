@@ -78,6 +78,8 @@ module ETFlex
     config.etflex.api_url = 'http://et-engine.com/api/v2'
 
     # A list of supported browsers
-    config.etflex.supported_browsers = %w( firefox ie10 ie9 ie8 chrome safari ipad opera )
+    config.etflex.supported_browsers = %w(
+      ie9 ie8 ie10 chrome firefox chrome ipad safari opera
+    ).freeze
   end
 end
