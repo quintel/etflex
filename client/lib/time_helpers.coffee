@@ -7,7 +7,7 @@
 # Unix second-since-epoch, string, etc.
 #
 exports.relativeTime = (date) ->
-  date     = moment date
+  date     = moment I18n.parseDate(date)
 
   json     = date.format 'YYYY-MM-DDTHH:mm:ssZZ'
   readable = date.format 'LLL'
