@@ -31,6 +31,8 @@ class exports.ScoreView extends DashboardProp
   #
   render: ->
     super =>
+      @$el.find('.icon').remove()
+
       @$el.prepend """
         <div class='icon-prop'>
           <span class='icon'>
