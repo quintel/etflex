@@ -50,18 +50,16 @@ class ScenariosController < ApplicationController
   ######
 
   # JSON-only action which returns a list of high-scoring scenarios which have
-  # been updated within the previous :days. Days may also be the string
-  # "alltime" indicating that there should be no time limit.
+  # been updated within the previous :days.
   #
   # GET /scenarios/since/:days
   #
   def since
-    @scenarios =
-      case params[:days]
-        when '1', '7'  then Scenario.since(params[:days].to_i.days.ago)
-        when 'alltime' then Scenario.scoped
-        else                raise ActiveRecord::RecordNotFound
-      end
+    if params[:days].match(/\A\d+\Z/)
+      @scenarios = Scenario.since(params[:days].to_i.days.ago)
+    else
+      return head :bad_request
+    end
 
     # We need to select twice as many scenarios as are actually displayed; if
     # a scenario currently in the top five is demoted, we need the next

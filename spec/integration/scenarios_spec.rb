@@ -231,4 +231,34 @@ describe 'Scenarios' do
     end
 
   end # Retrieving a scenario (api)
+
+  describe 'summaries', api: true do
+    let!(:summary) do
+      create(:guest_scenario).tap { |s| s.touch }
+    end
+
+    context 'with an integer-like :days param' do
+      before { visit '/scenarios/since/6' }
+
+      it 'should be 200' do
+        page.status_code.should eql(200)
+      end
+
+      it 'should include the summary' do
+        json = JSON.parse(page.source)
+
+        json.should have(1).member
+        json[0].should include('session_id' => summary.session_id)
+      end
+    end # with an integer-like :days param
+
+    context 'with a non-integer :days param' do
+      before { visit '/scenarios/since/2012-03-26' }
+
+      it 'should be 400' do
+        page.status_code.should eql(400)
+      end
+    end # with a non-integer :days param
+  end # summaries
+
 end # Scenarios
