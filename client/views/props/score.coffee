@@ -48,7 +48,7 @@ class exports.ScoreView extends DashboardProp
   # without re-rendering the whole view.
   #
   updateValues: =>
-    score       = 17
+    score       = super
     stringScore = "#{score}"
 
     if 0 <= stringScore.length < 3
