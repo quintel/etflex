@@ -1,6 +1,10 @@
 class PagesController < ApplicationController
   helper ScenesHelper
 
+  # Supported browser page breaks otherwise in non-pushState browsers if we
+  # use the application layout.
+  layout false, only: 'supported_browsers'
+
   # The root page.
   #
   # GET /
