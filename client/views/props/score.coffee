@@ -48,10 +48,10 @@ class exports.ScoreView extends DashboardProp
   # without re-rendering the whole view.
   #
   updateValues: =>
-    score       = super
+    score       = 17
     stringScore = "#{score}"
 
-    if 0 >= stringScore.length < 3
+    if 0 <= stringScore.length < 3
       stringScore = "0" + stringScore until stringScore.length is 3
 
     @updateMultiple 'ones',     stringScore[2]
