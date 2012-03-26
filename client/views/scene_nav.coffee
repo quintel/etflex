@@ -63,6 +63,7 @@ renderSettings = (nav) ->
 # Renders the contents of the user menu.
 renderUser = ->
   modalDialog = $('#modal-dialog')
+  modalDialog.addClass 'dark-nav'
 
   $('#modal-content', modalDialog).html userTemplate()
 
@@ -110,6 +111,7 @@ class exports.SceneNav extends Backbone.View
 
   showModalMessage: (event) ->
     modalDialog = $('#modal-dialog')
+    modalDialog.removeClass 'dark-nav'
     
     $('#modal-content', modalDialog).html I18n.t $(event.target).attr 'data-modal-key'
     
