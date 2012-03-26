@@ -12,12 +12,10 @@ class Growl
     @$el.remove() unless exports.ENABLE_GROWL
 
   show: =>
-    if @$el.css('bottom') is @height
-      @$el.animate bottom: '0px', 350, 'easeInOutCubic'
+    @$el.stop().animate bottom: '0px', 350, 'easeInOutCubic'
 
   hide: =>
-    if @$el.css('bottom') is '0px'
-      @$el.animate bottom: @height, 350, 'easeInOutCubic'
+    @$el.stop().animate bottom: @height, 350, 'easeInOutCubic'
 
 # Shown on the scene page whenever the user has a high score.
 class exports.HighScoreGrowl extends Growl
