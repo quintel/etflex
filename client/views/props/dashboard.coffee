@@ -48,7 +48,7 @@ class exports.DashboardProp extends GenericProp
     value     = @query.mutated 'future'
     previous  = @query.mutated 'future', 'previous'
 
-    @$('.output').html @query.formatted 'future'
+    @$('.value .output').html @query.formatted 'future'
     @setDifference value - previous
 
     value
@@ -62,10 +62,10 @@ class exports.DashboardProp extends GenericProp
   setDifference: (difference, options) ->
     options or= { precision: 1, strip_insignificant_zeros: true }
 
-    element = @$el.find '.difference'
+    element = @$ '.difference .output'
 
     # Clear out other classes by default
-    element.attr class: 'difference'
+    element.attr class: 'output'
 
     # The locale-formatted difference.
     formatted  = I18n.toNumber difference, options
