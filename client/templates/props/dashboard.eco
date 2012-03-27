@@ -1,7 +1,10 @@
 <div class="icon"></div>
 
-<span class="help value <% if @lowerBetter: %>lower-better<% end %>">
+<span class="help value">
   <span class="name"><%- @name %>:</span>
   <span class="output"><%- @value or '' %></span>
-  <span class="difference"></span>
+</span>
+
+<span class="difference <% if @lowerBetter: %>lower-better<% end %>">
+  <span class="output"></span>
 </span>

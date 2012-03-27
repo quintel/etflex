@@ -65,7 +65,6 @@
     // the slider groups.
     .dashboard
       @extend .clearfix
-      margin-bottom: 40px
 
       .prop
         float: left
@@ -110,17 +109,21 @@
         // "Up" and "down" arrows shown next to the values on dashboard props.
 
         .difference
+          display: block
+          margin-top: 2px
           white-space: nowrap
 
-          &.down, &.up
-            background: image-url("scenes/modern/icons/arrows.png") top left no-repeat
+          .output
             padding: 1px 0 1px 20px
 
-          &.down
+          .down, .up
+            background: image-url("scenes/modern/icons/arrows.png") top left no-repeat
+
+          .down
             // red down
             background-position: 0 0
 
-          &.up
+          .up
             // green up
             background-position: 0 -60px
 
