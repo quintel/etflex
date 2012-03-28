@@ -17,8 +17,10 @@ class exports.HighScores extends Backbone.View
 
   # Provide HighScores with a ScenarioSummaries collection in the options
   # hash.
-  constructor: ({ @collection, @show, @style, @realtime }) ->
+  constructor: ({ @collection, @show, @style, @realtime, scenario }) ->
     super
+
+    @scenario = scenario.id
 
     # Show, by default, the five highest scores.
     @show  or= 10
@@ -87,6 +89,10 @@ class exports.HighScores extends Backbone.View
 
     for scenario in @collection.models[ 0...@show ]
       @summaryUpdated scenario, null, false
+
+    # Grey out the current scenario.
+    if @scenario
+      @$("li#high-score-#{ @scenario }").addClass 'current'
 
     @animate = true
 
