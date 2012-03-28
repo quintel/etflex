@@ -1,8 +1,6 @@
 app                  = require 'app'
 
-api                  = require 'lib/api'
 template             = require 'templates/scene'
-scenarioTempl        = require 'templates/scenario'
 badgeTempl           = require 'templates/badge'
 
 { RangeView }        = require 'views/range'
@@ -28,6 +26,15 @@ class exports.SceneView extends Backbone.View
   events:
     'click a':                clientNavigate
     'click #score-notifier': 'clickScoreNotifier'
+
+  # Public: Creates a new SceneView.
+  #
+  # SceneView renders the current only scene in ET-Flex -- the supply and
+  # demand scene. It expects a Scene object which determines the structure of
+  # the scene (inputs, props, etc), and a Scenario which has the keeps track
+  # of the values.
+  #
+  constructor: ({ @scenario }) -> super
 
   # Creates the HTML elements for the view, and binds events. Returns self.
   #
@@ -147,7 +154,7 @@ class exports.SceneView extends Backbone.View
   requestScenarioGuestName: (force) ->
     if app.user.isGuest or app.user.name.length is 0
       @highScoreRequest or= new HighScoreRequest
-        model: @model.scenario
+        model: @scenario
         into:  $ 'body'
 
       @highScoreRequest.show force
@@ -167,10 +174,10 @@ class exports.SceneView extends Backbone.View
   # the Quinn sliders.
   #
   renderInputs: ->
-    canChange      = @model.scenario.canChange(app.user)
+    canChange      = @scenario.canChange(app.user)
     inputLocations = @inputContainers()
 
-    for input in @model.inputs.models
+    for input in @scenario.inputs.models
       rangeView = new RangeView model: input, canChange: canChange
 
       rangeView.bind 'notAuthorizedToChange', @showNotAuthorizedModal
@@ -194,8 +201,8 @@ class exports.SceneView extends Backbone.View
       propView = @prop prop.behaviour,
         key:     prop.key
         hurdles: prop.hurdles
-        queries: @model.queries
-        region:  => @model.scenario.get('country')
+        queries: @scenario.queries
+        region:  => @scenario.get('country')
 
       # If the prop location doesn't exist in the template, the prop will not
       # rendered. This is intentional so that "hidden" props don't raise
@@ -206,7 +213,7 @@ class exports.SceneView extends Backbone.View
   # to navigate to other pages, view the scene on ET-Model, etc.
   #
   renderNavigation: ->
-    @$('#footer').before (new SceneNav model: @model).render().el
+    @$('#footer').before (new SceneNav model: @scenario).render().el
 
   # Fires up the high scores list, and monitors changes to the active list so
   # that we can inform the user if their scenario appear or disappears from
@@ -219,7 +226,7 @@ class exports.SceneView extends Backbone.View
     @$('#scores').html highScores.render().el
 
     highScores.on 'update', (summary, coll) =>
-      return false unless summary.get('session_id') is @model.scenario.id
+      return false unless summary.get('session_id') is @scenario.id
       return false unless summary.get('user_id') is app.user.id
 
       unless coll.isTopN(summary, highScores.show)
@@ -230,12 +237,12 @@ class exports.SceneView extends Backbone.View
       # when the site is inactive; there may be fewer than 10 items on the
       # score board, and without this check the high score request would be
       # shown as soon as the scene loads.
-      return false if @model.isDefault()
+      return false if @scenario.isDefault()
 
       notifier.show()
 
       # Don't prompt for a name if we already know one.
-      if summary.get('user_name')?.length or @model.scenario.stayAnonymous
+      if summary.get('user_name')?.length or @scenario.stayAnonymous
         return false
 
       @requestScenarioGuestName()
@@ -248,7 +255,7 @@ class exports.SceneView extends Backbone.View
   initShareLinks: ->
     link = encodeURIComponent(
       "http://etflex.et-model.com/scenes/" +
-      "#{ @model.id }/#{ @model.scenario.get('sessionId') }")
+      "#{ @model.id }/#{ @scenario.get('sessionId') }")
 
     # Facebook.
     fbLink = "http://www.facebook.com/sharer.php?u=#{link}&t=ETFlex"
