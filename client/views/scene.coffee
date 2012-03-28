@@ -220,7 +220,7 @@ class exports.SceneView extends Backbone.View
   # the list.
   #
   initHighScores: ->
-    highScores = new HighScores {}
+    highScores = new HighScores scenario: @scenario
     notifier   = new HighScoreGrowl @$('#score-notifier')
 
     @$('#scores').html highScores.render().el
