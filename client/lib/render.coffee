@@ -13,6 +13,10 @@ datesInitialized = false
 module.exports = (view) ->
   document.title = pageTitle view
 
+  # Forcefully scroll to the top, otherwise when the page is redrawn we
+  # find ourselves at a random position.
+  $.scrollTo 0 unless window.location.hash?.length
+
   $('#master-content').html view.render().el
 
   module.exports.enhance()

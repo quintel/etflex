@@ -179,10 +179,6 @@ class exports.HighScores extends Backbone.View
     scenarioId = parseInt listEl.attr('id').replace(/^high-score-/, ''), 10
 
     if scenario = @collection.get scenarioId
-      # Forcefully scroll to the top, otherwise when the scene is redrawn we
-      # find ourselves at a random position on the page.
-      $.scrollTo 0
-
       app.navigate scenario.get('href')
 
     return false
