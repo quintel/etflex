@@ -12,8 +12,8 @@ class exports.HighScores extends Backbone.View
   className: 'high-scoring-scenarios'
 
   events:
-    'click h2 a': 'changeDateLimit'
-    # 'click li':   'navigateToScenario'
+    'click h2 a':          'changeDateLimit'
+    'click li .actions a': 'navigateToScenario'
 
   # Provide HighScores with a ScenarioSummaries collection in the options
   # hash.
@@ -172,19 +172,20 @@ class exports.HighScores extends Backbone.View
   # the element directs the user to the scenario.
   #
   navigateToScenario: (event) =>
-    if @style is 'compact'
-      scenarioId = event.currentTarget.id.replace(/^high-score-/, '')
-      scenarioId = parseInt scenarioId, 10
+    event.preventDefault()
+    event.stopPropagation()
 
-      if scenario = @collection.get scenarioId
-        console.log "Would navigate to #{ scenario.get('href') }"
+    listEl     = $(event.currentTarget).parents('li')
+    scenarioId = parseInt listEl.attr('id').replace(/^high-score-/, ''), 10
 
-        # Navigation temporarily disabled until a view "destructor" is
-        # created so that we can properly remove the old scenario before
-        # starting the new one.
-        # app.navigate scenario.get('href')
+    if scenario = @collection.get scenarioId
+      # Forcefully scroll to the top, otherwise when the scene is redrawn we
+      # find ourselves at a random position on the page.
+      $.scrollTo 0
 
-      return false
+      app.navigate scenario.get('href')
+
+    return false
 
   # Private ------------------------------------------------------------------
 
