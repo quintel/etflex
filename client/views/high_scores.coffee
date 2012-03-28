@@ -20,7 +20,7 @@ class exports.HighScores extends Backbone.View
   constructor: ({ @collection, @show, @style, @realtime, scenario }) ->
     super
 
-    @scenario = scenario.id
+    @scenario = scenario?.id
 
     # Show, by default, the five highest scores.
     @show  or= 10
