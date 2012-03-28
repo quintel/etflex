@@ -22,7 +22,7 @@ class exports.Scenarios extends Backbone.Collection
   # callback - Function to be run after the scene is retrieved.
   #
   getOrFetch: (sceneId, id, callback) ->
-    if scenario = @get(id) then callback(scenario) else
+    if scenario = @get(id) then callback(null, scenario) else
       @add scenario = new Scenario(sessionId: id, scene: { id: sceneId })
 
       scenario.fetch
