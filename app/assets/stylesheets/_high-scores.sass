@@ -61,7 +61,7 @@ $score-metric-width: 100px
         top: 5px
 
       li
-        padding-bottom: 7px
+        padding: 4px 0
         overflow: hidden
 
       .position, .score, .user, .metric, .actions
@@ -177,12 +177,16 @@ $score-metric-width: 100px
           display: block
           padding: 23px 0 20px
 
-    li.current .actions a
-      color: #ccc
-      cursor: default
+    li.current .details
+      border-color: #84c17d
+      box-shadow: 0 0 3px 1px #b7dcb3
 
-      &:hover
-        text-decoration: none
+      .actions a
+        color: #ccc
+        cursor: default
+
+        &:hover
+          text-decoration: none
 
 // High Scores Overlay Popup Thing (TM) --------------------------------------
 
