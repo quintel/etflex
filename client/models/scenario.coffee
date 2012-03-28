@@ -2,6 +2,10 @@ app = require 'app'
 api = require 'lib/api'
 
 { createUser } = require 'models/user'
+{ getSession } = require 'lib/engine'
+
+{ Inputs }     = require 'collections/inputs'
+{ Queries }    = require 'collections/queries'
 
 # Scenario keeps track of a user's attempt to complete a scene. Holding on to
 # the scene ID, user ID, and the corresponding ET-Engine session ID, it allows
@@ -29,7 +33,7 @@ class exports.Scenario extends Backbone.Model
 
     "/scenes/#{ @get('scene').id }/with/#{ @get 'sessionId' }.json"
 
-  # Starts the scenario by fetching th ET-Engine session, then starting the
+  # Starts the scenario by fetching the ET-Engine session, then starting the
   # scene. The scene must already exist in the Scenes collection.
   #
   # callback - A function which will be run after the scenari has been set up.
@@ -37,7 +41,55 @@ class exports.Scenario extends Backbone.Model
   #            session instances.
   #
   start: (callback) ->
-    app.collections.scenes.get( @get('scene').id ).start this, callback
+    app.collections.scenes.get( @get('scene').id ).start this, (err, scene) =>
+      return callback(err) if err
+
+      @scene   or= scene
+      @queries or= new Queries({ id: id } for id in @scene.dependantQueries())
+      @inputs  or= new Inputs @scene.get('inputs')
+
+      isNewScenario = not @get('sessionId')?
+
+      # Fetch the ET-Engine session. This may return instantaneously if we
+      # already have all the data we need without having to send a request to
+      # the Engine.
+      getSession this, @queries, @inputs, (err, sessionId) =>
+        return callback(err) if err
+
+        @inputs.initializeBalancers()
+
+        this.set { sessionId }
+
+        # Required so that changes to inputs can be sent back to the Engine.
+        @inputs.persistTo this
+
+        # Watch for changes to the inputs and send them back to the Engine.
+        @inputs.on 'change:value', (input) => input.save {}, { @queries }
+
+        # Changes to the scenario end year or country need to be saved back
+        # to both ET-Flex and ET-Engine.
+        @on 'change', =>
+          if @hasChanged('endYear') or @hasChanged('country')
+            @saveSettings @queries if @canChange app.user
+
+        # Returns input value and query information to ET-Flex when results
+        # are received from ET-Engine.
+        @inputs.on 'updateInputsDone', =>
+          @updateCollections { @inputs, @queries } if @canChange app.user
+
+        callback null, scene, this
+
+        # New scenarios need to be saved back to the ET-Flex server.
+        @inputs.trigger 'updateInputsDone' if isNewScenario
+
+  # Returns if any of the inputs have been moved by the user.
+  isDefault: ->
+    # Ignore differences in hidden inputs used purely for balancing.
+    originals = _.filter @scene.get('inputs'), (orig) ->
+      orig.location isnt '$internal'
+
+    not _.any originals, (original) =>
+      original.start isnt @inputs.get(original.remoteId).get('value')
 
   # Given an inputs and queries collection, sets up events to track changes so
   # that we can persist the values back to ET-Flex.

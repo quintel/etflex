@@ -1,11 +1,7 @@
-app            = require 'app'
+app          = require 'app'
 
-{ getSession } = require 'lib/engine'
-{ getProp }    = require 'views/props'
-
-{ Inputs }     = require 'collections/inputs'
-{ Queries }    = require 'collections/queries'
-{ Scenario }   = require 'models/scenario'
+{ getProp }  = require 'views/props'
+{ Scenario } = require 'models/scenario'
 
 # Scenes are pages such as the ETlite recreation, which have one or more
 # inputs, fetch results from ETengine, and display these to the user.
@@ -16,12 +12,6 @@ class exports.Scene extends Backbone.Model
 
   # Returns the URL to the scene.
   url: -> "/scenes/#{ @id }.json"
-
-  constructor: ->
-    super
-
-    @inputs  = null
-    @queries = null
 
   # Starts the scene by fetching the ETengine session (if one already exists;
   # creates a new session otherwise).
@@ -37,47 +27,20 @@ class exports.Scene extends Backbone.Model
   #            session instance.
   #
   start: ([ scenario ]..., callback) ->
-    isNewScenario = false
-
     if scenario
       if scenario.get('scene').id isnt @id
-        throw 'Scenario scene ID does not match scene ID'
+        return callback """
+          Cannot start scene. The scenario scene ID does not match the scene
+          ID of the Scenario.
+        """
+
+      # If scenario is passed in, the scenario has already been started.
+      callback null, this
     else
       scenario = new Scenario scene: _.clone(@attributes), user: app.user
       app.collections.scenarios.add scenario
 
-      isNewScenario = true
-
-    @queries or= new Queries({ id: id } for id in @dependantQueries())
-    @inputs  or= new Inputs @get('inputs')
-
-    getSession scenario, @queries, @inputs, (err, sessionId) =>
-      if err? then callback(err) else
-        @inputs.initializeBalancers()
-
-        scenario.set { sessionId }
-
-        # Required so that changes to inputs can be sent back to ETEngine.
-        @inputs.persistTo scenario
-
-        # Watch for changes to the inputs, and send them back to ETEngine.
-        @inputs.on 'change:value', (input) => input.save {}, { @queries }
-
-        scenario.on 'change', =>
-          if scenario.hasChanged('endYear') or scenario.hasChanged('country')
-            scenario.saveSettings @queries if scenario.canChange app.user
-
-        # Returns input values and query information to ETFlex when received
-        # from ETEngine.
-        @inputs.on 'updateInputsDone', =>
-          if scenario.canChange app.user
-            scenario.updateCollections { @inputs, @queries }
-
-        callback null, this, @scenario = scenario
-
-        # New scenarios need to be saved back to the ETFlex server.
-        if isNewScenario
-          @inputs.trigger 'updateInputsDone'
+      scenario.start callback
 
   # Returns an array of query IDs used by the scene.
   #
@@ -93,14 +56,3 @@ class exports.Scene extends Backbone.Model
       ids.push ( getProp(prop.behaviour)::queries or [] )...
 
     _.uniq ids
-
-  # Returns if any of the inputs have been changed by the user. This really
-  # belongs in Scenario once the input collection is moved there.
-  #
-  isDefault: ->
-    # Ignore differences in hidden inputs used purely for balancing.
-    originals = _.filter @get('inputs'), (orig) ->
-      orig.location isnt '$internal'
-
-    not _.any originals, (original) =>
-      original.start isnt @inputs.get(original.remoteId).get('value')

@@ -28,7 +28,7 @@ itemNameFromEvent = (event) ->
 # Renders the contents of the information menu.
 renderInfo = ({ model }) ->
   infoTemplate
-    etmURL:   if model? then urlToScenarioOnETM(model.scenario)
+    etmURL:   if model? then urlToScenarioOnETM(model)
     about:    I18n.t('navigation.about')
     feedback: I18n.t('navigation.feedback')
     privacy:  I18n.t('navigation.privacy')
@@ -36,26 +36,24 @@ renderInfo = ({ model }) ->
 
 # Renders the contents of the settings menu.
 renderSettings = (nav) ->
-  scenario = nav.model.scenario
-
   element = $ settingsTemplate
-    country:           scenario.get('country')
-    endYear:           scenario.get('endYear')
-    showScore:         scenario.get('showScore')
+    country:           nav.model.get('country')
+    endYear:           nav.model.get('endYear')
+    showScore:         nav.model.get('showScore')
     locale:            I18n.locale
-    sceneId:           nav.model.id
+    sceneId:           nav.model.get('scene').id
     alternativeLocale: (if I18n.locale == 'nl' then 'en' else 'nl')
 
   year = $ '#change-end-year', element
-  year.on 'change', -> scenario.set endYear: year.val()
+  year.on 'change', -> nav.model.set endYear: year.val()
 
   country = $ '#change-country', element
-  country.on 'change', -> scenario.set country: country.val()
+  country.on 'change', -> nav.model.set country: country.val()
 
   showScore = $ '#show-score', element
   showScore.on 'change', ->
     hideOrShow = showScore.is(':checked')
-    scenario.set showScore: hideOrShow
+    nav.model.set showScore: hideOrShow
     $('#main-props .score').css('opacity': if hideOrShow then 1 else 0)
 
   element
@@ -112,9 +110,9 @@ class exports.SceneNav extends Backbone.View
   showModalMessage: (event) ->
     modalDialog = $('#modal-dialog')
     modalDialog.removeClass 'dark-nav'
-    
+
     $('#modal-content', modalDialog).html I18n.t $(event.target).attr 'data-modal-key'
-    
+
     modalDialog.reveal()
 
     event.preventDefault()
