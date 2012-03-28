@@ -5,12 +5,19 @@
 # render.enhance() will add additional intervals each time.
 datesInitialized = false
 
+# Holds on to the currently rendered view instance. May be nil if the most
+# recently displayed page was a static page which used render.enhance.
+currentView = null
+
 # A simple helper method which renders a view and replaces the <body> element
 # contents with the view's element.
 #
 # view - The view instance to be rendered and added to the body.
 #
 module.exports = (view) ->
+  # Destruct the old view, if present.
+  currentView?.destructor?()
+
   document.title = pageTitle view
 
   # Forcefully scroll to the top, otherwise when the page is redrawn we
@@ -23,6 +30,8 @@ module.exports = (view) ->
 
   module.exports.appendModalDialog()
   view.postRender?()
+
+  currentView = view
 
   true
 
@@ -55,6 +64,8 @@ module.exports.enhance = (view) ->
 
     loader.$el.ajaxStart loader.show
     loader.$el.ajaxStop  loader.hide
+
+  currentView = null
 
   true
 

@@ -36,6 +36,9 @@ class exports.SceneView extends Backbone.View
   #
   constructor: ({ @scenario }) -> super
 
+  # Called when a new page is to be shown, so that we may unbind events.
+  destructor: -> @highScores?.destructor()
+
   # Creates the HTML elements for the view, and binds events. Returns self.
   #
   # Example:
@@ -220,16 +223,16 @@ class exports.SceneView extends Backbone.View
   # the list.
   #
   initHighScores: ->
-    highScores = new HighScores scenario: @scenario
-    notifier   = new HighScoreGrowl @$('#score-notifier')
+    @highScores = new HighScores scenario: @scenario
+    notifier    = new HighScoreGrowl @$('#score-notifier')
 
-    @$('#scores').html highScores.render().el
+    @$('#scores').html @highScores.render().el
 
-    highScores.on 'update', (summary, coll) =>
+    @highScores.on 'update', (summary, coll) =>
       return false unless summary.get('session_id') is @scenario.id
       return false unless summary.get('user_id') is app.user.id
 
-      unless coll.isTopN(summary, highScores.show)
+      unless coll.isTopN(summary, @highScores.show)
         notifier.hide()
         return false
 
