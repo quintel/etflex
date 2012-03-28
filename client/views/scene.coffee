@@ -226,6 +226,12 @@ class exports.SceneView extends Backbone.View
         notifier.hide()
         return false
 
+      # Don't show if the inputs are unchanged from the defaults. This happens
+      # when the site is inactive; there may be fewer than 10 items on the
+      # score board, and without this check the high score request would be
+      # shown as soon as the scene loads.
+      return false if @model.isDefault()
+
       notifier.show()
 
       # Don't prompt for a name if we already know one.
