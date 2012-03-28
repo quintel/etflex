@@ -93,3 +93,14 @@ class exports.Scene extends Backbone.Model
       ids.push ( getProp(prop.behaviour)::queries or [] )...
 
     _.uniq ids
+
+  # Returns if any of the inputs have been changed by the user. This really
+  # belongs in Scenario once the input collection is moved there.
+  #
+  isDefault: ->
+    # Ignore differences in hidden inputs used purely for balancing.
+    originals = _.filter @get('inputs'), (orig) ->
+      orig.location isnt '$internal'
+
+    not _.any originals, (original) =>
+      original.start isnt @inputs.get(original.remoteId).get('value')
