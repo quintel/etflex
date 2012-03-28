@@ -38,6 +38,12 @@ class exports.HighScores extends Backbone.View
     # animating into place.
     @animate = true
 
+  # Unbinds listeners from Pusher.
+  destructor: ->
+    if @listElement and @realtime
+      app.pusher.unbind 'scenario.created', @scenarioNotification
+      app.pusher.unbind 'scenario.updated', @scenarioNotification
+
   # Renders a list containing the top five scoring scenarios. Presently render
   # is called each time the collection is changed regardless of whether the
   # top five have changed.
