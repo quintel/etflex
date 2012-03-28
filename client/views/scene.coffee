@@ -248,7 +248,7 @@ class exports.SceneView extends Backbone.View
       @requestScenarioGuestName()
 
   renderBadge: ->
-    $('body').append badgeTempl()
+    $('#master-content').append badgeTempl()
 
   # Sets up the social media "share" links.
   #
