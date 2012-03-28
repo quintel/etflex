@@ -57,7 +57,7 @@ module.exports.enhance = (view) ->
 # Appends the modal dialog HTML to the page.
 module.exports.appendModalDialog = ->
   # Add the modal dialog elements used by Reveal.
-  $('body').append $("""
+  $('#master-content').append $("""
     <div id="modal-dialog" class="reveal-modal">
       <div id="modal-content"></div>
       <a class="close-reveal-modal">&#215;</a>

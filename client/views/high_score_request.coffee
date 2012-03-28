@@ -42,7 +42,7 @@ class exports.HighScoreRequest extends Backbone.View
     # Try to position the modal box in the middle of the window (assumes the
     # box is ~270px high).
     @$('.overlay-content').css
-      marginTop: "#{ ( @options.into.height() - 270 ) / 2 }px"
+      marginTop: "#{ ( $(window).height() - 270 ) / 2 }px"
 
     # Immediately close if the user hits escape.
     $('html').on 'keyup', @keyUpClose
