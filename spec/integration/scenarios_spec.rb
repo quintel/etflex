@@ -198,7 +198,7 @@ feature 'Viewing scenarios', js: true do
 
   # --------------------------------------------------------------------------
 
-  scenario 'Visiting a scenario from another QI app', rescue: true, focus: true do
+  scenario 'Visiting a scenario from another QI app' do
     # Emulate a scenario which exists on another app by creating one on
     # ET-Engine, then removing the scenario record on ET-Flex.
     visit "/scenes/#{ scene.id }"
@@ -213,8 +213,7 @@ feature 'Viewing scenarios', js: true do
     # instead 404.
     visit "/scenes/#{ scene.id }/with/#{ scenario.session_id }"
 
-    # page.status_code.should eql(404)
-    page.should_not have_css('#left-inputs')
+    page.status_code.should eql(404)
   end
 end
 
