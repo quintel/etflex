@@ -29,6 +29,7 @@ exports.boot = (window, { locale, api, env, user }) ->
   I18n.fallbacks = no
 
   moment.lang locale
+  $('body').addClass locale
 
   # Pusher notifications.
   exports.pusher = new Pusher('415cc8feb622f665d49a').
