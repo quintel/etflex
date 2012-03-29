@@ -195,6 +195,27 @@ feature 'Viewing scenarios', js: true do
     # TODO Once we can test slider movement assert that the user cannot
     #      change the value of an input.
   end
+
+  # --------------------------------------------------------------------------
+
+  scenario 'Visiting a scenario from another QI app', rescue: true, focus: true do
+    # Emulate a scenario which exists on another app by creating one on
+    # ET-Engine, then removing the scenario record on ET-Flex.
+    visit "/scenes/#{ scene.id }"
+
+    # Wait until the scene has loaded.
+    page.should have_css('#left-inputs')
+
+    scenario = Scenario.last
+    scenario.destroy
+
+    # Visiting the scenario should *not* fetch data from ET-Engine, but
+    # instead 404.
+    visit "/scenes/#{ scene.id }/with/#{ scenario.session_id }"
+
+    # page.status_code.should eql(404)
+    page.should_not have_css('#left-inputs')
+  end
 end
 
 # ----------------------------------------------------------------------------

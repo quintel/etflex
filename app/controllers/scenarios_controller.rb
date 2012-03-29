@@ -80,8 +80,9 @@ class ScenariosController < ApplicationController
   # GET /scenes/:scene_id/with/:id
   #
   def show
-    @scenario   = Scenario.for_session *params.values_at(:scene_id, :id)
-    @scenario ||= new_scenario
+    unless @scenario = Scenario.for_session(*params.values_at(:scene_id, :id))
+      raise ActiveRecord::RecordNotFound
+    end
 
     respond_with @scenario
   end
