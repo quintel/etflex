@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 
   # RESCUES ------------------------------------------------------------------
 
-  rescue_from User::NotAuthorised do
+  rescue_from ActiveRecord::RecordNotFound, User::NotAuthorised do
     render file: Rails.root.join('public/404.html'),
            status: :not_found, layout: false
   end
