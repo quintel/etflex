@@ -157,7 +157,7 @@ class exports.SceneView extends Backbone.View
   # they want).
   #
   requestScenarioGuestName: (force) ->
-    if app.user.isGuest or app.user.name.length is 0
+    if app.user.isGuest or not app.user.name or app.user.name.length is 0
       @highScoreRequest or= new HighScoreRequest
         model: @scenario
         into:  $ '#master-content'

@@ -109,10 +109,10 @@ class exports.HighScores extends Backbone.View
   # visible, the existing UI will be updated.
   #
   summaryUpdated: (summary, ignore) =>
-    isVisible = _.include @visible, summary.id
-    isTopN    = @collection.isTopN  summary, @show
+    isVisible     = _.include @visible, summary.id
+    shouldDisplay = @collection.shouldDisplay summary, @show
 
-    if isVisible and not isTopN
+    if isVisible and not shouldDisplay
 
       # Was previously a top-five summary but now is not. Remove it, and
       # promote the the new #5 to be displayed.
@@ -120,7 +120,7 @@ class exports.HighScores extends Backbone.View
       @demote  summary
       @promote @collection.at @show - 1
 
-    else if isVisible and isTopN
+    else if isVisible and shouldDisplay
 
       # Was previously a top-five scenario, and still is.
       # element = @summaryEl summary.get 'session_id'
@@ -130,7 +130,7 @@ class exports.HighScores extends Backbone.View
       # values shown.
       @sortSummaryEl @rows[summary.id]
 
-    else if isTopN
+    else if shouldDisplay
 
       # Is a newly promoted score. Remove the previous #5 element if one was
       # present (there may not be a #5 if scenarioUpdated is being called from
@@ -201,8 +201,14 @@ class exports.HighScores extends Backbone.View
   # When the scenario guest name changes, we look for the row which
   # corresponds with the scenario, and change the users name.
   updateGuestName: =>
+    username   = @scenario.get('user')?.name or @scenario.get('guestName')
+    username or= I18n.t 'words.anonymous'
+
     currentEl = @summaryEl @scenario.id
-    currentEl.find('.name, .actual-name').text @scenario.get 'guestName'
+    currentEl.find('.name, .actual-name').text username
+
+    # Display the scenario if a name has been set.
+    @summaryUpdated @collection.get(@scenario.id)
 
   # Private ------------------------------------------------------------------
 
