@@ -9,8 +9,6 @@ class exports.HighScoreRequest extends Backbone.View
     'submit form': 'commitName'
 
   render: ->
-    console.log app.user.name or @model.get('guestName')
-
     @$el.html require('templates/high_score_request')
       name: app.user.name or @model.get('guestName')
 
