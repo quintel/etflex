@@ -11,8 +11,8 @@ class PagesController < ApplicationController
   #
   def root
     @alternative_locales = alternative_locales
-    @scenes = Scene.limit(10)
 
+    @scene            = Scene.first
     @high_scenarios   = Scenario.high_scores_since 7.days.ago
     @previous_attempt = Scenario.for_user(current_or_guest_user).last
   end
