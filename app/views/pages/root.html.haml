@@ -21,13 +21,25 @@
 
       = render partial: "landing_#{ I18n.locale }"
 
-      %section.buttons
-        %a.blue.launch{ href: "/scenes/1" }
-          = I18n.t 'scenes.etlite.landingButton'
+      %section.go
+        - if @previous_attempt
+          %span.buttons
+            %a.blue.launch{ href: scene_scenario_path(@scenes.first, @previous_attempt) }<>
+              == #{ t :'scenes.etlite.continue' }&hellip;
+
+          .start-over
+            == #{ t :'words.or' }:
+            %a{ href: "/scenes/1" }== #{ t :'scenes.etlite.startOver' }&hellip;
+
+        - else
+
+          %span.buttons
+            %a.blue.launch{ href: "/scenes/1" }<>
+              == #{ t :'scenes.etlite.landingButton' }&hellip;
 
       #scores
         %h2== #{ I18n.t 'words.high_scores' }:
-        .loading== #{ I18n.t 'words.loading' }...
+        .loading== #{ I18n.t 'words.loading' }&hellip;
 
     %footer
       %ul#partners

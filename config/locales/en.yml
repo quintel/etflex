@@ -56,6 +56,7 @@ en:
     ago:                ago
     anonymous:          Anonymous Visitor
     by:                 By
+    or:                 or
 
     high_scores:        High scores
     loading:            Loading
@@ -109,7 +110,9 @@ en:
       landingTitle:    "What does your <strong>%{future}</strong> look like?"
       landingFuture:   "Energy Future"
       landingSubtitle: "... and can you get high score?"
-      landingButton:   "Create your own future."
+      landingButton:   "Create your own future"
+      startOver:       "Start over"
+      continue:        "Continue playing"
 
   # Common content on scene pages --------------------------------------------
 

@@ -57,6 +57,7 @@ nl:
     ago:                geleden
     anonymous:          Anonieme Bezoeker
     by:                 Door
+    or:                 of
 
     high_scores:        High Scores
     loading:            Bezig met laden
@@ -110,7 +111,9 @@ nl:
       landingTitle:    "Hoe ziet jouw <strong>Energietoekomst</strong> er uit?"
       landingFuture:   "Energietoekomst"
       landingSubtitle: "... en kun je de hoogste score halen?"
-      landingButton:   "Maak je eigen toekomst!"
+      landingButton:   "Maak je eigen toekomst"
+      startOver:       "Opnieuw beginnen"
+      continue:        "Blijven spelen"
 
   # Common content on scene pages --------------------------------------------
 
