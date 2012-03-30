@@ -122,12 +122,8 @@ class exports.HighScores extends Backbone.View
 
     else if isVisible and shouldDisplay
 
-      # Was previously a top-five scenario, and still is.
-      # element = @summaryEl summary.get 'session_id'
-      # element.find('.score').text Math.round summary.get 'score'
-
-      # Move the element to its new position; the SummaryRow will update the
-      # values shown.
+      # Was previously a top-five scenario, and still is. Move the element to
+      # the new position; the SummaryRow will update the values shown.
       @sortSummaryEl @rows[summary.id]
 
     else if shouldDisplay
