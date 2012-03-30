@@ -17,10 +17,8 @@ class exports.HighScores extends Backbone.View
 
   # Provide HighScores with a ScenarioSummaries collection in the options
   # hash.
-  constructor: ({ @collection, @show, @style, @realtime, scenario }) ->
+  constructor: ({ @collection, @show, @style, @realtime, @scenario }) ->
     super
-
-    @scenario = scenario?.id
 
     # Show, by default, the five highest scores.
     @show  or= 10
@@ -40,9 +38,15 @@ class exports.HighScores extends Backbone.View
 
   # Unbinds listeners from Pusher.
   destructor: ->
-    if @listElement and @realtime
+    # There is nothing to destruct if the view has not been rendered.
+    return true unless @listElement
+
+    if @realtime
       app.pusher.unbind 'scenario.created', @scenarioNotification
       app.pusher.unbind 'scenario.updated', @scenarioNotification
+
+    if @scenario
+      @scenario.off 'change:guestName', @updateGuestName
 
   # Renders a list containing the top five scoring scenarios. Presently render
   # is called each time the collection is changed regardless of whether the
@@ -62,6 +66,9 @@ class exports.HighScores extends Backbone.View
     if @realtime
       app.pusher.bind 'scenario.created', @scenarioNotification
       app.pusher.bind 'scenario.updated', @scenarioNotification
+
+    # Update the high scores list when the user enters their name.
+    @scenario.on 'change:guestName', @updateGuestName if @scenario
 
     this
 
@@ -98,7 +105,7 @@ class exports.HighScores extends Backbone.View
 
     # Grey out the current scenario.
     if @scenario
-      @$("li#high-score-#{ @scenario }").addClass 'current'
+      @$("li#high-score-#{ @scenario.id }").addClass 'current'
 
     @animate = true
 
@@ -194,6 +201,12 @@ class exports.HighScores extends Backbone.View
       app.navigate scenario.get('href')
 
     return false
+
+  # When the scenario guest name changes, we look for the row which
+  # corresponds with the scenario, and change the users name.
+  updateGuestName: =>
+    currentEl = @summaryEl @scenario.id
+    currentEl.find('.name, .actual-name').text @scenario.get 'guestName'
 
   # Private ------------------------------------------------------------------
 

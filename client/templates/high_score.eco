@@ -9,7 +9,8 @@
     <% if @isMine: %>
       <span class="you" title="<%= I18n.t "words.you" %>">
         <span class="name-stretch">
-          <span class="name-tag"><%= I18n.t "words.you" %>!</span><%= @user %>
+          <span class="name-tag"><%= I18n.t "words.you" %>!</span>
+          <span class="actual-name"><%= @user %></span>
         </span>
       </span>
     <% else: %>
