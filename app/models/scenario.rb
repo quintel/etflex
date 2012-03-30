@@ -90,6 +90,25 @@ class Scenario < ActiveRecord::Base
       where 'updated_at > ?', time
     end
 
+    # Returns scenarios suitable for display in the high scores list.
+    #
+    # time - A Time or Date object. Scenarios which haven't been updated since
+    #        the time will be excluded from the returned collection.
+    #
+    # Raises an ArgumentError if time is nil.
+    #
+    def high_scores_since(time)
+      since(time).identified.by_score.
+        # We need to select twice as many scenarios as are actually displayed;
+        # if a scenario currently in the top five is demoted, we need the next
+        # highest so that it can be promoted in the UI. So, twice as many
+        # allows all of the top five to be demoted without the UI crapping out.
+        #
+        # In the real world, (number_shown) + 2 should be enough...
+        #
+        limit(20)
+    end
+
     # Selects the scenarios from the last 24 hours only
     #
     def last_24hours
