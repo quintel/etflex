@@ -390,7 +390,7 @@ class SummaryRow extends Backbone.View
       when '.renewables'
         formatted = I18n.toPercentage value, precision: 1
       when '.costs'
-        formatted = "#{ I18n.toCurrency value, precision: 1, unit: '€' }b"
+        formatted = "#{ I18n.toCurrency value, precision: 1, unit: '€' }B"
 
     container.find('.value').text formatted
 
