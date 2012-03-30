@@ -13,14 +13,7 @@ class PagesController < ApplicationController
     @alternative_locales = alternative_locales
     @scenes = Scene.limit(10)
 
-    # We need to select twice as many scenarios as are actually displayed; if
-    # a scenario currently in the top five is demoted, we need the next
-    # highest so that it can be promoted in the UI. So, twice as many allows
-    # all of the top five to be demoted without the UI crapping out.
-    #
-    # In the real world, (number_shown) + 2 should be enough...
-    #
-    @high_scenarios = Scenario.last_week.by_score.limit(20)
+    @high_scenarios = Scenario.high_scores_since 7.days.ago
   end
 
   # Changes the user language. The actual change will be handled by

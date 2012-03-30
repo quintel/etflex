@@ -55,21 +55,10 @@ class ScenariosController < ApplicationController
   # GET /scenarios/since/:days
   #
   def since
-    if params[:days].match(/\A\d+\Z/)
-      @scenarios = Scenario.since(params[:days].to_i.days.ago)
-    else
-      return head :bad_request
-    end
+    return head :bad_request unless params[:days].match(/\A\d+\Z/)
 
-    # We need to select twice as many scenarios as are actually displayed; if
-    # a scenario currently in the top five is demoted, we need the next
-    # highest so that it can be promoted in the UI. So, twice as many allows
-    # all of the top five to be demoted without the UI crapping out.
-    #
-    # In the real world, (number_shown) + 2 should be enough...
-    #
-    @scenarios = @scenarios.identified.by_score
-    @scenarios = @scenarios.limit(20).map(&:to_pusher_event)
+    @scenarios = Scenario.high_scores_since(params[:days].to_i.days.ago)
+    @scenarios = @scenarios.map(&:to_pusher_event)
 
     respond_with @scenarios
   end
