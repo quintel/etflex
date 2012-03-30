@@ -256,6 +256,41 @@ describe Scenario do
     end
   end
 
+  # IDENTIFIED ---------------------------------------------------------------
+
+  describe '.identified', focus: true do
+    let!(:named_user)   { create :user, name: 'Tobias Funke' }
+    let!(:unnamed_user) { create :user, name: nil }
+
+    let!(:named)     { create :scenario, user: named_user }
+    let!(:unnamed)   { create :scenario, user: unnamed_user }
+    let!(:explicit)  { create :scenario, user: unnamed_user, guest_name: 'Oscar Bluth' }
+    let!(:guest)     { create :guest_scenario, guest_name: 'G.O.B.' }
+    let!(:anonymous) { create :guest_scenario }
+
+    subject { Scenario.identified }
+
+    it 'should return scenarios belonging to named users' do
+      should include(named)
+    end
+
+    it 'should return guest scenarios which have a guest name' do
+      should include(guest)
+    end
+
+    it 'should return scenarios belong to unnamed users with a guest name' do
+      should include(explicit)
+    end
+
+    it 'should not return scenarios belonging to unnamed users' do
+      should_not include(unnamed)
+    end
+
+    it 'should not return scenarios belonging to anonymous guests' do
+      should_not include(anonymous)
+    end
+  end
+
   # SERIALIZE ATTRIBUTES -----------------------------------------------------
 
   describe '#input_values=' do

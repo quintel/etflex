@@ -32,6 +32,18 @@ class Scenario < ActiveRecord::Base
       where(scene_id: scene_id, session_id: session_id).first
     end
 
+    # Returns only scenarios which have either a guest name, or belong to a
+    # registered user who has set their name.
+    #
+    # LEFT JOIN is required as Rails defaults to an INNER JOIN which excludes
+    # all scenarios which do not have a user_id set.
+    #
+    def identified
+      joins('LEFT JOIN `users` ON `users`.`id` = `scenarios`.`user_id`').
+        where('`scenarios`.`guest_name` IS NOT NULL OR ' \
+              '`users`.`name` IS NOT NULL')
+    end
+
     # Returns scenarios which belong to the given user or guest. Handy when
     # chained onto a scene, for example:
     #
