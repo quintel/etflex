@@ -217,7 +217,7 @@ class exports.HighScores extends Backbone.View
     @visible.push summary.id
     @rows[summary.id] = new SummaryRow(model: summary).render()
 
-    if @scenario.id and @scenario.id is summary.id
+    if @scenario?.id and @scenario.id is summary.id
       @rows[summary.id].$el.addClass 'current'
 
     @sortSummaryEl @rows[ summary.id ]
