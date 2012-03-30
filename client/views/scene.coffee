@@ -37,7 +37,9 @@ class exports.SceneView extends Backbone.View
   constructor: ({ @scenario }) -> super
 
   # Called when a new page is to be shown, so that we may unbind events.
-  destructor: -> @highScores?.destructor()
+  destructor: ->
+    @highScores?.destructor()
+    @scenario.off 'change:guestName', @
 
   # Creates the HTML elements for the view, and binds events. Returns self.
   #
