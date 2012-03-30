@@ -69,7 +69,7 @@ class exports.Main extends Backbone.Router
     highScores = new HighScores collection: summaries
 
     $('#scores').html highScores.render().el
-    $('.buttons .launch').on 'click', clientNavigate
+    $('.go a').on 'click', clientNavigate
 
     new StaticHeader( el: $('#theme-header') ).render()
 
