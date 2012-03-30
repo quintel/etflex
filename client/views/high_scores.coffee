@@ -100,7 +100,7 @@ class exports.HighScores extends Backbone.View
     @listElement.empty()
     @animate = false
 
-    for scenario in @collection.models[ 0...@show ]
+    for scenario in @collection.identified()[ 0...@show ]
       @summaryUpdated scenario, null, false
 
     @animate = true
@@ -118,7 +118,7 @@ class exports.HighScores extends Backbone.View
       # promote the the new #5 to be displayed.
 
       @demote  summary
-      @promote @collection.at @show - 1
+      @promote @collection.identified()[ @show - 1 ]
 
     else if isVisible and shouldDisplay
 
@@ -242,7 +242,7 @@ class exports.HighScores extends Backbone.View
   # row - The SummaryRow view.
   #
   sortSummaryEl: (row) ->
-    position  = @collection.indexOf(row.model) + 1
+    position  = _.indexOf(@collection.identified(), row.model) + 1
     currentAt = @$ "li:nth-child(#{ position })"
 
     # Don't mess about with the DOM if the element is already in the correct
@@ -253,7 +253,7 @@ class exports.HighScores extends Backbone.View
       if currentAt.length and position isnt @show
         # Note that we get the nth-child again, as getting the correct element
         # when moving the row down requires first detaching the current row.
-        nextRow = @rows[ @collection.at(position)?.id ]
+        nextRow = @rows[ @collection.identified()[ position ]?.id ]
 
       if nextRow
         row.$el.insertBefore nextRow.$el

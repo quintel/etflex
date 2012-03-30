@@ -4,6 +4,15 @@ class exports.ScenarioSummaries extends Backbone.Collection
   # Sorts summaries by score in descending order.
   comparator: (summary) -> - summary.get('score')
 
+  # Returns a subcollection (as an array) containing only scenarios which have
+  # a user name present.
+  #
+  # TODO Cache this, only changing when a new summary is added, name changed,
+  #      or score updated.
+  #
+  identified: ->
+    @filter (summary) -> summary.get('user_name')?.match(/\S/)
+
   # Returns whether the given score summary places it within the top N of
   # summaries in the collection.
   #
@@ -20,8 +29,7 @@ class exports.ScenarioSummaries extends Backbone.Collection
   shouldDisplay: (summary, n) ->
     return false unless summary.get('user_name')?.match(/\S/)
 
-    topSummaries = @filter (summary) -> summary.get('user_name')?
-    isWithinThreshold summary, topSummaries, n
+    isWithinThreshold summary, @identified(), n
 
 # HELPERS --------------------------------------------------------------------
 
