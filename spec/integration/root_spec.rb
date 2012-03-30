@@ -6,65 +6,79 @@ feature 'Viewing the root page' do
     @scene = create :scene
   end
 
-  # --------------------------------------------------------------------------
+  def root_link_matcher(link)
+    have_css(".go a[href#{ link }]")
+  end
 
-  scenario 'As a guest, listing the scenes', js: true do
-    pending 'Pending "Resume" functionality'
+  def have_scene_link(scene)
+    root_link_matcher("='/scenes/#{ scene.id }'")
+  end
 
-    visit '/root'
-
-    page.status_code.should eql(200)
-    page.should have_css("#scene_#{ @scene.id }", content: @scene.name)
-
-    page.should     have_css('#main-nav #nav-user')
-    page.should_not have_css('#main-nav #nav-account')
+  def have_scenario_link(scene, scenario = nil)
+    if scenario.nil?
+      root_link_matcher("^='/scenes/#{ scene.id }/with'")
+    else
+      root_link_matcher("='/scenes/#{ scene.id }/with/#{ scenario.session_id }'")
+    end
   end
 
   # --------------------------------------------------------------------------
 
-  scenario 'As a user, listing the scenes', js: true do
-    pending 'Pending "Resume" functionality'
+  scenario 'as a guest who has not attempted a scene', js: true do
+    visit ''
 
+    page.status_code.should eql(200)
+
+    page.should have_scene_link(@scene)
+    page.should_not have_scenario_link(@scene)
+  end
+
+  # --------------------------------------------------------------------------
+
+  scenario 'as a guest who has attempted a scene', js: true do
+    visit "/scenes/#{ @scene.id }"
+
+    # Wait until the page has loaded.
+    page.should have_css('#left-inputs')
+
+    click_link 'logo'
+
+    page.status_code.should eql(200)
+
+    page.should have_scene_link(@scene)
+    page.should have_scenario_link(@scene, Scenario.last)
+  end
+
+  # --------------------------------------------------------------------------
+
+  scenario 'as a user who has not attempted a scene', js: true do
     sign_in create(:user)
 
-    visit '/root'
+    visit ''
 
     page.status_code.should eql(200)
-    page.should have_css("#scene_#{ @scene.id }", content: @scene.name)
 
-    page.should_not have_css('#main-nav #nav-user')
-    page.should     have_css('#main-nav #nav-account')
+    page.should have_scene_link(@scene)
+    page.should_not have_scenario_link(@scene)
   end
 
   # --------------------------------------------------------------------------
 
-  scenario 'As a user who has not attempted a scene', js: true do
-    pending 'Pending "Resume" functionality'
-
-    visit '/root'
-
-    page.should_not have_content('Resume')
-    page.should_not have_content('Start Over')
-
-    page.should have_content('Try the Challenge')
-  end
-
-  # --------------------------------------------------------------------------
-
-  scenario 'As a user who has attempted a scene', js: true do
-    pending 'Pending "Resume" functionality'
-
+  scenario 'as a user who has attempted a scene', js: true do
     user = create :user
 
-    create :scenario, scene: @scene, user: user, score: 518
-
     sign_in user
-    visit '/root'
+    visit "/scenes/#{ @scene.id }"
 
-    page.should have_content('Resume')
-    page.should have_content('Start Over')
+    # Wait until the page has loaded.
+    page.should have_css('#left-inputs')
 
-    page.should_not have_content('Try the Challenge')
+    click_link 'logo'
+
+    page.status_code.should eql(200)
+
+    page.should have_scene_link(@scene)
+    page.should have_scenario_link(@scene, Scenario.last)
   end
 
 end
