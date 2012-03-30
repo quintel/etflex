@@ -68,7 +68,8 @@ class ScenariosController < ApplicationController
     #
     # In the real world, (number_shown) + 2 should be enough...
     #
-    @scenarios = @scenarios.by_score.limit(20).map(&:to_pusher_event)
+    @scenarios = @scenarios.identified.by_score
+    @scenarios = @scenarios.limit(20).map(&:to_pusher_event)
 
     respond_with @scenarios
   end

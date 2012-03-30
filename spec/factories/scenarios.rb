@@ -1,8 +1,10 @@
 # Read about factories at http://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
+  sequence(:session_id) { |n| n }
+
   factory :scenario do
-    sequence     :session_id
+    session_id  { FactoryGirl.generate(:session_id) }
 
     query_results score: 500
 
@@ -11,7 +13,7 @@ FactoryGirl.define do
   end
 
   factory :guest_scenario, class: Scenario do
-    sequence     :session_id
+    session_id  { FactoryGirl.generate(:session_id) }
     query_results score: 500
     association  :scene
     guest_uid    'abc'
