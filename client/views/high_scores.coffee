@@ -103,10 +103,6 @@ class exports.HighScores extends Backbone.View
     for scenario in @collection.models[ 0...@show ]
       @summaryUpdated scenario, null, false
 
-    # Grey out the current scenario.
-    if @scenario
-      @$("li#high-score-#{ @scenario.id }").addClass 'current'
-
     @animate = true
 
   # Given a ScenarioSummary, adds it to the UI. If the scenario is already
@@ -220,6 +216,9 @@ class exports.HighScores extends Backbone.View
   promote: (summary) ->
     @visible.push summary.id
     @rows[summary.id] = new SummaryRow(model: summary).render()
+
+    if @scenario.id and @scenario.id is summary.id
+      @rows[summary.id].$el.addClass 'current'
 
     @sortSummaryEl @rows[ summary.id ]
 
