@@ -14,7 +14,7 @@ class PagesController < ApplicationController
 
     @scene            = Scene.first
     @high_scenarios   = Scenario.high_scores_since 7.days.ago
-    @previous_attempt = Scenario.for_user(current_or_guest_user).last
+    @previous_attempt = Scenario.for_user(current_or_guest_user).recent.first
   end
 
   # Changes the user language. The actual change will be handled by
