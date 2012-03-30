@@ -23,6 +23,6 @@ class Guest
 # e-mail and password, or through Facebook.
 #
 class User extends Guest
-  constructor: ({ @id }) ->
+  constructor: ({ @id, @name }) ->
     @isSignedIn = true
     @isGuest    = false
