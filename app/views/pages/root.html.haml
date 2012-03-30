@@ -8,16 +8,16 @@
 
     %nav#language-select
       - @alternative_locales.each do |alt_locale|
-        %a{href: "/lang/#{alt_locale}", title: (I18n.t "switch_to_this_language", locale: alt_locale), class: alt_locale}
-          = I18n.t "switch_to_this_language", locale: alt_locale
+        %a{href: "/lang/#{alt_locale}", title: (t :'switch_to_this_language', locale: alt_locale), class: alt_locale}
+          = t :'switch_to_this_language', locale: alt_locale
 
     = render 'theme_header'
 
     %section#main
 
       %h1
-        = I18n.t('scenes.etlite.landingTitle', future: I18n.t('scenes.etlite.landingFuture')).html_safe
-        %em= I18n.t 'scenes.etlite.landingSubtitle'
+        = t(:'scenes.etlite.landingTitle', future: t(:'scenes.etlite.landingFuture')).html_safe
+        %em= t :'scenes.etlite.landingSubtitle'
 
       = render partial: "landing_#{ I18n.locale }"
 
@@ -38,14 +38,14 @@
               == #{ t :'scenes.etlite.landingButton' }&hellip;
 
       #scores
-        %h2== #{ I18n.t 'words.high_scores' }:
-        .loading== #{ I18n.t 'words.loading' }&hellip;
+        %h2== #{ t :'words.high_scores' }:
+        .loading== #{ t :'words.loading' }&hellip;
 
     %footer
       %ul#partners
         %li
           %a{href: "http://www.gasterra.nl", "data-navigate" => "noclient", target:"_new", class:"partner gasterra"} GasTerra
-        %li.by= I18n.t "leading_partner"
+        %li.by= t :'leading_partner'
 
 :javascript
   window.bootstrap = #{ @high_scenarios.map(&:to_pusher_event).to_json }
