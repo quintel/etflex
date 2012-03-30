@@ -24,7 +24,7 @@
       %section.go
         - if @previous_attempt
           %span.buttons
-            %a.blue.launch{ href: scene_scenario_path(@scenes.first, @previous_attempt) }<>
+            %a.blue.launch{ href: scene_scenario_path(@scene, @previous_attempt) }<>
               == #{ t :'scenes.etlite.continue' }&hellip;
 
           .start-over
