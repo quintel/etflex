@@ -11,6 +11,7 @@ badgeTempl           = require 'templates/badge'
 
 { getProp }          = require 'views/props'
 { clientNavigate }   = require 'lib/client_navigate'
+{ createUser }       = require 'models/user'
 
 # Scene ----------------------------------------------------------------------
 
@@ -39,7 +40,6 @@ class exports.SceneView extends Backbone.View
   # Called when a new page is to be shown, so that we may unbind events.
   destructor: ->
     @highScores?.destructor()
-    @scenario.off 'change:guestName', @
 
   # Creates the HTML elements for the view, and binds events. Returns self.
   #
@@ -62,6 +62,8 @@ class exports.SceneView extends Backbone.View
   postRender: ->
     @renderInputs()
     @renderBadge() if app.isBeta()
+
+    @doNameRequest()
 
   # When a user tries to alter inputs on a scenario which isn't theirs, a "not
   # authorized" modal dialog appears allowing them to take suitable action.
@@ -251,6 +253,15 @@ class exports.SceneView extends Backbone.View
         return false
 
       @requestScenarioGuestName()
+
+  # When the scenario belongs to the current user, and no name is set, we ask
+  # them to let us know how to identify them.
+  #
+  doNameRequest: ->
+    return true unless createUser(@scenario.get 'user').id is app.user.id
+    return true if     app.user.name?.length > 0
+
+    @requestScenarioGuestName true
 
   renderBadge: ->
     $('#master-content').append badgeTempl()
