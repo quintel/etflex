@@ -55,6 +55,16 @@ exports.boot = (window, { locale, api, env, user }) ->
   # Fire up Backbone routing...
   Backbone.history.start pushState: true
 
+  # Callbacks for when the username changes.
+  exports.on 'current-user.name.request-change', currentUserNameChangeRequest
+  exports.on 'current-user.name.changed',        currentUserNameChanged
+
+# PubSub Implementation ------------------------------------------------------
+
+exports.on      = (args...) -> Backbone.Events.on.apply      exports, args
+exports.off     = (args...) -> Backbone.Events.off.apply     exports, args
+exports.trigger = (args...) -> Backbone.Events.trigger.apply exports, args
+
 # Helper Functions -----------------------------------------------------------
 
 # Returns if the application is being run in the staging environment.
@@ -78,3 +88,17 @@ exports.navigate = (url, options = {}) ->
 installConsolePolyfill = (window) ->
   unless 'console' of window
     window.console = { log: (->), info: (->), warn: (->), error: (->) }
+
+# Global PubSub Events -------------------------------------------------------
+
+# Handler for when a component wants to change the name of the currently
+# logged in user, or guest.
+currentUserNameChangeRequest = (name) ->
+  exports.user.name = name
+  exports.trigger 'current-user.name.changed', name, exports.user
+
+# Triggered after the current user name is changed. Typically occurs when a
+# new user starts a scenario for the first time, or a guest changes their name
+# on the high score popup.
+currentUserNameChanged = (name) ->
+  jQuery.ajax url: '/me', type: 'PUT', data: { user: { name: name } }

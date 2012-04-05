@@ -44,3 +44,20 @@ should be able to achieve this simply by running
   `$ brew install qt`
 
 Full instructions can be found on the [capybara-webkit wiki](https://github.com/thoughtbot/capybara-webkit/wiki/Installing-QT)
+
+## Client Events
+
+The CoffeeScript client implements the PubSub pattern to communicate between
+different components:
+
+    current-user.name.request-change ( String name )
+      This is triggered when a component would like the main app.coffee module
+      to change the name of the current user or guest. Typically occurs after
+      the user enters their name when starting a scenario or achieving a high
+      score.
+
+    current-user.name.changed ( String name, User|Guest user )
+      This event is triggered after the app has changed the user name in the
+      client. Note that any HTTP request to persist the name change on the
+      server may be pending. Components should respond to this event by
+      changing the user name in the UI.
