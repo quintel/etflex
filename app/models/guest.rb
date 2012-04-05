@@ -1,4 +1,4 @@
-class Guest < Struct.new(:id)
+class Guest < Struct.new(:id, :name)
   # Path to the guest user profile image.
   #
   # TODO This should be part of a view, not the model; move as soon as
@@ -18,6 +18,6 @@ class Guest < Struct.new(:id)
   # locale.
   #
   def name
-    I18n.t 'words.anonymous'
+    super or I18n.t('words.anonymous')
   end
 end

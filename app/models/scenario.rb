@@ -166,7 +166,7 @@ class Scenario < ActiveRecord::Base
   # Returns the user if present, otherwise returns a Guest.
   #
   def user_or_guest
-    user or Guest.new
+    user or Guest.new(guest_uid, guest_name)
   end
 
   # Determines if a given user or guest is permitted to change this scenario.

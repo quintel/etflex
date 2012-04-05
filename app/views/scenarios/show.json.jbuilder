@@ -9,7 +9,7 @@ json.user do |json|
   if @scenario.user
     json.partial! 'embeds/user',  user: @scenario.user
   else
-    json.partial! 'embeds/guest', user: Guest.new(@scenario.guest_uid)
+    json.partial! 'embeds/guest', user: @scenario.user_or_guest
   end
 end
 
