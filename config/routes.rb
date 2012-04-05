@@ -19,6 +19,9 @@ ETFlex::Application.routes.draw do
     get '/goodbye', to: 'devise/sessions#destroy'
   end
 
+  # Update username via JSON.
+  put '/me', to: 'pages#update_username'
+
   # Backstage and Administration ---------------------------------------------
 
   namespace :backstage do

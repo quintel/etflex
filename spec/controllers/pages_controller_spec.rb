@@ -32,4 +32,44 @@ describe PagesController do
       response.should redirect_to('/')
     end
   end # Changing language
+
+  describe 'Updating the name of a user' do
+    let!(:user) { create :user }
+
+    before do
+      sign_in user
+      put :update_username, user: { name: 'New Name' }, format: :json
+    end
+
+    it 'should respond with 204 No Content' do
+      response.status.should eql(204)
+    end
+
+    it 'should update the user name' do
+      user.reload.name.should eql('New Name')
+    end
+  end
+
+  describe 'Updating the name of a guest' do
+    before do
+      put :update_username, user: {} # Force guest to be created.
+
+      @scenario = create(:guest_scenario,
+        guest_uid: cookies.signed[:guest][:id])
+
+      put :update_username, user: { name: 'New Name' }
+    end
+
+    it 'should respond with 204 No Content' do
+      response.status.should eql(204)
+    end
+
+    it 'should update the user name' do
+      cookies.signed[:guest][:name].should eql('New Name')
+    end
+
+    it 'should update the guest name on scenarios' do
+      @scenario.reload.guest_name.should eql('New Name')
+    end
+  end
 end # PagesController
