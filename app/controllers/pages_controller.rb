@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
-  helper ScenesHelper
+  helper  ScenesHelper
+  include ETFlex::PusherController
 
   # Supported browser page breaks otherwise in non-pushState browsers if we
   # use the application layout.
@@ -59,6 +60,10 @@ class PagesController < ApplicationController
     end
 
     head :no_content
+
+    pusher 'user.updated',
+      id:   current_user_or_guest.id,
+      name: current_user_or_guest.name
   end
 
 end

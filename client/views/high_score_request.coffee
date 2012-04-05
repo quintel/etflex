@@ -22,8 +22,7 @@ class exports.HighScoreRequest extends Backbone.View
     name = @$('#scenario-guest-name').val()
 
     if name?.length
-      @model.set guestName: name
-      @model.save()
+      app.trigger 'current-user.name.request-change', name
 
     @close()
     event.preventDefault()
