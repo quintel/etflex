@@ -34,4 +34,33 @@ class PagesController < ApplicationController
     redirect_to path
   end
 
+  # Updates current user with the information they have provided. Currently
+  # limited to their name only. JSON only.
+  #
+  # This does not belong here, but Devise complains (loudly) if it is placed
+  # in UsersController.
+  #
+  # PUT /users
+  #
+  def update_username
+    return head(:bad_request) if params[:user].nil?
+
+    # Name may be nil if the users wishes to be anonymous.
+    name = params[:user][:name].presence
+
+    if user_signed_in?
+      current_user.update_attributes(name: name)
+    else
+      guest_user.name = name
+      guest_user.save(cookies)
+
+      # Update the stored guest name for the user's scenarios.
+      Scenario.where(guest_uid: guest_user.id).each do |scenario|
+        scenario.update_attributes guest_name: name
+      end
+    end
+
+    head :no_content
+  end
+
 end
