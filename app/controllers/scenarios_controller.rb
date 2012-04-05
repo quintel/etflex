@@ -16,7 +16,8 @@ class ScenariosController < ApplicationController
       if user_signed_in?
         scenario.user = current_user
       else
-        scenario.guest_uid = guest_user.id
+        scenario.guest_uid  = guest_user.id
+        scenario.guest_name = guest_user.name
       end
     end
   end
@@ -94,6 +95,15 @@ class ScenariosController < ApplicationController
 
     @scenario.attributes = scenario_attrs if params[:scenario].present?
     @scenario.save
+
+    if params[:scenario] && name = params[:scenario][:guestName]
+      if guest_user.present?
+        guest_user.name = name
+        guest_user.save(cookies)
+      else
+        current_user.update_attributes(name: name)
+      end
+    end
 
     respond_with @scenario, location: scene_scenario_url
 
