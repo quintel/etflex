@@ -54,8 +54,17 @@ describe PagesController do
     before do
       put :update_username, user: {} # Force guest to be created.
 
-      @scenario = create(:guest_scenario,
-        guest_uid: cookies.signed[:guest][:id])
+      begin
+        ActiveRecord::Base.record_timestamps = false
+
+        @scenario = create(:guest_scenario,
+          guest_uid: cookies.signed[:guest][:id],
+          updated_at: 1.day.ago)
+      ensure
+        ActiveRecord::Base.record_timestamps = true
+      end
+
+      @prev_updated_at = @scenario.reload.updated_at
 
       put :update_username, user: { name: 'New Name' }
     end
@@ -70,6 +79,10 @@ describe PagesController do
 
     it 'should update the guest name on scenarios' do
       @scenario.reload.guest_name.should eql('New Name')
+    end
+
+    it 'should not touch timestamps' do
+      @scenario.reload.updated_at.should eql(@prev_updated_at)
     end
   end
 end # PagesController

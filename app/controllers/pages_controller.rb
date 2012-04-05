@@ -55,9 +55,7 @@ class PagesController < ApplicationController
       guest_user.save(cookies)
 
       # Update the stored guest name for the user's scenarios.
-      Scenario.where(guest_uid: guest_user.id).each do |scenario|
-        scenario.update_attributes guest_name: name
-      end
+      Scenario.where(guest_uid: guest_user.id).update_all(guest_name: name)
     end
 
     head :no_content
