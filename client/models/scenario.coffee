@@ -170,6 +170,9 @@ class exports.Scenario extends Backbone.Model
   toJSON: ->
     attributes = _.clone @attributes
 
+    if not attributes.guestName and @get('user').name?.length
+      attributes.guestName = @get('user').name
+
     delete attributes.scene
     delete attributes.sessionId
     delete attributes.id

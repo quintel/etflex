@@ -228,7 +228,7 @@ class Scenario < ActiveRecord::Base
       total_co2_emissions: total_co2_emissions,
       updated_at:          updated_at,
       user_id:             user_id || guest_uid,
-      user_name:           user_name,
+      user_name:           user_or_guest.name,
       profile_image:       user_or_guest.image_url }
   end
 

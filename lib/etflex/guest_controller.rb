@@ -17,12 +17,19 @@ module ETFlex
 
     # Guests have a unique ID set so that they may save their scenarios.
     #
+    # This method handles migration of the old :guest_id cookie to the newer
+    # format, and removes the :guest cookie if the user is signed in to a
+    # proper user account.
+    #
     def handle_guest_id
-      if user_signed_in? and cookies[:guest_id]
-        cookies.delete :guest_id
-      elsif ! user_signed_in? and cookies[:guest_id].blank?
-        cookies.permanent.signed[:guest_id] = {
-          httponly: true, value: SecureRandom.uuid }
+      if cookies[:guest_id]
+        # Convert to the new guest cookie format.
+        Guest.new(cookies.signed[:guest_id]).save(cookies)
+        cookies.delete(:guest_id)
+      end
+
+      if user_signed_in? and cookies[:guest]
+        cookies.delete :guest
       end
     end
 
@@ -30,7 +37,7 @@ module ETFlex
     # user is signed into a registered account.
     #
     def guest_user
-      @_guest ||= Guest.new cookies.signed[:guest_id] unless user_signed_in?
+      @_guest ||= Guest.from_cookies(cookies) unless user_signed_in?
     end
 
     # Returns the currently signed in user, or the Guest instance if the user
