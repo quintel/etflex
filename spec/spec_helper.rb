@@ -12,8 +12,9 @@ RSpec.configure do |config|
 
   config.include FactoryGirl::Syntax::Methods
 
-  config.include Devise::TestHelpers,  type: :controller
-  config.include ETFlex::Spec::SignIn, type: :request
+  config.include Devise::TestHelpers,      type: :controller
+  config.include ETFlex::Spec::SignIn,     type: :request
+  config.include ETFlex::Spec::WaitForXHR, type: :request
 
   # == Mock Framework
   #
