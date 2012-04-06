@@ -8,9 +8,17 @@ class exports.HighScoreRequest extends Backbone.View
   events:
     'submit form': 'commitName'
 
-  render: ->
+  # Renders the name request HTML.
+  #
+  # namespace - An I18n namespace within "scenes.name_request" which contains
+  #             translations to be used. Provide "prelaunch" to instead show
+  #             messages greeting the user to the scenario for the first time.
+  #
+  # Returns self.
+  render: (namespace = 'score') ->
     @$el.html require('templates/high_score_request')
-      name: app.user.name or @model.get('guestName')
+      name:      app.user.name or @model.get('guestName')
+      namespace: namespace
 
     @delegateEvents()
 
@@ -32,11 +40,11 @@ class exports.HighScoreRequest extends Backbone.View
   #
   # If the user has previously entered a name (or opted to stay anonymous),
   # the name prompt won't be shown unless the "force" argument is true.
-  show: (force) ->
+  show: (force, namespace) ->
     return true if @alreadyPrompted and force isnt true
     return true if @$el.is(':visible')
 
-    @options.into.append @render().el
+    @options.into.append @render(namespace).el
 
     # Try to position the modal box in the middle of the window (assumes the
     # box is ~270px high).

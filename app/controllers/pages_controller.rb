@@ -62,8 +62,8 @@ class PagesController < ApplicationController
     head :no_content
 
     pusher 'user.updated',
-      id:   current_user_or_guest.id,
-      name: current_user_or_guest.name
+      id:   current_or_guest_user.id,
+      name: current_or_guest_user.name
   end
 
 end
