@@ -258,8 +258,11 @@ class exports.SceneView extends Backbone.View
   # them to let us know how to identify them.
   #
   doNameRequest: ->
+    return true if     localStorage?.getItem 'seen-prelaunch'
     return true unless createUser(@scenario.get 'user').id is app.user.id
     return true if     app.user.name?.length > 0
+
+    localStorage?.setItem 'seen-prelaunch', '1'
 
     @requestScenarioGuestName true, 'prelaunch'
 
