@@ -83,11 +83,18 @@ en:
   # Text used on the ETlite recreation ---------------------------------------
 
   scenes:
-    high_score:
-      header:       "You got a high score!"
-      text: >-
-        Congratulations, your score is one of the highest. 
-        How would you like to be named on the score board?
+    name_request:
+      score:
+        header: "You got a high score!"
+        text: >-
+          Congratulations, your score is one of the highest.
+          How would you like to be named on the score board?
+      prelaunch:
+        header: "Welcome"
+        text: >-
+          High scores are shown on a leaderboard; if you get a high score, how
+          would you like to be named? You don't have to provide a name if you
+          don't want to.
 
     etlite:
       savings:      "Savings"

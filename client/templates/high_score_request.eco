@@ -1,6 +1,6 @@
 <div class="overlay-content high-score-request">
-  <h3><%= I18n.t 'scenes.high_score.header' %></h3>
-  <p><%= I18n.t 'scenes.high_score.text' %></p>
+  <h3><%= I18n.t "scenes.name_request.#{ @namespace }.header" %></h3>
+  <p><%= I18n.t "scenes.name_request.#{ @namespace }.text" %></p>
 
   <form class="high-score-notification">
     <label for="scenario-guest-name"><%= I18n.t 'words.your_name' %></label>

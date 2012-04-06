@@ -158,13 +158,13 @@ class exports.SceneView extends Backbone.View
   # will always trigger for guests (allowing them to change the name if
   # they want).
   #
-  requestScenarioGuestName: (force) ->
+  requestScenarioGuestName: (force, namespace) ->
     if not app.user.name or app.user.name.length is 0
       @highScoreRequest or= new HighScoreRequest
         model: @scenario
         into:  $ '#master-content'
 
-      @highScoreRequest.show force
+      @highScoreRequest.show force, namespace
 
   # RENDERING STEPS ----------------------------------------------------------
 
@@ -261,7 +261,7 @@ class exports.SceneView extends Backbone.View
     return true unless createUser(@scenario.get 'user').id is app.user.id
     return true if     app.user.name?.length > 0
 
-    @requestScenarioGuestName true
+    @requestScenarioGuestName true, 'prelaunch'
 
   renderBadge: ->
     $('#master-content').append badgeTempl()
