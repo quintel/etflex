@@ -53,7 +53,7 @@ feature 'Requesting the visitors name', js: true do
     script = find('script', text: "boot(window,")
     script.text.should_not match(/"name":/)
 
-    pending 'Pending persistent anonymity'
+    pending 'Pending webkit-capybara supporting localStorage'
 
     # Name should not be requested again.
     page.should_not have_css('.high-score-request')
@@ -113,7 +113,7 @@ feature 'Requesting the visitors name', js: true do
     script = find('script', text: "boot(window,")
     script.text.should_not match(/"name":/)
 
-    pending 'Pending persistent anonymity'
+    pending 'Pending webkit-capybara supporting localStorage'
 
     # Name should not be requested again.
     page.should_not have_css('.high-score-request')
