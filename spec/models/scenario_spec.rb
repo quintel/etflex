@@ -258,7 +258,7 @@ describe Scenario do
 
   # IDENTIFIED ---------------------------------------------------------------
 
-  describe '.identified', focus: true do
+  describe '.identified' do
     let!(:named_user)   { create :user, name: 'Tobias Funke' }
     let!(:unnamed_user) { create :user, name: nil }
 
