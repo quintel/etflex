@@ -17,15 +17,12 @@ class exports.HighScores extends Backbone.View
 
   # Provide HighScores with a ScenarioSummaries collection in the options
   # hash.
-  constructor: ({ @collection, @show, @style, @realtime, @scenario }) ->
+  constructor: ({ @collection, @show, @style, @scenario }) ->
     super
 
     # Show, by default, the five highest scores.
     @show  or= 10
     @style or= 'full'
-
-    # Disable pusher by passing realtime: false.
-    @realtime = true unless @realtime is false
 
     # Keep track of the summaries which are shown in the UI. Actual values are
     # set in setCollection.
@@ -41,7 +38,7 @@ class exports.HighScores extends Backbone.View
     # There is nothing to destruct if the view has not been rendered.
     return true unless @listElement
 
-    if @realtime
+    if app.realtime
       app.pusher.unbind 'scenario.created', @scenarioNotification
       app.pusher.unbind 'scenario.updated', @scenarioNotification
 
@@ -63,7 +60,7 @@ class exports.HighScores extends Backbone.View
     else
       @loadSince 7
 
-    if @realtime
+    if app.realtime
       app.pusher.bind 'scenario.created', @scenarioNotification
       app.pusher.bind 'scenario.updated', @scenarioNotification
 
