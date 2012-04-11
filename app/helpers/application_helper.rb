@@ -10,7 +10,8 @@ module ApplicationHelper
     { locale:   I18n.locale,
       api:      ETFlex.config.api_url,
       env:      Rails.env,
-      user:     JSON.parse(rendered_user)
+      user:     JSON.parse(rendered_user),
+      realtime: ETFlex.config.realtime
     }.to_json
   end
 

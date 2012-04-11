@@ -81,5 +81,8 @@ module ETFlex
     config.etflex.supported_browsers = %w(
       ie9 ie8 ie10 chrome firefox chrome ipad safari opera
     ).freeze
+
+    # Use real-time features with Pusher? Set to false for laptops.
+    config.etflex.realtime = false
   end
 end
