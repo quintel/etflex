@@ -49,6 +49,7 @@ doc/
 # -----------------------
 
 config/database.yml
+config/etflex.yml
 public/assets/*
 .rvmrc
 .DS_Store

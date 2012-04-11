@@ -69,20 +69,5 @@ module ETFlex
 
     # Required by Devise.
     config.action_mailer.default_url_options = { host: 'localhost:3000' }
-
-    # Application specific configuration. Defaults; customise as necessary in
-    # the environmenets/* files. This may also be accessed as ETFlex.config.
-    config.etflex = ActiveSupport::OrderedOptions.new
-
-    # The base URL for all API requests.
-    config.etflex.api_url = 'http://et-engine.com/api/v2'
-
-    # A list of supported browsers
-    config.etflex.supported_browsers = %w(
-      ie9 ie8 ie10 chrome firefox chrome ipad safari opera
-    ).freeze
-
-    # Use real-time features with Pusher? Set to false for laptops.
-    config.etflex.realtime = false
   end
 end
