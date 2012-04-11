@@ -8,8 +8,12 @@ require 'etflex/prop_analyzer'
 require 'etflex/pusher_controller'
 
 module ETFlex
-  # A simpler way to access the ETFlex configuration.
+
+  # The ETFlex configuration.
   def self.config
-    Application.config.etflex
+    @config ||= Hashie::Mash.new(
+      YAML.load_file(Rails.root.join('config/etflex.yml'))[ Rails.env ])
+  rescue Errno::ENOENT => e
+    raise 'You need to copy config/etflex.sample.yml to config/etflex.yml!'
   end
 end

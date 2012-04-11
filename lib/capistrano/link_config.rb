@@ -16,5 +16,6 @@ namespace :deploy do
   DESC
   task :link_config, roles: :app, except: { no_release: true } do
     run link_config_command('database.yml')
+    run link_config_command('etflex.yml')
   end
 end

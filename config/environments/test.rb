@@ -42,9 +42,4 @@ ETFlex::Application.configure do
   # Raise exception on mass assignment protection for Active Record models
   config.active_record.mass_assignment_sanitizer = :strict
 
-  # Application Configuration ------------------------------------------------
-
-  # Don't hit the live site when testing.
-  config.etflex.api_url = 'http://etengine.dev/api/v2'
-
 end

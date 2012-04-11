@@ -38,6 +38,7 @@ gem 'http_accept_language'
 gem 'pusher'
 
 gem 'airbrake'
+gem 'hashie'
 
 # Deploy with Capistrano
 gem 'capistrano'
