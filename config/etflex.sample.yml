@@ -1,17 +1,17 @@
 ---
 production: &production
 
-  # The base API for all API requests. Include the protocol and path to the API
-  # endpoint.
+  # The base API for all API requests. Include the protocol and path to the
+  # API endpoint.
   api_url: 'http://et-engine.com/api/v2'
 
   # Use real-time features with Pusher. Disable if external services are not
   # available (such as on laptops).
   realtime: true
 
-  # A list of browsers which are supported by ETFlex. Browsers not in this list
-  # will still be permitted to use the site, but are displayed a message on
-  # first load, and then have a small banner at the top of each page.
+  # A list of browsers which are supported by ETFlex. Browsers not in this
+  # list  will still be permitted to use the site, but are displayed a message
+  # on first load, and then have a small banner at the top of each page.
   supported_browsers: [
     'ie9', 'ie8', 'ie10', 'chrome', 'firefox', 'safari', 'ipad', 'opera' ]
 
