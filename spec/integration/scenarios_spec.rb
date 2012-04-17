@@ -215,6 +215,7 @@ feature 'Viewing scenarios', js: true do
 
     page.status_code.should eql(404)
   end
+
 end
 
 # ----------------------------------------------------------------------------

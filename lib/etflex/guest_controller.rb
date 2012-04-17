@@ -47,5 +47,15 @@ module ETFlex
       if user_signed_in? then current_user else guest_user end
     end
 
+    # Removes all stored settings about the guest so that a sebsequent request
+    # is assigned a new guest ID.
+    #
+    def reset_guest!
+      reset_session
+
+      cookies.delete :guest
+      @_guest = nil
+    end
+
   end # GuestController
 end # ETFlex

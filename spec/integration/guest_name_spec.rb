@@ -119,4 +119,32 @@ feature 'Requesting the visitors name', js: true do
     page.should_not have_css('.high-score-request')
   end
 
+  # --------------------------------------------------------------------------
+
+  scenario 'Creating a fresh guest (for conferences)' do
+    # Start a guest session.
+    visit "/scenes/#{ scene.id }"
+
+    # Wait until the scene has loaded.
+    page.should have_css('#left-inputs')
+
+    user_id = page.evaluate_script 'require("app").user.id'
+
+    # Dismiss the guest name dialog so that we can assert that creating a new
+    # guest asks for the name again.
+
+    fill_in 'Your name', with: 'Britta Perry'
+    click_button 'Save'
+
+    wait_for_xhr
+
+    # Visit the fresher page.
+    visit "/scenes/#{ scene.id }/fresh"
+
+    page.evaluate_script('require("app").user.id').should_not eql(user_id)
+
+    # Name should be requested again.
+    page.should have_css('.high-score-request')
+  end
+
 end

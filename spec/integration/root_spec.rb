@@ -14,6 +14,10 @@ feature 'Viewing the root page' do
     root_link_matcher("='/scenes/#{ scene.id }'")
   end
 
+  def have_fresh_scene_link(scene)
+    root_link_matcher("='/scenes/#{ scene.id }/fresh'")
+  end
+
   def have_scenario_link(scene, scenario = nil)
     if scenario.nil?
       root_link_matcher("^='/scenes/#{ scene.id }/with'")
@@ -45,7 +49,7 @@ feature 'Viewing the root page' do
 
     page.status_code.should eql(200)
 
-    page.should have_scene_link(@scene)
+    page.should have_fresh_scene_link(@scene)
     page.should have_scenario_link(@scene, Scenario.last)
   end
 

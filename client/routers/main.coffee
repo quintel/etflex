@@ -69,7 +69,17 @@ class exports.Main extends Backbone.Router
     highScores = new HighScores collection: summaries
 
     $('#scores').html highScores.render().el
-    $('.go a').on 'click', clientNavigate
+    $('.go .buttons a').on 'click', clientNavigate
+
+    startOver = $ '.go .start-over a'
+
+    # Temporary fix for conferences so that clicking on "Start over" creates a
+    # totally fresh session.
+    if app.user.isGuest
+      localStorage?.removeItem 'seen-prelaunch'
+      startOver.attr 'href', "#{ startOver.attr 'href' }/fresh"
+    else
+      startOver.click clientNavigate
 
     new StaticHeader( el: $('#theme-header') ).render()
 
