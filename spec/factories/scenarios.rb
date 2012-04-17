@@ -17,5 +17,6 @@ FactoryGirl.define do
     query_results score: 500
     association  :scene
     guest_uid    'abc'
+    guest_name   'def'
   end
 end

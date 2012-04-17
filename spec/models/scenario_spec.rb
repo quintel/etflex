@@ -266,7 +266,7 @@ describe Scenario do
     let!(:unnamed)   { create :scenario, user: unnamed_user }
     let!(:explicit)  { create :scenario, user: unnamed_user, guest_name: 'Oscar Bluth' }
     let!(:guest)     { create :guest_scenario, guest_name: 'G.O.B.' }
-    let!(:anonymous) { create :guest_scenario }
+    let!(:anonymous) { create :guest_scenario, guest_name: nil }
 
     subject { Scenario.identified }
 
