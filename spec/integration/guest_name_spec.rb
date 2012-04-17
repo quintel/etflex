@@ -51,7 +51,7 @@ feature 'Requesting the visitors name', js: true do
     visit "/scenes/#{ scene.id }"
 
     script = find('script', text: "boot(window,")
-    script.text.should_not match(/"name":/)
+    script.text.should match(/"name":null/)
 
     pending 'Pending webkit-capybara supporting localStorage'
 
@@ -111,7 +111,7 @@ feature 'Requesting the visitors name', js: true do
     visit "/scenes/#{ scene.id }"
 
     script = find('script', text: "boot(window,")
-    script.text.should_not match(/"name":/)
+    script.text.should match(/"name":null/)
 
     pending 'Pending webkit-capybara supporting localStorage'
 
