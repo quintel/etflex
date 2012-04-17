@@ -7,7 +7,7 @@ describe 'The Backbone client' do
   # --------------------------------------------------------------------------
 
   specify 'Should load in client mode at the root path' do
-    visit '/root'
+    visit ''
 
     # English by default.
     page.should have_css('script', text: "boot(window,")
