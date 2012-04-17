@@ -4,6 +4,8 @@ ETFlex::Application.routes.draw do
     get  'with/:id', to: 'scenarios#show', as: :scenario
     post 'with/:id', to: 'scenarios#update'
     put  'with/:id', to: 'scenarios#update'
+
+    member { get 'fresh' }
   end
 
   # High scoring scenarios for the high scores list.

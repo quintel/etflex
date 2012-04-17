@@ -27,5 +27,9 @@ describe 'ScenesController' do
       delete('/scenes/1').should_not be_routable
     end
 
+    it 'routes to #fresh' do
+      get('/scenes/1/fresh').should route_to('scenes#fresh', id: '1')
+    end
+
   end
 end
