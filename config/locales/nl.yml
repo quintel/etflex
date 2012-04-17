@@ -84,17 +84,18 @@ nl:
   # Text used on the ETlite recreation ---------------------------------------
 
   scenes:
-    high_score:
-      header: "Je hebt de high score gehaald!"
-      text: >-
-        Gefeliciteerd, jouw score is een van de hoogste!
-        Hoe wilt je je naam hebben op het scorebord?
-    prelaunch:
-      header: "Welkom"
-      text: >-
-        Hoge scores worden weergegeven op een leaderboard. Als je een hoge
-        score, hoe zou je willen worden genoemd? Je hoeft niet om ons te
-        vertellen je naam als je niet wilt.
+    name_request:
+      score:
+        header: "Je hebt de high score gehaald!"
+        text: >-
+          Gefeliciteerd, jouw score is een van de hoogste!
+          Hoe wilt je je naam hebben op het scorebord?
+      prelaunch:
+        header: "Welkom"
+        text: >-
+          Hoge scores worden weergegeven op een leaderboard. Als je een hoge
+          score, hoe zou je willen worden genoemd? Je hoeft niet om ons te
+          vertellen je naam als je niet wilt.
 
     etlite:
       savings:      "Besparingen"
