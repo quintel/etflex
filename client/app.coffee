@@ -10,6 +10,9 @@ exports.isBooted = false
 # Use real-time features using Pusher?
 exports.realtime = true
 
+# Behave as if ETFlex is being displayed at a conference?
+exports.conference = false
+
 # Holds the instantiated routers so that we can refer to them later.
 exports.routers = {}
 
@@ -20,13 +23,14 @@ exports.collections = {}
 exports.pusher = null
 
 # Called _once_ when the application is first loaded in the browser.
-exports.boot = (window, { locale, api, env, user, realtime }) ->
+exports.boot = (window, { locale, api, env, user, realtime, conference }) ->
   installConsolePolyfill window
 
   # Current user
-  exports.env      = env
-  exports.user     = require('models/user').createUser user
-  exports.realtime = realtime
+  exports.env        = env
+  exports.user       = require('models/user').createUser user
+  exports.realtime   = realtime
+  exports.conference = conference
 
   # Languages
   I18n.locale    = locale

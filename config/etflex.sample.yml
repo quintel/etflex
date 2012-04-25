@@ -9,8 +9,13 @@ production: &production
   # available (such as on laptops).
   realtime: true
 
+  # Enable when displaying ETFlex in public settings. This will change the
+  # root page behaviour so that the BIG button always creates a totally new
+  # session and demotes "Continue..." to a smaller link.
+  conference: false
+
   # A list of browsers which are supported by ETFlex. Browsers not in this
-  # list  will still be permitted to use the site, but are displayed a message
+ # list  will still be permitted to use the site, but are displayed a message
   # on first load, and then have a small banner at the top of each page.
   supported_browsers: [
     'ie9', 'ie8', 'ie10', 'chrome', 'firefox', 'safari', 'ipad', 'opera' ]
@@ -23,3 +28,6 @@ test:
 
   # Assume POW is present for testing.
   api_url: 'http://etengine.dev/api/v2'
+
+  # Always default conference mode off.
+  conference: false

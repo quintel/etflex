@@ -47,7 +47,7 @@ class exports.Main extends Backbone.Router
     'scenes':               'redirectToDefaultScene'
     'scenes/:id':           'showScene'
     'scenes/:sid/with/:id': 'showSceneWithScenario'
-    
+
     'supported_browsers':   'doNothing'
 
     '*undefined':           'notFound'
@@ -69,17 +69,19 @@ class exports.Main extends Backbone.Router
     highScores = new HighScores collection: summaries
 
     $('#scores').html highScores.render().el
-    $('.go .buttons a').on 'click', clientNavigate
 
-    startOver = $ '.go .start-over a'
+    $('.go .start-over a, .go .conference-continue a').
+      on('click', clientNavigate)
 
-    # Temporary fix for conferences so that clicking on "Start over" creates a
-    # totally fresh session.
-    if app.user.isGuest
-      localStorage?.removeItem 'seen-prelaunch'
-      startOver.attr 'href', "#{ startOver.attr 'href' }/fresh"
+    bigButton = $ '.go .buttons a'
+
+    # When in conference mode, *and* the user is a guest, "Create your own
+    # future" creates a totally new session, so a full refresh is preferable
+    # to ensure settings are correct.
+    if app.conference and app.user.isGuest
+      bigButton.on 'click', -> localStorage?.removeItem 'seen-prelaunch'
     else
-      startOver.click clientNavigate
+      bigButton.on 'click', clientNavigate
 
     new StaticHeader( el: $('#theme-header') ).render()
 

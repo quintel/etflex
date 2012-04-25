@@ -22,7 +22,18 @@
       = render partial: "landing_#{ I18n.locale }"
 
       %section.go
-        - if @previous_attempt
+        - if ETFlex.config.conference and @previous_attempt
+          %span.buttons
+            %a.blue.launch{ href: "/scenes/1/fresh" }<>
+              == #{ t :'scenes.etlite.landingButton' }&hellip;
+
+          .conference-continue
+            == #{ t :'words.or' }:
+
+            %a{ href: scene_scenario_path(@scene, @previous_attempt) }
+              == #{ t :'scenes.etlite.backToPrevious' }&hellip;
+
+        - elsif @previous_attempt
           %span.buttons
             %a.blue.launch{ href: scene_scenario_path(@scene, @previous_attempt) }<>
               == #{ t :'scenes.etlite.continue' }&hellip;

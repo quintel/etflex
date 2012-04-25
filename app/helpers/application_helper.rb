@@ -7,11 +7,12 @@ module ApplicationHelper
     rendered_user = render partial: "embeds/#{user_partial}",
       formats: [:json], locals: { user: current_or_guest_user }
 
-    { locale:   I18n.locale,
-      api:      ETFlex.config.api_url,
-      env:      Rails.env,
-      user:     JSON.parse(rendered_user),
-      realtime: ETFlex.config.realtime
+    { locale:     I18n.locale,
+      api:        ETFlex.config.api_url,
+      env:        Rails.env,
+      user:       JSON.parse(rendered_user),
+      realtime:   ETFlex.config.realtime,
+      conference: ETFlex.config.conference
     }.to_json
   end
 

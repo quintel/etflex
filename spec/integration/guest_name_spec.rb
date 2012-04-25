@@ -121,7 +121,7 @@ feature 'Requesting the visitors name', js: true do
 
   # --------------------------------------------------------------------------
 
-  scenario 'Creating a fresh guest (for conferences)' do
+  scenario 'Creating a fresh guest (for conferences)', conference: true do
     # Start a guest session.
     visit "/scenes/#{ scene.id }"
 
@@ -139,12 +139,28 @@ feature 'Requesting the visitors name', js: true do
     wait_for_xhr
 
     # Visit the fresher page.
-    visit "/scenes/#{ scene.id }/fresh"
+    # visit "/scenes/#{ scene.id }/fresh"
+
+    visit ''
+    click_link 'Create your own future'
 
     page.evaluate_script('require("app").user.id').should_not eql(user_id)
 
     # Name should be requested again.
     page.should have_css('.high-score-request')
+
+    fill_in 'Your name', with: 'Troy Barnes'
+    click_button 'Save'
+
+    wait_for_xhr
+
+    # Assert that guest names aren't overwritten.
+
+    scenarios = Scenario.all
+    scenarios.should have(2).scenarios
+
+    scenarios.first.guest_name.should eql('Britta Perry')
+    scenarios.last.guest_name.should  eql('Troy Barnes')
   end
 
 end
