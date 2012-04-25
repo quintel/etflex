@@ -28,6 +28,8 @@ en:
     locale:      Language
     switch_to:   Switch to
     reset_model: Reset your scenario
+    hard_reset:  Reset scenario (for the next person)
+    soft_reset:  Reset scenario (for the same person)
 
     sign_in:  Sign in
     account:  Account

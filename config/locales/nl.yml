@@ -28,6 +28,8 @@ nl:
     locale:      Taal
     switch_to:   Schakel over naar
     reset_model: Reset je scenario
+    hard_reset:  Reset scenario (voor de volgende persoon)
+    soft_reset:  Reset scenario (voor dezelfde persoon)
 
     settings: Instellingen
     sign_in:  Meld je aan
