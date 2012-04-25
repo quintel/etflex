@@ -66,6 +66,10 @@ RSpec.configure do |config|
   config.before(:each)  { DatabaseCleaner.start                   }
   config.after(:each)   { DatabaseCleaner.clean                   }
 
+  # Conference specs enable the conference mode.
+  config.before(:each, conference: true) { ETFlex.config.conference = true  }
+  config.after(:each, conference: true)  { ETFlex.config.conference = false }
+
   # Capybara
   # --------
 

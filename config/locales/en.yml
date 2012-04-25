@@ -120,6 +120,7 @@ en:
       landingButton:   "Create your own future"
       startOver:       "Start over"
       continue:        "Continue playing"
+      backToPrevious:  "Return to previous attempt"
 
   # Common content on scene pages --------------------------------------------
 

@@ -171,4 +171,14 @@ describe 'The Backbone client' do
 
   # --------------------------------------------------------------------------
 
+  specify 'Should not be in conference mode by default' do
+    visit ''
+
+    # English by default.
+    page.should have_css('script', text: "boot(window,")
+
+    script = find('script', text: "boot(window,")
+    script.text.should match(/"conference":false/)
+  end
+
 end
