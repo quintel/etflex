@@ -17,8 +17,17 @@
     </a>
   </li>
   <li class='new-category'>
-    <a href='/scenes/<%= @sceneId %>' data-navigate='noclient'>
-      <%= I18n.t 'navigation.reset_model' %>
-    </a>
+    <% if @conference: %>
+      <a href='/scenes/<%= @sceneId %>/fresh' class="hard-reset" data-navigate='noclient'>
+        <strong><%= I18n.t 'navigation.hard_reset' %></strong>
+      </a>
+      <a href='/scenes/<%= @sceneId %>' class="soft-reset" data-navigate='noclient'>
+        <%= I18n.t 'navigation.soft_reset' %>
+      </a>
+    <% else: %>
+      <a href='/scenes/<%= @sceneId %>' data-navigate='noclient'>
+        <%= I18n.t 'navigation.reset_model' %>
+      </a>
+    <% end %>
   </li>
 </ul>

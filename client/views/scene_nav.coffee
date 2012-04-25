@@ -43,6 +43,7 @@ renderSettings = (nav) ->
     locale:            I18n.locale
     sceneId:           nav.model.get('scene').id
     alternativeLocale: (if I18n.locale == 'nl' then 'en' else 'nl')
+    conference:        app.conference
 
   year = $ '#change-end-year', element
   year.on 'change', -> nav.model.set endYear: year.val()
@@ -55,6 +56,9 @@ renderSettings = (nav) ->
     hideOrShow = showScore.is(':checked')
     nav.model.set showScore: hideOrShow
     $('#main-props .score').css('opacity': if hideOrShow then 1 else 0)
+
+  hardReset = $ '.hard-reset', element
+  hardReset.on 'click', -> localStorage?.removeItem 'seen-prelaunch'
 
   element
 
