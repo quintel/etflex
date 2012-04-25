@@ -49,6 +49,22 @@ feature 'Viewing the root page' do
 
     page.status_code.should eql(200)
 
+    page.should have_scene_link(@scene)
+    page.should have_scenario_link(@scene, Scenario.last)
+  end
+
+  # --------------------------------------------------------------------------
+
+  scenario 'as a guest who has attempted a scene (conference mode)', conference: true, js: true do
+    visit "/scenes/#{ @scene.id }"
+
+    # Wait until the page has loaded.
+    page.should have_css('#left-inputs')
+
+    click_link 'logo'
+
+    page.status_code.should eql(200)
+
     page.should have_fresh_scene_link(@scene)
     page.should have_scenario_link(@scene, Scenario.last)
   end
