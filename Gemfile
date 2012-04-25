@@ -23,7 +23,7 @@ gem 'simple_form'
 gem 'redcarpet'
 gem 'gravtastic'
 
-gem 'httparty'
+gem 'rest-client'
 
 gem 'devise'
 gem 'omniauth-facebook'
@@ -61,11 +61,6 @@ end
 group :production do
   # Use unicorn as the web server
   gem 'unicorn'
-end
-
-group :development do
-  # Used in the update_inputs rake task.
-  gem 'rest-client', require: false
 end
 
 group :test, :development do
