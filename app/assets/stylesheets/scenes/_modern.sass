@@ -320,6 +320,9 @@
         -moz-transition:    -moz-transform    0.5s
         -webkit-transition: -webkit-transform 0.5s
 
+        // http://stackoverflow.com/questions/6843367/css3-transforms-cause-screen-flickering-or-aliased-font
+        -webkit-transform-style: preserve-3d
+
       .info
         -webkit-font-smoothing: antialiased
         color: #333
