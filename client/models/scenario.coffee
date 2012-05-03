@@ -188,7 +188,6 @@ class exports.Scenario extends Backbone.Model
 
   # Triggered when the user moves an input. Saves the value to ETengine.
   onInputChange: (input) =>
-    console.log 'saving inputs'
     input.save {}, { @queries }
 
   # Saves changes to the scenario when the user edits the end year or country.
