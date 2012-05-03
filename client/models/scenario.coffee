@@ -64,23 +64,27 @@ class exports.Scenario extends Backbone.Model
         @inputs.persistTo this
 
         # Watch for changes to the inputs and send them back to the Engine.
-        @inputs.on 'change:value', (input) => input.save {}, { @queries }
+        @inputs.on 'change:value', @onInputChange
 
         # Changes to the scenario end year or country need to be saved back
         # to both ET-Flex and ET-Engine.
-        @on 'change', =>
-          if @hasChanged('endYear') or @hasChanged('country')
-            @saveSettings @queries if @canChange app.user
+        @on 'change', @onSettingsChange
 
         # Returns input value and query information to ET-Flex when results
         # are received from ET-Engine.
-        @inputs.on 'updateInputsDone', =>
-          @updateCollections { @inputs, @queries } if @canChange app.user
+        @inputs.on 'updateInputsDone', @onEngineResponse
 
         callback null, scene, this
 
         # New scenarios need to be saved back to the ET-Flex server.
         @inputs.trigger 'updateInputsDone' if isNewScenario
+
+  # Cleans up when the scenario is no longer beign displayed to the user.
+  stop: ->
+    @inputs.off 'change:value',     @onInputChange
+    @inputs.off 'updateInputsDone', @onEngineResponse
+
+    @off 'change', @onSettingsChange
 
   # Returns if any of the inputs have been moved by the user.
   isDefault: ->
@@ -179,3 +183,20 @@ class exports.Scenario extends Backbone.Model
     delete attributes.user
 
     { scenario: attributes }
+
+  # "start" Events -----------------------------------------------------------
+
+  # Triggered when the user moves an input. Saves the value to ETengine.
+  onInputChange: (input) =>
+    console.log 'saving inputs'
+    input.save {}, { @queries }
+
+  # Saves changes to the scenario when the user edits the end year or country.
+  onSettingsChange: =>
+    if @hasChanged('endYear') or @hasChanged('country')
+      @saveSettings @queries if @canChange app.user
+
+  # Saves the input and query values back to the ETflex server after receivng
+  # a response from ETengine.
+  onEngineResponse: =>
+    @updateCollections { @inputs, @queries } if @canChange app.user

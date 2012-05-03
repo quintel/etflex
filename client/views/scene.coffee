@@ -40,6 +40,7 @@ class exports.SceneView extends Backbone.View
   # Called when a new page is to be shown, so that we may unbind events.
   destructor: ->
     @highScores?.destructor()
+    @scenario.stop()
 
   # Creates the HTML elements for the view, and binds events. Returns self.
   #
