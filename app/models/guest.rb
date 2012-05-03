@@ -26,7 +26,9 @@ class Guest
   # should be used to identify guests.
   #
   def image_url
-    IMAGE_URL
+    # the IMAGE_URL constant above is used by Gravtastic, that is expecting an
+    # absolute URL
+    '/assets/guest.png'
   end
 
   # Public: Saves the guest into a cookie.
