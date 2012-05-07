@@ -55,7 +55,6 @@ class exports.SceneView extends Backbone.View
     @renderTheme()
     @renderProps()
     @renderNavigation()
-    @initShareLinks()
     @initHighScores()
 
     this
@@ -269,23 +268,3 @@ class exports.SceneView extends Backbone.View
 
   renderBadge: ->
     $('#master-content').append badgeTempl()
-
-  # Sets up the social media "share" links.
-  #
-  initShareLinks: ->
-    link = encodeURIComponent(
-      "http://etflex.et-model.com/scenes/" +
-      "#{ @model.id }/#{ @scenario.get('sessionId') }")
-
-    # Facebook.
-    fbLink = "http://www.facebook.com/sharer.php?u=#{link}&t=ETFlex"
-    @$('#social-media .facebook a').attr('href', fbLink)
-
-    # Twitter
-    twitterLink = "http://www.twitter.com/share?url=#{link}"
-    @$('#social-media .twitter a').attr('href', twitterLink)
-
-    # Google Plus (+)
-    googleLink = "http://plusone.google.com/_/+1/confirm?hl=en&url=#{link}"
-    @$('#social-media .google a').attr('href', googleLink)
-
