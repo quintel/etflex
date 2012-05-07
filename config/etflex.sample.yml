@@ -20,6 +20,9 @@ production: &production
   supported_browsers: [
     'ie9', 'ie8', 'ie10', 'chrome', 'firefox', 'safari', 'ipad', 'opera' ]
 
+  # offline laptops disable CORS
+  offline: false
+
 staging:     *production
 development: *production
 

@@ -12,7 +12,8 @@ module ApplicationHelper
       env:        Rails.env,
       user:       JSON.parse(rendered_user),
       realtime:   ETFlex.config.realtime,
-      conference: ETFlex.config.conference
+      conference: ETFlex.config.conference,
+      offline:    ETFlex.config.offline
     }.to_json
   end
 

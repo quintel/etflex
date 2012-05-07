@@ -5,7 +5,10 @@ PATH = null
 #
 exports.setPath = (path) ->
   ios4 = navigator.userAgent?.match(/CPU (iPhone )?OS 4_/)
-  PATH = if jQuery.support.cors and not ios4 then path else '/ete'
+  PATH = if jQuery.support.cors and not ios4 and not exports.offline
+    path
+  else
+    '/ete'
 
   exports.isBeta  = path.match(/^https?:\/\/beta\./)?
   exports.setPath = (->)
