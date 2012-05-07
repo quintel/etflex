@@ -3,9 +3,9 @@ PATH = null
 # Sets the path used when sending API requests to ETEngine. Self-destructs
 # after the first time it is called.
 #
-exports.setPath = (path) ->
+exports.setPath = (path, offline = false) ->
   ios4 = navigator.userAgent?.match(/CPU (iPhone )?OS 4_/)
-  PATH = if jQuery.support.cors and not ios4 and not exports.offline
+  PATH = if jQuery.support.cors and not ios4 and not offline
     path
   else
     '/ete'

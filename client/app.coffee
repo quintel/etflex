@@ -46,7 +46,7 @@ exports.boot = (window, { locale, api, env, user, realtime, conference, offline 
       subscribe("etflex-#{ exports.env }")
 
   # Engine API.
-  require('lib/api').setPath api
+  require('lib/api').setPath api, offline
 
   # Common collections.
   exports.collections.scenes =
