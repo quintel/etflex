@@ -50,7 +50,7 @@ class exports.SceneView extends Backbone.View
   #   $('body').html view.render().el
   #
   render: ->
-    @$el.html template()
+    @$el.html template(conferenceMode: app.conference)
 
     @renderTheme()
     @renderProps()
