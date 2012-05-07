@@ -19,5 +19,8 @@
   - if ETFlex.config.realtime
     = javascript_include_tag 'http://js.pusher.com/1.11/pusher.min.js'
 
+  - unless ETFlex.config.conference
+    = javascript_include_tag 'google_analytics.js'
+
   :javascript
     require('app').boot(window, #{ client_options })

@@ -60,6 +60,7 @@ module ETFlex
     config.assets.paths.unshift self.root.join('client').to_s
 
     config.assets.precompile.push('modernizr-2.0.6.js')
+    config.assets.precompile.push('google_analytics.js')
     config.assets.precompile.push('backstage.css')
     config.assets.precompile.push('backstage.js')
 
