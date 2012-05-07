@@ -24,7 +24,6 @@
  *= require i18n/translations
  *= require ./stitch_preamble
  *= require_tree ../../../client
- *= require google_analytics
  */
 
 jQuery.easing.def = 'easeInOutQuart';
