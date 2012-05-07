@@ -23,7 +23,7 @@ exports.collections = {}
 exports.pusher = null
 
 # Called _once_ when the application is first loaded in the browser.
-exports.boot = (window, { locale, api, env, user, realtime, conference }) ->
+exports.boot = (window, { locale, api, env, user, realtime, conference, offline }) ->
   installConsolePolyfill window
 
   # Current user
@@ -31,6 +31,7 @@ exports.boot = (window, { locale, api, env, user, realtime, conference }) ->
   exports.user       = require('models/user').createUser user
   exports.realtime   = realtime
   exports.conference = conference
+  exports.offline    = offline
 
   # Languages
   I18n.locale    = locale
