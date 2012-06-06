@@ -25,8 +25,8 @@ exports.isBeta = false
 
 # Sends a request to ETengine.
 #
-# path     - The path to which the request should be sent. This is suffixed to
-#            BASE_URL, and then has ".json" added to the end.
+# path     - The path to which the request should be sent. Do not include the
+#            host, "api_scenarios" path, or a file extension.
 # callback - Run after the request completes with either the jQuery error
 #            returned, or the parsed JSON data.
 #
@@ -46,8 +46,8 @@ exports.send = (path, data, callback) ->
   .fail (jqXHR, textStatus, error) ->
     callback error
 
-# Given inputs, sends their values to ETengine. Given queries, will also fetch
-# their values.
+# Given inputs, sends their values to ETengine. Will also fetch the values
+# of any queries provided.
 #
 # This may be called without any inputs or queries as part of the session
 # creation process.
@@ -60,9 +60,9 @@ exports.send = (path, data, callback) ->
 #             item containing queries whose results should be returned.
 #
 # callback  - A callback to the run after the XHR request has completed. The
-#             first parameter will be null unless an error occurred (in which
-#             case it will be an exception object). The updated Query
-#             instances will be provided to the callback in an array.
+#             first parameter will be null unless an error occurred, in which
+#             case it will be an exception object. The updated Query instances
+#             will be provided to the callback in an array.
 #
 # Example (with a Query collection)
 #

@@ -1,7 +1,7 @@
 app = require 'app'
 
 # Intercepts clicks on links to local pages and loads them in the client,
-# instead of reloading the applicaion.
+# instead of reloading the page.
 #
 # It may be used in a view event hash like so:
 #

@@ -15,7 +15,7 @@ class exports.InputManager
 
   # Creates a new InputManager.
   #
-  # sessionId - The ID of the ET-Engine session so that the manager can
+  # sessionId - The ID of the ETengine session so that the manager can
   #             persist the input values to the correct URL.
   #
   constructor: (@sessionId) ->
@@ -29,7 +29,7 @@ class exports.InputManager
   # input   - The input whose value is being persisted.
   # options - The options which were passed to Input::sync. Expects an
   #           optional array (or Backbone collection) containing Queries
-  #           which should be updated once the input value has been saved.
+  #           to be requested once the input value has been saved.
   #
   update: (input, options) ->
     if currentUpdate?
@@ -63,10 +63,10 @@ class exports.InputManager
 
 # QueuedUpdate ---------------------------------------------------------------
 
-# If the user changes multiple sliders in a short period, it can occur that
-# the responses are returned out of order, and queries are update to incorrect
-# values. QueuedUpdate will amalgamate all input changes, and the queries
-# affected, and do them all simultaneously when you call perform().
+# If the user changes multiple sliders in a short period, responses from
+# ETengine may arrive in a different order than the requests were sent.
+# QueuedUpdate will combine all input changes, and the queries affected, and
+# perform them all simultaneously.
 #
 class QueuedUpdate
   constructor: ->
@@ -75,9 +75,9 @@ class QueuedUpdate
     @queries    = {}
 
     # If isRollback is true, then the update is being used to rollback input
-    # values which were rejected by ET-Engine. We should not allow a rollback
-    # to also rollback, otherwise we may end up in an infinite loop
-    # alternating between two invalid input values.
+    # values rejected by ETengine. We do not allow a rollback to also
+    # rollback, otherwise we may end up in an infinite loop alternating
+    # between two invalid input values.
     @isRollback = false
 
   # Adds an input update to the queue so that it may be performed.

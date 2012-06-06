@@ -1,6 +1,5 @@
 class exports.Balancer
-  # Creates a new balancer, used to ensure that a group of inputs have a
-  # cumulative value of 100.
+  # Creates a new balancer, used to ensure that a group of inputs sum to 100.
   #
   # Terminology
   #
@@ -13,15 +12,14 @@ class exports.Balancer
   #
   #     When the user is altering a slider value, all of the other sliders,
   #     minus those which are disabled, are considered subordinates. The
-  #     subordinates are the sliders whose values are changes to ensure that
+  #     subordinates are the sliders whose values are changed to ensure that
   #     the group remains balanced.
   #
   constructor: (options = {}) ->
     @inputs = []
     @max    = 100
 
-  # Adds an input whose value should be balanced.
-  #
+  # Adds an input whose value needs to be balanced.
   add: (input) ->
     @inputs.push input
     input.change 'value', @onChange

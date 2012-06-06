@@ -1,7 +1,6 @@
 # Given data about a user, returns a User model which represents that data. If
-# the data describes a guest who has not signed up, you will be returned a
-# Guest instance instead.
-#
+# the data describes a guest who has not signed up, you will be given a Guest
+# instance instead.
 exports.createUser = (data) ->
   userId = data?.id or ''
 

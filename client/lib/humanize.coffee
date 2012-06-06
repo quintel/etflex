@@ -14,18 +14,15 @@ exports.number = (number) ->
   if not _.isNumber number
     '???'
   else if number >= 1000000000
-    # Billions.
     I18n.t 'magnitudes.billion', amount: formatNumber(number / 1000000000)
   else if number >= 1000000
-    # Millions.
     I18n.t 'magnitudes.million', amount: formatNumber(number / 1000000)
   else
     formatNumber number
 
 # Helpers --------------------------------------------------------------------
 
-# Formats a number which is being truncated to a given precision, with a word
-# suffix used to indicate a power of ten. For example, in the NL locale:
+# Formats a number, truncating it to 3 significant figures.
 #
 #   formatNumber 1.1234  # => "1.12"
 #   formatNumber 11.234  # => "12.1"
