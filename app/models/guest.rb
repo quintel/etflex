@@ -10,7 +10,7 @@ class Guest
   # TODO This should be part of a view, not the model; move as soon as
   #      Scenario#to_pusher_event is extracted from the model.
   #
-  IMAGE_URL = 'http://beta.etflex.et-model.com/assets/guest.png'.freeze
+  IMAGE_URL = 'http://etflex.et-model.com/assets/guest.png'.freeze
 
   # Creates a new Guest.
   #
