@@ -6,9 +6,8 @@ app = require 'app'
 # Returns the ETEngine session which corresponds with a scene ID.
 #
 # "getSession" will always hit ETEngine for the session details, and will
-# return the ID of the session. This method is used in conjunction with
-# Scene::start and probably shouldn't be called directly unless you know
-# what you're doing.
+# return the ID of the session. This method is used as part of Scene::start
+# and probably shouldn't be called directly unless you know what you're doing.
 #
 # In all cases, the session will be returned to the callback as the second
 # argument. The first argument will be null unless an error occurred.
@@ -20,10 +19,10 @@ app = require 'app'
 # queries  - Queries whose results should be fetched with the session.
 #
 # inputs   - Inputs whose values should be retrieved from ETEngine when
-#            restoring an existing session, or set to the engine when
-#            creating a new session.
+#            restoring an existing session, or sent when creating a new
+#            session.
 #
-# callback - A function which is run after the session is retrieved.
+# callback - A function run after the session is retrieved.
 #
 exports.getSession = (scenario, queries, inputs, callback) ->
   queries = queries.models or queries
@@ -41,22 +40,17 @@ exports.getSession = (scenario, queries, inputs, callback) ->
 
 # An abstraction around api::send which hits ETEngine for the basic
 # information about a session (country, etc).
-#
 fetchSession = (sessionId, queries, callback) ->
   api.updateInputs sessionId, { queries }, (err, result) ->
     if err? then callback(err) else callback null, result
 
 # Requests input_data.json to get the state of the user's Inputs.
-#
 fetchUserValues = (sessionId, inputs, callback) ->
   inputKeys = ( input.def.key for input in inputs )
 
   api.send "#{sessionId}/input_data", inputs: inputKeys, callback
 
 # Used to create a new session, pre-initialized with values from ET-Engine.
-# Use this in preference over `new Session` since creating a session
-# explicitly will not actually create a session on ETengine.
-#
 createSession = (queries, inputs, scenario, callback) ->
   data = settings:
     end_year: scenario.get('endYear')
@@ -78,7 +72,6 @@ createSession = (queries, inputs, scenario, callback) ->
 # Currently we have to fetch both the session information and user values
 # separately; it would be just marvellous if we could do both in a single
 # request. ;-)
-#
 restoreSession = (sessionId, queries, inputs, callback) ->
   async.parallel
     # Fetches information about the session.
@@ -103,8 +96,7 @@ restoreSession = (sessionId, queries, inputs, callback) ->
     callback null, parseInt(sessionId, 10)
 
 # When a scenario already has a complete set of input and query data, we can
-# start the scene without hitting ETEngine.
-#
+# start the scene without goign to ETengine.
 localRestore = (scenario, queries, inputs, callback) ->
   localInputs  = scenario.get 'inputValues'
   localQueries = scenario.get 'queryResults'
