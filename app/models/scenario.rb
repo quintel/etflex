@@ -1,7 +1,7 @@
-# Scenario keeps track of a user's attempt to complete a scene. Holding on to
+# Scenario keeps track of a users attempt to complete a scene. Holding on to
 # the scene ID, user ID, and the corresponding ET-Engine session ID, it allows
-# a user to attempt a scene multiple times, and to share their scenes with
-# others.
+# a user to attempt a scene more than once times, and to share each scene with
+# other visitors.
 #
 # == Columns
 #
@@ -14,6 +14,18 @@
 # session_id (Integer)
 #   The ET-Engine session ID which was used when completing the scene.
 #
+# input_values (Hash)
+#   A copy of the input values chosen by the user.
+#
+# query_results (Hash)
+#   A cached copy of the query results returned by the most recent ETengine
+#   request for this scene. Used to rank scenarios, and enables "local-start"
+#   in the client.
+#
+# guest_uid (String), guest_name (String)
+#   Used instead of user_id when the scenario belongs to an unregistered
+#   visitor containing a unique ID and optional user name.
+#
 class Scenario < ActiveRecord::Base
 
   serialize :input_values,  Hash
@@ -25,9 +37,7 @@ class Scenario < ActiveRecord::Base
   # SCOPES -------------------------------------------------------------------
 
   class << self
-    # Returns the Scenario for a given scene ID, session ID pair, raising a
-    # RecordNotFound error if no Scenario exists.
-    #
+    # Returns the Scenario for a given scene ID / session ID pair.
     def for_session(scene_id, session_id)
       where(scene_id: scene_id, session_id: session_id).first
     end
@@ -35,8 +45,8 @@ class Scenario < ActiveRecord::Base
     # Returns only scenarios which have either a guest name, or belong to a
     # registered user who has set their name.
     #
-    # LEFT JOIN is required as Rails defaults to an INNER JOIN which excludes
-    # all scenarios which do not have a user_id set.
+    # LEFT JOIN is required: Rails defaults to an INNER JOIN which excludes
+    # all scenarios which have no user_id set.
     #
     def identified
       joins('LEFT JOIN `users` ON `users`.`id` = `scenarios`.`user_id`').
@@ -44,8 +54,8 @@ class Scenario < ActiveRecord::Base
               '`users`.`name` IS NOT NULL')
     end
 
-    # Returns scenarios which belong to the given user or guest. Handy when
-    # chained onto a scene, for example:
+    # Returns scenarios belonging to the given user or guest. Handy when
+    # chained on to a scene, for example:
     #
     #   scene.scenarios.for_user(user).recent
     #
@@ -75,10 +85,9 @@ class Scenario < ActiveRecord::Base
       order 'updated_at DESC'
     end
 
-    # Returns scenarios which were updated on or after the given time.
+    # Returns scenarios updated at -- or after -- the given time.
     #
-    # time - A Time or Date object. Scenarios which haven't been updated since
-    #        the time will be excluded from the returned collection.
+    # time - A Time or Date object.
     #
     # Raises an ArgumentError if time is nil.
     #
@@ -93,7 +102,7 @@ class Scenario < ActiveRecord::Base
     # Returns scenarios suitable for display in the high scores list.
     #
     # time - A Time or Date object. Scenarios which haven't been updated since
-    #        the time will be excluded from the returned collection.
+    #        "time" will be excluded from the returned collection.
     #
     # Raises an ArgumentError if time is nil.
     #
@@ -102,27 +111,25 @@ class Scenario < ActiveRecord::Base
         # We need to select twice as many scenarios as are actually displayed;
         # if a scenario currently in the top five is demoted, we need the next
         # highest so that it can be promoted in the UI. So, twice as many
-        # allows all of the top five to be demoted without the UI crapping out.
+        # allows all of the top five to be demoted without the UI crapping
+        # out.
         #
-        # In the real world, (number_shown) + 2 should be enough...
+        # In the real world, (number_shown) + 2 *should* be enough...
         #
         limit(20)
     end
 
     # Selects the scenarios from the last 24 hours only
-    #
     def last_24hours
       since 1.days.ago
     end
 
     # Selects the scenarios from last week only
-    #
     def last_week
       since 7.days.ago
     end
 
     # Orders the retrieved scenarios by score from highest to lowest.
-    #
     def by_score
       order 'score DESC'
     end
@@ -131,12 +138,12 @@ class Scenario < ActiveRecord::Base
     private
     #######
 
-    # Returns the column used to look up a given object (a User or Guest)
+    # Guests and Users are stored differently in a Scenario; returns the
+    # column used to store the unique visitor ID for this scenario.
     #
-    # Returns :user_id or :guest_id depending on the type of object given.
-    #
-    def user_attribute_for(thing)
-      case thing
+    # Raises an error when "visitor" is not a User or Guest.
+    def user_attribute_for(visitor)
+      case visitor
         when User  then :user_id
         when Guest then :guest_uid
         else raise 'Scenario.user_attribute_for requires a User or Guest'
@@ -158,35 +165,33 @@ class Scenario < ActiveRecord::Base
   # INSTANCE METHODS ---------------------------------------------------------
 
   # Use the ETEngine session as the URL parameter.
-  #
   def to_param
     session_id
   end
 
   # Returns the user if present, otherwise returns a Guest.
-  #
   def user_or_guest
     user or Guest.new(guest_uid, guest_name)
   end
 
-  # Determines if a given user or guest is permitted to change this scenario.
+  # Determines if the given user or guest is allowed to change this scenario.
   #
-  # check - A User or Guest instance to check.
+  # visitor - A User or Guest instance to check.
   #
-  def can_change?(check)
+  def can_change?(visitor)
     if new_record?
       true
     elsif self.user_id.present?
-      check.kind_of?(User) && check.id == user_id
+      visitor.kind_of?(User) && visitor.id == user_id
     elsif self.guest_uid.present?
-      check.kind_of?(Guest) && check.id == guest_uid
+      visitor.kind_of?(Guest) && visitor.id == guest_uid
     else
       false
     end
   end
 
   # Writes the input values hash. When given nil will always set an empty
-  # hash, and converts the hash keys to integers.
+  # hash, converting the hash keys to integers.
   #
   # values - A hash of input IDs and the value the user set.
   #
@@ -197,9 +202,9 @@ class Scenario < ActiveRecord::Base
       end)
   end
 
-  # Writes the query results hash. When given nil will always set an empty
-  # hash. If the "score" query is present, it's value will be copied into the
-  # score column; otherwise the score column will be set to nil.
+  # Writes the query results hash. Will set an empty hash if given nil. If the
+  # "score" query is present, it's value will be copied into the score column;
+  # otherwise the score column will be set to nil.
   #
   # results - A hash of query keys and the value returned by ETEngine.
   #
@@ -211,8 +216,8 @@ class Scenario < ActiveRecord::Base
     self.renewability        = query_results['renewability']
   end
 
-  # Returns a copy of the scenario as a hash containing data which should be
-  # sent to Pusher whenever the scenario is created or updated.
+  # Returns a copy of the scenario as a hash containing data which it sent to
+  # Pusher when the scenario is created or updated.
   #
   # TODO This should be a JBuilder template so we have access to URL helpers.
   #

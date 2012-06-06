@@ -1,9 +1,8 @@
 # Brings together Inputs and Props to create a "Scene" with which users may
-# interact. An example is the ETlite scene which provides a range of energy-
-# saving and power-generation options, and shows the user the effect of their
-# choices on supply and demand, and CO2 emissions, etc.
-#
-# TODO Validate that either name or name_key are set.
+# interact. An example is the default "Balancing Supply and Demand" scene
+# which provides a range of energy-saving and power-generation options, and
+# shows the user the effect of their choices on supply and demand, CO2
+# emissions, etc.
 #
 # == Columns
 #
@@ -12,8 +11,7 @@
 #   own Scenes; they can't - and won't want to - set localised strings in each
 #   language.
 #
-#   Staff should leave this blank, set a "name_key" instead, and be sure to
-#   set the I18n strings from which the Scene name will be derived.
+#   Staff should leave this blank, set a "name_key" instead.
 #
 # name_key (String[0..100])
 #   "name_key" allows staff to omit a Scene name (since it would be limited

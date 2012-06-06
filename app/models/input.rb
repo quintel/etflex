@@ -10,11 +10,11 @@
 # == Columns
 #
 # remote_id (Integer)
-#   The ID of the input on ETengine. The Backbone client requires this so that
-#   it can tell ETengine whenever the user updates the input.
+#   The ID of the input on ETengine. Required by the Backbone client so that
+#   it can tell ETengine when the user updates the input.
 #
 # key (String[1..255])
-#   A unique string key which identifies this input. Used when looking up I18n
+#   A unique  key which identifies this input. Used when looking up I18n
 #   translations, and should probably match the key on ETengine.
 #
 # step (Float)
@@ -23,26 +23,23 @@
 #   moved from 0.0, to 0.1, to 0.2, etc.
 #
 # min (Float)
-#   The minimum acceptable value for the slider. Generally speaking this
-#   should match the minimum value on ETengine, but may be customised where
-#   necessary. It should not be lower than the ETengine value.
+#   The minimum acceptable input value. It should match the ETengine value but
+#   may be customised to a higher value.
 #
 # max (Float)
-#   The maximum acceptable value for the slider. Generally speaking this
-#   should match the maximum value on ETengine, but may be customised where
-#   necessary. It should not be higher than the ETengine value.
+#   The minimum acceptable input value. It should match the ETengine value but
+#   may be customised to a lower value.
 #
 # start (Float)
 #   The default value of the input before the user makes any changes.
 #
 # unit (String[1..255])
-#   A text suffix used when showing the user the value of the input. A unit of
-#   "MW" will result in the input value being formatted as "1,500 MW", etc.
+#   A text suffix used when showing the user the value of the input. For
+#   example, a unit of "MW" results in the formated value "1,500 MW".
 #
 # group (String[1..50])
-#   A group to which the input belongs; sliders which belong to a group need
-#   to be balanced so that the cumulative value of all inputs in the group sum
-#   to 100.
+#   A group to which the input belongs; inputs in a group are balanced so that
+#   their values sum to 100.
 #
 class Input < ActiveRecord::Base
 
@@ -85,9 +82,9 @@ class Input < ActiveRecord::Base
 
   # CLASS METHODS ------------------------------------------------------------
 
-  # Given one or more inputs, returns all of the inputs which are related to
-  # them by the "group" column. The sliders passed in to the method will not
-  # be included in those returned.
+  # Returns an array of inputs related by the "group" attribute to those
+  # given. The inputs passed in to the method will not be included in the
+  # returned array.
   #
   # inputs - The input, or collection of inputs, whose siblings are to be
   #          retrieved. This may be an Input, SceneInput, or an array
@@ -109,14 +106,12 @@ class Input < ActiveRecord::Base
     siblings.reject { |input| exclusions.include?(input.remote_id) }
   end
 
-  # Given one or more inputs, returns all of the inputs which are related to
-  # them by the "group" column. The inputs passed in to the method will not
-  # be included in those returned.
+  # Returns an array of inputs related by the "group" attribute to those
+  # given. The inputs passed in to the method will not be included in the
+  # returned array.
   #
-  # If, of the sliders passed in, there are two or more which are already in
-  # the same group, none of the groups siblings will be included. This
-  # happens so that client-side balancing only happens on sliders which the
-  # user can see.
+  # If two or more inputs given are already in the same group, none of the
+  # groups siblings will be included.
   #
   # inputs - The input, or collection of inputs, whose siblings are to be
   #          retrieved. This may be an Input, SceneInput, or an array

@@ -34,12 +34,12 @@ class User < ActiveRecord::Base
 
   # INSTANCE METHODS ---------------------------------------------------------
 
-  # The URL to a users profile image.
+  # The URL to a user's profile image.
   #
-  # In the event the user signed up through Facebook, the returned string will
-  # contain a URL to their Facebook profile image. Otherwise, the it will seek
-  # to use the users e-mail address to fetch a gravatar image; falling back to
-  # the default (guest) profile image.
+  # If the user signed up through Facebook, the returned string will contain a
+  # URL to their Facebook profile image. Otherwise, it will seek to use the
+  # user's e-mail address to fetch a gravatar image; falling back to the
+  # default (guest) profile image.
   #
   # Returns a string.
   #
