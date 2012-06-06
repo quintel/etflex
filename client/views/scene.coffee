@@ -30,7 +30,7 @@ class exports.SceneView extends Backbone.View
 
   # Public: Creates a new SceneView.
   #
-  # SceneView renders the current only scene in ET-Flex -- the supply and
+  # SceneView renders the current only scene in ETflex -- the supply and
   # demand scene. It expects a Scene object which determines the structure of
   # the scene (inputs, props, etc), and a Scenario which has the keeps track
   # of the values.
@@ -217,7 +217,7 @@ class exports.SceneView extends Backbone.View
       propLocations[ prop.location ]?.append propView.render().el
 
   # Sets up the top navigation element for the scene, providing the ability
-  # to navigate to other pages, view the scene on ET-Model, etc.
+  # to navigate to other pages, view the scene on ETmodel, etc.
   #
   renderNavigation: ->
     @$('#footer').before (new SceneNav model: @scenario).render().el

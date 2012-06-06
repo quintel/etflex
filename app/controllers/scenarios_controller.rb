@@ -65,7 +65,7 @@ class ScenariosController < ApplicationController
   end
 
   # Shows the JSON for a given scene, with extra information about the
-  # scenario embedded within so that they client loads a specific ET-Engine
+  # scenario embedded within so that they client loads a specific ETengine
   # session.
   #
   # GET /scenes/:scene_id/with/:id
@@ -80,7 +80,7 @@ class ScenariosController < ApplicationController
 
   # Creates or updates a Scenario record.
   #
-  # The client hits this action when it creates a new ET-Engine session so
+  # The client hits this action when it creates a new ETengine session so
   # that we may resume the users sessions later.
   #
   # PUT /scenes/:scene_id/with/:id

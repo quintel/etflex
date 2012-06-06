@@ -1,9 +1,7 @@
 { InputManager } = require 'lib/input_manager'
 { Balancer }     = require 'lib/balancer'
 
-# Contains all of the Inputs. The main instantiated collection can be found
-# on app.collections.inputs.
-#
+# Contains all of the Inputs used by a Scene.
 class exports.Inputs extends Backbone.Collection
   model: require('models/input').Input
 
@@ -22,7 +20,7 @@ class exports.Inputs extends Backbone.Collection
 
   # Sets the session to which the inputs contained in the collection belong.
   #
-  # scenario - The ET-Engine scenario to which the input values should be sent
+  # scenario - The ETengine scenario to which the input values should be sent
   #            when changed.
   #
   persistTo: (scenario) ->
@@ -31,9 +29,8 @@ class exports.Inputs extends Backbone.Collection
     else
       throw 'Cannot persist inputs to a scenario which has no sessionId'
 
-  # Given a group name, performs balancing so that the sliders in the group
-  # other than "master" have their values adjusted so that the group sums to
-  # 100.
+  # Performs balancing so that the sliders in the group have their values
+  # adjusted so that the group sums to 100.
   #
   # Inputs whose values are changed will be returned in an array.
   #
