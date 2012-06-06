@@ -39,7 +39,6 @@ startScene = (collection, startArgs...) ->
 
 # Router watches the URL and, as it changes, re-renders the main view
 # mimicking the user navigating from one page to another.
-#
 class exports.Main extends Backbone.Router
   routes:
     '':                     'root'
@@ -52,7 +51,7 @@ class exports.Main extends Backbone.Router
 
     '*undefined':           'notFound'
 
-  # The main landing page for ET-Flex.
+  # The main landing page for ETflex.
   #
   # Contains information about the application, and the top n scores list
   # using Pusher.
@@ -98,12 +97,6 @@ class exports.Main extends Backbone.Router
   notFound: notFound
 
   # Fetches the list of all Scenes, and redirects to the ETlite recreation.
-  #
-  # TODO Use the scenes collection, adding any scenes which were fetched from
-  #      the server but weren't present in the collection. Need to know which
-  #      scenes are partial definitions (from views/embeds) and which are
-  #      complete...
-  #
   redirectToDefaultScene: ->
     jQuery.getJSON('/scenes.json')
       .done (data) ->
@@ -127,7 +120,7 @@ class exports.Main extends Backbone.Router
     startScene app.collections.scenes, id
 
   # Given JSON for a scenario (and embedded Scene), renders the scene fetching
-  # the scenario from ET-Engine.
+  # the scenario from ETengine.
   #
   # GET /scenes/:scene_id/scenarios/:id
   #

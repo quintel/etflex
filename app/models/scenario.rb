@@ -1,5 +1,5 @@
 # Scenario keeps track of a users attempt to complete a scene. Holding on to
-# the scene ID, user ID, and the corresponding ET-Engine session ID, it allows
+# the scene ID, user ID, and the corresponding ETengine session ID, it allows
 # a user to attempt a scene more than once times, and to share each scene with
 # other visitors.
 #
@@ -12,7 +12,7 @@
 #   Foreign key relating the scenario to the scene.
 #
 # session_id (Integer)
-#   The ET-Engine session ID which was used when completing the scene.
+#   The ETengine session ID which was used when completing the scene.
 #
 # input_values (Hash)
 #   A copy of the input values chosen by the user.

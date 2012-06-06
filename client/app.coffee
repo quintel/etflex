@@ -1,7 +1,3 @@
-# app.coffee contains the instance of the main application router, as
-# well as any other objects which are considered "singletons", such as
-# full-page views.
-
 # Tells you if the application has been booted. Simple, "stand-alone" pages
 # may use parts of the client code (such as a navigation menus) without
 # booting the whole client.

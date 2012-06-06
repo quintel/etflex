@@ -6,18 +6,11 @@ class exports.ScenarioSummaries extends Backbone.Collection
 
   # Returns a subcollection (as an array) containing only scenarios which have
   # a user name present.
-  #
-  # TODO Cache this, only changing when a new summary is added, name changed,
-  #      or score updated.
-  #
   identified: ->
     @filter (summary) -> summary.get('user_name')?.match(/\S/)
 
-  # Returns whether the given score summary places it within the top N of
+  # Returns whether the given Summary score places it within the top N of
   # summaries in the collection.
-  #
-  # Note that any summaries which do not have a user name set are *excluded*
-  # when determining which scenarios are in the top N.
   isTopN: (summary, n) ->
     isWithinThreshold summary, @models, n
 

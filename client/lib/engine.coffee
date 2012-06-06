@@ -50,7 +50,7 @@ fetchUserValues = (sessionId, inputs, callback) ->
 
   api.send "#{sessionId}/input_data", inputs: inputKeys, callback
 
-# Used to create a new session, pre-initialized with values from ET-Engine.
+# Used to create a new session, pre-initialized with values from ETengine.
 createSession = (queries, inputs, scenario, callback) ->
   data = settings:
     end_year: scenario.get('endYear')

@@ -200,7 +200,7 @@ feature 'Viewing scenarios', js: true do
 
   scenario 'Visiting a scenario from another QI app' do
     # Emulate a scenario which exists on another app by creating one on
-    # ET-Engine, then removing the scenario record on ET-Flex.
+    # ETengine, then removing the scenario record on ETflex.
     visit "/scenes/#{ scene.id }"
 
     # Wait until the scene has loaded.
@@ -209,7 +209,7 @@ feature 'Viewing scenarios', js: true do
     scenario = Scenario.last
     scenario.destroy
 
-    # Visiting the scenario should *not* fetch data from ET-Engine, but
+    # Visiting the scenario should *not* fetch data from ETengine, but
     # instead 404.
     visit "/scenes/#{ scene.id }/with/#{ scenario.session_id }"
 

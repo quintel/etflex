@@ -31,7 +31,7 @@ module ApplicationHelper
   #
   # Some devices which may have the same OS/browser versions are
   # differentiated (e.g. iPhone, iPad) since their lower resolutions are not
-  # yet fully supported by ET-Flex.
+  # yet fully supported by ETflex.
   #
   # Returns a string.
   def user_agent

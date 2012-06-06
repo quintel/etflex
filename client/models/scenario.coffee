@@ -8,11 +8,11 @@ api = require 'lib/api'
 { Queries }    = require 'collections/queries'
 
 # Scenario keeps track of a user's attempt to complete a scene. Holding on to
-# the scene ID, user ID, and the corresponding ET-Engine session ID, it allows
+# the scene ID, user ID, and the corresponding ETengine session ID, it allows
 # a user to attempt a scene multiple times, and to share their scenes with
 # others.
 #
-# The session ID is the ET-Engine session ID.
+# The session ID is the ETengine session ID.
 #
 class exports.Scenario extends Backbone.Model
   idAttribute: 'sessionId'
@@ -33,7 +33,7 @@ class exports.Scenario extends Backbone.Model
 
     "/scenes/#{ @get('scene').id }/with/#{ @get 'sessionId' }.json"
 
-  # Starts the scenario by fetching the ET-Engine session, then starting the
+  # Starts the scenario by fetching the ETengine session, then starting the
   # scene. The scene must already exist in the Scenes collection.
   #
   # callback - A function which will be run after the scenari has been set up.
@@ -50,7 +50,7 @@ class exports.Scenario extends Backbone.Model
 
       isNewScenario = not @get('sessionId')?
 
-      # Fetch the ET-Engine session. This may return instantaneously if we
+      # Fetch the ETengine session. This may return instantaneously if we
       # already have all the data we need without having to send a request to
       # the Engine.
       getSession this, @queries, @inputs, (err, sessionId) =>
@@ -67,16 +67,16 @@ class exports.Scenario extends Backbone.Model
         @inputs.on 'change:value', @onInputChange
 
         # Changes to the scenario end year or country need to be saved back
-        # to both ET-Flex and ET-Engine.
+        # to both ETflex and ETengine.
         @on 'change', @onSettingsChange
 
-        # Returns input value and query information to ET-Flex when results
-        # are received from ET-Engine.
+        # Returns input value and query information to ETflex when results
+        # are received from ETengine.
         @inputs.on 'updateInputsDone', @onEngineResponse
 
         callback null, scene, this
 
-        # New scenarios need to be saved back to the ET-Flex server.
+        # New scenarios need to be saved back to the ETflex server.
         @inputs.trigger 'updateInputsDone' if isNewScenario
 
   # Cleans up when the scenario is no longer beign displayed to the user.
@@ -96,7 +96,7 @@ class exports.Scenario extends Backbone.Model
       original.start isnt @inputs.get(original.remoteId).get('value')
 
   # Given an inputs and queries collection, sets up events to track changes so
-  # that we can persist the values back to ET-Flex.
+  # that we can persist the values back to ETflex.
   #
   updateCollections: ({ queries, inputs }) ->
     queryResults = {}
@@ -129,7 +129,7 @@ class exports.Scenario extends Backbone.Model
       queries:    queries
       settings: { endYear: @get('endYear'), country: @get('country') }
 
-    # Update ET-Engine
+    # Update ETengine
     api.updateInputs @get('sessionId'), data, (err) =>
       if err?
         @set {
@@ -137,7 +137,7 @@ class exports.Scenario extends Backbone.Model
           country: @previous 'country'
         }, silent: true
       else
-        # Update ET-Flex
+        # Update ETflex
         @updateCollections queries: queries
 
   # Returns whether the scenario has enough information so that is can be used
