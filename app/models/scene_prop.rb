@@ -10,10 +10,12 @@
 #   Foreign key relating the SceneProp to the prop used by the scene.
 #
 # location (String[1..50])
-#   Determines where in the template the prop should be displayed. Each
-#   template has a number of pre-defined locations where a prop is shown. For
-#   example, the modern theme has a "center" location containing the supply /
-#   demand graph, and a "bottom" location containing three icons.
+#   Determines where in the template the prop should be displayed. e.g.
+#   "left", "right", "dashboard".
+#
+# position (Integer)
+#   Props which are have same location will be ordered by their "position"
+#   value.
 #
 class SceneProp < ActiveRecord::Base
 

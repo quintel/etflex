@@ -11,9 +11,8 @@
 #   Foreign key relating the scene to the input.
 #
 # location (String[1.100])
-#   Determines where in the template the input should be displayed. Each
-#   template will have a range of places in which inputs may appear; the
-#   modern theme, for example, has "left" and "right".
+#   Determines where in the template the input should be displayed. e.g.
+#   "left", "right", "center", "dashboard".
 #
 # position (Integer)
 #   Used by acts_as_list to order inputs in the "left" or "right" slider
@@ -69,16 +68,12 @@ class SceneInput < ActiveRecord::Base
   validates :scene_id, presence: true
   validates :input_id, presence: true, uniqueness: { scope: :scene_id }
 
-  # Ensure that the minimum value does not exceed the minimum value defined in
-  # the Input; but only if the input is set, and has a minimum.
-  #
+  # Ensure that the minimum value does not exceed the Input minimum.
   validates_numericality_of :min,
     greater_than_or_equal_to: ->(si) { si.input.min },
     if:                       ->(si) { si.input and si.input.min.present? }
 
-  # Ensure that the maximum value does not exceed the maximum value defined in
-  # the Input; but only if the input is set, and has a maximum.
-  #
+  # Ensure that the maximum value does not exceed the Input maximum.
   validates_numericality_of :max,
     less_than_or_equal_to:    ->(si) { si.input.max },
     if:                       ->(si) { si.input and si.input.max.present? }
@@ -94,62 +89,40 @@ class SceneInput < ActiveRecord::Base
 
   # INSTANCE METHODS ---------------------------------------------------------
 
-  # Retrieves the step value to which the input may be set in the scene. If no
-  # value is set, the value from the canonical input will be used instead.
-  #
-  # @return [Float]
-  #   Returns the step value, or the associated input step.
-  #
+  # Retrieves the step value to be used by the slider. If none is set, the
+  # value from the input will be used instead.
   def step
     read_attribute(:step) or ( input and input.step )
   end
 
-  # Retrieves the minimum value to which the input may be set in the scene. If
-  # no value is set, the value from the canonical input will be used instead.
-  #
-  # @return [Float]
-  #   Returns the minimum value, or the associated input minimum.
-  #
+  # Retrieves the minimum value to which the input may be set. If no value is
+  # set, the value from the input will be used instead.
   def min
     read_attribute(:min) or ( input and input.min )
   end
 
-  # Retrieves the maximum value to which the input may be set in the scene. If
-  # no value is set, the value from the canonical input will be used instead.
-  #
-  # @return [Float]
-  #   Returns the maximum value, or the associated input maximum.
-  #
+  # Retrieves the maximum value to which the input may be set. If no value is
+  # set, the value from the input will be used instead.
   def max
     read_attribute(:max) or ( input and input.max )
   end
 
-  # Retrieves the starting value to which the input may be set in the scene.
-  # If no value is set, the value from the canonical input will be used
-  # instead.
-  #
-  # @return [Float]
-  #   Returns the start value, or the associated input start value.
-  #
+  # Retrieves the starting value for the input. If none is set, the value from
+  # the input will be used instead.
   def start
     read_attribute(:start) or ( input and input.start )
   end
 
-  # Returns the ID of the input on ETEngine; this is stored simply as the
-  # identity field for the Input.
-  #
-  # @return [Integer]
-  #   Returns the ID of the input on ETEngine.
-  #
+  # Returns the ID of the input on ETEngine.
   def remote_id
     input and input.remote_id
   end
 
   # CLASS METHODS ------------------------------------------------------------
 
-  # Given a collection of inputs, returns an array containing all of the
-  # sibling inputs (those with the same groups names) wrapped inside a
-  # SceneInput for convenient use within a view.
+  # Returns an array containing all of the sibling inputs (those with the same
+  # groups names) each wrapped inside a SceneInput for convenient use within a
+  # view.
   #
   # See Input.siblings.
   #
@@ -163,11 +136,14 @@ class SceneInput < ActiveRecord::Base
     end
   end
 
-  # Given a collection of inputs, returns an array containing all of the
-  # sibling inputs (those with the same group names) wrapped inside a
-  # SceneInput for convenient use within a view.
+  # Returns an array containing all of the sibling inputs (those with the same
+  # groups names) each wrapped inside a SceneInput for convenient use within a
+  # view.
   #
-  # See Input.siblings.
+  # If two or more inputs given are already in the same group, none of the
+  # groups siblings will be included.
+  #
+  # See Input.dependent_siblings.
   #
   # inputs - The input, or collection of inputs, whose siblings are to be
   #          retrieved. This may be an Input, SceneInput, or an array
