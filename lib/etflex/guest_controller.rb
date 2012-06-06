@@ -51,7 +51,10 @@ module ETFlex
     # is assigned a new guest ID.
     #
     def reset_guest!
+      original_locale = session[:locale]
+
       reset_session
+      session[:locale] = original_locale
 
       cookies.delete :guest
       @_guest = nil

@@ -163,4 +163,28 @@ feature 'Requesting the visitors name', js: true do
     scenarios.last.guest_name.should  eql('Troy Barnes')
   end
 
+  # --------------------------------------------------------------------------
+
+  scenario 'Retaining locale when creating a fresh guest', conference: true do
+    # Start a guest session.
+    visit ''
+    click_link 'Nederlandse versie'
+
+    visit '/scenes/1'
+
+    # Wait until the scene has loaded.
+    page.should have_css('#left-inputs')
+
+    # Visit the fresher page.
+    visit "/scenes/#{ scene.id }/fresh"
+
+    # Wait until the scene has loaded.
+    page.should have_css('#left-inputs')
+
+    visit ''
+
+    page.should have_content('English version')
+    page.should_not have_content('Nederlandse versie')
+  end
+
 end
