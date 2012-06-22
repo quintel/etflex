@@ -70,6 +70,12 @@ RSpec.configure do |config|
   config.before(:each, conference: true) { ETFlex.config.conference = true  }
   config.after(:each, conference: true)  { ETFlex.config.conference = false }
 
+  # Clear localStorage after each JS request.
+  config.after(:each, js: true) do
+    page.execute_script(
+      'localStorage && localStorage.clear && localStorage.clear();')
+  end
+
   # Capybara
   # --------
 

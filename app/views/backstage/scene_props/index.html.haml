@@ -26,4 +26,4 @@
         %td.link.action
           = link_to 'Edit', edit_backstage_scene_prop_path(@scene, prop)
         %td.link.action
-          = link_to 'Delete', backstage_scene_prop_path(@scene, prop), method: :delete, confirm: 'Delete this prop from the scene?'
+          = link_to 'Delete', backstage_scene_prop_path(@scene, prop), method: :delete, data: { confirm: 'Delete this prop from the scene?' }
