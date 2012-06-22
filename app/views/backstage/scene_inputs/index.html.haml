@@ -38,4 +38,4 @@
         %td.link.action
           = link_to 'Edit',   poly_backstage_input_path(input, :edit)
         %td.link.action
-          = link_to 'Delete', poly_backstage_input_path(input), method: :delete, confirm: 'Delete this input from the scene?'
+          = link_to 'Delete', poly_backstage_input_path(input), method: :delete, data: { confirm: 'Delete this input from the scene?' }

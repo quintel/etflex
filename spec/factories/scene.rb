@@ -6,7 +6,7 @@ FactoryGirl.define do
       name_key 'my_first_scene'
     end
 
-    factory(:detailed_scene) { after_create do |scene|
+    factory(:detailed_scene) { after(:create) do |scene|
       # Create two inputs, and add a scene input for each one.
 
       scene.scene_inputs.create!(
@@ -25,7 +25,7 @@ FactoryGirl.define do
         prop_id: FactoryGirl.create(:prop).id, location: 'bottom')
     end }
 
-    factory(:scene_with_inputs) { after_create do |scene|
+    factory(:scene_with_inputs) { after(:create) do |scene|
       # Create two inputs, and add a scene input for each one.
 
       input_one = FactoryGirl.create(:input, remote_id: 366,
