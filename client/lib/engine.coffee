@@ -59,7 +59,14 @@ createSession = (queries, inputs, scenario, callback) ->
   api.send 'new', data, (err, sessionData) ->
     return callback(err) if err?
 
-    sessionId = parseInt(sessionData.api_scenario.id, 10)
+    sessionId = parseInt(
+      if sessionData.scenario?
+        # Post-July 2012 ETengine deploy.
+        sessionData.scenario.id
+      else
+        # Pre-July 2012 ETengine deploy.
+        sessionData.api_scenario.id
+    , 10)
 
     # The ETengine API does not presently support requesting query results
     # when creating a session. We need to start the session, and _then_
