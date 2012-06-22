@@ -28,11 +28,13 @@ module Backstage::PropsHelper
 
     link_to prop.behaviour, url,
       target:  '_blank',
-      confirm: <<-CONFIRM.strip_heredoc.gsub("\n", ' ')
-        This will take you to Github where you can inspect/adjust the
-        CoffeeScript code. Make sure you have access or you will receive a
-        'Not Found' error. Do you want to continue?
-      CONFIRM
+      data: {
+        confirm: <<-CONFIRM.strip_heredoc.gsub("\n", ' ')
+          This will take you to Github where you can inspect/adjust the
+          CoffeeScript code. Make sure you have access or you will receive a
+          'Not Found' error. Do you want to continue?
+        CONFIRM
+      }
   end
 
 end # Backstage::PropsHelper
