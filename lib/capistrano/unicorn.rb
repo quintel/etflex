@@ -20,6 +20,10 @@ namespace :deploy do
     run "kill -s QUIT `cat #{unicorn_pid}`"
   end
 
+  desc <<-DESC
+    Reloads the Unicorn configuration and restarts Rails. Equivalent to
+    sending a USR2 to the master process.
+  DESC
   task :reload, roles: :app, except: { no_release: true } do
     set_unicorn_variables
     run "kill -s USR2 `cat #{unicorn_pid}`"
