@@ -21,8 +21,7 @@ en:
     costs:
       header: "You spend (Q:total_costs) on energy every year!"
       body: |-
-        This includes all the energy used to make exported products and the
-        exported energy itself.
+        This includes costs for building and installing the devices that use energy.
 
     score:
       header: "You score (Q:etflex_score) points"

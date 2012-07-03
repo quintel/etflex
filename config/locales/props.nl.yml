@@ -20,8 +20,8 @@ nl:
     costs:
       header: "Je geeft ieder jaar (Q:total_costs) uit aan energie!"
       body: |-
-        Dit is inclusief de energie die nodig is om geëxporteerde producten 
-        te maken en geëxporteerde energie zelf.
+        Dit is inclusief de bouw- en installatiekosten van de centrales en apparaten die energie 
+        gebruiken.
 
     score:
       header: "Je scoort (Q:etflex_score) punten"
