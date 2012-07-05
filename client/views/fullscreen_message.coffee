@@ -20,7 +20,7 @@ class exports.FullscreenMessage extends Backbone.View
   #
   dismissMessage: =>
     @dismiss?()
-    @$el.fadeOut @remove
+    @$el.fadeOut => @remove()
 
   # Events are bound in here so that subclasses may define their own events
   # hash without having to worry about duplicating these defaults.
