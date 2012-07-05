@@ -54,7 +54,8 @@ fetchUserValues = (sessionId, inputs, callback) ->
 createSession = (queries, inputs, scenario, callback) ->
   data = settings:
     end_year: scenario.get('endYear')
-    country:  scenario.get('country')
+    area_code:  scenario.get('country')
+    source: 'ETFlex'
 
   api.send 'new', data, (err, sessionData) ->
     return callback(err) if err?
