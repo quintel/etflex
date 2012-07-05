@@ -46,7 +46,7 @@ fetchSession = (sessionId, queries, callback) ->
 
 # Requests input_data.json to get the state of the user's Inputs.
 fetchUserValues = (sessionId, inputs, callback) ->
-  inputKeys = ( input.def.key for input in inputs )
+  inputKeys = ( input.id for input in inputs )
 
   api.send "#{sessionId}/input_data", inputs: inputKeys, callback
 
@@ -85,7 +85,7 @@ restoreSession = (sessionId, queries, inputs, callback) ->
 
     # Update each of the inputs with the value retrieved from ETEngine.
     for input in inputs
-      continue unless inputData = result.values[ input.def.key ]
+      continue unless inputData = result.values[ input.id ]
 
       value = if inputData.hasOwnProperty('user_value')
         inputData.user_value
