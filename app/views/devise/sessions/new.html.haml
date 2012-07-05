@@ -1,6 +1,9 @@
-%h1 Sign in
+%h1(style="margin: 50px 0 25px 170px") Sign in
 
 = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| 
+  .session-error
+    = flash[:alert] || flash[:notice]
+
   .inputs
     = f.input :email, :required => false, :autofocus => true 
     = f.input :password, :required => false 
