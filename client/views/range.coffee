@@ -73,6 +73,17 @@ class exports.RangeView extends Backbone.View
   updateOutput: (value, quinn) =>
     @$('.output').text I18n.toNumber value, precision: @precision
 
+    if $.browser.safari
+      # Safari doesn't redraw the output element! This will force a redraw.
+      #
+      # See: http://mir.aculo.us/2009/01/11/
+      #   little-javascript-hints-episode-3-force-redraw/
+      #
+      extraElement = document.createTextNode(' ')
+      @$('.output')[0].appendChild(extraElement)
+
+      _.defer (-> extraElement.parentNode.removeChild(extraElement))
+
   # Saves the model with the new value. Used as an onCommit callback for the
   # Quinn instance.
   #
