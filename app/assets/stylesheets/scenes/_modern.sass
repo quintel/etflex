@@ -173,6 +173,11 @@
           text-align: right
           width: 60px
 
+          .output, .unit
+            // inline-block is required to fix an issue whereby Safari doesn't
+            // redraw -- or redraws with graphical errors -- the range value.
+            display: inline-block
+
           sub, sup
             font-size: 10px
             line-height: 0

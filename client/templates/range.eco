@@ -4,7 +4,7 @@
     <% if @hasInfo: %><span class="help"></span><% end %>
   </span>
 
-  <span class="value"><span class="output"></span><%- @unit %></span>
+  <span class="value"><span class="output"></span><span class="unit"><%- @unit %></span></span>
 </div>
 
 <div class="control"></div>
