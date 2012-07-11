@@ -48,4 +48,9 @@ module ApplicationHelper
     end
   end
 
+  # Links to ETmodel
+  def etmodel_path
+    ETFlex.config.conference ? root_path : 'http://et-model.com'
+  end
+
 end
