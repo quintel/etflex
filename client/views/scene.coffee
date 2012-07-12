@@ -174,8 +174,8 @@ class exports.SceneView extends Backbone.View
   # SceneView" class later.
   #
   renderTheme: ->
-    @$('#core').prepend require('templates/scenes/modern/header')
-      etmodelPath: if app.conference then '/' else 'http://et-model.com'
+    modernHeader = require 'templates/scenes/modern/header'
+    @$('#core').prepend modernHeader()
 
   # Renders the inputs into the scene using RangeView instances, which contain
   # the Quinn sliders.
