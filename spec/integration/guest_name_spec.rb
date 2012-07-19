@@ -183,4 +183,31 @@ feature 'Requesting the visitors name', js: true do
     page.should_not have_content('Nederlandse versie')
   end
 
+  # --------------------------------------------------------------------------
+
+  scenario 'Setting name as a guest, then registering' do
+    visit "/scenes/#{ scene.id }"
+
+    fill_in 'Your name', with: 'Jeff Winger'
+    click_button 'Save'
+
+    wait_for_xhr
+
+    click_link 'Sign in'
+    click_link 'Sign up'
+
+    fill_in 'E-mail address',   with: 'test@example.com'
+    fill_in 'Password',         with: 'testtest'
+    fill_in 'Confirm password', with: 'testtest'
+
+    click_button 'Sign up'
+
+    click_link 'Create your own future'
+
+    page.should have_css('.scene-nav', text: 'Account')
+
+    # User should be asked for their name (again).
+    page.should have_css('.high-score-request')
+  end
+
 end
