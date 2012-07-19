@@ -98,6 +98,10 @@ en:
           would you like to be named? You don't have to provide a name if you
           don't want to.
 
+    cannot_change:
+      title:   "This scenario belongs to another visitor."
+      message: "Sorry, you cannot change somebody else's scenario"
+
     etlite:
       savings:      "Savings"
       production:   "Production"

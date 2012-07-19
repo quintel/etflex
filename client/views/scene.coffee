@@ -71,13 +71,9 @@ class exports.SceneView extends Backbone.View
   showNotAuthorizedModal: =>
     modalDialog = $ '#modal-dialog'
 
-    modalDialog.children('#modal-content').html(
-      "<h6>Cannot change scene: it belongs to someone else.</h6>").append(
-      """<p>
-        A dialog box will soon be added which informs the user of this fact,
-        and provides the option of "forking" the scenario so that they may
-        customise the values, or of starting the scenario from scratch.
-      </p>""")
+    modalDialog.children('#modal-content').
+      html("<h6>#{ I18n.t('scenes.cannot_change.title') }</h6>").
+      append("<p>#{ I18n.t('scenes.cannot_change.message') }</p>")
 
     modalDialog.reveal()
 

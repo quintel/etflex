@@ -99,6 +99,10 @@ nl:
           score, hoe zou je willen worden genoemd? Je hoeft niet om ons te
           vertellen je naam als je niet wilt.
 
+    cannot_change:
+      title:   "Dit scenario behoort tot een andere bezoeker"
+      message: "Sorry je kunt iemand anders zijn scenario niet aanpassen"
+
     etlite:
       savings:      "Besparingen"
       production:   "Productie"
