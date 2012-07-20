@@ -12,6 +12,7 @@ class exports.InputDefinition
     @min   = attributes.min   or 0
     @max   = attributes.max   or 100
     @step  = attributes.step  or 1
+    @start = attributes.start or attributes.min
     @unit  = attributes.unit  or ''
     @info  = attributes.info  or null
     @group = attributes.group or null

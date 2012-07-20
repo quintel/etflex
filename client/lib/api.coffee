@@ -92,7 +92,8 @@ exports.updateInputs = (sessionId, options, callback) ->
 
   # Perform balancing.
   unless options.balance is false
-    for input in inputs when input.def.group
+    # Clone so that we don't inadvertently iterate through subordinates.
+    for input in _.clone(inputs) when input.def.group
       inputs.push input.collection.balance(input.def.group, input)...
 
   # Map the input IDs and their values.

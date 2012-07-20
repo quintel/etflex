@@ -35,11 +35,18 @@ class exports.Balancer
   #          be altered during balancing.
   #
   performBalancing: (master) ->
-    subordinates   = getSubordinates @inputs, master
-    balancedInputs = ( new BalancedInput input for input in subordinates )
+    subordinates = getSubordinates @inputs, master
 
     # Return quickly if none of the subordinates can be changed.
     return [] unless subordinates.length
+
+    # Given an array of subordinate inputs, resets the internal inputs back to
+    # their original values. This ensures that previous balancing runs do not
+    # affect the outcome.
+    for subordinate in subordinates when subordinate.isInternal()
+      subordinate.set value: subordinate.def.start
+
+    balancedInputs = ( new BalancedInput input for input in subordinates )
 
     sumValues = _.invoke @inputs, 'get', 'value'
     sumValues = _.inject sumValues, ((m, v) -> m + v), 0

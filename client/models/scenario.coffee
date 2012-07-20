@@ -188,7 +188,10 @@ class exports.Scenario extends Backbone.Model
 
   # Triggered when the user moves an input. Saves the value to ETengine.
   onInputChange: (input) =>
-    input.save {}, { @queries }
+    # We ignore inputs which are internal, since changes to their values are
+    # the result of balancing. These will be sent to ETengine with the
+    # "master" (changed) input, so no explicit save is required.
+    input.save {}, { @queries } unless input.isInternal()
 
   # Saves changes to the scenario when the user edits the end year or country.
   onSettingsChange: =>
