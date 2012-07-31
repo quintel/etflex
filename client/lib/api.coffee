@@ -84,17 +84,11 @@ exports.updateInputs = (sessionId, options, callback) ->
   { inputs,   queries } = options
 
   # Data sent to the server.
-  params = { input: {} }
+  params = { input: {}, autobalance: true }
 
   # Queries and inputs may be a Backbone collection.
   inputs  = inputs?.models  or inputs or []
   queries = queries?.models or queries
-
-  # Perform balancing.
-  unless options.balance is false
-    # Clone so that we don't inadvertently iterate through subordinates.
-    for input in _.clone(inputs) when input.def.group
-      inputs.push input.collection.balance(input.def.group, input)...
 
   # Map the input IDs and their values.
   params.input[ input.get('id') ] = input.get('value') for input in inputs
