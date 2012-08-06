@@ -9,7 +9,7 @@ en:
     households_hot_water_fuel_cell_share: "Fuel cell for hot water"
     households_insulation_level_old_houses: "Better insulation"
     households_lighting_light_emitting_diode_share: "Low-energy lighting"
-    number_of_pulverized_coal: "Coal-fired power plants"
+    number_of_pulverized_coal: "Coal / biomass power plants"
     number_of_gas_ccgt: "Gas-fired power plants"
     number_of_nuclear_3rd_gen: "Nuclear power plants"
     households_market_penetration_solar_panels: "Solar panels"
