@@ -107,7 +107,7 @@ describe 'Scenes' do
       visit "/scenes/#{ scene.id }"
     end
 
-    it { should have(3).members }
+    it { should have(2).members }
 
     describe 'left inputs' do
       let(:inputs) { subject.select { |i| i['location'] == 'left' } }
@@ -130,18 +130,6 @@ describe 'Scenes' do
 
       it 'should be the correct input' do
         inputs.first['key'].should eql(scene.right_scene_inputs.first.key)
-      end
-    end
-
-    describe 'internal inputs' do
-      let(:inputs) { subject.select { |i| i['location'] == '$internal' } }
-
-      it 'should have one member' do
-        inputs.should have(1).member
-      end
-
-      it 'should be the correct input' do
-        inputs.first['key'].should eql('internal-grouped')
       end
     end
   end
