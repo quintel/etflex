@@ -53,9 +53,8 @@ TRANSFORMS =
     format: (value) ->
       I18n.t 'magnitudes.billion', amount: FORMAT_EUROS(value)
 
-  # Risk is bad, none is good.
-  security_of_supply_blackout_risk:
-    mutate: (value) -> ( 1 - value ) * 100
+  security_of_supply_reliability:
+    mutate: (value) -> value * 100
     format: FORMAT_PERCENT
 
   # Renewables arrives as a factor and should be displayed as a percentage.
