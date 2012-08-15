@@ -102,7 +102,7 @@ describe User do
       end
 
       it 'should not create another user' do
-        expect { User.find_or_create_with_facebook!(attributes) }.should_not \
+        expect { User.find_or_create_with_facebook!(attributes) }.to_not \
           change { User.count }
       end
     end
