@@ -312,9 +312,9 @@ describe Scenario do
         eql(ActiveSupport::HashWithIndifferentAccess)
     end
 
-    it 'should set convert keys to integers when given a hash' do
+    it 'should set convert keys to strings when given a hash' do
       scenario = Scenario.new input_values: { '1' => '2' }
-      scenario.input_values.should eql(1 => '2')
+      scenario.input_values.should eql('1' => '2')
     end
   end
 
