@@ -9,7 +9,7 @@ class exports.ReliabilityView extends IconDashboardProp
 
   # Queries and hurdle values.
 
-  queries: [ 'security_of_supply_blackout_risk' ]
+  queries: [ 'security_of_supply_reliability' ]
   hurdles: [ 95 ]
   states:  [ 'off', 'on' ]
 
