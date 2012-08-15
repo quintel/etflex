@@ -93,7 +93,7 @@ class exports.Scenario extends Backbone.Model
       orig.location isnt '$internal'
 
     not _.any originals, (original) =>
-      original.start isnt @inputs.get(original.remoteId).get('value')
+      original.start isnt @inputs.get(original.key).get('value')
 
   # Given an inputs and queries collection, sets up events to track changes so
   # that we can persist the values back to ETflex.
@@ -156,9 +156,7 @@ class exports.Scenario extends Backbone.Model
     inputIds  = ( input.def.id for input in inputs )
     queryIds  = ( query.id for query in queries )
 
-    lInputIds = _.map(_.keys(localInputs), parseFloat)
-
-    _.difference(inputIds, lInputIds).length is 0 and
+    _.difference(inputIds, _.keys(localInputs)).length is 0 and
       _.difference(queryIds, _.keys(localQueries)).length is 0
 
   # Given a user, determines if the user is permitted to change any part of
