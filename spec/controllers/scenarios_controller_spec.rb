@@ -26,7 +26,7 @@ describe ScenariosController do
     end
 
     it 'should set the input values' do
-      Scenario.first.input_values.should eql(1 => '2')
+      Scenario.first.input_values.should eql('1' => '2')
     end
 
     it 'should set the query results' do
@@ -100,7 +100,7 @@ describe ScenariosController do
       it 'should save the input values' do
         scenario.reload
         scenario.input_values.should have(1).element
-        scenario.input_values.should include(1 => '1234')
+        scenario.input_values.should include('1' => '1234')
       end
     end
 
