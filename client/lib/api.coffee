@@ -30,13 +30,15 @@ exports.isBeta = false
 # callback - Run after the request completes with either the jQuery error
 #            returned, or the parsed JSON data.
 #
-exports.send = (path, data, callback) ->
+exports.send = (method, path, data, callback) ->
   [ callback, data ] = [ data, null ] unless callback?
 
+  path = "/#{ path }" if path?
+
   jQuery.ajax
-    url:          exports.path "api_scenarios/#{path}.json"
+    url:          exports.path "scenarios#{ path }"
     data:         data
-    type:        'GET'
+    type:         method.toUpperCase()
     dataType:    'json'
     headers:   { 'X-Api-Agent': 'ETflex Client' }
 
@@ -84,36 +86,27 @@ exports.updateInputs = (sessionId, options, callback) ->
   { inputs,   queries } = options
 
   # Data sent to the server.
-  params = { input: {}, autobalance: true }
+  params = { scenario: { user_values: {} }, autobalance: true }
 
   # Queries and inputs may be a Backbone collection.
   inputs  = inputs?.models  or inputs or []
   queries = queries?.models or queries
 
   # Map the input IDs and their values.
-  params.input[ input.get('id') ] = input.get('value') for input in inputs
+  for input in inputs
+    params.scenario.user_values[ input.get('id') ] = input.get('value')
 
   # If there are any queries, tell ETEngine to give us those results.
-  params.result = ( query.get('id') for query in queries ) if queries?
+  params.gqueries = ( query.get('id') for query in queries ) if queries?
 
   # Send any custom scenario settings (end year, country, etc).
   params.settings = options.settings
 
-  exports.send sessionId, params, (err, data) ->
+  exports.send 'put', sessionId, params, (err, data) ->
     if err? then callback(err) else
-      if data.errors and data.errors.length
-        # ETengine currently returns a 200 OK even when an input is invalid;
-        # work around this by forming our own error and running the callback
-        # as a failure:
-        error = new Error("API Error: #{ data.errors[0] }")
-        error.errors = data.errors
+      # Update the queries with the new values returned by the engine.
+      if data.gqueries?
+        for query in queries when result = data.gqueries[ query.id ]
+          query.set present: result.present, future: result.future
 
-        callback? error
-
-      else
-        # Update the queries with the new values returned by the engine.
-        if data.result?
-          for query in queries when result = data.result[ query.get 'id' ]
-            query.set present: result[0][1], future: result[1][1]
-
-        callback null, data if callback
+      callback null, data if callback

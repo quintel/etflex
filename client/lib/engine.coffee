@@ -46,9 +46,7 @@ fetchSession = (sessionId, queries, callback) ->
 
 # Requests input_data.json to get the state of the user's Inputs.
 fetchUserValues = (sessionId, inputs, callback) ->
-  inputKeys = ( input.id for input in inputs )
-
-  api.send "#{sessionId}/input_data", inputs: inputKeys, callback
+  api.send 'get', "#{sessionId}/inputs", callback
 
 # Used to create a new session, pre-initialized with values from ETengine.
 createSession = (queries, inputs, scenario, callback) ->
@@ -57,17 +55,17 @@ createSession = (queries, inputs, scenario, callback) ->
     area_code:  scenario.get('country')
     source: 'ETFlex'
 
-  api.send 'new', data, (err, sessionData) ->
+  api.send 'post', '', data, (err, sessionData) ->
     return callback(err) if err?
 
     # "scenario" = post-July ETengine deploy.
-    sessionId = (sessionData.scenario || sessionData.api_scenario).id
+    sessionId = sessionData.id
 
     # The ETengine API does not presently support requesting query results
     # when creating a session. We need to start the session, and _then_
     # fetch the values.
-    api.updateInputs sessionId, { queries, inputs, balance: false }, (err) ->
-      if err? then callback(err) else callback null, sessionId
+    api.updateInputs sessionId, { queries, inputs }, (err) ->
+      if err? then callback(err) else callback(null, sessionId)
 
 # Restores the session state by retrieving it from ETengine.
 #
@@ -88,10 +86,10 @@ restoreSession = (sessionId, queries, inputs, callback) ->
     for input in inputs
       continue unless inputData = result.values[ input.id ]
 
-      value = if inputData.hasOwnProperty('user_value')
-        inputData.user_value
+      value = if inputData.hasOwnProperty('user')
+        inputData.user
       else
-        inputData.start_value
+        inputData.default
 
       input.set value: value if value?
 

@@ -10,7 +10,7 @@ class exports.Input extends Backbone.Model
     @def = new InputDefinition attributes
 
     super
-      id:       attributes.remoteId
+      id:       attributes.key
       value:    attributes.start or attributes.min or 0
       location: attributes.location
       position: attributes.position

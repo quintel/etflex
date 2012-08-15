@@ -198,7 +198,7 @@ class Scenario < ActiveRecord::Base
   def input_values=(values)
     write_attribute(:input_values,
       (values || {}).each_with_object(Hash.new) do |(key, value), obj|
-        obj[ (key.to_i rescue key) || key ] = value
+        obj[ (key.to_s rescue key) || key ] = value
       end)
   end
 
