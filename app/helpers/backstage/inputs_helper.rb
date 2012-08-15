@@ -66,8 +66,7 @@ module Backstage::InputsHelper
       include_blank: 'Hidden',
       input_html: { class: 'small' },
       collection: [ %w( Left left ),
-                    %w( Right right ),
-                    %w( Internal $internal ) ]
+                    %w( Right right ) ]
   end
 
   # Creates the drop-down form element for selecting an input when adding a

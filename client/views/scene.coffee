@@ -186,8 +186,8 @@ class exports.SceneView extends Backbone.View
       rangeView.bind 'notAuthorizedToChange', @showNotAuthorizedModal
 
       # If the input location doesn't exist in the template, the input will
-      # not rendered. This is intentional so that "hidden" and "$internal"
-      # inputs don't raise errors.
+      # not rendered. This is intentional so that "hidden" inputs don't raise
+      # errors.
       if into = inputLocations[ input.get 'location' ]
         rangeView.renderInto into
 
