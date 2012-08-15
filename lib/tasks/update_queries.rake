@@ -50,7 +50,7 @@ namespace :etflex do
     # Sends an API request to the given path on ETEngine and returns the
     # HTTP response.
     def api(path, options = {}, method = :get)
-      path = "#{ ETFlex.config.api_url }/api_scenarios/#{ path }.json"
+      path = "#{ ETFlex.config.api_url }/api/v2/api_scenarios/#{ path }.json"
       JSON.parse(RestClient.__send__(method, path, options))
     end
 

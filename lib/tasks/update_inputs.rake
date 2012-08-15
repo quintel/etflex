@@ -11,7 +11,7 @@ namespace :etflex do
     # Sends an API request to the given path on ETEngine and returns the
     # HTTP response.
     def api(path)
-      RestClient.get "#{ ETFlex.config.api_url }/#{ path }"
+      RestClient.get "#{ ETFlex.config.api_url }/api/v2/#{ path }"
     end
 
     # Sends an API request for a scenario, returning the HTTP response.

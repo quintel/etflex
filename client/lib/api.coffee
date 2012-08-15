@@ -36,7 +36,7 @@ exports.send = (method, path, data, callback) ->
   path = "/#{ path }" if path?
 
   jQuery.ajax
-    url:          exports.path "scenarios#{ path }"
+    url:          exports.path "api/v3/scenarios#{ path }"
     data:         data
     type:         method.toUpperCase()
     dataType:    'json'

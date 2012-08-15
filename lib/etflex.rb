@@ -16,4 +16,5 @@ module ETFlex
   rescue Errno::ENOENT => e
     raise 'You need to copy config/etflex.sample.yml to config/etflex.yml!'
   end
+
 end
