@@ -34,7 +34,7 @@ describe 'Scenes' do
 
     # Coal power plants.
 
-    page.should have_css('.label', text: 'Coal-fired power plants')
+    page.should have_css('.label', text: 'Coal / biomass power plants')
 
     page.all('.range').each do |range|
       if range.has_css?('.label', text: 'Coal-fired power plants')
