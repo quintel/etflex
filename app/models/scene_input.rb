@@ -118,41 +118,4 @@ class SceneInput < ActiveRecord::Base
     input and input.remote_id
   end
 
-  # CLASS METHODS ------------------------------------------------------------
-
-  # Returns an array containing all of the sibling inputs (those with the same
-  # groups names) each wrapped inside a SceneInput for convenient use within a
-  # view.
-  #
-  # See Input.siblings.
-  #
-  # inputs - The input, or collection of inputs, whose siblings are to be
-  #          retrieved. This may be an Input, SceneInput, or an array
-  #          containing multiple inputs or scene inputs.
-  #
-  def self.siblings(inputs)
-    Input.siblings(inputs).map do |sibling|
-      SceneInput.new(location: '$internal') { |si| si.input = sibling }
-    end
-  end
-
-  # Returns an array containing all of the sibling inputs (those with the same
-  # groups names) each wrapped inside a SceneInput for convenient use within a
-  # view.
-  #
-  # If two or more inputs given are already in the same group, none of the
-  # groups siblings will be included.
-  #
-  # See Input.dependent_siblings.
-  #
-  # inputs - The input, or collection of inputs, whose siblings are to be
-  #          retrieved. This may be an Input, SceneInput, or an array
-  #          containing multiple inputs or scene inputs.
-  #
-  def self.dependent_siblings(inputs)
-    Input.dependent_siblings(inputs).map do |sibling|
-      SceneInput.new(location: '$internal') { |si| si.input = sibling }
-    end
-  end
-
 end

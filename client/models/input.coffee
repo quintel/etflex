@@ -27,11 +27,6 @@ class exports.Input extends Backbone.Model
 
     @on 'change:value', @updateQuinnFromModel
 
-  # Returns if this is an internal input, not to be shown to the user.
-  #
-  isInternal: ->
-    @get('location') is '$internal'
-
   # Triggered when the value is updated so that the Quinn value may be kept in
   # sync with the model vlaue.
   #

@@ -1,5 +1,4 @@
 { InputManager } = require 'lib/input_manager'
-{ Balancer }     = require 'lib/balancer'
 
 # Contains all of the Inputs used by a Scene.
 class exports.Inputs extends Backbone.Collection
