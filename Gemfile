@@ -51,7 +51,12 @@ group :assets do
   # Node fires up a new Node process for each source file, slowing things down
   # considerably in development..
   gem 'therubyracer'
-  gem 'sass-rails',    '>= 3.2.3'
+
+  # Temporary workaround for difficulties using Sass 3.2 on Pow:
+  # https://github.com/37signals/pow/issues/316
+  gem 'sass',          '3.2.0.alpha.278'
+
+  gem 'sass-rails',    '~> 3.2'
   gem 'coffee-rails',  '>= 3.2.1'
   gem 'compass-rails', '>= 1.0.0'
   gem 'eco',           '~> 1.0'
