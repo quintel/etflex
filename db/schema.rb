@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120815133700) do
+ActiveRecord::Schema.define(:version => 20120815174048) do
 
   create_table "inputs", :force => true do |t|
     t.integer "remote_id",                    :null => false
