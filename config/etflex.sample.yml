@@ -3,7 +3,7 @@ production: &production
 
   # The base API for all API requests. Include the protocol and path to the
   # API endpoint.
-  api_url: 'http://et-engine.com/api/v2'
+  api_url: 'http://et-engine.com'
 
   # Use real-time features with Pusher. Disable if external services are not
   # available (such as on laptops).
@@ -30,7 +30,7 @@ test:
   <<: *production
 
   # Assume POW is present for testing.
-  api_url: 'http://etengine.dev/api/v2'
+  api_url: 'http://etengine.dev'
 
   # Always default conference mode off.
   conference: false
