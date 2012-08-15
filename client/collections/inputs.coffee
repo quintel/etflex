@@ -4,19 +4,6 @@
 class exports.Inputs extends Backbone.Collection
   model: require('models/input').Input
 
-  # Sets up the balancers for the collection; without this no balancing will
-  # be performed when inputs belonging to groups are changed.
-  #
-  # Presently this has to be called explicitly in Scene::start becuase
-  # Backbone doesn't seem to have an "add" callback on Collection.
-  #
-  initializeBalancers: ->
-    @balancers = {}
-
-    for model in @models when group = model.def.group
-      @balancers[ group ] or= new Balancer
-      @balancers[ group ].add model
-
   # Sets the session to which the inputs contained in the collection belong.
   #
   # scenario - The ETengine scenario to which the input values should be sent

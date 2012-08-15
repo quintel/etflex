@@ -56,8 +56,6 @@ class exports.Scenario extends Backbone.Model
       getSession this, @queries, @inputs, (err, sessionId) =>
         return callback(err) if err
 
-        @inputs.initializeBalancers()
-
         this.set { sessionId }
 
         # Required so that changes to inputs can be sent back to the Engine.
