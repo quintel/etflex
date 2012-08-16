@@ -59,7 +59,9 @@
     function Quinn (wrapper, options) {
         var opts;
 
-        _.bindAll(this, 'clickBar', 'startDrag', 'drag', 'endDrag');
+        _.bindAll(this, 'clickBar', 'startDrag', 'drag', 'endDrag',
+                        'handleKeyboardEvent', 'enableKeyboardEvents',
+                        'disableKeyboardEvents');
 
         this.wrapper        = wrapper;
         this.options = opts = _.extend({}, Quinn.defaults, options);
@@ -70,7 +72,7 @@
         this.previousValue  = null;
         this.drawTo         = drawToOpts(opts.drawTo, opts.min, opts.max);
 
-        this.model          = new Model(this);
+        this.model          = new Model(this, this.options.strict);
         this.renderer       = new this.options.renderer(this);
 
         this.wrapperWidth   = 0;
@@ -95,7 +97,7 @@
     }
 
     // The current Quinn version.
-    Quinn.VERSION = '1.0.0.rc2';
+    Quinn.VERSION = '1.0.4';
 
     // ### Event Handling
 
@@ -269,14 +271,16 @@
      *
      * Returns the new slider value
      */
-    Quinn.prototype.stepUp = function (count) {
+    Quinn.prototype.stepUp = function (count, animate, tentative) {
+        var func = (tentative ? this.setTentativeValue : this.setValue);
+
         if (this.model.values.length > 1) {
             // Cannot step a range-based slider.
             return this.model.value;
         }
 
-        return this.setValue(
-            this.model.value + this.options.step * (count || 1));
+        return _.bind(func, this)(
+            this.model.value + this.model.step * (count || 1), animate);
     };
 
     /**
@@ -290,8 +294,8 @@
      *
      * Returns the new slider value
      */
-    Quinn.prototype.stepDown = function (count) {
-        return this.stepUp(-(count || 1));
+    Quinn.prototype.stepDown = function (count, animate, tentative) {
+        return this.stepUp(-(count || 1), animate, tentative);
     };
 
     /**
@@ -342,6 +346,8 @@
 
             return false;
         }
+
+        this.previousValue = null;
     };
 
     /**
@@ -522,12 +528,70 @@
     };
 
     /**
+     * When an handle is focused, allows left/right to change the value.
+     */
+    Quinn.prototype.enableKeyboardEvents = function (event) {
+        $(event.target).on('keydown', this.handleKeyboardEvent);
+        $(event.target).on('keyup',   this.handleKeyboardEvent);
+    };
+
+    /**
+     * Unsets keyboard event handlers after the handle is blurred.
+     */
+    Quinn.prototype.disableKeyboardEvents = function (event) {
+        $(event.target).off('keydown', this.handleKeyboardEvent);
+        $(event.target).off('keyup',   this.handleKeyboardEvent);
+    };
+
+    /**
+     * Receives events from the keyboard and adjusts the Quinn value.
+     */
+    Quinn.prototype.handleKeyboardEvent = function (event) {
+        if (event.type === 'keydown') {
+            if (this.previousValue == null && ! this.start()) {
+                return false;
+            }
+        } else if (event.type === 'keyup') {
+            if (this.previousValue != null) {
+                this.resolve();
+            }
+        }
+
+        switch (event.which) {
+            case 33: // Page up.
+                this.stepUp(10, false, true); break;
+            case 34: // Page down.
+                this.stepDown(10, false, true); break;
+            case 37: // Left arrow.
+            case 40: // Down arrow.
+                if (event.altKey) {
+                    this.setTentativeValue(this.model.minimum, false);
+                } else {
+                    this.stepDown(event.shiftKey ? 10 : 1, false, true);
+                }
+                break;
+            case 39: // Right arrow.
+            case 38: // Up arrow.
+                if (event.altKey) {
+                    this.setTentativeValue(this.model.maximum, false);
+                } else {
+                    this.stepUp(event.shiftKey ? 10 : 1, false, true);
+                }
+                break;
+            default:
+                return true;
+        }
+
+        event.preventDefault();
+    };
+
+    /**
      * ## Model
      *
      * Holds the current Quinn value, ensures that the value set is valid
      * (within the `range` bounds, one of the `only` values, etc).
      */
-    function Model (quinn) {
+    function Model (quinn, initiallyStrict) {
         var opts, initialValue, length, i;
 
         this.options = opts = quinn.options;
@@ -548,15 +612,15 @@
          *      to just use sanitizeValue?
          */
 
-        this.min = this.roundToStep(opts.min);
-        this.max = this.roundToStep(opts.max);
+        this.minimum = this.roundToStep(opts.min);
+        this.maximum = this.roundToStep(opts.max);
 
-        if (this.min < opts.min) {
-            this.min += this.step;
+        if (this.minimum < opts.min) {
+            this.minimum += this.step;
         }
 
-        if (this.max > opts.max) {
-            this.max -= this.step;
+        if (this.maximum > opts.max) {
+            this.maximum -= this.step;
         }
 
         /* Determine the initial value of the slider. Prefer an explicitly set
@@ -565,7 +629,7 @@
          */
 
         if (typeof opts.value === 'undefined' || opts.value === null) {
-            initialValue = this.min;
+            initialValue = this.minimum;
         } else if (_.isArray(opts.value)) {
             initialValue = opts.value;
         } else {
@@ -576,7 +640,7 @@
             this.values[i] = null;
         }
 
-        this.setValue(initialValue);
+        this.setValue(initialValue, initiallyStrict);
     }
 
     /**
@@ -593,7 +657,7 @@
      * within the minimum / maximum range). The method will return false if
      * the value you set resulted in no changes.
      */
-    Model.prototype.setValue = function (newValue) {
+    Model.prototype.setValue = function (newValue, strict) {
         var originalValue = this.values, length, i;
 
         if (! _.isArray(newValue)) {
@@ -604,7 +668,7 @@
         }
 
         for (i = 0, length = newValue.length; i < length; i++) {
-            newValue[i] = this.sanitizeValue(newValue[i]);
+            newValue[i] = this.sanitizeValue(newValue[i], strict);
         }
 
         if (_.isEqual(newValue, originalValue)) {
@@ -641,9 +705,9 @@
             });
         }
 
-        if (rounded > this.max) {
+        if (rounded > this.maximum) {
             return rounded - this.step;
-        } else if (rounded < this.min) {
+        } else if (rounded < this.minimum) {
             return rounded + this.step;
         }
 
@@ -656,13 +720,15 @@
      * Given a numberic value, snaps it to the nearest step, and ensures that
      * it is within the selectable minima and maxima.
      */
-    Model.prototype.sanitizeValue = function (value) {
-        value = this.roundToStep(value);
+    Model.prototype.sanitizeValue = function (value, strict) {
+        if (strict !== false) {
+            value = this.roundToStep(value);
+        }
 
-        if (value > this.max) {
-            return this.max;
-        } else if (value < this.min) {
-            return this.min;
+        if (value > this.maximum) {
+            return this.maximum;
+        } else if (value < this.minimum) {
+            return this.minimum;
         }
 
         return value;
@@ -765,9 +831,15 @@
 
         // Add each of the handles to the bar, and bind the click events.
         for (i = 0, length = this.model.values.length; i < length; i++) {
-            this.handles[i] = $('<span class="handle"></span>');
+            this.handles[i] = $('<span class="handle" tabindex="0"></span>');
 
             this.handles[i].on(DRAG_START_E, this.quinn.startDrag);
+
+            if (this.quinn.model.values.length < 2) {
+                this.handles[i].on('focus', this.quinn.enableKeyboardEvents);
+                this.handles[i].on('blur', this.quinn.disableKeyboardEvents);
+            }
+
             this.bar.append(this.handles[i]);
         }
 
@@ -949,6 +1021,19 @@
         // The initial value of the slider. null = use the lowest permitted
         // value.
         value: null,
+
+        // Snaps the initial value to fit with the given "step" value. For
+        // example, given a step of 0.1 and an initial value of 1.05, the
+        // value will be changes to fit the step, and rounded to 1.1.
+        //
+        // Notes:
+        //
+        //  * Even with `strict` disabled, initial values which are outside
+        //    the given `min` and `max` will still be changed to fit within
+        //    the permitted range.
+        //
+        //  * The `strict` setting affects the *initial value only*.
+        strict: true,
 
         // Restrics the values which may be chosen to those listed in the
         // `only` array.
