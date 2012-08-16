@@ -46,7 +46,8 @@ fetchSession = (sessionId, queries, callback) ->
 
 # Requests input_data.json to get the state of the user's Inputs.
 fetchUserValues = (sessionId, inputs, callback) ->
-  api.send 'get', "#{sessionId}/inputs", callback
+  keys = ( input.id for input in inputs ).join(',')
+  api.send 'get', "#{sessionId}/inputs/#{ keys }", callback
 
 # Used to create a new session, pre-initialized with values from ETengine.
 createSession = (queries, inputs, scenario, callback) ->
