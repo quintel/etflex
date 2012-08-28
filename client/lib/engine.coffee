@@ -3,14 +3,15 @@ app = require 'app'
 
 # Exports --------------------------------------------------------------------
 
-# Returns the ETEngine session which corresponds with a scene ID.
+# Creates or resumes an existing ETengine scenario.
 #
-# "getSession" will always hit ETEngine for the session details, and will
-# return the ID of the session. This method is used as part of Scene::start
-# and probably shouldn't be called directly unless you know what you're doing.
+# "getSession" will create a new ETengine scenario whenever it is given a
+# Scenario without a "sessionId" set. Otherwise, it will try to do a
+# "localRestore" -- pulling the values stored by ETflex –– instead of making
+# a round-trip to ETengine.
 #
-# In all cases, the session will be returned to the callback as the second
-# argument. The first argument will be null unless an error occurred.
+# If a localRestore is not possible (for example, if input or query values are
+# missing), only then do we request ETengine for the scenario details.
 #
 # scenario - The scenario whose session is to be fetched from the Engine. If
 #            the scenario has no session ID value, a new session will be
