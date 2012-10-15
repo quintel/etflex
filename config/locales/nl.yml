@@ -95,10 +95,7 @@ nl:
       prelaunch:
         header: "Welkom"
         text: >-
-          Hoge scores worden weergegeven op een leaderboard. Als je een hoge
-          score, hoe zou je willen worden genoemd? Je hoeft niet om ons te
-          vertellen je naam als je niet wilt.
-
+          Wat is je naam? Deze wordt gebruikt voor de high score.
     cannot_change:
       title:   "Dit scenario behoort tot een andere bezoeker"
       message: "Sorry je kunt iemand anders zijn scenario niet aanpassen"
