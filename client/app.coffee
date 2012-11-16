@@ -9,6 +9,9 @@ exports.realtime = true
 # Behave as if ETFlex is being displayed at a conference?
 exports.conference = false
 
+# Custom version of ETFlex to show (e.g. energyfuture.nl iframe).
+exports.mode = 'normal'
+
 # Holds the instantiated routers so that we can refer to them later.
 exports.routers = {}
 
@@ -28,13 +31,14 @@ exports.boot = (window, { locale, api, env, user, realtime, conference, offline 
   exports.realtime   = realtime
   exports.conference = conference
   exports.offline    = offline
+  exports.mode       = modeFromUrl()
 
   # Languages
   I18n.locale    = locale
   I18n.fallbacks = no
 
   moment.lang locale
-  $('body').addClass locale
+  $('body').addClass(locale).addClass(exports.mode)
 
   # Pusher notifications.
   if exports.realtime
@@ -94,6 +98,12 @@ exports.navigate = (url, options = {}) ->
 installConsolePolyfill = (window) ->
   unless 'console' of window
     window.console = { log: (->), info: (->), warn: (->), error: (->) }
+
+modeFromUrl = ->
+  if window.location.search.match(/\bmode=energyfuture\b/)
+    'energyfuture'
+  else
+    'normal'
 
 # Global PubSub Events -------------------------------------------------------
 
