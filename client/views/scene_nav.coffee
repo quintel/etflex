@@ -14,7 +14,10 @@ accountTemplate  = require 'templates/scene_nav/account'
 # scenario - The scenario we want to view on ETModel.
 #
 urlToScenarioOnETM = (scenario) ->
-  host = if api.isBeta
+  # Laptops use a custom URL defined in the settings file
+  host = if app.etm_url
+    app.etm_url
+  else if api.isBeta
     'http://beta.et-model.com'
   else
     'http://et-model.com'
