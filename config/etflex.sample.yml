@@ -23,6 +23,11 @@ production: &production
   # offline laptops disable CORS
   offline: false
 
+  # Base URL of the ETM (used to open the current scenario). Only laptops need
+  # to set this value. If blank or missing the JS app will use the live server
+  # (or beta) as default
+  etm_url: nil
+
 staging:     *production
 development: *production
 
