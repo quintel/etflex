@@ -22,7 +22,7 @@ exports.collections = {}
 exports.pusher = null
 
 # Called _once_ when the application is first loaded in the browser.
-exports.boot = (window, { locale, api, env, user, realtime, conference, offline }) ->
+exports.boot = (window, { locale, api, env, user, realtime, conference, offline, etm_url }) ->
   installConsolePolyfill window
 
   # Current user
@@ -32,6 +32,7 @@ exports.boot = (window, { locale, api, env, user, realtime, conference, offline 
   exports.conference = conference
   exports.offline    = offline
   exports.mode       = modeFromUrl()
+  exports.etm_url    = etm_url
 
   # Languages
   I18n.locale    = locale

@@ -13,7 +13,8 @@ module ApplicationHelper
       user:       JSON.parse(rendered_user),
       realtime:   ETFlex.config.realtime,
       conference: ETFlex.config.conference,
-      offline:    ETFlex.config.offline
+      offline:    ETFlex.config.offline,
+      etm_url:    ETFlex.config.etm_url
     }.to_json
   end
 
