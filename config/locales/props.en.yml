@@ -5,6 +5,7 @@ en:
     # Dashboard
 
     co2_emissions:
+      name: "CO2 Emissions"
       header: "You emit (Q:total_co2_emissions) of CO<sub>2</sub>"
       body: |-
         When fuel is burnt by cars, heaters or power plants, they emit carbon
@@ -19,11 +20,13 @@ en:
         of the ETM.)
 
     costs:
+      name: "Costs"
       header: "You spend (Q:total_costs) on energy every year!"
       body: |-
         This includes costs for building and installing the devices that use energy.
 
     score:
+      name: "Score"
       header: "You score (Q:etflex_score) points"
       body: |-
         Your score goes up when you decrease costs, CO<sub>2</sub> emissions
@@ -32,6 +35,7 @@ en:
         Good balance between supply and demand increases it.
 
     reliability:
+      name: "Reliability"
       header:
         'on':  "You have a reliable energy supply!"
         'off': "Oh no, your current settings will leave you in the dark now and then!"
@@ -52,6 +56,7 @@ en:
         in other sectors, such as transportation and industry.
 
     supply_demand:
+      name: "Supply and Demand"
       header: "Balance of Supply and Demand"
 
     # Header
@@ -82,3 +87,5 @@ en:
       name: "Ground"
     solar_heater:
       name: "Solar Heater"
+    renewables:
+      name: "Renewables"
