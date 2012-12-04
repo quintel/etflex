@@ -59,5 +59,12 @@ describe Scene do
         "is too long (maximum is 100 characters)"
       )
     end
+
+    it 'should be formatted as a slug' do
+      subject.name_key = 'my first scene'
+      subject.errors_on(:name_key).should include(
+        "is invalid"
+      )
+    end
   end
 end
