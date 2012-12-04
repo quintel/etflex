@@ -43,7 +43,8 @@ module Backstage
     # POST /backstage/scenes
     #
     def create
-      @scene = Scene.new(params[:scene])
+      @scene = Scene.create(params[:scene])
+      respond_with @scene, location: backstage_scenes_path
     end
 
     # Shows a form allowing a user to edit a scene.

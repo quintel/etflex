@@ -20,7 +20,6 @@ badgeTempl           = require 'templates/badge'
 #
 class exports.SceneView extends Backbone.View
   id: 'scene-view'
-  className: 'modern' # TODO Set dynamically based on server-sent JSON.
 
   pageTitle: -> @model.get('name')
 
@@ -35,7 +34,10 @@ class exports.SceneView extends Backbone.View
   # the scene (inputs, props, etc), and a Scenario which has the keeps track
   # of the values.
   #
-  constructor: ({ @scenario }) -> super
+  constructor: ({ @scenario }) ->
+    @scene      = @scenario.scene
+    @className  = @scene.get('name_key')
+    super
 
   # Called when a new page is to be shown, so that we may unbind events.
   destructor: ->

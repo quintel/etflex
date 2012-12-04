@@ -36,120 +36,92 @@ class Scenario < ActiveRecord::Base
 
   # SCOPES -------------------------------------------------------------------
 
-  class << self
-    # Returns the Scenario for a given scene ID / session ID pair.
-    def for_session(scene_id, session_id)
-      where(scene_id: scene_id, session_id: session_id).first
+  default_scope include: :scene, joins: :scene
+
+  # Returns the Scenario for a given scene ID / session ID pair.
+  scope :for_session, lambda { |scene_id, session_id|
+    where(scene_id: scene_id, session_id: session_id).first
+  }
+
+  # Returns only scenarios which have either a guest name, or belong to a
+  # registered user who has set their name.
+  #
+  # LEFT JOIN is required: Rails defaults to an INNER JOIN which excludes
+  # all scenarios which have no user_id set.
+  #
+  scope :identified,
+    joins('LEFT JOIN `users` ON `users`.`id` = `scenarios`.`user_id`').
+      where('`scenarios`.`guest_name` IS NOT NULL OR ' \
+            '`users`.`name` IS NOT NULL')
+
+  # Returns scenarios belonging to the given user or guest. Handy when
+  # chained on to a scene, for example:
+  #
+  #   scene.scenarios.for_user(user).recent
+  #
+  # user - A User or Guest whose scenarios are to be retrieved.
+  #
+  scope :for_user, lambda { |user| where user_attribute_for(user) => user.id }
+
+  # Returns scenarios which do not belong to the given user or guest. Useful
+  # if chained onto a scene, for example:
+  #
+  #   scene.scenarios.for_users_other_than(user).recent
+  #
+  # user - A User or Guest whose scenarios should not be included in those
+  #        retrieved from the DB.
+  #
+  scope :for_users_other_than, lambda { |user|
+    attribute = user_attribute_for user
+
+    where [ "#{attribute} != ? OR #{attribute} IS NULL", user.id ]
+  }
+
+  # Orders the retrieved scenarios from newest to oldest.
+  scope :recent, order('updated_at DESC')
+
+  # Returns scenarios updated at -- or after -- the given time.
+  #
+  # time - A Time or Date object.
+  #
+  # Raises an ArgumentError if time is nil.
+  #
+  scope :since, lambda { |time| 
+    unless time.acts_like?(:time) or time.acts_like?(:date)
+      raise ArgumentError, 'time must not be nil'
     end
 
-    # Returns only scenarios which have either a guest name, or belong to a
-    # registered user who has set their name.
-    #
-    # LEFT JOIN is required: Rails defaults to an INNER JOIN which excludes
-    # all scenarios which have no user_id set.
-    #
-    def identified
-      joins('LEFT JOIN `users` ON `users`.`id` = `scenarios`.`user_id`').
-        where('`scenarios`.`guest_name` IS NOT NULL OR ' \
-              '`users`.`name` IS NOT NULL')
-    end
+    where 'updated_at > ?', time
+  }
 
-    # Returns scenarios belonging to the given user or guest. Handy when
-    # chained on to a scene, for example:
-    #
-    #   scene.scenarios.for_user(user).recent
-    #
-    # user - A User or Guest whose scenarios are to be retrieved.
-    #
-    def for_user(user)
-      where user_attribute_for(user) => user.id
-    end
+  # Returns scenarios suitable for display in the high scores list.
+  #
+  # time - A Time or Date object. Scenarios which haven't been updated since
+  #        "time" will be excluded from the returned collection.
+  #
+  # Raises an ArgumentError if time is nil.
+  #
+  scope :high_scores_since, lambda { |time|
+    since(time).identified.by_score.
+      # We need to select twice as many scenarios as are actually displayed;
+      # if a scenario currently in the top five is demoted, we need the next
+      # highest so that it can be promoted in the UI. So, twice as many
+      # allows all of the top five to be demoted without the UI crapping
+      # out.
+      #
+      # In the real world, (number_shown) + 2 *should* be enough...
+      #
+      limit(20)
+  }
 
-    # Returns scenarios which do not belong to the given user or guest. Useful
-    # if chained onto a scene, for example:
-    #
-    #   scene.scenarios.for_users_other_than(user).recent
-    #
-    # user - A User or Guest whose scenarios should not be included in those
-    #        retrieved from the DB.
-    #
-    def for_users_other_than(user)
-      attribute = user_attribute_for user
+  # Selects the scenarios from the last 24 hours only
+  scope :last_24hours, lambda { since 1.days.ago }
 
-      where [ "#{attribute} != ? OR #{attribute} IS NULL", user.id ]
-    end
+  # Selects the scenarios from last week only
+  scope :last_week, lambda { since 7.days.ago }
 
-    # Orders the retrieved scenarios from newest to oldest.
-    #
-    def recent
-      order 'updated_at DESC'
-    end
-
-    # Returns scenarios updated at -- or after -- the given time.
-    #
-    # time - A Time or Date object.
-    #
-    # Raises an ArgumentError if time is nil.
-    #
-    def since(time)
-      unless time.acts_like?(:time) or time.acts_like?(:date)
-        raise ArgumentError, 'time must not be nil'
-      end
-
-      where 'updated_at > ?', time
-    end
-
-    # Returns scenarios suitable for display in the high scores list.
-    #
-    # time - A Time or Date object. Scenarios which haven't been updated since
-    #        "time" will be excluded from the returned collection.
-    #
-    # Raises an ArgumentError if time is nil.
-    #
-    def high_scores_since(time)
-      since(time).identified.by_score.
-        # We need to select twice as many scenarios as are actually displayed;
-        # if a scenario currently in the top five is demoted, we need the next
-        # highest so that it can be promoted in the UI. So, twice as many
-        # allows all of the top five to be demoted without the UI crapping
-        # out.
-        #
-        # In the real world, (number_shown) + 2 *should* be enough...
-        #
-        limit(20)
-    end
-
-    # Selects the scenarios from the last 24 hours only
-    def last_24hours
-      since 1.days.ago
-    end
-
-    # Selects the scenarios from last week only
-    def last_week
-      since 7.days.ago
-    end
-
-    # Orders the retrieved scenarios by score from highest to lowest.
-    def by_score
-      order 'score DESC'
-    end
-
-    #######
-    private
-    #######
-
-    # Guests and Users are stored differently in a Scenario; returns the
-    # column used to store the unique visitor ID for this scenario.
-    #
-    # Raises an error when "visitor" is not a User or Guest.
-    def user_attribute_for(visitor)
-      case visitor
-        when User  then :user_id
-        when Guest then :guest_uid
-        else raise 'Scenario.user_attribute_for requires a User or Guest'
-      end
-    end
-  end # class << self
+  # Orders the retrieved scenarios by score from highest to lowest.
+  scope :by_score, order('score DESC')
 
   # RELATIONSHIPS ------------------------------------------------------------
 
@@ -237,4 +209,19 @@ class Scenario < ActiveRecord::Base
       profile_image:       user_or_guest.image_url }
   end
 
+  #######
+  private
+  #######
+
+  # Guests and Users are stored differently in a Scenario; returns the
+  # column used to store the unique visitor ID for this scenario.
+  #
+  # Raises an error when "visitor" is not a User or Guest.
+  def self.user_attribute_for(visitor)
+    case visitor
+    when User  then :user_id
+    when Guest then :guest_uid
+    else raise 'Scenario.user_attribute_for requires a User or Guest'
+    end
+  end
 end
