@@ -52,4 +52,5 @@ class Scene < ActiveRecord::Base
 
   validates_presence_of :name_key
   validates_length_of   :name_key, maximum: 100
+  validates_format_of   :name_key, with: /^[a-z0-9_-]+$/
 end
