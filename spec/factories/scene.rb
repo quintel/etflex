@@ -1,10 +1,7 @@
 FactoryGirl.define do
   factory :scene do
     name 'My First Scene'
-
-    factory :scene_with_key do
-      name_key 'my_first_scene'
-    end
+    name_key 'my_first_scene'
 
     factory(:detailed_scene) { after(:create) do |scene|
       # Create two inputs, and add a scene input for each one.
