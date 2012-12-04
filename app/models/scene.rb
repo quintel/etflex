@@ -47,7 +47,9 @@ class Scene < ActiveRecord::Base
 
   # VALIDATION ---------------------------------------------------------------
 
-  validates_presence_of :name, if: -> { name_key.blank? }
+  validates_presence_of :name
   validates_length_of   :name, maximum: 100
 
+  validates_presence_of :name_key
+  validates_length_of   :name_key, maximum: 100
 end
