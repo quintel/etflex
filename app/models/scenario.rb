@@ -39,9 +39,9 @@ class Scenario < ActiveRecord::Base
   default_scope include: :scene, joins: :scene
 
   # Returns the Scenario for a given scene ID / session ID pair.
-  scope :for_session, lambda { |scene_id, session_id|
+  def self.for_session(scene_id, session_id)
     where(scene_id: scene_id, session_id: session_id).first
-  }
+  end
 
   # Returns only scenarios which have either a guest name, or belong to a
   # registered user who has set their name.
