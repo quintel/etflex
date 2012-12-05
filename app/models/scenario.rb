@@ -49,10 +49,11 @@ class Scenario < ActiveRecord::Base
   # LEFT JOIN is required: Rails defaults to an INNER JOIN which excludes
   # all scenarios which have no user_id set.
   #
-  scope :identified,
+  scope :identified, lambda {
     joins('LEFT JOIN `users` ON `users`.`id` = `scenarios`.`user_id`').
       where('`scenarios`.`guest_name` IS NOT NULL OR ' \
             '`users`.`name` IS NOT NULL')
+  }
 
   # Returns scenarios belonging to the given user or guest. Handy when
   # chained on to a scene, for example:
@@ -121,7 +122,7 @@ class Scenario < ActiveRecord::Base
   scope :last_week, lambda { since 7.days.ago }
 
   # Orders the retrieved scenarios by score from highest to lowest.
-  scope :by_score, order('score DESC')
+  scope :by_score, lambda { order('score DESC') }
 
   # RELATIONSHIPS ------------------------------------------------------------
 
