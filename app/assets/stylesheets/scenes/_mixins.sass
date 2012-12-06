@@ -1,0 +1,25 @@
+// Helpers & Mixins ----------------------------------------------------------
+
+@mixin prop($theme, $image, $width, $height, $left, $top)
+  background: image-url("scenes/#{$theme}/header/#{$image}.png") top left no-repeat
+  height: $height
+  left: $left
+  position: absolute
+  top: $top
+  width: $width
+
+@mixin prop-dyn($theme, $image, $width, $height, $left, $top)
+  height: $height
+  left: $left
+  position: absolute
+  top: $top
+  width: $width
+
+  span.icon
+    background: image-url("scenes/#{$theme}/header/#{$image}.png") top left no-repeat
+    height: $height
+    display: block
+    position: absolute
+    width: $width
+
+
