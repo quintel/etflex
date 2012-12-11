@@ -23,7 +23,7 @@ class Scene < ActiveRecord::Base
     includes(scene_props: :prop, scene_inputs: :input)
   end
 
-  attr_accessible :name, :name_key
+  attr_accessible :name, :name_key, :score_property
 
   # RELATIONSHIPS ------------------------------------------------------------
 
@@ -53,4 +53,7 @@ class Scene < ActiveRecord::Base
   validates_presence_of :name_key
   validates_length_of   :name_key, maximum: 100
   validates_format_of   :name_key, with: /^[a-z0-9_-]+$/
+
+  validates_presence_of :score_property
+  validates_format_of   :score_property, with: /^[a-z0-9_-]+$/
 end

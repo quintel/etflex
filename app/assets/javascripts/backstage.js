@@ -9,6 +9,8 @@
  *= require jquery
  *= require jquery_ujs
  *= require jquery.easing.1.3
+ *= require jquery.ui.autocomplete
+ *= require jquery.ui.button
  *= require underscore
  *= require jquery.quinn
  *= require i18n
@@ -17,3 +19,6 @@
  */
 
 jQuery.easing.def = 'easeInOutQuart';
+$(document).ready(function() {
+  $('.autocomplete').combobox();
+});

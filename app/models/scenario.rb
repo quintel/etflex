@@ -87,7 +87,7 @@ class Scenario < ActiveRecord::Base
   #
   # Raises an ArgumentError if time is nil.
   #
-  scope :since, lambda { |time| 
+  scope :since, lambda { |time|
     unless time.acts_like?(:time) or time.acts_like?(:date)
       raise ArgumentError, 'time must not be nil'
     end
