@@ -319,18 +319,19 @@ describe Scenario do
   end
 
   describe '#query_results=' do
+    let(:scenario) { FactoryGirl.build(:scenario) }
     it 'should set an empty hash when given nil' do
-      scenario = Scenario.new query_results: nil
+      scenario.query_results = nil
       scenario.query_results.should eql(Hash.new)
     end
 
     it 'should set an empty hash when given an empty hash' do
-      scenario = Scenario.new query_results: {}
+      scenario.query_results = {}
       scenario.query_results.should eql(Hash.new)
     end
 
     it 'should convert a hash-like value to a Hash' do
-      scenario = Scenario.new query_results: {}.with_indifferent_access
+      scenario.query_results = {}.with_indifferent_access
 
       scenario.query_results.class.should eql(Hash)
       scenario.query_results.class.should_not \
@@ -338,17 +339,17 @@ describe Scenario do
     end
 
     it 'should set a hash' do
-      scenario = Scenario.new query_results: { '1' => '2' }
+      scenario.query_results = { '1' => '2' }
       scenario.query_results.should eql('1' => '2')
     end
 
     it 'should also set a score when present' do
-      scenario = Scenario.new query_results: { 'etflex_score' => 1337 }
+      scenario.query_results = { 'etflex_score' => 1337 }
       scenario.score.should eql(1337.0)
     end
 
     it 'should unset the score when not present' do
-      scenario = Scenario.new { |s| s.score = 42.0 }
+      scenario.score = 42.0
 
       expect { scenario.attributes = { query_results: {} } }.to \
         change { scenario.score }.from(42.0).to(nil)
