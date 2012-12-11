@@ -319,7 +319,7 @@ describe Scenario do
   end
 
   describe '#query_results=' do
-    let(:scenario) { FactoryGirl.build(:scenario) }
+    let(:scenario) { build :scenario }
     it 'should set an empty hash when given nil' do
       scenario.query_results = nil
       scenario.query_results.should eql(Hash.new)
