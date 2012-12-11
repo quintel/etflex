@@ -1,8 +1,8 @@
 FactoryGirl.define do
   factory :scene do
-    name 'My First Scene'
-    name_key 'my_first_scene'
-    score_property 'etflex_score'
+    name 'Balancing Supply and Demand'
+    name_key 'modern'
+    score_gquery 'etflex_score'
 
     factory(:detailed_scene) { after(:create) do |scene|
       # Create two inputs, and add a scene input for each one.

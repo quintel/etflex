@@ -24,7 +24,7 @@ nl:
         gebruiken.
 
     score:
-      header: "Je scoort (Q:etflex_score) punten"
+      header: "Je scoort (Q:score) punten"
       body: |-
         Je score gaat omhoog als je kosten, CO<sub>2</sub> en kernafval
         dalen, en als je duurzaamheid en betrouwbaarheid stijgen. Als je
