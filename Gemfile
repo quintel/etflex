@@ -68,6 +68,13 @@ group :production do
   gem 'unicorn'
 end
 
+group :development do
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'rb-fsevent'
+  gem 'growl_notify'
+end
+
 group :test, :development do
   # gem 'ruby-debug19', :require => 'ruby-debug'
 
@@ -80,11 +87,6 @@ group :test, :development do
   gem 'rspec-rails',  '~> 2.8'
   gem 'factory_girl_rails'
 
-  # Same with Guard.
-  gem 'guard'
-  gem 'guard-rspec'
-  gem 'rb-fsevent'
-  gem 'growl_notify'
 end
 
 group :test do
