@@ -5,7 +5,7 @@ describe Scene do
 
   it { should allow_mass_assignment_of(:name) }
   it { should allow_mass_assignment_of(:name_key) }
-  it { should allow_mass_assignment_of(:score_property) }
+  it { should allow_mass_assignment_of(:score_gquery) }
 
   it { should_not allow_mass_assignment_of(:scene_props) }
   it { should_not allow_mass_assignment_of(:props) }
@@ -69,14 +69,14 @@ describe Scene do
     end
   end
 
-  describe 'score_property' do
+  describe 'score_gquery' do
     it 'should not be blank' do
-      subject.errors_on(:score_property).should include("can't be blank")
+      subject.errors_on(:score_gquery).should include("can't be blank")
     end
 
     it 'should be formatted as a variable' do
-      subject.score_property = 'The ETFlex Score!'
-      subject.errors_on(:score_property).should include(
+      subject.score_gquery = 'The ETFlex Score!'
+      subject.errors_on(:score_gquery).should include(
         "is invalid"
       )
     end

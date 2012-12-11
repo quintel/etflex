@@ -6,7 +6,7 @@ FactoryGirl.define do
   factory :scenario do
     session_id  { FactoryGirl.generate(:session_id) }
 
-    query_results score: 500
+    query_results etflex_score: 500
 
     association  :scene
     association  :user
@@ -14,7 +14,7 @@ FactoryGirl.define do
 
   factory :guest_scenario, class: Scenario do
     session_id  { FactoryGirl.generate(:session_id) }
-    query_results score: 500
+    query_results etflex_score: 500
     association  :scene
     guest_uid    'abc'
     guest_name   'def'
