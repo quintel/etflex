@@ -5,6 +5,7 @@ describe Scene do
 
   it { should allow_mass_assignment_of(:name) }
   it { should allow_mass_assignment_of(:name_key) }
+  it { should allow_mass_assignment_of(:score_property) }
 
   it { should_not allow_mass_assignment_of(:scene_props) }
   it { should_not allow_mass_assignment_of(:props) }
@@ -63,6 +64,19 @@ describe Scene do
     it 'should be formatted as a slug' do
       subject.name_key = 'my first scene'
       subject.errors_on(:name_key).should include(
+        "is invalid"
+      )
+    end
+  end
+
+  describe 'score_property' do
+    it 'should not be blank' do
+      subject.errors_on(:score_property).should include("can't be blank")
+    end
+
+    it 'should be formatted as a variable' do
+      subject.score_property = 'The ETFlex Score!'
+      subject.errors_on(:score_property).should include(
         "is invalid"
       )
     end

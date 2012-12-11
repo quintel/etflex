@@ -76,7 +76,10 @@ module Backstage::InputsHelper
   #
   def scene_input_input_select(form)
     inputs = Input.scoped.only(:id, :key).order('`key` ASC')
-    form.association :input, collection: inputs, include_blank: false
+    form.association :input,
+      collection: inputs,
+      include_blank: false,
+      input_html: { class: 'autocomplete' }
   end
 
 end

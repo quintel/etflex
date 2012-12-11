@@ -2,7 +2,7 @@
   = f.input :id,        as: :string, input_html: { class: 'small', disabled: true } unless @scene.new_record?
   = f.input :name,      input_html: { autocomplete: 'off' }
   = f.input :name_key
-
+  = f.input :score_property
   %ul.buttons
     %li
       = f.button :submit, class: 'green'
