@@ -52,4 +52,5 @@ config/database.yml
 config/etflex.yml
 public/assets/*
 .rvmrc
+.rbenv-version
 .DS_Store
