@@ -45,8 +45,11 @@ class exports.Scenario extends Backbone.Model
       return callback(err) if err
 
       @scene   or= scene
-      @queries or= new Queries({ id: id } for id in @scene.dependantQueries())
       @inputs  or= new Inputs @scene.get('inputs')
+
+      @queries or= new Queries({ id: id } for id in @scene.dependantQueries())
+      @queries.meta 'score_gquery', @scene.get('score_gquery')
+      _.invoke @queries.models, 'hookupDynamicQuery'
 
       isNewScenario = not @get('sessionId')?
 
