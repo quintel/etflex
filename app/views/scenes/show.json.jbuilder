@@ -1,4 +1,4 @@
-json.(@scene, :id, :name, :name_key)
+json.(@scene, :id, :name, :name_key, :score_gquery)
 json.href scene_path(@scene.id)
 
 json.inputs(@scene.scene_inputs) do |json, input|

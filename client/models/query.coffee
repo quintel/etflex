@@ -10,6 +10,17 @@ transforms = require 'lib/query_transforms'
 # computed Query results are updated.
 #
 class exports.Query extends Backbone.Model
+  hookupDynamicQuery: ->
+    gquery = @collection.meta("#{@id}_gquery")
+    return unless gquery?
+
+    @boundQuery = new Query({ id: gquery })
+    @boundQuery.on 'change', _.bind(@onChange, this)
+    @collection.add @boundQuery
+
+  onChange: ->
+    @set 'future', @boundQuery.get('future')
+    @set 'present', @boundQuery.get('present')
 
   # Returns a nicely formatted version of the query value.
   #
