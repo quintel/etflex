@@ -9,10 +9,6 @@
 #
 # == Columns
 #
-# remote_id (Integer)
-#   The ID of the input on ETengine. Required by the Backbone client so that
-#   it can tell ETengine when the user updates the input.
-#
 # key (String[1..255])
 #   A unique  key which identifies this input. Used when looking up I18n
 #   translations, and should probably match the key on ETengine.
@@ -45,11 +41,10 @@ class Input < ActiveRecord::Base
 
   def acts_like_input? ; true end
 
-  attr_accessible :remote_id, :key, :group, :min, :max, :start, :step, :unit
+  attr_accessible :key, :group, :min, :max, :start, :step, :unit
 
   # VALIDATION ---------------------------------------------------------------
 
-  validates :remote_id, presence: true, uniqueness: true, on: :create
   validates :key,       presence: true, uniqueness: true
 
   validates :group,     length: { maximum: 50, allow_nil: true }

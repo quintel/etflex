@@ -24,14 +24,13 @@ en:
 
     labels:
       input: &input
-        remote_id: 'ETengine input ID'
-        key:       'Key'
-        min:       'Minimum value'
-        max:       'Maximum value'
-        start:     'Starting value'
-        step:      'Step by'
-        unit:      'Unit'
+        key:   'Key'
+        min:   'Minimum value'
+        max:   'Maximum value'
+        start: 'Starting value'
+        step:  'Step by'
+        unit:  'Unit'
 
       scene_input:
         <<: *input
-        input:     'Input'
+        input: 'Input'

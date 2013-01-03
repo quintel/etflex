@@ -51,12 +51,12 @@ YAML.load_file(Rails.root.join('db/seeds/scenes.yml')).each do |data|
   # Inputs.
 
   inputs.each do |(location, ids)|
-    ids.each do |(remote_id, data)|
+    ids.each do |(key, data)|
       data = data.symbolize_keys
 
       scene.scene_inputs.build((data || {}).merge(
         location: location,
-        input:    Input.where(remote_id: remote_id).first
+        input_id: Input.where(key: key).first.id
       ))
     end
   end
@@ -64,13 +64,12 @@ YAML.load_file(Rails.root.join('db/seeds/scenes.yml')).each do |data|
   # Props.
 
   props.each do |(location, keys)|
-    keys.each_with_index do |(behaviour, hurdles),index|
-      scene.scene_props.build(
-        location: location,
-        position: index,
-        prop:     Prop.where(behaviour: behaviour).first,
-        hurdles:  hurdles
-      )
+    keys.each_with_index do |(behaviour, hurdles), index|
+      scene.scene_props.build.tap do |prop|
+        prop.location = location
+        prop.position = index
+        prop.prop     = Prop.where(behaviour: behaviour).first
+      end
     end
   end
 

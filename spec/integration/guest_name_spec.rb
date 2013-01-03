@@ -202,7 +202,7 @@ feature 'Requesting the visitors name', js: true do
 
     click_button 'Sign up'
 
-    click_link 'Create your own future'
+    visit "/scenes/#{ scene.id }"
 
     page.should have_css('.scene-nav', text: 'Account')
 
