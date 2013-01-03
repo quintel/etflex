@@ -64,7 +64,7 @@ YAML.load_file(Rails.root.join('db/seeds/scenes.yml')).each do |data|
   # Props.
 
   props.each do |(location, keys)|
-    keys.each_with_index do |(behaviour, hurdles), index|
+    keys.each_with_index do |behaviour, index|
       scene.scene_props.build.tap do |prop|
         prop.location = location
         prop.position = index
