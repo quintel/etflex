@@ -37,11 +37,11 @@ namespace :etflex do
 
     inputs = raw_inputs.each_with_object([]) do |(id, data), collection|
       begin
-        input = { 'key' => id, 'remote_id' => id, 'start' => data['default'] }
+        input = { 'key' => id, 'start' => data['default'] }
         input.merge!(data.slice('min', 'max', 'step', 'unit'))
 
-        if input['unit'].blank? && input['unit'] == '#'
-          input.delete('unit') # Remote superflous units.
+        if input['unit'].blank? || input['unit'] == '#'
+          input.delete('unit') # Remove superflous units.
         end
 
         if data['share_group'].present?

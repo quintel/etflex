@@ -58,7 +58,6 @@
   min: 0.0
   max: 6047.162162162142
   step: 0.1
-  unit: ! '#'
 - key: bio_ethanol_from_beet_sugar_share
   start: 60.0
   min: 0.0
@@ -235,7 +234,6 @@
   min: 1.0
   max: 4.0
   step: 0.1
-  unit: ''
 - key: buildings_lighting_daylight_dependent_control
   start: 20.498180625
   min: 0.0
@@ -504,7 +502,6 @@
   min: 1.0
   max: 3.0
   step: 0.1
-  unit: ''
 - key: electricity_bio_oil_share_in_gas_production
   start: 0.0
   min: 0.0
@@ -915,13 +912,11 @@
   min: 2.5
   max: 6.0
   step: 0.1
-  unit: ''
 - key: households_insulation_level_old_houses
   start: 1.0
   min: 1.0
   max: 3.0
   step: 0.1
-  unit: ''
 - key: households_lighting_incandescent_share
   start: 80.0
   min: 0.0
@@ -1098,13 +1093,11 @@
   min: 0.0
   max: 222.7088403538023
   step: 0.1
-  unit: ! '#'
 - key: industry_number_of_gas_chp
   start: 122.08775510204084
   min: 0.0
   max: 274.57192281570985
   step: 0.1
-  unit: ! '#'
 - key: industry_other_metals_process_electricity_efficiency
   start: 0.0
   min: 0.0
@@ -1168,13 +1161,11 @@
   min: 2008
   max: 2050
   step: 0.1
-  unit: ! '#'
 - key: initial_updates_preset_demands
   start: 2040
   min: 2008
   max: 2050
   step: 0.1
-  unit: ! '#'
 - key: investment_costs_co2_ccs
   start: 0.0
   min: -100.0
@@ -1283,301 +1274,251 @@
   min: 0.0
   max: 1000.0
   step: 0.1
-  unit: ! '#'
 - key: number_of_biomass_chp_fixed
   start: 10.547250000000005
   min: 0.0
   max: 100000000.0
   step: 1.0
-  unit: ! '#'
 - key: number_of_biomass_fired_heater_district
   start: 0.0
   min: 0.0
   max: 603.3739281977582
   step: 0.1
-  unit: ! '#'
 - key: number_of_biomass_fired_heater_fixed
   start: 188779.8797879809
   min: 0.0
   max: 100000000.0
   step: 1.0
-  unit: ! '#'
 - key: number_of_central_coal_chp
   start: 2.365705625634861
   min: 0.0
   max: 52.98532992871274
   step: 0.1
-  unit: ! '#'
 - key: number_of_central_coal_chp_fixed
   start: 2.365705625634861
   min: 0.0
   max: 100000000.0
   step: 0.1
-  unit: ! '#'
 - key: number_of_co_firing_coal
   start: 0.0
   min: 0.0
   max: 23.89356266684798
   step: 0.1
-  unit: ! '#'
 - key: number_of_coal_conventional
   start: 0.0
   min: 0.0
   max: 68.7385215794307
   step: 0.1
-  unit: ! '#'
 - key: number_of_coal_fired_heater_district
   start: 0.0
   min: 0.0
   max: 100.0
   step: 0.1
-  unit: ! '#'
 - key: number_of_coal_fired_heaterv
   start: 4554.9702436293965
   min: 0.0
   max: 100000000.0
   step: 1.0
-  unit: ! '#'
 - key: number_of_coal_igcc_ccs
   start: 0.0
   min: 0.0
   max: 62.13733130506372
   step: 0.1
-  unit: ! '#'
 - key: number_of_coal_iggc
   start: 0.32270408163265396
   min: 0.0
   max: 59.9228959025471
   step: 0.1
-  unit: ! '#'
 - key: number_of_coal_lignite
   start: 0.0
   min: 0.0
   max: 47.90810539783189
   step: 0.1
-  unit: ! '#'
 - key: number_of_coal_oxyfuel_ccs
   start: 0.0
   min: 0.0
   max: 62.675717674539165
   step: 0.1
-  unit: ! '#'
 - key: number_of_concentrated_solar_power
   start: 0.0
   min: 0.0
   max: 4790.800000000001
   step: 0.1
-  unit: ! '#'
 - key: number_of_decentral_coal_chp_fixed
   start: 0.0
   min: 0.0
   max: 100000000.0
   step: 0.1
-  unit: ! '#'
 - key: number_of_diesel_generators
   start: 0.0
   min: 0.0
   max: 87.1962654924984
   step: 1.0
-  unit: ! '#'
 - key: number_of_electric_heat_pump_fixed
   start: 31088.526477274576
   min: 0.0
   max: 100000000.0
   step: 1.0
-  unit: ! '#'
 - key: number_of_gas_ccgt
   start: 5.104591836734693
   min: 0.0
   max: 55.328232062055605
   step: 0.1
-  unit: ! '#'
 - key: number_of_gas_ccgt_ccs
   start: 0.0
   min: 0.0
   max: 76.35739761124161
   step: 0.1
-  unit: ! '#'
 - key: number_of_gas_conventional
   start: 4.828282828282834
   min: 0.0
   max: 217.89127141802382
   step: 0.1
-  unit: ! '#'
 - key: number_of_gas_fired_heat_pump_fixed
   start: 0.0
   min: 0.0
   max: 100000000.0
   step: 1.0
-  unit: ! '#'
 - key: number_of_gas_fired_heater_district
   start: 0.0
   min: 0.0
   max: 300.0
   step: 0.1
-  unit: ! '#'
 - key: number_of_gas_fired_heater_fixed
   start: 7112078.950452734
   min: 0.0
   max: 100000000.0
   step: 1.0
-  unit: ! '#'
 - key: number_of_gas_turbines
   start: 1.4421768707483003
   min: 0.0
   max: 1799.2658730158726
   step: 1.0
-  unit: ! '#'
 - key: number_of_geothermal_electric
   start: 0.0
   min: 0.0
   max: 2073.9393939393944
   step: 0.1
-  unit: ! '#'
 - key: number_of_geothermal_fixed
   start: 0.8898758702118148
   min: 0.0
   max: 100000000.0
   step: 1.0
-  unit: ! '#'
 - key: number_of_hydro_mountain
   start: 0.0
   min: 0.0
   max: 60.76610857432776
   step: 0.1
-  unit: ! '#'
 - key: number_of_hydro_river
   start: 3.7000000000000015
   min: 0.0
   max: 4431.490000000005
   step: 0.1
-  unit: ! '#'
 - key: number_of_large_gas_chp
   start: 5.749536178107604
   min: 0.0
   max: 81.01434682964097
   step: 0.1
-  unit: ! '#'
 - key: number_of_large_gas_chp_fixed
   start: 5.749536178107604
   min: 0.0
   max: 100000000.0
   step: 1.0
-  unit: ! '#'
 - key: number_of_lignite_chp
   start: 0.0
   min: 0.0
   max: 92.81236035912721
   step: 0.1
-  unit: ! '#'
 - key: number_of_lignite_chp_fixed
   start: 0.0
   min: 0.0
   max: 92.81236035912721
   step: 0.1
-  unit: ! '#'
 - key: number_of_micro_chp_fixed
   start: 0.0
   min: 0.0
   max: 7349500.0
   step: 0.1
-  unit: ! '#'
 - key: number_of_nuclear_3rd_gen
   start: 0.3187499999999999
   min: 0.0
   max: 19.088343750000003
   step: 0.1
-  unit: ! '#'
 - key: number_of_nuclear_conventional
   start: 0.0
   min: 0.0
   max: 19.088343750000003
   step: 0.1
-  unit: ! '#'
 - key: number_of_oil_fired_heater_fixed
   start: 102540.99476293403
   min: 0.0
   max: 100000000.0
   step: 1.0
-  unit: ! '#'
 - key: number_of_oil_fired_plant
   start: 0.0
   min: 0.0
   max: 87.1962654924984
   step: 0.1
-  unit: ! '#'
 - key: number_of_pulverized_coal
   start: 3.3919016542999048
   min: 0.0
   max: 43.67098161845704
   step: 0.1
-  unit: ! '#'
 - key: number_of_pulverized_coal_ccs
   start: 0.0
   min: 0.0
   max: 64.1799348987281
   step: 0.1
-  unit: ! '#'
 - key: number_of_small_chp_fixed
   start: 4017.4505298826134
   min: 0.0
   max: 100000000.0
   step: 0.1
-  unit: ! '#'
 - key: number_of_small_gas_chp_fixed
   start: 4017.4505298826134
   min: 0.0
   max: 100000000.0
   step: 1.0
-  unit: ! '#'
 - key: number_of_solar_pv_plants
   start: 0.0
   min: 0.0
   max: 6871.485943775101
   step: 0.1
-  unit: ! '#'
 - key: number_of_solar_pv_roofs_fixed
   start: 53570.47236565309
   min: 0.0
   max: 27999999.999999996
   step: 1.0
-  unit: ! '#'
 - key: number_of_solar_water_heater_fixed
   start: 218311.77944862167
   min: 0.0
   max: 100000000.0
   step: 1.0
-  unit: ! '#'
 - key: number_of_waste_fired_heater_district
   start: 0.0
   min: 0.0
   max: 5000.0
   step: 0.1
-  unit: ! '#'
 - key: number_of_waste_incinerator
   start: 11.689786466567211
   min: 0.0
   max: 17.94981698847122
   step: 0.1
-  unit: ! '#'
 - key: number_of_wind_offshore
   start: 64.76190476190487
   min: 0.0
   max: 32000.0
   step: 0.1
-  unit: ! '#'
 - key: number_of_wind_onshore_coast
   start: 66.66666666666666
   min: 0.0
   max: 2255.0
   step: 0.1
-  unit: ! '#'
 - key: number_of_wind_onshore_land
   start: 359.99999999999886
   min: 0.0
   max: 56895.0
   step: 0.1
-  unit: ! '#'
 - key: om_costs_co2_ccs
   start: 0.0
   min: -100.0
@@ -1667,7 +1608,6 @@
   min: 0.0
   max: 11633.002689775582
   step: 0.1
-  unit: ! '#'
 - key: pj_of_heat_import
   start: 0.0
   min: 0.0
@@ -1781,7 +1721,6 @@
   min: 0.0
   max: 1.0
   step: 1.0
-  unit: 
 - key: share_biocoal_co_firing_coal
   start: 0.0
   min: 0.0
