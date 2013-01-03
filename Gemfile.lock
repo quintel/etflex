@@ -127,6 +127,7 @@ GEM
     jwt (0.1.5)
       multi_json (>= 1.0)
     kgio (2.7.4)
+    libv8 (3.11.8.3)
     libwebsocket (0.1.7.1)
       addressable
       websocket
@@ -303,6 +304,7 @@ DEPENDENCIES
   i18n-js
   jbuilder
   jquery-rails
+  libv8 (~> 3.11.8)
   mysql2
   omniauth-facebook
   omniauth-twitter
