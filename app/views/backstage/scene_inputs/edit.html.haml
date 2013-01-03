@@ -3,8 +3,7 @@
   %span.input= input_name_for_title @input
 
 = simple_form_for @input, url: { action: 'update' } do |f|
-  = f.input :remote_id, as: :string, input_html: { class: 'small', disabled: true }
-  = f.input :key,                    input_html: { disabled: true }
+  = f.input :key, input_html: { disabled: true }
 
   = scene_input_location_select(f)
   = f.hint "Choose none for a slider which can be choosen by the user in the interface, but is hidden upon load."

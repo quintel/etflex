@@ -145,29 +145,6 @@ describe SceneInput do
     end
   end
 
-  # ID -----------------------------------------------------------------------
-
-  describe '#remote_id' do
-    let(:input) { create :input }
-    subject { SceneInput.new { |si| si.input = input } }
-
-    it 'should be an integer' do
-      subject.remote_id.should be_kind_of(Integer)
-    end
-
-    it 'should be delegated to the input' do
-      subject.remote_id.should eql(input.remote_id)
-    end
-
-    it 'should return nil when no input is set' do
-      SceneInput.new.remote_id.should be_nil
-    end
-
-    it 'should not be writable' do
-      expect { subject.remote_id = 6 }.to raise_error(NoMethodError)
-    end
-  end
-
   # KEY ----------------------------------------------------------------------
 
   describe '#key' do

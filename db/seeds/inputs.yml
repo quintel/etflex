@@ -1,20 +1,17 @@
 ---
 - key: agriculture_electricity_demand
-  remote_id: agriculture_electricity_demand
   start: 0.0
   min: -5.0
   max: 5.0
   step: 0.1
   unit: ! '%'
 - key: agriculture_heat_demand
-  remote_id: agriculture_heat_demand
   start: 0.0
   min: -5.0
   max: 5.0
   step: 0.1
   unit: ! '%'
 - key: agriculture_heating_biomass_fired_heater_share
-  remote_id: agriculture_heating_biomass_fired_heater_share
   start: 0.63542904375678
   min: 0.0
   max: 100.0
@@ -22,7 +19,6 @@
   unit: ! '%'
   group: agri_heat
 - key: agriculture_heating_combined_heat_power_share
-  remote_id: agriculture_heating_combined_heat_power_share
   start: 57.41893544109799
   min: 0.0
   max: 100.0
@@ -30,7 +26,6 @@
   unit: ! '%'
   group: agri_heat
 - key: agriculture_heating_gas_fired_heater_share
-  remote_id: agriculture_heating_gas_fired_heater_share
   start: 28.2814356563517
   min: 0.0
   max: 100.0
@@ -38,7 +33,6 @@
   unit: ! '%'
   group: agri_heat
 - key: agriculture_heating_geothermal_share
-  remote_id: agriculture_heating_geothermal_share
   start: 0.10439806443836
   min: 0.0
   max: 100.0
@@ -46,7 +40,6 @@
   unit: ! '%'
   group: agri_heat
 - key: agriculture_heating_heat_pump_with_ts_share
-  remote_id: agriculture_heating_heat_pump_with_ts_share
   start: 0.386272838421932
   min: 0.0
   max: 100.0
@@ -54,7 +47,6 @@
   unit: ! '%'
   group: agri_heat
 - key: agriculture_heating_oil_fired_heater_share
-  remote_id: agriculture_heating_oil_fired_heater_share
   start: 13.1735289559333
   min: 0.0
   max: 100.0
@@ -62,14 +54,12 @@
   unit: ! '%'
   group: agri_heat
 - key: agriculture_number_of_small_gas_chp
-  remote_id: agriculture_number_of_small_gas_chp
   start: 3023.581081081071
   min: 0.0
   max: 6047.162162162142
   step: 0.1
   unit: ! '#'
 - key: bio_ethanol_from_beet_sugar_share
-  remote_id: bio_ethanol_from_beet_sugar_share
   start: 60.0
   min: 0.0
   max: 100.0
@@ -77,7 +67,6 @@
   unit: ! '%'
   group: bio_ethanol_fce
 - key: bio_ethanol_from_cane_sugar_share
-  remote_id: bio_ethanol_from_cane_sugar_share
   start: 40.0
   min: 0.0
   max: 100.0
@@ -85,7 +74,6 @@
   unit: ! '%'
   group: bio_ethanol_fce
 - key: biodiesel_from_palm_oil_share
-  remote_id: biodiesel_from_palm_oil_share
   start: 80.0
   min: 0.0
   max: 100.0
@@ -93,7 +81,6 @@
   unit: ! '%'
   group: biodiesel_fce
 - key: biodiesel_from_waste_fats_share
-  remote_id: biodiesel_from_waste_fats_share
   start: 20.0
   min: 0.0
   max: 100.0
@@ -101,14 +88,12 @@
   unit: ! '%'
   group: biodiesel_fce
 - key: buildings_appliances_efficiency
-  remote_id: buildings_appliances_efficiency
   start: 0.0
   min: 0.0
   max: 5.0
   step: 0.1
   unit: ! '%'
 - key: buildings_cooling_airconditioning_share
-  remote_id: buildings_cooling_airconditioning_share
   start: 94.92747362444649
   min: 0.0
   max: 100.0
@@ -116,7 +101,6 @@
   unit: ! '%'
   group: cooling_buildings
 - key: buildings_cooling_cooling_network_share
-  remote_id: buildings_cooling_cooling_network_share
   start: 0.0
   min: 0.0
   max: 0.0
@@ -124,7 +108,6 @@
   unit: ! '%'
   group: cooling_buildings
 - key: buildings_cooling_gas_fired_heat_pump_share
-  remote_id: buildings_cooling_gas_fired_heat_pump_share
   start: 0.6394133572918649
   min: 0.0
   max: 100.0
@@ -132,7 +115,6 @@
   unit: ! '%'
   group: cooling_buildings
 - key: buildings_cooling_heat_pump_with_ts_share
-  remote_id: buildings_cooling_heat_pump_with_ts_share
   start: 4.4331130182616505
   min: 0.0
   max: 100.0
@@ -140,28 +122,24 @@
   unit: ! '%'
   group: cooling_buildings
 - key: buildings_cooling_per_student_employee
-  remote_id: buildings_cooling_per_student_employee
   start: 0.0
   min: -5.0
   max: 5.0
   step: 0.1
   unit: ! '%'
 - key: buildings_electricity_per_student_employee
-  remote_id: buildings_electricity_per_student_employee
   start: 0.0
   min: -5.0
   max: 5.0
   step: 0.1
   unit: ! '%'
 - key: buildings_heat_per_employee_student
-  remote_id: buildings_heat_per_employee_student
   start: 0.0
   min: -5.0
   max: 5.0
   step: 0.1
   unit: ! '%'
 - key: buildings_heating_biomass_chp_share
-  remote_id: buildings_heating_biomass_chp_share
   start: 0.0
   min: 0.0
   max: 100.0
@@ -169,7 +147,6 @@
   unit: ! '%'
   group: district_heating_buildings
 - key: buildings_heating_biomass_fired_heater_share
-  remote_id: buildings_heating_biomass_fired_heater_share
   start: 0.0
   min: 0.0
   max: 100.0
@@ -177,7 +154,6 @@
   unit: ! '%'
   group: heating_buildings
 - key: buildings_heating_coal_fired_heater_share
-  remote_id: buildings_heating_coal_fired_heater_share
   start: 0.0
   min: 0.0
   max: 100.0
@@ -185,7 +161,6 @@
   unit: ! '%'
   group: heating_buildings
 - key: buildings_heating_district_heating_network_share
-  remote_id: buildings_heating_district_heating_network_share
   start: 5.9315058226859
   min: 0.0
   max: 100.0
@@ -193,7 +168,6 @@
   unit: ! '%'
   group: heating_buildings
 - key: buildings_heating_electric_heater_share
-  remote_id: buildings_heating_electric_heater_share
   start: 1.86305015101812
   min: 0.0
   max: 100.0
@@ -201,7 +175,6 @@
   unit: ! '%'
   group: heating_buildings
 - key: buildings_heating_gas_fired_heat_pump_share
-  remote_id: buildings_heating_gas_fired_heat_pump_share
   start: 1.50262211968964
   min: 0.0
   max: 100.0
@@ -209,7 +182,6 @@
   unit: ! '%'
   group: heating_buildings
 - key: buildings_heating_gas_fired_heater_share
-  remote_id: buildings_heating_gas_fired_heater_share
   start: 82.66801119630959
   min: 0.0
   max: 100.0
@@ -217,7 +189,6 @@
   unit: ! '%'
   group: heating_buildings
 - key: buildings_heating_geothermal_share
-  remote_id: buildings_heating_geothermal_share
   start: 0.0
   min: 0.0
   max: 100.0
@@ -225,7 +196,6 @@
   unit: ! '%'
   group: district_heating_buildings
 - key: buildings_heating_heat_network_share
-  remote_id: buildings_heating_heat_network_share
   start: 16.606060606060595
   min: 0.0
   max: 100.0
@@ -233,7 +203,6 @@
   unit: ! '%'
   group: district_heating_buildings
 - key: buildings_heating_heat_pump_with_ts_share
-  remote_id: buildings_heating_heat_pump_with_ts_share
   start: 4.58596960250615
   min: 0.0
   max: 100.0
@@ -241,7 +210,6 @@
   unit: ! '%'
   group: heating_buildings
 - key: buildings_heating_oil_fired_heater_share
-  remote_id: buildings_heating_oil_fired_heater_share
   start: 3.36118663285535
   min: 0.0
   max: 100.0
@@ -249,7 +217,6 @@
   unit: ! '%'
   group: heating_buildings
 - key: buildings_heating_small_gas_chp_share
-  remote_id: buildings_heating_small_gas_chp_share
   start: 83.3939393939394
   min: 0.0
   max: 100.0
@@ -257,7 +224,6 @@
   unit: ! '%'
   group: district_heating_buildings
 - key: buildings_heating_solar_thermal_panels_share
-  remote_id: buildings_heating_solar_thermal_panels_share
   start: 0.08765447493524721
   min: 0.0
   max: 13.0
@@ -265,21 +231,18 @@
   unit: ! '%'
   group: heating_buildings
 - key: buildings_insulation_level
-  remote_id: buildings_insulation_level
   start: 1.0
   min: 1.0
   max: 4.0
   step: 0.1
   unit: ''
 - key: buildings_lighting_daylight_dependent_control
-  remote_id: buildings_lighting_daylight_dependent_control
   start: 20.498180625
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
 - key: buildings_lighting_fluorescent_tube_conventional_share
-  remote_id: buildings_lighting_fluorescent_tube_conventional_share
   start: 75.0
   min: 0.0
   max: 100.0
@@ -287,7 +250,6 @@
   unit: ! '%'
   group: lighting_buildings
 - key: buildings_lighting_fluorescent_tube_high_performance_share
-  remote_id: buildings_lighting_fluorescent_tube_high_performance_share
   start: 24.000000000000004
   min: 0.0
   max: 100.0
@@ -295,7 +257,6 @@
   unit: ! '%'
   group: lighting_buildings
 - key: buildings_lighting_led_tube_share
-  remote_id: buildings_lighting_led_tube_share
   start: 1.0
   min: 0.0
   max: 100.0
@@ -303,49 +264,42 @@
   unit: ! '%'
   group: lighting_buildings
 - key: buildings_lighting_motion_detection
-  remote_id: buildings_lighting_motion_detection
   start: 26.489399999999996
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
 - key: buildings_market_penetration_solar_panels
-  remote_id: buildings_market_penetration_solar_panels
   start: 0.09552483756469318
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
 - key: buildings_number_of_buildings
-  remote_id: buildings_number_of_buildings
   start: 0.0
   min: -5.0
   max: 5.0
   step: 0.1
   unit: ! '%'
 - key: buildings_recirculation
-  remote_id: buildings_recirculation
   start: 10.0
   min: 0.0
   max: 50.0
   step: 0.1
   unit: ! '%'
 - key: buildings_ventilation_rate
-  remote_id: buildings_ventilation_rate
   start: 2.5
   min: 1.5
   max: 3.0
   step: 0.1
   unit: x
 - key: buildings_waste_heat_recovery
-  remote_id: buildings_waste_heat_recovery
   start: 20.0
   min: 0.0
   max: 50.0
   step: 0.1
   unit: ! '%'
 - key: coal_from_australia_share
-  remote_id: coal_from_australia_share
   start: 15.299999999999999
   min: 0.0
   max: 100.0
@@ -353,7 +307,6 @@
   unit: ! '%'
   group: coal_fce
 - key: coal_from_east_asia_share
-  remote_id: coal_from_east_asia_share
   start: 12.4
   min: 0.0
   max: 100.0
@@ -361,7 +314,6 @@
   unit: ! '%'
   group: coal_fce
 - key: coal_from_eastern_europe_share
-  remote_id: coal_from_eastern_europe_share
   start: 8.8
   min: 0.0
   max: 100.0
@@ -369,7 +321,6 @@
   unit: ! '%'
   group: coal_fce
 - key: coal_from_north_america_share
-  remote_id: coal_from_north_america_share
   start: 16.9
   min: 0.0
   max: 100.0
@@ -377,7 +328,6 @@
   unit: ! '%'
   group: coal_fce
 - key: coal_from_russia_share
-  remote_id: coal_from_russia_share
   start: 0.0
   min: 0.0
   max: 100.0
@@ -385,7 +335,6 @@
   unit: ! '%'
   group: coal_fce
 - key: coal_from_south_africa_share
-  remote_id: coal_from_south_africa_share
   start: 26.3
   min: 0.0
   max: 100.0
@@ -393,7 +342,6 @@
   unit: ! '%'
   group: coal_fce
 - key: coal_from_south_america_share
-  remote_id: coal_from_south_america_share
   start: 20.3
   min: 0.0
   max: 100.0
@@ -401,7 +349,6 @@
   unit: ! '%'
   group: coal_fce
 - key: coal_from_western_europe_share
-  remote_id: coal_from_western_europe_share
   start: 0
   min: 0.0
   max: 100.0
@@ -409,182 +356,156 @@
   unit: ! '%'
   group: coal_fce
 - key: costs_biomass
-  remote_id: costs_biomass
   start: 0.0
   min: -100.0
   max: 1000.0
   step: 5.0
   unit: ! '%'
 - key: costs_co2
-  remote_id: costs_co2
   start: 0.0
   min: -100.0
   max: 3500.0
   step: 1.0
   unit: ! '%'
 - key: costs_co2_free_allocation
-  remote_id: costs_co2_free_allocation
   start: 85.0
   min: 0.0
   max: 100.0
   step: 1.0
   unit: ! '%'
 - key: costs_coal
-  remote_id: costs_coal
   start: 0.0
   min: -100.0
   max: 1000.0
   step: 5.0
   unit: ! '%'
 - key: costs_gas
-  remote_id: costs_gas
   start: 0.0
   min: -100.0
   max: 1000.0
   step: 5.0
   unit: ! '%'
 - key: costs_oil
-  remote_id: costs_oil
   start: 0.0
   min: -100.0
   max: 1000.0
   step: 5.0
   unit: ! '%'
 - key: costs_uranium
-  remote_id: costs_uranium
   start: 0.0
   min: -100.0
   max: 1000.0
   step: 5.0
   unit: ! '%'
 - key: DEPRECATED_mw_of_electricity_biomass_chp
-  remote_id: DEPRECATED_mw_of_electricity_biomass_chp
   start: 342.99999999999983
   min: 0.0
   max: 100000000.0
   step: 0.1
   unit: MW
 - key: DEPRECATED_mw_of_electricity_micro_chp
-  remote_id: DEPRECATED_mw_of_electricity_micro_chp
   start: 0.0
   min: 0.0
   max: 100000000.0
   step: 0.1
   unit: MW
 - key: DEPRECATED_mw_of_electricity_small_chp
-  remote_id: DEPRECATED_mw_of_electricity_small_chp
   start: 6575.885337392188
   min: 0.0
   max: 100000000.0
   step: 0.1
   unit: MW
 - key: DEPRECATED_mw_of_heat_biomass_chp_fixed
-  remote_id: DEPRECATED_mw_of_heat_biomass_chp_fixed
   start: 600.2499999999995
   min: 0.0
   max: 100000000.0
   step: 0.1
   unit: MW
 - key: DEPRECATED_mw_of_heat_biomass_fired_heater_fixed
-  remote_id: DEPRECATED_mw_of_heat_biomass_fired_heater_fixed
   start: 2421.7478954947214
   min: 0.0
   max: 100000000.0
   step: 0.1
   unit: MW
 - key: DEPRECATED_mw_of_heat_central_coal_chp_fixed
-  remote_id: DEPRECATED_mw_of_heat_central_coal_chp_fixed
   start: 420.1189963306815
   min: 0.0
   max: 100000000.0
   step: 0.1
   unit: MW
 - key: DEPRECATED_mw_of_heat_coal_fired_heater
-  remote_id: DEPRECATED_mw_of_heat_coal_fired_heater
   start: 1125.312976148612
   min: 0.0
   max: 100000000.0
   step: 0.1
   unit: MW
 - key: DEPRECATED_mw_of_heat_gas_fired_heat_pump
-  remote_id: DEPRECATED_mw_of_heat_gas_fired_heat_pump
   start: 144.5941473984339
   min: 0.0
   max: 100000000.0
   step: 0.1
   unit: MW
 - key: DEPRECATED_mw_of_heat_gas_fired_heater
-  remote_id: DEPRECATED_mw_of_heat_gas_fired_heater
   start: 182085.08083705258
   min: 0.0
   max: 100000000.0
   step: 0.1
   unit: MW
 - key: DEPRECATED_mw_of_heat_geothermal_fixed
-  remote_id: DEPRECATED_mw_of_heat_geothermal_fixed
   start: 7.563944896800426
   min: 0.0
   max: 100000000.0
   step: 0.1
   unit: MW
 - key: DEPRECATED_mw_of_heat_large_gas_chp_fixed
-  remote_id: DEPRECATED_mw_of_heat_large_gas_chp_fixed
   start: 1993.1725417439704
   min: 0.0
   max: 100000000.0
   step: 0.1
   unit: MW
 - key: DEPRECATED_mw_of_heat_lignite_chp_fixed
-  remote_id: DEPRECATED_mw_of_heat_lignite_chp_fixed
   start: 0.0
   min: 0.0
   max: 100000000.0
   step: 0.1
   unit: MW
 - key: DEPRECATED_mw_of_heat_micro_chp_fixed
-  remote_id: DEPRECATED_mw_of_heat_micro_chp_fixed
   start: 0.0
   min: 0.0
   max: 100000000.0
   step: 0.1
   unit: MW
 - key: DEPRECATED_mw_of_heat_oil_fired_heater
-  remote_id: DEPRECATED_mw_of_heat_oil_fired_heater
   start: 24704.155627081167
   min: 0.0
   max: 100000000.0
   step: 0.1
   unit: MW
 - key: DEPRECATED_mw_of_heat_small_gas_chp_fixed
-  remote_id: DEPRECATED_mw_of_heat_small_gas_chp_fixed
   start: 10121.583596880402
   min: 0.0
   max: 100000000.0
   step: 0.1
   unit: MW
 - key: DEPRECATED_mw_of_heat_solar_water_heater_fixed
-  remote_id: DEPRECATED_mw_of_heat_solar_water_heater_fixed
   start: 351.9298245614036
   min: 0.0
   max: 100000000.0
   step: 0.1
   unit: MW
 - key: DEPRECATED_mw_of_solar_pv_roofs
-  remote_id: DEPRECATED_mw_of_solar_pv_roofs
   start: 95.23809523809523
   min: 0.0
   max: 100000000.0
   step: 0.1
   unit: MW
 - key: economic_multiplier
-  remote_id: economic_multiplier
   start: 1.0
   min: 1.0
   max: 3.0
   step: 0.1
   unit: ''
 - key: electricity_bio_oil_share_in_gas_production
-  remote_id: electricity_bio_oil_share_in_gas_production
   start: 0.0
   min: 0.0
   max: 100.0
@@ -592,7 +513,6 @@
   unit: ! '%'
   group: energy_sector_gas
 - key: electricity_natural_gas_share
-  remote_id: electricity_natural_gas_share
   start: 89.0961538461538
   min: 0.0
   max: 100.0
@@ -600,7 +520,6 @@
   unit: ! '%'
   group: energy_sector_gas
 - key: electricity_oil_share_in_gas_production
-  remote_id: electricity_oil_share_in_gas_production
   start: 10.9038461538462
   min: 0.0
   max: 100.0
@@ -608,21 +527,18 @@
   unit: ! '%'
   group: energy_sector_gas
 - key: employment_fraction_production
-  remote_id: employment_fraction_production
   start: 50.0
   min: 0.0
   max: 90.0
   step: 0.1
   unit: ! '%'
 - key: employment_local_fraction
-  remote_id: employment_local_fraction
   start: 20.0
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
 - key: gas_from_algeria_share
-  remote_id: gas_from_algeria_share
   start: 0.0
   min: 0.0
   max: 100.0
@@ -630,7 +546,6 @@
   unit: ! '%'
   group: gas_fce
 - key: gas_from_middle_east_share
-  remote_id: gas_from_middle_east_share
   start: 0.0
   min: 0.0
   max: 100.0
@@ -638,7 +553,6 @@
   unit: ! '%'
   group: gas_fce
 - key: gas_from_nederlands_share
-  remote_id: gas_from_nederlands_share
   start: 90.0
   min: 0.0
   max: 100.0
@@ -646,7 +560,6 @@
   unit: ! '%'
   group: gas_fce
 - key: gas_from_norway_share
-  remote_id: gas_from_norway_share
   start: 5.0
   min: 0.0
   max: 100.0
@@ -654,7 +567,6 @@
   unit: ! '%'
   group: gas_fce
 - key: gas_from_russia_share
-  remote_id: gas_from_russia_share
   start: 5.0
   min: 0.0
   max: 100.0
@@ -662,7 +574,6 @@
   unit: ! '%'
   group: gas_fce
 - key: green_gas_total_share
-  remote_id: green_gas_total_share
   start: 0.055389972483989594
   min: 0.0
   max: 100.0
@@ -670,35 +581,30 @@
   unit: ! '%'
   group: fuels_gas
 - key: households_behavior_close_windows_turn_off_heating
-  remote_id: households_behavior_close_windows_turn_off_heating
   start: 0.0
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
 - key: households_behavior_standby_killer_turn_off_appliances
-  remote_id: households_behavior_standby_killer_turn_off_appliances
   start: 0.0
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
 - key: households_behavior_turn_off_the_light
-  remote_id: households_behavior_turn_off_the_light
   start: 0.0
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
 - key: households_climate_influence
-  remote_id: households_climate_influence
   start: 0.0
   min: -5.0
   max: 5.0
   step: 0.1
   unit: ! '%'
 - key: households_cooking_biomass_share
-  remote_id: households_cooking_biomass_share
   start: 0.0
   min: 0.0
   max: 100.0
@@ -706,7 +612,6 @@
   unit: ! '%'
   group: cooking
 - key: households_cooking_electric_share
-  remote_id: households_cooking_electric_share
   start: 16.032670111623805
   min: 0.0
   max: 100.0
@@ -714,7 +619,6 @@
   unit: ! '%'
   group: cooking
 - key: households_cooking_gas_share
-  remote_id: households_cooking_gas_share
   start: 59.91832472094052
   min: 0.0
   max: 100.0
@@ -722,7 +626,6 @@
   unit: ! '%'
   group: cooking
 - key: households_cooking_halogen_share
-  remote_id: households_cooking_halogen_share
   start: 8.01633505581188
   min: 0.0
   max: 100.0
@@ -730,7 +633,6 @@
   unit: ! '%'
   group: cooking
 - key: households_cooking_induction_share
-  remote_id: households_cooking_induction_share
   start: 16.032670111623805
   min: 0.0
   max: 100.0
@@ -738,7 +640,6 @@
   unit: ! '%'
   group: cooking
 - key: households_cooling_airconditioning_share
-  remote_id: households_cooling_airconditioning_share
   start: 100.0
   min: 0.0
   max: 100.0
@@ -746,14 +647,12 @@
   unit: ! '%'
   group: cooling_households
 - key: households_cooling_demand_per_person
-  remote_id: households_cooling_demand_per_person
   start: 0.0
   min: -5.0
   max: 5.0
   step: 0.1
   unit: ! '%'
 - key: households_cooling_heat_pump_ground_share
-  remote_id: households_cooling_heat_pump_ground_share
   start: 0.0
   min: 0.0
   max: 20.0
@@ -761,7 +660,6 @@
   unit: ! '%'
   group: cooling_households
 - key: households_cooling_heatpump_air_water_electricity_share
-  remote_id: households_cooling_heatpump_air_water_electricity_share
   start: 0.0
   min: 0.0
   max: 20.0
@@ -769,84 +667,72 @@
   unit: ! '%'
   group: cooling_households
 - key: households_efficiency_computer_media
-  remote_id: households_efficiency_computer_media
   start: 0.0
   min: -20.0
   max: 80.0
   step: 0.1
   unit: ! '%'
 - key: households_efficiency_dish_washer
-  remote_id: households_efficiency_dish_washer
   start: 0.0
   min: -52.0
   max: 79.0
   step: 0.1
   unit: ! '%'
 - key: households_efficiency_dryer
-  remote_id: households_efficiency_dryer
   start: 0.0
   min: -4.0
   max: 77.0
   step: 0.1
   unit: ! '%'
 - key: households_efficiency_fridge_freezer
-  remote_id: households_efficiency_fridge_freezer
   start: 0.0
   min: -57.0
   max: 96.0
   step: 0.1
   unit: ! '%'
 - key: households_efficiency_low_temperature_washing
-  remote_id: households_efficiency_low_temperature_washing
   start: 0.0
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
 - key: households_efficiency_other
-  remote_id: households_efficiency_other
   start: 0.0
   min: -20.0
   max: 80.0
   step: 0.1
   unit: ! '%'
 - key: households_efficiency_television
-  remote_id: households_efficiency_television
   start: 0.0
   min: -20.0
   max: 80.0
   step: 0.1
   unit: ! '%'
 - key: households_efficiency_vacuum_cleaner
-  remote_id: households_efficiency_vacuum_cleaner
   start: 0.0
   min: -20.0
   max: 80.0
   step: 0.1
   unit: ! '%'
 - key: households_efficiency_washing_machine
-  remote_id: households_efficiency_washing_machine
   start: 0.0
   min: -67.0
   max: 86.0
   step: 0.1
   unit: ! '%'
 - key: households_electricity_demand_per_person
-  remote_id: households_electricity_demand_per_person
   start: 0.0
   min: -5.0
   max: 5.0
   step: 0.1
   unit: ! '%'
 - key: households_heat_demand_per_person
-  remote_id: households_heat_demand_per_person
   start: 0.0
   min: -5.0
   max: 5.0
   step: 0.1
   unit: ! '%'
 - key: households_heating_biomass_chp_share
-  remote_id: households_heating_biomass_chp_share
   start: 0.0
   min: 0.0
   max: 100.0
@@ -854,7 +740,6 @@
   unit: ! '%'
   group: district_heating_households
 - key: households_heating_coal_fired_heater_share
-  remote_id: households_heating_coal_fired_heater_share
   start: 0.06182960727123701
   min: 0.0
   max: 100.0
@@ -862,7 +747,6 @@
   unit: ! '%'
   group: heating_households
 - key: households_heating_district_heating_network_share
-  remote_id: households_heating_district_heating_network_share
   start: 3.0538449504402303
   min: 0.0
   max: 100.0
@@ -870,7 +754,6 @@
   unit: ! '%'
   group: heating_households
 - key: households_heating_electric_heater_share
-  remote_id: households_heating_electric_heater_share
   start: 1.7665909822899801
   min: 0.0
   max: 100.0
@@ -878,7 +761,6 @@
   unit: ! '%'
   group: heating_households
 - key: households_heating_gas_combi_heater_share
-  remote_id: households_heating_gas_combi_heater_share
   start: 80.85967135001293
   min: 0.0
   max: 100.0
@@ -886,7 +768,6 @@
   unit: ! '%'
   group: heating_households
 - key: households_heating_gas_fired_heater_share
-  remote_id: households_heating_gas_fired_heater_share
   start: 10.3666245320529
   min: 0.0
   max: 100.0
@@ -894,7 +775,6 @@
   unit: ! '%'
   group: heating_households
 - key: households_heating_geothermal_share
-  remote_id: households_heating_geothermal_share
   start: 0.0
   min: 0.0
   max: 100.0
@@ -902,7 +782,6 @@
   unit: ! '%'
   group: district_heating_households
 - key: households_heating_heat_network_share
-  remote_id: households_heating_heat_network_share
   start: 100.0
   min: 0.0
   max: 100.0
@@ -910,14 +789,12 @@
   unit: ! '%'
   group: district_heating_households
 - key: households_heating_heat_pump_add_on_share
-  remote_id: households_heating_heat_pump_add_on_share
   start: 0.062621532712059
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
 - key: households_heating_heat_pump_ground_share
-  remote_id: households_heating_heat_pump_ground_share
   start: 0.0751740843527652
   min: 0.0
   max: 100.0
@@ -925,7 +802,6 @@
   unit: ! '%'
   group: heating_households
 - key: households_heating_micro_chp_share
-  remote_id: households_heating_micro_chp_share
   start: 0.0
   min: 0.0
   max: 70.0
@@ -933,7 +809,6 @@
   unit: ! '%'
   group: heating_households
 - key: households_heating_oil_fired_heater_share
-  remote_id: households_heating_oil_fired_heater_share
   start: 1.2481851967881
   min: 0.0
   max: 100.0
@@ -941,7 +816,6 @@
   unit: ! '%'
   group: heating_households
 - key: households_heating_pellet_stove_share
-  remote_id: households_heating_pellet_stove_share
   start: 2.56807929679186
   min: 0.0
   max: 100.0
@@ -949,7 +823,6 @@
   unit: ! '%'
   group: heating_households
 - key: households_heating_small_gas_chp_share
-  remote_id: households_heating_small_gas_chp_share
   start: 0.0
   min: 0.0
   max: 100.0
@@ -957,14 +830,12 @@
   unit: ! '%'
   group: district_heating_households
 - key: households_heating_solar_thermal_panels_share
-  remote_id: households_heating_solar_thermal_panels_share
   start: 15.0
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
 - key: households_hot_water_biomass_heater_share
-  remote_id: households_hot_water_biomass_heater_share
   start: 0.0
   min: 0.0
   max: 100.0
@@ -972,7 +843,6 @@
   unit: ! '%'
   group: hot_water_households
 - key: households_hot_water_coal_fired_heater_hotwater_share
-  remote_id: households_hot_water_coal_fired_heater_hotwater_share
   start: 0.0
   min: 0.0
   max: 100.0
@@ -980,14 +850,12 @@
   unit: ! '%'
   group: hot_water_households
 - key: households_hot_water_demand_per_person
-  remote_id: households_hot_water_demand_per_person
   start: 0.0
   min: -5.0
   max: 5.0
   step: 0.1
   unit: ! '%'
 - key: households_hot_water_electric_boiler_share
-  remote_id: households_hot_water_electric_boiler_share
   start: 8.107844174755801
   min: 0.0
   max: 100.0
@@ -995,7 +863,6 @@
   unit: ! '%'
   group: hot_water_households
 - key: households_hot_water_fuel_cell_share
-  remote_id: households_hot_water_fuel_cell_share
   start: 0.0
   min: 0.0
   max: 100.0
@@ -1003,7 +870,6 @@
   unit: ! '%'
   group: hot_water_households
 - key: households_hot_water_gas_fired_heater_share
-  remote_id: households_hot_water_gas_fired_heater_share
   start: 75.7878108533221
   min: 0.0
   max: 100.0
@@ -1011,7 +877,6 @@
   unit: ! '%'
   group: hot_water_households
 - key: households_hot_water_gas_water_heater_share
-  remote_id: households_hot_water_gas_water_heater_share
   start: 13.374319562351003
   min: 0.0
   max: 100.0
@@ -1019,7 +884,6 @@
   unit: ! '%'
   group: hot_water_households
 - key: households_hot_water_heat_network_share
-  remote_id: households_hot_water_heat_network_share
   start: 2.7259674295036396
   min: 0.0
   max: 100.0
@@ -1027,7 +891,6 @@
   unit: ! '%'
   group: hot_water_households
 - key: households_hot_water_micro_chp_share
-  remote_id: households_hot_water_micro_chp_share
   start: 0.0
   min: 0.0
   max: 100.0
@@ -1035,7 +898,6 @@
   unit: ! '%'
   group: hot_water_households
 - key: households_hot_water_oil_fired_heater_share
-  remote_id: households_hot_water_oil_fired_heater_share
   start: 0.0
   min: 0.0
   max: 100.0
@@ -1043,28 +905,24 @@
   unit: ! '%'
   group: hot_water_households
 - key: households_hot_water_solar_water_heater_share
-  remote_id: households_hot_water_solar_water_heater_share
   start: 1.0045452107072
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
 - key: households_insulation_level_new_houses
-  remote_id: households_insulation_level_new_houses
   start: 2.5
   min: 2.5
   max: 6.0
   step: 0.1
   unit: ''
 - key: households_insulation_level_old_houses
-  remote_id: households_insulation_level_old_houses
   start: 1.0
   min: 1.0
   max: 3.0
   step: 0.1
   unit: ''
 - key: households_lighting_incandescent_share
-  remote_id: households_lighting_incandescent_share
   start: 80.0
   min: 0.0
   max: 100.0
@@ -1072,7 +930,6 @@
   unit: ! '%'
   group: household_light
 - key: households_lighting_light_emitting_diode_share
-  remote_id: households_lighting_light_emitting_diode_share
   start: 0.0
   min: 0.0
   max: 100.0
@@ -1080,7 +937,6 @@
   unit: ! '%'
   group: household_light
 - key: households_lighting_low_energy_light_bulb_share
-  remote_id: households_lighting_low_energy_light_bulb_share
   start: 20.0
   min: 0.0
   max: 100.0
@@ -1088,28 +944,24 @@
   unit: ! '%'
   group: household_light
 - key: households_market_penetration_solar_panels
-  remote_id: households_market_penetration_solar_panels
   start: 0.1913365365034545
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
 - key: households_number_of_inhabitants
-  remote_id: households_number_of_inhabitants
   start: 0.0
   min: -5.0
   max: 5.0
   step: 0.1
   unit: ! '%'
 - key: households_replacement_of_existing_houses
-  remote_id: households_replacement_of_existing_houses
   start: 0.0
   min: 0.0
   max: 5.0
   step: 0.1
   unit: ! '%'
 - key: households_space_heater_heatpump_air_water_electricity_share
-  remote_id: households_space_heater_heatpump_air_water_electricity_share
   start: 0.0
   min: 0.0
   max: 100.0
@@ -1117,7 +969,6 @@
   unit: ! '%'
   group: heating_households
 - key: households_water_heater_heatpump_air_water_electricity_share
-  remote_id: households_water_heater_heatpump_air_water_electricity_share
   start: 0.0
   min: 0.0
   max: 100.0
@@ -1125,7 +976,6 @@
   unit: ! '%'
   group: hot_water_households
 - key: households_water_heater_heatpump_ground_water_electricity_share
-  remote_id: households_water_heater_heatpump_ground_water_electricity_share
   start: 0.00405798006744534
   min: 0.0
   max: 100.0
@@ -1133,7 +983,6 @@
   unit: ! '%'
   group: hot_water_households
 - key: industry_aluminium_carbothermalreduction_share
-  remote_id: industry_aluminium_carbothermalreduction_share
   start: 0.0
   min: 0.0
   max: 100.0
@@ -1141,7 +990,6 @@
   unit: ! '%'
   group: aluminium_production
 - key: industry_aluminium_electrolysis_bat_share
-  remote_id: industry_aluminium_electrolysis_bat_share
   start: 0.0
   min: 0.0
   max: 100.0
@@ -1149,7 +997,6 @@
   unit: ! '%'
   group: aluminium_production
 - key: industry_aluminium_electrolysis_current_share
-  remote_id: industry_aluminium_electrolysis_current_share
   start: 80.0
   min: 0.0
   max: 100.0
@@ -1157,14 +1004,12 @@
   unit: ! '%'
   group: aluminium_production
 - key: industry_aluminium_production
-  remote_id: industry_aluminium_production
   start: 0.0
   min: -5.0
   max: 5.0
   step: 0.1
   unit: ! '%'
 - key: industry_aluminium_smeltoven_share
-  remote_id: industry_aluminium_smeltoven_share
   start: 20.0
   min: 0.0
   max: 100.0
@@ -1172,42 +1017,36 @@
   unit: ! '%'
   group: aluminium_production
 - key: industry_demand
-  remote_id: industry_demand
   start: 0.0
   min: -5.0
   max: 5.0
   step: 0.1
   unit: ! '%'
 - key: industry_efficiency_electricity
-  remote_id: industry_efficiency_electricity
   start: 0.0
   min: 0.0
   max: 5.0
   step: 0.1
   unit: ! '%'
 - key: industry_electricity_demand
-  remote_id: industry_electricity_demand
   start: 0.0
   min: -5.0
   max: 10.0
   step: 0.1
   unit: ! '%'
 - key: industry_heat_demand
-  remote_id: industry_heat_demand
   start: 0.0
   min: -5.0
   max: 5.0
   step: 0.1
   unit: ! '%'
 - key: industry_heat_from_fuels
-  remote_id: industry_heat_from_fuels
   start: 0.0
   min: 0.0
   max: 5.0
   step: 0.1
   unit: ! '%'
 - key: industry_heating_biomass_fired_heater_share
-  remote_id: industry_heating_biomass_fired_heater_share
   start: 0.529433611518307
   min: 0.0
   max: 100.0
@@ -1215,7 +1054,6 @@
   unit: ! '%'
   group: ind_heat
 - key: industry_heating_coal_fired_heater_share
-  remote_id: industry_heating_coal_fired_heater_share
   start: 0.434932096698377
   min: 0.0
   max: 100.0
@@ -1223,7 +1061,6 @@
   unit: ! '%'
   group: ind_heat
 - key: industry_heating_combined_heat_power_share
-  remote_id: industry_heating_combined_heat_power_share
   start: 30.154066232005
   min: 0.0
   max: 100.0
@@ -1231,7 +1068,6 @@
   unit: ! '%'
   group: ind_heat
 - key: industry_heating_gas_fired_heater_share
-  remote_id: industry_heating_gas_fired_heater_share
   start: 37.36105037029721
   min: 0.0
   max: 100.0
@@ -1239,7 +1075,6 @@
   unit: ! '%'
   group: ind_heat
 - key: industry_heating_oil_fired_heater_share
-  remote_id: industry_heating_oil_fired_heater_share
   start: 31.520517689481096
   min: 0.0
   max: 100.0
@@ -1247,63 +1082,54 @@
   unit: ! '%'
   group: ind_heat
 - key: industry_non_energetic_oil_demand
-  remote_id: industry_non_energetic_oil_demand
   start: 0.0
   min: -5.0
   max: 5.0
   step: 0.1
   unit: ! '%'
 - key: industry_non_energetic_other_demand
-  remote_id: industry_non_energetic_other_demand
   start: 0.0
   min: -5.0
   max: 5.0
   step: 0.1
   unit: ! '%'
 - key: industry_number_of_biomass_chp
-  remote_id: industry_number_of_biomass_chp
   start: 10.547250000000005
   min: 0.0
   max: 222.7088403538023
   step: 0.1
   unit: ! '#'
 - key: industry_number_of_gas_chp
-  remote_id: industry_number_of_gas_chp
   start: 122.08775510204084
   min: 0.0
   max: 274.57192281570985
   step: 0.1
   unit: ! '#'
 - key: industry_other_metals_process_electricity_efficiency
-  remote_id: industry_other_metals_process_electricity_efficiency
   start: 0.0
   min: 0.0
   max: 2.0
   step: 0.1
   unit: ! '%'
 - key: industry_other_metals_process_heat_efficiency
-  remote_id: industry_other_metals_process_heat_efficiency
   start: 0.0
   min: 0.0
   max: 2.0
   step: 0.1
   unit: ! '%'
 - key: industry_other_metals_production
-  remote_id: industry_other_metals_production
   start: 0.0
   min: -5.0
   max: 5.0
   step: 0.1
   unit: ! '%'
 - key: industry_steel_biofeedstock_for_hisarna_share
-  remote_id: industry_steel_biofeedstock_for_hisarna_share
   start: 0.0
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
 - key: industry_steel_blastfurnace_bat_share
-  remote_id: industry_steel_blastfurnace_bat_share
   start: 0.0
   min: 0.0
   max: 100.0
@@ -1311,7 +1137,6 @@
   unit: ! '%'
   group: steel_production
 - key: industry_steel_blastfurnace_current_share
-  remote_id: industry_steel_blastfurnace_current_share
   start: 98.1
   min: 0.0
   max: 100.0
@@ -1319,7 +1144,6 @@
   unit: ! '%'
   group: steel_production
 - key: industry_steel_electricfurnace_share
-  remote_id: industry_steel_electricfurnace_share
   start: 1.9
   min: 0.0
   max: 100.0
@@ -1327,7 +1151,6 @@
   unit: ! '%'
   group: steel_production
 - key: industry_steel_hisarna_share
-  remote_id: industry_steel_hisarna_share
   start: 0.0
   min: 0.0
   max: 100.0
@@ -1335,140 +1158,120 @@
   unit: ! '%'
   group: steel_production
 - key: industry_steel_production
-  remote_id: industry_steel_production
   start: 0.0
   min: -5.0
   max: 5.0
   step: 0.1
   unit: ! '%'
 - key: initial_updates_max_demands
-  remote_id: initial_updates_max_demands
   start: 2040
   min: 2008
   max: 2050
   step: 0.1
   unit: ! '#'
 - key: initial_updates_preset_demands
-  remote_id: initial_updates_preset_demands
   start: 2040
   min: 2008
   max: 2050
   step: 0.1
   unit: ! '#'
 - key: investment_costs_co2_ccs
-  remote_id: investment_costs_co2_ccs
   start: 0.0
   min: -100.0
   max: 300.0
   step: 1.0
   unit: ! '%'
 - key: investment_costs_combustion_biomass_plant
-  remote_id: investment_costs_combustion_biomass_plant
   start: 0.0
   min: -100.0
   max: 300.0
   step: 1.0
   unit: ! '%'
 - key: investment_costs_combustion_coal_plant
-  remote_id: investment_costs_combustion_coal_plant
   start: 0.0
   min: -100.0
   max: 300.0
   step: 1.0
   unit: ! '%'
 - key: investment_costs_combustion_gas_plant
-  remote_id: investment_costs_combustion_gas_plant
   start: 0.0
   min: -100.0
   max: 300.0
   step: 1.0
   unit: ! '%'
 - key: investment_costs_combustion_oil_plant
-  remote_id: investment_costs_combustion_oil_plant
   start: 0.0
   min: -100.0
   max: 300.0
   step: 1.0
   unit: ! '%'
 - key: investment_costs_combustion_waste_incinerator
-  remote_id: investment_costs_combustion_waste_incinerator
   start: 0.0
   min: -100.0
   max: 300.0
   step: 1.0
   unit: ! '%'
 - key: investment_costs_earth_geothermal_electricity
-  remote_id: investment_costs_earth_geothermal_electricity
   start: 0.0
   min: -100.0
   max: 300.0
   step: 1.0
   unit: ! '%'
 - key: investment_costs_fuel_cell
-  remote_id: investment_costs_fuel_cell
   start: 0.0
   min: -100.0
   max: 300.0
   step: 1.0
   unit: ! '%'
 - key: investment_costs_micro_chp
-  remote_id: investment_costs_micro_chp
   start: 0.0
   min: -100.0
   max: 300.0
   step: 1.0
   unit: ! '%'
 - key: investment_costs_nuclear_nuclear_plant
-  remote_id: investment_costs_nuclear_nuclear_plant
   start: 0.0
   min: -100.0
   max: 300.0
   step: 1.0
   unit: ! '%'
 - key: investment_costs_solar_concentrated_solar_power
-  remote_id: investment_costs_solar_concentrated_solar_power
   start: 0.0
   min: -100.0
   max: 300.0
   step: 1.0
   unit: ! '%'
 - key: investment_costs_solar_solar_panels
-  remote_id: investment_costs_solar_solar_panels
   start: 0.0
   min: -100.0
   max: 300.0
   step: 1.0
   unit: ! '%'
 - key: investment_costs_water_mountains
-  remote_id: investment_costs_water_mountains
   start: 0.0
   min: -100.0
   max: 300.0
   step: 1.0
   unit: ! '%'
 - key: investment_costs_water_river
-  remote_id: investment_costs_water_river
   start: 0.0
   min: -100.0
   max: 300.0
   step: 1.0
   unit: ! '%'
 - key: investment_costs_wind_offshore
-  remote_id: investment_costs_wind_offshore
   start: 0.0
   min: -100.0
   max: 300.0
   step: 1.0
   unit: ! '%'
 - key: investment_costs_wind_onshore
-  remote_id: investment_costs_wind_onshore
   start: 0.0
   min: -100.0
   max: 300.0
   step: 1.0
   unit: ! '%'
 - key: natural_gas_total_share
-  remote_id: natural_gas_total_share
   start: 99.944610027516
   min: 0.0
   max: 100.0
@@ -1476,595 +1279,510 @@
   unit: ! '%'
   group: fuels_gas
 - key: number_of_backup_burner_fixed
-  remote_id: number_of_backup_burner_fixed
   start: 11.688890584101394
   min: 0.0
   max: 1000.0
   step: 0.1
   unit: ! '#'
 - key: number_of_biomass_chp_fixed
-  remote_id: number_of_biomass_chp_fixed
   start: 10.547250000000005
   min: 0.0
   max: 100000000.0
   step: 1.0
   unit: ! '#'
 - key: number_of_biomass_fired_heater_district
-  remote_id: number_of_biomass_fired_heater_district
   start: 0.0
   min: 0.0
   max: 603.3739281977582
   step: 0.1
   unit: ! '#'
 - key: number_of_biomass_fired_heater_fixed
-  remote_id: number_of_biomass_fired_heater_fixed
   start: 188779.8797879809
   min: 0.0
   max: 100000000.0
   step: 1.0
   unit: ! '#'
 - key: number_of_central_coal_chp
-  remote_id: number_of_central_coal_chp
   start: 2.365705625634861
   min: 0.0
   max: 52.98532992871274
   step: 0.1
   unit: ! '#'
 - key: number_of_central_coal_chp_fixed
-  remote_id: number_of_central_coal_chp_fixed
   start: 2.365705625634861
   min: 0.0
   max: 100000000.0
   step: 0.1
   unit: ! '#'
 - key: number_of_co_firing_coal
-  remote_id: number_of_co_firing_coal
   start: 0.0
   min: 0.0
   max: 23.89356266684798
   step: 0.1
   unit: ! '#'
 - key: number_of_coal_conventional
-  remote_id: number_of_coal_conventional
   start: 0.0
   min: 0.0
   max: 68.7385215794307
   step: 0.1
   unit: ! '#'
 - key: number_of_coal_fired_heater_district
-  remote_id: number_of_coal_fired_heater_district
   start: 0.0
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '#'
 - key: number_of_coal_fired_heaterv
-  remote_id: number_of_coal_fired_heaterv
   start: 4554.9702436293965
   min: 0.0
   max: 100000000.0
   step: 1.0
   unit: ! '#'
 - key: number_of_coal_igcc_ccs
-  remote_id: number_of_coal_igcc_ccs
   start: 0.0
   min: 0.0
   max: 62.13733130506372
   step: 0.1
   unit: ! '#'
 - key: number_of_coal_iggc
-  remote_id: number_of_coal_iggc
   start: 0.32270408163265396
   min: 0.0
   max: 59.9228959025471
   step: 0.1
   unit: ! '#'
 - key: number_of_coal_lignite
-  remote_id: number_of_coal_lignite
   start: 0.0
   min: 0.0
   max: 47.90810539783189
   step: 0.1
   unit: ! '#'
 - key: number_of_coal_oxyfuel_ccs
-  remote_id: number_of_coal_oxyfuel_ccs
   start: 0.0
   min: 0.0
   max: 62.675717674539165
   step: 0.1
   unit: ! '#'
 - key: number_of_concentrated_solar_power
-  remote_id: number_of_concentrated_solar_power
   start: 0.0
   min: 0.0
   max: 4790.800000000001
   step: 0.1
   unit: ! '#'
 - key: number_of_decentral_coal_chp_fixed
-  remote_id: number_of_decentral_coal_chp_fixed
   start: 0.0
   min: 0.0
   max: 100000000.0
   step: 0.1
   unit: ! '#'
 - key: number_of_diesel_generators
-  remote_id: number_of_diesel_generators
   start: 0.0
   min: 0.0
   max: 87.1962654924984
   step: 1.0
   unit: ! '#'
 - key: number_of_electric_heat_pump_fixed
-  remote_id: number_of_electric_heat_pump_fixed
   start: 31088.526477274576
   min: 0.0
   max: 100000000.0
   step: 1.0
   unit: ! '#'
 - key: number_of_gas_ccgt
-  remote_id: number_of_gas_ccgt
   start: 5.104591836734693
   min: 0.0
   max: 55.328232062055605
   step: 0.1
   unit: ! '#'
 - key: number_of_gas_ccgt_ccs
-  remote_id: number_of_gas_ccgt_ccs
   start: 0.0
   min: 0.0
   max: 76.35739761124161
   step: 0.1
   unit: ! '#'
 - key: number_of_gas_conventional
-  remote_id: number_of_gas_conventional
   start: 4.828282828282834
   min: 0.0
   max: 217.89127141802382
   step: 0.1
   unit: ! '#'
 - key: number_of_gas_fired_heat_pump_fixed
-  remote_id: number_of_gas_fired_heat_pump_fixed
   start: 0.0
   min: 0.0
   max: 100000000.0
   step: 1.0
   unit: ! '#'
 - key: number_of_gas_fired_heater_district
-  remote_id: number_of_gas_fired_heater_district
   start: 0.0
   min: 0.0
   max: 300.0
   step: 0.1
   unit: ! '#'
 - key: number_of_gas_fired_heater_fixed
-  remote_id: number_of_gas_fired_heater_fixed
   start: 7112078.950452734
   min: 0.0
   max: 100000000.0
   step: 1.0
   unit: ! '#'
 - key: number_of_gas_turbines
-  remote_id: number_of_gas_turbines
   start: 1.4421768707483003
   min: 0.0
   max: 1799.2658730158726
   step: 1.0
   unit: ! '#'
 - key: number_of_geothermal_electric
-  remote_id: number_of_geothermal_electric
   start: 0.0
   min: 0.0
   max: 2073.9393939393944
   step: 0.1
   unit: ! '#'
 - key: number_of_geothermal_fixed
-  remote_id: number_of_geothermal_fixed
   start: 0.8898758702118148
   min: 0.0
   max: 100000000.0
   step: 1.0
   unit: ! '#'
 - key: number_of_hydro_mountain
-  remote_id: number_of_hydro_mountain
   start: 0.0
   min: 0.0
   max: 60.76610857432776
   step: 0.1
   unit: ! '#'
 - key: number_of_hydro_river
-  remote_id: number_of_hydro_river
   start: 3.7000000000000015
   min: 0.0
   max: 4431.490000000005
   step: 0.1
   unit: ! '#'
 - key: number_of_large_gas_chp
-  remote_id: number_of_large_gas_chp
   start: 5.749536178107604
   min: 0.0
   max: 81.01434682964097
   step: 0.1
   unit: ! '#'
 - key: number_of_large_gas_chp_fixed
-  remote_id: number_of_large_gas_chp_fixed
   start: 5.749536178107604
   min: 0.0
   max: 100000000.0
   step: 1.0
   unit: ! '#'
 - key: number_of_lignite_chp
-  remote_id: number_of_lignite_chp
   start: 0.0
   min: 0.0
   max: 92.81236035912721
   step: 0.1
   unit: ! '#'
 - key: number_of_lignite_chp_fixed
-  remote_id: number_of_lignite_chp_fixed
   start: 0.0
   min: 0.0
   max: 92.81236035912721
   step: 0.1
   unit: ! '#'
 - key: number_of_micro_chp_fixed
-  remote_id: number_of_micro_chp_fixed
   start: 0.0
   min: 0.0
   max: 7349500.0
   step: 0.1
   unit: ! '#'
 - key: number_of_nuclear_3rd_gen
-  remote_id: number_of_nuclear_3rd_gen
   start: 0.3187499999999999
   min: 0.0
   max: 19.088343750000003
   step: 0.1
   unit: ! '#'
 - key: number_of_nuclear_conventional
-  remote_id: number_of_nuclear_conventional
   start: 0.0
   min: 0.0
   max: 19.088343750000003
   step: 0.1
   unit: ! '#'
 - key: number_of_oil_fired_heater_fixed
-  remote_id: number_of_oil_fired_heater_fixed
   start: 102540.99476293403
   min: 0.0
   max: 100000000.0
   step: 1.0
   unit: ! '#'
 - key: number_of_oil_fired_plant
-  remote_id: number_of_oil_fired_plant
   start: 0.0
   min: 0.0
   max: 87.1962654924984
   step: 0.1
   unit: ! '#'
 - key: number_of_pulverized_coal
-  remote_id: number_of_pulverized_coal
   start: 3.3919016542999048
   min: 0.0
   max: 43.67098161845704
   step: 0.1
   unit: ! '#'
 - key: number_of_pulverized_coal_ccs
-  remote_id: number_of_pulverized_coal_ccs
   start: 0.0
   min: 0.0
   max: 64.1799348987281
   step: 0.1
   unit: ! '#'
 - key: number_of_small_chp_fixed
-  remote_id: number_of_small_chp_fixed
   start: 4017.4505298826134
   min: 0.0
   max: 100000000.0
   step: 0.1
   unit: ! '#'
 - key: number_of_small_gas_chp_fixed
-  remote_id: number_of_small_gas_chp_fixed
   start: 4017.4505298826134
   min: 0.0
   max: 100000000.0
   step: 1.0
   unit: ! '#'
 - key: number_of_solar_pv_plants
-  remote_id: number_of_solar_pv_plants
   start: 0.0
   min: 0.0
   max: 6871.485943775101
   step: 0.1
   unit: ! '#'
 - key: number_of_solar_pv_roofs_fixed
-  remote_id: number_of_solar_pv_roofs_fixed
   start: 53570.47236565309
   min: 0.0
   max: 27999999.999999996
   step: 1.0
   unit: ! '#'
 - key: number_of_solar_water_heater_fixed
-  remote_id: number_of_solar_water_heater_fixed
   start: 218311.77944862167
   min: 0.0
   max: 100000000.0
   step: 1.0
   unit: ! '#'
 - key: number_of_waste_fired_heater_district
-  remote_id: number_of_waste_fired_heater_district
   start: 0.0
   min: 0.0
   max: 5000.0
   step: 0.1
   unit: ! '#'
 - key: number_of_waste_incinerator
-  remote_id: number_of_waste_incinerator
   start: 11.689786466567211
   min: 0.0
   max: 17.94981698847122
   step: 0.1
   unit: ! '#'
 - key: number_of_wind_offshore
-  remote_id: number_of_wind_offshore
   start: 64.76190476190487
   min: 0.0
   max: 32000.0
   step: 0.1
   unit: ! '#'
 - key: number_of_wind_onshore_coast
-  remote_id: number_of_wind_onshore_coast
   start: 66.66666666666666
   min: 0.0
   max: 2255.0
   step: 0.1
   unit: ! '#'
 - key: number_of_wind_onshore_land
-  remote_id: number_of_wind_onshore_land
   start: 359.99999999999886
   min: 0.0
   max: 56895.0
   step: 0.1
   unit: ! '#'
 - key: om_costs_co2_ccs
-  remote_id: om_costs_co2_ccs
   start: 0.0
   min: -100.0
   max: 300.0
   step: 1.0
   unit: ! '%'
 - key: om_costs_combustion_biomass_plant
-  remote_id: om_costs_combustion_biomass_plant
   start: 0.0
   min: -100.0
   max: 300.0
   step: 1.0
   unit: ! '%'
 - key: om_costs_combustion_coal_plant
-  remote_id: om_costs_combustion_coal_plant
   start: 0.0
   min: -100.0
   max: 300.0
   step: 1.0
   unit: ! '%'
 - key: om_costs_combustion_gas_plant
-  remote_id: om_costs_combustion_gas_plant
   start: 0.0
   min: -100.0
   max: 300.0
   step: 1.0
   unit: ! '%'
 - key: om_costs_combustion_oil_plant
-  remote_id: om_costs_combustion_oil_plant
   start: 0.0
   min: -100.0
   max: 300.0
   step: 1.0
   unit: ! '%'
 - key: om_costs_combustion_waste_incinerator
-  remote_id: om_costs_combustion_waste_incinerator
   start: 0.0
   min: -100.0
   max: 300.0
   step: 1.0
   unit: ! '%'
 - key: om_costs_earth_geothermal_electricity
-  remote_id: om_costs_earth_geothermal_electricity
   start: 0.0
   min: -100.0
   max: 300.0
   step: 1.0
   unit: ! '%'
 - key: om_costs_nuclear_nuclear_plant
-  remote_id: om_costs_nuclear_nuclear_plant
   start: 0.0
   min: -100.0
   max: 300.0
   step: 1.0
   unit: ! '%'
 - key: om_costs_water_mountains
-  remote_id: om_costs_water_mountains
   start: 0.0
   min: -100.0
   max: 300.0
   step: 1.0
   unit: ! '%'
 - key: om_costs_water_river
-  remote_id: om_costs_water_river
   start: 0.0
   min: -100.0
   max: 300.0
   step: 1.0
   unit: ! '%'
 - key: om_costs_wind_offshore
-  remote_id: om_costs_wind_offshore
   start: 0.0
   min: -100.0
   max: 300.0
   step: 1.0
   unit: ! '%'
 - key: om_costs_wind_onshore
-  remote_id: om_costs_wind_onshore
   start: 0.0
   min: -100.0
   max: 300.0
   step: 1.0
   unit: ! '%'
 - key: other_electricity_demand
-  remote_id: other_electricity_demand
   start: 0.0
   min: -5.0
   max: 5.0
   step: 0.1
   unit: ! '%'
 - key: other_heat_demand
-  remote_id: other_heat_demand
   start: 0.0
   min: -5.0
   max: 5.0
   step: 0.1
   unit: ! '%'
 - key: other_number_of_small_gas_chp
-  remote_id: other_number_of_small_gas_chp
   start: 0.0
   min: 0.0
   max: 11633.002689775582
   step: 0.1
   unit: ! '#'
 - key: pj_of_heat_import
-  remote_id: pj_of_heat_import
   start: 0.0
   min: 0.0
   max: 6.0
   step: 0.1
   unit: PJ
 - key: policy_area_biomass
-  remote_id: policy_area_biomass
   start: 4373.082071593105
   min: 0.0
   max: 57526.466700000004
   step: 0.1
   unit: km2
 - key: policy_area_green_gas
-  remote_id: policy_area_green_gas
   start: 0.0
   min: 0.0
   max: 5000.0
   step: 0.1
   unit: km2
 - key: policy_area_land_for_csp
-  remote_id: policy_area_land_for_csp
   start: 0.0
   min: 0.0
   max: 19175.4889
   step: 1.0
   unit: km2
 - key: policy_area_land_for_solar_panels
-  remote_id: policy_area_land_for_solar_panels
   start: 0.0
   min: 0.0
   max: 19175.4889
   step: 1.0
   unit: km2
 - key: policy_area_offshore
-  remote_id: policy_area_offshore
   start: 32.380952380952436
   min: 0.0
   max: 16000.0
   step: 1.0
   unit: km2
 - key: policy_area_onshore_coast
-  remote_id: policy_area_onshore_coast
   start: 13.333333333333332
   min: 0.0
   max: 451.0
   step: 1.0
   unit: km
 - key: policy_area_onshore_land
-  remote_id: policy_area_onshore_land
   start: 71.99999999999977
   min: 0.0
   max: 11379.0
   step: 1.0
   unit: km2
 - key: policy_area_roofs_for_solar_panels
-  remote_id: policy_area_roofs_for_solar_panels
   start: 0.5102314017976669
   min: 0.0
   max: 399.99699999999996
   step: 0.1
   unit: km2
 - key: policy_cost_electricity_cost
-  remote_id: policy_cost_electricity_cost
   start: 0.0
   min: -100.0
   max: 500.0
   step: 1.0
   unit: ! '%'
 - key: policy_cost_energy_use
-  remote_id: policy_cost_energy_use
   start: 0.0
   min: -100.0
   max: 50.0
   step: 0.1
   unit: ! '%'
 - key: policy_cost_total_energy_cost
-  remote_id: policy_cost_total_energy_cost
   start: 0.0
   min: -100.0
   max: 500.0
   step: 1.0
   unit: ! '%'
 - key: policy_dependence_max_dependence
-  remote_id: policy_dependence_max_dependence
   start: 50.0
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
 - key: policy_dependence_max_electricity_dependence
-  remote_id: policy_dependence_max_electricity_dependence
   start: 50.0
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
 - key: policy_grid_baseload_maximum
-  remote_id: policy_grid_baseload_maximum
   start: 60.0
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
 - key: policy_grid_intermittent_maximum
-  remote_id: policy_grid_intermittent_maximum
   start: 30.0
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
 - key: policy_sustainability_co2_emissions
-  remote_id: policy_sustainability_co2_emissions
   start: 0.0
   min: -100.0
   max: 50.0
   step: 0.1
   unit: ! '%'
 - key: policy_sustainability_renewable_percentage
-  remote_id: policy_sustainability_renewable_percentage
   start: 3.379277700122875
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
 - key: settings_enable_merit_order
-  remote_id: settings_enable_merit_order
   start: 0.0
   min: 0.0
   max: 1.0
   step: 1.0
   unit: 
 - key: share_biocoal_co_firing_coal
-  remote_id: share_biocoal_co_firing_coal
   start: 0.0
   min: 0.0
   max: 100.0
@@ -2072,14 +1790,12 @@
   unit: ! '%'
   group: coal_plant_fuel
 - key: share_biomass_co_firing_coal
-  remote_id: share_biomass_co_firing_coal
   start: 12.117967060033
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
 - key: share_coal_co_firing_coal
-  remote_id: share_coal_co_firing_coal
   start: 87.882032939967
   min: 0.0
   max: 100.0
@@ -2087,7 +1803,6 @@
   unit: ! '%'
   group: coal_plant_fuel
 - key: share_of_wood_pellets_co_firing_coal
-  remote_id: share_of_wood_pellets_co_firing_coal
   start: 12.117967060033
   min: 0.0
   max: 50.0
@@ -2095,14 +1810,12 @@
   unit: ! '%'
   group: coal_plant_fuel
 - key: standalone_electric_cars_share
-  remote_id: standalone_electric_cars_share
   start: 0.0176964716833449
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
 - key: transport_bio_ethanol_share
-  remote_id: transport_bio_ethanol_share
   start: 3.04942965779468
   min: 0.0
   max: 100.0
@@ -2110,7 +1823,6 @@
   unit: ! '%'
   group: transport_gasoline
 - key: transport_biodiesel_share
-  remote_id: transport_biodiesel_share
   start: 1.44266472515471
   min: 0.0
   max: 100.0
@@ -2118,14 +1830,12 @@
   unit: ! '%'
   group: transport_diesel
 - key: transport_cars
-  remote_id: transport_cars
   start: 0.0
   min: -5.0
   max: 5.0
   step: 0.1
   unit: ! '%'
 - key: transport_cars_compressed_gas_share
-  remote_id: transport_cars_compressed_gas_share
   start: 0.13773517840581
   min: 0.0
   max: 100.0
@@ -2133,7 +1843,6 @@
   unit: ! '%'
   group: transport_car_tech
 - key: transport_cars_diesel_share
-  remote_id: transport_cars_diesel_share
   start: 47.155035885862
   min: 0.0
   max: 100.0
@@ -2141,7 +1850,6 @@
   unit: ! '%'
   group: transport_car_tech
 - key: transport_cars_electric_share
-  remote_id: transport_cars_electric_share
   start: 0.0176964716833449
   min: 0.0
   max: 100.0
@@ -2149,7 +1857,6 @@
   unit: ! '%'
   group: transport_car_tech
 - key: transport_cars_gasoline_share
-  remote_id: transport_cars_gasoline_share
   start: 48.118728850581796
   min: 0.0
   max: 100.0
@@ -2157,7 +1864,6 @@
   unit: ! '%'
   group: transport_car_tech
 - key: transport_cars_lpg_share
-  remote_id: transport_cars_lpg_share
   start: 4.570803613467
   min: 0.0
   max: 100.0
@@ -2165,7 +1871,6 @@
   unit: ! '%'
   group: transport_car_tech
 - key: transport_diesel_share
-  remote_id: transport_diesel_share
   start: 98.5573352748453
   min: 0.0
   max: 100.0
@@ -2173,56 +1878,48 @@
   unit: ! '%'
   group: transport_diesel
 - key: transport_domestic_flights
-  remote_id: transport_domestic_flights
   start: 0.0
   min: -5.0
   max: 5.0
   step: 0.1
   unit: ! '%'
 - key: transport_efficiency_airplanes
-  remote_id: transport_efficiency_airplanes
   start: 0.0
   min: 0.0
   max: 3.0
   step: 0.1
   unit: ! '%'
 - key: transport_efficiency_combustion_engine_cars
-  remote_id: transport_efficiency_combustion_engine_cars
   start: 0.0
   min: 0.0
   max: 3.0
   step: 0.1
   unit: ! '%'
 - key: transport_efficiency_combustion_engine_trucks
-  remote_id: transport_efficiency_combustion_engine_trucks
   start: 0.0
   min: 0.0
   max: 3.0
   step: 0.1
   unit: ! '%'
 - key: transport_efficiency_electric_vehicles
-  remote_id: transport_efficiency_electric_vehicles
   start: 0.0
   min: 0.0
   max: 3.0
   step: 0.1
   unit: ! '%'
 - key: transport_efficiency_ships
-  remote_id: transport_efficiency_ships
   start: 0.0
   min: 0.0
   max: 3.0
   step: 0.1
   unit: ! '%'
 - key: transport_efficiency_trains
-  remote_id: transport_efficiency_trains
   start: 0.0
   min: 0.0
   max: 3.0
   step: 0.1
   unit: ! '%'
 - key: transport_gasoline_share
-  remote_id: transport_gasoline_share
   start: 96.9505703422053
   min: 0.0
   max: 100.0
@@ -2230,14 +1927,12 @@
   unit: ! '%'
   group: transport_gasoline
 - key: transport_inland_navigation
-  remote_id: transport_inland_navigation
   start: 0.0
   min: -5.0
   max: 10.0
   step: 0.1
   unit: ! '%'
 - key: transport_planes_bio_ethanol_share
-  remote_id: transport_planes_bio_ethanol_share
   start: 0.0
   min: 0.0
   max: 100.0
@@ -2245,7 +1940,6 @@
   unit: ! '%'
   group: transport_aviation
 - key: transport_planes_gasoline_share
-  remote_id: transport_planes_gasoline_share
   start: 4.76190476190476
   min: 0.0
   max: 100.0
@@ -2253,7 +1947,6 @@
   unit: ! '%'
   group: transport_aviation
 - key: transport_planes_kerosene_share
-  remote_id: transport_planes_kerosene_share
   start: 95.2380952380952
   min: 0.0
   max: 100.0
@@ -2261,7 +1954,6 @@
   unit: ! '%'
   group: transport_aviation
 - key: transport_rail_diesel_mix_biodiesel_share
-  remote_id: transport_rail_diesel_mix_biodiesel_share
   start: 0.0
   min: 0.0
   max: 100.0
@@ -2269,7 +1961,6 @@
   unit: ! '%'
   group: transport_rail_diesel
 - key: transport_rail_diesel_mix_diesel_share
-  remote_id: transport_rail_diesel_mix_diesel_share
   start: 100.0
   min: 0.0
   max: 100.0
@@ -2277,7 +1968,6 @@
   unit: ! '%'
   group: transport_rail_diesel
 - key: transport_ships_bio_diesel_share
-  remote_id: transport_ships_bio_diesel_share
   start: 0.0
   min: 0.0
   max: 100.0
@@ -2285,7 +1975,6 @@
   unit: ! '%'
   group: transport_marine
 - key: transport_ships_diesel_share
-  remote_id: transport_ships_diesel_share
   start: 100.0
   min: 0.0
   max: 100.0
@@ -2293,7 +1982,6 @@
   unit: ! '%'
   group: transport_marine
 - key: transport_ships_heavy_fuel_oil_share
-  remote_id: transport_ships_heavy_fuel_oil_share
   start: 0.0
   min: 0.0
   max: 100.0
@@ -2301,14 +1989,12 @@
   unit: ! '%'
   group: transport_marine
 - key: transport_trains
-  remote_id: transport_trains
   start: 0.0
   min: -5.0
   max: 5.0
   step: 0.1
   unit: ! '%'
 - key: transport_trains_coal_share
-  remote_id: transport_trains_coal_share
   start: 0.0
   min: 0.0
   max: 100.0
@@ -2316,7 +2002,6 @@
   unit: ! '%'
   group: transport_train_tech
 - key: transport_trains_diesel_share
-  remote_id: transport_trains_diesel_share
   start: 7.13929106340489
   min: 0.0
   max: 100.0
@@ -2324,7 +2009,6 @@
   unit: ! '%'
   group: transport_train_tech
 - key: transport_trains_electric_share
-  remote_id: transport_trains_electric_share
   start: 92.8607089365951
   min: 0.0
   max: 100.0
@@ -2332,14 +2016,12 @@
   unit: ! '%'
   group: transport_train_tech
 - key: transport_trucks
-  remote_id: transport_trucks
   start: 0.0
   min: -5.0
   max: 5.0
   step: 0.1
   unit: ! '%'
 - key: transport_trucks_compressed_gas_share
-  remote_id: transport_trucks_compressed_gas_share
   start: 0.0
   min: 0.0
   max: 100.0
@@ -2347,7 +2029,6 @@
   unit: ! '%'
   group: transport_truck_tech
 - key: transport_trucks_diesel_share
-  remote_id: transport_trucks_diesel_share
   start: 100.0
   min: 0.0
   max: 100.0
@@ -2355,7 +2036,6 @@
   unit: ! '%'
   group: transport_truck_tech
 - key: transport_trucks_electric_share
-  remote_id: transport_trucks_electric_share
   start: 0.0
   min: 0.0
   max: 100.0
@@ -2363,7 +2043,6 @@
   unit: ! '%'
   group: transport_truck_tech
 - key: transport_trucks_gasoline_share
-  remote_id: transport_trucks_gasoline_share
   start: 0.0
   min: 0.0
   max: 100.0
@@ -2371,7 +2050,6 @@
   unit: ! '%'
   group: transport_truck_tech
 - key: uranium_from_australia_share
-  remote_id: uranium_from_australia_share
   start: 0.0
   min: 0.0
   max: 100.0
@@ -2379,7 +2057,6 @@
   unit: ! '%'
   group: nuclear_fce
 - key: uranium_from_canada_share
-  remote_id: uranium_from_canada_share
   start: 0.0
   min: 0.0
   max: 100.0
@@ -2387,7 +2064,6 @@
   unit: ! '%'
   group: nuclear_fce
 - key: uranium_from_kazachstan_share
-  remote_id: uranium_from_kazachstan_share
   start: 100.0
   min: 0.0
   max: 100.0

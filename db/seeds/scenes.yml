@@ -2,7 +2,7 @@
 - name: 'Balancing Supply and Demand'
   inputs:
     left:
-      43: # Low-energy lighting
+      households_lighting_light_emitting_diode_share:
         information_en: >
           Incandescent light bulbs waste a lot of energy. The power they
           consume is mostly turned into heat instead of light. That is why, in
@@ -17,7 +17,7 @@
           veel minder warm worden en evenveel licht geven. Daar komt nog eens
           bij dat ze veel langer meegaan de gloeilampen.
 
-      146: # Electric cars
+      transport_cars_electric_share:
         information_en: >
           An electric car uses 2 to 3 times less energy than a diesel or
           gasoline-powered car. Diesel and gasoline are made from oil. By
@@ -34,7 +34,7 @@
           elektriciteit opwekken met wind of zon, dan heeft autorijden geen
           CO<sub>2</sub>-uitstoot meer tot gevolg.
 
-      336: # Insulation
+      households_insulation_level_old_houses:
         information_en: >
           Houses will lose a lot of energy because they have not been properly
           insulated. Of course, generating the energy we need in a sustainable
@@ -48,7 +48,7 @@
           zorgen dat we minder energie gebruiken. Dit kan door onze huizen
           beter te isoleren.
 
-      348: # Solar water heater
+      households_hot_water_solar_water_heater_share:
         information_en: >
           A solar water heater uses heat from the sun to make warm water. This
           is often done on the roof of a house. The hot water can then be used
@@ -60,17 +60,30 @@
           water kan vervolgens gebruikt worden om af te wassen of te douchen.
           Op deze manier is veel minder energie nodig om water te verwarmen.
 
-      366: # Switch off appliances
+      households_hot_water_fuel_cell_share:
         information_en: >
-          We own more and more electrical appliances which are often left on
-          when they are not being used. By switching off these appliances we
-          can save power.
+          This is a so-called Solid Oxide Fuel Cell (SOFC). Fuel cells are
+          electrochemical conversion devices that produce electricity directly
+          from oxidizing a fuel. Fuel cells are highly efficient and produce,
+          besides electricity, also heat. This fuel cell uses gas but is
+          somewhat flexible when it comes to the kind of fuel it uses. The
+          largest disadvantage is that is operates at high temperatures (500 -
+          1000 °C), which results in longer start-up times. In households this
+          is not a problem as they are basically constantly running, producing
+          warm water that is stored in a container until it is needed.
         information_nl: >
-          We hebben steeds meer elektrische apparaten in huis. Heel vaak staan
-          deze apparaten aan zonder dat we ze gebruiken. Door deze apparaten
-          zo vaak mogelijk uit te zetten, kunnen we dus stroom besparen.
+          Brandstofcellen lijken op batterijen. Via elektrochemische weg
+          worden brandstoffen direct verbrand (geoxideerd). Brandstofcellen
+          zijn zeer efficiënt en maken elektriciteit en warmte. Deze
+          brandstofcel gebruikt gas maar is flexibel in wat voor soort
+          brandstof hij gebruikt. Het grootste nadeel is dat hij alleen bij
+          hoge temperaturen werkt (500 - 1000 °C), waardoor het een tijdje
+          duurt voordat hij opgestart is. In huishoudens is dat niet zo'n
+          probleem, omdat de brandstofcel bijna continu aanstaat. Daarbij
+          maakt de brandstofcel elektriciteit en warm water. Dat laatste
+          wordt in een groot boilervat opgeslagen.
 
-      338: # Heat pump
+      households_heating_heat_pump_add_on_share:
         information_en: >
           A heat pump is like a refrigerator used the other way around: it
           pumps heat into the house from outside, while a refrigerator pumps
@@ -86,7 +99,7 @@
           beschikbaar is.
 
     right:
-      315: # Coal power
+      number_of_pulverized_coal:
         max: 10
         information_en: >
           A coal-fired power plant is almost always running, producing
@@ -101,7 +114,7 @@
           een kolencentrale de grootste luchtvervuiling. De CO<sub>2</sub>-uitstoot is
           ongeveer 2 keer zo groot als die van een gascentrale.
 
-      256: # Gas power
+      number_of_gas_ccgt:
         max: 10
         information_en: >
           A gas-fired power plant is cheaper to build than a coal power plant.
@@ -117,7 +130,7 @@
           waait. De CO<sub>2</sub>-uitstoot van een gascentrale is ongeveer de helft
           van een kolencentrale.
 
-      259: # Nuclear power
+      number_of_nuclear_3rd_gen:
         max: 2
         information_en: >
           A nuclear power plant is quite expensive to build. However, they do
@@ -138,7 +151,7 @@
           is het radioactieve afval dat overblijft. Hiervoor is nog geen goede
           oplossing bedacht.
 
-      263: # Wind turbines
+      number_of_wind_offshore:
         max: 5000
         step: 100
         information_en: >
@@ -156,7 +169,7 @@
           stroom nodig hebt en het waait niet. Er wordt momenteel hard gewerkt
           om te zorgen dat windmolens goedkoper worden.
 
-      47: # Solar panels
+      households_market_penetration_solar_panels:
         information_en: >
           Solar panels make electricity when they absorb sublight. This also
           works on cloudy days. As a result, it is easier to predict how much
@@ -174,7 +187,7 @@
           dan in Nederland. Zonnepanelen kun je op je eigen huis leggen. Dat
           is nuttig.
 
-      488: # Green gas
+      green_gas_total_share:
         max: 10
         step: 0.2
         information_en: >

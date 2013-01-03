@@ -113,9 +113,4 @@ class SceneInput < ActiveRecord::Base
     read_attribute(:start) or ( input and input.start )
   end
 
-  # Returns the ID of the input on ETEngine.
-  def remote_id
-    input and input.remote_id
-  end
-
 end

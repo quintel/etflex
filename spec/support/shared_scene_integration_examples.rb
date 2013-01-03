@@ -13,7 +13,6 @@ shared_examples_for 'an embedded scene input' do
   it { should include(unit:      input.unit)           }
   it { should include(position:  input.position)       }
   it { should include(location:  input.location)       }
-  it { should include(remoteId:  input.remote_id)      }
   it { should include(group:     input.group)          }
 
   # Info is markdown-parsed.
