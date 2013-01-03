@@ -10,25 +10,20 @@ namespace :etflex do
   task :update_inputs do
     # Sends an API request to the given path on ETEngine and returns the
     # HTTP response.
-    def api(path)
-      RestClient.get "#{ ETFlex.config.api_url }/api/v2/#{ path }"
-    end
-
-    # Sends an API request for a scenario, returning the HTTP response.
-    def scenario(id, path)
-      api("api_scenarios/#{ id }/#{ path }")
-    end
-
-    # Extracts a value from user_values.json; values are normally just an
-    # integer but may sometimes be an array (?!).
-    def extract_uv(from, attr)
-      value = from.fetch(attr)
-      if value.is_a?(Array) then value.first.to_f else value.to_f end
+    def api(path, method = :get, data = nil)
+      JSON.parse(RestClient.public_send(
+        method, "#{ ETFlex.config.api_url }/api/v3/#{ path }", data))
     end
 
     require 'etflex'
     require 'restclient'
     require 'json'
+
+    scenario = api('scenarios', :post, scenario: {
+      area_code: 'nl', end_year: 2030
+    })
+
+    scenario_id = scenario['id']
 
     # We start out by fetching the "raw" input data from the ETEngine API.
     # This is just a database dump of each input without the GQL min, max,
@@ -36,68 +31,34 @@ namespace :etflex do
 
     puts 'Fetching raw inputs...'
 
-    raw_inputs = api('inputs.xml')
-    raw_inputs = ActiveSupport::XmlMini.parse(raw_inputs)['inputs']['input']
+    raw_inputs = api('inputs.json', :get, params: { include_extras: true })
 
     puts 'Parsing raw inputs...'
 
-    inputs = raw_inputs.each_with_object({}) do |input, hash|
-      hash[ input['id']['__content__'] ] =
-        { 'key'       => input['key']['__content__'],
-          'remote_id' => input['id']['__content__'].to_i,
-          'unit'      => input['unit']['__content__'],
-          'group'     => input['share-group']['__content__'] }
-    end
-
-    # Create a new API scenario, and fetch user_values so that we have the
-    # GQL min, max, and start values.
-
-    puts 'Fetching GQL values...'
-
-    session    = JSON.parse(api('api_scenarios/new.json'))
-    session_id = session['api_scenario']['id']
-
-    values = RestClient.get("#{ ETFlex.config.api_url }/api_scenarios/" \
-                            "#{ session_id }/user_values.json")
-
-    values = JSON.parse(values)
-
-    puts 'Parsing GQL values...'
-
-    values.each do |(id, data)|
+    inputs = raw_inputs.each_with_object([]) do |(id, data), collection|
       begin
-        input = inputs.fetch(id)
+        input = { 'key' => id, 'remote_id' => id, 'start' => data['default'] }
+        input.merge!(data.slice('min', 'max', 'step', 'unit'))
 
-        input['min']   = extract_uv data, 'min_value'
-        input['max']   = extract_uv data, 'max_value'
-        input['start'] = extract_uv data, 'start_value'
-
-        # '#' units should not be stored.
-        input.delete('unit') if input['unit'] == '#'
-
-        # Don't add a group: row when none is needed.
-        input.delete('group') if input['group'].blank?
-
-        # Try to come up with a sensible step value based on the difference
-        # between the minimum and maximum.
-
-        delta = (input['max'] - input['min']).abs
-
-        if delta == 0
-          input['step'] = 0
-        else
-          input['step'] = (10 ** Math.log(delta, 10).round.to_f) / 100
+        if input['unit'].blank? && input['unit'] == '#'
+          input.delete('unit') # Remote superflous units.
         end
 
-      rescue Exception => e
-        puts "Error with input: #{ id }, #{ data.inspect }"
-        raise e
+        if data['share_group'].present?
+          input['group'] = data['share_group']
+        end
 
+        collection.push(input)
+      rescue RuntimeError => e
+        puts "Error with input: #{ id }, #{ input.inspect }"
+        raise e
       end
-    end # values.each
+    end
+
+    inputs.sort_by! { |input| input['key'].downcase }
 
     File.open(Rails.root.join('db/seeds/inputs.yml'), 'w') do |f|
-      f.puts YAML.dump(inputs.values)
+      f.puts YAML.dump(inputs)
     end
 
     puts "All done! (#{ inputs.length } inputs)"
