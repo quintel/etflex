@@ -50,8 +50,8 @@ group :assets do
   # using Node since it all happens within the Ruby process; compilation with
   # Node fires up a new Node process for each source file, slowing things down
   # considerably in development..
-  gem 'libv8',         '~> 3.11.8'
-  gem 'therubyracer'
+  gem 'libv8',         '~> 3.3.10'
+  gem 'therubyracer',  '~> 0.10.2'
 
   # Temporary workaround for difficulties using Sass 3.2 on Pow:
   # https://github.com/37signals/pow/issues/316
