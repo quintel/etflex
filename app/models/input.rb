@@ -16,7 +16,11 @@ class Input
             result["combinatory"] ||= []
 
             parent, child = input.split ' -> '
-            result["combinatory"] << parent unless result["combinatory"].include? parent
+
+            unless result["combinatory"].include? parent
+              result["combinatory"] << parent
+            end
+
             puts "Aliased input: #{parent} -> #{child}"
           else
             result[location][group] << from_definition(input)
@@ -52,7 +56,8 @@ class Input
 
   def calculator
     @calculator ||= begin
-      @@parser  ||= Treetop.load Rails.root.join('app', 'grammars', 'arithmetic')
+      path = Rails.root.join('app', 'grammars', 'arithmetic')
+      @@parser  ||= Treetop.load path
       @@parser.parse @formula
     end
   end
