@@ -1,0 +1,19 @@
+type: one_to_one
+engine_key: households_cooling_demand_per_person
+display: radio
+start: no_cooling
+options:
+  -
+    key: no_cooling
+    effects:
+      households_cooling_demand_per_person: -3
+
+  -
+    key: one_room_cooling
+    effects:
+      households_cooling_demand_per_person: 1
+
+  -
+    key: whole_house_cooling
+    effects:
+      households_cooling_demand_per_person: 3

@@ -20,7 +20,7 @@
 class Scene < ActiveRecord::Base
 
   default_scope do
-    includes(scene_props: :prop, scene_inputs: :input)
+    includes(scene_props: :prop)
   end
 
   attr_accessible :name, :name_key, :score_gquery
@@ -31,19 +31,19 @@ class Scene < ActiveRecord::Base
   has_many :props, :through => :scene_props
   has_many :scenarios
 
-  with_options class_name: 'SceneInput' do |opts|
-    opts.has_many :scene_inputs
-    opts.has_many :left_scene_inputs,   conditions:  { location: 'left'  }
-    opts.has_many :right_scene_inputs,  conditions:  { location: 'right' }
-    opts.has_many :hidden_scene_inputs, conditions:  { location: nil     }
-  end
+  # with_options class_name: 'SceneInput' do |opts|
+  #   opts.has_many :scene_inputs
+  #   opts.has_many :left_scene_inputs,   conditions:  { location: 'left'  }
+  #   opts.has_many :right_scene_inputs,  conditions:  { location: 'right' }
+  #   opts.has_many :hidden_scene_inputs, conditions:  { location: nil     }
+  # end
 
-  with_options class_name: 'Input', source: :input, readonly: true do |opts|
-    opts.has_many :inputs,        through: :scene_inputs
-    opts.has_many :left_inputs,   through: :left_scene_inputs
-    opts.has_many :right_inputs,  through: :right_scene_inputs
-    opts.has_many :hidden_inputs, through: :hidden_scene_inputs
-  end
+  # with_options class_name: 'Input', source: :input, readonly: true do |opts|
+  #   opts.has_many :inputs,        through: :scene_inputs
+  #   opts.has_many :left_inputs,   through: :left_scene_inputs
+  #   opts.has_many :right_inputs,  through: :right_scene_inputs
+  #   opts.has_many :hidden_inputs, through: :hidden_scene_inputs
+  # end
 
   # VALIDATION ---------------------------------------------------------------
 
@@ -56,4 +56,30 @@ class Scene < ActiveRecord::Base
 
   validates_presence_of :score_gquery
   validates_format_of   :score_gquery, with: /^[a-z0-9_-]+$/
+
+  # METHODS ------------------------------------------------------------------
+
+  # Loads and returns the inputs for the scene. This generates a hash that,
+  # at the first level contains the slot, second level contains the group and
+  # third level contains the list of inputs.
+  def inputs
+    @inputs ||= load_inputs
+  end
+
+  def left_inputs
+    inputs["left"]
+  end
+
+  def right_inputs
+    inputs["right"]
+  end
+
+  def combinatory_inputs
+    inputs["combinatory"]
+  end
+
+  private
+    def load_inputs
+      Input.for_scene name_key
+    end
 end
