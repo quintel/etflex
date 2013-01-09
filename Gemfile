@@ -41,6 +41,9 @@ gem 'pusher'
 gem 'airbrake'
 gem 'hashie'
 
+# Treetop for the grammars
+gem 'treetop'
+
 # Deploy with Capistrano
 gem 'capistrano'
 

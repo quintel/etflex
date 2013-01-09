@@ -311,5 +311,6 @@ DEPENDENCIES
   shoulda-matchers
   simple_form
   therubyracer
+  treetop
   uglifier (>= 1.0.3)
   unicorn
