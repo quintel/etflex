@@ -23,7 +23,7 @@ module Backstage::PropsHelper
 
     branch = if Rails.env.production? then 'production' else 'master' end
 
-    url    = "https://github.com/dennisschoenmakers/etflex/tree/#{branch}/" \
+    url    = "https://github.com/quintel/etflex/tree/#{branch}/" \
              "client/views/props/#{ path }.coffee"
 
     link_to prop.behaviour, url,
