@@ -1,5 +1,5 @@
 type: one_to_one
-engine_key: households_insulation_level_old_house
+engine_key: households_insulation_level_old_houses
 display: slider
 min: 1.0
 max: 3.0
