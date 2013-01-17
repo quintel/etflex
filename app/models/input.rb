@@ -1,5 +1,8 @@
 class Input
-  attr_accessor :type, :key, :engine_key, :display, :value, :unit, :start
+  @@input_cache = {}
+
+  attr_accessor :type, :key, :engine_key, :display, :value, :unit, :start,
+                :parent
 
   def self.for_scene(key)
     definition  = load_definition 'scenes', key
@@ -13,15 +16,11 @@ class Input
 
         inputs.each do |input|
           if input.include? '->'
-            result["combinatory"] ||= []
-
             parent, child = input.split ' -> '
 
-            unless result["combinatory"].include? parent
-              result["combinatory"] << parent
-            end
-
-            puts "Aliased input: #{parent} -> #{child}"
+            parent_input  = from_definition(parent)
+            child_input   = parent_input.input_with_key(child)
+            result[location][group] << child_input
           else
             result[location][group] << from_definition(input)
           end
@@ -32,7 +31,9 @@ class Input
     result
   end
 
-  def self.from_definition(key, parent = nil)
+  def self.from_definition(key)
+    return @@input_cache[key] if @@input_cache[key]
+
     definition = load_definition 'inputs', key
 
     case definition["type"]
@@ -40,6 +41,8 @@ class Input
       OneToOneInput.new key, definition
     when "one_to_many"
       OneToManyInput.new key, definition
+    when "many_to_one"
+      ManyToOneInput.new key, definition
     else
       raise "Invalid input type: #{definition["type"]}"
     end
