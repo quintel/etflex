@@ -11,4 +11,5 @@ class exports.Location extends Backbone.Model
     _.find @get('groups').models, (group) ->
       group.get('key') == key
 
-
+  groups: ->
+    @get('groups')

@@ -4,6 +4,7 @@ template             = require 'templates/scene'
 badgeTempl           = require 'templates/badge'
 
 { RangeView }        = require 'views/range'
+{ OptionsView }      = require 'views/options'
 { SceneNav }         = require 'views/scene_nav'
 { HighScores }       = require 'views/high_scores'
 { HighScoreRequest } = require 'views/high_score_request'
@@ -182,16 +183,35 @@ class exports.SceneView extends Backbone.View
     canChange      = @scenario.canChange(app.user)
     inputLocations = @inputContainers()
 
-    for input in @scenario.inputs.models
-      rangeView = new RangeView model: input, canChange: canChange
-
-      rangeView.bind 'notAuthorizedToChange', @showNotAuthorizedModal
-
+    for location in @scenario.inputs.locations.models
       # If the input location doesn't exist in the template, the input will
       # not rendered. This is intentional so that "hidden" inputs don't raise
       # errors.
-      if into = inputLocations[ input.get 'location' ]
-        rangeView.renderInto into
+      into = inputLocations[ location.get 'position' ]
+      continue unless into
+
+      console.log into
+
+      for group in location.groups().models
+        console.log group.get 'key'
+        for input in group.inputs().models
+          display = input.get 'display'
+
+          if display == "slider"
+            rangeView = new RangeView model: input, canChange: canChange
+            rangeView.bind 'notAuthorizedToChange', @showNotAuthorizedModal
+            rangeView.renderInto into
+
+          else
+            optionsView = new OptionsView model: input, canChange: canChange
+            optionsView.renderInto into
+    # for input in @scenario.inputs.models
+    #   rangeView = new RangeView model: input, canChange: canChange
+
+    #   rangeView.bind 'notAuthorizedToChange', @showNotAuthorizedModal
+
+    #   if into = inputLocations[ input.get 'location' ]
+    #     rangeView.renderInto into
 
   # Renders each of the props into the scene.
   #
