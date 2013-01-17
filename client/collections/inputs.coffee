@@ -1,5 +1,3 @@
-{ InputManager } = require 'lib/input_manager'
-
 # Contains all of the Inputs used by a Scene.
 class exports.Inputs extends Backbone.Collection
   model: require('models/input').Input
@@ -10,10 +8,10 @@ class exports.Inputs extends Backbone.Collection
   #            when changed.
   #
   persistTo: (scenario) ->
-    if sessionId = scenario.get 'sessionId'
-      @manager = new InputManager sessionId
-    else
-      throw 'Cannot persist inputs to a scenario which has no sessionId'
+    # if sessionId = scenario.get 'sessionId'
+    #   @manager = new InputManager sessionId
+    # else
+    #   throw 'Cannot persist inputs to a scenario which has no sessionId'
 
   # Performs balancing so that the sliders in the group have their values
   # adjusted so that the group sums to 100.
@@ -24,4 +22,4 @@ class exports.Inputs extends Backbone.Collection
   #          balanced automatically.
   #
   balance: (groupName, master) ->
-    @balancers[ groupName ].performBalancing master
+    # @balancers[ groupName ].performBalancing master

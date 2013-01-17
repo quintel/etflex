@@ -88,13 +88,11 @@ exports.updateInputs = (sessionId, options, callback) ->
   # Data sent to the server.
   params = { scenario: { user_values: {} }, autobalance: true }
 
-  # Queries and inputs may be a Backbone collection.
-  inputs  = inputs?.models  or inputs or []
+  # Queries is a backbone collection
   queries = queries?.models or queries
 
   # Map the input IDs and their values.
-  for input in inputs
-    params.scenario.user_values[ input.get('id') ] = input.get('value')
+  params.scenario.user_values = inputs or {}
 
   # If there are any queries, tell ETEngine to give us those results.
   params.gqueries = ( query.get('id') for query in queries ) if queries?

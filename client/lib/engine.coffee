@@ -30,7 +30,8 @@ exports.getSession = (scenario, queries, inputs, callback) ->
   inputs  = inputs.models  or inputs
 
   if existingId = scenario.get 'sessionId'
-    if scenario.canStartLocally queries, inputs
+    # TODO
+    if false #scenario.canStartLocally queries, inputs
       localRestore scenario, queries, inputs, callback
     else
       restoreSession existingId, queries, inputs, callback

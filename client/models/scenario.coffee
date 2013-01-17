@@ -1,11 +1,12 @@
 app = require 'app'
 api = require 'lib/api'
 
-{ createUser } = require 'models/user'
-{ getSession } = require 'lib/engine'
+{ createUser }    = require 'models/user'
+{ getSession }    = require 'lib/engine'
+{ InputManager }  = require 'lib/input_manager'
 
-{ Inputs }     = require 'collections/inputs'
-{ Queries }    = require 'collections/queries'
+{ Inputs }        = require 'collections/inputs'
+{ Queries }       = require 'collections/queries'
 
 # Scenario keeps track of a user's attempt to complete a scene. Holding on to
 # the scene ID, user ID, and the corresponding ETengine session ID, it allows
@@ -45,7 +46,8 @@ class exports.Scenario extends Backbone.Model
       return callback(err) if err
 
       @scene   or= scene
-      @inputs  or= new Inputs @scene.get('inputs')
+      #@inputs  or= new Inputs @scene.get('inputs')
+      @inputs  or= new InputManager @scene.get('inputs')
 
       @queries or= new Queries({ id: id } for id in @scene.dependantQueries())
       @queries.meta 'score_gquery', @scene.get('score_gquery')
@@ -56,16 +58,18 @@ class exports.Scenario extends Backbone.Model
       # Fetch the ETengine session. This may return instantaneously if we
       # already have all the data we need without having to send a request to
       # the Engine.
-      getSession this, @queries, @inputs, (err, sessionId) =>
+      getSession this, @queries, @inputs.values(), (err, sessionId) =>
         return callback(err) if err
 
         this.set { sessionId }
 
+        # TODO
         # Required so that changes to inputs can be sent back to the Engine.
-        @inputs.persistTo this
+        # @inputs.persistTo this
 
         # Watch for changes to the inputs and send them back to the Engine.
-        @inputs.on 'change:value', @onInputChange
+        # TODO
+        # @inputs.on 'change:value', @onInputChange
 
         # Changes to the scenario end year or country need to be saved back
         # to both ETflex and ETengine.
@@ -73,12 +77,14 @@ class exports.Scenario extends Backbone.Model
 
         # Returns input value and query information to ETflex when results
         # are received from ETengine.
-        @inputs.on 'updateInputsDone', @onEngineResponse
+        # TODO
+        # @inputs.on 'updateInputsDone', @onEngineResponse
 
         callback null, scene, this
 
         # New scenarios need to be saved back to the ETflex server.
-        @inputs.trigger 'updateInputsDone' if isNewScenario
+        # TODO
+        # @inputs.trigger 'updateInputsDone' if isNewScenario
 
   # Cleans up when the scenario is no longer beign displayed to the user.
   stop: ->
