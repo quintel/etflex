@@ -21,10 +21,10 @@ class exports.RangeView extends Backbone.View
   constructor: ({ @canChange }) ->
     super
 
-    @precision = @model.def.step.toString().split('.')
+    @precision = @model.get('step').toString().split('.')
     @precision = @precision[1]?.length or 0
 
-    @rangeName = I18n.t "inputs.#{ @model.def.key }"
+    @rangeName = I18n.t "inputs.#{ @model.get('key') }"
 
   # Renders the range, and sets up events.
   #
@@ -40,18 +40,28 @@ class exports.RangeView extends Backbone.View
   #
   renderInto: (destination) ->
     # TODO Add a "unitHtml helper somewhere.
-    unit = switch @model.def.unit
+    unit = switch @model.get('unit')
       when 'km2' then " km<sup>2</sup>"
-      else            @model.def.unit
+      else            @model.get('unit')
 
     @$el.html rangeTemplate
       name:        @rangeName
-      hasInfo:     @model.def.info?
+      hasInfo:     @model.get('info')?
       unit:        unit
 
     destination.append @$el
 
-    @quinn = @model.quinn
+    # TODO Does this belong here?
+    @quinn = new $.Quinn $('<div/>'),
+      value:   @model.get 'value'
+      min:     @model.get 'min'
+      max:     @model.get 'max'
+      step:    @model.get 'step'
+      disable: @model.get 'disabled'
+      renderer: ->
+
+    # @model.on 'change:value', @updateQuinnFromModel
+    # @quinn = @model.quinn
 
     # Render the range using the default Quinn renderer.
     @quinn.wrapper  = @$ '.control'
@@ -61,7 +71,7 @@ class exports.RangeView extends Backbone.View
     @quinn.on 'drag',   @updateOutput
     @quinn.on 'change', @updateModel
 
-    @updateOutput @quinn.model.value, @quinn
+    @updateOutput @model.get('value'), @quinn
     @delegateEvents()
 
   # Updates the .output element with the input value. Used as an onChange
@@ -88,4 +98,4 @@ class exports.RangeView extends Backbone.View
   # the input and how it affects the outcome.
   #
   showHelp: ->
-    showMessage @rangeName, @model.def.info
+    showMessage @rangeName, @model.get('info')

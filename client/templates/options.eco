@@ -1,0 +1,9 @@
+<h2><%= @key %></h2>
+<ul>
+  <% for option in @options: %>
+    <li>
+      <input type="radio" name="<%= @key %>" id="<%= option.key %>_option" value="<%= option.key %>">
+      <label for="<%= option.key %>_option"><%= option.key %></label>
+    </li>
+  <% end %>
+</ul>

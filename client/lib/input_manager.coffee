@@ -39,6 +39,9 @@ class exports.InputManager extends Backbone.Model
           if input_definition.parent
             @inputs[input_definition.parent.key] = new ManyToOneInput input_definition.parent, @
 
+  locations: ->
+    @locations
+
   location: (position) ->
     _.find @locations.models, (location) ->
       location.get('position') == position

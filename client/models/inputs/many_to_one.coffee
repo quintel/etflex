@@ -2,7 +2,6 @@
 
 class exports.ManyToOneInput extends Input
   values: ->
-    console.log 'HERE'
     key         = @get('key')
     formula     = @get('formula')
     engine_key  = @get('engine_key')

@@ -6,4 +6,5 @@ class exports.Group extends Backbone.Model
 
     @set 'inputs', new Inputs if !@get 'inputs'
 
-
+  inputs: ->
+    @get 'inputs'
