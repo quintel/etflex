@@ -29,7 +29,7 @@ gem 'devise'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 2.1.4'
 gem 'jquery-ui-rails'
 
 gem 'i18n-js'
