@@ -110,7 +110,7 @@ class ScenarioComparison extends Backbone.View
         who:          '{who}'
         emissions:    @current.queries.get 'total_co2_emissions'
         renewability: @current.queries.get 'renewability'
-        score:        @current.queries.get 'etflex_score'
+        score:        @current.queries.get 'score'
         costs:        @current.queries.get 'total_costs'
 
     this

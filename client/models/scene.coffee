@@ -10,7 +10,6 @@ app          = require 'app'
 # Each scene is linked to an ETengine session which performs calculations.
 #
 class exports.Scene extends Backbone.Model
-
   # Returns the URL to the scene.
   url: -> "/scenes/#{ @id }.json"
 
@@ -49,3 +48,6 @@ class exports.Scene extends Backbone.Model
       ids.push ( getProp(prop.behaviour)::queries or [] )...
 
     _.uniq ids
+
+  flattenInputs: (inputs) ->
+    console.log inputs

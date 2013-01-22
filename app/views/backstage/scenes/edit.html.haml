@@ -1,15 +1,6 @@
 %h2.content-header
   %span.scene= @scene.name
 
-= simple_form_for [ :backstage, @scene ] do |f|
-  = f.input :id,        as: :string, input_html: { class: 'small', disabled: true }
-  = f.input :name,      input_html: { autocomplete: 'off' }
-  = f.input :name_key
-
-  %ul.buttons
-    %li
-      = f.button :submit, class: 'green'
-    %li
-      = link_to 'Cancel', backstage_scenes_path
+= render :partial => 'form'
 
 %table

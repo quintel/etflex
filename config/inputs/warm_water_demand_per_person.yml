@@ -1,0 +1,23 @@
+type: many_to_one
+engine_key: households_heat_demand_per_person
+inputs:
+  -
+    key: daily_length_of_shower_per_person
+    display: slider
+    step: 1
+    min: 3
+    max: 25
+    start: 8
+    unit: minutes
+
+  -
+    key: number_of_cold_showers_per_week
+    display: slider
+    step: 1
+    min: 0
+    max: 7
+    start: 0
+    unit: number
+
+formula: >
+  -1.0 + (0.35 + 0.65 * (1.0 - number_of_cold_showers_per_week / 7.0) * (1.0 + (daily_length_of_shower_per_person / 8.0 - 1.0)))**(1.0/20.0)

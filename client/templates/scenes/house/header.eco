@@ -1,0 +1,11 @@
+<div id="theme-header">
+  <a href="/" id="logo" data-navigate="noclient">Energie Transitie Model (lite)</a>
+  <!-- illustration props -->
+  <div class="world" data-prop-location="header">
+    <div id="explanation">
+      <p>Geef met behulp van de sliders jouw idee aan<br/>
+         over de samenstelling van de vraag en het aanbod van beschikbare
+         energiebronnen.</p></div>
+  </div>
+  <!-- / illustration props -->
+</div>

@@ -33,7 +33,7 @@ exports.forQuery = (query) ->
 TRANSFORMS =
   # ETFlex score must be rounded to a whole number, and restricted to no less
   # than 0 and no more than 999.
-  etflex_score:
+  score:
     mutate: (value) ->
       if (rounded = Math.round value) < 0
         0

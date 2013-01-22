@@ -1,0 +1,8 @@
+// Helpers & Mixins ----------------------------------------------------------
+
+@mixin house-prop($image, $width, $height, $left, $top)
+  @include prop("house", $image, $width, $height, $left, $top)
+
+@mixin house-prop-dyn($image, $width, $height, $left, $top)
+  @include prop-dyn("house", $image, $width, $height, $left, $top)
+

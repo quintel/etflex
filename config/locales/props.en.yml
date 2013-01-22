@@ -27,7 +27,7 @@ en:
 
     score:
       name: "Score"
-      header: "You score (Q:etflex_score) points"
+      header: "You score (Q:score) points"
       body: |-
         Your score goes up when you decrease costs, CO<sub>2</sub> emissions
         and nuclear waste, and when you increase renewabilty and reliability.

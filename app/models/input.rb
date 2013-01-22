@@ -1,78 +1,73 @@
-# An input is the canonical representation of an Input on ETengine; it defines
-# the minimum, and maximum values to which the input may be set. These values
-# should match those on ETengine except in cases where we want to alter them
-# to better suit ETflex users.
-#
-# In most cases, however, the values in Input should be left alone, and custom
-# input values should be set on a scene-by-scene basis using SceneInput
-# instances instead.
-#
-# == Columns
-#
-# key (String[1..255])
-#   A unique  key which identifies this input. Used when looking up I18n
-#   translations, and should probably match the key on ETengine.
-#
-# step (Float)
-#   When the input is a slider, "step" determines the increments in which the
-#   user can move the slider handle. Steps of 0.1 will allow the slider to be
-#   moved from 0.0, to 0.1, to 0.2, etc.
-#
-# min (Float)
-#   The minimum acceptable input value. It should match the ETengine value but
-#   may be customised to a higher value.
-#
-# max (Float)
-#   The minimum acceptable input value. It should match the ETengine value but
-#   may be customised to a lower value.
-#
-# start (Float)
-#   The default value of the input before the user makes any changes.
-#
-# unit (String[1..255])
-#   A text suffix used when showing the user the value of the input. For
-#   example, a unit of "MW" results in the formated value "1,500 MW".
-#
-# group (String[1..50])
-#   A group to which the input belongs; inputs in a group are balanced so that
-#   their values sum to 100.
-#
-class Input < ActiveRecord::Base
+class Input
+  @@input_cache = {}
 
-  def acts_like_input? ; true end
+  attr_accessor :type, :key, :engine_key, :display, :value, :unit, :start,
+                :parent
 
-  attr_accessible :key, :group, :min, :max, :start, :step, :unit
+  def self.for_scene(key)
+    definition  = load_definition 'scenes', key
+    result      = {}
 
-  # VALIDATION ---------------------------------------------------------------
+    definition["inputs"].each do |location, groups|
+      result[location] ||= {}
 
-  validates :key,       presence: true, uniqueness: true
+      groups.each do |group, inputs|
+        result[location][group] = []
 
-  validates :group,     length: { maximum: 50, allow_nil: true }
+        inputs.each do |input|
+          if input.include? '->'
+            parent, child = input.split ' -> '
 
-  validates :min,       presence: true, numericality: true
-  validates :max,       presence: true, numericality: true
-  validates :start,     presence: true, numericality: true
-  validates :step,      presence: true, numericality: true
+            parent_input  = from_definition(parent)
+            child_input   = parent_input.input_with_key(child)
+            result[location][group] << child_input
+          else
+            result[location][group] << from_definition(input)
+          end
+        end
+      end
+    end
 
-  validate :max, :validate_max_gte_min
+    result
+  end
 
-  # Custom validation - ensures that the maximum value, if present, is at
-  # least equal to the minimum value, if present.
-  #
-  def validate_max_gte_min
-    if min.present? and max.present? and min > max
-      errors.add(:max, :less_than_min)
+  def self.from_definition(key)
+    return @@input_cache[key] if @@input_cache[key]
+
+    definition = load_definition 'inputs', key
+
+    case definition["type"]
+    when "one_to_one"
+      OneToOneInput.new key, definition
+    when "one_to_many"
+      OneToManyInput.new key, definition
+    when "many_to_one"
+      ManyToOneInput.new key, definition
+    else
+      raise "Invalid input type: #{definition["type"]}"
     end
   end
 
-  # BEHAVIOUR ----------------------------------------------------------------
-
-  default_value_for(:start) { |input| input.min }
-
-  # INSTANCE METHODS ---------------------------------------------------------
-
-  def to_s
-    key
+  def initialize(key, definition)
+    @type       = definition["type"]
+    @key        = key
+    @engine_key = definition["engine_key"]
+    @display    = definition["display"]
+    @unit       = definition["unit"]
+    @start      = definition["start"]
   end
 
+  def calculator
+    @calculator ||= begin
+      path = Rails.root.join('app', 'grammars', 'arithmetic')
+      @@parser  ||= Treetop.load path
+      @@parser.parse @formula
+    end
+  end
+
+  private
+    def self.load_definition type, key
+      path = Rails.root.join('config', type, "#{key}.yml")
+      YAML.load_file(path)
+    end
 end

@@ -4,18 +4,20 @@ FactoryGirl.define do
   sequence(:session_id) { |n| n }
 
   factory :scenario do
-    session_id  { FactoryGirl.generate(:session_id) }
+   association  :scene
+   association  :user
 
-    query_results score: 500
+   session_id  { FactoryGirl.generate(:session_id) }
 
-    association  :scene
-    association  :user
+    query_results etflex_score: 500
+
   end
 
   factory :guest_scenario, class: Scenario do
-    session_id  { FactoryGirl.generate(:session_id) }
-    query_results score: 500
     association  :scene
+
+    session_id  { FactoryGirl.generate(:session_id) }
+    query_results etflex_score: 500
     guest_uid    'abc'
     guest_name   'def'
   end

@@ -8,5 +8,5 @@ class exports.ScenarioSummary extends Backbone.Model
   # Returns a Query, setting the future value to the value in the summary.
   query: (key) ->
     new Query
-      id:     if key is 'score' then 'etflex_score' else key
+      id:     key
       future: @get key
