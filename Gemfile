@@ -84,7 +84,9 @@ group :test, :development do
   gem 'rspec-rails',  '~> 2.8'
   gem 'factory_girl_rails'
 
-  # Same with Guard.
+end
+
+group :development do
   gem 'guard'
   gem 'guard-rspec'
   gem 'rb-fsevent'
