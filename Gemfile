@@ -30,6 +30,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 gem 'i18n-js'
 gem 'rails-i18n'
@@ -39,6 +40,9 @@ gem 'pusher'
 
 gem 'airbrake'
 gem 'hashie'
+
+# Treetop for the grammars
+gem 'treetop'
 
 # Deploy with Capistrano
 gem 'capistrano'

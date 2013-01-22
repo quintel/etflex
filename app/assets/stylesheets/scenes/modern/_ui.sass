@@ -1,0 +1,508 @@
+// Animation -----------------------------------------------------------------
+
+@-moz-keyframes sceneModernPlane
+  from
+    left: 1700px
+    top: 30px
+    -moz-transform: rotate(8deg)
+  20%
+    top: -10px
+    -moz-transform: rotate(8deg)
+  25%
+    top: -16px
+    -moz-transform: rotate(7deg)
+  30%
+    top: -22px
+    -moz-transform: rotate(6deg)
+  35%
+    top: -27px
+    -moz-transform: rotate(5deg)
+  40%
+    top: -30px
+    -moz-transform: rotate(4deg)
+  50%
+    -moz-transform: rotate(0deg)
+  60%
+    top: -30px
+    -moz-transform: rotate(-4deg)
+  65%
+    top: -27px
+    -moz-transform: rotate(-5deg)
+  70%
+    top: -22px
+    -moz-transform: rotate(-6deg)
+  75%
+    top: -16px
+    -moz-transform: rotate(-7deg)
+  80%
+    top: -10px
+    -moz-transform: rotate(-8deg)
+  to
+    left: -400px
+    top: 50px
+    -moz-transform: rotate(-10deg)
+
+@-webkit-keyframes sceneModernPlane
+  from
+    left: 1700px
+  to
+    left: -400px
+
+// Styles --------------------------------------------------------------------
+
+#scene-view.modern
+  background: #8abcdb image-url("scenes/modern/bg.png") center top repeat-y
+  background: image-url("scenes/modern/footer.jpg") center bottom no-repeat, #8abcdb image-url("scenes/modern/bg.png") center top repeat-y
+  min-height: 100%
+  overflow: hidden
+  padding: 0
+
+  // The main, site-wide navigation.
+
+  #core #main-nav
+    top: 10px
+
+    ul.scene-nav a
+      background: image-url("scenes/modern/nav.png") 32px -50px no-repeat
+      color: #548aaa
+      text-shadow: 0 1px 0 #f5fdff
+
+      span
+        background: image-url("scenes/modern/nav.png") 32px 20px no-repeat
+
+      &:active
+        background-position: 32px -110px
+        color: #386a8d
+
+        span
+          background-position: -68px 20px
+
+    .main-nav-pulldown
+      background: #f0fbff
+
+      a
+        color: #548aaa
+
+        &:hover
+          color: #386a8d
+
+    li.active
+      @include background-image(linear-gradient(white, #f0fbff))
+      @include border-top-radius(4px)
+      background: #f0fbff
+      border: 1px solid #c0c9c9
+      border: 1px solid rgba(0, 0, 0, 0.2)
+      border-bottom: none
+      margin: -1px -1px 0
+      position: relative
+      z-index: 10
+
+    #nav-settings a
+      background-position: -68px -50px
+
+      &:active
+        background-position: -68px -110px
+
+    #nav-user a, #nav-account a
+      background-position: -168px -50px
+
+      &:active
+        background-position: -168px -110px
+
+  // The content area containing the sliders.
+
+  #core #controls
+    margin-top: -250px
+    position: relative
+    z-index: 2
+
+    h2
+      color: #ff8400
+      font-size: 17px
+      font-weight: bold
+      margin: 0 -10px
+      padding: 10px 10px 20px
+      text-align: center
+      text-transform: uppercase
+      text-shadow: white 0 0 18px, white 0 0 12px, white 0 0 6px, white 0 0 3px
+
+    // Ranges / sliders
+
+    .range
+      padding: 0 9px
+
+      .info
+        +pie-clearfix
+
+        .label
+          float: left
+          width: 222px
+
+          .label-text
+            display: inline-block
+            max-width: 194px
+            line-height: 1
+            white-space: nowrap
+
+        .value
+          float: left
+          text-align: right
+          width: 60px
+
+          .output, .unit
+            // inline-block is required to fix an issue whereby Safari doesn't
+            // redraw -- or redraws with graphical errors -- the range value.
+            display: inline-block
+
+          .output
+            min-width: 35px
+
+          sub, sup
+            font-size: 10px
+            line-height: 0
+            vertical-align: sub
+
+          sup
+            vertical-align: super
+
+      .control
+        background: image-url("scenes/modern/range.png") left top no-repeat
+        padding-top: 12px
+        padding-bottom: 12px
+
+        .handle
+          margin-top: -12px
+
+        &, .bar, .delta-bar, .left, .main, .right
+          height: 6px
+
+        .delta-bar
+          .left, .main, .right
+            background: image-url("scenes/modern/range.png") 0 -42px no-repeat
+
+          .main
+            background-position: -5px -42px
+
+          .right
+            background-position: -279px -42px
+
+        .handle
+          background: image-url("scenes/modern/range.png") 0 -60px no-repeat
+          height: 28px
+          width: 28px
+
+          &.active, &:focus
+            background-position: -30px -60px
+
+  // The big graphic header at the top of the modern theme is defined in 
+  //    _header.sass
+
+
+  // The supply / demand gauge.
+
+  #core #center-props .energy-graph
+
+    .bars
+      @extend .clearfix
+      background: image-url("scenes/modern/energy-graph.png") 78px 0 no-repeat
+
+    .marker
+      border-top: 1px dashed #ccc
+      color: #235cbb
+      font-size: 11px
+      font-weight: bold
+      margin-top: 1px
+      position: absolute
+      top: 100%
+      width: 69px
+
+    .demand, .supply
+      float: left
+      height: 204px
+      margin: 0 0 20px 0
+      padding: 0
+      position: relative
+      width: 150px
+
+      .bar
+        +border-bottom-left-radius(9px)
+        +border-bottom-right-radius(9px)
+        bottom: 0px
+        background: image-url("scenes/modern/energy-graph.png") bottom left no-repeat
+        background: image-url("scenes/modern/energy-graph.png") -120px -250px no-repeat, image-url("scenes/modern/energy-graph.png") bottom left no-repeat
+        box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.2)
+        left: 94px
+        position: absolute
+        height: 0%
+        width: 44px
+        z-index: 4
+
+    .legend
+      -webkit-font-smoothing: antialiased
+      +transform(rotate(270deg))
+      left: 41px
+      bottom: 85px
+      color: white
+      font-size: 14px
+      font-weight: bold
+      position: absolute
+      text-shadow: -1px 0 1px rgba(0, 0, 0, 0.4)
+      text-transform: uppercase
+      width: 150px
+      z-index: 5
+
+    .supply
+      margin: 0 0 20px 0
+      padding: 0
+
+      .bar
+        background-position: -60px bottom
+        background-position: -120px -250px, -60px bottom
+        box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.1)
+        left: 13px
+
+      .marker
+        color: #ec650b
+        right: 0px
+        text-align: right
+
+      .legend
+        left: -39px
+
+    .gauge
+      background: image-url("scenes/modern/gauge.png") no-repeat
+      height: 110px
+      margin: 0 auto
+      overflow: hidden
+      position: relative
+      width: 130px
+
+      .beeping
+        position: absolute
+        top: 0
+        left: 0
+        background: image-url("scenes/modern/gauge.png") no-repeat
+        background-position: 0 -166px
+        height: 110px
+        width: 130px
+        opacity: 0.5
+
+      .beeping-left
+        background-position: -169px -166px
+
+      .needle
+        background: image-url("scenes/modern/gauge.png") -180px 0 no-repeat
+        height: 98px
+        left: 10px
+        position: absolute
+        top: 17px
+        width: 110px
+
+        // Enables smooth animation of the needle when it changes.
+        -o-transition:      -o-transform      0.5s
+        -ms-transition:     -ms-transform     0.5s
+        -moz-transition:    -moz-transform    0.5s
+        -webkit-transition: -webkit-transform 0.5s
+
+        // http://stackoverflow.com/questions/6843367/css3-transforms-cause-screen-flickering-or-aliased-font
+        -webkit-transform-style: preserve-3d
+
+      .info
+        -webkit-font-smoothing: antialiased
+        color: #333
+        font-size: 12px
+        font-weight: bold
+        padding-top: 90px
+        text-align: center
+        text-transform: uppercase
+
+        .message
+          +transition(background .25s ease-in-out, color .25s ease-in-out)
+          border-radius: 3px
+          padding: 2px 4px
+
+          &.warning
+            background: #db5215
+            color: white
+
+    // Fixes and adjustments to the supply and demand graph for older
+    // browsers.
+    &.legacy
+      .legend
+        background: image-url("scenes/modern/demand-supply-legend.png") no-repeat
+        bottom: 13px
+        height: 64px
+        left: 109px
+        text-indent: -10000px
+        overflow: hidden
+        width: 16px
+
+      .supply .legend
+        background-position: -60px bottom
+        left: 29px
+
+      &.en
+        .demand .legend
+          background-position: -120px bottom
+
+        .supply .legend
+          background-position: -180px bottom
+
+      .needle
+        background: image-url("scenes/modern/gauge-ie.png") 0 0 no-repeat
+
+        &.neg-63
+          background-position: -110px 0
+
+        &.neg-42
+          background-position: -220px 0
+
+        &.neg-21
+          background-position: -330px 0
+
+        &.zero
+          background-position: -440px 0
+
+        &.pos-21
+          background-position: -550px 0
+
+        &.pos-42
+          background-position: -660px 0
+
+        &.pos-63
+          background-position: -770px 0
+
+        &.pos-85
+          background-position: -880px 0
+
+  // The five props which sit at the bottom of the page.
+
+  #core .dashboard .prop
+    position: relative
+
+    .value
+      background: image-url("range-help.png") no-repeat 0 4px
+      color: inherit
+      cursor: pointer
+      padding-left: 23px
+      text-decoration: none
+
+      &:active
+        background-position: 0 -66px
+
+    &.co2-emissions .icon
+      background-image: image-url("scenes/modern/icons/polar-bear.png")
+      left: 0px
+      width: 192px
+
+      &.medium
+        background-position: -200px 0
+
+      &.high
+        background-position: -400px 0
+
+      &.extreme
+        background-position: -600px 0
+
+      sub
+        line-height: 0
+        zoom: 1
+
+    &.renewables .icon
+      background-image: image-url("scenes/modern/icons/tree.png")
+      left: 12px
+      width: 167px
+
+      &.high
+        background-position: -170px 0
+
+      &.medium
+        background-position: -340px 0
+
+      &.low
+        background-position: -510px 0
+
+    &.costs .icon
+      background-image: image-url("scenes/modern/icons/money.png")
+      left: 7px
+      width: 138px
+
+      &.two
+        background-position: -138px 0
+
+      &.three
+        background-position: -276px 0
+
+      &.four
+        background-position: 0 -140px
+
+      &.five
+        background-position: -138px -140px
+
+      &.six
+        background-position: -276px -140px
+
+      &.seven
+        background-position: 0 -280px
+
+      &.eight
+        background-position: -138px -280px
+
+      &.nine
+        background-position: -276px -280px
+
+    &.reliability .icon
+      background-image: image-url("scenes/modern/icons/lamp.png")
+      left: 6px
+      width: 140px
+
+      &.on
+        background-position: 0 0
+
+      &.off
+        background-position: -280px 0
+
+    &.score .icon
+      background-image: image-url("scenes/modern/icons/score.png")
+      background-position: 0 27px
+      left: -19px
+      position: relative
+      width: 192px
+
+      span.numbers, span.number-overlay
+        color: #f5f2ee
+        font-size: 23px
+        font-weight: bold
+        height: 26px
+        padding-top: 7px
+        position: absolute
+        text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.8)
+        top: 64px
+        width: 25px
+
+      span.number-overlay
+        background: image-url("scenes/modern/icons/score-overlay.png") no-repeat
+
+        &.flip1
+          background-position: 0 -30px
+
+        &.flip2
+          background-position: 0 -60px
+
+        &.flip3
+          background-position: 0 -90px
+
+      span.hundreds
+        left: 68px
+
+      span.tens
+        left: 101px
+
+      span.ones
+        left: 134px
+
+    &.score
+      a
+        display: block
+        font-size: 12px
+        padding-top: 3px

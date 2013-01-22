@@ -1,0 +1,25 @@
+type: one_to_many
+key: household_heating_technology
+display: radio
+start: combi_boiler
+options:
+  -
+    key: combi_boiler
+    effects:
+      households_heating_gas_combi_heater_share: 100
+      households_heating_heat_pump_ground_share: 0
+      households_heating_micro_chp_share: 0
+
+  -
+    key: micro_chp
+    effects:
+      households_heating_gas_combi_heater_share: 0
+      households_heating_heat_pump_ground_share: 0
+      households_heating_micro_chp_share: 100
+
+  -
+    key: heatpump_ground
+    effects:
+      households_heating_gas_combi_heater_share: 0
+      households_heating_heat_pump_ground_share: 100
+      households_heating_micro_chp_share: 0

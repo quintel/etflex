@@ -1,0 +1,36 @@
+#scene-view.house #theme-header
+  margin-left: -480px
+  width: 1920px
+  position: relative
+  z-index: 1
+
+  #logo
+    background: image-url("logo.png") left top no-repeat
+    height: 42px
+    left: 480px
+    position: absolute
+    text-indent: -10000px
+    top: 25px
+    width: 350px
+
+  .world
+    height: 541px
+    width: 1277px
+    margin: 0 auto
+
+    .ground
+      z-index: 4
+      height: 541px
+      width: 1277px
+
+      .icon.active
+        display: block !important
+        background: image-url("scenes/house/header/grass.jpg") center top no-repeat
+        height: 541px
+        width: 1277px
+
+      .icon.dry
+        background-position: center -1084px
+
+      .icon.green
+        background-position: top top

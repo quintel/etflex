@@ -1,0 +1,108 @@
+grammar Arithmetic
+	rule add
+		op_1:mult space additive_op space op_2:add {
+			def eval(env)
+				additive_op.apply( op_1.eval(env), op_2.eval(env) )
+			end
+		}
+		/
+		mult
+	end
+
+	rule additive_op
+	  '+' {
+			def apply(a,b)
+				a+b
+			end
+		}
+		/
+		'-' {
+			def apply(a,b)
+				a-b
+			end
+		}
+	end
+
+	rule mult
+		op_1:primary space mult_op space op_2:mult {
+			def eval(env)
+        mult_op.apply(op_1.eval(env), op_2.eval(env))
+			end
+		}
+		/
+		primary
+	end
+
+  rule mult_op
+    '*' {
+      def apply(a,b)
+        a*b
+      end
+    }
+    /
+    '/' {
+      def apply(a,b)
+        a/b
+      end
+    }
+    /
+    '**' {
+      def apply(a,b)
+        a**b
+      end
+    }
+  end
+	
+	rule primary
+	  '{' word '}' {
+	    def eval(env)
+	      word.eval
+      end
+    }
+	  /
+		variable
+		/
+		number
+		/
+		'(' space add space ')' {
+			def eval(env)
+				add.eval(env)
+			end
+		}
+	end
+
+	rule space
+	  ' '*
+	end
+	
+  rule number
+    float / integer
+  end
+
+  rule float
+    integer '.' [0-9]+ {
+      def eval(env={})
+        text_value.to_f
+      end
+    }
+  end
+
+	rule integer
+		( [1-9] [0-9]* / '0' ) {
+			def eval(env={})
+				text_value.to_i
+			end
+		}
+	end
+
+	rule variable
+		[a-z_]+ {
+			def eval(env)
+				env[name]
+			end
+			def name
+			  text_value
+			end
+		}
+	end
+end

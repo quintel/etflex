@@ -29,6 +29,24 @@ module Backstage
       respond_with @scenes = Scene.all
     end
 
+    # Shows a form allowing a user to create a scene.
+    #
+    # GET /backstage/scenes/new
+    #
+    def new
+      @scene = Scene.new
+      respond_with @scene
+    end
+
+    # Creates a scene with the supplied params.
+    #
+    # POST /backstage/scenes
+    #
+    def create
+      @scene = Scene.create(params[:scene])
+      respond_with @scene, location: backstage_scenes_path
+    end
+
     # Shows a form allowing a user to edit a scene.
     #
     # GET /backstage/scenes/:id/edit
@@ -39,7 +57,7 @@ module Backstage
 
     # Updates a scene with the supplied params.
     #
-    # PUT /backstage/scene/:id
+    # PUT /backstage/scenes/:id
     #
     def update
       @scene.update_attributes(params[:scene])
