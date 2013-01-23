@@ -12,14 +12,6 @@ describe Input do
     it { should allow_mass_assignment_of(:key) }
   end
 
-  # IDENTITY FIELD -----------------------------------------------------------
-
-  describe 'identity field' do
-    it { should validate_presence_of(:remote_id) }
-    it { create(:input) ; should validate_uniqueness_of(:remote_id) }
-    it { should allow_mass_assignment_of(:remote_id) }
-  end
-
   # UNIT ---------------------------------------------------------------------
 
   describe '#unit' do

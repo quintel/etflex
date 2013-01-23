@@ -26,10 +26,10 @@ FactoryGirl.define do
     factory(:scene_with_inputs) { after(:create) do |scene|
       # Create two inputs, and add a scene input for each one.
 
-      input_one = FactoryGirl.create(:input, remote_id: 366,
+      input_one = FactoryGirl.create(:input,
         key: 'households_behavior_standby_killer_turn_off_appliances')
 
-      input_two = FactoryGirl.create(:input, remote_id: 315,
+      input_two = FactoryGirl.create(:input,
         key: 'number_of_pulverized_coal')
 
       scene.scene_inputs.create!(location: 'left', input_id: input_one.id)

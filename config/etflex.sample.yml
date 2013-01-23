@@ -31,7 +31,7 @@ production: &production
 staging:     *production
 development: *production
 
-test:
+test: &test
   <<: *production
 
   # Assume POW is present for testing.
@@ -39,3 +39,7 @@ test:
 
   # Always default conference mode off.
   conference: false
+
+ci:
+  <<: *test
+  api_url: 'http://beta.et-engine.com'
