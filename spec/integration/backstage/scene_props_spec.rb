@@ -23,7 +23,7 @@ feature 'Editing scene props' do
 
   scenario 'Successfully adding a new scene prop' do
     # The prop we will be adding to the scene.
-    @other = create :prop
+    @other = create :prop, key: 'second_prop'
 
     visit "/backstage/scenes/#{ @scene.id }/props"
     click_link 'Create Scene Prop'
@@ -33,7 +33,8 @@ feature 'Editing scene props' do
     page.should_not have_css('#scene_prop_prop_id[disabled=disabled]')
 
     within('form.new_scene_prop') do
-      select @other.id.to_s, from: 'Prop'
+      # select ..., from: 'Prop' wasn't working on Semaphore.
+      find("[value='#{ @other.id }']").select_option
       fill_in 'Location',    with: 'bottom'
 
       click_button 'Create Scene prop'

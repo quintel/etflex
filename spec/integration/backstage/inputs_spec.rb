@@ -24,7 +24,6 @@ feature 'Administering inputs' do
     page.should have_css('h2', text: input.key)
 
     # ETengine ID and Key attributes should be disbaled.
-    page.should have_css('#input_remote_id[disabled=disabled]')
     page.should have_css('#input_key[disabled=disabled]')
 
     # Pre-populated form.

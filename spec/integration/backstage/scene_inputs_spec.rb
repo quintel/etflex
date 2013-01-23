@@ -75,7 +75,6 @@ feature 'Editing scene inputs' do
     page.should have_css('#scene_input_start', value: '')
 
     # ETengine ID and Key attributes should be disbaled.
-    page.should have_css('#scene_input_remote_id[disabled=disabled]')
     page.should have_css('#scene_input_key[disabled=disabled]')
 
     page.should_not have_css('#scene_input_unit')

@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-RAILS_VERSION = '~> 3.2.0'
+RAILS_VERSION = '~> 3.2.11'
 
 gem 'activesupport',  RAILS_VERSION, :require => 'active_support'
 gem 'actionpack',     RAILS_VERSION, :require => 'action_pack'
@@ -29,7 +29,7 @@ gem 'devise'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 2.1.4'
 gem 'jquery-ui-rails'
 
 gem 'i18n-js'
@@ -54,7 +54,8 @@ group :assets do
   # using Node since it all happens within the Ruby process; compilation with
   # Node fires up a new Node process for each source file, slowing things down
   # considerably in development..
-  gem 'therubyracer'
+  gem 'libv8',         '~> 3.3.10'
+  gem 'therubyracer',  '~> 0.10.2'
 
   # Temporary workaround for difficulties using Sass 3.2 on Pow:
   # https://github.com/37signals/pow/issues/316
@@ -72,6 +73,13 @@ group :production do
   gem 'unicorn'
 end
 
+group :development do
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'rb-fsevent'
+  gem 'growl_notify'
+end
+
 group :test, :development do
   # gem 'ruby-debug19', :require => 'ruby-debug'
 
@@ -84,11 +92,6 @@ group :test, :development do
   gem 'rspec-rails',  '~> 2.8'
   gem 'factory_girl_rails'
 
-  # Same with Guard.
-  gem 'guard'
-  gem 'guard-rspec'
-  gem 'rb-fsevent'
-  gem 'growl_notify'
 end
 
 group :test do
