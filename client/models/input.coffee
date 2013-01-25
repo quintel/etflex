@@ -16,8 +16,23 @@ class exports.Input extends Backbone.Model
 
     Parser.parse(formula)
 
-#
-#
+  # Handles persistance of the Input back to ETengine; delegates to the main
+  # collection instance of InputManager.
+  #
+  # See Backbone.sync.
+  #
+  sync: (method, model, options) ->
+    console.log 'Syncing'
+
+    unless @collection?
+      throw 'Cannot persist an input without a collection'
+
+    switch method
+      # when 'create' then false
+      when 'read'   then @collection.read   model, options
+      when 'create', 'update' then @collection.update model, options
+      when 'delete' then false
+
 #
 #
 # { InputDefinition } = require 'models/input_definition'
