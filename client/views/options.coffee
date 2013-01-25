@@ -7,12 +7,19 @@ class exports.OptionsView extends Backbone.View
     super
 
   renderInto: (destination) ->
-    # @updateOutput @model.get('value')
-
     @el = optionsTempl(key: @model.get('key'), options: @model.get('options'))
     destination.append @el
+
+    $("input[name='#{@model.get('key')}']").change _.bind(@updateModel, @)
 
     @updateOutput @model.get('value')
 
   updateOutput: (value) ->
     $("##{value}_option").attr('checked', true)
+
+  updateModel: (ev) ->
+    value = $(ev.target).val()
+
+    if @canChange then @model.set(value: value) else
+      @trigger 'notAuthorizedToChange'
+      false
