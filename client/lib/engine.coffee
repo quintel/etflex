@@ -27,7 +27,7 @@ app = require 'app'
 #
 exports.getSession = (scenario, queries, inputs, callback) ->
   queries = queries.models or queries
-  inputs  = inputs.models  or inputs
+  # inputs  = inputs.models  or inputs
 
   if existingId = scenario.get 'sessionId'
     # TODO

@@ -92,7 +92,7 @@ exports.updateInputs = (sessionId, options, callback) ->
   queries = queries?.models or queries
 
   # Map the input IDs and their values.
-  params.scenario.user_values = inputs or {}
+  params.scenario.user_values = inputs?.values() or {}
 
   # If there are any queries, tell ETEngine to give us those results.
   params.gqueries = ( query.get('id') for query in queries ) if queries?

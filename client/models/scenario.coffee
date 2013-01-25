@@ -46,8 +46,7 @@ class exports.Scenario extends Backbone.Model
       return callback(err) if err
 
       @scene   or= scene
-      #@inputs  or= new Inputs @scene.get('inputs')
-      @inputs  or= new InputManager @scene.get('inputs')
+      @inputs  or= InputManager.fromScene @scene
 
       @queries or= new Queries({ id: id } for id in @scene.dependantQueries())
       @queries.meta 'score_gquery', @scene.get('score_gquery')
@@ -58,18 +57,16 @@ class exports.Scenario extends Backbone.Model
       # Fetch the ETengine session. This may return instantaneously if we
       # already have all the data we need without having to send a request to
       # the Engine.
-      getSession this, @queries, @inputs.values(), (err, sessionId) =>
+      getSession this, @queries, @inputs, (err, sessionId) =>
         return callback(err) if err
 
         this.set { sessionId }
 
-        # TODO
         # Required so that changes to inputs can be sent back to the Engine.
-        # @inputs.persistTo this
+        @inputs.persistTo this
 
         # Watch for changes to the inputs and send them back to the Engine.
-        # TODO
-        # @inputs.on 'change:value', @onInputChange
+        @inputs.on 'change:value', @onInputChange
 
         # Changes to the scenario end year or country need to be saved back
         # to both ETflex and ETengine.

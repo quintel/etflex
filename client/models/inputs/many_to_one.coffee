@@ -10,7 +10,7 @@ class exports.ManyToOneInput extends Input
     values    = {}
 
     for dependant in @get('dependant')
-      value = @manager.inputs[dependant].get('value')
+      value = @collection.getKey(dependant).get('value')
       variables[dependant] = value
 
     values[engine_key] = @formula_function(formula).evaluate(variables)

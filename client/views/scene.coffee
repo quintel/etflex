@@ -183,28 +183,24 @@ class exports.SceneView extends Backbone.View
     canChange      = @scenario.canChange(app.user)
     inputLocations = @inputContainers()
 
-    for location in @scenario.inputs.locations.models
+    for input in @scenario.inputs.models
+      console.log input
       # If the input location doesn't exist in the template, the input will
       # not rendered. This is intentional so that "hidden" inputs don't raise
       # errors.
-      into = inputLocations[ location.get 'position' ]
+      into = inputLocations[ input.get 'position' ]
       continue unless into
 
-      console.log into
+      display = input.get 'display'
 
-      for group in location.groups().models
-        console.log group.get 'key'
-        for input in group.inputs().models
-          display = input.get 'display'
+      if display == "slider"
+        rangeView = new RangeView model: input, canChange: canChange
+        rangeView.bind 'notAuthorizedToChange', @showNotAuthorizedModal
+        rangeView.renderInto into
 
-          if display == "slider"
-            rangeView = new RangeView model: input, canChange: canChange
-            rangeView.bind 'notAuthorizedToChange', @showNotAuthorizedModal
-            rangeView.renderInto into
-
-          else
-            optionsView = new OptionsView model: input, canChange: canChange
-            optionsView.renderInto into
+      else
+        optionsView = new OptionsView model: input, canChange: canChange
+        optionsView.renderInto into
     # for input in @scenario.inputs.models
     #   rangeView = new RangeView model: input, canChange: canChange
 
