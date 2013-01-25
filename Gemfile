@@ -91,7 +91,6 @@ group :test, :development do
   # the spec:* tasks won't be available when using rake.
   gem 'rspec-rails',  '~> 2.8'
   gem 'factory_girl_rails'
-
 end
 
 group :test do
