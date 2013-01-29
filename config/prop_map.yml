@@ -13,6 +13,9 @@ icon:                [ icon,                       IconProp ]
 renewables:          [ renewables,                 RenewablesView ]
 supply-demand:       [ supply_demand,              SupplyDemandView ]
 
+investment:          [ investment,                 InvestmentView ]
+energy-bill:         [ energy_bill,                EnergyBillView ]
+
 # Header Props.
 
 car:                 [ headers/car,                 CarProp ]

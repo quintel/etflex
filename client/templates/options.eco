@@ -1,9 +1,11 @@
-<h2><%= @key %></h2>
+<h3><%= I18n.t "inputs.#{@key}" %></h3>
 <ul>
   <% for option in @options: %>
     <li>
       <input type="radio" name="<%= @key %>" id="<%= option.key %>_option" value="<%= option.key %>">
-      <label for="<%= option.key %>_option"><%= option.key %></label>
+      <label for="<%= option.key %>_option">
+        <%= I18n.t "inputs.#{@key}_options.#{option.key}" %>
+      </label>
     </li>
   <% end %>
 </ul>

@@ -13,6 +13,8 @@ module.exports =
   'icon': { path: 'icon', klass: 'IconProp' }
   'renewables': { path: 'renewables', klass: 'RenewablesView' }
   'supply-demand': { path: 'supply_demand', klass: 'SupplyDemandView' }
+  'investment': { path: 'investment', klass: 'InvestmentView' }
+  'energy-bill': { path: 'energy_bill', klass: 'EnergyBillView' }
   'car': { path: 'headers/car', klass: 'CarProp' }
   'city': { path: 'headers/city', klass: 'CityProp' }
   'eco-buildings': { path: 'headers/eco_buildings', klass: 'EcoBuildingsProp' }
