@@ -3,6 +3,7 @@ app                  = require 'app'
 template             = require 'templates/scene'
 badgeTempl           = require 'templates/badge'
 
+{ GroupView }        = require 'views/group'
 { RangeView }        = require 'views/range'
 { OptionsView }      = require 'views/options'
 { SceneNav }         = require 'views/scene_nav'
@@ -183,13 +184,19 @@ class exports.SceneView extends Backbone.View
     canChange      = @scenario.canChange(app.user)
     inputLocations = @inputContainers()
 
+    lastGroup = ""
     for input in @scenario.inputs.models
-      console.log input
       # If the input location doesn't exist in the template, the input will
       # not rendered. This is intentional so that "hidden" inputs don't raise
       # errors.
       into = inputLocations[ input.get 'position' ]
       continue unless into
+
+      if lastGroup != input.get 'group'
+        groupView = new GroupView model: input.get 'group'
+        groupView.renderInto into
+
+        lastGroup = input.get 'group'
 
       display = input.get 'display'
 
