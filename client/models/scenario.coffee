@@ -65,6 +65,9 @@ class exports.Scenario extends Backbone.Model
         # Required so that changes to inputs can be sent back to the Engine.
         @inputs.persistTo this
 
+        # Load the input values into the manager
+        @inputs.setValues @get('inputValues')
+
         # Watch for changes to the inputs and send them back to the Engine.
         @inputs.on 'change:value', @onInputChange
 
@@ -79,8 +82,7 @@ class exports.Scenario extends Backbone.Model
         callback null, scene, this
 
         # New scenarios need to be saved back to the ETflex server.
-        # TODO
-        # @inputs.trigger 'updateInputsDone' if isNewScenario
+        @inputs.trigger 'updateInputsDone' if isNewScenario
 
   # Cleans up when the scenario is no longer beign displayed to the user.
   stop: ->
@@ -92,11 +94,14 @@ class exports.Scenario extends Backbone.Model
   # Returns if any of the inputs have been moved by the user.
   isDefault: ->
     # Ignore differences in hidden inputs used purely for balancing.
-    originals = _.filter @scene.get('inputs'), (orig) ->
-      orig.location isnt '$internal'
+    # TODO
+    # originals = _.filter @scene.get('inputs'), (orig) ->
+    #   orig.location isnt '$internal'
+    originals = @inputs.models
 
-    not _.any originals, (original) =>
-      original.start isnt @inputs.get(original.key).get('value')
+    not _.any @inputs.models, (input) =>
+      input.get('start') isnt input.get('value')
+      #original.start isnt @inputs.getKey(original.key).get('value')
 
   # Given an inputs and queries collection, sets up events to track changes so
   # that we can persist the values back to ETflex.
@@ -156,7 +161,9 @@ class exports.Scenario extends Backbone.Model
     return false unless localInputs
     return false unless localQueries
 
-    inputIds  = ( input.def.id for input in inputs )
+    scenarioValues = @inputs.rawValues()
+
+    inputIds  = Object.keys scenarioValues #( input.def.id for input in inputs )
     queryIds  = ( query.id for query in queries )
 
     _.difference(inputIds, _.keys(localInputs)).length is 0 and
