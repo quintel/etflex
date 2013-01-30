@@ -17,14 +17,20 @@ class exports.OneToOneInput extends Input
           variables[key] = value
 
           # Execute formula
-          values[engine_key] = @formula_function(formula).evaluate(variables)
+          values[engine_key] = @formulaFunction(formula).evaluate(variables)
 
         else
           values[engine_key] = value
 
       when 'radio'
-        option = @option_for_key @get('value')
+        option = @optionForKey @get('value')
         values = option.effects
+
+    values
+    
+  rawValues: ->
+    values = {}
+    values[@get('key')] = @get('value')
 
     values
 

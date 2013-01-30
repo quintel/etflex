@@ -13,8 +13,9 @@ class exports.ManyToOneInput extends Input
       value = @collection.getKey(dependant).get('value')
       variables[dependant] = value
 
-    values[engine_key] = @formula_function(formula).evaluate(variables)
+    values[engine_key] = @formulaFunction(formula).evaluate(variables)
 
     values
 
-
+  rawValues: ->
+    {}
