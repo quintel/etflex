@@ -74,8 +74,7 @@ class exports.Scenario extends Backbone.Model
 
         # Returns input value and query information to ETflex when results
         # are received from ETengine.
-        # TODO
-        # @inputs.on 'updateInputsDone', @onEngineResponse
+        @inputs.on 'updateInputsDone', @onEngineResponse
 
         callback null, scene, this
 
@@ -104,18 +103,18 @@ class exports.Scenario extends Backbone.Model
   #
   updateCollections: ({ queries, inputs }) ->
     queryResults = {}
-    inputValues  = {}
+    inputValues  = inputs?.rawValues() or {}
 
     if queries?.length
       for query in queries.models
         queryResults[ query.id ] = query.get('future')
 
       @set { queryResults }
-
-    if inputs?.length
-      for input in inputs.models
-        inputValues[ input.id ] = input.get('value')
-
+#
+#     if inputs?.length
+#       for input in inputs.models
+#         inputValues[ input.id ] = input.get('value')
+#
       @set { inputValues }
 
     @save()

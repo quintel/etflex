@@ -2,7 +2,11 @@
 
 class exports.OneToManyInput extends Input
   values: ->
-    option = @option_for_key @get('value')
+    option = @optionForKey @get('value')
     option.effects
 
+  rawValues: ->
+    values = {}
+    values[@get('key')] = @get('value')
 
+    values

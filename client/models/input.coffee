@@ -5,11 +5,11 @@ class exports.Input extends Backbone.Model
     @manager = manager
     @set 'value', @get('start') if !@get('value')
 
-  option_for_key: (key) ->
+  optionForKey: (key) ->
     _.find @get('options'), (option) ->
       option.key == key
 
-  formula_function: (formula) ->
+  formulaFunction: (formula) ->
     # Replace ** by ^ as this is friendlier to the library that
     # we are using
     formula = formula.replace '**', '^'
