@@ -1,19 +1,10 @@
-{ DashboardProp } = require 'views/props/dashboard'
+{ IconDashboardProp } = require 'views/props/dashboard'
 
-class exports.EnergyBillView extends DashboardProp
+class exports.EnergyBillView extends IconDashboardProp
 
-  className: 'energy_bill'
+  className: 'energy-bill'
+  lowerBetter: true
 
   queries: [ 'etflex_households_monthly_energy_bill' ]
 
   name: I18n.t 'scenes.etlite.energy_bill'
-
-  constructor: (options) ->
-    super options
-
-  render: ->
-    super =>
-      @$el.prepend """
-        <div class='icon-prop'>
-        </div>"""
-

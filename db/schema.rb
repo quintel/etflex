@@ -11,21 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121210145032) do
+ActiveRecord::Schema.define(:version => 20130103181532) do
 
   create_table "inputs", :force => true do |t|
-    t.integer "remote_id",                    :null => false
-    t.string  "key",                          :null => false
-    t.float   "step",      :default => 1.0,   :null => false
-    t.float   "min",       :default => 0.0,   :null => false
-    t.float   "max",       :default => 100.0, :null => false
-    t.float   "start",     :default => 0.0,   :null => false
-    t.string  "unit"
-    t.string  "group"
+    t.string "key",                      :null => false
+    t.float  "step",  :default => 1.0,   :null => false
+    t.float  "min",   :default => 0.0,   :null => false
+    t.float  "max",   :default => 100.0, :null => false
+    t.float  "start", :default => 0.0,   :null => false
+    t.string "unit"
+    t.string "group"
   end
 
   add_index "inputs", ["group"], :name => "index_inputs_on_group"
-  add_index "inputs", ["remote_id"], :name => "index_inputs_on_remote_id", :unique => true
 
   create_table "props", :force => true do |t|
     t.string "key",       :limit => 100, :null => false
