@@ -1,6 +1,11 @@
 ---
 nl:
   groups:
-    household_demand: "Vraag van de gezinnen"
-    daily_shower: "Dagelijkse douche"
+    household_demand: "Vraag naar energie"
+    daily_shower: "Douchen"
+    insulation: "Isolatie"
+    heating_technology: "Verwarming"
+    lighting: "Verlichting"
+    air_conditioning: "Air conditioning"
+    solar_panels: "Zonnepanelen"
 
