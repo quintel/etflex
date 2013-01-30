@@ -1,5 +1,10 @@
 ---
 en:
   groups:
-    household_demand: "Household demand"
-    daily_shower: "Daily shower"
+    household_demand: "Demand for energy"
+    daily_shower: "Showering"
+    insulation: "Insulation"
+    heating_technology: "Space Heating"
+    lighting: "Lighting"
+    air_conditioning: "Air conditioning"
+    solar_panels: "Solar panels"
