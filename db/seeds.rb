@@ -14,22 +14,12 @@ unless $stdin.gets.chomp =~ /^y(es)?$/
   exit 0
 end
 
-Input.delete_all
 Prop.delete_all
 Scene.delete_all
-SceneInput.delete_all
 SceneProp.delete_all
 User.delete_all
 
-# INPUTS ---------------------------------------------------------------------
-
-puts 'Importing inputs...'
-
-YAML.load_file(Rails.root.join('db/seeds/inputs.yml')).each do |data|
-  Input.create!(data)
-end
-
-# INPUTS ---------------------------------------------------------------------
+# PROPS ----------------------------------------------------------------------
 
 puts 'Importing props...'
 
@@ -44,25 +34,11 @@ puts 'Importing scenes...'
 Scene.connection.execute('ALTER TABLE scenes AUTO_INCREMENT = 1;')
 
 YAML.load_file(Rails.root.join('db/seeds/scenes.yml')).each do |data|
-  scene  = Scene.create name: data['name']
-  inputs = data.delete('inputs') || {}
   props  = data.delete('props')  || {}
 
-  # Inputs.
-
-  inputs.each do |(location, ids)|
-    ids.each do |(key, data)|
-      data = data.symbolize_keys
-
-      scene.scene_inputs.build((data || {}).merge(
-        location: location,
-        input_id: Input.where(key: key).first.id
-      ))
-    end
-  end
+  scene  = Scene.create data
 
   # Props.
-
   props.each do |(location, keys)|
     keys.each_with_index do |behaviour, index|
       scene.scene_props.build.tap do |prop|

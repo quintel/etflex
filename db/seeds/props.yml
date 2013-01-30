@@ -15,3 +15,7 @@
 - behaviour: 'ground'
 - behaviour: 'solar-heater'
 - behaviour: 'turbines'
+
+# House theme props
+- behaviour: 'investment'
+- behaviour: 'energy-bill'
