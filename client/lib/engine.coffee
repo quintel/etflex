@@ -30,8 +30,7 @@ exports.getSession = (scenario, queries, inputs, callback) ->
   # inputs  = inputs.models  or inputs
 
   if existingId = scenario.get 'sessionId'
-    # TODO
-    if false #scenario.canStartLocally queries, inputs
+    if scenario.canStartLocally queries, inputs
       localRestore scenario, queries, inputs, callback
     else
       restoreSession existingId, queries, inputs, callback
@@ -48,8 +47,10 @@ fetchSession = (sessionId, queries, callback) ->
 
 # Requests input_data.json to get the state of the user's Inputs.
 fetchUserValues = (sessionId, inputs, callback) ->
-  keys = ( input.id for input in inputs ).join(',')
-  api.send 'get', "#{sessionId}/inputs/#{ keys }", callback
+  # TODO
+  callback()
+  # keys = ( input.id for input in inputs ).join(',')
+  # api.send 'get', "#{sessionId}/inputs/#{ keys }", callback
 
 # Used to create a new session, pre-initialized with values from ETengine.
 createSession = (queries, inputs, scenario, callback) ->
@@ -104,7 +105,9 @@ localRestore = (scenario, queries, inputs, callback) ->
   localInputs  = scenario.get 'inputValues'
   localQueries = scenario.get 'queryResults'
 
-  input.set(value: localInputs[input.def.id.toString()]) for input in inputs
+  # TODO
+  inputs.setValue key, value for key, value in localInputs
+  # input.set(value: localInputs[input.def.id.toString()]) for input in inputs
   query.set(future: localQueries[query.id]) for query in queries
 
   callback null, scenario.get('sessionId')

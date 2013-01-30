@@ -54,6 +54,13 @@ class exports.InputManager extends Backbone.Collection
       _.extend rawValues, input.rawValues()
     rawValues
 
+  setValue: (key, value) ->
+    input = @getKey key
+    input.set value: value
+
+  setValues: (values) ->
+    @setValue key, value for key, value of values
+
   persistTo: (scenario) ->
     if ! (@sessionId = scenario.get 'sessionId')
       throw 'Cannot persist inputs to a scenario which has no sessionId'
