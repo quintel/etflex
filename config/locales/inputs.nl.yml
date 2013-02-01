@@ -4,7 +4,7 @@ nl:
     new: "Nieuwe input"
     households_hot_water_micro_chp_share: "Micro-WKK"
     households_heating_heat_pump_ground_share: "Warmtepomp"
-    households_heating_heat_pump_add_on_share: "Warmtepomp" 
+    households_heating_heat_pump_add_on_share: "Warmtepomp"
     households_hot_water_solar_water_heater_share: "Zonneboiler"
     households_insulation_level_old_houses: "Betere isolatie"
     households_hot_water_fuel_cell_share: "Brandstofcel"
@@ -23,18 +23,18 @@ nl:
     amount_of_insulation: "Hoe goed isoleer je je huis?"
     households_heating_solar_thermal_panels_share: "Zonthermische panelen"
     household_heating_technology: ""
-      household_heating_technology_options:
-        combi_boiler: "HR combi-ketel"
-        micro_chp: "Micro-WKK"
-        heatpump_ground: "Warmtepomp met bodemsonde"
-    household_lighting_types: ""  
-      household_lighting_type_options:
-        incandescent_lighting: "Gloeilampen"
-        fluorescent_lighting: "Spaarlampen"
-        led_lighting: "LED-lampen"
+    household_heating_technology_options:
+      combi_boiler: "HR combi-ketel"
+      micro_chp: "Micro-WKK"
+      heatpump_ground: "Warmtepomp met bodemsonde"
+    household_lighting_type: ""
+    household_lighting_type_options:
+      incandescent_lighting: "Gloeilampen"
+      fluorescent_lighting: "Spaarlampen"
+      led_lighting: "LED-lampen"
     use_of_air_conditioning: ""
-      use_of_air_conditioning_options:
-        no_cooling: "Geen airco"
-        one_room_cooling: "In één kamer"
-        whole_house_cooling: "Het hele huis"
+    use_of_air_conditioning_options:
+      no_cooling: "Geen airco"
+      one_room_cooling: "In één kamer"
+      whole_house_cooling: "Het hele huis"
 

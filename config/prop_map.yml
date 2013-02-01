@@ -15,6 +15,7 @@ supply-demand:       [ supply_demand,              SupplyDemandView ]
 
 investment:          [ investment,                 InvestmentView ]
 energy-bill:         [ energy_bill,                EnergyBillView ]
+co2-emissions-household: [co2_emissions_household, CO2EmissionsHouseholdView ]
 
 # Header Props.
 

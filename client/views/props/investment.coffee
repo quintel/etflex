@@ -6,5 +6,7 @@ class exports.InvestmentView extends IconDashboardProp
   lowerBetter: true
 
   queries: [ 'etflex_households_investment_per_household' ]
+  hurdles: [ 2900, 9600, 16300, 23000 ]
+  states:  [ 'very-low', 'low', 'medium', 'high', 'very-high' ]
 
   name: I18n.t 'scenes.etlite.investment'
