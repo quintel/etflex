@@ -15,6 +15,7 @@ module.exports =
   'supply-demand': { path: 'supply_demand', klass: 'SupplyDemandView' }
   'investment': { path: 'investment', klass: 'InvestmentView' }
   'energy-bill': { path: 'energy_bill', klass: 'EnergyBillView' }
+  'co2-emissions-household': { path: 'co2_emissions_household', klass: 'CO2EmissionsHouseholdView' }
   'car': { path: 'headers/car', klass: 'CarProp' }
   'city': { path: 'headers/city', klass: 'CityProp' }
   'eco-buildings': { path: 'headers/eco_buildings', klass: 'EcoBuildingsProp' }

@@ -4,7 +4,7 @@ en:
     new: "New input"
     households_behavior_standby_killer_turn_off_appliances: "Switch off appliances"
     households_heating_heat_pump_ground_share: "Heat pump for the home"
-    households_heating_heat_pump_add_on_share: "Heat pump for the home" 
+    households_heating_heat_pump_add_on_share: "Heat pump for the home"
     households_hot_water_micro_chp_share: "Micro-CHP for hot water"
     households_hot_water_solar_water_heater_share: "Solar water heater"
     households_hot_water_fuel_cell_share: "Fuel cell for hot water"
@@ -25,18 +25,18 @@ en:
     amount_of_insulation: "Amount of insulation"
     households_heating_solar_thermal_panels_share: "Solar thermal panels"
     household_heating_technology: ""
-      household_heating_technology_options:
-        combi_boiler: "Gas fired combi-boiler"
-        micro_chp: "gas fired Micro-CHP"
-        heatpump_ground: "Ground heatpump"
-    household_lighting_types: ""  
-      household_lighting_type_options:
-        incandescent_lighting: "Incandescen lighting"
-        fluorescent_lighting: "Fluorescent lighting"
-        led_lighting: "LED lighting"
+    household_heating_technology_options:
+      combi_boiler: "Gas fired combi-boiler"
+      micro_chp: "Gas fired Micro-CHP"
+      heatpump_ground: "Ground heatpump"
+    household_lighting_type: ""
+    household_lighting_type_options:
+      incandescent_lighting: "Incandescen lighting"
+      fluorescent_lighting: "Fluorescent lighting"
+      led_lighting: "LED lighting"
     use_of_air_conditioning: ""
-      use_of_air_conditioning_options:
-        no_cooling: "No airco"
-        one_room_cooling: "Only in one room"
-        whole_house_cooling: "The whole house"
+    use_of_air_conditioning_options:
+      no_cooling: "No airco"
+      one_room_cooling: "Only in one room"
+      whole_house_cooling: "The whole house"
 

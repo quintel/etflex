@@ -28,6 +28,6 @@
     header:
       - ground
     bottom:
-      - co2-emissions
+      - co2-emissions-household
       - investment
       - energy-bill

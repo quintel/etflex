@@ -19,3 +19,4 @@
 # House theme props
 - behaviour: 'investment'
 - behaviour: 'energy-bill'
+- behaviour: 'co2-emissions-household'
