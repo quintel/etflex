@@ -8,7 +8,7 @@ class exports.CO2EmissionsHouseholdView extends IconDashboardProp
   # Queries and hurdle values.
 
   queries: [ 'etflex_households_co2_emissions_per_household' ]
-  hurdles: [ 0.7, 1.6, 2.5, 3.4 ]
+  hurdles: [ 0.75, 1.6, 2.5, 3.4 ]
   states:  [ 'very-low', 'low', 'medium', 'high', 'very-high' ]
 
   # Display settings.
