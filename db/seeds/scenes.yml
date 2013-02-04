@@ -29,6 +29,7 @@
       - ground
       - solar-thermal-panels
       - solar-panels
+      - hot-water
     bottom:
       - co2-emissions-household
       - investment

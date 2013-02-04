@@ -24,3 +24,4 @@
 # House theme headerprops
 - behaviour: 'solar-thermal-panels'
 - behaviour: 'solar-panels'
+- behaviour: 'hot-water'
