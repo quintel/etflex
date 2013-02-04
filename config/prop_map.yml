@@ -26,4 +26,6 @@ energy-sources:      [ headers/energy_sources,      EnergySourcesProp ]
 geothermal-pipeline: [ headers/geothermal_pipeline, GeothermalPipelineProp ]
 ground:              [ headers/ground,              GroundProp ]
 solar-heater:        [ headers/solar_heater,        SolarHeaterProp ]
-turbines:            [ headers/turbines,            TurbinesProp ]
+turbines:            [ headers/turbines,              TurbinesProp ]
+
+solar-thermal-panels: [ headers/solar_thermal_panels, SolarThermalPanelsProp ]

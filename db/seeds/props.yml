@@ -20,3 +20,6 @@
 - behaviour: 'investment'
 - behaviour: 'energy-bill'
 - behaviour: 'co2-emissions-household'
+
+# House theme headerprops
+- behaviour: 'solar-thermal-panels'
