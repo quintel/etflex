@@ -34,3 +34,19 @@
 
       .icon.green
         background-position: top top
+
+
+    .house
+      @include house-prop(house, 501px, 513px, 725px, 0px)
+      z-index: 5
+
+    .solar-thermal_panels
+      @include house-prop-dyn(solarthermal, 143px, 59px, 885px, 0px)
+      z-index: 6
+
+      .icon.none
+        background-position: -286px 0
+      .icon.low
+        background-position: left 0
+      .icon.high
+        background-position: -143px 0

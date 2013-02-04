@@ -24,3 +24,4 @@ module.exports =
   'ground': { path: 'headers/ground', klass: 'GroundProp' }
   'solar-heater': { path: 'headers/solar_heater', klass: 'SolarHeaterProp' }
   'turbines': { path: 'headers/turbines', klass: 'TurbinesProp' }
+  'solar-thermal-panels': { path: 'headers/solar_thermal_panels', klass: 'SolarThermalPanelsProp' }

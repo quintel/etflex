@@ -27,6 +27,7 @@
   props:
     header:
       - ground
+      - solar-thermal-panels
     bottom:
       - co2-emissions-household
       - investment
