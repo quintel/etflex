@@ -25,3 +25,4 @@ module.exports =
   'solar-heater': { path: 'headers/solar_heater', klass: 'SolarHeaterProp' }
   'turbines': { path: 'headers/turbines', klass: 'TurbinesProp' }
   'solar-thermal-panels': { path: 'headers/solar_thermal_panels', klass: 'SolarThermalPanelsProp' }
+  'solar-panels': { path: 'headers/solar_panels', klass: 'SolarPanelsProp' }

@@ -28,6 +28,7 @@
     header:
       - ground
       - solar-thermal-panels
+      - solar-panels
     bottom:
       - co2-emissions-household
       - investment
