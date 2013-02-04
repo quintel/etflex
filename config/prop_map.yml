@@ -29,3 +29,4 @@ solar-heater:        [ headers/solar_heater,        SolarHeaterProp ]
 turbines:            [ headers/turbines,              TurbinesProp ]
 
 solar-thermal-panels: [ headers/solar_thermal_panels, SolarThermalPanelsProp ]
+solar-panels:         [ headers/solar_panels, SolarPanelsProp ]
