@@ -30,6 +30,7 @@
       - solar-thermal-panels
       - solar-panels
       - hot-water
+      - lighting
     bottom:
       - co2-emissions-household
       - investment

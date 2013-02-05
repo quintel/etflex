@@ -27,3 +27,4 @@ module.exports =
   'solar-thermal-panels': { path: 'headers/solar_thermal_panels', klass: 'SolarThermalPanelsProp' }
   'solar-panels': { path: 'headers/solar_panels', klass: 'SolarPanelsProp' }
   'hot-water': { path: 'headers/hot_water', klass: 'HotWaterProp' }
+  'lighting': { path: 'headers/lighting', klass: 'LightingProp' }
