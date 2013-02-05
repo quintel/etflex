@@ -31,6 +31,7 @@
       - solar-panels
       - hot-water
       - lighting
+      - insulation
     bottom:
       - co2-emissions-household
       - investment

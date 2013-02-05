@@ -28,3 +28,4 @@ module.exports =
   'solar-panels': { path: 'headers/solar_panels', klass: 'SolarPanelsProp' }
   'hot-water': { path: 'headers/hot_water', klass: 'HotWaterProp' }
   'lighting': { path: 'headers/lighting', klass: 'LightingProp' }
+  'insulation': { path: 'headers/insulation', klass: 'InsulationProp' }
