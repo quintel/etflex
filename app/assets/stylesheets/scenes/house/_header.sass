@@ -73,3 +73,13 @@
       .icon.high
         background-position: -117px 0
 
+    .lighting
+      @include house-prop-dyn(lighting, 260px, 219px, 874px, 153px)
+      z-index: 6
+
+      .icon.incandescent_lighting
+        background-position: left 0
+      .icon.fluorescent_lighting
+        background-position: -260px 0
+      .icon.led_lighting
+        background-position: -520px 0
