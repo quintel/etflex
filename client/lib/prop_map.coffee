@@ -29,3 +29,4 @@ module.exports =
   'hot-water': { path: 'headers/hot_water', klass: 'HotWaterProp' }
   'lighting': { path: 'headers/lighting', klass: 'LightingProp' }
   'insulation': { path: 'headers/insulation', klass: 'InsulationProp' }
+  'aircon': { path: 'headers/aircon', klass: 'AirconProp' }

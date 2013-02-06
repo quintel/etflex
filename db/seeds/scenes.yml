@@ -32,6 +32,7 @@
       - hot-water
       - lighting
       - insulation
+      - aircon
     bottom:
       - co2-emissions-household
       - investment

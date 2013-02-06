@@ -27,3 +27,4 @@
 - behaviour: 'hot-water'
 - behaviour: 'lighting'
 - behaviour: 'insulation'
+- behaviour: 'aircon'
