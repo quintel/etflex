@@ -13,9 +13,9 @@ options:
   -
     key: micro_chp
     effects:
-      households_heating_gas_combi_heater_share: 0
+      households_heating_gas_combi_heater_share: 50
       households_heating_heat_pump_ground_share: 0
-      households_heating_micro_chp_share: 60
+      households_heating_micro_chp_share: 50
 
   -
     key: heatpump_ground
