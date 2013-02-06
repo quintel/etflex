@@ -28,3 +28,4 @@
 - behaviour: 'lighting'
 - behaviour: 'insulation'
 - behaviour: 'aircon'
+- behaviour: 'space-heating'
