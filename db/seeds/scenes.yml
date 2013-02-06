@@ -33,6 +33,7 @@
       - lighting
       - insulation
       - aircon
+      - space-heating
     bottom:
       - co2-emissions-household
       - investment
