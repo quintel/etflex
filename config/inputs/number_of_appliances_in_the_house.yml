@@ -3,6 +3,6 @@ engine_key: households_electricity_demand_per_person
 display: slider
 min: -2.0
 max: 2.0
-step: 0.5
+step: 0.2
 start: 0
 unit: percentage
