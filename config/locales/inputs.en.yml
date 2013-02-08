@@ -31,7 +31,7 @@ en:
       heatpump_ground: "Ground heatpump"
     household_lighting_type: ""
     household_lighting_type_options:
-      incandescent_lighting: "Incandescen lighting"
+      incandescent_lighting: "Incandescent lighting"
       fluorescent_lighting: "Fluorescent lighting"
       led_lighting: "LED lighting"
     use_of_air_conditioning: ""
