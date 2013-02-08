@@ -124,3 +124,26 @@
         background-position: 0 -227px
       .icon.heatpump_ground
         background-position: 0 -454px
+
+    .appliances
+      @include house-prop-dyn(appliances, 224px, 256px, 876px, 207px)
+      z-index: 6
+
+      .icon.none
+        background-position: 0 0
+      .icon.extremely_low
+        background-position: 0 -256px
+      .icon.very_low
+        background-position: 0 -512px
+      .icon.low
+        background-position: 0 -768px
+      .icon.medium
+        background-position: 0 -1024px
+      .icon.high
+        background-position: 0 -1280px
+      .icon.very_high
+        background-position: 0 -1536px
+      .icon.extremely_high
+        background-position: 0 -1792px
+      .icon.all
+        background-position: 0 -2048px
