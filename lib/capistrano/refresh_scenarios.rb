@@ -9,12 +9,17 @@ namespace :etflex do
   DESC
 
   task :refresh_scenarios, roles: :app, except: { no_release: true } do
-    since = days = ''
+    vars = {
+      'DAYS'      => ENV['DAYS'],
+      'SINCE'     => ENV['SINCE'],
+      'RAILS_ENV' => rails_env
+    }
 
-    days  = "DAYS='#{ ENV['DAYS'] }' "   if ENV['DAYS']
-    since = "SINCE='#{ ENV['SINCE'] }' " if ENV['SINCE']
+    vars = vars.reject { |_, value| value.nil? }.map do |key, value|
+      "#{ key }='#{ value }'"
+    end.join(' ')
 
     run("cd #{ current_path } && " +
-      "#{ days }#{ since }bundle exec rake etflex:refresh_scenarios")
+      "#{ vars } bundle exec rake etflex:refresh_scenarios")
   end
 end
