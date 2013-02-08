@@ -5,6 +5,7 @@ load 'deploy/assets'
 
 load 'lib/capistrano/airbrake'
 load 'lib/capistrano/link_config'
+load 'lib/capistrano/refresh_scenarios'
 load 'lib/capistrano/unicorn'
 load 'lib/capistrano/database'
 
