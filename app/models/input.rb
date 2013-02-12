@@ -67,7 +67,7 @@ class Input
 
   private
     def self.load_definition type, key
-      path = Rails.root.join('config', type, "#{key}.yml")
+      path = Dir[Rails.root.join('config', type, '**', "#{key}.yml")][0]
       YAML.load_file(path)
     end
 end
