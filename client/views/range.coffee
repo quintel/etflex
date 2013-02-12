@@ -43,9 +43,9 @@ class exports.RangeView extends Backbone.View
     unit = switch @model.get('unit')
       when 'km2'        then " km<sup>2</sup>"
       when 'percentage' then "%"
-      when 'degrees'    then '°'
+      when 'degrees'    then '°C'
       when 'minutes'    then 'min'
-      when 'number'     then ''
+      when 'number'     then '#'
       else              @model.get('unit')
 
     @$el.html rangeTemplate
