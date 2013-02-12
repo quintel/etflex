@@ -30,3 +30,4 @@
 - behaviour: 'aircon'
 - behaviour: 'space-heating'
 - behaviour: 'appliances'
+- behaviour: 'energy-use'

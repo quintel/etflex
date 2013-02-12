@@ -16,7 +16,7 @@ supply-demand:       [ supply_demand,              SupplyDemandView ]
 investment:          [ investment,                 InvestmentView ]
 energy-bill:         [ energy_bill,                EnergyBillView ]
 co2-emissions-household: [co2_emissions_household, CO2EmissionsHouseholdView ]
-
+energy-use:           [ energy_use, EnergyUseView ]
 # Header Props.
 
 car:                 [ headers/car,                 CarProp ]
@@ -36,3 +36,4 @@ insulation:           [ headers/insulation, InsulationProp ]
 aircon:               [ headers/aircon, AirconProp ]
 space-heating:        [ headers/space_heating, SpaceHeatingProp ]
 appliances:           [ headers/appliances, AppliancesProp ]
+
