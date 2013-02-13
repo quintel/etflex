@@ -23,7 +23,7 @@
 
 - name: 'House'
   name_key: house
-  score_gquery: house_score
+  score_gquery: etflex_households_score
   props:
     header:
       - ground
@@ -38,5 +38,6 @@
     bottom:
       - co2-emissions-household
       - investment
+      - score
       - energy-bill
       - energy-use
