@@ -17,6 +17,7 @@ investment:          [ investment,                 InvestmentView ]
 energy-bill:         [ energy_bill,                EnergyBillView ]
 co2-emissions-household: [co2_emissions_household, CO2EmissionsHouseholdView ]
 energy-use:           [ energy_use, EnergyUseView ]
+sustainable-energy:  [ sustainable_energy, SustainableEnergyView ]
 # Header Props.
 
 car:                 [ headers/car,                 CarProp ]

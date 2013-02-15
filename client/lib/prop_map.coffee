@@ -17,6 +17,7 @@ module.exports =
   'energy-bill': { path: 'energy_bill', klass: 'EnergyBillView' }
   'co2-emissions-household': { path: 'co2_emissions_household', klass: 'CO2EmissionsHouseholdView' }
   'energy-use': { path: 'energy_use', klass: 'EnergyUseView' }
+  'sustainable-energy': { path: 'sustainable_energy', klass: 'SustainableEnergyView' }
   'car': { path: 'headers/car', klass: 'CarProp' }
   'city': { path: 'headers/city', klass: 'CityProp' }
   'eco-buildings': { path: 'headers/eco_buildings', klass: 'EcoBuildingsProp' }
