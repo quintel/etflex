@@ -1,0 +1,8 @@
+type: one_to_one
+engine_key: number_of_coal_conventional
+display: slider
+min: 0.0
+max: 45.7588
+step: 1.0
+start: 0
+unit: number

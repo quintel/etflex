@@ -1,0 +1,8 @@
+type: one_to_one
+engine_key: households_behavior_standby_killer_turn_off_appliances
+display: slider
+min: 0.0
+max: 100.0
+step: 1.0
+start: 0.0
+unit: percentage
