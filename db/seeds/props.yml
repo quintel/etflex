@@ -20,6 +20,7 @@
 - behaviour: 'investment'
 - behaviour: 'energy-bill'
 - behaviour: 'co2-emissions-household'
+- behaviour: 'sustainable-energy'
 
 # House theme headerprops
 - behaviour: 'grass'
