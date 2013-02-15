@@ -3,6 +3,6 @@ engine_key: green_gas_total_share
 display: slider
 min: 0.0
 max: 10.0
-step: 1.0
+step: 0.1
 start: 0.0602654
 unit: percentage
