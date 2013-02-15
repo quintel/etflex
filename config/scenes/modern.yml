@@ -1,0 +1,26 @@
+inputs:
+  left:
+    demand:
+      - households_insulation_level_old_houses
+      - households_lighting_light_emitting_diode_share
+      - transport_cars_electric_share
+      - households_hot_water_fuel_cell_share
+      - households_heating_heat_pump_ground_share
+      - households_hot_water_solar_water_heater_share
+
+  right:
+    supply:
+      - number_of_pulverized_coal
+      - number_of_gas_ccgt
+      - number_of_nuclear_3rd_gen
+      - number_of_wind_offshore
+      - households_market_penetration_solar_panels
+      - green_gas_total_share
+
+  hidden:
+    hidden:
+      - number_of_coal_conventional
+      - households_behavior_standby_killer_turn_off_appliances
+      - number_of_gas_conventional
+      - households_hot_water_micro_chp_share
+      - number_of_wind_onshore_land

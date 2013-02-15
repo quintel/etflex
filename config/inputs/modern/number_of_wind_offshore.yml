@@ -1,0 +1,8 @@
+type: one_to_one
+engine_key: number_of_wind_offshore
+display: slider
+min: 0.0
+max: 18335
+step: 100.0
+start: 68.6869
+unit: number

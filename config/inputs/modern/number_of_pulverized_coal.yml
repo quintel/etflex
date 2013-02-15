@@ -1,0 +1,8 @@
+type: one_to_one
+engine_key: number_of_pulverized_coal
+display: slider
+min: 0.0
+max: 41.154
+step: 1.0
+start: 3.39141
+unit: number

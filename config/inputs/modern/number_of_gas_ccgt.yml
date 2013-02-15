@@ -1,0 +1,8 @@
+type: one_to_one
+engine_key: number_of_gas_ccgt
+display: slider
+min: 0.0
+max: 61.6513
+step: 1.0
+start: 5.10459
+unit: number
