@@ -13,15 +13,17 @@
 
 
   #core #controls
-    margin-top: -535px
+    position: absolute
+    top: 102px
     margin-bottom: 0
-    position: relative
     z-index: 2
+    overflow: visible
 
     #left-inputs, #right-inputs
       background-color: rgba(255,255,255,0.5)
       border: 1px solid rgba(255,255,255,0.7)
       +border-radius(3px)
+      +box-shadow(#999 0 0 10px)
       padding: 5px 10px 20px 10px
 
       ul
@@ -102,8 +104,8 @@
 
   // PROPS
   #core .dashboard
-    width: 600px
-    margin: 20px auto 0 auto
+    width: 720px
+    margin: -73px auto 0 auto
     .prop
       padding-top: 0
       width: 120px

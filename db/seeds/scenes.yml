@@ -36,9 +36,9 @@
       - aircon
       - space-heating
     bottom:
+      - score
       - co2-emissions-household
       - investment
-      - score
       - energy-bill
       - energy-use
       - sustainable-energy
