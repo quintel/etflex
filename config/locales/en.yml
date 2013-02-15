@@ -118,6 +118,9 @@ en:
       costs:        "Costs"
       score:        "Score"
       reliability:  "Reliability"
+      investment:   "Investment"
+      energy_bill:  "Energy Bill"
+      energy_use:   "Energy Use"
       billion:      "billion"
 
       landingTitle:    "What does your <strong>%{future}</strong> look like?"
