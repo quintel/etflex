@@ -28,6 +28,7 @@ ground:              [ headers/ground,              GroundProp ]
 solar-heater:        [ headers/solar_heater,        SolarHeaterProp ]
 turbines:            [ headers/turbines,              TurbinesProp ]
 
+grass:                [ headers/grass,                      GrassProp ]
 solar-thermal-panels: [ headers/solar_thermal_panels, SolarThermalPanelsProp ]
 solar-panels:         [ headers/solar_panels, SolarPanelsProp ]
 hot-water:            [ headers/hot_water, HotWaterProp ]

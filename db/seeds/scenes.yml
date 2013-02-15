@@ -26,7 +26,7 @@
   score_gquery: etflex_households_score
   props:
     header:
-      - ground
+      - grass
       - solar-thermal-panels
       - solar-panels
       - hot-water

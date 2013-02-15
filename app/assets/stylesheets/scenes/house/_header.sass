@@ -12,36 +12,30 @@
     text-indent: -10000px
     top: 25px
     width: 350px
+    z-index: 20
 
   .world
-    height: 541px
+    height: 639px
     width: 1277px
     margin: 0 auto
 
-    .ground
+    .grass
+      @include house-prop-dyn(grass, 1802px, 639px, 90px, 0px)
       z-index: 4
-      height: 541px
-      width: 1277px
-
-      .icon.active
-        display: block !important
-        background: image-url("scenes/house/header/grass.jpg") center top no-repeat
-        height: 541px
-        width: 1277px
-
-      .icon.dry
-        background-position: center -1084px
 
       .icon.green
-        background-position: top top
-
+        background-position: 0px 0px
+      .icon.pale
+        background-position: 0px -639px
+      .icon.dry
+        background-position: 0px -1278px
 
     .house
-      @include house-prop(house, 501px, 535px, 725px, 0px)
+      @include house-prop(house, 501px, 535px, 725px, 48px)
       z-index: 5
 
     .solar-thermal_panels
-      @include house-prop-dyn(solarthermal, 143px, 81px, 885px, 0px)
+      @include house-prop-dyn(solarthermal, 143px, 81px, 885px, 48px)
       z-index: 6
 
       .icon.none
@@ -52,7 +46,7 @@
         background-position: -143px 0
 
     .solar-panels
-      @include house-prop-dyn(solarpv, 156px, 82px, 786px, 84px)
+      @include house-prop-dyn(solarpv, 156px, 82px, 786px, 132px)
       z-index: 6
 
       .icon.none
@@ -63,7 +57,7 @@
         background-position: -156px 0
 
     .hot-water
-      @include house-prop-dyn(hotwater, 117px, 124px, 1070px, 184px)
+      @include house-prop-dyn(hotwater, 117px, 124px, 1070px, 232px)
       z-index: 6
 
       .icon.none
@@ -74,7 +68,7 @@
         background-position: -117px 0
 
     .lighting
-      @include house-prop-dyn(lighting, 260px, 219px, 874px, 175px)
+      @include house-prop-dyn(lighting, 260px, 219px, 874px, 223px)
       z-index: 6
 
       .icon.incandescent_lighting
@@ -85,7 +79,7 @@
         background-position: -520px 0
 
     .insulation
-      @include house-prop-dyn(insulation, 520px, 513px, 725px, 22px)
+      @include house-prop-dyn(insulation, 520px, 513px, 725px, 70px)
       z-index: 7
       .icon.extremely_low
         background-position: left 0
@@ -104,7 +98,7 @@
 
 
     .aircon
-      @include house-prop-dyn(aircon, 114px, 163px, 1049px, 173px)
+      @include house-prop-dyn(aircon, 114px, 163px, 1049px, 221px)
       z-index: 6
 
       .icon.none
@@ -115,7 +109,7 @@
         background-position: -114px 0
 
     .space-heating
-      @include house-prop-dyn(spaceheating, 281px, 137px, 964px, 353px)
+      @include house-prop-dyn(spaceheating, 281px, 137px, 964px, 401px)
       z-index: 6
 
       .icon.combi_boiler
@@ -126,7 +120,7 @@
         background-position: 0 -274px
 
     .appliances
-      @include house-prop-dyn(appliances, 224px, 256px, 876px, 229px)
+      @include house-prop-dyn(appliances, 224px, 256px, 876px, 277px)
       z-index: 6
 
       .icon.none

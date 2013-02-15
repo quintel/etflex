@@ -25,6 +25,7 @@ module.exports =
   'ground': { path: 'headers/ground', klass: 'GroundProp' }
   'solar-heater': { path: 'headers/solar_heater', klass: 'SolarHeaterProp' }
   'turbines': { path: 'headers/turbines', klass: 'TurbinesProp' }
+  'grass': { path: 'headers/grass', klass: 'GrassProp' }
   'solar-thermal-panels': { path: 'headers/solar_thermal_panels', klass: 'SolarThermalPanelsProp' }
   'solar-panels': { path: 'headers/solar_panels', klass: 'SolarPanelsProp' }
   'hot-water': { path: 'headers/hot_water', klass: 'HotWaterProp' }

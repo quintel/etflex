@@ -22,6 +22,7 @@
 - behaviour: 'co2-emissions-household'
 
 # House theme headerprops
+- behaviour: 'grass'
 - behaviour: 'solar-thermal-panels'
 - behaviour: 'solar-panels'
 - behaviour: 'hot-water'
