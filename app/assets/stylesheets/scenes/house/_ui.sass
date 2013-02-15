@@ -192,3 +192,11 @@
         background-position: 0px -330px
       &.extremely-high
         background-position: 0px -396px
+
+// HiDPI Sprite --------------------------------------------------------------
+
+@media only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-devicepixel-ratio: 1.5), only screen and (min-resolution: 1.5dppx)
+  #scene-view.house #core #controls .range .control
+    &, .delta-bar, .handle
+      background-image: image-url("scenes/modern/range-hidpi.png")
+      background-size: 300px 90px
