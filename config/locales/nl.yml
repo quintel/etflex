@@ -119,6 +119,7 @@ nl:
       investment:   "Investeringen"
       energy_bill:  "Energierekening"
       energy_use:   "Energieverbruik"
+      sustainable_energy: "Duurzame energie"
       billion:      "miljard"
 
       landingTitle:    "Hoe ziet jouw <strong>Energietoekomst</strong> er uit?"
