@@ -121,6 +121,7 @@ en:
       investment:   "Investment"
       energy_bill:  "Energy Bill"
       energy_use:   "Energy Use"
+      sustainable_energy: "Sustainable Energy"
       billion:      "billion"
 
       landingTitle:    "What does your <strong>%{future}</strong> look like?"
