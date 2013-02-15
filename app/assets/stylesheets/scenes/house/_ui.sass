@@ -14,12 +14,15 @@
 
   #core #controls
     margin-top: -450px
+    margin-bottom: 0
     position: relative
     z-index: 2
 
     #left-inputs, #right-inputs
       background-color: rgba(255,255,255,0.5)
-      padding: 0 10px
+      border: 1px solid rgba(255,255,255,0.7)
+      +border-radius(3px)
+      padding: 0 10px 20px 10px
 
       ul
         list-style-type: none
@@ -27,7 +30,7 @@
         margin: 5px 0
 
     #center-props
-      width: 380px
+      width: 336px
 
     // Ranges / sliders
     .range
@@ -98,14 +101,20 @@
 
 
   // PROPS
-  #core .dashboard .icon-prop
-    height: 90px
+  #core .dashboard
+    width: 600px
+    margin: 0 auto
+    .prop
+      padding-top: 0
+      width: 120px
+      .icon-prop
+        height: 90px
   #core .dashboard .prop
     .icon
       height: 90px
     &.investment .icon
       background-image: image-url("scenes/house/icons/investment.png")
-      left: 30px
+      left: 5px
       width: 115px
 
       &.very-low
@@ -125,7 +134,7 @@
 
     &.energy-bill .icon
       background-image: image-url("scenes/house/icons/wallet.png")
-      left: 45px
+      left: 15px
       width: 70px
 
       &.very-low
@@ -145,7 +154,7 @@
 
     &.co2-emissions-household .icon
       background-image: image-url("scenes/house/icons/planet.png")
-      left: 50px
+      left: 20px
       width: 85px
 
       &.very-low
@@ -165,7 +174,7 @@
 
     &.energy-use .icon
       background-image: image-url("scenes/house/icons/energyuse.png")
-      left: 25px
+      left: 0
       width: 109px
       height: 66px
 
