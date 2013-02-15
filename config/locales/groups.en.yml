@@ -8,3 +8,5 @@ en:
     lighting: "Lighting"
     air_conditioning: "Air conditioning"
     solar_panels: "Solar panels"
+    supply: "Supply"
+    demand: "Demand"

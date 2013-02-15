@@ -8,4 +8,5 @@ nl:
     lighting: "Verlichting"
     air_conditioning: "Air conditioning"
     solar_panels: "Zonnepanelen"
-
+    supply: "Aanbod"
+    demand: "Vraag"
