@@ -116,6 +116,9 @@ nl:
       costs:        "Kosten"
       score:        "Score"
       reliability:  "Betrouwbaar"
+      investment:   "Investeringen"
+      energy_bill:  "Energierekening"
+      energy_use:   "Energieverbruik"
       billion:      "miljard"
 
       landingTitle:    "Hoe ziet jouw <strong>Energietoekomst</strong> er uit?"

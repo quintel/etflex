@@ -2,6 +2,9 @@
 
 #scene-view.house
 
+  h2
+    margin: 0.5em 0
+
   #core
     width: 1080px
 
@@ -21,6 +24,7 @@
       ul
         list-style-type: none
         padding-left: 20px
+        margin: 5px 0
 
     #center-props
       width: 380px
@@ -94,10 +98,14 @@
 
 
   // PROPS
+  #core .dashboard .icon-prop
+    height: 90px
   #core .dashboard .prop
+    .icon
+      height: 90px
     &.investment .icon
       background-image: image-url("scenes/house/icons/investment.png")
-      left: 0px
+      left: 30px
       width: 115px
 
       &.very-low
@@ -117,7 +125,7 @@
 
     &.energy-bill .icon
       background-image: image-url("scenes/house/icons/wallet.png")
-      left: 0px
+      left: 45px
       width: 70px
 
       &.very-low
@@ -137,7 +145,7 @@
 
     &.co2-emissions-household .icon
       background-image: image-url("scenes/house/icons/planet.png")
-      left: 0px
+      left: 50px
       width: 85px
 
       &.very-low
@@ -157,7 +165,7 @@
 
     &.energy-use .icon
       background-image: image-url("scenes/house/icons/energyuse.png")
-      left: 0px
+      left: 25px
       width: 109px
       height: 66px
 
