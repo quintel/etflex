@@ -1,4 +1,4 @@
 <script>
-    console.log('<%= @email %>');
-    window.auth_data = <%= @data.to_json %>;
+    console.log(<%= @email.to_json %>);
+    window.auth_data = <%= raw @data.to_json %>;
 </script>
