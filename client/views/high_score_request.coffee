@@ -85,6 +85,7 @@ class exports.HighScoreRequest extends Backbone.View
     overlay.css
       height: "#{$(window).height() / 2}px"
       width:  "#{$(window).width()  / 2}px"
+      padding: 0
 
     # Fill the overlay
     template = require 'templates/rtl_logon'
