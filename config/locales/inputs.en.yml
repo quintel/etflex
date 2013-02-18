@@ -29,14 +29,68 @@ en:
       combi_boiler: "Gas fired combi-boiler"
       micro_chp: "Gas fired Micro-CHP"
       heatpump_ground: "Ground heatpump"
-    household_lighting_type: ""
     household_lighting_type_options:
       incandescent_lighting: "Incandescent lighting"
       fluorescent_lighting: "Fluorescent lighting"
       led_lighting: "LED lighting"
-    use_of_air_conditioning: ""
     use_of_air_conditioning_options:
       no_cooling: "No airco"
       one_room_cooling: "Only in one room"
       whole_house_cooling: "The whole house"
+
+  information:
+    transport_cars_electric_share: |-
+      An electric car uses 2 to 3 times less energy than a diesel or gasoline-powered car. Diesel and gasoline are made from oil. By switching to electric cars, we will save a lot of oil but at the same time use more electricity. If we generate this electricity using wind turbines or solar power, driving a car will no longer produce any CO<sub>2</sub> emissions. If we make this electricity with modern coal or gas-fired power plants electric cars will still emit less fossil-fueled ones, but only a bit because coal en gas-fired power plants also emit CO<sub>2</sub>.
+      [image](/assets/information/electric_versus_gasoline.png)
+
+    households_behavior_standby_killer_turn_off_appliances: |-
+      We own more and more electrical appliances that are often left on when they are not being used. By switching off these appliances we can save power.
+
+    number_of_coal_conventional: |-
+      Een kolencentrale draait het grootste deel van de tijd op volle kracht. Regelmatig uitzetten verlaagt de hoeveelheid stroom die we uit kolen kunnen halen. Van alle manieren om stroom te maken geeft een kolencentrale de grootste luchtvervuiling. De CO<sub>2</sub>-uitstoot is ongeveer 2 keer zo groot als die van een gascentrale.
+
+    number_of_gas_conventional: |-
+      A gas-fired power plant is cheaper to build than a coal power plant. However, power from gas costs more than power plants that burn coal. A gas-fired power plant is easily powered up or down. That can come in handy when wind turbines are not turning for a lack of wind. CO<sub>2</sub> emissions are half that of a coal-fired power plant.
+
+    number_of_wind_onshore_land: |-
+      A wind turbine produces renewable power. There are no CO<sub>2</sub> emissions. Wind is its fuel; it is a fuel which does not run out. Of course, the wind does not always blow. This means that building windmills alone is not enough. You would have a problem if you needed power and there was no wind. A lot of effort is currently being put into making wind turbines cheaper.
+
+    households_hot_water_micro_chp_share: |-
+      The micro-CHP (Combined Heat and Power) unit is a tiny gas-fired heat and power plant for domestic use. Future micro CHPs will supply less heat, because they are meant to be used in well-insulated houses. In 2050 they are mostly suited for supplying hot water and no longer for space heating.
+      The combination of heat and electricity makes this option quite energy efficient, especially in houses that have a large heat demand. The micro-CHP replaces the gas-fired central heating boiler. The heat produced is used for heating building spaces or water. If not all produced electricity is used, it is delivered back to the electricity grid, just like with solar panels.
+
+    households_insulation_level_old_houses: |-
+      A house uses a lot less energy for heating in winter, if it is insulated and airtight. Insulation prevents heat leaking through windows, walls, floors and ceilings. Airtightness prevents the wind blowing cold air into the house and pushing the warm air out. The more airtight a house is, the more actively you need to control the inner climate of the house. In order to be very energy efficient houses always need to be super insulated and airtight.
+
+    households_lighting_light_emitting_diode_share: |-
+      Incandescent light bulbs waste a lot of energy. The power they consume is mostly turned into heat instead of light. That is why, in Europe, we will all shift to low-energy lighting in the coming years. These new light bulbs emit the same amount of light and do not become so warm. They even last much longer than traditional light bulbs!
+
+    households_hot_water_fuel_cell_share: |-
+      This is a so-called Solid Oxide Fuel Cell (SOFC). Fuel cells are electrochemical conversion devices that produce electricity directly from oxidizing a fuel. Fuel cells are highly efficient and besides electricity, also produce heat.
+      This fuel cell uses gas but is somewhat flexible when it comes to the kind of fuel it uses. The largest disadvantage is that is operates at high temperatures (500 - 1000 °C), which results in longer start-up times. In households this is not a problem as they are basically constantly running, producing warm water that is stored in a container until it is needed.
+      This device provides more electricity than a typical household needs, turning its owner into a net electricity producer.
+
+    households_heating_heat_pump_ground_share: |-
+      A heat pump is like a refrigerator used the other way around: it pumps heat into the house from outside, while a refrigerator pumps heat outside of its own insides. Heat pumps make sure that you need a lot less gas to heat the house. This is a good thing; we want to save that gas since it will not be available for ever.
+
+    households_hot_water_solar_water_heater_share: |-
+      A solar water heater uses heat from the sun to make warm water. This is often done on the roof of a house. The hot water can then be used for showering or washing dishes, for example. By using the suns heat, we need a lot less energy to make hot water.
+
+    number_of_pulverized_coal: |-
+      A coal-fired power plant burns coals to boil water and turn it into very hot steam. This steam is used to drive a generator and produce electricity. These plants are less suitable to act as backup plants for wind- and solar electricity than gas-fired plants, because they are expensive to build and cheap to run. For this reason coal-fired power plants are almost always running, producing electricity at maximum power. Out of all power plants, this one has the highest CO<sub>2</sub>-emissions, about twice a much as a gas-fired power plant. Wood can be co-fired in coal plants, to reduce such emissions and raise renewability.
+
+    number_of_gas_ccgt: |-
+      A gas-fired power plant is cheaper to build than a coal power plant. But usually gas is so expensive and coal so cheap that it is cheaper to produce electricity with a coal-fired power plant. A gas-fired power plant can be turned up and down easier than a coal-fired or nuclear power plant. Therefore these plants can act as backup plants for wind- and solar power. That can come in handy when there is no wind and solar panels do not produce electricity because the sun is not shining. CO<sub>2</sub> emissions of a gas-fired power plant are half that of a coal-fired power plant.
+
+    number_of_nuclear_3rd_gen: |-
+      A nuclear power plant is very expensive to build. However, they last for a long time and they use only small amounts of fuel (uranium).  Once the power plant has been built, making electricity is cheap. That is why this type of power plant is almost always running. It cannot be used to balance the supply and demand of electricity when wind- and solar power vary with weather conditions. One advantage is that there are almost no CO<sub>2</sub> emissions. The radioactive waste is a disadvantage. No one has come up with a good solution for this problem yet. On very rare occasions things can go horribly wrong and the plants surroundings become unsuitable for living creatures for a very long time. Fukushima or Chernobyl are striking examples. New generations of nuclear power plants are designed to be much safer than older types.
+
+    number_of_wind_offshore: |-
+      A wind turbine produces renewable power without CO<sub>2</sub> emissions. Wind is its fuel; it is a fuel that does not run out, although the wind does not always blow. This means that building windmills alone is not enough. You would have a problem if you needed power and there was no wind. A lot of effort is currently being put into making wind turbines cheaper.
+
+    households_market_penetration_solar_panels: |-
+      Solar panels make electricity when they absorb sunlight. This also works on cloudy days. As a result, it is easier to predict how much power you can expect then it is with wind power. Of course, a solar panel in sunny Spain produces more electricity than one in the United Kingdom. You can install solar panels on the roof of your own house. This is useful: it avoids power losses from transporting electricity over a long cable. Solar panels are still quite expensive; a lot of work is being put into making them cheaper.
+
+    green_gas_total_share: |-
+      Green gas is biogas that has been upgraded to natural gas quality. It can be fed into the gas mains. Biogas is conventionally produced by bacteria that digest biological material. In the future, such gas may be produced by "gasification" of biomass.
 
