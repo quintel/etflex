@@ -75,7 +75,19 @@ class exports.HighScoreRequest extends Backbone.View
     $('html').off 'keyup', @keyUpClose
     @$el.fadeOut 350, => @remove()
 
+  # Replaces the popup content with an iframe with the RTL login page
   loginWithRtl: =>
+    overlay = @$('.overlay-content')
+    # Disable the outside click callback
+    overlay.off 'clickoutside', @close
+
+    # Resize the item
+    overlay.css
+      height: "#{$(window).height() / 2}px"
+      width:  "#{$(window).width()  / 2}px"
+
+    # Fill the overlay
     template = require 'templates/rtl_logon'
-    @$('.overlay-content').html template()
+    overlay.html template()
+
     console.log 'Hello'
