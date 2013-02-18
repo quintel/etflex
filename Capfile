@@ -61,7 +61,7 @@ end
 
 task :staging do
   set :rails_env, 'staging'
-  set :branch,    'staging'
+  set :branch,    'rtl-openid'
 
   set :deploy_to, "/u/apps/#{application_name}"
 
