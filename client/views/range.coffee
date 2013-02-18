@@ -50,7 +50,7 @@ class exports.RangeView extends Backbone.View
 
     @$el.html rangeTemplate
       name:        @rangeName
-      hasInfo:     @model.get('info')?
+      hasInfo:     I18n.lookup("information.#{@model.get('key')}")?
       unit:        unit
 
     destination.append @$el
@@ -102,4 +102,4 @@ class exports.RangeView extends Backbone.View
   # the input and how it affects the outcome.
   #
   showHelp: ->
-    showMessage @rangeName, @model.get('info')
+    showMessage @rangeName, I18n.lookup("information.#{@model.get('key')}")
