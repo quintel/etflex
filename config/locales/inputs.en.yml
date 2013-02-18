@@ -40,3 +40,7 @@ en:
       one_room_cooling: "Only in one room"
       whole_house_cooling: "The whole house"
 
+  information:
+    transport_cars_electric_share: |-
+      An electric car uses 2 to 3 times less energy than a diesel or gasoline-powered car. Diesel and gasoline are made from oil. By switching to electric cars, we will save a lot of oil but at the same time use more electricity. If we generate this electricity using wind turbines or solar power, driving a car will no longer produce any CO<sub>2</sub> emissions. If we make this electricity with modern coal or gas-fired power plants electric cars will still emit less fossil-fueled ones, but only a bit because coal en gas-fired power plants also emit CO<sub>2</sub>.
+      [image](/assets/information/electric_versus_gasoline.png)

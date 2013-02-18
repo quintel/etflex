@@ -19,22 +19,6 @@
 
     <time></time>
   </span>
-
-  <span class="metric emissions">
-    <span class="graph"><span class="bar"></span></span>
-    <span class="value"></span>
-  </span>
-
-  <span class="metric renewables">
-    <span class="graph"><span class="bar"></span></span>
-    <span class="value"></span>
-  </span>
-
-  <span class="metric costs">
-    <span class="graph"><span class="bar"></span></span>
-    <span class="value"></span>
-  </span>
-
   <span class="actions">
     <a href="<%= @href %>" data-navigate="noclient" title="View this high score">View</a>
   </span>
