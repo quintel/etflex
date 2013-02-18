@@ -15,7 +15,7 @@
     </fieldset>
     <br/>
     <div id="login-with-rtl">
-      <a href="#"><%= I18n.t 'words.login_with_rtl' %></a>
+      <a href="/users/auth/rtl"><%= I18n.t 'words.login_with_rtl' %></a>
     </div>
     <br/>
   </form>
