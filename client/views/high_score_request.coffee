@@ -77,5 +77,5 @@ class exports.HighScoreRequest extends Backbone.View
 
   loginWithRtl: =>
     template = require 'templates/rtl_logon'
-    console.log template()
+    @$('.overlay-content').html template()
     console.log 'Hello'
