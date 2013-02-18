@@ -7,6 +7,7 @@ class exports.HighScoreRequest extends Backbone.View
 
   events:
     'submit form': 'commitName'
+    'click #login-with-rtl a': 'loginWithRtl'
 
   # Renders the name request HTML.
   #
@@ -73,3 +74,8 @@ class exports.HighScoreRequest extends Backbone.View
 
     $('html').off 'keyup', @keyUpClose
     @$el.fadeOut 350, => @remove()
+
+  loginWithRtl: =>
+    template = require 'templates/rtl_logon'
+    console.log template()
+    console.log 'Hello'
