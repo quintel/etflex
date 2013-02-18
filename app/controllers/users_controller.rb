@@ -6,11 +6,6 @@ class UsersController < Devise::RegistrationsController
     super
   end
 
-  # Handles RTL OpenID callback
-  def rtl
-    render :text => request.env['omniauth.auth'].to_yaml
-  end
-
   #######
   private
   #######
