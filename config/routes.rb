@@ -13,9 +13,6 @@ ETFlex::Application.routes.draw do
 
   # Devise -------------------------------------------------------------------
 
-  # Catch the RTL ID callback first
-  match '/users/auth/rtl/callback', to: 'users#rtl'
-
   devise_for :users, controllers: {
     omniauth_callbacks: 'omniauth_callbacks', registrations: 'users' }
 
