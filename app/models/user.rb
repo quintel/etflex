@@ -39,7 +39,7 @@ class User < ActiveRecord::Base
         user.password = Devise.friendly_token[0,20]
         user.origin   = 'rtl'
         user.image    = auth_hash.info.image
-        user.name     = auth_hash.info.name
+        user.name     = auth_hash.info.email.split('@').first
         user.uid      = auth_hash.uid
         user.token    = auth_hash.credentials.token
       end
