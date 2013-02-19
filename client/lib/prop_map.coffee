@@ -35,3 +35,4 @@ module.exports =
   'aircon': { path: 'headers/aircon', klass: 'AirconProp' }
   'space-heating': { path: 'headers/space_heating', klass: 'SpaceHeatingProp' }
   'appliances': { path: 'headers/appliances', klass: 'AppliancesProp' }
+  'radiator': { path: 'headers/radiator', klass: 'RadiatorProp' }

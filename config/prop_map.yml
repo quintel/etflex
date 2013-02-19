@@ -38,4 +38,4 @@ insulation:           [ headers/insulation, InsulationProp ]
 aircon:               [ headers/aircon, AirconProp ]
 space-heating:        [ headers/space_heating, SpaceHeatingProp ]
 appliances:           [ headers/appliances, AppliancesProp ]
-
+radiator:             [ headers/radiator, RadiatorProp ]
