@@ -1,4 +1,4 @@
-app =                = require 'app'
+app                  = require 'app'
 
 template             = require 'templates/scene'
 badgeTempl           = require 'templates/badge'
