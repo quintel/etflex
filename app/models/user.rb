@@ -32,6 +32,20 @@ class User < ActiveRecord::Base
     end
   end
 
+  def self.find_or_create_with_rtl!(auth_hash)
+    if user = User.find_by_email(auth_hash.info.email) then user else
+      User.create! do |user|
+        user.email    = auth_hash.info.email
+        user.password = Devise.friendly_token[0,20]
+        user.origin   = 'rtl'
+        user.image    = auth_hash.info.image
+        user.name     = auth_hash.info.email.split('@').first
+        user.uid      = auth_hash.uid
+        user.token    = auth_hash.credentials.token
+      end
+    end
+  end
+
   # INSTANCE METHODS ---------------------------------------------------------
 
   # The URL to a user's profile image.
