@@ -65,7 +65,7 @@ class exports.SceneView extends Backbone.View
 
   postRender: ->
     @renderInputs()
-    @renderBadge() if app.isBeta()
+    @renderBadge() #if app.isBeta()
 
     @doNameRequest()
 
