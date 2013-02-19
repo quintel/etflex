@@ -10,6 +10,7 @@ badgeTempl           = require 'templates/badge'
 { HighScores }       = require 'views/high_scores'
 { HighScoreRequest } = require 'views/high_score_request'
 { HighScoreGrowl }   = require 'views/growl'
+{ showMessage }      = require 'lib/messages'
 
 { getProp }          = require 'views/props'
 { clientNavigate }   = require 'lib/client_navigate'
@@ -291,3 +292,6 @@ class exports.SceneView extends Backbone.View
 
   renderBadge: ->
     $('#master-content').append badgeTempl()
+    $('a#badge').on 'click', =>
+      showMessage 'Win an iPad!', 'Login here: <a href="/users/auth/rtl">RTL</a>'
+
