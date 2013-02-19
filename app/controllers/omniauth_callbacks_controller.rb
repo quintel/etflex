@@ -5,7 +5,6 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     session[:guest_email] = @email
     session[:guest_name]  = @email.split('@').first # Any better idea?
     redirect_to '/scenes/2'
-    # render :text => request.env['omniauth.auth'].to_yaml
   end
 
   def facebook
