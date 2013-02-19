@@ -55,6 +55,7 @@ nl:
     sign_up:            Meld je nu aan
     cancel:             Annuleren
     save:               Bewaren
+    login_with_rtl:     Register your score with RTL ID
 
     ago:                geleden
     anonymous:          Anonieme Bezoeker
@@ -184,6 +185,6 @@ nl:
     continue: Toch doorgaan
     message: >
       De browser die je gebruikt is verouderd en wordt niet volledig ondersteund
-      door het ETM. Je mag doorgaan als je wilt, maar wij raden je aan je 
-      huidige browser te upgraden, of Google Chrome of Mozilla Firefox 
+      door het ETM. Je mag doorgaan als je wilt, maar wij raden je aan je
+      huidige browser te upgraden, of Google Chrome of Mozilla Firefox
       te gebruiken – beide zijn gratis.

@@ -213,4 +213,14 @@ Devise.setup do |config|
   #   manager.intercept_401 = false
   #   manager.default_strategies(:scope => :user).unshift :some_external_strategy
   # end
+  #
+
+  # RTL Stuff
+  require 'openid/store/filesystem'
+  config.omniauth :open_id,
+                   store: OpenID::Store::Filesystem.new('/tmp'),
+                   require: 'omniauth-openid',
+                   name: :rtl,
+                   identifier: 'https://rtlid.rtl.nl/OpenId'
+
 end
