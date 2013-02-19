@@ -6,6 +6,6 @@
 class exports.RadiatorProp extends HeaderIcon
   queries: [ 'etflex_households_heat_demand_per_person' ]
 
-  hurdles: [ 19, 21 ]
+  hurdles: [ -0.3, 0.8 ]
   states:  [ 'low', 'medium', 'high' ]
 
