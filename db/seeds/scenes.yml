@@ -35,6 +35,7 @@
       - insulation
       - aircon
       - space-heating
+      - radiator
     bottom:
       - score
       - co2-emissions-household
