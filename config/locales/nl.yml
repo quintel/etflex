@@ -40,6 +40,12 @@ nl:
     privacy:  Wat doen we met je gegevens
     etmodel:  Ga door naar de Professionele versie
 
+    badge:    Win een iPad!
+    badge_popup: >
+      Login with RTL to win an iPad!
+      <a href="/users/auth/rtl">Click here</a>
+
+
   # Misc Words & Phrases -----------------------------------------------------
 
   words:
@@ -55,7 +61,6 @@ nl:
     sign_up:            Meld je nu aan
     cancel:             Annuleren
     save:               Bewaren
-    login_with_rtl:     Register your score with RTL ID
 
     ago:                geleden
     anonymous:          Anonieme Bezoeker

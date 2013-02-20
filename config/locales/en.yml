@@ -39,6 +39,11 @@ en:
     privacy:  Privacy statement
     etmodel:  Go on to the Professional version
 
+    badge:    Win an iPad!
+    badge_popup: >
+      Login with RTL to win an iPad!
+      <a href="/users/auth/rtl">Click here</a>
+
   # Misc Words & Phrases -----------------------------------------------------
 
   words:
@@ -54,8 +59,6 @@ en:
     sign_up:            Sign up
     cancel:             Cancel
     save:               Save
-    login_with_rtl:     Register your score with RTL ID
-
 
     ago:                ago
     anonymous:          Anonymous Visitor
