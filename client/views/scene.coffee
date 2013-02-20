@@ -293,5 +293,7 @@ class exports.SceneView extends Backbone.View
   renderBadge: ->
     $('#master-content').append badgeTempl()
     $('a#badge').on 'click', =>
-      showMessage 'Win an iPad!', 'Login here: <a href="/users/auth/rtl">RTL</a>'
+      title = I18n.t 'navigation.badge'
+      body  = I18n.t 'navigation.badge_popup'
+      showMessage title, body
 

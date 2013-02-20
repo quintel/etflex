@@ -1,4 +1,4 @@
 <a id="badge" href="#">
-  <span>Click to win an iPad</span>
-  <span>Click to win an iPad</span>
+  <span><%= I18n.t 'navigation.badge' %></span>
+  <span><%= I18n.t 'navigation.badge' %></span>
 </a>
