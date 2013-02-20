@@ -66,7 +66,8 @@ class exports.SceneView extends Backbone.View
 
   postRender: ->
     @renderInputs()
-    @renderBadge() #if app.isBeta()
+    # The RTL badge should be visible only on the balance scene
+    @renderBadge() if @model.get('name_key') == 'modern'
 
     @doNameRequest()
 
