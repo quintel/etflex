@@ -4,7 +4,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     @user = User.find_or_create_with_rtl!(request.env['omniauth.auth'])
     sign_in @user
 
-    redirect_to request.env['omniauth.origin'] || root_path
+    redirect_to '/scenes/1'
   rescue ActiveRecord::RecordInvalid
     raise request.env['omniauth.auth']
   end
