@@ -1,4 +1,25 @@
 module ApplicationHelper
+  # Public: Renders the scores depending on what is passed
+  #
+  # Returns a string with the JSON representation
+  def high_scores_pusher_event(high_scores)
+    # If it's a hash, we're going to render high scores for all
+    # scenes
+    if high_scores.is_a? Hash
+      result = {}
+      high_scores.each do |scene_id, scores|
+        result[scene_id] = high_scores_pusher_event(scores)
+      end
+
+      result
+    # If it's an Array, we're rendering a collection of high scores
+    # for a scene
+    elsif high_scores.is_a? Array
+      high_scores.map(&:to_pusher_event)
+    end
+  end
+
+
   # Public: The configuration hash for the Backbone client.
   #
   # Returns a string representation of the JSON.

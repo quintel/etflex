@@ -1,0 +1,25 @@
+@mixin container
+  margin-left: auto
+  margin-right: auto
+  width: 960px
+
+@mixin grid($size)
+  width: ( $size * 40px ) + ( $size * 20px ) - 20px
+  display: inline
+  float: left
+  position: relative
+  margin-left: 10px
+  margin-right: 10px
+
+@mixin prefix($size)
+  padding-left: ( $size * 60px )
+
+@mixin suffix($size)
+  padding-right: ( $size * 60px )
+
+@mixin push($size)
+  left: ( $size * 60px )
+
+@mixin pull($size)
+  left: -( $size * 60px )
+

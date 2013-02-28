@@ -13,9 +13,8 @@ class PagesController < ApplicationController
   def root
     @alternative_locales = alternative_locales
 
-    @scene            = Scene.first
-    @high_scenarios   = Scenario.high_scores_since 7.days.ago
-    @previous_attempt = Scenario.for_user(current_or_guest_user).recent.first
+    @scenes           = Scene.all
+    @high_scenarios   = Scene.high_scores_since 7.days.ago
   end
 
   # Changes the user language. The actual change will be handled by

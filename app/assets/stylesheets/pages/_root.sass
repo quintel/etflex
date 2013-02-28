@@ -6,14 +6,19 @@
   padding: 0
 
   #core
-    margin: auto
+    @include container
+    // margin: auto
     position: relative
-    width: 960px
+    // width: 960px
 
     #main
-      margin-top: -275px
+      // margin-top: -275px
       position: relative
       z-index: 2
+
+    .level
+      @include grid(8)
+      text-align: center
 
   nav#language-select
     font-size: 11px

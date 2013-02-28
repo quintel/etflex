@@ -9,7 +9,7 @@ ETFlex::Application.routes.draw do
   end
 
   # High scoring scenarios for the high scores list.
-  get 'scenarios/since/:days', to: 'scenarios#since'
+  get 'scenes/:scene_id/scenarios/since/:days', to: 'scenarios#since'
 
   # Devise -------------------------------------------------------------------
 
