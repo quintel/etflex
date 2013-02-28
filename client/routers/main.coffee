@@ -64,10 +64,11 @@ class exports.Main extends Backbone.Router
     { StaticHeader }      = require 'views/static_header'
     { clientNavigate }    = require 'lib/client_navigate'
 
-    summaries  = new ScenarioSummaries(window.bootstrap or [])
-    highScores = new HighScores collection: summaries
-
-    $('#scores').html highScores.render().el
+    highScoreList = (window.bootstrap or [])
+    for sceneId, scores of highScoreList
+      summaries  = new ScenarioSummaries(scores)
+      highScores = new HighScores collection: summaries, sceneId: sceneId
+      $(".scores[data-scene=#{sceneId}]").html highScores.render().el
 
     $('.go .start-over a, .go .conference-continue a').
       on('click', clientNavigate)

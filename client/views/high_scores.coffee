@@ -17,7 +17,7 @@ class exports.HighScores extends Backbone.View
 
   # Provide HighScores with a ScenarioSummaries collection in the options
   # hash.
-  constructor: ({ @collection, @show, @style, @scenario }) ->
+  constructor: ({ @collection, @show, @style, @scenario, @sceneId }) ->
     super
 
     # Show, by default, the five highest scores.
@@ -150,13 +150,20 @@ class exports.HighScores extends Backbone.View
 
     return event.preventDefault()
 
+  # Gets the scene ID from any available source
+  getSceneId: ->
+    sceneId   = @sceneId
+    sceneId or= @scenario.get('scene').id
+
+    sceneId
+
   # Sets how far back we should go when retrieving high scores.
   #
   # Days may be 1, 7. Note that setSince is asynchronous and only applies the
   # change after successful completion of an XHR request.
   #
   loadSince: (days, callback) ->
-    jQuery.getJSON("/scenarios/since/#{ days }.json")
+    jQuery.getJSON("/scenes/#{ @getSceneId() }/scenarios/since/#{ days }.json")
       .fail(        -> console.error 'Failed to fetch high scores')
       .done( (data) => @setCollection new ScenarioSummaries data)
 

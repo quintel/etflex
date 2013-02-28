@@ -53,12 +53,14 @@ class ScenariosController < ApplicationController
   # JSON-only action which returns a list of high-scoring scenarios which have
   # been updated within the previous :days.
   #
-  # GET /scenarios/since/:days
+  # GET /scene/:scene_id/scenarios/since/:days
   #
   def since
     return head :bad_request unless params[:days].match(/\A\d+\Z/)
+    
+    @scene = Scene.find params[:scene_id]
 
-    @scenarios = Scenario.high_scores_since(params[:days].to_i.days.ago)
+    @scenarios = @scene.high_scores_since(params[:days].to_i.days.ago)
     @scenarios = @scenarios.map(&:to_pusher_event)
 
     respond_with @scenarios

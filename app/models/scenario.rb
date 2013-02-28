@@ -95,6 +95,12 @@ class Scenario < ActiveRecord::Base
     where 'updated_at > ?', time
   }
 
+  # Returns scenarios belonging to a certain scene.
+  #
+  # scene - An instance of `Scene`
+  #
+  scope :for_scene, lambda { |scene| where [ "scene_id = ?", scene.id ] }
+
   # Returns scenarios suitable for display in the high scores list.
   #
   # time - A Time or Date object. Scenarios which haven't been updated since
@@ -201,9 +207,6 @@ class Scenario < ActiveRecord::Base
     { session_id:          session_id,
       href:               "/scenes/#{ scene_id }/with/#{ session_id }",
       score:               score,
-      renewability:        renewability,
-      total_costs:         total_costs,
-      total_co2_emissions: total_co2_emissions,
       updated_at:          updated_at,
       user_id:             user_id || guest_uid,
       user_name:           user_or_guest.name,

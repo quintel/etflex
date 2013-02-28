@@ -78,6 +78,19 @@ class Scene < ActiveRecord::Base
     inputs["combinatory"]
   end
 
+  def previous_attempt(user)
+    @previous_attempt ||= scenarios.for_user(user).recent.first
+  end
+
+  def high_scores_since(time)
+    scenarios.high_scores_since(time)
+  end
+
+  def self.high_scores_since(time)
+    high_scores = all.map { |scene| scene.high_scores_since time }
+    high_scores.flatten.group_by(&:scene_id)
+  end
+
   private
     def load_inputs
       Input.for_scene name_key

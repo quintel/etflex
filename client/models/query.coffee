@@ -14,6 +14,8 @@ class exports.Query extends Backbone.Model
     gquery = @collection.meta("#{@id}_gquery")
     return unless gquery?
 
+    return if @collection.get gquery
+
     @boundQuery = new Query({ id: gquery })
     @boundQuery.on 'change', _.bind(@onChange, this)
     @collection.add @boundQuery

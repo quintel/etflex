@@ -11,7 +11,7 @@
         %a{href: "/lang/#{alt_locale}", title: (t :'switch_to_this_language', locale: alt_locale), class: alt_locale}
           = t :'switch_to_this_language', locale: alt_locale
 
-    = render 'theme_header'
+    -# = render 'theme_header'
 
     %section#main
 
@@ -21,36 +21,48 @@
 
       = render partial: "landing_#{ I18n.locale }"
 
-      %section.go
-        - if ETFlex.config.conference and @previous_attempt
-          %span.buttons
-            %a.blue.launch{ href: "/scenes/1/fresh" }<>
-              == #{ t :'scenes.etlite.landingButton' }&hellip;
+      - @scenes.each do |scene|
+        - previous_attempt = scene.previous_attempt(current_or_guest_user)
+        .level
+          %h2= scene.name
 
-          .conference-continue
-            == #{ t :'words.or' }:
+          %img{src: 'http://placehold.it/460x350'}
 
-            %a{ href: scene_scenario_path(@scene, @previous_attempt) }
-              == #{ t :'scenes.etlite.backToPrevious' }&hellip;
+          %section.go
+            - if ETFlex.config.conference and previous_attempt
+              %span.buttons
+                %a.blue.launch{ href: "/scenes/#{scene.id}/fresh" }<>
+                  == #{ t :'scenes.etlite.landingButton' }&hellip;
 
-        - elsif @previous_attempt
-          %span.buttons
-            %a.blue.launch{ href: scene_scenario_path(@scene, @previous_attempt) }<>
-              == #{ t :'scenes.etlite.continue' }&hellip;
+              .conference-continue
+                == #{ t :'words.or' }:
 
-          .start-over
-            == #{ t :'words.or' }:
-            %a{ href: "/scenes/1" }== #{ t :'scenes.etlite.startOver' }&hellip;
+                %a{ href: scene_scenario_path(scene, previous_attempt) }
+                  == #{ t :'scenes.etlite.backToPrevious' }&hellip;
 
-        - else
+            - elsif scene.previous_attempt(current_or_guest_user)
+              %span.buttons
+                %a.blue.launch{ href: scene_scenario_path(scene, previous_attempt) }<>
+                  == #{ t :'scenes.etlite.continue' }&hellip;
 
-          %span.buttons
-            %a.blue.launch{ href: "/scenes/1" }<>
-              == #{ t :'scenes.etlite.landingButton' }&hellip;
+              .start-over
+                == #{ t :'words.or' }:
+                %a{ href: "/scenes/#{scene.id}" }== #{ t :'scenes.etlite.startOver' }&hellip;
 
-      #scores
-        %h2== #{ t :'words.high_scores' }:
-        .loading== #{ t :'words.loading' }&hellip;
+            - else
+
+              %span.buttons
+                %a.blue.launch{ href: scene_path(scene) }<>
+                  == #{ t :'scenes.etlite.landingButton' }&hellip;
+
+
+          #scores.scores.condensed{ data: {scene: scene.id} }
+            %h2== #{ t :'words.high_scores' }:
+            .loading== #{ t :'words.loading' }&hellip;
+
+    -#   #scores
+    -#     %h2== #{ t :'words.high_scores' }:
+    -#     .loading== #{ t :'words.loading' }&hellip;
 
     %footer
       %ul#partners
@@ -59,4 +71,4 @@
         %li.by= t :'leading_partner'
 
 :javascript
-  window.bootstrap = #{ @high_scenarios.map(&:to_pusher_event).to_json }
+  window.bootstrap = #{ high_scores_pusher_event(@high_scenarios).to_json }
