@@ -23,7 +23,7 @@ en:
     daily_length_of_shower_per_person: "Average length of daily shower"
     number_of_cold_showers_per_week: "Number of cold showers per week"
     amount_of_insulation: "Amount of insulation"
-    households_heating_solar_thermal_panels_share: "Solar thermal panels"
+    households_heating_solar_thermal_panels_share: "Solar thermal collectors"
     household_heating_technology: ""
     household_heating_technology_options:
       combi_boiler: "Gas fired combi-boiler"
