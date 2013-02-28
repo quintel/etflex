@@ -359,7 +359,8 @@ class SummaryRow extends Backbone.View
 
   # View UI callbacks
 
-  openScore: =>
+  openScore: (event) =>
+    event.preventDefault()
     app.navigate @model.get('href')
 
   # Model update callbacks ---------------------------------------------------
