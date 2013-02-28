@@ -319,6 +319,9 @@ widthOf = (value, min, max) ->
 class SummaryRow extends Backbone.View
   tagName: 'li'
 
+  events:
+    'click': 'openScore'
+
   modelEvents:
     'change:score':               'updateScore'
     'change:total_co2_emissions': 'updateEmissions'
@@ -353,6 +356,11 @@ class SummaryRow extends Backbone.View
 
     # Unbind events from the model.
     @model.off event, @[func] for own event, func of @modelEvents
+
+  # View UI callbacks
+
+  openScore: =>
+    app.navigate @model.get('href')
 
   # Model update callbacks ---------------------------------------------------
 
