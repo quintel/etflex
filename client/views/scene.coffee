@@ -10,7 +10,6 @@ badgeTempl           = require 'templates/badge'
 { HighScores }       = require 'views/high_scores'
 { HighScoreRequest } = require 'views/high_score_request'
 { HighScoreGrowl }   = require 'views/growl'
-{ showMessage }      = require 'lib/messages'
 
 { getProp }          = require 'views/props'
 { clientNavigate }   = require 'lib/client_navigate'
@@ -67,7 +66,7 @@ class exports.SceneView extends Backbone.View
   postRender: ->
     @renderInputs()
     # The RTL badge should be visible only on the balance scene
-    @renderBadge() if @model.get('name_key') == 'modern'
+    @renderBadge() if app.isBeta()
 
     @doNameRequest()
 
@@ -293,8 +292,4 @@ class exports.SceneView extends Backbone.View
 
   renderBadge: ->
     $('#master-content').append badgeTempl()
-    $('a#badge').on 'click', =>
-      title = I18n.t 'navigation.badge'
-      body  = I18n.t 'navigation.badge_popup'
-      showMessage title, body
 
