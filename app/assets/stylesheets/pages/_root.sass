@@ -7,13 +7,19 @@
 
   #core
     @include container
-    // margin: auto
     position: relative
-    // width: 960px
+    padding-top: 25px
+
+    #logo
+      background: image-url("logo.png") left top no-repeat
+      height: 42px
+      position: absolute
+      text-indent: -10000px
+      width: 350px
+      z-index: 20
 
     #main
-      // margin-top: -275px
-      position: relative
+      padding-top: 40px
       z-index: 2
 
     .level
@@ -26,7 +32,7 @@
     position: absolute
     right: 5px
     text-transform: uppercase
-    top: 20px
+    top: 35px
     z-index: 11
     a
       color: #5975A9

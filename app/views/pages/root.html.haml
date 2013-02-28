@@ -5,7 +5,7 @@
 
 #page-view.root
   #core
-
+    = link_to 'Energy Transition Model', root_path, id: 'logo'
     %nav#language-select
       - @alternative_locales.each do |alt_locale|
         %a{href: "/lang/#{alt_locale}", title: (t :'switch_to_this_language', locale: alt_locale), class: alt_locale}
