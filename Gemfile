@@ -28,7 +28,6 @@ gem 'rest-client'
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
-gem 'omniauth-openid'
 
 gem 'jquery-rails', '~> 2.1.4'
 gem 'jquery-ui-rails'
