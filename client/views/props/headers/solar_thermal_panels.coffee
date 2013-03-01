@@ -6,6 +6,6 @@
 class exports.SolarThermalPanelsProp extends HeaderIcon
   queries: [ 'etflex_households_solar_thermal_installed' ]
 
-  hurdles: [ 33, 66 ]
+  hurdles: [ 49, 99 ]
   states:  [ 'none', 'low', 'high' ]
 
