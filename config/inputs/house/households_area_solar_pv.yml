@@ -1,0 +1,10 @@
+type: one_to_one
+engine_key: households_market_penetration_solar_panels
+display: slider
+min: 0.0
+max: 35.0
+step: 1.0
+start: 0.0
+unit: m2
+formula: >
+  households_area_solar_pv * 100.0 / 35.0
