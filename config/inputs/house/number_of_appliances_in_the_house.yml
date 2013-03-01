@@ -1,8 +1,10 @@
 type: one_to_one
 engine_key: households_electricity_demand_per_person
 display: slider
-min: -2.0
-max: 2.0
-step: 0.2
+min: -50
+max: 100
+step: 10.0
 start: 0
 unit: percentage
+formula: >
+  -3.5 + (number_of_appliances_in_the_house + 50) * 7.0 / 150.0

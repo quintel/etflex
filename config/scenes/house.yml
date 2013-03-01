@@ -17,5 +17,5 @@ inputs:
     air_conditioning:
       - use_of_air_conditioning
     solar_panels:
-      - households_market_penetration_solar_panels
-      - households_heating_solar_thermal_panels_share
+      - households_area_solar_pv
+      - number_of_households_heating_solar_thermal_collectors
