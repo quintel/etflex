@@ -1,94 +1,211 @@
 ---
 nl:
   inputs:
-    new: "Nieuwe input"
-    households_hot_water_micro_chp_share: "Micro-WKK"
-    households_heating_heat_pump_ground_share: "Warmtepomp"
-    households_heating_heat_pump_add_on_share: "Warmtepomp"
-    households_hot_water_solar_water_heater_share: "Zonneboiler"
-    households_insulation_level_old_houses: "Betere isolatie"
-    households_hot_water_fuel_cell_share: "Brandstofcel"
-    households_lighting_light_emitting_diode_share: "Zuinige lampen"
-    number_of_pulverized_coal: "Kolen- / biomassacentrales"
-    number_of_gas_ccgt: "Aardgascentrales"
-    number_of_nuclear_3rd_gen: "Kerncentrales"
-    households_market_penetration_solar_panels: "Zonnepanelen"
-    number_of_wind_offshore: "Windmolens"
-    transport_cars_electric_share: "Elektrische auto's"
-    green_gas_total_share: "Groen gas"
-    number_of_appliances_in_the_house: "Aantal apparaten in het huis"
+    amount_of_insulation: "Hoe goed isoleer je je huis?"
     comfort_temperature_in_the_house: "Gemiddelde temperatuur in het huis"
     daily_length_of_shower_per_person: "Gemiddelde lengte van de dagelijkse douche"
-    number_of_cold_showers_per_week: "Hoe vaak per week neem je een koude douche?"
-    amount_of_insulation: "Hoe goed isoleer je je huis?"
-    households_heating_solar_thermal_panels_share: "Zonthermische collectoren"
+    green_gas_total_share: "Groen gas"
     household_heating_technology: ""
     household_heating_technology_options:
       combi_boiler: "HR combi-ketel"
-      micro_chp: "Micro-WKK"
       heatpump_ground: "Warmtepomp met bodemsonde"
+      micro_chp: "Micro-WKK"
     household_lighting_type_options:
-      incandescent_lighting: "Gloeilampen"
       fluorescent_lighting: "Spaarlampen"
+      incandescent_lighting: "Gloeilampen"
       led_lighting: "LED-lampen"
+    households_heating_heat_pump_add_on_share: "Warmtepomp"
+    households_heating_heat_pump_ground_share: "Warmtepomp"
+    households_heating_solar_thermal_panels_share: "Zonthermische collectoren"
+    households_hot_water_fuel_cell_share: "Brandstofcel"
+    households_hot_water_micro_chp_share: "Micro-WKK"
+    households_hot_water_solar_water_heater_share: "Zonneboiler"
+    households_insulation_level_old_houses: "Betere isolatie"
+    households_lighting_light_emitting_diode_share: "Zuinige lampen"
+    households_market_penetration_solar_panels: "Zonnepanelen"
+    new: "Nieuwe input"
+    number_of_appliances_in_the_house: "Aantal apparaten in het huis"
+    number_of_cold_showers_per_week: "Hoe vaak per week neem je een koude douche?"
+    number_of_gas_ccgt: "Aardgascentrales"
+    number_of_nuclear_3rd_gen: "Kerncentrales"
+    number_of_pulverized_coal: "Kolen- / biomassacentrales"
+    number_of_wind_offshore: "Windmolens"
+    transport_cars_electric_share: "Elektrische auto's"
     use_of_air_conditioning_options:
       no_cooling: "Geen airco"
       one_room_cooling: "In één kamer"
       whole_house_cooling: "Het hele huis"
 
   information:
-    transport_cars_electric_share: |-
-      Een elektrische auto gebruikt 2 tot 3 keer minder energie dan een auto op benzine of diesel. Benzine en diesel worden uit olie gemaakt. Met elektrische auto's besparen we dus heel veel olie. We moeten natuurlijk wel meer elektriciteit maken. Als we deze elektriciteit opwekken met wind of zon, dan heeft autorijden geen CO<sub>2</sub>-uitstoot meer tot gevolg. Maken we de stroom met kolen- of gascentrales dan is er nog steeds een voordeel ten opzichte van auto's op benzine en diesel, maar dit is beperkt omdat gas- en met name kolencentrales ook CO<sub>2</sub> uitstoten.
+    green_gas_total_share: |-
+      Uit mest, GFT afval, rioolslib, maïs en nog veel meer plantaardige en
+      dierlijke produkten kun je biogas maken. Biogas kun je bewerken tot het
+      net zo goed is als aardgas. Biogas van aardgaskwaliteit noem je groengas.
+      Groen gas is biogas van aardgaskwaliteit. Biogas wordt gewoonlijk gemaakt
+      door bacteriën die biologisch materiaal verteren (vergisting). In de toekomst wordt het mogelijk ook gemaakt door biomassa te vergassen. De kunst is om biogas te maken op een manier waarbij de natuur niet wordt aangetast en de voedselvoorziening niet in gevaar komt. Helaas is dat niet altijd zo gemakkelijk.
 
     households_behavior_standby_killer_turn_off_appliances: |-
-      We hebben steeds meer elektrische apparaten in huis. Heel vaak staan deze apparaten aan zonder dat we ze gebruiken. Door deze apparaten zo vaak mogelijk uit te zetten, kunnen we dus stroom besparen.
-
-    number_of_coal_conventional: |-
-      Een kolencentrale draait het grootste deel van de tijd op volle kracht. Regelmatig uitzetten verlaagt de hoeveelheid stroom die we uit kolen kunnen halen. Van alle manieren om stroom te maken geeft een kolencentrale de grootste luchtvervuiling. De CO<sub>2</sub>-uitstoot is ongeveer 2 keer zo groot als die van een gascentrale.
-
-    number_of_gas_conventional: |-
-      Een gascentrale is goedkoper om te bouwen dan een kolencentrale. Wel zijn ze duurder als ze draaien dan centrales op kolen. Een gascentrale kun je makkelijk aan of uit zetten. Dat is handig om stroom te makken als de windmolen even stilstaat om dat het niet waait. De CO<sub>2</sub>-uitstoot van een gascentrale is ongeveer de helft van een kolencentrale.
-
-    number_of_wind_onshore_land: |-
-      Een windmolen produceert duurzame stroom omdat je geen last hebt van CO<sub>2</sub>-uitstoot. Wind wordt als energiebron gebruikt. En wind is onuitputtelijk aanwezig. Het waait alleen niet altijd. Daarom kun je niet volstaan met alleen windmolens, maar heb je ook centrales nodig die altijd kunnen draaien en liefst soms wat meer en soms wat minder. Gascentrales zijn hier relatief het beste voor geschikt. Er wordt momenteel hard gewerkt om te zorgen dat windmolens goedkoper worden. Nadeel van een windmolen op land is voor veel mensen ook dat ze hem niet mooi vinden en daarom is er vaak verzet bij het plaatsen van windmolens op land. Windmolens op zee hebben een hogere opbrengst maar nadeel is dat het bouwen en onderhouden van deze molens veel duurder is dan windmolens op land.
-
-    households_hot_water_micro_chp_share: |-
-      De micro-WKK (warmte-krachtkoppeling) is een piepkleine warmte- en elektriciteitscentrale op gas voor gebruik in huis. Toekomstige micro-WKK's leveren minder warmte, omdat ze bedoeld zijn voor huizen die steeds beter geïsoleerd zijn. In 2050 zijn ze vooral bedoeld om warm water te leveren, en niet zozeer voor ruimteverwarming.
-      De combinatie van warmte én elektriciteit maakt deze optie zeer efficiënt. De micro-WKK vervangt de CV-ketel. Veel grotere WKK's (1 - 200 MW elektrisch) worden momenteel al vaak gebruikt door tuinders en in de industrie. De geproduceerde warmte wordt gebruikt voor verwarming van ruimtes of water. Als niet alle opgewekte stroom wordt gebruikt, wordt het teruggeleverd aan het elektriciteitsnet, net als bij zonnepanelen.
-
-    households_insulation_level_old_houses: |-
-      Hoe beter je een huis isoleert en luchtdicht maakt, hoe minder energie je nodig hebt voor verwarming in de winter. Isolatie zorgt er voor dat de warmte niet weglekt door ramen, muren, vloeren en daken. Luchtdichtheid zorgt er voor dat de wind geen koude lucht het huis in kan blazen en warme lucht er uit. Hoe luchtdichter je een huis maakt, hoe meer je actief moet zorgen voor een goed binnenklimaat.  Zeer energiezuinige huizen zijn super geïsoleerd en luchtdicht.
-
-    households_lighting_light_emitting_diode_share: |-
-      Gloeilampen verspillen veel energie. Bijna alle stroom die ze gebruiken wordt omgezet in warmte in plaats van licht. Daarom zullen we in Europa de komende jaren overschakelen naar zuinige lampen die veel minder warm worden en evenveel licht geven. Daar komt nog eens bij dat ze veel langer meegaan dan gloeilampen. Nadeel is wel dat deze lampen nog duurder in de aanschaf zijn dan oude gloeilampen.
-
-    households_hot_water_fuel_cell_share: |-
-      Brandstofcellen lijken op batterijen. Via elektrochemische weg worden brandstoffen direct verbrand (geoxideerd). Brandstofcellen zijn zeer efficiënt en maken elektriciteit en warmte. Deze brandstofcel gebruikt gas maar is flexibel in wat voor soort brandstof hij gebruikt. Het grootste nadeel is dat hij alleen bij hoge temperaturen werkt (500 - 1000 °C), waardoor het een tijdje duurt voordat hij opgestart is. In huishoudens is dat niet zo'n probleem, omdat de brandstofcel bijna continu aanstaat. Daarbij maakt de brandstofcel elektriciteit en warm water. Dat laatste wordt in een groot boilervat opgeslagen.
-      Dit apparaat maakt meer elektriciteit dan een gemiddeld huishouden nodig heeft. Hierdoor wordt de eigenaar een echte stroomproducent. De brandstofcel bij dit schuifje is een zogenaamde "Solid Oxide Fuel Cell" (SOFC).
+      We hebben steeds meer elektrische apparaten in huis. Heel vaak staan deze
+      apparaten aan zonder dat we ze gebruiken. Door deze apparaten zo vaak
+      mogelijk uit te zetten, kunnen we dus stroom besparen.
 
     households_heating_heat_pump_ground_share: |-
-      Een warmtepomp is een apparaat om je huis te verwarmen. Een warmtepomp is een soort omgekeerde koelkast. Hij pompt warmte van buiten het huis naar binnen, terwijl een koelkast warmte van binnen de koelkast naar buiten pompt. Warmtepompen draaien voor een deel, bijvoorbeeld 25%, op elektriciteit of gas en voor het andere deel, bijvoorbeeld 75%, op warmte uit de omgeving (lucht of bodemwarmte). Daardoor gebruik je minder fossiele energie dan met bijvoorbeeld een HR gasketel. Nadeel is nog wel dat de warmtepomp duurder is om aan te schaffen.
-      Extra voordeel bij een warmtepomp met bodemwarmte is dat je in de zomer ook meteen koeling hebt. Je kunt dan zonder al te veel energie te gebruiken koelen. Je pompt relatief koud water uit de bodem door het verwarmingssysteem van je woning en tegelijkertijd warm je de bodem op met het retourwater uit de woning zodat je de volgende winter weer warmte uit de grond kan onttrekken.
+      Een warmtepomp is een apparaat om je huis te verwarmen. Een warmtepomp is
+      een soort omgekeerde koelkast. Hij pompt warmte van buiten het huis naar
+      binnen, terwijl een koelkast warmte van binnen de koelkast naar buiten
+      pompt. Warmtepompen draaien voor een deel, bijvoorbeeld 25%, op
+      elektriciteit of gas en voor het andere deel, bijvoorbeeld 75%, op warmte
+      uit de omgeving (lucht of bodemwarmte). Daardoor gebruik je minder
+      fossiele energie dan met bijvoorbeeld een HR gasketel. Nadeel is nog wel
+      dat de warmtepomp duurder is om aan te schaffen.
+      Extra voordeel bij een warmtepomp met bodemwarmte is dat je in de zomer
+      ook meteen koeling hebt. Je kunt dan zonder al te veel energie te
+      gebruiken koelen. Je pompt relatief koud water uit de bodem door het
+      verwarmingssysteem van je woning en tegelijkertijd warm je de bodem op met
+      het retourwater uit de woning zodat je de volgende winter weer warmte uit
+      de grond kan onttrekken.
+
+    households_hot_water_fuel_cell_share: |-
+      Brandstofcellen lijken op batterijen. Via elektrochemische weg worden
+      brandstoffen direct verbrand (geoxideerd). Brandstofcellen zijn zeer
+      efficiënt en maken elektriciteit en warmte. Deze brandstofcel gebruikt
+      gas maar is flexibel in wat voor soort brandstof hij gebruikt. Het
+      grootste nadeel is dat hij alleen bij hoge temperaturen werkt (500 - 1000
+      °C), waardoor het een tijdje duurt voordat hij opgestart is. In
+      huishoudens is dat niet zo'n probleem, omdat de brandstofcel bijna continu
+      aanstaat. Daarbij maakt de brandstofcel elektriciteit en warm water. Dat
+      laatste wordt in een groot boilervat opgeslagen.
+      Dit apparaat maakt meer elektriciteit dan een gemiddeld huishouden nodig
+      heeft. Hierdoor wordt de eigenaar een echte stroomproducent. De
+      brandstofcel bij dit schuifje is een zogenaamde "Solid Oxide Fuel Cell" (SOFC).
+
+    households_hot_water_micro_chp_share: |-
+      De micro-WKK (warmte-krachtkoppeling) is een piepkleine warmte- en
+      elektriciteitscentrale op gas voor gebruik in huis. Toekomstige
+      micro-WKK's leveren minder warmte, omdat ze bedoeld zijn voor huizen die
+      steeds beter geïsoleerd zijn. In 2050 zijn ze vooral bedoeld om warm
+      water te leveren, en niet zozeer voor ruimteverwarming.
+      De combinatie van warmte én elektriciteit maakt deze optie zeer efficiënt.
+      De micro-WKK vervangt de CV-ketel. Veel grotere WKK's (1 - 200 MW
+      elektrisch) worden momenteel al vaak gebruikt door tuinders en in de
+      industrie. De geproduceerde warmte wordt gebruikt voor verwarming van
+      ruimtes of water. Als niet alle opgewekte stroom wordt gebruikt, wordt het
+      teruggeleverd aan het elektriciteitsnet, net als bij zonnepanelen.
 
     households_hot_water_solar_water_heater_share: |-
-      A solar water heater uses heat from the sun to make warm water. This is often done on the roof of a house. The hot water can then be used for showering or washing dishes, for example. By using the suns heat, we need a lot less energy to make hot water.
+      A solar water heater uses heat from the sun to make warm water. This is
+      often done on the roof of a house. The hot water can then be used for
+      showering or washing dishes, for example. By using the suns heat, we need
+      a lot less energy to make hot water.
 
-    number_of_pulverized_coal: |-
-      Een kolencentrale verbrandt steenkool om water te laten koken zodat hele hete stoom ontstaat. De stoom wordt gebruikt om via een grote dynamo elektriciteit op te wekken. Omdat kolencentrales duur zijn om te bouwen en goedkoop om te draaien, werken ze het grootste deel van de tijd op volle kracht. Daarom zijn ze minder geschikt om als backup te dienen voor een energietoekomst met veel wind- en zonne-energie dan gascentrales. Van alle manieren om stroom te maken, geeft een kolencentrale de meeste luchtvervuiling. De CO<sub>2</sub>-uitstoot is ongeveer 2 keer zo groot als die van een gascentrale. Wel is het mogelijk om hout bij te stoken om deze uitstoot te verminderen en hernieuwbaarheid te verhogen.
+    households_insulation_level_old_houses: |-
+      Hoe beter je een huis isoleert en luchtdicht maakt, hoe minder energie je
+      nodig hebt voor verwarming in de winter. Isolatie zorgt er voor dat de
+      warmte niet weglekt door ramen, muren, vloeren en daken. Luchtdichtheid
+      zorgt er voor dat de wind geen koude lucht het huis in kan blazen en warme
+      lucht er uit. Hoe luchtdichter je een huis maakt, hoe meer je actief moet
+      zorgen voor een goed binnenklimaat.  Zeer energiezuinige huizen zijn super
+      geïsoleerd en luchtdicht.
 
-    number_of_gas_ccgt: |-
-      Een gascentrale is goedkoper om te bouwen dan een kolencentrale. Maar meestal is het gas zo duur en de kolen zo goedkoop dat kolenstroom goedkoper is stroom uit gas. Een gascentrale kun je gemakkelijker harder of zachter zetten dan een kolencentrale. Dat is handig om stroom te maken als het niet waait of de zonnepanelen het niet doen omdat er geen zon is. De CO<sub>2</sub>-uitstoot van een gascentrale is ongeveer de helft van een kolencentrale, maar natuurlijk wel veel meer dan die van een windmolen of kerncentrale.
-
-    number_of_nuclear_3rd_gen: |-
-      Een kerncentrale is heel duur om te bouwen. Maar een kerncentrale gaat lang mee en hij gebruikt maar kleine hoeveelheden brandstof (uranium). Hierdoor is het maken van stroom relatief goedkoop. Daarom staat een kerncentrale bijna altijd op volle kracht aan. Een kerncentrale is niet zo geschikt om vraag en aanbod van stroom in evenwicht te brengen als het bijvoorbeeld even niet waait en/of de zon niet schijnt. Voordeel is dat je nauwelijks last hebt van CO<sub>2</sub>-uitstoot. Nadeel is het radioactieve afval dat overblijft. Hiervoor is nog geen goede oplossing bedacht. En ook kan er heel soms iets fout gaan met een reactor waardoor de omgeving onleefbaar wordt. Denk aan Fukushima of Tsjernobyl. Nieuwe generaties kerncentrales probeert men wel steeds veiliger te maken.
-
-    number_of_wind_offshore: |-
-      Een windmolen produceert hernieuwbare stroom, omdat je geen last hebt van CO<sub>2</sub>-uitstoot. Wind wordt als energiebron gebruikt en wind is onuitputtelijk aanwezig. Het waait alleen niet altijd. Daarom kun je niet volstaan met alleen windmolens, maar heb je ook stroomopwek nodig die altijd kan blijven draaien en liefst soms wat meer en soms wat minder. Gascentrales zijn hier relatief het beste voor geschikt. Er wordt momenteel hard gewerkt om te zorgen dat windmolens goedkoper worden. Nadeel van een windmolen op land is voor veel mensen ook dat ze hem niet mooi vinden en daarom is er vaak verzet bij het plaatsen van windmolens op land. Windmolens op zee hebben een hogere opbrengst maar nadeel is dat het bouwen en onderhouden van deze molens veel duurder is dan windmolens op land.
+    households_lighting_light_emitting_diode_share: |-
+      Gloeilampen verspillen veel energie. Bijna alle stroom die ze gebruiken
+      wordt omgezet in warmte in plaats van licht. Daarom zullen we in Europa de
+      komende jaren overschakelen naar zuinige lampen die veel minder warm
+      worden en evenveel licht geven. Daar komt nog eens bij dat ze veel langer
+      meegaan dan gloeilampen. Nadeel is wel dat deze lampen nog duurder in de
+      aanschaf zijn dan oude gloeilampen.
 
     households_market_penetration_solar_panels: |-
-      Zonnepanelen maken stroom als ze zonlicht opvangen. Dit lukt trouwens ook als het bewolkt is. Daarom weet je van tevoren beter hoeveel stroom je kunt verwachten dan bij een windmolen. Het is wel zo dat een zonnepaneel in het zonnige Spanje meer stroom oplevert dan in Nederland. Zonnepanelen kun je op je eigen huis leggen. Dat is nuttig en leuk. Zonnepanelen kosten wel veel geld om aan te schaffen, maar daarna leveren ze gratis stroom. En als je stroom teruglevert aan het elektriciteitsnet kun je er ook nog geld voor krijgen. Bovendien worden zonnepanelen snel goedkoper.
+      Zonnepanelen maken stroom als ze zonlicht opvangen. Dit lukt trouwens ook
+      als het bewolkt is. Daarom weet je van tevoren beter hoeveel stroom je
+      kunt verwachten dan bij een windmolen. Het is wel zo dat een zonnepaneel
+      in het zonnige Spanje meer stroom oplevert dan in Nederland. Zonnepanelen
+      kun je op je eigen huis leggen. Dat is nuttig en leuk. Zonnepanelen kosten
+      wel veel geld om aan te schaffen, maar daarna leveren ze gratis stroom. En
+      als je stroom teruglevert aan het elektriciteitsnet kun je er ook nog geld
+      voor krijgen. Bovendien worden zonnepanelen snel goedkoper.
 
-    green_gas_total_share: |-
-      Uit mest, GFT afval, rioolslib, maïs en nog veel meer plantaardige en dierlijke produkten kun je biogas maken. Biogas kun je bewerken tot het net zo goed is als aardgas. Biogas van aardgaskwaliteit noem je groengas. 
-      Groen gas is biogas van aardgaskwaliteit. Biogas wordt gewoonlijk gemaakt door bacteriën die biologisch materiaal verteren (vergisting). In de toekomst wordt het mogelijk ook gemaakt door biomassa te vergassen. De kunst is om biogas te maken op een manier waarbij de natuur niet wordt aangetast en de voedselvoorziening niet in gevaar komt. Helaas is dat niet altijd zo gemakkelijk.
+    number_of_coal_conventional: |-
+      Een kolencentrale draait het grootste deel van de tijd op volle kracht.
+      Regelmatig uitzetten verlaagt de hoeveelheid stroom die we uit kolen kunnen
+      halen. Van alle manieren om stroom te maken geeft een kolencentrale de
+      grootste luchtvervuiling. De CO<sub>2</sub>-uitstoot is ongeveer 2 keer
+      zo groot als die van een gascentrale.
 
+    number_of_gas_ccgt: |-
+      Een gascentrale is goedkoper om te bouwen dan een kolencentrale. Maar
+      meestal is het gas zo duur en de kolen zo goedkoop dat kolenstroom
+      goedkoper is stroom uit gas. Een gascentrale kun je gemakkelijker harder
+      of zachter zetten dan een kolencentrale. Dat is handig om stroom te maken
+      als het niet waait of de zonnepanelen het niet doen omdat er geen zon is.
+      De CO<sub>2</sub>-uitstoot van een gascentrale is ongeveer de helft van
+      een kolencentrale, maar natuurlijk wel veel meer dan die van een windmolen
+      of kerncentrale.
+
+    number_of_gas_conventional: |-
+      Een gascentrale is goedkoper om te bouwen dan een kolencentrale. Wel zijn
+      ze duurder als ze draaien dan centrales op kolen. Een gascentrale kun je
+      makkelijk aan of uit zetten. Dat is handig om stroom te makken als de
+      windmolen even stilstaat om dat het niet waait. De CO<sub>2</sub>-uitstoot
+      van een gascentrale is ongeveer de helft van een kolencentrale.
+
+    number_of_nuclear_3rd_gen: |-
+      Een kerncentrale is heel duur om te bouwen. Maar een kerncentrale gaat
+      lang mee en hij gebruikt maar kleine hoeveelheden brandstof (uranium).
+      Hierdoor is het maken van stroom relatief goedkoop. Daarom staat een
+      kerncentrale bijna altijd op volle kracht aan. Een kerncentrale is niet zo
+      geschikt om vraag en aanbod van stroom in evenwicht te brengen als het
+      bijvoorbeeld even niet waait en/of de zon niet schijnt. Voordeel is dat
+      je nauwelijks last hebt van CO<sub>2</sub>-uitstoot. Nadeel is het
+      radioactieve afval dat overblijft. Hiervoor is nog geen goede oplossing
+      bedacht. En ook kan er heel soms iets fout gaan met een reactor waardoor
+      de omgeving onleefbaar wordt. Denk aan Fukushima of Tsjernobyl. Nieuwe
+      generaties kerncentrales probeert men wel steeds veiliger te maken.
+
+    number_of_pulverized_coal: |-
+      Een kolencentrale verbrandt steenkool om water te laten koken zodat hele
+      hete stoom ontstaat. De stoom wordt gebruikt om via een grote dynamo
+      elektriciteit op te wekken. Omdat kolencentrales duur zijn om te bouwen en
+      goedkoop om te draaien, werken ze het grootste deel van de tijd op volle
+      kracht. Daarom zijn ze minder geschikt om als backup te dienen voor een
+      energietoekomst met veel wind- en zonne-energie dan gascentrales. Van alle
+      manieren om stroom te maken, geeft een kolencentrale de meeste
+      luchtvervuiling. De CO<sub>2</sub>-uitstoot is ongeveer 2 keer zo groot
+      als die van een gascentrale. Wel is het mogelijk om hout bij te stoken om
+      deze uitstoot te verminderen en hernieuwbaarheid te verhogen.
+
+    number_of_wind_offshore: |-
+      Een windmolen produceert hernieuwbare stroom, omdat je geen last hebt van
+      CO<sub>2</sub>-uitstoot. Wind wordt als energiebron gebruikt en wind is
+      onuitputtelijk aanwezig. Het waait alleen niet altijd. Daarom kun je niet
+      volstaan met alleen windmolens, maar heb je ook stroomopwek nodig die
+      altijd kan blijven draaien en liefst soms wat meer en soms wat minder.
+      Gascentrales zijn hier relatief het beste voor geschikt. Er wordt
+      momenteel hard gewerkt om te zorgen dat windmolens goedkoper worden.
+      Nadeel van een windmolen op land is voor veel mensen ook dat ze hem niet
+      mooi vinden en daarom is er vaak verzet bij het plaatsen van windmolens op
+      land. Windmolens op zee hebben een hogere opbrengst maar nadeel is dat het
+      bouwen en onderhouden van deze molens veel duurder is dan windmolens op land.
+
+    number_of_wind_onshore_land: |-
+      Een windmolen produceert duurzame stroom omdat je geen last hebt van
+      CO<sub>2</sub>-uitstoot. Wind wordt als energiebron gebruikt. En wind is
+      onuitputtelijk aanwezig. Het waait alleen niet altijd. Daarom kun je niet
+      volstaan met alleen windmolens, maar heb je ook centrales nodig die
+      altijd kunnen draaien en liefst soms wat meer en soms wat minder.
+      Gascentrales zijn hier relatief het beste voor geschikt. Er wordt
+      momenteel hard gewerkt om te zorgen dat windmolens goedkoper worden.
+      Nadeel van een windmolen op land is voor veel mensen ook dat ze hem niet
+      mooi vinden en daarom is er vaak verzet bij het plaatsen van windmolens op
+      land. Windmolens op zee hebben een hogere opbrengst maar nadeel is dat het
+      bouwen en onderhouden van deze molens veel duurder is dan windmolens op land.
+
+    transport_cars_electric_share: |-
+      Een elektrische auto gebruikt 2 tot 3 keer minder energie dan een auto op
+      benzine of diesel. Benzine en diesel worden uit olie gemaakt. Met
+      elektrische auto's besparen we dus heel veel olie. We moeten natuurlijk
+      wel meer elektriciteit maken. Als we deze elektriciteit opwekken met wind
+      of zon, dan heeft autorijden geen CO<sub>2</sub>-uitstoot meer tot gevolg.
+      Maken we de stroom met kolen- of gascentrales dan is er nog steeds een
+      voordeel ten opzichte van auto's op benzine en diesel, maar dit is beperkt
+      omdat gas- en met name kolencentrales ook CO<sub>2</sub> uitstoten.
