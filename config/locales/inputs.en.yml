@@ -5,6 +5,7 @@ en:
     comfort_temperature_in_the_house: "Comfort temperature in the house"
     daily_length_of_shower_per_person: "Average length of daily shower"
     green_gas_total_share: "Green gas"
+    households_area_solar_pv: "Roof area for solar PV"
     household_heating_technology: ""
     household_heating_technology_options:
       combi_boiler: "Gas fired combi-boiler"
@@ -28,6 +29,7 @@ en:
     number_of_appliances_in_the_house: "Number of appliances in the house"
     number_of_cold_showers_per_week: "Number of cold showers per week"
     number_of_gas_ccgt: "Gas-fired power plants"
+    number_of_households_heating_solar_thermal_collectors: "Number of solar thermal collectors"
     number_of_nuclear_3rd_gen: "Nuclear power plants"
     number_of_pulverized_coal: "Coal / biomass power plants"
     number_of_wind_offshore: "Wind turbines"
@@ -37,6 +39,7 @@ en:
       no_cooling: "No airco"
       one_room_cooling: "Only in one room"
       whole_house_cooling: "The whole house"
+
 
   information:
     amount_of_insulation: |-
@@ -73,6 +76,13 @@ en:
       bacteria that digest biological material. In the future, such gas may
       be produced by "gasification" of biomass.
 
+    households_area_solar_pv: |-
+      Solar cells transform sunlight into electricity. Solar panels are 
+      installed on rooftops and may compete for space with solar water
+      heaters. This technology is developing rapidly and solar panels 
+      are becoming ever more efficient and cheaper. Solar panels are 
+      expected to become much cheaper in the coming 40 years.
+
     households_behavior_standby_killer_turn_off_appliances: |-
       We own more and more electrical appliances that are often left on when
       they are not being used. By switching off these appliances we can save power.
@@ -91,6 +101,53 @@ en:
       A SWH is often combined with a gas-fired central heating boiler that
       heats water further if necessary. It can also be combined with a heat
       pump.
+
+    household_heating_technology_options:
+      combi_boiler: |-
+        In most homes in the Netherlands, the combi-boiler is the default
+        technology for producing heat and hot water. Although this technology
+        uses gas very efficiently, it still emits CO<sub>2</sub> which could 
+        pose a problem if you want to reduce emissions significantly.
+        
+      heatpump_ground: |-
+        A heat pump moves heat from one place to another. Heat pumps are
+        used in refrigerators, but buildings can use them for heating and 
+        cooling. This saves energy compared to a gas-fired central heating 
+        boiler, for example. For optimal application, it may require 
+        installation of under-floor and wall heating instead of radiators.
+        Currently, their use in newly constructed houses is becoming quite
+        popular.
+        
+      micro_chp: |-
+        The micro-CHP (Combined Heat and Power) unit is a tiny gas-fired 
+        heat and power plant for use in your house. Using a micro-CHP can 
+        deliver significant energy savings. Because this technology is 
+        relatively new, it is quite expensive.
+        
+    household_lighting_type_options:
+      fluorescent_lighting: |-
+        Fluorescent lights produce light by sending an electric charge 
+        through a rarified gas that is contained in a tube. A typical 
+        fluorescent light converts electricity into visible light 10 
+        times more efficiently than the traditional incandescent lamp still
+        used in many homes. The lights are usually also more expensive, but 
+        the initial higher investment costs are offset by much longer
+        lifetimes and lower electricity use.
+        
+      incandescent_lighting: |-
+        Many EU countries will ban the incandescent light bulb in the future.
+        They only convert about 2-3% of the energy used into visible light.
+        The rest is radiated as heat. Compared to newer technologies, 
+        incandescent light bulbs do not live very long. An advantage 
+        is that they tend to give off a 'warm' light.
+        
+      led_lighting: |-
+        LED lights are 50% more efficient than conventional fluorescent lights.
+        Unlike fluorescent lights, LEDs can be switched on and off often 
+        without decreasing their lifetime. Investment costs for LED lighting 
+        are 5 to 50 times higher than for fluorescent tubes. However, their 
+        longer life and lower electricity use will in the end make the LED 
+        light cheaper.
 
     households_hot_water_fuel_cell_share: |-
       This is a so-called Solid Oxide Fuel Cell (SOFC). Fuel cells are
@@ -184,7 +241,15 @@ en:
       A gas-fired power plant is easily powered up or down. That can come
       in handy when wind turbines are not turning for a lack of wind.
       CO<sub>2</sub> emissions are half that of a coal-fired power plant.
-
+      
+    number_of_households_heating_solar_thermal_collectors: |-
+      Solar water heaters (SWH) use heat from the sun to produce warm water. 
+      This warm water can be used for showering or for doing the dishes, 
+      etc. SWHs are usually installed on rooftops or in asphalt for parking
+      lots. A SWH is often combined with a gas-fired central heating boiler
+      that heats water further if necessary. It can also be combined with 
+      a heat pump.
+    
     number_of_nuclear_3rd_gen: |-
       A nuclear power plant is very expensive to build. They last
       a really long time and they use only small amounts of fuel (uranium).
