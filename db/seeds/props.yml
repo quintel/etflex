@@ -21,6 +21,8 @@
 - behaviour: 'energy-bill'
 - behaviour: 'co2-emissions-household'
 - behaviour: 'sustainable-energy'
+- behaviour: 'electricity-use'
+- behaviour: 'gas-use'
 
 # House theme headerprops
 - behaviour: 'grass'
@@ -32,5 +34,4 @@
 - behaviour: 'aircon'
 - behaviour: 'space-heating'
 - behaviour: 'appliances'
-- behaviour: 'energy-use'
 - behaviour: 'radiator'
