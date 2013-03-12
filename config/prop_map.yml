@@ -16,7 +16,10 @@ supply-demand:       [ supply_demand,              SupplyDemandView ]
 investment:          [ investment,                 InvestmentView ]
 energy-bill:         [ energy_bill,                EnergyBillView ]
 co2-emissions-household: [co2_emissions_household, CO2EmissionsHouseholdView ]
-energy-use:           [ energy_use, EnergyUseView ]
+
+electricity-use:     [ electricity_use, ElectricityUseView ]
+gas-use:             [ gas_use, GasUseView ]
+
 sustainable-energy:  [ sustainable_energy, SustainableEnergyView ]
 # Header Props.
 
