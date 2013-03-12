@@ -118,7 +118,8 @@ nl:
       reliability:  "Betrouwbaar"
       investment:   "Investeringen"
       energy_bill:  "Energierekening"
-      energy_use:   "Energieverbruik"
+      electricity_use: "Elektriciteitsverbruik"
+      gas_use: "Gasverbruik"
       sustainable_energy: "Duurzame energie"
       billion:      "miljard"
 
