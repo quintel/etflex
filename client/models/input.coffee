@@ -22,8 +22,6 @@ class exports.Input extends Backbone.Model
   # See Backbone.sync.
   #
   sync: (method, model, options) ->
-    console.log 'Syncing'
-
     unless @collection?
       throw 'Cannot persist an input without a collection'
 

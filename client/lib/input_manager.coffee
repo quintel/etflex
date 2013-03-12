@@ -129,7 +129,6 @@ class QueuedUpdate
   #           whose values we want ETEngine to return to us.
   #
   update: (input, queries = []) ->
-    console.log 'Called update'
     @inputs = input.collection
     # @inputs[ input.id ]  = input
     @queries[ query.id ] = query for query in (queries?.models or queries)
@@ -142,7 +141,6 @@ class QueuedUpdate
   # sessionId - The current ETEngine session ID.
   #
   perform: (sessionId) ->
-    console.log 'Performing update'
     queries  = ( query for own k, query of @queries )
     # inputs   = ( input for own k, input of @inputs  )
     data     = { inputs: @inputs, queries: queries }
