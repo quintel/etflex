@@ -49,5 +49,3 @@ class exports.Scene extends Backbone.Model
 
     _.uniq ids
 
-  flattenInputs: (inputs) ->
-    console.log inputs

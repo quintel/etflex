@@ -17,7 +17,5 @@ class exports.OptionsView extends Backbone.View
     $("##{value}_option").attr('checked', true)
 
   updateModel: (ev) ->
-    console.log 'Changed'
-    console.log $(ev.target)
     value = $(ev.target).val()
     @model.set(value: value)
