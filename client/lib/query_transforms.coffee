@@ -21,6 +21,7 @@ as = (unit) -> ((value) -> "#{FORMAT_DEFAULT value} #{unit}")
 
 # Retrieves the mutate/format definitions for a given query.
 exports.forQuery = (query) ->
+  console.log query.id
   if found = TRANSFORMS[ query.id ]
     found.mutate = _.identity unless found.mutate
     found.format = FORMAT_DEFAULT unless found.format
@@ -61,3 +62,21 @@ TRANSFORMS =
   renewability:
     mutate: (value) -> value * 100
     format: FORMAT_PERCENT
+
+  etflex_households_co2_emissions_per_household:
+    format: as 'Mtonnes'
+
+  etflex_households_investment_per_household:
+    format: as "&euro;"
+
+  etflex_households_monthly_energy_bill:
+    format: as "&euro;"
+
+  etflex_households_final_demand_electricity_per_household:
+    format: as "kWh"
+
+  etflex_households_final_demand_network_gas_per_household:
+    format: as "m<sup>3</sup>"
+
+  etflex_households_production_renewable_energy_per_household:
+    format: as '%'
