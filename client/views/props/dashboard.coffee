@@ -97,3 +97,27 @@ class exports.IconDashboardProp extends exports.DashboardProp
 
   # Updates the icon when the query changes.
   updateValues: => _.tap super, (value) => @icon.setState @hurdleState value
+
+class exports.IconDashboardWithNeedleProp extends exports.IconDashboardProp
+  updateValues: =>
+    val = super
+
+    bottomValue = @hurdles[0]
+    topValue    = @hurdles.splice(-1, 1)
+
+    degrees = (val / (topValue - bottomValue)) * 166
+    degrees = 166 if degrees > 166
+    degrees = 0   if degrees < 0
+
+    @$('.needle')
+      .css('-moz-transform', "rotate(#{degrees}deg)")
+      .css('-webkit-transform', "rotate(#{degrees}deg)")
+      .css('-ms-transform', "rotate(#{degrees}deg)")
+      .css('-o-transform', "rotate(#{degrees}deg)")
+
+  render: =>
+    super
+
+    @$el.append '<span class="needle"></span>'
+    @updateValues()
+    this

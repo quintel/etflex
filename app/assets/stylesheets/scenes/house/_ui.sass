@@ -174,27 +174,6 @@
       &.very-high
         background-position: -340px 0
 
-    &.energy-use .icon
-      background-image: image-url("scenes/house/icons/energyuse.png")
-      left: 0
-      width: 109px
-      height: 66px
-
-      &.extremely-low
-        background-position: 0px 0
-      &.very-low
-        background-position: 0px -66px
-      &.low
-        background-position: 0px -132px
-      &.medium
-        background-position: 0px -198px
-      &.high
-        background-position: 0px -264px
-      &.very-high
-        background-position: 0px -330px
-      &.extremely-high
-        background-position: 0px -396px
-
     &.sustainable-energy .icon
       background-image: image-url("scenes/house/icons/bonsai-tree.png")
       left: 0
@@ -230,6 +209,39 @@
         left: 21px
       .ones
         left: 26px
+
+    &.electricity-use .icon
+      background-image: image-url("scenes/house/icons/electricity-use.png")
+      width: 116px
+      height: 97px
+
+    &.gas-use .icon
+      background-image: image-url("scenes/house/icons/gas-use.png")
+      width: 116px
+      height: 97px
+
+    &.electricity-use, &.gas-use
+      position: relative
+
+      .needle
+        position: absolute
+        z-index: 10
+        background: image-url("scenes/house/icons/needle.png") no-repeat
+        width: 48px
+        height: 7px
+        top: 38px
+        left: 60px
+
+        // Enables smooth animation of the needle when it changes.
+        -o-transition:      -o-transform      0.5s
+        -ms-transition:     -ms-transform     0.5s
+        -moz-transition:    -moz-transform    0.5s
+        -webkit-transition: -webkit-transform 0.5s
+
+        // http://stackoverflow.com/questions/6843367/css3-transforms-cause-screen-flickering-or-aliased-font
+        -webkit-transform-style: preserve-3d
+
+
 
 // HiDPI Sprite --------------------------------------------------------------
 
