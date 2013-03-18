@@ -1,6 +1,6 @@
-{ IconDashboardProp } = require 'views/props/dashboard'
+{ IconDashboardWithNeedleProp } = require 'views/props/dashboard'
 
-class exports.GasUseView extends IconDashboardProp
+class exports.GasUseView extends IconDashboardWithNeedleProp
 
   className: 'gas-use'
   lowerBetter: true
