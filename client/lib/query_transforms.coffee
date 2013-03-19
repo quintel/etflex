@@ -78,5 +78,5 @@ TRANSFORMS =
   etflex_households_final_demand_network_gas_per_household:
     format: as "m<sup>3</sup>"
 
-  etflex_households_production_renewable_energy_per_household:
+  etflex_households_percentage_renewable_energy_per_household:
     format: as '%'
