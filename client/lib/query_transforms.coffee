@@ -21,7 +21,6 @@ as = (unit) -> ((value) -> "#{FORMAT_DEFAULT value} #{unit}")
 
 # Retrieves the mutate/format definitions for a given query.
 exports.forQuery = (query) ->
-  console.log query.id
   if found = TRANSFORMS[ query.id ]
     found.mutate = _.identity unless found.mutate
     found.format = FORMAT_DEFAULT unless found.format
