@@ -31,6 +31,11 @@ GEM
       girl_friday
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
+    better_errors (0.7.2)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
+    binding_of_caller (0.7.1)
+      debug_inspector (>= 0.0.1)
     bourne (1.1.2)
       mocha (= 0.10.5)
     builder (3.0.4)
@@ -69,6 +74,7 @@ GEM
       compass (>= 0.12.2, < 0.14)
     connection_pool (1.0.0)
     database_cleaner (0.9.1)
+    debug_inspector (0.0.2)
     default_value_for (2.0.1)
     devise (2.2.3)
       bcrypt-ruby (~> 3.0)
@@ -282,6 +288,8 @@ DEPENDENCIES
   activesupport (~> 3.2.11)
   acts_as_list
   airbrake
+  better_errors
+  binding_of_caller
   capistrano
   capybara (>= 1.1.1)
   capybara-webkit
