@@ -82,6 +82,7 @@ end
 # Symlink database.yml, etc.
 before 'deploy:assets:precompile', 'deploy:link_config'
 after  'deploy:update_code',       'deploy:link_config'
+after  'deploy:update',            'deploy:cleanup'
 after  'deploy',                   'airbrake:notify'
 
 # ----------------------------------------------------------------------------
