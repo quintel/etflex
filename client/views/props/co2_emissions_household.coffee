@@ -16,6 +16,6 @@ class exports.CO2EmissionsHouseholdView extends IconDashboardProp
   name: 'CO<sub>2</sub>'
 
   # Help Texts
-  # helpHeader: -> "props.co2_emissions.header"
-  # helpBody:   -> "props.co2_emissions.body"
+  helpHeader: -> "props.co2_emissions_household.header"
+  helpBody:   -> "props.co2_emissions_household.body"
 

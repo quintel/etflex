@@ -9,3 +9,6 @@ class exports.SustainableEnergyView extends IconDashboardProp
 
   name: I18n.t 'scenes.etlite.sustainable_energy'
 
+  # Help Texts
+  helpHeader: -> "props.sustainable_energy.header"
+  helpBody:   -> "props.sustainable_energy.body"

@@ -10,3 +10,7 @@ class exports.EnergyBillView extends IconDashboardProp
   states:  [ 'very-low', 'low', 'medium', 'high', 'very-high' ]
 
   name: I18n.t 'scenes.etlite.energy_bill'
+
+  # Help Texts
+  helpHeader: -> "props.energy_bill.header"
+  helpBody:   -> "props.energy_bill.body"
