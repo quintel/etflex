@@ -11,3 +11,6 @@ class exports.GasUseView extends IconDashboardWithNeedleProp
 
   name: I18n.t 'scenes.etlite.gas_use'
 
+  # Help Texts
+  helpHeader: -> "props.gas_use.header"
+  helpBody:   -> "props.gas_use.body"

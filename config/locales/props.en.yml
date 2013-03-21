@@ -89,3 +89,27 @@ en:
       name: "Solar Heater"
     renewables:
       name: "Renewables"
+
+    co2_emissions_household:
+      header: "CO2 emissions header"
+      body: "CO2 emissions body"
+
+    electricity_use:
+      header: "Electricity use header"
+      body: "Electricity use body"
+
+    energy_bill:
+      header: "Energy bill header"
+      body: "Energy bill body"
+
+    gas_use:
+      header: "Gas use header"
+      body: "Gas use body"
+
+    investment:
+      header: "Investment header"
+      body: "Investment body"
+
+    sustainable_energy:
+      header: "Sustainable energy header"
+      body: "Sustainable energy body"

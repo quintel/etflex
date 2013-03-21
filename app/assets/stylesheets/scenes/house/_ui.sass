@@ -109,11 +109,25 @@
     .prop
       padding-top: 0
       width: 120px
+
+      .value
+        background: image-url("range-help.png") no-repeat 0 4px
+        color: inherit
+        cursor: pointer
+        padding-left: 23px
+        text-decoration: none
+
+        &:active
+          background-position: 0 -66px
+
+
+
       .icon-prop
         height: 90px
   #core .dashboard .prop
     .icon
       height: 90px
+
     &.investment .icon
       background-image: image-url("scenes/house/icons/investment.png")
       left: 5px

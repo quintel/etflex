@@ -10,3 +10,7 @@ class exports.InvestmentView extends IconDashboardProp
   states:  [ 'very-low', 'low', 'medium', 'high', 'very-high' ]
 
   name: I18n.t 'scenes.etlite.investment'
+
+  # Help Texts
+  helpHeader: -> "props.investment.header"
+  helpBody:   -> "props.investment.body"

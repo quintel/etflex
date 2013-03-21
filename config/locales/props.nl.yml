@@ -86,3 +86,27 @@ nl:
       name: "Grond"
     solar_heater:
       name: "Zonneboiler"
+
+    co2_emissions_household:
+      header: "NL CO2 emissions header"
+      body: "NL CO2 emissions body"
+
+    electricity_use:
+      header: "NL Electricity use header"
+      body: "NL Electricity use body"
+
+    energy_bill:
+      header: "NL Energy bill header"
+      body: "NL Energy bill body"
+
+    gas_use:
+      header: "NL Gas use header"
+      body: "NL Gas use body"
+
+    investment:
+      header: "NL Investment header"
+      body: "NL Investment body"
+
+    sustainable_energy:
+      header: "NL Sustainable energy header"
+      body: "NL Sustainable energy body"

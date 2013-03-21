@@ -11,3 +11,6 @@ class exports.ElectricityUseView extends IconDashboardWithNeedleProp
 
   name: I18n.t 'scenes.etlite.electricity_use'
 
+  # Help Texts
+  helpHeader: -> "props.electricity_use.header"
+  helpBody:   -> "props.electricity_use.body"
