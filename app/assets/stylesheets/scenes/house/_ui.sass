@@ -104,7 +104,8 @@
 
   // PROPS
   #core .dashboard
-    width: 840px
+    width: 1080px
+    // width: 840px
     margin: -73px auto 0 auto
     .prop
       padding-top: 0
@@ -125,68 +126,79 @@
       .icon-prop
         height: 90px
   #core .dashboard .prop
+    margin-right: 25px
     .icon
       height: 90px
 
-    &.investment .icon
-      background-image: image-url("scenes/house/icons/investment.png")
-      left: 5px
-      width: 115px
+    &.investment
+      .value
+        width: 60px
+      .icon
+        background-image: image-url("scenes/house/icons/investment.png")
+        left: 5px
+        width: 115px
 
-      &.very-low
-        background-position: 0px 0
+        &.very-low
+          background-position: 0px 0
 
-      &.low
-        background-position: -116px 0
+        &.low
+          background-position: -116px 0
 
-      &.medium
-        background-position: -230px 0
+        &.medium
+          background-position: -230px 0
 
-      &.high
-        background-position: -344px 0
+        &.high
+          background-position: -344px 0
 
-      &.very-high
-        background-position: -460px 0
+        &.very-high
+          background-position: -460px 0
 
-    &.energy-bill .icon
-      background-image: image-url("scenes/house/icons/wallet.png")
-      left: 15px
-      width: 70px
+    &.energy-bill
+      .value
+        width: 66px
+      .icon
+        background-image: image-url("scenes/house/icons/wallet.png")
+        left: 23px
+        width: 70px
 
-      &.very-low
-        background-position: 0px 0
+        &.very-low
+          background-position: 0px 0
 
-      &.low
-        background-position: -70px 0
+        &.low
+          background-position: -70px 0
 
-      &.medium
-        background-position: -140px 0
+        &.medium
+          background-position: -140px 0
 
-      &.high
-        background-position: -210px 0
+        &.high
+          background-position: -210px 0
 
-      &.very-high
-        background-position: -280px 0
+        &.very-high
+          background-position: -280px 0
 
-    &.co2-emissions-household .icon
-      background-image: image-url("scenes/house/icons/planet.png")
-      left: 20px
-      width: 85px
+    &.co2-emissions-household 
+      .value
+        width: 60px
 
-      &.very-low
-        background-position: 0px 0
+      .icon
+        background-image: image-url("scenes/house/icons/planet.png")
+        left: 20px
+        width: 85px
 
-      &.low
-        background-position: -85px 0
+        &.very-low
+          background-position: 0px 0
 
-      &.medium
-        background-position: -170px 0
+        &.low
+          background-position: -85px 0
 
-      &.high
-        background-position: -255px 0
+        &.medium
+          background-position: -170px 0
 
-      &.very-high
-        background-position: -340px 0
+        &.high
+          background-position: -255px 0
+
+        &.very-high
+          background-position: -340px 0
 
     &.sustainable-energy .icon
       background-image: image-url("scenes/house/icons/bonsai-tree.png")
@@ -205,24 +217,29 @@
       &.very-high
         background-position: 0 0
 
-    &.score .icon
-      background-image: image-url("scenes/house/icons/score.png")
-      top: 10px
-      width: 120px
-      height: 60px
+    &.score
+      width: 124px
+      .value
+        margin-left: 28px
 
-      .numbers
-        position: relative
-        color: #fff
-        font-weight: bold
-        top: 12px
+      .icon
+        background-image: image-url("scenes/house/icons/score.png")
+        top: 10px
+        width: 120px
+        height: 60px
 
-      .hundreds
-        left: 16px
-      .tens
-        left: 21px
-      .ones
-        left: 26px
+        .numbers
+          position: relative
+          color: #fff
+          font-weight: bold
+          top: 12px
+
+        .hundreds
+          left: 16px
+        .tens
+          left: 21px
+        .ones
+          left: 26px
 
     &.electricity-use .icon
       background-image: image-url("scenes/house/icons/electricity-use.png")
@@ -235,7 +252,10 @@
       height: 97px
 
     &.electricity-use, &.gas-use
+      width: 150px
       position: relative
+      .value
+        width: 80px
 
       .needle
         position: absolute
