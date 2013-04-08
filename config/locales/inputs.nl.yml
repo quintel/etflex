@@ -5,6 +5,7 @@ nl:
     comfort_temperature_in_the_house: "Gemiddelde temperatuur in het huis"
     daily_length_of_shower_per_person: "Gemiddelde lengte van de dagelijkse douche"
     green_gas_total_share: "Groen gas"
+    households_area_solar_pv: "Dakoppervlak voor zon PV"
     household_heating_technology: ""
     household_heating_technology_options:
       combi_boiler: "HR combi-ketel"
@@ -14,6 +15,7 @@ nl:
       fluorescent_lighting: "Spaarlampen"
       incandescent_lighting: "Gloeilampen"
       led_lighting: "LED-lampen"
+    households_behavior_standby_killer_turn_off_appliances: "Apparaten uitzetten"
     households_heating_heat_pump_add_on_share: "Warmtepomp"
     households_heating_heat_pump_ground_share: "Warmtepomp"
     households_heating_solar_thermal_panels_share: "Zonthermische collectoren"
@@ -27,9 +29,11 @@ nl:
     number_of_appliances_in_the_house: "Aantal apparaten in het huis"
     number_of_cold_showers_per_week: "Hoe vaak per week neem je een koude douche?"
     number_of_gas_ccgt: "Aardgascentrales"
+    number_of_households_heating_solar_thermal_collectors: "Aantal zonnecollectoren (warmte)"    
     number_of_nuclear_3rd_gen: "Kerncentrales"
     number_of_pulverized_coal: "Kolen- / biomassacentrales"
     number_of_wind_offshore: "Windmolens"
+    policy_area_biomass: "Biomass"
     transport_cars_electric_share: "Elektrische auto's"
     use_of_air_conditioning_options:
       no_cooling: "Geen airco"
@@ -37,6 +41,32 @@ nl:
       whole_house_cooling: "Het hele huis"
 
   information:
+    amount_of_insulation: |-
+      Insulation is cheap and effective and demand for heating or cooling
+      depends on the level of insulation.
+      Several options exist for better insulation. The most important
+      ones are roof, wall and floor insulation and insulating glazing.
+      These options count for 75% of the total potential savings. The insulation
+      level can be expressed as a 'thermal resistance' or Rc-value. This is a 
+      measure for how much resistance the building provides to escaping
+      heat or cold. The higher the Rc-value, the better the insulation.
+      For the Netherlands, the average Rc-value of old residences is about 1.
+      This is the result of a mix between badly, partially, and well-insulated
+      residences. For old residences it is difficult to reach Rc-values higher 
+      than 3.
+
+    comfort_temperature_in_the_house: |-
+      Decreasing the setting on your thermostat by a couple of degrees
+      can save a lot of energy. Nonetheless, people tend to choose 
+      more comfort if they can afford it. What is your guess for our future
+      'comfort temperature'?
+
+    daily_length_of_shower_per_person: |-
+      Almost 80% of daily hot water consumption is for showering.
+      Decreasing the time an average person spends taking a shower (8
+      minutes) could save a lot of water. How long do you think a shower
+      will take in the future?
+
     green_gas_total_share: |-
       Uit mest, GFT afval, rioolslib, maïs en nog veel meer plantaardige en
       dierlijke produkten kun je biogas maken. Biogas kun je bewerken tot het
@@ -47,6 +77,13 @@ nl:
       kunst is om biogas te maken op een manier waarbij de natuur niet wordt
       aangetast en de voedselvoorziening niet in gevaar komt. Helaas is dat niet
       altijd zo gemakkelijk.
+
+    households_area_solar_pv: |-
+      Solar cells transform sunlight into electricity. Solar panels are 
+      installed on rooftops and may compete for space with solar water
+      heaters. This technology is developing rapidly and solar panels 
+      are becoming ever more efficient and cheaper. Solar panels are 
+      expected to become much cheaper in the coming 40 years.
 
     households_behavior_standby_killer_turn_off_appliances: |-
       We hebben steeds meer elektrische apparaten in huis. Heel vaak staan deze
@@ -69,6 +106,61 @@ nl:
       het retourwater uit de woning zodat je de volgende winter weer warmte uit
       de grond kan onttrekken.
 
+    households_heating_solar_thermal_panels_share: |-
+      Solar water heaters (SWH) use heat from the sun to produce warm water.
+      This warm water can be used for showering or for doing the dishes, etc.
+      SWHs are usually installed on rooftops or in asphalt for parking lots.
+      A SWH is often combined with a gas-fired central heating boiler that
+      heats water further if necessary. It can also be combined with a heat
+      pump.
+
+    household_heating_technology_options:
+      combi_boiler: |-
+        In many homes in the Netherlands, the combi-boiler is the default
+        technology for producing heat and hot water. Although this technology
+        uses gas quite efficiently, it still emits CO<sub>2</sub>. This could 
+        pose a problem if you want to reduce emissions significantly.
+        
+      heatpump_ground: |-
+        A heat pump moves heat from one place to another. Heat pumps are
+        used in refrigerators, but buildings can also use them for heating and 
+        cooling. This saves energy compared to a gas-fired central heating 
+        boiler, for example. For optimal application, it may require 
+        installation of under-floor and wall heating instead of radiators.
+        Currently, their use in newly constructed houses is becoming quite
+        popular.
+        
+      micro_chp: |-
+        The micro-CHP (Combined Heat and Power) unit is a tiny gas-fired 
+        heat and power plant for use in your house. Using a micro-CHP can 
+        deliver significant energy savings. Because this technology is 
+        relatively new, it is quite expensive.
+        
+    household_lighting_type_options:
+      fluorescent_lighting: |-
+        Fluorescent lights produce light by sending an electric charge 
+        through a rarified gas that is contained in a tube. A typical 
+        fluorescent light converts electricity into visible light 10 
+        times more efficiently than the traditional incandescent lamp still
+        used in many homes. The lights are usually also more expensive, but 
+        the higher costs are offset by much longer
+        lifetimes and lower electricity bills.
+        
+      incandescent_lighting: |-
+        Many EU countries will ban the incandescent light bulb in the future.
+        They only convert about 2-3% of the energy used into visible light.
+        The rest is radiated as heat. Compared to newer technologies, 
+        incandescent light bulbs do not live very long. An advantage 
+        is that they tend to give off a 'warm' light.
+        
+      led_lighting: |-
+        LED lights are 50% more efficient than conventional fluorescent lights.
+        Unlike fluorescent lights, LEDs can be switched on and off often 
+        without decreasing their lifetime. LED lighting costs 
+        5 to 50 times more than for fluorescent tubes. Their 
+        longer life and lower electricity use will in the end make the LED 
+        light cheaper.
+
     households_hot_water_fuel_cell_share: |-
       Brandstofcellen lijken op batterijen. Via elektrochemische weg worden
       brandstoffen direct verbrand (geoxideerd). Brandstofcellen zijn zeer
@@ -88,7 +180,7 @@ nl:
       elektriciteitscentrale op gas voor gebruik in huis. Toekomstige
       micro-WKK's leveren minder warmte, omdat ze bedoeld zijn voor huizen die
       steeds beter geïsoleerd zijn. In 2050 zijn ze vooral bedoeld om warm
-      water te leveren, en niet zozeer voor ruimteverwarming.
+      water te leveren, en niet zozeer voor ruimtes.
       De combinatie van warmte én elektriciteit maakt deze optie zeer efficiënt.
       De micro-WKK vervangt de CV-ketel. Veel grotere WKK's (1 - 200 MW
       elektrisch) worden momenteel al vaak gebruikt door tuinders en in de
@@ -99,8 +191,8 @@ nl:
     households_hot_water_solar_water_heater_share: |-
       A solar water heater uses heat from the sun to make warm water. This is
       often done on the roof of a house. The hot water can then be used for
-      showering or washing dishes, for example. By using the suns heat, we need
-      a lot less energy to make hot water.
+      showering or washing dishes, for example. Using the sun's heat saves 
+      energy.
 
     households_insulation_level_old_houses: |-
       Hoe beter je een huis isoleert en luchtdicht maakt, hoe minder energie je
@@ -129,6 +221,11 @@ nl:
       als je stroom teruglevert aan het elektriciteitsnet kun je er ook nog geld
       voor krijgen. Bovendien worden zonnepanelen snel goedkoper.
 
+    number_of_appliances_in_the_house: |-
+      The number of household appliances (phones, media players, laptops etc.)
+      that we own has been increasing steadily over the past years. Do you
+      think this trend will continue in the future?
+
     number_of_coal_conventional: |-
       Een kolencentrale draait het grootste deel van de tijd op volle kracht.
       Regelmatig uitzetten verlaagt de hoeveelheid stroom die we uit kolen kunnen
@@ -136,6 +233,10 @@ nl:
       grootste luchtvervuiling. De CO<sub>2</sub>-uitstoot is ongeveer 2 keer
       zo groot als die van een gascentrale.
 
+    number_of_cold_showers_per_week: |-
+      Taking one cold shower a week reduces your hot water consumption
+      by more than 10%. How many cold showers would you take per week?
+ 
     number_of_gas_ccgt: |-
       Een gascentrale is goedkoper om te bouwen dan een kolencentrale. Maar
       meestal is het gas zo duur en de kolen zo goedkoop dat kolenstroom
@@ -153,6 +254,14 @@ nl:
       windmolen even stilstaat om dat het niet waait. De CO<sub>2</sub>-uitstoot
       van een gascentrale is ongeveer de helft van een kolencentrale.
 
+    number_of_households_heating_solar_thermal_collectors: |-
+      Solar water heaters (SWH) use heat from the sun to produce warm water. 
+      This warm water can be used for showering or for doing the dishes, 
+      etc. SWHs are usually installed on rooftops or in asphalt for parking
+      lots. A SWH is often combined with a gas-fired central heating boiler
+      that heats water further if necessary. It can also be combined with 
+      a heat pump.
+    
     number_of_nuclear_3rd_gen: |-
       Een kerncentrale is heel duur om te bouwen. Maar een kerncentrale gaat
       lang mee en hij gebruikt maar kleine hoeveelheden brandstof (uranium).
@@ -213,3 +322,7 @@ nl:
       Maken we de stroom met kolen- of gascentrales dan is er nog steeds een
       voordeel ten opzichte van auto's op benzine en diesel, maar dit is beperkt
       omdat gas- en met name kolencentrales ook CO<sub>2</sub> uitstoten.
+
+    use_of_air_conditioning_options: |-
+      Currently, less than 30% of houses in the Netherlands have airconditioning.
+      How will this change in the future?

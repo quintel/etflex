@@ -8,9 +8,9 @@ en:
     households_area_solar_pv: "Roof area for solar PV"
     household_heating_technology: ""
     household_heating_technology_options:
-      combi_boiler: "Gas fired combi-boiler"
-      heatpump_ground: "Ground heatpump"
-      micro_chp: "Gas fired Micro-CHP"
+      combi_boiler: "Gas-fired combi-boiler"
+      heatpump_ground: "Ground source heat pump"
+      micro_chp: "Gas-fired Micro-CHP"
     household_lighting_type_options:
       fluorescent_lighting: "Fluorescent lighting"
       incandescent_lighting: "Incandescent lighting"
@@ -43,30 +43,28 @@ en:
 
   information:
     amount_of_insulation: |-
-      Insulation is cheap and effective. The demand for heating or cooling
+      Insulation is cheap and effective and demand for heating or cooling
       depends on the level of insulation.
-      We have several options to better insulate our houses. The most important
-      ones are roof, wall and floor insulation and insulated glazing.
-      These four count for 75% of the total potential savings. The insulation
-      level can be expressed as a 'thermal resistance' or Rc-value.
-      This is a measure for much resistance the building provides for escaping
-      heat or cold.
-      So the higher the Rc-value, the better the insulation level of the
-      residence.
+      Several options exist for better insulation. The most important
+      ones are roof, wall and floor insulation and insulating glazing.
+      These options count for 75% of the total potential savings. The insulation
+      level can be expressed as a 'thermal resistance' or Rc-value. This is a 
+      measure for how much resistance the building provides to escaping
+      heat or cold. The higher the Rc-value, the better the insulation.
       For the Netherlands, the average Rc-value of old residences is about 1.
-      This is the result of a mix between badly, partially, and well insulated
-      residences. For old residences it is difficult to go above an Rc-value
-      of 3.
+      This is the result of a mix between badly, partially, and well-insulated
+      residences. For old residences it is difficult to reach Rc-values higher 
+      than 3.
 
     comfort_temperature_in_the_house: |-
-      Decreasing the setting on your thermostat by a couple of degrees lower
-      can save a lot of energy. On the other hand, if they can afford it
-      people tend to choose more comfort. What is your guess for our future
+      Decreasing the setting on your thermostat by a couple of degrees
+      can save a lot of energy. Nonetheless, people tend to choose 
+      more comfort if they can afford it. What is your guess for our future
       'comfort temperature'?
 
     daily_length_of_shower_per_person: |-
-      Almost 80% of your daily hot water consumption is for showering.
-      Reducing the time the average person spends taking a shower (8
+      Almost 80% of daily hot water consumption is for showering.
+      Decreasing the time an average person spends taking a shower (8
       minutes) could save a lot of water. How long do you think a shower
       will take in the future?
 
@@ -85,14 +83,14 @@ en:
 
     households_behavior_standby_killer_turn_off_appliances: |-
       We own more and more electrical appliances that are often left on when
-      they are not being used. By switching off these appliances we can save power.
+      they are not being used. We can save some power by switching them off.
 
     households_heating_heat_pump_ground_share: |-
       A heat pump is like a refrigerator used the other way around: it pumps
-      heat into the house from outside, while a refrigerator pumps heat outside
-      of its own insides. Heat pumps make sure that you need a lot less gas to
-      heat the house. This is a good thing; we want to save that gas since it
-      will not be available for ever.
+      heat into the house from outside, while a refrigerator pumps heat out
+      of its own insides. Heat pumps reduce your need for gas to
+      heat the house. This seems like a good thing, since gas
+      will not be available forever.
 
     households_heating_solar_thermal_panels_share: |-
       Solar water heaters (SWH) use heat from the sun to produce warm water.
@@ -104,14 +102,14 @@ en:
 
     household_heating_technology_options:
       combi_boiler: |-
-        In most homes in the Netherlands, the combi-boiler is the default
+        In many homes in the Netherlands, the combi-boiler is the default
         technology for producing heat and hot water. Although this technology
-        uses gas very efficiently, it still emits CO<sub>2</sub> which could 
+        uses gas quite efficiently, it still emits CO<sub>2</sub>. This could 
         pose a problem if you want to reduce emissions significantly.
         
       heatpump_ground: |-
         A heat pump moves heat from one place to another. Heat pumps are
-        used in refrigerators, but buildings can use them for heating and 
+        used in refrigerators, but buildings can also use them for heating and 
         cooling. This saves energy compared to a gas-fired central heating 
         boiler, for example. For optimal application, it may require 
         installation of under-floor and wall heating instead of radiators.
@@ -131,8 +129,8 @@ en:
         fluorescent light converts electricity into visible light 10 
         times more efficiently than the traditional incandescent lamp still
         used in many homes. The lights are usually also more expensive, but 
-        the initial higher investment costs are offset by much longer
-        lifetimes and lower electricity use.
+        the higher costs are offset by much longer
+        lifetimes and lower electricity bills.
         
       incandescent_lighting: |-
         Many EU countries will ban the incandescent light bulb in the future.
@@ -144,16 +142,15 @@ en:
       led_lighting: |-
         LED lights are 50% more efficient than conventional fluorescent lights.
         Unlike fluorescent lights, LEDs can be switched on and off often 
-        without decreasing their lifetime. Investment costs for LED lighting 
-        are 5 to 50 times higher than for fluorescent tubes. However, their 
+        without decreasing their lifetime. LED lighting costs 
+        5 to 50 times more than for fluorescent tubes. Their 
         longer life and lower electricity use will in the end make the LED 
         light cheaper.
 
     households_hot_water_fuel_cell_share: |-
-      This is a so-called Solid Oxide Fuel Cell (SOFC). Fuel cells are
-      electrochemical conversion devices that produce electricity directly
-      from oxidizing a fuel. Fuel cells are highly efficient and besides
-      electricity, also produce heat.
+      This so-called Solid Oxide Fuel Cell (SOFC) produces electricity and
+      heat by direct electrochemical oxidization (burning) of fuels.
+      Fuel cells are highly efficient.
       This fuel cell uses gas but is somewhat flexible when it comes to the
       kind of fuel it uses. The largest disadvantage is that is operates at
       high temperatures (500 - 1000 °C), which results in longer start-up
@@ -165,10 +162,7 @@ en:
 
     households_hot_water_micro_chp_share: |-
       The micro-CHP (Combined Heat and Power) unit is a tiny gas-fired
-      heat and power plant for domestic use. Future micro CHPs will supply
-      less heat, because they are meant to be used in well-insulated houses.
-      In 2050 they are mostly suited for supplying hot water and no longer
-      for space heating.
+      heat and power plant for domestic use.
       The combination of heat and electricity makes this option quite energy
       efficient, especially in houses that have a large heat demand. The
       micro-CHP replaces the gas-fired central heating boiler. The heat
@@ -179,8 +173,8 @@ en:
     households_hot_water_solar_water_heater_share: |-
       A solar water heater uses heat from the sun to make warm water. This is
       often done on the roof of a house. The hot water can then be used for
-      showering or washing dishes, for example. By using the suns heat, we
-      need a lot less energy to make hot water.
+      showering or washing dishes, for example. Using the sun's heat saves 
+      energy.
 
     households_insulation_level_old_houses: |-
       A house uses a lot less energy for heating in winter, if it is insulated
@@ -201,12 +195,12 @@ en:
     households_market_penetration_solar_panels: |-
       Solar panels make electricity when they absorb sunlight. This also
       works on cloudy days. As a result, it is easier to predict how much
-      power you can expect then it is with wind power. Of course, a solar
+      power you can expect than with wind power. Of course, a solar
       panel in sunny Spain produces more electricity than one in the United
-      Kingdom. You can install solar panels on the roof of your own house.
-      This is useful: it avoids power losses from transporting electricity
-      over a long cable. Solar panels are still quite expensive; a lot of
-      work is being put into making them cheaper.
+      Kingdom. You can install solar panels on the roof of your own house
+      to avoids power losses from transporting electricity over a long cable. 
+      Solar panels are still quite expensive, but they are rapidly becoming
+      more affordable.
 
     number_of_appliances_in_the_house: |-
       The number of household appliances (phones, media players, laptops etc.)
@@ -225,12 +219,10 @@ en:
       by more than 10%. How many cold showers would you take per week?
 
     number_of_gas_ccgt: |-
-      A gas-fired power plant is cheaper to build than a coal power plant. But
-      usually gas is so expensive and coal so cheap that it is cheaper to produce
-      electricity with a coal-fired power plant. A gas-fired power plant can be
-      turned up and down easier than a coal-fired or nuclear power plant.
-      Therefore these plants can act as backup plants for wind- and solar power.
-      That can come in handy when there is no wind and solar panels do not
+      A gas-fired power plant is cheaper to build than a coal power plant. 
+      However, power from gas costs more than power plants that burn coal. 
+      A gas-fired power plant is easily powered up or down. That can come
+      in handy when there is no wind and solar panels do not
       produce electricity because the sun is not shining. CO<sub>2</sub>
       emissions of a gas-fired power plant are half that of a coal-fired
       power plant.
@@ -239,7 +231,7 @@ en:
       A gas-fired power plant is cheaper to build than a coal power plant.
       However, power from gas costs more than power plants that burn coal.
       A gas-fired power plant is easily powered up or down. That can come
-      in handy when wind turbines are not turning for a lack of wind.
+      in handy when there is no wind.
       CO<sub>2</sub> emissions are half that of a coal-fired power plant.
       
     number_of_households_heating_solar_thermal_collectors: |-
@@ -261,46 +253,42 @@ en:
       waste is a disadvantage. No one has come up with a good solution for
       this problem yet. On very rare occasions things can go horribly wrong
       and the plants surroundings become unsuitable for living creatures for
-      a very long time. Fukushima or Chernobyl are striking examples. New
+      a very long time. New
       generations of nuclear power plants are designed to be much safer
       than older types.
 
     number_of_pulverized_coal: |-
-      A coal-fired power plant burns coals to boil water and turn it into very
-      hot steam. This steam is used to drive a generator and produce
-      electricity.
-      These plants are less suitable to act as backup plants for wind- and solar
+      Coal-fired power plants are less suitable to act as backup plants 
+      for wind- and solar
       electricity than gas-fired plants, because they are expensive to build and
       cheap to run. For this reason coal-fired power plants are almost always
-      running, producing electricity at maximum power. Out of all power plants,
-      this one has the highest CO<sub>2</sub>-emissions, about twice a much as a
-      gas-fired power plant. Wood can be co-fired in coal plants, to reduce such
-      emissions and raise renewability.
+      running, producing electricity at maximum power. Coal has the highest 
+      CO<sub>2</sub>-emissions, about twice a much as gas-fired power plants.
+      Wood can be co-fired in coal plants, to reduce such emissions and 
+      increase renewability.
 
     number_of_wind_offshore: |-
-      A wind turbine produces renewable power without CO<sub>2</sub>
-      emissions. Wind is its fuel; it is a fuel that does not run out,
-      although the wind does not always blow. This means that building
-      windmills alone is not enough. You would have a problem if you
-      needed power and there was no wind. A lot of effort is currently
-      being put into making wind turbines cheaper.
-
+      Wind turbines produce renewable power without CO<sub>2</sub>
+      emissions. Although wind does not run out, it does not always blow. 
+      This means that building windmills alone is not enough to ensure 
+      supply. 
+      You would have a problem if you needed power and there was no wind. 
+      
     number_of_wind_onshore_land: |-
-      A wind turbine produces renewable power. There are no CO<sub>2</sub>
-      emissions. Wind is its fuel; it is a fuel which does not run out. Of
-      course, the wind does not always blow. This means that building
-      windmills alone is not enough. You would have a problem if you
-      needed power and there was no wind. A lot of effort is currently
-      being put into making wind turbines cheaper.
+      Wind turbines produce renewable power without CO<sub>2</sub>
+      emissions. Although wind does not run out, it does not always blow. 
+      This means that building windmills alone is not enough to ensure 
+      supply. You would have a problem if you
+      needed power and there was no wind.
 
     transport_cars_electric_share: |-
-      An electric car uses 2 to 3 times less energy than a diesel or gasoline
+      An electric car uses about half the energy of a diesel or gasoline
       -powered car. Diesel and gasoline are made from oil. By switching to
-      electric cars, we will save a lot of oil but at the same time use more
-      electricity. If we generate this electricity using wind turbines or
-      solar power, driving a car will no longer produce any CO<sub>2</sub>
-      emissions. If we make this electricity with modern coal or gas-fired
-      power plants electric cars will still emit less fossil-fueled ones,
+      electric cars, we will save a lot of oil and at the same time use more
+      electricity. Wind or solar powered cars will no longer produce 
+      any CO<sub>2</sub> emissions. 
+      Electric cars powered by modern coal or gas-fired power plants  will 
+      still emit less than conventional ones,
       but only a bit because coal en gas-fired power plants also emit CO<sub>2</sub>.
       [image](/assets/information/electric_versus_gasoline.png)
       
