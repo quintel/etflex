@@ -27,10 +27,7 @@ ETFlex::Application.routes.draw do
   # Backstage and Administration ---------------------------------------------
 
   namespace :backstage do
-    resources :inputs
-
     resources :scenes do
-      resources :inputs, controller: 'scene_inputs', except: :show
       resources :props,  controller: 'scene_props',  except: :show
     end
 
