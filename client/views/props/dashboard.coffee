@@ -102,6 +102,9 @@ class exports.IconDashboardWithNeedleProp extends exports.IconDashboardProp
   updateValues: =>
     val = super
 
+    if @query.mutated('future') ==  @query.mutated('future', 'previous')
+      return
+
     bottomValue = @hurdles[0]
     topValue    = @hurdles.splice(-1, 1)
 

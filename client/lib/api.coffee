@@ -105,6 +105,11 @@ exports.updateInputs = (sessionId, options, callback) ->
       # Update the queries with the new values returned by the engine.
       if data.gqueries?
         for query in queries when result = data.gqueries[ query.id ]
-          query.set present: result.present, future: result.future
+          # Had to hack this up, as backbone tries to be really smart about
+          # the way it sets attributes. We rely on previous attributes being
+          # set, even if they're the same, so that we calculate the difference.
+          query._previousAttributes = _.clone(query.attributes)
+          query.set { present: result.present, future: result.future } , { silent: true }
+          query.trigger('change:future')
 
       callback null, data if callback
