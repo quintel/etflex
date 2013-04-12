@@ -54,7 +54,7 @@ fetchUserValues = (sessionId, inputs, callback) ->
 
 # Used to create a new session, pre-initialized with values from ETengine.
 createSession = (queries, inputs, scenario, callback) ->
-  data = settings:
+  data = scenario:
     end_year: scenario.get('endYear')
     area_code:  scenario.get('country')
     source: 'ETFlex'
