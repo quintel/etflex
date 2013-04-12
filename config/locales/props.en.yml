@@ -91,25 +91,34 @@ en:
       name: "Renewables"
 
     co2_emissions_household:
-      header: "CO2 emissions header"
-      body: "CO2 emissions body"
+      header: "Annual CO2 emissions"
+      body: "These average annual CO<sub>2</sub> emissions per household depend
+      on your assumptions for heating and electricity."
 
     electricity_use:
-      header: "Electricity use header"
-      body: "Electricity use body"
+      header: "Annual electricity use"
+      body: "The average household's annual electricity use depends on 
+      your assumptions on electric appliances, but also on how homes
+      will be heated in the future."
 
     energy_bill:
-      header: "Energy bill header"
-      body: "Energy bill body"
+      header: "Monthly Energy bill"
+      body: "The average household's energy bill is based on your choices
+      for energy use. We have assumed an electricity price of 22 
+      &euro;ct/kWh and a gas price of 60 &euro;ct/m<sup>3</sup>."
 
     gas_use:
-      header: "Gas use header"
-      body: "Gas use body"
+      header: "Annual gas use"
+      body: "The average household's annual gas use mostly depends on your 
+      assumptions for heating and insulation."
 
     investment:
-      header: "Investment header"
-      body: "Investment body"
+      header: "Total investment costs"
+      body: "This shows the total investment costs per household needed 
+      to realize the options you chose here."
 
     sustainable_energy:
-      header: "Sustainable energy header"
-      body: "Sustainable energy body"
+      header: "Renewable energy"
+      body: "This shows the percentage of renewable energy use in households.
+      If households produce more renewable electricy than they need, this
+      can be higher than 100%."

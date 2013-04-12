@@ -88,25 +88,35 @@ nl:
       name: "Zonneboiler"
 
     co2_emissions_household:
-      header: "NL CO2 emissions header"
-      body: "NL CO2 emissions body"
+      header: "Jaarlijkse CO2 uitstoot"
+      body: "Deze gemiddelde jaarlijkse CO<sub>2</sub> per woning hangt
+      af van je keuzes voor verwarming en elektriciteit."
 
     electricity_use:
-      header: "NL Electricity use header"
-      body: "NL Electricity use body"
+      header: "Jaarlijks elektriciteitsgebruik"
+      body: "Het gemiddelde jaarlijkse elektriciteitsgebruik in huishoudens
+      hangt af van je keuzes voor elektrische apparaten, maar ook van 
+      hoe woningen in de toekomst verwarmd worden."
 
     energy_bill:
-      header: "NL Energy bill header"
-      body: "NL Energy bill body"
+      header: "Maandelijkse energierekening"
+      body: "De gemiddelde maandelijke energierekening per huishouden
+      is gebaseerd op jouw keuzes rondom energiegebruik. Wij zijn uitgegaan
+      van een elektriciteitsprijs van 22 
+      &euro;ct/kWh en een gasprijs van 60 &euro;ct/m<sup>3</sup>."
 
     gas_use:
-      header: "NL Gas use header"
-      body: "NL Gas use body"
+      header: "Jaarlijks gasgebruik"
+      body: "Het gemiddelde jaarlijkse gasgebruik per huishouden hangt vooral 
+      af van jouw aannames over verwarming en isolatie."
 
     investment:
-      header: "NL Investment header"
-      body: "NL Investment body"
+      header: "Totale investeringen"
+      body: "Deze totale investeringskosten per huishousen zijn nodig
+      om de opties te realiseren die je hier hebt gekozen."
 
     sustainable_energy:
-      header: "NL Sustainable energy header"
-      body: "NL Sustainable energy body"
+      header: "Hernieuwbaarheid"
+      body: "Hier zie je het percentage van het energiegebruik in huishoudens
+      dat hernieuwbaar is. Als je meer stroom maakt dan je nodig hebt, 
+      kan dit getal groter worden dan 100%."
