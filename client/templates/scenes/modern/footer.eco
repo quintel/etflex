@@ -29,7 +29,6 @@
   </ul>
 
   <ul id="partners">
-    <li><%= @className %></li>
     <li><a href="http://www.gasterra.nl" data-navigate="noclient" target="_new" class="partner gasterra">GasTerra</a></li>
     <li class="by"><%= I18n.t 'leading_partner' %></li>
   </ul>
