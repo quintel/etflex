@@ -43,17 +43,16 @@ en:
 
   information:
     amount_of_insulation: |-
-      Insulation is cheap and effective and demand for heating or cooling
-      depends on the level of insulation.
-      Several options exist for better insulation. The most important
-      ones are roof, wall and floor insulation and insulating glazing.
-      These options count for 75% of the total potential savings. The insulation
+      Insulation is cheap and effective and strongly influences demand 
+      for heating or cooling.
+      Roof, wall and floor insulation and insulating glazing account 
+      for 75% of the total potential savings. The insulation
       level can be expressed as a 'thermal resistance' or Rc-value. This is a 
-      measure for how much resistance the building provides to escaping
-      heat or cold. The higher the Rc-value, the better the insulation.
+      measure for how much the building resists escaping heat or cold. 
+      The higher the Rc-value, the better the insulation.
       For the Netherlands, the average Rc-value of old residences is about 1.
       This is the result of a mix between badly, partially, and well-insulated
-      residences. For old residences it is difficult to reach Rc-values higher 
+      residences. For old residences it is not easy to reach Rc-values higher 
       than 3.
 
     comfort_temperature_in_the_house: |-
@@ -64,9 +63,9 @@ en:
 
     daily_length_of_shower_per_person: |-
       Almost 80% of daily hot water consumption is for showering.
-      Decreasing the time an average person spends taking a shower (8
-      minutes) could save a lot of water. How long do you think a shower
-      will take in the future?
+      Decreasing the length of an average shower (currently 8 minutes) 
+      could save a lot of water and energy. How long do you think 
+      a shower will take in the future?
 
     green_gas_total_share: |-
       Green gas is biogas that has been upgraded to natural gas quality. It
@@ -108,14 +107,11 @@ en:
         pose a problem if you want to reduce emissions significantly.
         
       heatpump_ground: |-
-        A heat pump moves heat from one place to another. Heat pumps are
-        used in refrigerators, but buildings can also use them for heating and 
-        cooling. This saves energy compared to a gas-fired central heating 
-        boiler, for example. For optimal application, it may require 
-        installation of under-floor and wall heating instead of radiators.
-        Currently, their use in newly constructed houses is becoming quite
-        popular.
-        
+        A heat pump is like a refrigerator used the other way around: it pumps
+        heat into the house from outside, while a refrigerator pumps heat out
+        of its own insides. Heat pumps reduce your need for gas to
+        heat the house. 
+       
       micro_chp: |-
         The micro-CHP (Combined Heat and Power) unit is a tiny gas-fired 
         heat and power plant for use in your house. Using a micro-CHP can 
@@ -149,10 +145,8 @@ en:
 
     households_hot_water_fuel_cell_share: |-
       This so-called Solid Oxide Fuel Cell (SOFC) produces electricity and
-      heat by direct electrochemical oxidization (burning) of fuels.
-      Fuel cells are highly efficient.
-      This fuel cell uses gas but is somewhat flexible when it comes to the
-      kind of fuel it uses. The largest disadvantage is that is operates at
+      heat from natural gas. Fuel cells are highly efficient.
+      The largest disadvantage is that this operates at
       high temperatures (500 - 1000 °C), which results in longer start-up
       times. In households this is not a problem as they are basically
       constantly running, producing warm water that is stored in a container
@@ -161,14 +155,10 @@ en:
       turning its owner into a net electricity producer.
 
     households_hot_water_micro_chp_share: |-
-      The micro-CHP (Combined Heat and Power) unit is a tiny gas-fired
-      heat and power plant for domestic use.
-      The combination of heat and electricity makes this option quite energy
-      efficient, especially in houses that have a large heat demand. The
-      micro-CHP replaces the gas-fired central heating boiler. The heat
-      produced is used for heating building spaces or water. If not all
-      produced electricity is used, it is delivered back to the electricity
-      grid, just like with solar panels.
+      The micro-CHP (Combined Heat and Power) unit is a tiny gas-fired 
+      heat and power plant for use in your house. Using a micro-CHP can 
+      deliver significant energy savings. Because this technology is 
+      relatively new, it is quite expensive.
 
     households_hot_water_solar_water_heater_share: |-
       A solar water heater uses heat from the sun to make warm water. This is
@@ -288,11 +278,10 @@ en:
       electricity. Wind or solar powered cars will no longer produce 
       any CO<sub>2</sub> emissions. 
       Electric cars powered by modern coal or gas-fired power plants  will 
-      still emit less than conventional ones,
-      but only a bit because coal en gas-fired power plants also emit CO<sub>2</sub>.
+      still emit less than conventional ones.
       [image](/assets/information/electric_versus_gasoline.png)
       
     use_of_air_conditioning_options: |-
-      Currently, less than 30% of houses in the Netherlands have airconditioning.
+      Currently, less than 30% of redidences in the Netherlands have airconditioning.
       How will this change in the future?
 
