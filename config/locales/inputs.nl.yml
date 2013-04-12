@@ -3,7 +3,7 @@ nl:
   inputs:
     amount_of_insulation: "Hoe goed isoleer je je huis?"
     comfort_temperature_in_the_house: "Gemiddelde temperatuur in het huis"
-    daily_length_of_shower_per_person: "Gemiddelde lengte van de dagelijkse douche"
+    daily_length_of_shower_per_person: "Gemiddelde lengte dagelijkse douche"
     green_gas_total_share: "Groen gas"
     households_area_solar_pv: "Dakoppervlak voor zon PV"
     household_heating_technology: ""
@@ -42,49 +42,43 @@ nl:
 
   information:
     amount_of_insulation: |-
-      Insulation is cheap and effective and demand for heating or cooling
-      depends on the level of insulation.
-      Several options exist for better insulation. The most important
-      ones are roof, wall and floor insulation and insulating glazing.
-      These options count for 75% of the total potential savings. The insulation
-      level can be expressed as a 'thermal resistance' or Rc-value. This is a 
-      measure for how much resistance the building provides to escaping
-      heat or cold. The higher the Rc-value, the better the insulation.
-      For the Netherlands, the average Rc-value of old residences is about 1.
-      This is the result of a mix between badly, partially, and well-insulated
-      residences. For old residences it is difficult to reach Rc-values higher 
-      than 3.
-
+      Isolatie is goedkoop en effectief en heeft veel invloed op de 
+      warmte en koudevraag. 
+      Isolatie van vloeren, muren, daken en isolerende ramen zijn goed 
+      voor 75% van het besparingspotenieel. De isolatiegraad kun je 
+      uitdrukken als 'thermische weerstand' of RC-waarde. Dit is een maat
+      voor hoeveel weerstand een huis biedt aan ontsnappende warmte of koude.
+      Hoe hoger de Rc-waarde hoe beter de isolatie. 
+      In Nederland is de gemiddelde Rc-waarde voor oude woningen ongeveer 1. 
+      Dit is natuurlijk het gemiddelde van slecht, deels en goed geïsoleerde
+      woningen. Oude huizen zijn lastig naar een Rc-waarde van meer dan 3 te
+      krijgen. 
+      
     comfort_temperature_in_the_house: |-
-      Decreasing the setting on your thermostat by a couple of degrees
-      can save a lot of energy. Nonetheless, people tend to choose 
-      more comfort if they can afford it. What is your guess for our future
-      'comfort temperature'?
-
+      Je kunt veel energie besparen door de thermostaat iets lager te zetten. 
+      Toch blijkt dat mensen de neiging hebben voor confort te kiezen als ze
+      het kunnen betalen. Wat denk jij dat de toekomstige 'confort temperatuur'
+      moet zijn?
+      
     daily_length_of_shower_per_person: |-
-      Almost 80% of daily hot water consumption is for showering.
-      Decreasing the time an average person spends taking a shower (8
-      minutes) could save a lot of water. How long do you think a shower
-      will take in the future?
-
+      Bijna 80% van het warm watergebruik is voor douchen. Korter douchen
+      kan veel water en energie besparen. Nu douchen we gemiddeld 8 minuten. 
+      Hoe lang denk jij dat we in de toekomst zullen douchen?
+      
     green_gas_total_share: |-
       Uit mest, GFT afval, rioolslib, maïs en nog veel meer plantaardige en
-      dierlijke produkten kun je biogas maken. Biogas kun je bewerken tot het
-      net zo goed is als aardgas. Biogas van aardgaskwaliteit noem je groengas.
-      Groen gas is biogas van aardgaskwaliteit. Biogas wordt gewoonlijk gemaakt
-      door bacteriën die biologisch materiaal verteren (vergisting). In de
-      toekomst wordt het mogelijk ook gemaakt door biomassa te vergassen. De
-      kunst is om biogas te maken op een manier waarbij de natuur niet wordt
+      dierlijke producten kun je biogas maken. Biogas kun je zuiveren tot 
+      aardgaskwaliteit en dan heet het groen gas.
+      De kunst is om biogas te maken op een manier waarbij de natuur niet wordt
       aangetast en de voedselvoorziening niet in gevaar komt. Helaas is dat niet
       altijd zo gemakkelijk.
 
     households_area_solar_pv: |-
-      Solar cells transform sunlight into electricity. Solar panels are 
-      installed on rooftops and may compete for space with solar water
-      heaters. This technology is developing rapidly and solar panels 
-      are becoming ever more efficient and cheaper. Solar panels are 
-      expected to become much cheaper in the coming 40 years.
-
+      Zonnepanelen maken stroom van zonlicht. Dakkopvlak is schaars en daarom
+      moet je mogelijk kiezen tussen zonneboilers of zon PV.
+      Zonnepanelen worden snel goedkoper. De komende 20 jaar is de verwachting
+      dat ze nog nog veel goedkoper zullen worden. 
+      
     households_behavior_standby_killer_turn_off_appliances: |-
       We hebben steeds meer elektrische apparaten in huis. Heel vaak staan deze
       apparaten aan zonder dat we ze gebruiken. Door deze apparaten zo vaak
@@ -94,105 +88,76 @@ nl:
       Een warmtepomp is een apparaat om je huis te verwarmen. Een warmtepomp is
       een soort omgekeerde koelkast. Hij pompt warmte van buiten het huis naar
       binnen, terwijl een koelkast warmte van binnen de koelkast naar buiten
-      pompt. Warmtepompen draaien voor een deel, bijvoorbeeld 25%, op
-      elektriciteit of gas en voor het andere deel, bijvoorbeeld 75%, op warmte
-      uit de omgeving (lucht of bodemwarmte). Daardoor gebruik je minder
+      pompt. Warmtepompen zijn vaak erg efficiënt. Daardoor gebruik je minder
       fossiele energie dan met bijvoorbeeld een HR gasketel. Nadeel is nog wel
       dat de warmtepomp duurder is om aan te schaffen.
-      Extra voordeel bij een warmtepomp met bodemwarmte is dat je in de zomer
-      ook meteen koeling hebt. Je kunt dan zonder al te veel energie te
-      gebruiken koelen. Je pompt relatief koud water uit de bodem door het
-      verwarmingssysteem van je woning en tegelijkertijd warm je de bodem op met
-      het retourwater uit de woning zodat je de volgende winter weer warmte uit
-      de grond kan onttrekken.
 
     households_heating_solar_thermal_panels_share: |-
-      Solar water heaters (SWH) use heat from the sun to produce warm water.
-      This warm water can be used for showering or for doing the dishes, etc.
-      SWHs are usually installed on rooftops or in asphalt for parking lots.
-      A SWH is often combined with a gas-fired central heating boiler that
-      heats water further if necessary. It can also be combined with a heat
-      pump.
+      Zonneboilers gebruiken de warmte van de zon om warm water te maken. 
+      Omdat ze op je dak liggen, net als zonnepanelen, moet je mogelijk kiezen
+      welke techniek je wilt. 
 
     household_heating_technology_options:
       combi_boiler: |-
-        In many homes in the Netherlands, the combi-boiler is the default
-        technology for producing heat and hot water. Although this technology
-        uses gas quite efficiently, it still emits CO<sub>2</sub>. This could 
-        pose a problem if you want to reduce emissions significantly.
+        In veel Nederlandse huizen is de HR-ketel al de standaard. Hoewel ze 
+        erg efficiënt zijn, storen ze nog wel CO<sub>2</sub> uit. Als je 
+        uitstoot sterk wilt terugdringen kan dat een probleem zijn.
         
       heatpump_ground: |-
-        A heat pump moves heat from one place to another. Heat pumps are
-        used in refrigerators, but buildings can also use them for heating and 
-        cooling. This saves energy compared to a gas-fired central heating 
-        boiler, for example. For optimal application, it may require 
-        installation of under-floor and wall heating instead of radiators.
-        Currently, their use in newly constructed houses is becoming quite
-        popular.
+        Een warmtepomp is een apparaat om je huis te verwarmen. Een warmtepomp 
+        is een soort omgekeerde koelkast. Hij pompt warmte van buiten het huis 
+        naar
+        binnen, terwijl een koelkast warmte van binnen de koelkast naar buiten
+        pompt. Warmtepompen zijn vaak erg efficiënt. Daardoor gebruik je minder
+        fossiele energie dan met bijvoorbeeld een HR gasketel. Nadeel is nog wel
+        dat de warmtepomp duurder is om aan te schaffen.
         
       micro_chp: |-
-        The micro-CHP (Combined Heat and Power) unit is a tiny gas-fired 
-        heat and power plant for use in your house. Using a micro-CHP can 
-        deliver significant energy savings. Because this technology is 
-        relatively new, it is quite expensive.
+        De micro-WKK is een kleine warmte-kracht centrale voor in je huis.
+        Het lokaal produceren van stroom kan veel energiebesparing opleveren.
+        Omdat deze technologie in het klein nog behoorlijk nieuw is, zijn 
+        micro-WKK's vrij duur.
         
     household_lighting_type_options:
       fluorescent_lighting: |-
-        Fluorescent lights produce light by sending an electric charge 
-        through a rarified gas that is contained in a tube. A typical 
-        fluorescent light converts electricity into visible light 10 
-        times more efficiently than the traditional incandescent lamp still
-        used in many homes. The lights are usually also more expensive, but 
-        the higher costs are offset by much longer
-        lifetimes and lower electricity bills.
+        Spaarlampen zijn tot 10 keer efficiënter dan traditionele gloeilampen.
+        Vaak zijn ze wel wat duurder, maar omdat ze langer meegaan is de 
+        stroomrekening uiteindelijk wel lager. 
         
       incandescent_lighting: |-
-        Many EU countries will ban the incandescent light bulb in the future.
-        They only convert about 2-3% of the energy used into visible light.
-        The rest is radiated as heat. Compared to newer technologies, 
-        incandescent light bulbs do not live very long. An advantage 
-        is that they tend to give off a 'warm' light.
+        Veel landen in de EU zullen de gloeilamp in de toekomst verbieden.
+        Omdat maar 2-3% van de energie omgezet wordt in licht en de rest
+        ls warmte verloren gaat, is dat begrijpelijk. 
+        Ook gaan ze niet zo lang mee als de alternatieven. Omdat ze warm
+        licht geven, is niet iedereen gelukkig met dit verbod.
         
       led_lighting: |-
-        LED lights are 50% more efficient than conventional fluorescent lights.
-        Unlike fluorescent lights, LEDs can be switched on and off often 
-        without decreasing their lifetime. LED lighting costs 
-        5 to 50 times more than for fluorescent tubes. Their 
-        longer life and lower electricity use will in the end make the LED 
-        light cheaper.
+        LED lampen zijn nog 50% efficiënter dan spaarlampen. 
+        Ze kunnen snel aan en uitgezet worden, zonder dat ze daardoor sneller
+        stukgaan. Ze kosten nog veel meer dan spaarlampen, maar gaan ook
+        langer mee, waardoor de stroomrekening nog lager uitvalt.
 
     households_hot_water_fuel_cell_share: |-
-      Brandstofcellen lijken op batterijen. Via elektrochemische weg worden
-      brandstoffen direct verbrand (geoxideerd). Brandstofcellen zijn zeer
-      efficiënt en maken elektriciteit en warmte. Deze brandstofcel gebruikt
-      gas maar is flexibel in wat voor soort brandstof hij gebruikt. Het
-      grootste nadeel is dat hij alleen bij hoge temperaturen werkt (500 - 1000
-      °C), waardoor het een tijdje duurt voordat hij opgestart is. In
+      Brandstofcellen lijken op batterijen. Ze zijn zeer
+      efficiënt en maken elektriciteit en warmte uit aardgas. 
+      Deze brandstofcel, een 'Solid Oxide Fuel Cell', heeft als
+      grootste nadeel dat hij alleen bij hoge temperaturen werkt 
+      (500 - 1000 °C), 
+      waardoor het een tijdje duurt voordat hij opgestart is. In
       huishoudens is dat niet zo'n probleem, omdat de brandstofcel bijna continu
-      aanstaat. Daarbij maakt de brandstofcel elektriciteit en warm water. Dat
-      laatste wordt in een groot boilervat opgeslagen.
-      Dit apparaat maakt meer elektriciteit dan een gemiddeld huishouden nodig
-      heeft. Hierdoor wordt de eigenaar een echte stroomproducent. De
-      brandstofcel bij dit schuifje is een zogenaamde "Solid Oxide Fuel Cell" (SOFC).
-
+      aanstaat. Dit apparaat maakt meer elektriciteit dan een gemiddeld 
+      huishouden nodig heeft en de eigenaar wordt een echte stroomproducent. 
+      
     households_hot_water_micro_chp_share: |-
-      De micro-WKK (warmte-krachtkoppeling) is een piepkleine warmte- en
-      elektriciteitscentrale op gas voor gebruik in huis. Toekomstige
-      micro-WKK's leveren minder warmte, omdat ze bedoeld zijn voor huizen die
-      steeds beter geïsoleerd zijn. In 2050 zijn ze vooral bedoeld om warm
-      water te leveren, en niet zozeer voor ruimtes.
-      De combinatie van warmte én elektriciteit maakt deze optie zeer efficiënt.
-      De micro-WKK vervangt de CV-ketel. Veel grotere WKK's (1 - 200 MW
-      elektrisch) worden momenteel al vaak gebruikt door tuinders en in de
-      industrie. De geproduceerde warmte wordt gebruikt voor verwarming van
-      ruimtes of water. Als niet alle opgewekte stroom wordt gebruikt, wordt het
-      teruggeleverd aan het elektriciteitsnet, net als bij zonnepanelen.
+      De micro-WKK is een kleine warmte-kracht centrale voor in je huis.
+      Het lokaal produceren van stroom kan veel energiebesparing opleveren.
+      Omdat deze technologie in het klein nog behoorlijk nieuw is, zijn 
+      micro-WKK's vrij duur.
 
     households_hot_water_solar_water_heater_share: |-
-      A solar water heater uses heat from the sun to make warm water. This is
-      often done on the roof of a house. The hot water can then be used for
-      showering or washing dishes, for example. Using the sun's heat saves 
-      energy.
+      Zonneboilers gebruiken de warmte van de zon om warm water te maken. 
+      Omdat ze op je dak liggen, net als zonnepanelen, moet je mogelijk kiezen
+      welke techniek je wilt. 
 
     households_insulation_level_old_houses: |-
       Hoe beter je een huis isoleert en luchtdicht maakt, hoe minder energie je
@@ -200,32 +165,26 @@ nl:
       warmte niet weglekt door ramen, muren, vloeren en daken. Luchtdichtheid
       zorgt er voor dat de wind geen koude lucht het huis in kan blazen en warme
       lucht er uit. Hoe luchtdichter je een huis maakt, hoe meer je actief moet
-      zorgen voor een goed binnenklimaat.  Zeer energiezuinige huizen zijn super
+      zorgen voor een goed binnenklimaat. Zeer energiezuinige huizen zijn super
       geïsoleerd en luchtdicht.
 
     households_lighting_light_emitting_diode_share: |-
-      Gloeilampen verspillen veel energie. Bijna alle stroom die ze gebruiken
-      wordt omgezet in warmte in plaats van licht. Daarom zullen we in Europa de
-      komende jaren overschakelen naar zuinige lampen die veel minder warm
-      worden en evenveel licht geven. Daar komt nog eens bij dat ze veel langer
-      meegaan dan gloeilampen. Nadeel is wel dat deze lampen nog duurder in de
-      aanschaf zijn dan oude gloeilampen.
+      LED lampen zijn nog 50% efficiënter dan spaarlampen. 
+      Ze kunnen snel aan en uitgezet worden, zonder dat ze daardoor sneller
+      stukgaan. Ze kosten nog veel meer dan spaarlampen, maar gaan ook
+      langer mee, waardoor de stroomrekening nog lager uitvalt.
 
     households_market_penetration_solar_panels: |-
-      Zonnepanelen maken stroom als ze zonlicht opvangen. Dit lukt trouwens ook
-      als het bewolkt is. Daarom weet je van tevoren beter hoeveel stroom je
-      kunt verwachten dan bij een windmolen. Het is wel zo dat een zonnepaneel
-      in het zonnige Spanje meer stroom oplevert dan in Nederland. Zonnepanelen
-      kun je op je eigen huis leggen. Dat is nuttig en leuk. Zonnepanelen kosten
-      wel veel geld om aan te schaffen, maar daarna leveren ze gratis stroom. En
-      als je stroom teruglevert aan het elektriciteitsnet kun je er ook nog geld
-      voor krijgen. Bovendien worden zonnepanelen snel goedkoper.
+      Zonnepanelen maken stroom van zonlicht. Dakkopvlak is schaars en daarom
+      moet je mogelijk kiezen tussen zonneboilers of zon PV.
+      Zonnepanelen worden snel goedkoper. De komende 20 jaar is de verwachting
+      dat ze nog nog veel goedkoper zullen worden. 
 
     number_of_appliances_in_the_house: |-
-      The number of household appliances (phones, media players, laptops etc.)
-      that we own has been increasing steadily over the past years. Do you
-      think this trend will continue in the future?
-
+      Het aantal huishoudelijke apparaten (telefoons, mediaspelers, laptops, 
+      etc) dat we hebben, neemt al jaren gestaag toe. Denk je dat deze trend
+      in de toekomst doorzet? 
+      
     number_of_coal_conventional: |-
       Een kolencentrale draait het grootste deel van de tijd op volle kracht.
       Regelmatig uitzetten verlaagt de hoeveelheid stroom die we uit kolen kunnen
@@ -234,95 +193,80 @@ nl:
       zo groot als die van een gascentrale.
 
     number_of_cold_showers_per_week: |-
-      Taking one cold shower a week reduces your hot water consumption
-      by more than 10%. How many cold showers would you take per week?
- 
+      Eén maal per week koud douchen zorgt voor een besparing van meer dan 
+      10% op je warm water. Hoeveel koude douches gaan we wekelijks nemen?
+       
     number_of_gas_ccgt: |-
-      Een gascentrale is goedkoper om te bouwen dan een kolencentrale. Maar
-      meestal is het gas zo duur en de kolen zo goedkoop dat kolenstroom
-      goedkoper is stroom uit gas. Een gascentrale kun je gemakkelijker harder
-      of zachter zetten dan een kolencentrale. Dat is handig om stroom te maken
-      als het niet waait of de zonnepanelen het niet doen omdat er geen zon is.
-      De CO<sub>2</sub>-uitstoot van een gascentrale is ongeveer de helft van
-      een kolencentrale, maar natuurlijk wel veel meer dan die van een windmolen
-      of kerncentrale.
+      Een gascentrale is goedkoper om te bouwen dan een kolencentrale. Wel zijn
+      ze duurder als ze draaien dan centrales op kolen. Een gascentrale kun je
+      makkelijk aan of uit zetten. Dat is handig om stroom te makken als de
+      zon niet schijnt of de 
+      windmolen even stilstaat, omdat het niet waait. De CO<sub>2</sub>-uitstoot
+      van een gascentrale is ongeveer de helft van een kolencentrale.
 
     number_of_gas_conventional: |-
       Een gascentrale is goedkoper om te bouwen dan een kolencentrale. Wel zijn
       ze duurder als ze draaien dan centrales op kolen. Een gascentrale kun je
       makkelijk aan of uit zetten. Dat is handig om stroom te makken als de
-      windmolen even stilstaat om dat het niet waait. De CO<sub>2</sub>-uitstoot
+      zon niet schijnt of de 
+      windmolen even stilstaat, omdat het niet waait. De CO<sub>2</sub>-uitstoot
       van een gascentrale is ongeveer de helft van een kolencentrale.
 
     number_of_households_heating_solar_thermal_collectors: |-
-      Solar water heaters (SWH) use heat from the sun to produce warm water. 
-      This warm water can be used for showering or for doing the dishes, 
-      etc. SWHs are usually installed on rooftops or in asphalt for parking
-      lots. A SWH is often combined with a gas-fired central heating boiler
-      that heats water further if necessary. It can also be combined with 
-      a heat pump.
-    
+      Zonneboilers gebruiken de warmte van de zon om warm water te maken. 
+      Omdat ze op je dak liggen, net als zonnepanelen, moet je mogelijk kiezen
+      wat je wilt. 
+   
     number_of_nuclear_3rd_gen: |-
-      Een kerncentrale is heel duur om te bouwen. Maar een kerncentrale gaat
-      lang mee en hij gebruikt maar kleine hoeveelheden brandstof (uranium).
-      Hierdoor is het maken van stroom relatief goedkoop. Daarom staat een
+      Een kerncentrale is heel duur om te bouwen, maar gaat
+      lang mee en gebruikt maar kleine hoeveelheden brandstof (uranium).
+      Hierdoor is het maken van stroom relatief goedkoop en staat een
       kerncentrale bijna altijd op volle kracht aan. Een kerncentrale is niet zo
       geschikt om vraag en aanbod van stroom in evenwicht te brengen als het
       bijvoorbeeld even niet waait en/of de zon niet schijnt. Voordeel is dat
       je nauwelijks last hebt van CO<sub>2</sub>-uitstoot. Nadeel is het
       radioactieve afval dat overblijft. Hiervoor is nog geen goede oplossing
-      bedacht. En ook kan er heel soms iets fout gaan met een reactor waardoor
-      de omgeving onleefbaar wordt. Denk aan Fukushima of Tsjernobyl. Nieuwe
-      generaties kerncentrales probeert men wel steeds veiliger te maken.
+      bedacht. 
 
     number_of_pulverized_coal: |-
-      Een kolencentrale verbrandt steenkool om water te laten koken zodat hele
-      hete stoom ontstaat. De stoom wordt gebruikt om via een grote dynamo
-      elektriciteit op te wekken. Omdat kolencentrales duur zijn om te bouwen en
-      goedkoop om te draaien, werken ze het grootste deel van de tijd op volle
-      kracht. Daarom zijn ze minder geschikt om als backup te dienen voor een
-      energietoekomst met veel wind- en zonne-energie dan gascentrales. Van alle
-      manieren om stroom te maken, geeft een kolencentrale de meeste
-      luchtvervuiling. De CO<sub>2</sub>-uitstoot is ongeveer 2 keer zo groot
-      als die van een gascentrale. Wel is het mogelijk om hout bij te stoken om
-      deze uitstoot te verminderen en hernieuwbaarheid te verhogen.
+      Een kolencentrale draait het grootste deel van de tijd op volle kracht.
+      Regelmatig uitzetten verlaagt de hoeveelheid stroom die we uit kolen kunnen
+      halen. Van alle manieren om stroom te maken geeft een kolencentrale de
+      grootste luchtvervuiling. De CO<sub>2</sub>-uitstoot is ongeveer 2 keer
+      zo groot als die van een gascentrale.
 
     number_of_wind_offshore: |-
       Een windmolen produceert hernieuwbare stroom, omdat je geen last hebt van
-      CO<sub>2</sub>-uitstoot. Wind wordt als energiebron gebruikt en wind is
-      onuitputtelijk aanwezig. Het waait alleen niet altijd. Daarom kun je niet
+      CO<sub>2</sub>-uitstoot. Het waait niet altijd, daarom kun je niet
       volstaan met alleen windmolens, maar heb je ook stroomopwek nodig die
       altijd kan blijven draaien en liefst soms wat meer en soms wat minder.
-      Gascentrales zijn hier relatief het beste voor geschikt. Er wordt
-      momenteel hard gewerkt om te zorgen dat windmolens goedkoper worden.
-      Nadeel van een windmolen op land is voor veel mensen ook dat ze hem niet
-      mooi vinden en daarom is er vaak verzet bij het plaatsen van windmolens op
-      land. Windmolens op zee hebben een hogere opbrengst maar nadeel is dat het
-      bouwen en onderhouden van deze molens veel duurder is dan windmolens op land.
+      Gascentrales zijn hier relatief het beste voor geschikt. 
+      Nadeel van een windmolen op land is voor veel mensen dat ze hem niet
+      mooi vinden en daarom is er vaak verzet tegen het plaatsen van 
+      windmolens op land. Windmolens op zee hebben een hogere opbrengst, 
+      maar als nadeel dat het bouwen en onderhouden van deze molens veel 
+      duurder is dan windmolens op land.
 
     number_of_wind_onshore_land: |-
-      Een windmolen produceert duurzame stroom omdat je geen last hebt van
-      CO<sub>2</sub>-uitstoot. Wind wordt als energiebron gebruikt. En wind is
-      onuitputtelijk aanwezig. Het waait alleen niet altijd. Daarom kun je niet
-      volstaan met alleen windmolens, maar heb je ook centrales nodig die
-      altijd kunnen draaien en liefst soms wat meer en soms wat minder.
-      Gascentrales zijn hier relatief het beste voor geschikt. Er wordt
-      momenteel hard gewerkt om te zorgen dat windmolens goedkoper worden.
+      Een windmolen produceert hernieuwbare stroom, omdat je geen last hebt van
+      CO<sub>2</sub>-uitstoot. Het waait niet altijd, daarom kun je niet
+      volstaan met alleen windmolens, maar heb je ook stroomopwek nodig die
+      altijd kan blijven draaien en liefst soms wat meer en soms wat minder.
+      Gascentrales zijn hier relatief het beste voor geschikt. 
       Nadeel van een windmolen op land is voor veel mensen ook dat ze hem niet
-      mooi vinden en daarom is er vaak verzet bij het plaatsen van windmolens op
-      land. Windmolens op zee hebben een hogere opbrengst maar nadeel is dat het
-      bouwen en onderhouden van deze molens veel duurder is dan windmolens op land.
+      mooi vinden en daarom is er vaak verzet tegen het plaatsen van windmolens 
+      op land. 
 
     transport_cars_electric_share: |-
-      Een elektrische auto gebruikt 2 tot 3 keer minder energie dan een auto op
-      benzine of diesel. Benzine en diesel worden uit olie gemaakt. Met
-      elektrische auto's besparen we dus heel veel olie. We moeten natuurlijk
-      wel meer elektriciteit maken. Als we deze elektriciteit opwekken met wind
+      Een elektrische auto gebruikt de helft van de energie van een auto op
+      benzine of diesel. Met elektrische auto's besparen we veel olie. 
+      We moeten natuurlijk wel meer elektriciteit maken. 
+      Als we deze elektriciteit opwekken met wind
       of zon, dan heeft autorijden geen CO<sub>2</sub>-uitstoot meer tot gevolg.
       Maken we de stroom met kolen- of gascentrales dan is er nog steeds een
-      voordeel ten opzichte van auto's op benzine en diesel, maar dit is beperkt
-      omdat gas- en met name kolencentrales ook CO<sub>2</sub> uitstoten.
+      voordeel ten opzichte van auto's op benzine en diesel.
 
     use_of_air_conditioning_options: |-
-      Currently, less than 30% of houses in the Netherlands have airconditioning.
-      How will this change in the future?
+      Momenteel hebben nog geen 30% van de woningen airconditioning. Hoeveel 
+      worden dat er in de toekomst?
+      
