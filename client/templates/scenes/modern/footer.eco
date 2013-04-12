@@ -1,0 +1,37 @@
+<div id="footer">
+  <ul id="social-media">
+    <% if @conferenceMode: %>
+      <li>&nbsp;</li>
+    <% else: %>
+      <li>
+        <!-- Place this tag where you want the +1 button to render -->
+        <g:plusone size="medium" href="http://etflex.et-model.com"></g:plusone>
+
+        <!-- Place this render call where appropriate -->
+        <script type="text/javascript">
+          window.___gcfg = {lang: '<%= I18n.locale %>'};
+
+          (function() {
+            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+            po.src = 'https://apis.google.com/js/plusone.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+          })();
+        </script>
+      </li>
+      <li>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://etflex.et-model.com" data-lang="<%= I18n.locale %>">Tweeten</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+      </li>
+      <li>
+        <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fetflex.et-model.com&amp;send=false&amp;layout=button_count&amp;width=120&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=arial&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:200px; height:21px;" allowTransparency="true"></iframe>
+      </li>
+    <% end %>
+  </ul>
+
+  <ul id="partners">
+    <li><%= @className %></li>
+    <li><a href="http://www.gasterra.nl" data-navigate="noclient" target="_new" class="partner gasterra">GasTerra</a></li>
+    <li class="by"><%= I18n.t 'leading_partner' %></li>
+  </ul>
+</div>
+

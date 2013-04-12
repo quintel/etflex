@@ -176,7 +176,9 @@ class exports.SceneView extends Backbone.View
   #
   renderTheme: ->
     header = require "templates/scenes/#{ @className }/header"
+    footer = require "templates/scenes/#{ @className }/footer"
     @$('#core').prepend header()
+    @$('#scores').before footer()
 
   # Renders the inputs into the scene using RangeView instances, which contain
   # the Quinn sliders.
