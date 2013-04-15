@@ -26,7 +26,9 @@ class exports.Query extends Backbone.Model
   # event on @boundQuery but only acts on "change" events.
   delegateSetEvents: (eventName, query, value, options) =>
     if match = eventName.match(/^change:(.*)$/)
-      @set(match[1], @boundQuery.get(match[1]), options)
+      # Sanity check: Do NOT touch the ID attribute.
+      unless match[1] is @idAttribute
+        @set(match[1], @boundQuery.get(match[1]), options)
 
   # A hack around the fact that Backbone does not fire change events for
   # attributes have not actually changed. Passing `{force: true}` as an option
