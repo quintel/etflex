@@ -53,18 +53,18 @@ nl:
       Dit is natuurlijk het gemiddelde van slecht, deels en goed geïsoleerde
       woningen. Oude huizen zijn lastig naar een Rc-waarde van meer dan 3 te
       krijgen. 
-      
+
     comfort_temperature_in_the_house: |-
       Je kunt veel energie besparen door de thermostaat iets lager te zetten. 
-      Toch blijkt dat mensen de neiging hebben voor confort te kiezen als ze
-      het kunnen betalen. Wat denk jij dat de toekomstige 'confort temperatuur'
+      Toch blijkt dat mensen de neiging hebben voor comfort te kiezen als ze
+      het kunnen betalen. Wat denk jij dat de toekomstige 'comfort temperatuur'
       moet zijn?
-      
+
     daily_length_of_shower_per_person: |-
       Bijna 80% van het warm watergebruik is voor douchen. Korter douchen
       kan veel water en energie besparen. Nu douchen we gemiddeld 8 minuten. 
       Hoe lang denk jij dat we in de toekomst zullen douchen?
-      
+
     green_gas_total_share: |-
       Uit mest, GFT afval, rioolslib, maïs en nog veel meer plantaardige en
       dierlijke producten kun je biogas maken. Biogas kun je zuiveren tot 
@@ -78,7 +78,7 @@ nl:
       moet je mogelijk kiezen tussen zonneboilers of zon PV.
       Zonnepanelen worden snel goedkoper. De komende 20 jaar is de verwachting
       dat ze nog nog veel goedkoper zullen worden. 
-      
+
     households_behavior_standby_killer_turn_off_appliances: |-
       We hebben steeds meer elektrische apparaten in huis. Heel vaak staan deze
       apparaten aan zonder dat we ze gebruiken. Door deze apparaten zo vaak
