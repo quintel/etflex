@@ -12,6 +12,11 @@ en:
     demand: "Demand"
 
     information:
-      household_demand: |-
-        This is a text that goes here to demonstrate how group info works.
+      heating_technology: |-
+        This is a text that goes with heating_technology
 
+      lighting: |-
+        This is a text that goes with lighting.
+
+      air_conditioning: |-
+        This is a text that goes with air_conditioning.

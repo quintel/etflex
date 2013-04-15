@@ -10,3 +10,13 @@ nl:
     solar_panels: "Zonnepanelen"
     supply: "Aanbod"
     demand: "Vraag"
+
+    information:
+      heating_technology: |-
+        This is a text that goes with heating_technology
+
+      lighting: |-
+        This is a text that goes with lighting.
+
+      air_conditioning: |-
+        This is a text that goes with air_conditioning.
