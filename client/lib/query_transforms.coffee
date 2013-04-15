@@ -66,10 +66,10 @@ TRANSFORMS =
     format: as 'Mtonnes'
 
   etflex_households_investment_per_household:
-    format: as "&euro;"
+    format: FORMAT_EUROS
 
   etflex_households_monthly_energy_bill:
-    format: as "&euro;"
+    format: FORMAT_EUROS
 
   etflex_households_final_demand_electricity_per_household:
     format: as "kWh"
