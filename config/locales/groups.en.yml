@@ -10,3 +10,8 @@ en:
     solar_panels: "Solar panels"
     supply: "Supply"
     demand: "Demand"
+
+    information:
+      household_demand: |-
+        This is a text that goes here to demonstrate how group info works.
+
