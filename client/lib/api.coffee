@@ -1,3 +1,5 @@
+app = require 'app'
+
 PATH = null
 
 # Sets the path used when sending API requests to ETEngine. Self-destructs
@@ -102,6 +104,8 @@ exports.updateInputs = (sessionId, options, callback) ->
 
   exports.send 'put', sessionId, params, (err, data) ->
     if err? then callback(err) else
+      app.trigger 'props.values.changed'
+
       # Update the queries with the new values returned by the engine.
       if data.gqueries?
         for query in queries when result = data.gqueries[ query.id ]
