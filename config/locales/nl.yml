@@ -133,7 +133,7 @@ nl:
 
   # Common content on scene pages --------------------------------------------
 
-  sponsoredBy: "Gesponsord door"
+  partners: "Partners of the Energy Transition Model"
   leading_partner: "Leading partner van het Energietransitiemodel"
 
   # Custom validation messages

@@ -29,7 +29,8 @@
   </ul>
 
   <ul id="partners">
-    <li><a href="http://www.gasunie.nl" data-navigate="noclient" target="_new" class="partner gasunie">GasTerra</a></li>
-    <li class="by"><%= I18n.t 'sponsoredBy' %></li>
+    <li><a href="http://www.minez.nl" data-navigate="noclient" target="_new" class="partner ez">Ministerie van E.Z.</a></li>
+    <li><a href="http://www.gasunie.nl" data-navigate="noclient" target="_new" class="partner gasunie">GasUnie</a></li>
+    <li class="by"><%= I18n.t 'partners' %></li>
   </ul>
 </div>
