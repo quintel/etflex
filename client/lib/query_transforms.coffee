@@ -10,6 +10,10 @@ FORMAT_EUROS = (value) ->
 FORMAT_PERCENT = (value) ->
   I18n.toPercentage value, precision: 1, strip_insignificant_zeros: true
 
+FORMAT_PERCENT_WITH_PRECISION = (precision) ->
+  (value) -> I18n.toCurrency(value, precision: precision, unit: '€')
+
+
 # Returns a function which divides a value by divisor.
 divide = (divisor) -> ((value) -> value / divisor)
 
@@ -66,10 +70,10 @@ TRANSFORMS =
     format: as 'Mtonnes'
 
   etflex_households_investment_per_household:
-    format: FORMAT_EUROS
+    format: FORMAT_PERCENT_WITH_PRECISION(0)
 
   etflex_households_monthly_energy_bill:
-    format: FORMAT_EUROS
+    format: FORMAT_PERCENT_WITH_PRECISION(1)
 
   etflex_households_final_demand_electricity_per_household:
     format: as "kWh"
