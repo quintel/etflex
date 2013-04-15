@@ -11,8 +11,8 @@ class exports.IconProp extends GenericProp
   fadeType:  'serial'
 
   render: ->
-    @activeIcon   = $ @make 'span', class: 'icon'
-    @inactiveIcon = $ @make 'span', class: 'icon'
+    @activeIcon   = $ '<span class="icon"></span>'
+    @inactiveIcon = $ '<span class="icon"></span>'
 
     if @fadeType is 'drop'
       @activeIcon.css   'top', '0px'

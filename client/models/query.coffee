@@ -31,9 +31,6 @@ class exports.Query extends Backbone.Model
   # A hack around the fact that Backbone does not fire change events for
   # attributes have not actually changed. Passing `{force: true}` as an option
   # will insist that Backbone fires the events.
-  #
-  # Note that the implementation IS NOT compatible with Backbone 1.0 and will
-  # require some minor changes when upgrading.
   set: (key, val, options) ->
     # Handle both `"key", "value"` and `{key: value}` -style arguments
     if typeof key is 'object'
@@ -49,13 +46,19 @@ class exports.Query extends Backbone.Model
       # handle this ourselves.
       super(attrs, _.extend({}, options, silent: true))
 
-      for key, value of attrs when _.isEqual(value, previous[key])
-        # If the value hasn't changed from the previous value, Backbone will
-        # not have marked the attribute as changed. We have to do that
-        # manually to ensure the change:... event is fired.
-        @_changed[key] = value
+      for key, value of attrs
+        if _.isEqual(value, previous[key])
+          # If the value hasn't changed from the previous value, Backbone will
+          # not have updated the _previousAttributes. So we also do that
+          # manually. _.isEqual is used since Backbone uses this when checking
+          # for changed values, and it's best to use identical semantics as
+          # Backbone...
+          @_previousAttributes or= {}
+          @_previousAttributes[key] = value
 
-      @change(options)
+        @trigger("change:#{ key }", this, value, options)
+
+      @trigger('change', this, options)
     else
       super
 

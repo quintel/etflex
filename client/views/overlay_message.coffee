@@ -18,13 +18,13 @@ class exports.OverlayMessageView extends Backbone.View
   #
   render: (title, message) ->
     # A "cross" which closes the message when clicked.
-    hider = @make('span', { class: 'hide' }, '')
+    hider = $('<span class="hide"></span>')
 
     @$el.append hider
-    @$el.append @make('h3', {}, title)
+    @$el.append $('<h3></h3>').text(title)
 
     for paragraph in message.split("\n\n")
-      @$el.append @make('p', {}, paragraph)
+      @$el.append $('<p></p>').text(paragraph)
 
     @keypressEvent = $('body').on('keyup', @keyboardHide)
     $(hider).on('click', @hide)
