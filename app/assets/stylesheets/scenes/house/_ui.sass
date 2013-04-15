@@ -154,6 +154,9 @@
 
         &.very-high
           background-position: -460px 0
+      .difference
+        margin-left: 15px
+        margin-right: 8px
 
     &.energy-bill
       .value
@@ -177,6 +180,10 @@
 
         &.very-high
           background-position: -280px 0
+
+      .difference
+        margin-left: 22px
+        margin-right: 10px
 
     &.co2-emissions-household
       .value
@@ -202,22 +209,31 @@
         &.very-high
           background-position: -340px 0
 
-    &.sustainable-energy .icon
-      background-image: image-url("scenes/house/icons/bonsai-tree.png")
-      left: 0
-      width: 118px
-      height: 82px
+      .difference
+        margin-left: 20px
+        margin-right: 8px
 
-      &.very-low
-        background-position: 0 -328px
-      &.low
-        background-position: 0 -246px
-      &.medium
-        background-position: 0 -164px
-      &.high
-        background-position: 0 -82px
-      &.very-high
-        background-position: 0 0
+    &.sustainable-energy 
+      .icon
+        background-image: image-url("scenes/house/icons/bonsai-tree.png")
+        left: 0
+        width: 118px
+        height: 82px
+
+        &.very-low
+          background-position: 0 -328px
+        &.low
+          background-position: 0 -246px
+        &.medium
+          background-position: 0 -164px
+        &.high
+          background-position: 0 -82px
+        &.very-high
+          background-position: 0 0
+
+      .difference
+        margin-left: 20px
+        margin-right: 10px
 
     &.score
       width: 124px
@@ -243,15 +259,25 @@
         .ones
           left: 26px
 
-    &.electricity-use .icon
-      background-image: image-url("scenes/house/icons/electricity-use.png")
-      width: 116px
-      height: 80px
+      .difference
+        margin-left: 28px
 
-    &.gas-use .icon
-      background-image: image-url("scenes/house/icons/gas-use.png")
-      width: 116px
-      height: 80px
+    &.electricity-use 
+      .icon
+        background-image: image-url("scenes/house/icons/electricity-use.png")
+        width: 116px
+        height: 80px
+      .difference
+        margin-left: 22px
+        margin-right: 12px
+
+    &.gas-use
+      .icon
+        background-image: image-url("scenes/house/icons/gas-use.png")
+        width: 116px
+        height: 80px
+      .difference
+        margin-left: 16px
 
     &.electricity-use, &.gas-use
       width: 150px

@@ -67,7 +67,7 @@ TRANSFORMS =
     format: FORMAT_PERCENT
 
   etflex_households_co2_emissions_per_household:
-    format: as 'Mtonnes'
+    format: as 'tonnes'
 
   etflex_households_investment_per_household:
     format: FORMAT_PERCENT_WITH_PRECISION(0)
