@@ -12,6 +12,7 @@ options:
       households_hot_water_gas_fired_heater_share: 100
       households_water_heater_heatpump_ground_water_electricity_share: 0
       households_hot_water_micro_chp_share: 0
+      households_heating_heat_pump_add_on_share: 0
 
   -
     key: micro_chp
@@ -22,7 +23,7 @@ options:
       households_hot_water_gas_fired_heater_share: 50
       households_water_heater_heatpump_ground_water_electricity_share: 0
       households_hot_water_micro_chp_share: 50
-
+      households_heating_heat_pump_add_on_share: 0
   -
     key: heatpump_ground
     effects:
@@ -32,3 +33,4 @@ options:
       households_hot_water_gas_fired_heater_share: 0
       households_water_heater_heatpump_ground_water_electricity_share: 100
       households_hot_water_micro_chp_share: 0
+      households_heating_heat_pump_add_on_share:0
