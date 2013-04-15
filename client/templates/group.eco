@@ -1,1 +1,6 @@
-<h2><%= I18n.t "groups.#{@group}" %></h2>
+<h2>
+  <%= @group %>
+  <% if @hasInfo: %>
+    <span class="help"></span>
+  <% end %>
+</h2>
