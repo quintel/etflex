@@ -7,4 +7,4 @@ start: 20
 step: 0.5
 unit: degrees
 formula: >
-  (-1.0 + (1.0 + 0.079718 * (comfort_temperature_in_the_house - 20))**(1.0/20.0)) * 100
+  3.0 + (-1.0 + (1.0 + 0.079718 * (comfort_temperature_in_the_house - 20.0))**0.05) * 100
