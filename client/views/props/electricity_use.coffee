@@ -6,7 +6,7 @@ class exports.ElectricityUseView extends IconDashboardWithNeedleProp
   lowerBetter: true
 
   queries: [ 'etflex_households_final_demand_electricity_per_household' ]
-  hurdles: [ 1210, 2379, 3657, 4936, 6215, 7493 ]
+  hurdles: [ 1800, 3491, 5345, 7200, 9054, 10909 ]
   states:  [ 'extremely-low', 'very-low', 'low', 'medium', 'high', 'very-high', 'extremely-high' ]
 
   name: I18n.t 'scenes.etlite.electricity_use'
