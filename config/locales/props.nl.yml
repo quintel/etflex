@@ -121,6 +121,12 @@ nl:
       dat hernieuwbaar is. Als je meer stroom maakt dan je nodig hebt, 
       kan dit getal groter worden dan 100%."
 
+    etflex_households_score:
+      name: "Score HOUSEHOLDS"
+      header: "You score (Q:score) points"
+      body: |-
+        This is the text for the households score.
+
     house:
       header: "The house header NL"
       body: "The house body NL"

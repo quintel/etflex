@@ -13,9 +13,9 @@ class exports.ScoreView extends DashboardProp
   name: I18n.t 'scenes.etlite.score'
 
   # Help Texts
-
-  helpHeader: -> "props.score.header"
-  helpBody:   -> "props.score.body"
+  sceneScoreQuery:  -> @options.scene.model.get 'score_gquery'
+  helpHeader:       -> "props.#{@sceneScoreQuery()}.header"
+  helpBody:         -> "props.#{@sceneScoreQuery()}.body"
 
   # Custom Rendering ---------------------------------------------------------
 
@@ -30,6 +30,7 @@ class exports.ScoreView extends DashboardProp
   # update the UI.
   #
   render: ->
+    console.log @
     super =>
       @$el.find('.icon').remove()
 

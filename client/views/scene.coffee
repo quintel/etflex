@@ -234,6 +234,7 @@ class exports.SceneView extends Backbone.View
         hurdles: prop.hurdles
         queries: @scenario.queries
         region:  => @scenario.get('country')
+        scene:   @
 
       # If the prop location doesn't exist in the template, the prop will not
       # rendered. This is intentional so that "hidden" props don't raise
