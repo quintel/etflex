@@ -6,7 +6,7 @@ class exports.GasUseView extends IconDashboardWithNeedleProp
   lowerBetter: true
 
   queries: [ 'etflex_households_final_demand_network_gas_per_household' ]
-  hurdles: [ 1231, 5407, 9695, 13983, 18272, 22560 ]
+  hurdles: [ 45, 455, 870, 1284, 1698, 2112 ]
   states:  [ 'extremely-low', 'very-low', 'low', 'medium', 'high', 'very-high', 'extremely-high' ]
 
   name: I18n.t 'scenes.etlite.gas_use'
