@@ -103,7 +103,7 @@ class exports.IconDashboardWithNeedleProp extends exports.IconDashboardProp
     val = super
 
     bottomValue = @hurdles[0]
-    topValue    = @hurdles.splice(-1, 1)
+    topValue    = @hurdles.slice(-1)[0]
 
     degrees = (val / (topValue - bottomValue)) * 166
     degrees = 166 if degrees > 166
