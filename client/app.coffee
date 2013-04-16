@@ -69,7 +69,6 @@ exports.boot = (window, { locale, api, env, user, realtime, conference, offline,
   # Callbacks for when the username changes.
   exports.on 'current-user.name.request-change', currentUserNameChangeRequest
   exports.on 'current-user.name.changed',        currentUserNameChanged
-  exports.on 'props.values.changed',             propValuesChanged
 
 # PubSub Implementation ------------------------------------------------------
 
@@ -120,8 +119,3 @@ currentUserNameChangeRequest = (name) ->
 # on the high score popup.
 currentUserNameChanged = (name) ->
   jQuery.ajax url: '/me', type: 'PUT', data: { user: { name: name } }
-
-# Handler for when new gqueries come down through the pipe. It clears the
-# outputs and the arrows before showing the new ones.
-propValuesChanged = () ->
-  $('.prop .difference .output').removeClass('down up').html('')
