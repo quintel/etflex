@@ -46,22 +46,20 @@
     -moz-transform: scale(0.9)
 
 // CSS Classes ---------------------------------------------------------------
+
 .overlay-message
 
   // Visual styles.
 
   background: white
-  border: 1px solid #bbb
-  border-top-color: #ccc
-  border-bottom-color: #aaa
   border-radius: 5px
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3)
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5)
 
   color: #444
   cursor: pointer
   left: 50%
   margin-left: -263px
-  padding: 20px
+  padding: 30px
   position: fixed
   top: 125px
   width: 485px
@@ -88,9 +86,14 @@
     -webkit-animation-name: overlayMessageOut !important
 
   h3
-    font-size: 15px
+    font-size: 20px
     font-weight: bold
+    line-height: 1.2
     margin-bottom: 10px
+    margin-top: 0
+
+  p:last-child
+    margin-bottom: 0
 
   sup
     font-size: 10px
@@ -103,14 +106,22 @@
     vertical-align: sub
 
   .hide
-    background: image-url('backstage/field-error.png') no-repeat
+    color: #888
     cursor: pointer
-    display: block
     float: right
+    font-size: 12px
     font-weight: bold
-    height: 16px
-    margin-right: -10px
-    width: 16px
+    margin: -15px -15px 0 0
+    padding: 10px
+    text-transform: uppercase
+
+    &:hover
+      color: #444
+
+    .cross
+      font-size: 22px
+      line-height: 0.5
+      vertical-align: text-top
 
 // New, "Fade Overlay", Style ------------------------------------------------
 
