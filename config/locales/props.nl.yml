@@ -120,3 +120,7 @@ nl:
       body: "Hier zie je het percentage van het energiegebruik in huishoudens
       dat hernieuwbaar is. Als je meer stroom maakt dan je nodig hebt, 
       kan dit getal groter worden dan 100%."
+
+    house:
+      header: "The house header NL"
+      body: "The house body NL"

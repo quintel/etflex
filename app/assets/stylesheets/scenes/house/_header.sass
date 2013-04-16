@@ -19,6 +19,9 @@
     width: 1277px
     margin: 0 auto
 
+
+
+
     .grass
       @include house-prop-dyn(grass, 1802px, 639px, 90px, 0px)
       z-index: 4
@@ -33,6 +36,11 @@
     .house
       @include house-prop(house, 501px, 535px, 725px, 48px)
       z-index: 5
+
+      .help
+        position: relative
+        left: 440px
+
 
     .solar-thermal_panels
       @include house-prop-dyn(solarthermal, 143px, 81px, 885px, 48px)

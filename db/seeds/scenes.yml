@@ -27,6 +27,7 @@
   props:
     header:
       - grass
+      - house
       - solar-thermal-panels
       - solar-panels
       - hot-water
