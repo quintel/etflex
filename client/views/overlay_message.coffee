@@ -2,12 +2,11 @@
 # in a black pop-up box.
 
 class exports.OverlayMessageView extends Backbone.View
-  className: 'overlay-message'
+  className: 'overlay-background'
 
   events:
-    'mousedown':    'hide'
-    'touchstart':   'hide'
-    'clickoutside': 'hide'
+    'click .hide': 'hide'
+    'click': 'clickOutsideHide'
 
   # Creates the HTML elements for the modal overlay.
   #
@@ -17,17 +16,21 @@ class exports.OverlayMessageView extends Backbone.View
   # message - The message to be shown.
   #
   render: (title, message) ->
+    content = $('<div class="overlay-message"></div>')
+
     # A "cross" which closes the message when clicked.
     hider = $('<span class="hide"><span class="cross">&#215;</span> Close</span>')
 
-    @$el.append hider
-    @$el.append $('<h3></h3>').text(title)
+    content.append hider
+    content.append $('<h3></h3>').html(title)
 
     for paragraph in message.split("\n\n")
-      @$el.append $('<p></p>').text(paragraph)
+      content.append $('<p></p>').text(paragraph)
 
     @keypressEvent = $('body').on('keyup', @keyboardHide)
     $(hider).on('click', @hide)
+
+    @$el.append(content)
 
     this
 
@@ -41,8 +44,25 @@ class exports.OverlayMessageView extends Backbone.View
   prependTo: (element) ->
     element.prepend @el
 
+    # We position the message using JavaScript since using display: table
+    # has some oddities in IE9 whereby the horizontal scrollbar will
+    # occasionally appear, causing the message to jump up and down on the
+    # page. Rather troublesome when you're trying to hit a "close" button.
+    content = @$('.overlay-message')
+    margin  = content.height() / -2
+
+    # Push messages slightly higher up the page unless there is little space
+    # available (phones).
+    margin  = if @$el.height() > 720 then margin - 100 else margin
+
+    content.css('margin-top', "#{ margin }px")
+
+    # Fix alignment of close "cross" in IE.
+    if $.browser.msie
+      @$('.hide .cross').css('line-height', 'inherit')
+
     unless Modernizr.cssanimations
-      @$el.hide().fadeIn 300
+      @$el.hide().fadeIn(300)
 
     @shownAt = new Date
 
@@ -73,3 +93,12 @@ class exports.OverlayMessageView extends Backbone.View
 
     # Ensure that clicking outside the message doesn't activate anything else.
     false
+
+  # Triggered when the user clicks outside the message box. Hides the message
+  # UNLESS the click occurred inside the message box.
+  clickOutsideHide: (event) =>
+    $target = $ event.target
+
+    @hide() unless \
+      $target.hasClass('overlay-message') or
+      $target.parents('.overlay-message').length
