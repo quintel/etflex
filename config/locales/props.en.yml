@@ -122,3 +122,7 @@ en:
       body: "This shows the percentage of renewable energy use in households.
       If households produce more renewable electricy than they need, this
       can be higher than 100%."
+
+    house:
+      header: "The house header"
+      body: "The house body"
