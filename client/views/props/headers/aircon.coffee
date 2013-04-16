@@ -2,6 +2,6 @@
 
 class exports.AirconProp extends HeaderIcon
   queries: [ 'etflex_households_cooling_demand' ]
-  hurdles: [ 2, 4 ]
+  hurdles: [ 4, 6 ]
 
   states: [ 'none', 'living_room', 'whole_house' ]
