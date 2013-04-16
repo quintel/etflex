@@ -6,7 +6,7 @@ class exports.EnergyBillView extends IconDashboardProp
   lowerBetter: true
 
   queries: [ 'etflex_households_monthly_energy_bill' ]
-  hurdles: [ 29, 49, 69, 89 ]
+  hurdles: [ 11, 84, 159, 233 ]
   states:  [ 'very-low', 'low', 'medium', 'high', 'very-high' ]
 
   name: I18n.t 'scenes.etlite.energy_bill'
