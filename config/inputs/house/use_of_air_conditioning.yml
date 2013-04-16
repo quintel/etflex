@@ -11,9 +11,9 @@ options:
   -
     key: one_room_cooling
     effects:
-      households_cooling_demand_per_person: 4
+      households_cooling_demand_per_person: 2
 
   -
     key: whole_house_cooling
     effects:
-      households_cooling_demand_per_person: 10
+      households_cooling_demand_per_person: 5
