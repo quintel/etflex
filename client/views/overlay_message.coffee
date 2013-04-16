@@ -25,7 +25,7 @@ class exports.OverlayMessageView extends Backbone.View
     content.append $('<h3></h3>').html(title)
 
     for paragraph in message.split("\n\n")
-      content.append $('<p></p>').text(paragraph)
+      content.append $('<p></p>').html(paragraph)
 
     @keypressEvent = $('body').on('keyup', @keyboardHide)
     $(hider).on('click', @hide)
