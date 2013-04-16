@@ -25,7 +25,7 @@ en:
       body: |-
         This includes costs for building and installing the devices that use energy.
 
-    score:
+    etflex_score:
       name: "Score"
       header: "You score (Q:score) points"
       body: |-
@@ -123,6 +123,13 @@ en:
       If households produce more renewable electricy than they need, this
       can be higher than 100%."
 
+    etflex_households_score:
+      name: "Score HOUSEHOLDS"
+      header: "You score (Q:score) points"
+      body: |-
+        This is the text for the households score.
+
     house:
       header: "The house header"
       body: "The house body"
+
