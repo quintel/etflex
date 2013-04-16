@@ -47,10 +47,14 @@ fetchSession = (sessionId, queries, callback) ->
 
 # Requests input_data.json to get the state of the user's Inputs.
 fetchUserValues = (sessionId, inputs, callback) ->
-  # TODO
-  callback()
-  # keys = ( input.id for input in inputs ).join(',')
-  # api.send 'get', "#{sessionId}/inputs/#{ keys }", callback
+  keys = inputs.keys().join(',')
+  api.send 'get', "#{ sessionId }/inputs/#{ keys }", (err, data) ->
+    return callback(err) if err?
+
+    callback(null, _.reduce(data, (values, input) ->
+      values[input.code] = input.user if _.isNumber(input.user)
+      values
+    , {}))
 
 # Used to create a new session, pre-initialized with values from ETengine.
 createSession = (queries, inputs, scenario, callback) ->
@@ -86,17 +90,7 @@ restoreSession = (sessionId, queries, inputs, callback) ->
   , (err, result) ->
     return callback(err) if err?
 
-    # Update each of the inputs with the value retrieved from ETEngine.
-    for input in inputs
-      continue unless inputData = result.values[ input.id ]
-
-      value = if inputData.hasOwnProperty('user')
-        inputData.user
-      else
-        inputData.default
-
-      input.set value: value if value?
-
+    inputs.setValues(result.values)
     callback null, parseInt(sessionId, 10)
 
 # When a scenario already has a complete set of input and query data, we can

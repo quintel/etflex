@@ -40,6 +40,9 @@ class exports.InputManager extends Backbone.Collection
     _.find @models, (input) ->
       input.get('key') == key
 
+  keys: ->
+    input.get('key') for input in @models
+
   values: ->
     values = {}
 
