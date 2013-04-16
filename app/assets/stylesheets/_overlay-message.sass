@@ -7,13 +7,37 @@
 // We can remove much of this repetition once Sass#167 is closed:
 // https://github.com/nex3/sass/pull/167
 
+@-webkit-keyframes overlayFadeIn
+  0%
+    opacity: 0.0
+  100%
+    opacity: 1.0
+
+@-webkit-keyframes overlayFadeOut
+  0%
+    opacity: 1.0
+  100%
+    opacity: 0.0
+
+@-moz-keyframes overlayFadeIn
+  0%
+    opacity: 0.0
+  100%
+    opacity: 1.0
+
+@-moz-keyframes overlayFadeOut
+  0%
+    opacity: 1.0
+  100%
+    opacity: 0.0
+
 @-webkit-keyframes overlayMessageIn
   0%
     opacity: 0.0
-    -webkit-transform: scale(1.0)
-  65%
-    opacity: 1.0
-    -webkit-transform: scale(1.2)
+    -webkit-transform: scale(0.8)
+  // 65%
+    // opacity: 1.0
+    // -webkit-transform: scale(1.2)
   100%
     opacity: 1.0
     -webkit-transform: scale(1.0)
@@ -29,10 +53,10 @@
 @-moz-keyframes overlayMessageIn
   0%
     opacity: 0.0
-    -moz-transform: scale(1.0)
-  65%
-    opacity: 1.0
-    -moz-transform: scale(1.2)
+    -moz-transform: scale(0.8)
+  // 65%
+    // opacity: 1.0
+    // -moz-transform: scale(1.2)
   100%
     opacity: 1.0
     -moz-transform: scale(1.0)
@@ -47,31 +71,48 @@
 
 // CSS Classes ---------------------------------------------------------------
 
+.overlay-background
+  +background(radial-gradient(ellipse farthest-corner, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7) 100%))
+  height: 100%
+  position: fixed
+  width: 100%
+  z-index: 99
+
+  -moz-animation:    overlayFadeIn 0.2s ease-in 0s 1 normal forwards
+  -webkit-animation: overlayFadeIn 0.2s ease-in 0s 1 normal forwards
+
+  &.out
+    -moz-animation-name:    overlayFadeOut !important
+    -webkit-animation-name: overlayFadeOut !important
+
+    .overlay-message
+      -moz-animation-name:    overlayMessageOut !important
+      -webkit-animation-name: overlayMessageOut !important
+
 .overlay-message
 
   // Visual styles.
 
   background: white
   border-radius: 5px
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5)
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5)
 
   color: #444
-  cursor: pointer
   left: 50%
   margin-left: -263px
   padding: 30px
-  position: fixed
-  top: 125px
   width: 485px
   z-index: 100
+  position: absolute
+  top: 50%
 
   // Animation
   //
   // If you alter the animation duration, you also need to reduce the
   // setTimeout delay in OverlayMessage#hide.
 
-  -moz-animation:    overlayMessageIn 0.3s ease-in-out 0s 1 normal forwards
-  -webkit-animation: overlayMessageIn 0.3s ease-in-out 0s 1 normal forwards
+  -moz-animation:    overlayMessageIn 0.2s ease-in 0s 1 normal forwards
+  -webkit-animation: overlayMessageIn 0.2s ease-in 0s 1 normal forwards
 
   // Fireefox is ignoring this in the short-hand version above.
   -moz-animation-fill-mode: fowards
@@ -81,16 +122,11 @@
   -moz-transform:    translate3d(0, 0, 0)
   -webkit-transform: translate3d(0, 0, 0)
 
-  &.out
-    -moz-animation-name:    overlayMessageOut !important
-    -webkit-animation-name: overlayMessageOut !important
-
   h3
     font-size: 20px
     font-weight: bold
     line-height: 1.2
-    margin-bottom: 10px
-    margin-top: 0
+    margin: 0 0 10px
 
   p:last-child
     margin-bottom: 0
@@ -111,6 +147,7 @@
     float: right
     font-size: 12px
     font-weight: bold
+    line-height: 12px
     margin: -15px -15px 0 0
     padding: 10px
     text-transform: uppercase
@@ -120,8 +157,8 @@
 
     .cross
       font-size: 22px
-      line-height: 0.5
-      vertical-align: text-top
+      line-height: 7px
+      vertical-align: top
 
 // New, "Fade Overlay", Style ------------------------------------------------
 
