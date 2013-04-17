@@ -26,7 +26,7 @@ en:
     households_lighting_light_emitting_diode_share: "Low-energy lighting"
     households_market_penetration_solar_panels: "Solar panels"
     new: "New input"
-    number_of_appliances_in_the_house: "Number of appliances in the house"
+    number_of_appliances_in_the_house: "Change in number of appliances"
     number_of_cold_showers_per_week: "Number of cold showers per week"
     number_of_gas_ccgt: "Gas-fired power plants"
     number_of_households_heating_solar_thermal_collectors: "Number of solar thermal collectors"
@@ -65,7 +65,8 @@ en:
       Almost 80% of daily hot water consumption is for showering.
       Decreasing the length of an average shower (currently 8 minutes) 
       could save a lot of water and energy. How long do you think 
-      a shower will take in the future?
+      a shower will take in the future? Remember that there are 3
+      people living in this house.
 
     green_gas_total_share: |-
       Green gas is biogas that has been upgraded to natural gas quality. It
