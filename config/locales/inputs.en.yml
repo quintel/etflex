@@ -59,7 +59,7 @@ en:
       Decreasing the setting on your thermostat by a couple of degrees
       can save a lot of energy. Nonetheless, people tend to choose 
       more comfort if they can afford it. What is your guess for our future
-      'comfort temperature'?
+      'comfort temperature' in the house?
 
     daily_length_of_shower_per_person: |-
       Almost 80% of daily hot water consumption is for showering.
@@ -151,7 +151,9 @@ en:
     number_of_appliances_in_the_house: |-
       The number of household appliances (phones, media players, laptops etc.)
       that we own has been increasing steadily over the past years. Do you
-      think this trend will continue in the future?
+      think this trend will continue in the future? Here you fill in if we
+      are going to use more or less appliances. -50% halves the number of
+      appliances, 100% doubles it.
 
     number_of_coal_conventional: |-
       A coal-fired power plant runs at full capacity most of the time.

@@ -110,7 +110,8 @@ en:
     gas_use:
       header: "Annual gas use"
       body: "The average household's annual gas use mostly depends on your 
-      assumptions for heating and insulation."
+      assumptions for heating and insulation. There always remains some gas
+      use needed for cooking."
 
     investment:
       header: "Total investment costs"
@@ -121,15 +122,28 @@ en:
       header: "Renewable energy"
       body: "This shows the percentage of renewable energy use in households.
       If households produce more renewable electricy than they need, this
-      can be higher than 100%."
+      can be higher than 100%. In that case you have a house that is net energy
+      neutral!"
 
     etflex_households_score:
       name: "Score HOUSEHOLDS"
       header: "You score (Q:score) points"
       body: |-
-        This is the text for the households score.
+        "This score is made up of your performance on all the other dasboard items:
+        <ul><li>More CO<sub>2</sub> makes your score go down</li>
+        <li>More investment makes your score go down</li>
+        <li>A higher energy bill makes your score go down</li>
+        <li>More electricity use makes your score go down</li>
+        <li>More gas use makes your score go down</li>
+        <li>More sustainable energy makes your score go <strong>up</strong></li>
+        </ul>"
 
     house:
-      header: "The house header"
-      body: "The house body"
+      header: "The energy use of a house"
+      body: |-
+        "The house you see on your screen right now is an average free-standing
+        Dutch house with 3 inhabitants. It has a HR-combi boiler and an average
+        amount of appliances. The rest is up to you! Can you turn this house
+        into an energy self-sufficient house? You can choose from different
+        heating options, installing solar panels and reducing the demand." 
 
