@@ -23,7 +23,7 @@ badgeTempl           = require 'templates/badge'
 class exports.SceneView extends Backbone.View
   id: 'scene-view'
 
-  pageTitle: -> @model.get('name')
+  pageTitle: -> I18n.t "scenes.#{@model.get('name_key')}"
 
   events:
     'click a':                clientNavigate
