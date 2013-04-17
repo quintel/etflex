@@ -30,7 +30,6 @@ class exports.ScoreView extends DashboardProp
   # update the UI.
   #
   render: ->
-    console.log @
     super =>
       @$el.find('.icon').remove()
 
