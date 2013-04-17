@@ -72,7 +72,7 @@ class exports.Main extends Backbone.Router
 
       $(".scores[data-scene=#{sceneId}]").html highScores.render().el
 
-    $('.go .start-over a, .go .conference-continue a').
+    $('.go .start-over a, .go .conference-continue a, .level a.poster').
       on('click', clientNavigate)
 
     bigButton = $ '.go .buttons a'
