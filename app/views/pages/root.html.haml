@@ -24,7 +24,7 @@
       - @scenes.each do |scene|
         - previous_attempt = scene.previous_attempt(current_or_guest_user)
         .level
-          %h2= scene.name
+          %h2= t("scenes.#{scene.name_key}")
 
           = link_to(image_tag("scenes/#{scene.name_key}/impression.jpg", height: '350px'), create_or_continue_playing_path(scene))
 
