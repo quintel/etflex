@@ -2,8 +2,8 @@
 nl:
   inputs:
     amount_of_insulation: "Hoe goed isoleer je je huis?"
-    comfort_temperature_in_the_house: "Gemiddelde temperatuur in het huis"
-    daily_length_of_shower_per_person: "Gemiddelde lengte dagelijkse douche"
+    comfort_temperature_in_the_house: "Gemiddelde temperatuur in huis"
+    daily_length_of_shower_per_person: "Gemiddelde duur dagelijkse douche"
     green_gas_total_share: "Groen gas"
     households_area_solar_pv: "Dakoppervlak voor zon PV"
     household_heating_technology: ""
