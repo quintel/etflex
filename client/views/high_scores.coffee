@@ -366,7 +366,12 @@ class SummaryRow extends Backbone.View
   # Model update callbacks ---------------------------------------------------
 
   updateScore: (summary, score) =>
-    @$('.score').text Math.round(score)
+    score = Math.round(score)
+
+    score = 0   if score < 0
+    score = 999 if score > 999
+
+    @$('.score').text score
 
   updateTime: (summary, time) =>
     @$('time').replaceWith relativeTime(time)
