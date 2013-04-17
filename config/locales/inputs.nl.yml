@@ -26,7 +26,7 @@ nl:
     households_lighting_light_emitting_diode_share: "Zuinige lampen"
     households_market_penetration_solar_panels: "Zonnepanelen"
     new: "Nieuwe input"
-    number_of_appliances_in_the_house: "Aantal apparaten in het huis"
+    number_of_appliances_in_the_house: "Verandering aantal apparaten"
     number_of_cold_showers_per_week: "Hoe vaak per week douche je koud?"
     number_of_gas_ccgt: "Aardgascentrales"
     number_of_households_heating_solar_thermal_collectors: "Aantal zonnecollectoren (warmte)"    
@@ -63,7 +63,8 @@ nl:
     daily_length_of_shower_per_person: |-
       Bijna 80% van het warm watergebruik is voor douchen. Korter douchen
       kan veel water en energie besparen. Nu douchen we gemiddeld 8 minuten. 
-      Hoe lang denk jij dat we in de toekomst zullen douchen?
+      Hoe lang denk jij dat we in de toekomst zullen douchen? Denk eraan dat
+      in dit huis 3 mensen wonen.
 
     green_gas_total_share: |-
       Uit mest, GFT afval, rioolslib, maïs en nog veel meer plantaardige en
