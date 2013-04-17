@@ -67,7 +67,9 @@ class exports.Main extends Backbone.Router
     highScoreList = (window.bootstrap or [])
     for sceneId, scores of highScoreList
       summaries  = new ScenarioSummaries(scores)
-      highScores = new HighScores collection: summaries, sceneId: sceneId
+      highScores = new HighScores(
+        collection: summaries, sceneId: sceneId, style: 'compact')
+
       $(".scores[data-scene=#{sceneId}]").html highScores.render().el
 
     $('.go .start-over a, .go .conference-continue a').

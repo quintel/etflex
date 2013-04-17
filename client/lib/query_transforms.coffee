@@ -25,12 +25,16 @@ as = (unit) -> ((value) -> "#{FORMAT_DEFAULT value} #{unit}")
 
 # Retrieves the mutate/format definitions for a given query.
 exports.forQuery = (query) ->
-  if found = TRANSFORMS[ query.id ]
+  exports.forQueryKey(query.id)
+
+# Retrieves the mutate/format definitions for a given query by its key.
+exports.forQueryKey = (queryKey) ->
+  if found = TRANSFORMS[ queryKey ]
     found.mutate = _.identity unless found.mutate
     found.format = FORMAT_DEFAULT unless found.format
     found
   else
-    TRANSFORMS[ query.id ] = { format: FORMAT_DEFAULT, mutate: _.identity }
+    TRANSFORMS[ queryKey ] = { format: FORMAT_DEFAULT, mutate: _.identity }
 
 # Transforms -----------------------------------------------------------------
 
