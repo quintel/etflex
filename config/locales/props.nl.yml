@@ -89,7 +89,7 @@ nl:
 
     co2_emissions_household:
       header: "Jaarlijkse CO2 uitstoot"
-      body: "Deze gemiddelde jaarlijkse CO<sub>2</sub> per woning hangt
+      body: "De jaarlijkse CO<sub>2</sub>-uitstoot van de woning hangt
       af van je keuzes voor verwarming en elektriciteit."
 
     electricity_use:
@@ -108,7 +108,8 @@ nl:
     gas_use:
       header: "Jaarlijks gasgebruik"
       body: "Het gemiddelde jaarlijkse gasgebruik per huishouden hangt vooral 
-      af van jouw aannames over verwarming en isolatie."
+      af van jouw aannames over verwarming en isolatie. Er blijft altijd een
+      beetje gasgebruik over om te koken."
 
     investment:
       header: "Totale investeringen"
@@ -119,14 +120,28 @@ nl:
       header: "Hernieuwbaarheid"
       body: "Hier zie je het percentage van het energiegebruik in huishoudens
       dat hernieuwbaar is. Als je meer stroom maakt dan je nodig hebt, 
-      kan dit getal groter worden dan 100%."
+      kan dit getal groter worden dan 100%. Je hebt dan een huis dat netto 
+      energie-neutraal is!"
 
     etflex_households_score:
       name: "Score HOUSEHOLDS"
-      header: "You score (Q:score) points"
+      header: "Je scoort (Q:score) punten"
       body: |-
-        This is the text for the households score.
+        "De score wordt berekend aan de hand van de andere dasboard items:
+        <ul><li>Meer CO<sub>2</sub> laat je score dalen</li>
+        <li>Meer investeringen laten je score dalen</li>
+        <li>Hogere maandelijkse kosten laten je score dalen</li>
+        <li>Meer elektriciteitsgebruik laat je score dalen</li>
+        <li>Meer gasgebruik laat je score dalen</li>
+        <li>Meer hernieuwbare energie laat je score <strong>stijgen</strong></li>
+        </ul>"
 
     house:
-      header: "The house header NL"
-      body: "The house body NL"
+      header: "Het energiegebruik van een huis"
+      body: |-
+        "Het huis dat je in je scherm ziet staan is een gemiddeld vrijstaand
+        huis in Nederland, met 3 bewoners. Er is een HR-ketel 
+        geïnstalleerd en een gemiddeld aantal elektrische apparaten. De rest
+        is aan jou! Lukt het je om van dit huis een energieneutraal huis te
+        maken? Je kunt kiezen uit andere verwarmingsopties, het installeren 
+        van zonnepanelen en het verminderen van het verbruik."

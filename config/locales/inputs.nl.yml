@@ -57,8 +57,8 @@ nl:
     comfort_temperature_in_the_house: |-
       Je kunt veel energie besparen door de thermostaat iets lager te zetten. 
       Toch blijkt dat mensen de neiging hebben voor comfort te kiezen als ze
-      het kunnen betalen. Wat denk jij dat de toekomstige 'comfort temperatuur'
-      moet zijn?
+      het kunnen betalen. Op welke temperatuur denk jij dat we de thermostaat
+      in de toekomst in de toekomst gaan instellen?
 
     daily_length_of_shower_per_person: |-
       Bijna 80% van het warm watergebruik is voor douchen. Korter douchen
@@ -143,7 +143,8 @@ nl:
     number_of_appliances_in_the_house: |-
       Het aantal huishoudelijke apparaten (telefoons, mediaspelers, laptops, 
       etc) dat we hebben, neemt al jaren gestaag toe. Denk je dat deze trend
-      in de toekomst doorzet? 
+      in de toekomst doorzet? Hier vul je in of we meer of minder apparaten
+      gaan gebruiken. -50% is een halvering en 100% is een verdubbeling.
       
     number_of_coal_conventional: |-
       Een kolencentrale draait het grootste deel van de tijd op volle kracht.

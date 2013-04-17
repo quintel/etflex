@@ -32,7 +32,9 @@ nl:
         naar binnen, terwijl een koelkast warmte van binnen de koelkast naar buiten
         pompt. Warmtepompen zijn vaak erg efficiënt. Daardoor gebruik je minder
         fossiele energie dan met bijvoorbeeld een HR gasketel. Nadeel is nog wel
-        dat de warmtepomp duurder is om aan te schaffen.
+        dat de warmtepomp duurder is om aan te schaffen. De warmtepomp die je hier
+        kunt inzetten is een elektrische warmtepomp. Hiermee kan de verwarming van
+        het huis dus geëlektrificeerd worden.
 
       lighting: |-
         Kies hoe je je huis wilt verlichten:
@@ -57,4 +59,8 @@ nl:
 
       air_conditioning: |-
         Kies hier hoeveel airconditioning je in je huis wilt hebben.
+
+        Airconditioning kan het comfort van je huis vergroten als het warm is.
+        Het gebruikt echter wel extra elektriciteit. Hier kan één kamer uitgerust
+        worden met airconditioning, of alle kamers in het huis.
 
