@@ -97,46 +97,6 @@ nl:
       Omdat ze op je dak liggen, net als zonnepanelen, moet je mogelijk kiezen
       welke techniek je wilt. 
 
-    household_heating_technology_options:
-      combi_boiler: |-
-        In veel Nederlandse huizen is de HR-ketel al de standaard. Hoewel ze 
-        erg efficiënt zijn, storen ze nog wel CO<sub>2</sub> uit. Als je 
-        uitstoot sterk wilt terugdringen kan dat een probleem zijn.
-        
-      heatpump_ground: |-
-        Een warmtepomp is een apparaat om je huis te verwarmen. Een warmtepomp 
-        is een soort omgekeerde koelkast. Hij pompt warmte van buiten het huis 
-        naar
-        binnen, terwijl een koelkast warmte van binnen de koelkast naar buiten
-        pompt. Warmtepompen zijn vaak erg efficiënt. Daardoor gebruik je minder
-        fossiele energie dan met bijvoorbeeld een HR gasketel. Nadeel is nog wel
-        dat de warmtepomp duurder is om aan te schaffen.
-        
-      micro_chp: |-
-        De micro-WKK is een kleine warmte-kracht centrale voor in je huis.
-        Het lokaal produceren van stroom kan veel energiebesparing opleveren.
-        Omdat deze technologie in het klein nog behoorlijk nieuw is, zijn 
-        micro-WKK's vrij duur.
-        
-    household_lighting_type_options:
-      fluorescent_lighting: |-
-        Spaarlampen zijn tot 10 keer efficiënter dan traditionele gloeilampen.
-        Vaak zijn ze wel wat duurder, maar omdat ze langer meegaan is de 
-        stroomrekening uiteindelijk wel lager. 
-        
-      incandescent_lighting: |-
-        Veel landen in de EU zullen de gloeilamp in de toekomst verbieden.
-        Omdat maar 2-3% van de energie omgezet wordt in licht en de rest
-        ls warmte verloren gaat, is dat begrijpelijk. 
-        Ook gaan ze niet zo lang mee als de alternatieven. Omdat ze warm
-        licht geven, is niet iedereen gelukkig met dit verbod.
-        
-      led_lighting: |-
-        LED lampen zijn nog 50% efficiënter dan spaarlampen. 
-        Ze kunnen snel aan en uitgezet worden, zonder dat ze daardoor sneller
-        stukgaan. Ze kosten nog veel meer dan spaarlampen, maar gaan ook
-        langer mee, waardoor de stroomrekening nog lager uitvalt.
-
     households_hot_water_fuel_cell_share: |-
       Brandstofcellen lijken op batterijen. Ze zijn zeer
       efficiënt en maken elektriciteit en warmte uit aardgas. 

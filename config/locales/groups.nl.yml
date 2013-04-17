@@ -13,10 +13,56 @@ nl:
 
     information:
       heating_technology: |-
-        This is a text that goes with heating_technology
-
+      Kies hoe jij je huis wilt verwarmen:
+      <br/><br/>
+      HR combi-ketel
+      ---
+      In veel Nederlandse huizen is de HR-ketel al de standaard. Hoewel ze 
+      erg efficiënt zijn, stoten ze nog wel CO<sub>2</sub> uit. Als je 
+      uitstoot sterk wilt terugdringen kan dat een probleem zijn.
+      <br/><br/>  
+      Micro WKK
+      ---
+      De micro-WKK is een kleine warmte-kracht centrale voor in je huis.
+      Het lokaal produceren van stroom kan veel energiebesparing opleveren.
+      Omdat deze technologie in het klein nog behoorlijk nieuw is, zijn 
+      micro-WKK's vrij duur.
+      <br/><br/>  
+      Warmtepomp met bodemsonde
+      ---
+      Een warmtepomp is een apparaat om je huis te verwarmen. Een warmtepomp 
+      is een soort omgekeerde koelkast. Hij pompt warmte van buiten het huis 
+      naar
+      binnen, terwijl een koelkast warmte van binnen de koelkast naar buiten
+      pompt. Warmtepompen zijn vaak erg efficiënt. Daardoor gebruik je minder
+      fossiele energie dan met bijvoorbeeld een HR gasketel. Nadeel is nog wel
+      dat de warmtepomp duurder is om aan te schaffen.
+      
       lighting: |-
-        This is a text that goes with lighting.
+      Kies hoe je je huis wilt verlichten:
+      <br/><br/>
+      Spaarlampen
+      ---
+      Spaarlampen zijn tot 10 keer efficiënter dan traditionele gloeilampen.
+      Vaak zijn ze wel wat duurder, maar omdat ze langer meegaan is de 
+      stroomrekening uiteindelijk wel lager. 
+      <br/><br/>  
+      Gloeilampen
+      ___
+      Veel landen in de EU zullen de gloeilamp in de toekomst verbieden.
+      Dat is te begrijpen. omdat
+      maar 2-3% van de energie omgezet wordt in licht en de rest
+      ls warmte verloren gaat.
+      Ook gaan ze niet zo lang mee als de alternatieven. Omdat ze warm
+      licht geven, is niet iedereen gelukkig met dit verbod.
+      <br/><br/>
+      LED lampen
+      ___
+      LED lampen zijn nog 50% efficiënter dan spaarlampen. 
+      Ze kunnen snel aan en uitgezet worden, zonder dat ze daardoor sneller
+      stukgaan. Ze kosten nog veel meer dan spaarlampen, maar gaan ook
+      langer mee, waardoor de stroomrekening nog lager uitvalt.
 
       air_conditioning: |-
-        This is a text that goes with air_conditioning.
+      Kies hier hoeveel airconditioning je in je huis wilt hebben.
+     
