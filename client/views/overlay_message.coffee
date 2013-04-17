@@ -19,7 +19,10 @@ class exports.OverlayMessageView extends Backbone.View
     content = $('<div class="overlay-message"></div>')
 
     # A "cross" which closes the message when clicked.
-    hider = $('<span class="hide"><span class="cross">&#215;</span> Close</span>')
+    hider = $ """
+      <span class="hide">
+        <span class="cross">&#215;</span> #{ I18n.t('close') }
+      </span>"""
 
     content.append hider
     content.append $('<h3></h3>').html(title)
