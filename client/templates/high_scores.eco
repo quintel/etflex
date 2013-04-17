@@ -8,6 +8,11 @@
 
 <div class="legend">
   <span class="score"><%= I18n.t 'scenes.etlite.score' %></span>
+  <% if @style is 'full': %>
+    <span class="metric emissions"><%= I18n.t 'scenes.etlite.emissions' %></span>
+    <span class="metric renewables"><%= I18n.t 'scenes.etlite.renewables' %></span>
+    <span class="metric costs"><%= I18n.t 'scenes.etlite.costs' %></span>
+  <% end %>
 </div>
 
 <ol></ol>

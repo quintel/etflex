@@ -1,4 +1,5 @@
 app                   = require 'app'
+queryTransforms       = require 'lib/query_transforms'
 
 listTemplate          = require 'templates/high_scores'
 rowTemplate           = require 'templates/high_score'
@@ -23,6 +24,9 @@ class exports.HighScores extends Backbone.View
     # Show, by default, the five highest scores.
     @show  or= 10
     @style or= 'full'
+
+    # Temporary, until we decide what details to include on the house scene.
+    @style = 'wide' if @scenario?.get('scene').id isnt 1
 
     # Keep track of the summaries which are shown in the UI. Actual values are
     # set in setCollection.
@@ -49,7 +53,7 @@ class exports.HighScores extends Backbone.View
   # is called each time the collection is changed regardless of whether the
   # top five have changed.
   render: =>
-    @$el.html listTemplate()
+    @$el.html listTemplate(style: @style)
     @$el.addClass @style
 
     @listElement = @$ 'ol'
@@ -221,7 +225,7 @@ class exports.HighScores extends Backbone.View
   # re-sort the elements in the DOM, nor demotes the previous #5 scenario.
   promote: (summary) ->
     @visible.push summary.id
-    @rows[summary.id] = new SummaryRow(model: summary).render()
+    @rows[summary.id] = new SummaryRow(model: summary, style: @style).render()
 
     if @scenario?.id and @scenario.id is summary.id
       @rows[summary.id].$el.addClass 'current'
@@ -284,6 +288,13 @@ exports.renewablesWidth = (value) ->
 exports.emissionsWidth = (value) ->
   widthOf value / 1000000000, 105, 165
 
+# Contains the values which represent the far left and far right of each bar
+# in the "full" high scores list.
+BAR_WIDTH_FUNCTIONS =
+  total_co2_emissions: [105, 165]
+  renewability:        [  0,  20]
+  total_costs:         [ 40,  50]
+
 # Returns the width of a horizontal bar graph based on the given value, when
 # compared with the minimum and maximum extrema.
 #
@@ -323,11 +334,8 @@ class SummaryRow extends Backbone.View
     'click': 'openScore'
 
   modelEvents:
-    'change:score':               'updateScore'
-    'change:total_co2_emissions': 'updateEmissions'
-    'change:total_costs':         'updateCost'
-    'change:renewability':        'updateRenewables'
-    'change:updated_at':          'updateTime'
+    'change:score':      'updateScore'
+    'change:updated_at': 'updateTime'
 
   constructor: (options) ->
     options.id = "high-score-#{ options.model.get('session_id') }"
@@ -339,6 +347,7 @@ class SummaryRow extends Backbone.View
       href:         @model.get 'href'
       sessionId:    @model.get 'session_id'
       imageUrl:     @model.get 'profile_image'
+      style:        @options.style
       isMine:       app.user.id is @model.get 'user_id'
 
     for own event, func of @modelEvents
@@ -366,6 +375,8 @@ class SummaryRow extends Backbone.View
   # Model update callbacks ---------------------------------------------------
 
   updateScore: (summary, score) =>
+    @updateMetrics()
+
     score = Math.round(score)
 
     score = 0   if score < 0
@@ -376,41 +387,30 @@ class SummaryRow extends Backbone.View
   updateTime: (summary, time) =>
     @$('time').replaceWith relativeTime(time)
 
+  updateMetrics: ->
+    @$('.metric').each (index, element) =>
+      $element = $ element
+
+      if queryKey = $element.data('bind')
+        @updateMetric($element, queryKey)
+
   updatePosition: (position) ->
     @$('.position').text "#{position}"
-
-  updateCost: (summary, cost) =>
-    @updateMetric '.costs', cost / 1000000000, exports.costsWidth(cost)
-
-  updateRenewables: (summary, renew) =>
-    @updateMetric '.renewables', renew * 100, exports.renewablesWidth(renew)
-
-  updateEmissions: (summary, emit) =>
-    @updateMetric '.emissions', emit / 1000000000, exports.emissionsWidth(emit)
 
   # Helpers ------------------------------------------------------------------
 
   # Updates a displayed metric.
   #
-  # selector - The CSS class corresponding with the metric ot be updated. For
-  #            example, ".renewables" or ".costs".
+  # element  - The ".metric" element, wrapped in a jQuery object.
+  # query    - The query from which to get the value.
   #
-  # value    - The new value of the metric.
-  #
-  # barWidth - The width of the bar; a string as a percentage ("50%")
-  #
-  updateMetric: (selector, value, barWidth) ->
-    container = @$ selector
+  # Returns nothing.
+  updateMetric: (element, query) ->
+    transform  = queryTransforms.forQueryKey(query)
+    barExtrema = BAR_WIDTH_FUNCTIONS[query]
 
-    switch selector
-      when '.emissions'
-        formatted = "#{ I18n.toNumber value, precision: 1 } Mton"
-      when '.renewables'
-        formatted = I18n.toPercentage value, precision: 1
-      when '.costs'
-        formatted = "#{ I18n.toCurrency value, precision: 1, unit: '€' }B"
+    if transform and barExtrema
+      value = transform.mutate(@model.get('query_results')[query])
 
-    container.find('.value').text formatted
-
-    # Draw the horizontal bar graph.
-    container.find('.bar').css 'width', barWidth
+      element.find('.value').text transform.format(value)
+      element.find('.bar').css 'width', widthOf(value, barExtrema...)

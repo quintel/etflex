@@ -207,6 +207,7 @@ class Scenario < ActiveRecord::Base
     { session_id:          session_id,
       href:               "/scenes/#{ scene_id }/with/#{ session_id }",
       score:               score,
+      query_results:       query_results,
       updated_at:          updated_at,
       user_id:             user_id || guest_uid,
       user_name:           user_or_guest.name,

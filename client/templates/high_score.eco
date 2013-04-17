@@ -19,6 +19,24 @@
 
     <time></time>
   </span>
+
+  <% if @style is 'full': %>
+    <span class="metric emissions" data-bind="total_co2_emissions">
+      <span class="graph"><span class="bar"></span></span>
+      <span class="value"></span>
+    </span>
+
+    <span class="metric renewables" data-bind="renewability">
+      <span class="graph"><span class="bar"></span></span>
+      <span class="value"></span>
+    </span>
+
+    <span class="metric costs" data-bind="total_costs">
+      <span class="graph"><span class="bar"></span></span>
+      <span class="value"></span>
+    </span>
+  <% end %>
+
   <span class="actions">
     <a href="<%= @href %>" class="view-action" data-navigate="noclient" title="View this high score">View</a>
   </span>
