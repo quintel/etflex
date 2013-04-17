@@ -14,57 +14,50 @@ en:
     information:
       heating_technology: |-
         Choose how to heat your house:
-        <br/><br/>  
-        Gas-fired combi boiler
-        ---
+
+        <h4>Gas-fired combi boiler</h4>
         In many homes in the Netherlands, the combi-boiler is the default
         technology for producing heat and hot water. Although this technology
-        uses gas quite efficiently, it still emits CO<sub>2</sub>. This could 
+        uses gas quite efficiently, it still emits CO<sub>2</sub>. This could
         pose a problem if you want to reduce emissions significantly.
-        <br/><br/>
-        Micro-CHP 
-        ---
-        The micro-CHP (Combined Heat and Power) unit is a tiny gas-fired 
-        heat and power plant for use in your house. Using a micro-CHP can 
-        deliver significant energy savings. Because this technology is 
+
+        <h4>Micro-CHP</h4>
+        The micro-CHP (Combined Heat and Power) unit is a tiny gas-fired
+        heat and power plant for use in your house. Using a micro-CHP can
+        deliver significant energy savings. Because this technology is
         relatively new, it is quite expensive.
-        <br/><br/>
-        Ground source heat pump
-        ---
+
+        <h4>Ground source heat pump</h4>
         A heat pump is like a refrigerator used the other way around: it pumps
         heat into the house from outside, while a refrigerator pumps heat out
         of its own insides. Heat pumps reduce your need for gas to
-        heat the house. 
-       
+        heat the house.
+
       lighting: |-
         Choose the kind of lighting you prefer:
-        <br/><br/>  
-        Incandescent lighting
-        ---
+
+        <h4>Incandescent lighting</h4>
         Many EU countries will ban the incandescent light bulb in the future.
         They only convert about 2-3% of the energy used into visible light.
-        The rest is radiated as heat. Compared to newer technologies, 
-        incandescent light bulbs do not live very long. An advantage 
+        The rest is radiated as heat. Compared to newer technologies,
+        incandescent light bulbs do not live very long. An advantage
         is that they tend to give off a 'warm' light.
-        <br/><br/>
-        Fluorescent lighting
-        ---
-        Fluorescent lights produce light by sending an electric charge 
-        through a rarified gas that is contained in a tube. A typical 
-        fluorescent light converts electricity into visible light 10 
+
+        <h4>Fluorescent lighting</h4>
+        Fluorescent lights produce light by sending an electric charge
+        through a rarified gas that is contained in a tube. A typical
+        fluorescent light converts electricity into visible light 10
         times more efficiently than the traditional incandescent lamp still
-        used in many homes. The lights are usually also more expensive, but 
+        used in many homes. The lights are usually also more expensive, but
         the higher costs are offset by much longer
         lifetimes and lower electricity bills.
-        <br/><br/>
-        LED lighting
-        ---
+
+        <h4>LED lighting</h4>
         LED lights are 50% more efficient than conventional fluorescent lights.
-        Unlike fluorescent lights, LEDs can be switched on and off often 
-        without decreasing their lifetime. LED lighting costs 
-        5 to 50 times more than for fluorescent tubes. Their 
-        longer life and lower electricity use will in the end make the LED 
-        light cheaper.
+        Unlike fluorescent lights, LEDs can be switched on and off often
+        without decreasing their lifetime. LED lighting costs
+        5 to 50 times more than fluorescent tubes. Their longer life and lower
+        electricity use will, in the end, make the LED light cheaper.
 
       air_conditioning: |-
-        Choose to what extent you want to have air-conditioning for your house. 
+        Choose to what extent you want to have air-conditioning for your house.
