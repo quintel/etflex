@@ -163,8 +163,8 @@ class exports.Scenario extends Backbone.Model
 
     scenarioValues = @inputs.rawValues()
 
-    inputIds  = Object.keys scenarioValues #( input.def.id for input in inputs )
-    queryIds  = ( query.id for query in queries )
+    inputIds = _.keys scenarioValues
+    queryIds = ( query.id for query in queries )
 
     _.difference(inputIds, _.keys(localInputs)).length is 0 and
       _.difference(queryIds, _.keys(localQueries)).length is 0
