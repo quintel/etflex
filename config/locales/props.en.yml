@@ -129,21 +129,21 @@ en:
       name: "Score HOUSEHOLDS"
       header: "You score (Q:score) points"
       body: |-
-        "This score is made up of your performance on all the other dasboard items:
+        This score is made up of your performance on all the other dasboard items:
         <ul><li>More CO<sub>2</sub> makes your score go down</li>
         <li>More investment makes your score go down</li>
         <li>A higher energy bill makes your score go down</li>
         <li>More electricity use makes your score go down</li>
         <li>More gas use makes your score go down</li>
         <li>More sustainable energy makes your score go <strong>up</strong></li>
-        </ul>"
+        </ul>
 
     house:
       header: "The energy use of a house"
       body: |-
-        "The house you see on your screen right now is an average free-standing
+        The house you see on your screen right now is an average free-standing
         Dutch house with 3 inhabitants. It has a HR-combi boiler and an average
         number of appliances. The rest is up to you! Can you turn this house
         into an energy self-sufficient house? You can choose from different
-        heating options, installing solar panels and reducing the demand." 
+        heating options, installing solar panels and reducing the demand.
 
