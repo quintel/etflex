@@ -15,6 +15,7 @@ RSpec.configure do |config|
   config.include Devise::TestHelpers,      type: :controller
   config.include ETFlex::Spec::SignIn,     type: :request
   config.include ETFlex::Spec::WaitForXHR, type: :request
+  config.include Capybara::DSL
 
   # == Mock Framework
   #
