@@ -41,6 +41,31 @@
         position: relative
         left: 390px
 
+      .animation
+        display: block
+        position: relative
+
+        &.man
+          background: image-url('scenes/house/animation/man.gif') no-repeat
+          height: 105px
+          left: 269px
+          top: 319px
+          width: 147px
+
+        &.cat
+          background: image-url('scenes/house/animation/cat.gif') no-repeat
+          height: 42px
+          left: 243px
+          top: 278px
+          width: 60px
+
+        &.girl
+          background: image-url('scenes/house/animation/girl.gif') no-repeat
+          height: 79px
+          left: 156px
+          opacity: 0.5
+          top: 48px
+          width: 71px
 
     .solar-thermal_panels
       @include house-prop-dyn(solarthermal, 143px, 81px, 885px, 48px)
