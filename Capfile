@@ -47,7 +47,7 @@ ssh_options[:forward_agent] = true
 
 task :production do
   set :rails_env, 'production'
-  set :branch,    'production'
+  set :branch,    fetch(:branch, 'production')
 
   set :deploy_to, "/u/apps/#{application_name}"
 
@@ -61,7 +61,7 @@ end
 
 task :staging do
   set :rails_env, 'staging'
-  set :branch,    'staging'
+  set :branch,    fetch(:branch, 'staging')
 
   set :deploy_to, "/u/apps/#{application_name}"
 
