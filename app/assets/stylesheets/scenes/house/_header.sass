@@ -23,7 +23,7 @@
 
 
     .grass
-      @include house-prop-dyn(grass, 1802px, 639px, 90px, 0px)
+      @include house-prop-dyn('grass.png', 1802px, 639px, 90px, 0px)
       z-index: 4
 
       .icon.green
@@ -41,34 +41,19 @@
         position: relative
         left: 390px
 
-      .animation
-        display: block
-        position: relative
+    .animation
+      display: block
+      position: relative
 
-        &.man
-          background: image-url('scenes/house/animation/man.gif') no-repeat
-          height: 105px
-          left: 269px
-          top: 319px
-          width: 147px
-
-        &.cat
-          background: image-url('scenes/house/animation/cat.gif') no-repeat
-          height: 42px
-          left: 243px
-          top: 278px
-          width: 60px
-
-        &.girl
-          background: image-url('scenes/house/animation/girl.gif') no-repeat
-          height: 79px
-          left: 156px
-          opacity: 0.5
-          top: 48px
-          width: 71px
+      &.cat
+        background: image-url('scenes/house/header/animation/cat.gif') no-repeat
+        height: 42px
+        left: -11px
+        top: 90px
+        width: 60px
 
     .solar-thermal_panels
-      @include house-prop-dyn(solarthermal, 143px, 81px, 885px, 48px)
+      @include house-prop-dyn('solarthermal.png', 143px, 81px, 885px, 48px)
       z-index: 6
 
       .icon.none
@@ -79,7 +64,7 @@
         background-position: -143px 0
 
     .solar-panels
-      @include house-prop-dyn(solarpv, 156px, 82px, 786px, 132px)
+      @include house-prop-dyn('solarpv.png', 156px, 82px, 786px, 132px)
       z-index: 6
 
       .icon.none
@@ -90,7 +75,7 @@
         background-position: -156px 0
 
     .hot-water
-      @include house-prop-dyn(hotwater, 117px, 124px, 1070px, 232px)
+      @include house-prop-dyn('hotwater.png', 117px, 124px, 1070px, 232px)
       z-index: 6
 
       .icon.none
@@ -101,7 +86,7 @@
         background-position: -117px 0
 
     .lighting
-      @include house-prop-dyn(lighting, 260px, 219px, 874px, 223px)
+      @include house-prop-dyn('lighting.png', 260px, 219px, 874px, 223px)
       z-index: 6
 
       .icon.incandescent_lighting
@@ -112,7 +97,7 @@
         background-position: -520px 0
 
     .insulation
-      @include house-prop-dyn(insulation, 520px, 513px, 725px, 70px)
+      @include house-prop-dyn('insulation.png', 520px, 513px, 725px, 70px)
       z-index: 7
       .icon.extremely_low
         background-position: left 0
@@ -131,7 +116,7 @@
 
 
     .aircon
-      @include house-prop-dyn(aircon, 114px, 163px, 1049px, 221px)
+      @include house-prop-dyn('aircon.png', 114px, 163px, 1049px, 221px)
       z-index: 6
 
       .icon.none
@@ -142,7 +127,7 @@
         background-position: -114px 0
 
     .space-heating
-      @include house-prop-dyn(spaceheating, 281px, 137px, 964px, 401px)
+      @include house-prop-dyn('spaceheating.png', 281px, 137px, 964px, 401px)
       z-index: 6
 
       .icon.combi_boiler
@@ -153,7 +138,7 @@
         background-position: 0 -274px
 
     .appliances
-      @include house-prop-dyn(appliances, 224px, 256px, 876px, 277px)
+      @include house-prop-dyn('appliances.png', 224px, 256px, 876px, 277px)
       z-index: 6
 
       .icon.none
@@ -175,8 +160,24 @@
       .icon.all
         background-position: 0 -2048px
 
+    .appliances-man
+      @include house-prop-dyn('animation/man-watching.gif', 147px, 105px, 979px, 359px)
+      z-index: 6
+
+      span.icon
+        &.reading
+          background: image-url('scenes/house/header/animation/man-reading.gif') 62px 52px no-repeat
+
+    .appliances-girl
+      @include house-prop-dyn('animation/girl-reading.gif', 190px, 79px, 893px, 278px)
+      z-index: 6
+
+      span.icon
+        &.browsing
+          background: image-url('scenes/house/header/animation/girl-browsing.gif') 105px -7px no-repeat
+
     .radiator
-      @include house-prop-dyn(radiator, 188px, 191px, 925px, 236px)
+      @include house-prop-dyn('radiator.png', 188px, 191px, 925px, 236px)
       z-index: 6
 
       .icon.low

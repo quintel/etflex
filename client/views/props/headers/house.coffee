@@ -6,10 +6,6 @@ class exports.HouseProp extends HeaderIcon
   render: ->
     @$el.append '<span class="help"></span>'
 
-    @$el.append '<span class="animation man"></span>'
-    @$el.append '<span class="animation cat"></span>'
-    @$el.append '<span class="animation girl"></span>'
-
     super
     @showHelpButton()
     this
