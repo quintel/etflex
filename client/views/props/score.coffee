@@ -6,7 +6,7 @@ class exports.ScoreView extends DashboardProp
 
   # Queries and hurdle values.
 
-  queries: [ 'score' ]
+  queries: [ 'etflex_score' ]
 
   # Display settings.
 
