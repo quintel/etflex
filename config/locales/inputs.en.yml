@@ -43,30 +43,31 @@ en:
 
   information:
     amount_of_insulation: |-
-      Insulation is cheap and effective and strongly influences demand 
-      for heating or cooling.
-      Roof, wall and floor insulation and insulating glazing account 
-      for 75% of the total potential savings. The insulation
-      level can be expressed as a 'thermal resistance' or Rc-value. This is a 
-      measure for how much the building resists escaping heat or cold. 
-      The higher the Rc-value, the better the insulation.
+      Insulation is cheap and effective and strongly influences demand for
+      heating or cooling.
+
+      Roof, wall, and floor insulation, and insulating glazing, account for
+      75% of the total potential savings. The insulation level can be
+      expressed as a "thermal resistance" or Rc-value. This is a measure of
+      how much the building resists escaping heat or cold. The higher the
+      Rc-value, the better the insulation.
+
       For the Netherlands, the average Rc-value of old residences is about 1.
       This is the result of a mix between badly, partially, and well-insulated
-      residences. For old residences it is not easy to reach Rc-values higher 
+      residences. For old residences it is not easy to reach Rc-values higher
       than 3.
 
     comfort_temperature_in_the_house: |-
-      Decreasing the setting on your thermostat by a couple of degrees
-      can save a lot of energy. Nonetheless, people tend to choose 
-      more comfort if they can afford it. What is your guess for our future
-      'comfort temperature' in the house?
+      Decreasing the setting on your thermostat by a couple of degrees can
+      save a lot of energy. Nonetheless, people tend to choose more comfort if
+      they can afford it. What is your guess for our future "comfort
+      temperature" in the house?
 
     daily_length_of_shower_per_person: |-
-      Almost 80% of daily hot water consumption is for showering.
-      Decreasing the length of an average shower (currently 8 minutes) 
-      could save a lot of water and energy. How long do you think 
-      a shower will take in the future? Remember that there are 3
-      people living in this house.
+      Almost 80% of daily hot water consumption is for showering. Decreasing
+      the length of an average shower (currently 8 minutes) could save a lot
+      of water and energy. How long do you think a shower will take in the
+      future? Remember that there are 3 people living in this house.
 
     green_gas_total_share: |-
       Green gas is biogas that has been upgraded to natural gas quality. It
@@ -75,10 +76,10 @@ en:
       be produced by "gasification" of biomass.
 
     households_area_solar_pv: |-
-      Solar cells transform sunlight into electricity. Solar panels are 
+      Solar cells transform sunlight into electricity. Solar panels are
       installed on rooftops and may compete for space with solar water
-      heaters. This technology is developing rapidly and solar panels 
-      are becoming ever more efficient and cheaper. Solar panels are 
+      heaters. This technology is developing rapidly and solar panels
+      are becoming ever more efficient and cheaper. Solar panels are
       expected to become much cheaper in the coming 40 years.
 
     households_behavior_standby_killer_turn_off_appliances: |-
@@ -87,15 +88,14 @@ en:
 
     households_heating_heat_pump_ground_share: |-
       A heat pump is like a refrigerator used the other way around: it pumps
-      heat into the house from outside, while a refrigerator pumps heat out
-      of its own insides. Heat pumps reduce your need for gas to
-      heat the house. This seems like a good thing, since gas
-      will not be available forever.
+      heat into the house from outside, while a refrigerator pumps heat from
+      inside to outside. Heat pumps reduce your need for gas to heat the home.
+      This seems like a good thing, since gas will not be available forever.
 
     households_heating_solar_thermal_panels_share: |-
       Solar water heaters (SWH) use heat from the sun to produce warm water.
       This warm water can be used for showering or for doing the dishes, etc.
-      SWHs are usually installed on rooftops or in asphalt for parking lots.
+      SWHs are usually installed on rooftops, or in asphalt for parking lots.
       A SWH is often combined with a gas-fired central heating boiler that
       heats water further if necessary. It can also be combined with a heat
       pump.
@@ -103,41 +103,40 @@ en:
     households_hot_water_fuel_cell_share: |-
       This so-called Solid Oxide Fuel Cell (SOFC) produces electricity and
       heat from natural gas. Fuel cells are highly efficient.
-      The largest disadvantage is that this operates at
-      high temperatures (500 - 1000 °C), which results in longer start-up
-      times. In households this is not a problem as they are basically
-      constantly running, producing warm water that is stored in a container
-      until it is needed.
+
+      The largest disadvantage is that this operates at high temperatures
+      (500 - 1000 °C), which results in longer start-up times. In households
+      this is not a problem as they are typically running constantly,
+      producing warm water that is stored in a container until it is needed.
       This device provides more electricity than a typical household needs,
       turning its owner into a net electricity producer.
 
     households_hot_water_micro_chp_share: |-
-      The micro-CHP (Combined Heat and Power) unit is a tiny gas-fired 
-      heat and power plant for use in your house. Using a micro-CHP can 
-      deliver significant energy savings. Because this technology is 
+      The micro-CHP (Combined Heat and Power) unit is a tiny gas-fired
+      heat and power plant for use in your house. Using a micro-CHP can
+      deliver significant energy savings. Because this technology is
       relatively new, it is quite expensive.
 
     households_hot_water_solar_water_heater_share: |-
       A solar water heater uses heat from the sun to make warm water. This is
       often done on the roof of a house. The hot water can then be used for
-      showering or washing dishes, for example. Using the sun's heat saves 
-      energy.
+      showering or washing dishes. Using the sun's heat saves energy.
 
     households_insulation_level_old_houses: |-
-      A house uses a lot less energy for heating in winter, if it is insulated
+      A house uses a lot less energy for heating in winter if it is insulated
       and airtight. Insulation prevents heat leaking through windows, walls,
-      floors and ceilings. Airtightness prevents the wind blowing cold air into
-      the house and pushing the warm air out. The more airtight a house is, the
-      more actively you need to control the inner climate of the house. In order
-      to be very energy efficient houses always need to be super insulated and
-      airtight.
+      floors, and ceilings. Airtightness prevents the wind blowing cold air
+      into the house and pushing the warm air out. The more airtight a house
+      is, the more actively you need to control the inner climate of the
+      house. In order to be very energy efficient houses always need to be
+      super insulated and airtight.
 
     households_lighting_light_emitting_diode_share: |-
       Incandescent light bulbs waste a lot of energy. The power they consume
       is mostly turned into heat instead of light. That is why, in Europe, we
       will all shift to low-energy lighting in the coming years. These new
-      light bulbs emit the same amount of light and do not become so warm. They
-      even last much longer than traditional light bulbs!
+      light bulbs emit the same amount of light and do not become so warm.
+      They even last much longer than traditional light bulbs!
 
     households_market_penetration_solar_panels: |-
       Solar panels make electricity when they absorb sunlight. This also
@@ -164,8 +163,8 @@ en:
       roughly twice that of a gas-fired plant.
 
     number_of_cold_showers_per_week: |-
-      Taking one cold shower a week reduces your hot water consumption
-      by more than 10%. How many cold showers would you take per week?
+      Taking one cold shower a week reduces your hot water consumption by more
+      than 10%. How many cold showers would you take per week?
 
     number_of_gas_ccgt: |-
       A gas-fired power plant is cheaper to build than a coal power plant. 
@@ -182,7 +181,7 @@ en:
       A gas-fired power plant is easily powered up or down. That can come
       in handy when there is no wind.
       CO<sub>2</sub> emissions are half that of a coal-fired power plant.
-      
+
     number_of_households_heating_solar_thermal_collectors: |-
       Solar water heaters (SWH) use heat from the sun to produce warm water. 
       This warm water can be used for showering or for doing the dishes, 
@@ -190,7 +189,7 @@ en:
       lots. A SWH is often combined with a gas-fired central heating boiler
       that heats water further if necessary. It can also be combined with 
       a heat pump.
-    
+
     number_of_nuclear_3rd_gen: |-
       A nuclear power plant is very expensive to build. They last
       a really long time and they use only small amounts of fuel (uranium).
@@ -222,7 +221,7 @@ en:
       This means that building windmills alone is not enough to ensure 
       supply. 
       You would have a problem if you needed power and there was no wind. 
-      
+
     number_of_wind_onshore_land: |-
       Wind turbines produce renewable power without CO<sub>2</sub>
       emissions. Although wind does not run out, it does not always blow. 
@@ -239,8 +238,7 @@ en:
       Electric cars powered by modern coal or gas-fired power plants  will 
       still emit less than conventional ones.
       <img src="/assets/information/electric_versus_gasoline.png" width="444" height="362" />
-      
-    use_of_air_conditioning_options: |-
-      Currently, less than 30% of redidences in the Netherlands have airconditioning.
-      How will this change in the future?
 
+    use_of_air_conditioning_options: |-
+      Currently, less than 30% of redidences in the Netherlands have
+      airconditioning. How will this change in the future?
