@@ -29,7 +29,7 @@
   </ul>
 
   <ul id="partners">
-    <li><a href="http://www.minez.nl" data-navigate="noclient" target="_new" class="partner ez">Ministerie van E.Z.</a></li>
+    <li><a href="http://www.rijksoverheid.nl/ministeries/ez" data-navigate="noclient" target="_new" class="partner ez">Ministerie van E.Z.</a></li>
     <li><a href="http://www.gasunie.nl" data-navigate="noclient" target="_new" class="partner gasunie">GasUnie</a></li>
     <li class="by"><%= I18n.t 'partners' %></li>
   </ul>
