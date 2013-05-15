@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 feature 'Viewing scenarios', js: true do
-  let(:scene) { create :scene_with_inputs, name: 'Balancing Supply and Demand' }
+  let(:scene) { create :scene, name: 'Balancing Supply and Demand' }
   let(:owner) { create :user }
 
   def create_scenario(scene_id, user = nil)

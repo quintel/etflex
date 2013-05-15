@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 feature 'Requesting the visitors name', js: true do
-  let!(:scene) { create :scene_with_inputs, name: 'Balancing Supply and Demand' }
+  let!(:scene) { create :scene, name: 'Balancing Supply and Demand' }
 
   # --------------------------------------------------------------------------
 
@@ -13,7 +13,7 @@ feature 'Requesting the visitors name', js: true do
 
     # Assert that the correct name request box is shown (not the "you got a
     # high score!" box).
-    page.should have_css('.high-score-request h3', content: 'Welcome')
+    page.should have_css('.high-score-request h3', text: 'Welcome')
 
     fill_in 'Your name', with: 'Jeff Winger'
     click_button 'Save'
@@ -40,7 +40,7 @@ feature 'Requesting the visitors name', js: true do
 
     # Assert that the correct name request box is shown (not the "you got a
     # high score!" box).
-    page.should have_css('.high-score-request h3', content: 'Welcome')
+    page.should have_css('.high-score-request h3', text: 'Welcome')
 
     fill_in 'Your name', with: ''
     click_button 'Save'
@@ -69,7 +69,7 @@ feature 'Requesting the visitors name', js: true do
 
     # Assert that the correct name request box is shown (not the "you got a
     # high score!" box).
-    page.should have_css('.high-score-request h3', content: 'Welcome')
+    page.should have_css('.high-score-request h3', text: 'Welcome')
 
     fill_in 'Your name', with: 'Britta Perry'
     click_button 'Save'
@@ -98,7 +98,7 @@ feature 'Requesting the visitors name', js: true do
 
     # Assert that the correct name request box is shown (not the "you got a
     # high score!" box).
-    page.should have_css('.high-score-request h3', content: 'Welcome')
+    page.should have_css('.high-score-request h3', text: 'Welcome')
 
     fill_in 'Your name', with: ''
     click_button 'Save'
@@ -167,7 +167,7 @@ feature 'Requesting the visitors name', js: true do
     click_link 'Nederlandse versie'
 
     visit '/scenes/1'
-
+    save_and_open_page
     # Wait until the scene has loaded.
     page.should have_css('#left-inputs')
 
