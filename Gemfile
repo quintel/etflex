@@ -93,6 +93,7 @@ group :test, :development do
   # the spec:* tasks won't be available when using rake.
   gem 'rspec-rails',  '~> 2.8'
   gem 'factory_girl_rails'
+  gem 'launchy'
 end
 
 group :test do
@@ -100,6 +101,6 @@ group :test do
   gem 'shoulda-matchers'
 
   # Integration / acceptance testing.
-  gem 'capybara', '>= 1.1.1'
-  gem 'capybara-webkit'
+  gem 'capybara', '~> 2.1.0'
+  gem 'capybara-webkit', git: 'git@github.com:thoughtbot/capybara-webkit.git'
 end
