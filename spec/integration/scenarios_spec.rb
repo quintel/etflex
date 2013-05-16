@@ -259,7 +259,7 @@ describe 'Scenarios' do
     end
 
     context 'with an integer-like :days param' do
-      before { visit '/scenarios/since/6' }
+      before { visit "/scenes/#{ Scene.last.id }/scenarios/since/6.json" }
 
       it 'should be 200' do
         page.status_code.should eql(200)
@@ -274,7 +274,7 @@ describe 'Scenarios' do
     end # with an integer-like :days param
 
     context 'with a non-integer :days param' do
-      before { visit '/scenarios/since/2012-03-26' }
+      before { visit "/scenes/#{ Scene.last.id }/scenarios/since/2012-03-26" }
 
       it 'should be 400' do
         page.status_code.should eql(400)
