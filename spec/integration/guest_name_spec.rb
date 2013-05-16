@@ -18,8 +18,6 @@ feature 'Requesting the visitors name', js: true do
     fill_in 'Your name', with: 'Jeff Winger'
     click_button 'Save'
 
-    wait_for_xhr
-
     # Reload the page and make sure the user name is set.
     visit "/scenes/#{ scene.id }"
 
@@ -167,7 +165,7 @@ feature 'Requesting the visitors name', js: true do
     click_link 'Nederlandse versie'
 
     visit '/scenes/1'
-    save_and_open_page
+
     # Wait until the scene has loaded.
     page.should have_css('#left-inputs')
 
