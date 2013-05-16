@@ -194,11 +194,13 @@ feature 'Requesting the visitors name', js: true do
     click_link 'Sign in'
     click_link 'Sign up'
 
-    fill_in 'E-mail address',   with: 'test@example.com'
-    fill_in 'Password',         with: 'testtest'
-    fill_in 'Confirm password', with: 'testtest'
+    within '#sign-up-form' do
+      fill_in 'E-mail address',   with: 'test@example.com'
+      fill_in 'Password',         with: 'testtest'
+      fill_in 'Confirm password', with: 'testtest'
 
-    click_button 'Sign up'
+      click_button 'Sign up'
+    end
 
     visit "/scenes/#{ scene.id }"
 
