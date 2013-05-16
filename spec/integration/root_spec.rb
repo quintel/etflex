@@ -45,7 +45,7 @@ feature 'Viewing the root page' do
     # Wait until the page has loaded.
     page.should have_css('#left-inputs')
 
-    click_link 'logo'
+    find('#logo').trigger('click')
 
     page.status_code.should eql(200)
 
@@ -61,7 +61,7 @@ feature 'Viewing the root page' do
     # Wait until the page has loaded.
     page.should have_css('#left-inputs')
 
-    click_link 'logo'
+    find('#logo').trigger('click')
 
     page.status_code.should eql(200)
 
@@ -93,7 +93,7 @@ feature 'Viewing the root page' do
     # Wait until the page has loaded.
     page.should have_css('#left-inputs')
 
-    click_link 'logo'
+    find('#logo').trigger('click')
 
     page.status_code.should eql(200)
 

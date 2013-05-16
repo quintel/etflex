@@ -19,6 +19,7 @@ RSpec.configure do |config|
   config.include Devise::TestHelpers,      type: :controller
   config.include ETFlex::Spec::SignIn,     type: :request
   config.include ETFlex::Spec::WaitForXHR, type: :request
+  config.include WaitSteps
   config.include Capybara::DSL
 
   # == Mock Framework
@@ -83,8 +84,9 @@ RSpec.configure do |config|
 
   # Capybara
   # --------
-
-  Capybara.javascript_driver = :webkit
+  require 'capybara/poltergeist'
+  Capybara.javascript_driver = :poltergeist
+  # Capybara.javascript_driver = :webkit
 
   Capybara.register_driver :rack_test_api do |app|
     Capybara::RackTest::Driver.new(app, headers: {

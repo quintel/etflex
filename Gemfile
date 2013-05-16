@@ -40,6 +40,7 @@ gem 'pusher'
 
 gem 'airbrake'
 gem 'hashie'
+gem 'json', '~> 1.7.7'
 
 # Treetop for the grammars
 gem 'treetop'
@@ -102,5 +103,5 @@ group :test do
 
   # Integration / acceptance testing.
   gem 'capybara', '~> 2.1.0'
-  gem 'capybara-webkit', git: 'git@github.com:thoughtbot/capybara-webkit.git'
+  gem 'poltergeist'
 end
