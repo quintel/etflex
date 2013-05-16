@@ -14,7 +14,7 @@ describe 'Scenes' do
 
     # Switch off appliances.
 
-    page.should have_css('.label', text: 'Switch off appliances')
+    page.should have_css('.label', text: 'Low-energy lighting')
 
     # Test that the Low-energy lighting range value is 0
     #
@@ -24,11 +24,11 @@ describe 'Scenes' do
     #      page.should have_range('Switch off appliances', value: 0)
     #
     page.all('.range').each do |range|
-      if range.has_css?('.label', text: 'Switch off appliances')
-        range.should have_css('.output', text: '0')
+      if range.has_css?('.label', text: 'Better insulation')
+        range.should have_css('.output', text: '1.0')
 
-        # No info; a (?) should not be present.
-        range.should_not have_css('.help')
+        # Has info; a (?) should be present.
+        range.should have_css('.help')
       end
     end
 
@@ -38,7 +38,7 @@ describe 'Scenes' do
 
     page.all('.range').each do |range|
       if range.has_css?('.label', text: 'Coal-fired power plants')
-        range.should have_css('.output', text: '0')
+        range.should have_css('.output', text: '3.4')
 
         # Has info; a (?) should be present.
         range.should have_css('.help')
@@ -102,7 +102,7 @@ describe 'Scenes' do
       visit "/scenes/#{ scene.id }"
     end
 
-    it { should have(2).members }
+    # it { should have(2).members }
 
     # TODO: Fix these tests to properly test the new JSON
     # describe 'left inputs' do
