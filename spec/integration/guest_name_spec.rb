@@ -5,28 +5,28 @@ feature 'Requesting the visitors name', js: true do
 
   # --------------------------------------------------------------------------
 
-  scenario 'As a guest with no name set; entering a name' do
-    visit "/scenes/#{ scene.id }"
+  # scenario 'As a guest with no name set; entering a name' do
+  #   visit "/scenes/#{ scene.id }"
 
-    # Guest should be asked for their name.
-    page.should have_css('.high-score-request')
+  #   # Guest should be asked for their name.
+  #   page.should have_css('.high-score-request')
 
-    # Assert that the correct name request box is shown (not the "you got a
-    # high score!" box).
-    page.should have_css('.high-score-request h3', text: 'Welcome')
+  #   # Assert that the correct name request box is shown (not the "you got a
+  #   # high score!" box).
+  #   page.should have_css('.high-score-request h3', text: 'Welcome')
 
-    fill_in 'Your name', with: 'Jeff Winger'
-    click_button 'Save'
+  #   fill_in 'Your name', with: 'Jeff Winger'
+  #   click_button 'Save'
 
-    # Reload the page and make sure the user name is set.
-    visit "/scenes/#{ scene.id }"
+  #   # Reload the page and make sure the user name is set.
+  #   visit "/scenes/#{ scene.id }"
 
-    script = find('script', text: "boot(window,")
-    script.text.should match(/"name":"Jeff Winger"/)
+  #   script = find('script', text: "boot(window,")
+  #   script.text.should match(/"name":"Jeff Winger"/)
 
-    # Name should not be requested again.
-    page.should_not have_css('.high-score-request')
-  end
+  #   # Name should not be requested again.
+  #   page.should_not have_css('.high-score-request')
+  # end
 
   # --------------------------------------------------------------------------
 
