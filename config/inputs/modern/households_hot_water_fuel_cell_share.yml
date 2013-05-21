@@ -1,5 +1,5 @@
 type: one_to_one
-engine_key: households_hot_water_fuel_cell_share
+engine_key: households_water_heater_fuel_cell_chp_network_gas_share
 display: slider
 min: 0.0
 max: 50.0

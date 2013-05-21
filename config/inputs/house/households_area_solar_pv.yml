@@ -1,5 +1,5 @@
 type: one_to_one
-engine_key: households_market_penetration_solar_panels
+engine_key: households_solar_pv_solar_radiation_market_penetration
 display: slider
 min: 0.0
 max: 35.0
