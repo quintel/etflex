@@ -1,5 +1,5 @@
 type: one_to_one
-engine_key: number_of_gas_ccgt
+engine_key: number_of_energy_power_combined_cycle_network_gas
 display: slider
 min: 0.0
 max: 10.0
