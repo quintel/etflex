@@ -34,7 +34,7 @@ nl:
     number_of_energy_power_ultra_supercritical_coal: "Kolen- / biomassacentrales"
     number_of_energy_power_wind_turbine_offshore: "Windmolens"
     policy_area_biomass: "Biomass"
-    transport_useful_demand_car_kms_electric_share: "Elektrische auto's"
+    transport_car_using_electricity_share: "Elektrische auto's"
     use_of_air_conditioning_options:
       no_cooling: "Geen airco"
       one_room_cooling: "In één kamer"
@@ -219,7 +219,7 @@ nl:
       mooi vinden en daarom is er vaak verzet tegen het plaatsen van windmolens 
       op land. 
 
-    transport_useful_demand_car_kms_electric_share: |-
+    transport_car_using_electricity_share: |-
       Een elektrische auto gebruikt de helft van de energie van een auto op
       benzine of diesel. Met elektrische auto's besparen we veel olie. 
       We moeten natuurlijk wel meer elektriciteit maken. 

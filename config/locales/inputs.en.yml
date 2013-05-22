@@ -34,7 +34,7 @@ en:
     number_of_energy_power_ultra_supercritical_coal: "Coal / biomass power plants"
     number_of_energy_power_wind_turbine_offshore: "Wind turbines"
     policy_area_biomass: "Biomass"
-    transport_useful_demand_car_kms_electric_share: "Electric cars"
+    transport_car_using_electricity_share: "Electric cars"
     use_of_air_conditioning_options:
       no_cooling: "No airco"
       one_room_cooling: "Only in one room"
@@ -229,7 +229,7 @@ en:
       supply. You would have a problem if you
       needed power and there was no wind.
 
-    transport_useful_demand_car_kms_electric_share: |-
+    transport_car_using_electricity_share: |-
       An electric car uses about half the energy of a diesel or gasoline
       -powered car. Diesel and gasoline are made from oil. By switching to
       electric cars, we will save a lot of oil and at the same time use more
