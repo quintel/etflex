@@ -3,7 +3,7 @@ inputs:
     demand:
       - households_insulation_level_old_houses
       - households_lighting_led_electricity_share
-      - transport_useful_demand_car_kms_electric_share
+      - transport_car_using_electricity_share
       - households_water_heater_fuel_cell_chp_network_gas_share
       - households_space_heater_heatpump_ground_water_electricity_share
       - households_water_heater_solar_thermal_share
