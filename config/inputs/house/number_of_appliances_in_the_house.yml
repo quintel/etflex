@@ -1,5 +1,5 @@
 type: one_to_one
-engine_key: households_electricity_demand_per_person
+engine_key: households_useful_demand_electricity_per_person
 display: slider
 min: -50
 max: 100
