@@ -1,5 +1,5 @@
 type: one_to_one
-engine_key: households_lighting_light_emitting_diode_share
+engine_key: households_lighting_led_electricity_share
 display: slider
 min: 0.0
 max: 100.0

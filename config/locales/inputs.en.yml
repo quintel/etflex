@@ -16,25 +16,25 @@ en:
       incandescent_lighting: "Incandescent lighting"
       led_lighting: "LED lighting"
     households_behavior_standby_killer_turn_off_appliances: "Switch off appliances"
-    households_heating_heat_pump_add_on_share: "Heat pump for the home"
-    households_heating_heat_pump_ground_share: "Heat pump for the home"
-    households_heating_solar_thermal_panels_share: "Solar thermal collectors"
-    households_hot_water_fuel_cell_share: "Fuel cell for hot water"
-    households_hot_water_micro_chp_share: "Micro-CHP for hot water"
-    households_hot_water_solar_water_heater_share: "Solar water heater"
+    households_space_heater_heatpump_add_on_electricity_share: "Heat pump for the home"
+    households_space_heater_heatpump_ground_water_electricity_share: "Heat pump for the home"
+    households_water_heater_solar_thermal_share: "Solar thermal collectors"
+    households_water_heater_fuel_cell_chp_network_gas_share: "Fuel cell for hot water"
+    households_water_heater_micro_chp_network_gas_share: "Micro-CHP for hot water"
+    households_water_heater_solar_thermal_share: "Solar water heater"
     households_insulation_level_old_houses: "Better insulation"
-    households_lighting_light_emitting_diode_share: "Low-energy lighting"
-    households_market_penetration_solar_panels: "Solar panels"
+    households_lighting_led_electricity_share: "Low-energy lighting"
+    households_solar_pv_solar_radiation_market_penetration: "Solar panels"
     new: "New input"
     number_of_appliances_in_the_house: "Change in number of appliances"
     number_of_cold_showers_per_week: "Number of cold showers per week"
-    number_of_gas_ccgt: "Gas-fired power plants"
+    number_of_energy_power_combined_cycle_network_gas: "Gas-fired power plants"
     number_of_households_heating_solar_thermal_collectors: "Number of solar thermal collectors"
-    number_of_nuclear_3rd_gen: "Nuclear power plants"
-    number_of_pulverized_coal: "Coal / biomass power plants"
-    number_of_wind_offshore: "Wind turbines"
+    number_of_energy_power_nuclear_gen3_uranium_oxide: "Nuclear power plants"
+    number_of_energy_power_ultra_supercritical_coal: "Coal / biomass power plants"
+    number_of_energy_power_wind_turbine_offshore: "Wind turbines"
     policy_area_biomass: "Biomass"
-    transport_cars_electric_share: "Electric cars"
+    transport_car_using_electricity_share: "Electric cars"
     use_of_air_conditioning_options:
       no_cooling: "No airco"
       one_room_cooling: "Only in one room"
@@ -86,13 +86,13 @@ en:
       We own more and more electrical appliances that are often left on when
       they are not being used. We can save some power by switching them off.
 
-    households_heating_heat_pump_ground_share: |-
+    households_space_heater_heatpump_ground_water_electricity_share: |-
       A heat pump is like a refrigerator used the other way around: it pumps
       heat into the house from outside, while a refrigerator pumps heat from
       inside to outside. Heat pumps reduce your need for gas to heat the home.
       This seems like a good thing, since gas will not be available forever.
 
-    households_heating_solar_thermal_panels_share: |-
+    households_water_heater_solar_thermal_share: |-
       Solar water heaters (SWH) use heat from the sun to produce warm water.
       This warm water can be used for showering or for doing the dishes, etc.
       SWHs are usually installed on rooftops, or in asphalt for parking lots.
@@ -100,7 +100,7 @@ en:
       heats water further if necessary. It can also be combined with a heat
       pump.
 
-    households_hot_water_fuel_cell_share: |-
+    households_water_heater_fuel_cell_chp_network_gas_share: |-
       This so-called Solid Oxide Fuel Cell (SOFC) produces electricity and
       heat from natural gas. Fuel cells are highly efficient.
 
@@ -111,13 +111,13 @@ en:
       This device provides more electricity than a typical household needs,
       turning its owner into a net electricity producer.
 
-    households_hot_water_micro_chp_share: |-
+    households_water_heater_micro_chp_network_gas_share: |-
       The micro-CHP (Combined Heat and Power) unit is a tiny gas-fired
       heat and power plant for use in your house. Using a micro-CHP can
       deliver significant energy savings. Because this technology is
       relatively new, it is quite expensive.
 
-    households_hot_water_solar_water_heater_share: |-
+    households_water_heater_solar_thermal_share: |-
       A solar water heater uses heat from the sun to make warm water. This is
       often done on the roof of a house. The hot water can then be used for
       showering or washing dishes. Using the sun's heat saves energy.
@@ -131,14 +131,14 @@ en:
       house. In order to be very energy efficient houses always need to be
       super insulated and airtight.
 
-    households_lighting_light_emitting_diode_share: |-
+    households_lighting_led_electricity_share: |-
       Incandescent light bulbs waste a lot of energy. The power they consume
       is mostly turned into heat instead of light. That is why, in Europe, we
       will all shift to low-energy lighting in the coming years. These new
       light bulbs emit the same amount of light and do not become so warm.
       They even last much longer than traditional light bulbs!
 
-    households_market_penetration_solar_panels: |-
+    households_solar_pv_solar_radiation_market_penetration: |-
       Solar panels make electricity when they absorb sunlight. This also
       works on cloudy days. As a result, it is easier to predict how much
       power you can expect than with wind power. Of course, a solar
@@ -155,7 +155,7 @@ en:
       are going to use more or less appliances. -50% halves the number of
       appliances, 100% doubles it.
 
-    number_of_coal_conventional: |-
+    number_of_energy_power_supercritical_coal: |-
       A coal-fired power plant runs at full capacity most of the time.
       Turning it off regularly reduces the amount of electricity that can
       be obtained from an given amount of coal. Coal plants are the most
@@ -166,7 +166,7 @@ en:
       Taking one cold shower a week reduces your hot water consumption by more
       than 10%. How many cold showers would you take per week?
 
-    number_of_gas_ccgt: |-
+    number_of_energy_power_combined_cycle_network_gas: |-
       A gas-fired power plant is cheaper to build than a coal power plant. 
       However, power from gas costs more than power plants that burn coal. 
       A gas-fired power plant is easily powered up or down. That can come
@@ -175,7 +175,7 @@ en:
       emissions of a gas-fired power plant are half that of a coal-fired
       power plant.
 
-    number_of_gas_conventional: |-
+    number_of_energy_power_ultra_supercritical_network_gas: |-
       A gas-fired power plant is cheaper to build than a coal power plant.
       However, power from gas costs more than power plants that burn coal.
       A gas-fired power plant is easily powered up or down. That can come
@@ -190,7 +190,7 @@ en:
       that heats water further if necessary. It can also be combined with 
       a heat pump.
 
-    number_of_nuclear_3rd_gen: |-
+    number_of_energy_power_nuclear_gen3_uranium_oxide: |-
       A nuclear power plant is very expensive to build. They last
       a really long time and they use only small amounts of fuel (uranium).
       Once the power plant has been built, making electricity is cheap.
@@ -205,7 +205,7 @@ en:
       generations of nuclear power plants are designed to be much safer
       than older types.
 
-    number_of_pulverized_coal: |-
+    number_of_energy_power_ultra_supercritical_coal: |-
       Coal-fired power plants are less suitable to act as backup plants 
       for wind- and solar
       electricity than gas-fired plants, because they are expensive to build and
@@ -215,21 +215,21 @@ en:
       Wood can be co-fired in coal plants, to reduce such emissions and 
       increase renewability.
 
-    number_of_wind_offshore: |-
+    number_of_energy_power_wind_turbine_offshore: |-
       Wind turbines produce renewable power without CO<sub>2</sub>
       emissions. Although wind does not run out, it does not always blow. 
       This means that building windmills alone is not enough to ensure 
       supply. 
       You would have a problem if you needed power and there was no wind. 
 
-    number_of_wind_onshore_land: |-
+    number_of_energy_power_wind_turbine_inland: |-
       Wind turbines produce renewable power without CO<sub>2</sub>
       emissions. Although wind does not run out, it does not always blow. 
       This means that building windmills alone is not enough to ensure 
       supply. You would have a problem if you
       needed power and there was no wind.
 
-    transport_cars_electric_share: |-
+    transport_car_using_electricity_share: |-
       An electric car uses about half the energy of a diesel or gasoline
       -powered car. Diesel and gasoline are made from oil. By switching to
       electric cars, we will save a lot of oil and at the same time use more
