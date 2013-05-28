@@ -11,7 +11,7 @@
   max: 5.0
   step: 0.1
   unit: ! '%'
-- key: agriculture_heating_biomass_fired_heater_share
+- key: agriculture_burner_wood_pellets_share
   start: 0.63542904375678
   min: 0.0
   max: 100.0
