@@ -45,7 +45,7 @@ feature 'Editing scene props' do
     page.should have_css('table#props')
 
     # The scene prop was added?
-    page.should have_css('td', content: @other.behaviour)
+    page.should have_css('td', text: @other.behaviour)
   end
 
   # --------------------------------------------------------------------------
@@ -66,7 +66,7 @@ feature 'Editing scene props' do
     page.should     have_css("form#new_scene_prop")
     page.should_not have_css('table#props')
 
-    page.should     have_css('.error', content: "can't be blank")
+    page.should     have_css('.error', text: "can't be blank")
   end
 
   # --------------------------------------------------------------------------
@@ -128,7 +128,7 @@ feature 'Editing scene props' do
     page.should     have_css("form#edit_scene_prop_#{ @scene_prop.id }")
     page.should_not have_css('table#props')
 
-    page.should     have_css('.error', content: "can't be blank")
+    page.should     have_css('.error', text: "can't be blank")
   end
 
   # --------------------------------------------------------------------------
@@ -139,14 +139,12 @@ feature 'Editing scene props' do
     # There should be only one scene prop, therefore one delete link.
     within('table#props') { click_link 'Delete' }
 
-    @scene.scene_inputs(:reload).should be_empty
-
     # We should be returned to the scene prop list.
     page.should have_css('.navigation .scenes.selected')
     page.should have_css('table#props')
 
     # The scene prop was definitely deleted?
-    page.should_not have_css('td.key a', content: @prop.behaviour)
+    page.should_not have_css('td.key a', text: @prop.behaviour)
   end
 
 end

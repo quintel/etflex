@@ -27,14 +27,6 @@ describe Scene do
   it { should have_many(:scene_props) }
   it { should have_many(:scenarios) }
 
-  it { should have_many(:scene_inputs) }
-  it { should have_many(:left_scene_inputs) }
-  it { should have_many(:right_scene_inputs) }
-
-  it { should have_many(:inputs).through(:scene_inputs) }
-  it { should have_many(:left_inputs).through(:left_scene_inputs) }
-  it { should have_many(:right_inputs).through(:right_scene_inputs) }
-
   # NAME ---------------------------------------------------------------------
 
   describe 'name' do

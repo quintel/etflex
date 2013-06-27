@@ -25,8 +25,6 @@ class ManyToOneInput < Input
     result = nil
 
     @inputs.each do |input|
-      puts input.key
-      puts key
       result = input if input.key == key
     end
 

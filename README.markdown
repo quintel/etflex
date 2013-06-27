@@ -21,7 +21,8 @@ Most of the application is implemented in CoffeeScript and can be found in
 ## Installation
 
 
- 1. Copy config/database.sample.yml to config/database.yml. Edit any settings
+ 1. Copy `config/database.sample.yml` and `config/etflex.sample.yml` to respectively 
+    `config/database.yml` and `config/etflex.yml`. Edit any settings
     as necessary for your local machine.
 
  2. Use Ruby 1.9.3 p0 or newer.

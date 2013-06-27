@@ -90,12 +90,15 @@ exports.updateInputs = (sessionId, options, callback) ->
 
   # Queries is a backbone collection
   queries = queries?.models or queries
+  collection = queries[0].collection
 
   # Map the input IDs and their values.
   params.scenario.user_values = inputs?.values() or {}
 
   # If there are any queries, tell ETEngine to give us those results.
   params.gqueries = ( query.get('id') for query in queries ) if queries?
+  params.gqueries = _(params.gqueries).reject (gquery) ->
+    collection.meta("#{gquery}_gquery")?
 
   # Send any custom scenario settings (end year, country, etc).
   params.settings = options.settings

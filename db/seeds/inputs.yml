@@ -11,49 +11,49 @@
   max: 5.0
   step: 0.1
   unit: ! '%'
-- key: agriculture_heating_biomass_fired_heater_share
+- key: agriculture_burner_wood_pellets_share
   start: 0.63542904375678
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: agri_heat
-- key: agriculture_heating_combined_heat_power_share
+- key: agriculture_final_demand_steam_hot_water_share
   start: 57.41893544109799
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: agri_heat
-- key: agriculture_heating_gas_fired_heater_share
+- key: agriculture_burner_network_gas_share
   start: 28.2814356563517
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: agri_heat
-- key: agriculture_heating_geothermal_share
+- key: agriculture_geothermal_share
   start: 0.10439806443836
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: agri_heat
-- key: agriculture_heating_heat_pump_with_ts_share
+- key: agriculture_heatpump_water_water_ts_electricity_share
   start: 0.386272838421932
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: agri_heat
-- key: agriculture_heating_oil_fired_heater_share
+- key: agriculture_burner_crude_oil_share
   start: 13.1735289559333
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: agri_heat
-- key: agriculture_number_of_small_gas_chp
+- key: number_of_agriculture_chp_engine_network_gas
   start: 3023.581081081071
   min: 0.0
   max: 6047.162162162142
@@ -86,7 +86,7 @@
   step: 0.1
   unit: ! '%'
   group: biodiesel_fce
-- key: buildings_appliances_efficiency
+- key: buildings_useful_demand_for_appliances
   start: 0.0
   min: 0.0
   max: 5.0
@@ -99,130 +99,130 @@
   step: 0.1
   unit: ! '%'
   group: cooling_buildings
-- key: buildings_cooling_cooling_network_share
+- key: buildings_cooling_collective_cooling_network_electricity_share
   start: 0.0
   min: 0.0
   max: 0.0
   step: 0.1
   unit: ! '%'
   group: cooling_buildings
-- key: buildings_cooling_gas_fired_heat_pump_share
+- key: buildings_cooling_heatpump_air_water_network_gas_share
   start: 0.6394133572918649
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: cooling_buildings
-- key: buildings_cooling_heat_pump_with_ts_share
+- key: buildings_cooling_collective_heatpump_water_water_ts_electricity_share
   start: 4.4331130182616505
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: cooling_buildings
-- key: buildings_cooling_per_student_employee
+- key: buildings_useful_demand_cooling
   start: 0.0
   min: -5.0
   max: 5.0
   step: 0.1
   unit: ! '%'
-- key: buildings_electricity_per_student_employee
+- key: buildings_useful_demand_cooling_electricity
   start: 0.0
   min: -5.0
   max: 5.0
   step: 0.1
   unit: ! '%'
-- key: buildings_heat_per_employee_student
+- key: buildings_useful_demand_for_space_heating
   start: 0.0
   min: -5.0
   max: 5.0
   step: 0.1
   unit: ! '%'
-- key: buildings_heating_biomass_chp_share
+- key: buildings_collective_chp_wood_pellets_share
   start: 0.0
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: district_heating_buildings
-- key: buildings_heating_biomass_fired_heater_share
+- key: buildings_space_heater_wood_pellets_share
   start: 0.0
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: heating_buildings
-- key: buildings_heating_coal_fired_heater_share
+- key: buildings_space_heater_coal_share
   start: 0.0
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: heating_buildings
-- key: buildings_heating_district_heating_network_share
+- key: buildings_space_heater_district_heating_steam_hot_water_share
   start: 5.9315058226859
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: heating_buildings
-- key: buildings_heating_electric_heater_share
+- key: buildings_space_heater_electricity_share
   start: 1.86305015101812
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: heating_buildings
-- key: buildings_heating_gas_fired_heat_pump_share
+- key: buildings_space_heater_heatpump_air_water_network_gas_share
   start: 1.50262211968964
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: heating_buildings
-- key: buildings_heating_gas_fired_heater_share
+- key: buildings_space_heater_network_gas_share
   start: 82.66801119630959
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: heating_buildings
-- key: buildings_heating_geothermal_share
+- key: buildings_collective_geothermal_share
   start: 0.0
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: district_heating_buildings
-- key: buildings_heating_heat_network_share
+- key: buildings_heat_network_connection_steam_hot_water_share
   start: 16.606060606060595
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: district_heating_buildings
-- key: buildings_heating_heat_pump_with_ts_share
+- key: buildings_space_heater_collective_heatpump_water_water_ts_electricity_share
   start: 4.58596960250615
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: heating_buildings
-- key: buildings_heating_oil_fired_heater_share
+- key: buildings_space_heater_crude_oil_share
   start: 3.36118663285535
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: heating_buildings
-- key: buildings_heating_small_gas_chp_share
+- key: buildings_collective_chp_network_gas_share
   start: 83.3939393939394
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: district_heating_buildings
-- key: buildings_heating_solar_thermal_panels_share
+- key: buildings_space_heater_solar_thermal_share
   start: 0.08765447493524721
   min: 0.0
   max: 13.0
@@ -234,46 +234,46 @@
   min: 1.0
   max: 4.0
   step: 0.1
-- key: buildings_lighting_daylight_dependent_control
+- key: buildings_lighting_savings_from_daylight_control_light
   start: 20.498180625
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
-- key: buildings_lighting_fluorescent_tube_conventional_share
+- key: buildings_lighting_standard_fluorescent_electricity_share
   start: 75.0
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: lighting_buildings
-- key: buildings_lighting_fluorescent_tube_high_performance_share
+- key: buildings_lighting_efficient_fluorescent_electricity_share
   start: 24.000000000000004
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: lighting_buildings
-- key: buildings_lighting_led_tube_share
+- key: buildings_lighting_led_electricity_share
   start: 1.0
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: lighting_buildings
-- key: buildings_lighting_motion_detection
+- key: buildings_lighting_savings_from_motion_detection_light
   start: 26.489399999999996
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
-- key: buildings_market_penetration_solar_panels
+- key: buildings_solar_pv_solar_radiation_market_penetration
   start: 0.09552483756469318
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
-- key: buildings_number_of_buildings
+- key: number_of_buildings
   start: 0.0
   min: -5.0
   max: 5.0
@@ -497,26 +497,26 @@
   max: 100000000.0
   step: 0.1
   unit: MW
-- key: economic_multiplier
+- key: employment_economic_multiplier
   start: 1.0
   min: 1.0
   max: 3.0
   step: 0.1
-- key: electricity_bio_oil_share_in_gas_production
+- key: energy_mixer_for_gas_power_fuel_bio_oil_share
   start: 0.0
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: energy_sector_gas
-- key: electricity_natural_gas_share
+- key: energy_mixer_for_gas_power_fuel_natural_gas_share
   start: 89.0961538461538
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: energy_sector_gas
-- key: electricity_oil_share_in_gas_production
+- key: energy_mixer_for_gas_power_fuel_crude_oil_share
   start: 10.9038461538462
   min: 0.0
   max: 100.0
@@ -601,55 +601,55 @@
   max: 5.0
   step: 0.1
   unit: ! '%'
-- key: households_cooking_biomass_share
+- key: households_cooker_wood_pellets_share
   start: 0.0
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: cooking
-- key: households_cooking_electric_share
+- key: households_cooker_resistive_electricity_share
   start: 16.032670111623805
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: cooking
-- key: households_cooking_gas_share
+- key: households_cooker_network_gas_share
   start: 59.91832472094052
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: cooking
-- key: households_cooking_halogen_share
+- key: households_cooker_halogen_electricity_share
   start: 8.01633505581188
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: cooking
-- key: households_cooking_induction_share
+- key: households_cooker_induction_electricity_share
   start: 16.032670111623805
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: cooking
-- key: households_cooling_airconditioning_share
+- key: households_cooling_airconditioning_electricity_share
   start: 100.0
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: cooling_households
-- key: households_cooling_demand_per_person
+- key: households_useful_demand_for_cooling
   start: 0.0
   min: -5.0
   max: 5.0
   step: 0.1
   unit: ! '%'
-- key: households_cooling_heat_pump_ground_share
+- key: households_cooling_heatpump_ground_water_electricity_share
   start: 0.0
   min: 0.0
   max: 20.0
@@ -663,25 +663,25 @@
   step: 0.1
   unit: ! '%'
   group: cooling_households
-- key: households_efficiency_computer_media
+- key: households_appliances_computer_media_electricity_efficiency
   start: 0.0
   min: -20.0
   max: 80.0
   step: 0.1
   unit: ! '%'
-- key: households_efficiency_dish_washer
+- key: households_appliances_dishwasher_electricity_efficiency
   start: 0.0
   min: -52.0
   max: 79.0
   step: 0.1
   unit: ! '%'
-- key: households_efficiency_dryer
+- key: households_appliances_clothes_dryer_electricity_efficiency
   start: 0.0
   min: -4.0
   max: 77.0
   step: 0.1
   unit: ! '%'
-- key: households_efficiency_fridge_freezer
+- key: households_appliances_fridge_freezer_electricity_efficiency
   start: 0.0
   min: -57.0
   max: 96.0
@@ -693,215 +693,215 @@
   max: 100.0
   step: 0.1
   unit: ! '%'
-- key: households_efficiency_other
+- key: households_appliances_other_electricity_efficiency
   start: 0.0
   min: -20.0
   max: 80.0
   step: 0.1
   unit: ! '%'
-- key: households_efficiency_television
+- key: households_appliances_television_electricity_efficiency
   start: 0.0
   min: -20.0
   max: 80.0
   step: 0.1
   unit: ! '%'
-- key: households_efficiency_vacuum_cleaner
+- key: households_appliances_vacuum_cleaner_electricity_efficiency
   start: 0.0
   min: -20.0
   max: 80.0
   step: 0.1
   unit: ! '%'
-- key: households_efficiency_washing_machine
+- key: households_appliances_washing_machine_electricity_efficiency
   start: 0.0
   min: -67.0
   max: 86.0
   step: 0.1
   unit: ! '%'
-- key: households_electricity_demand_per_person
+- key: households_useful_demand_electricity_per_person
   start: 0.0
   min: -5.0
   max: 5.0
   step: 0.1
   unit: ! '%'
-- key: households_heat_demand_per_person
+- key: households_useful_demand_heat_per_person
   start: 0.0
   min: -5.0
   max: 5.0
   step: 0.1
   unit: ! '%'
-- key: households_heating_biomass_chp_share
+- key: households_collective_chp_wood_pellets_share
   start: 0.0
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: district_heating_households
-- key: households_heating_coal_fired_heater_share
+- key: households_space_heater_coal_share
   start: 0.06182960727123701
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: heating_households
-- key: households_heating_district_heating_network_share
+- key: households_space_heater_district_heating_steam_hot_water_share
   start: 3.0538449504402303
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: heating_households
-- key: households_heating_electric_heater_share
+- key: households_space_heater_electricity_share
   start: 1.7665909822899801
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: heating_households
-- key: households_heating_gas_combi_heater_share
+- key: households_space_heater_combined_network_gas_share
   start: 80.85967135001293
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: heating_households
-- key: households_heating_gas_fired_heater_share
+- key: households_space_heater_network_gas_share
   start: 10.3666245320529
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: heating_households
-- key: households_heating_geothermal_share
+- key: households_collective_geothermal_share
   start: 0.0
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: district_heating_households
-- key: households_heating_heat_network_share
+- key: households_heat_network_connection_steam_hot_water_share
   start: 100.0
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: district_heating_households
-- key: households_heating_heat_pump_add_on_share
+- key: households_space_heater_heatpump_add_on_electricity_share
   start: 0.062621532712059
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
-- key: households_heating_heat_pump_ground_share
+- key: households_space_heater_heatpump_ground_water_electricity_share
   start: 0.0751740843527652
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: heating_households
-- key: households_heating_micro_chp_share
+- key: households_space_heater_micro_chp_network_gas_share
   start: 0.0
   min: 0.0
   max: 70.0
   step: 0.1
   unit: ! '%'
   group: heating_households
-- key: households_heating_oil_fired_heater_share
+- key: households_space_heater_crude_oil_share
   start: 1.2481851967881
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: heating_households
-- key: households_heating_pellet_stove_share
+- key: households_space_heater_wood_pellets_share
   start: 2.56807929679186
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: heating_households
-- key: households_heating_small_gas_chp_share
+- key: households_collective_chp_network_gas_share
   start: 0.0
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: district_heating_households
-- key: households_heating_solar_thermal_panels_share
+- key: households_water_heater_solar_thermal_share
   start: 15.0
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
-- key: households_hot_water_biomass_heater_share
+- key: households_water_heater_wood_pellets_share
   start: 0.0
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: hot_water_households
-- key: households_hot_water_coal_fired_heater_hotwater_share
+- key: households_water_heater_coal_share
   start: 0.0
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: hot_water_households
-- key: households_hot_water_demand_per_person
+- key: households_useful_demand_hot_water_share
   start: 0.0
   min: -5.0
   max: 5.0
   step: 0.1
   unit: ! '%'
-- key: households_hot_water_electric_boiler_share
+- key: households_water_heater_resistive_electricity_share
   start: 8.107844174755801
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: hot_water_households
-- key: households_hot_water_fuel_cell_share
+- key: households_water_heater_fuel_cell_chp_network_gas_share
   start: 0.0
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: hot_water_households
-- key: households_hot_water_gas_fired_heater_share
+- key: households_water_heater_combined_network_gas_share
   start: 75.7878108533221
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: hot_water_households
-- key: households_hot_water_gas_water_heater_share
+- key: households_water_heater_network_gas_share
   start: 13.374319562351003
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: hot_water_households
-- key: households_hot_water_heat_network_share
+- key: households_water_heater_district_heating_steam_hot_water_share
   start: 2.7259674295036396
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: hot_water_households
-- key: households_hot_water_micro_chp_share
+- key: households_water_heater_micro_chp_network_gas_share
   start: 0.0
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: hot_water_households
-- key: households_hot_water_oil_fired_heater_share
+- key: households_water_heater_crude_oil_share
   start: 0.0
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: hot_water_households
-- key: households_hot_water_solar_water_heater_share
+- key: households_water_heater_solar_thermal_share
   start: 1.0045452107072
   min: 0.0
   max: 100.0
@@ -917,28 +917,28 @@
   min: 1.0
   max: 3.0
   step: 0.1
-- key: households_lighting_incandescent_share
+- key: households_lighting_incandescent_electricity_share
   start: 80.0
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: household_light
-- key: households_lighting_light_emitting_diode_share
+- key: households_lighting_led_electricity_share
   start: 0.0
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: household_light
-- key: households_lighting_low_energy_light_bulb_share
+- key: households_lighting_efficient_fluorescent_electricity_share
   start: 20.0
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: household_light
-- key: households_market_penetration_solar_panels
+- key: households_solar_pv_solar_radiation_market_penetration
   start: 0.1913365365034545
   min: 0.0
   max: 100.0
@@ -977,21 +977,21 @@
   step: 0.1
   unit: ! '%'
   group: hot_water_households
-- key: industry_aluminium_carbothermalreduction_share
+- key: industry_aluminium_carbothermalreduction_electricity_share
   start: 0.0
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: aluminium_production
-- key: industry_aluminium_electrolysis_bat_share
+- key: industry_aluminium_electrolysis_bat_electricity_share
   start: 0.0
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: aluminium_production
-- key: industry_aluminium_electrolysis_current_share
+- key: industry_aluminium_electrolysis_current_electricity_share
   start: 80.0
   min: 0.0
   max: 100.0
@@ -1004,7 +1004,7 @@
   max: 5.0
   step: 0.1
   unit: ! '%'
-- key: industry_aluminium_smeltoven_share
+- key: industry_aluminium_smeltoven_electricity_share
   start: 20.0
   min: 0.0
   max: 100.0
@@ -1017,72 +1017,72 @@
   max: 5.0
   step: 0.1
   unit: ! '%'
-- key: industry_efficiency_electricity
+- key: industry_useful_demand_electricity_efficiency
   start: 0.0
   min: 0.0
   max: 5.0
   step: 0.1
   unit: ! '%'
-- key: industry_electricity_demand
+- key: industry_useful_demand_electricity
   start: 0.0
   min: -5.0
   max: 10.0
   step: 0.1
   unit: ! '%'
-- key: industry_heat_demand
+- key: industry_useful_demand_useable_heat
   start: 0.0
   min: -5.0
   max: 5.0
   step: 0.1
   unit: ! '%'
-- key: industry_heat_from_fuels
+- key: industry_useful_demand_useable_heat_efficiencty
   start: 0.0
   min: 0.0
   max: 5.0
   step: 0.1
   unit: ! '%'
-- key: industry_heating_biomass_fired_heater_share
+- key: industry_burner_wood_pellets_share
   start: 0.529433611518307
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: ind_heat
-- key: industry_heating_coal_fired_heater_share
+- key: industry_burner_coal_share
   start: 0.434932096698377
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: ind_heat
-- key: industry_heating_combined_heat_power_share
+- key: industry_final_demand_steam_hot_water_share
   start: 30.154066232005
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: ind_heat
-- key: industry_heating_gas_fired_heater_share
+- key: industry_burner_network_gas_share
   start: 37.36105037029721
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: ind_heat
-- key: industry_heating_oil_fired_heater_share
+- key: industry_burner_crude_oil_share
   start: 31.520517689481096
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: ind_heat
-- key: industry_non_energetic_oil_demand
+- key: industry_useful_demand_crude_oil_non_energetic
   start: 0.0
   min: -5.0
   max: 5.0
   step: 0.1
   unit: ! '%'
-- key: industry_non_energetic_other_demand
+- key: industry_useful_demand_network_gas_non_energetic
   start: 0.0
   min: -5.0
   max: 5.0
@@ -1093,7 +1093,7 @@
   min: 0.0
   max: 222.7088403538023
   step: 0.1
-- key: industry_number_of_gas_chp
+- key: number_of_industry_chp_combined_cycle_gas_power_fuelmix
   start: 122.08775510204084
   min: 0.0
   max: 274.57192281570985
@@ -1104,7 +1104,7 @@
   max: 2.0
   step: 0.1
   unit: ! '%'
-- key: industry_other_metals_process_heat_efficiency
+- key: industry_other_metals_process_heat_useable_heat_efficiency
   start: 0.0
   min: 0.0
   max: 2.0
@@ -1116,34 +1116,34 @@
   max: 5.0
   step: 0.1
   unit: ! '%'
-- key: industry_steel_biofeedstock_for_hisarna_share
+- key: energy_steel_hisarna_transformation_coal_woodpellets_share
   start: 0.0
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
-- key: industry_steel_blastfurnace_bat_share
+- key: industry_steel_blastfurnace_bat_consumption_useable_heat_share
   start: 0.0
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: steel_production
-- key: industry_steel_blastfurnace_current_share
+- key: industry_steel_blastfurnace_current_consumption_useable_heat_share
   start: 98.1
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: steel_production
-- key: industry_steel_electricfurnace_share
+- key: industry_steel_electricfurnace_electricity_share
   start: 1.9
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: steel_production
-- key: industry_steel_hisarna_share
+- key: industry_steel_hisarna_consumption_useable_heat_share
   start: 0.0
   min: 0.0
   max: 100.0
@@ -1172,7 +1172,7 @@
   max: 300.0
   step: 1.0
   unit: ! '%'
-- key: investment_costs_combustion_biomass_plant
+- key: agriculture_chp_supercritical_wood_pellets
   start: 0.0
   min: -100.0
   max: 300.0
@@ -1269,32 +1269,32 @@
   step: 0.1
   unit: ! '%'
   group: fuels_gas
-- key: number_of_backup_burner_fixed
+- key: number_of_energy_heat_network_backup_heater_network_gas
   start: 11.688890584101394
   min: 0.0
   max: 1000.0
   step: 0.1
-- key: number_of_biomass_chp_fixed
+- key: number_of_buildings_collective_chp_wood_pellets_fixed
   start: 10.547250000000005
   min: 0.0
   max: 100000000.0
   step: 1.0
-- key: number_of_biomass_fired_heater_district
+- key: number_of_energy_heater_for_heat_network_wood_pellets
   start: 0.0
   min: 0.0
   max: 603.3739281977582
   step: 0.1
-- key: number_of_biomass_fired_heater_fixed
+- key: number_of_households_space_heater_wood_pellets_fixed
   start: 188779.8797879809
   min: 0.0
   max: 100000000.0
   step: 1.0
-- key: number_of_central_coal_chp
+- key: number_of_energy_chp_ultra_supercritical_coal
   start: 2.365705625634861
   min: 0.0
   max: 52.98532992871274
   step: 0.1
-- key: number_of_central_coal_chp_fixed
+- key: number_of_energy_chp_ultra_supercritical_coal_fixed
   start: 2.365705625634861
   min: 0.0
   max: 100000000.0
@@ -1304,42 +1304,42 @@
   min: 0.0
   max: 23.89356266684798
   step: 0.1
-- key: number_of_coal_conventional
+- key: number_of_energy_power_supercritical_coal
   start: 0.0
   min: 0.0
   max: 68.7385215794307
   step: 0.1
-- key: number_of_coal_fired_heater_district
+- key: number_of_energy_heater_for_heat_network_coal
   start: 0.0
   min: 0.0
   max: 100.0
   step: 0.1
-- key: number_of_coal_fired_heaterv
+- key: number_of_other_burner_coal
   start: 4554.9702436293965
   min: 0.0
   max: 100000000.0
   step: 1.0
-- key: number_of_coal_igcc_ccs
+- key: number_of_energy_power_combined_cycle_ccs_coal
   start: 0.0
   min: 0.0
   max: 62.13733130506372
   step: 0.1
-- key: number_of_coal_iggc
+- key: number_of_energy_power_combined_cycle_coal
   start: 0.32270408163265396
   min: 0.0
   max: 59.9228959025471
   step: 0.1
-- key: number_of_coal_lignite
+- key: number_of_energy_power_ultra_supercritical_lignite
   start: 0.0
   min: 0.0
   max: 47.90810539783189
   step: 0.1
-- key: number_of_coal_oxyfuel_ccs
+- key: number_of_energy_power_ultra_supercritical_oxyfuel_ccs_lignite
   start: 0.0
   min: 0.0
   max: 62.675717674539165
   step: 0.1
-- key: number_of_concentrated_solar_power
+- key: number_of_energy_power_solar_csp_solar_radiation
   start: 0.0
   min: 0.0
   max: 4790.800000000001
@@ -1349,7 +1349,7 @@
   min: 0.0
   max: 100000000.0
   step: 0.1
-- key: number_of_diesel_generators
+- key: number_of_energy_power_engine_diesel
   start: 0.0
   min: 0.0
   max: 87.1962654924984
@@ -1359,17 +1359,17 @@
   min: 0.0
   max: 100000000.0
   step: 1.0
-- key: number_of_gas_ccgt
+- key: number_of_energy_power_combined_cycle_network_gas
   start: 5.104591836734693
   min: 0.0
   max: 55.328232062055605
   step: 0.1
-- key: number_of_gas_ccgt_ccs
+- key: number_of_energy_power_combined_cycle_ccs_network_gas
   start: 0.0
   min: 0.0
   max: 76.35739761124161
   step: 0.1
-- key: number_of_gas_conventional
+- key: number_of_energy_power_ultra_supercritical_network_gas
   start: 4.828282828282834
   min: 0.0
   max: 217.89127141802382
@@ -1379,7 +1379,7 @@
   min: 0.0
   max: 100000000.0
   step: 1.0
-- key: number_of_gas_fired_heater_district
+- key: number_of_energy_heater_for_heat_network_network_gas
   start: 0.0
   min: 0.0
   max: 300.0
@@ -1389,12 +1389,12 @@
   min: 0.0
   max: 100000000.0
   step: 1.0
-- key: number_of_gas_turbines
+- key: number_of_energy_power_turbine_network_gas
   start: 1.4421768707483003
   min: 0.0
   max: 1799.2658730158726
   step: 1.0
-- key: number_of_geothermal_electric
+- key: number_of_energy_power_geothermal
   start: 0.0
   min: 0.0
   max: 2073.9393939393944
@@ -1404,47 +1404,47 @@
   min: 0.0
   max: 100000000.0
   step: 1.0
-- key: number_of_hydro_mountain
+- key: number_of_energy_power_hydro_mountain
   start: 0.0
   min: 0.0
   max: 60.76610857432776
   step: 0.1
-- key: number_of_hydro_river
+- key: number_of_energy_power_hydro_river
   start: 3.7000000000000015
   min: 0.0
   max: 4431.490000000005
   step: 0.1
-- key: number_of_large_gas_chp
+- key: number_of_energy_chp_combined_cycle_network_gas
   start: 5.749536178107604
   min: 0.0
   max: 81.01434682964097
   step: 0.1
-- key: number_of_large_gas_chp_fixed
+- key: number_of_energy_chp_combined_cycle_network_gas_fixed
   start: 5.749536178107604
   min: 0.0
   max: 100000000.0
   step: 1.0
-- key: number_of_lignite_chp
+- key: number_of_energy_chp_ultra_supercritical_lignite
   start: 0.0
   min: 0.0
   max: 92.81236035912721
   step: 0.1
-- key: number_of_lignite_chp_fixed
+- key: number_of_energy_chp_ultra_supercritical_lignite_fixed
   start: 0.0
   min: 0.0
   max: 92.81236035912721
   step: 0.1
-- key: number_of_micro_chp_fixed
+- key: number_of_households_space_heater_micro_chp_network_gas_fixed
   start: 0.0
   min: 0.0
   max: 7349500.0
   step: 0.1
-- key: number_of_nuclear_3rd_gen
+- key: number_of_energy_power_nuclear_gen3_uranium_oxide
   start: 0.3187499999999999
   min: 0.0
   max: 19.088343750000003
   step: 0.1
-- key: number_of_nuclear_conventional
+- key: number_of_energy_power_nuclear_gen2_uranium_oxide
   start: 0.0
   min: 0.0
   max: 19.088343750000003
@@ -1454,17 +1454,17 @@
   min: 0.0
   max: 100000000.0
   step: 1.0
-- key: number_of_oil_fired_plant
+- key: number_of_energy_power_ultra_supercritical_crude_oil
   start: 0.0
   min: 0.0
   max: 87.1962654924984
   step: 0.1
-- key: number_of_pulverized_coal
+- key: number_of_energy_power_ultra_supercritical_coal
   start: 3.3919016542999048
   min: 0.0
   max: 43.67098161845704
   step: 0.1
-- key: number_of_pulverized_coal_ccs
+- key: number_of_energy_power_ultra_supercritical_ccs_coal
   start: 0.0
   min: 0.0
   max: 64.1799348987281
@@ -1479,42 +1479,42 @@
   min: 0.0
   max: 100000000.0
   step: 1.0
-- key: number_of_solar_pv_plants
+- key: number_of_energy_power_solar_pv_solar_radiation
   start: 0.0
   min: 0.0
   max: 6871.485943775101
   step: 0.1
-- key: number_of_solar_pv_roofs_fixed
+- key: number_of_households_solar_pv_solar_radiation_fixed
   start: 53570.47236565309
   min: 0.0
   max: 27999999.999999996
   step: 1.0
-- key: number_of_solar_water_heater_fixed
+- key: number_of_households_water_heater_solar_thermal_fixed
   start: 218311.77944862167
   min: 0.0
   max: 100000000.0
   step: 1.0
-- key: number_of_waste_fired_heater_district
+- key: number_of_energy_heater_for_heat_network_waste_mix
   start: 0.0
   min: 0.0
   max: 5000.0
   step: 0.1
-- key: number_of_waste_incinerator
+- key: number_of_energy_power_supercritical_waste_mix
   start: 11.689786466567211
   min: 0.0
   max: 17.94981698847122
   step: 0.1
-- key: number_of_wind_offshore
+- key: number_of_energy_power_wind_turbine_offshore
   start: 64.76190476190487
   min: 0.0
   max: 32000.0
   step: 0.1
-- key: number_of_wind_onshore_coast
+- key: number_of_energy_power_wind_turbine_coastal
   start: 66.66666666666666
   min: 0.0
   max: 2255.0
   step: 0.1
-- key: number_of_wind_onshore_land
+- key: number_of_energy_power_wind_turbine_inland
   start: 359.99999999999886
   min: 0.0
   max: 56895.0
@@ -1591,24 +1591,24 @@
   max: 300.0
   step: 1.0
   unit: ! '%'
-- key: other_electricity_demand
+- key: other_useful_demand_electricity
   start: 0.0
   min: -5.0
   max: 5.0
   step: 0.1
   unit: ! '%'
-- key: other_heat_demand
+- key: other_useful_demand_useable_heat
   start: 0.0
   min: -5.0
   max: 5.0
   step: 0.1
   unit: ! '%'
-- key: other_number_of_small_gas_chp
+- key: number_of_other_chp_engine_network_gas
   start: 0.0
   min: 0.0
   max: 11633.002689775582
   step: 0.1
-- key: pj_of_heat_import
+- key: energy_import_steam_hot_water_preset_demands
   start: 0.0
   min: 0.0
   max: 6.0
@@ -1721,7 +1721,7 @@
   min: 0.0
   max: 1.0
   step: 1.0
-- key: share_biocoal_co_firing_coal
+- key: co_firing_biocoal_share
   start: 0.0
   min: 0.0
   max: 100.0
@@ -1734,14 +1734,14 @@
   max: 100.0
   step: 0.1
   unit: ! '%'
-- key: share_coal_co_firing_coal
+- key: co_firing_coal_share
   start: 87.882032939967
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: coal_plant_fuel
-- key: share_of_wood_pellets_co_firing_coal
+- key: co_firing_wood_pellets_share
   start: 12.117967060033
   min: 0.0
   max: 50.0
@@ -1754,234 +1754,234 @@
   max: 100.0
   step: 0.1
   unit: ! '%'
-- key: transport_bio_ethanol_share
+- key: transport_road_mixer_gasoline_ethanol_share
   start: 3.04942965779468
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: transport_gasoline
-- key: transport_biodiesel_share
+- key: transport_road_mixer_diesel_biodiesel_share
   start: 1.44266472515471
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: transport_diesel
-- key: transport_cars
+- key: transport_useful_demand_car_kms
   start: 0.0
   min: -5.0
   max: 5.0
   step: 0.1
   unit: ! '%'
-- key: transport_cars_compressed_gas_share
+- key: transport_car_using_compressed_natural_gas_share
   start: 0.13773517840581
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: transport_car_tech
-- key: transport_cars_diesel_share
+- key: transport_road_mixer_diesel_biodiesel_share
   start: 47.155035885862
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: transport_car_tech
-- key: transport_cars_electric_share
+- key: transport_car_using_electricity_share
   start: 0.0176964716833449
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: transport_car_tech
-- key: transport_cars_gasoline_share
+- key: transport_car_using_gasoline_mix_share
   start: 48.118728850581796
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: transport_car_tech
-- key: transport_cars_lpg_share
+- key: transport_car_using_lpg_share
   start: 4.570803613467
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: transport_car_tech
-- key: transport_diesel_share
+- key: transport_road_mixer_diesel_diesel_share
   start: 98.5573352748453
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: transport_diesel
-- key: transport_domestic_flights
+- key: transport_useful_demand_planes
   start: 0.0
   min: -5.0
   max: 5.0
   step: 0.1
   unit: ! '%'
-- key: transport_efficiency_airplanes
+- key: transport_useful_demand_planes_efficiency
   start: 0.0
   min: 0.0
   max: 3.0
   step: 0.1
   unit: ! '%'
-- key: transport_efficiency_combustion_engine_cars
+- key: transport_car_using_diesel_mix_efficiency
   start: 0.0
   min: 0.0
   max: 3.0
   step: 0.1
   unit: ! '%'
-- key: transport_efficiency_combustion_engine_trucks
+- key: transport_truck_using_compressed_natural_gas_efficiency
   start: 0.0
   min: 0.0
   max: 3.0
   step: 0.1
   unit: ! '%'
-- key: transport_efficiency_electric_vehicles
+- key: transport_car_using_electricity_efficiency
   start: 0.0
   min: 0.0
   max: 3.0
   step: 0.1
   unit: ! '%'
-- key: transport_efficiency_ships
+- key: transport_useful_demand_ships_efficiency
   start: 0.0
   min: 0.0
   max: 3.0
   step: 0.1
   unit: ! '%'
-- key: transport_efficiency_trains
+- key: transport_useful_demand_trains_efficiency
   start: 0.0
   min: 0.0
   max: 3.0
   step: 0.1
   unit: ! '%'
-- key: transport_gasoline_share
+- key: transport_road_mixer_gasoline_gasoline_share
   start: 96.9505703422053
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: transport_gasoline
-- key: transport_inland_navigation
+- key: transport_useful_demand_ships
   start: 0.0
   min: -5.0
   max: 10.0
   step: 0.1
   unit: ! '%'
-- key: transport_planes_bio_ethanol_share
+- key: transport_plane_using_bio_ethanol_share
   start: 0.0
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: transport_aviation
-- key: transport_planes_gasoline_share
+- key: transport_plane_using_gasoline_share
   start: 4.76190476190476
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: transport_aviation
-- key: transport_planes_kerosene_share
+- key: transport_plane_using_kerosene_share
   start: 95.2380952380952
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: transport_aviation
-- key: transport_rail_diesel_mix_biodiesel_share
+- key: transport_rail_mixer_diesel_biodiesel_share
   start: 0.0
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: transport_rail_diesel
-- key: transport_rail_diesel_mix_diesel_share
+- key: transport_rail_mixer_diesel_diesel_share
   start: 100.0
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: transport_rail_diesel
-- key: transport_ships_bio_diesel_share
+- key: transport_ship_using_biodiesel_share
   start: 0.0
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: transport_marine
-- key: transport_ships_diesel_share
+- key: transport_ship_using_diesel_share
   start: 100.0
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: transport_marine
-- key: transport_ships_heavy_fuel_oil_share
+- key: transport_ship_using_heavy_fuel_oil_share
   start: 0.0
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: transport_marine
-- key: transport_trains
+- key: transport_useful_demand_trains
   start: 0.0
   min: -5.0
   max: 5.0
   step: 0.1
   unit: ! '%'
-- key: transport_trains_coal_share
+- key: transport_useful_demand_trains_coal_share
   start: 0.0
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: transport_train_tech
-- key: transport_trains_diesel_share
+- key: transport_useful_demand_trains_diesel_share
   start: 7.13929106340489
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: transport_train_tech
-- key: transport_trains_electric_share
+- key: transport_useful_demand_trains_electric_share
   start: 92.8607089365951
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: transport_train_tech
-- key: transport_trucks
+- key: transport_useful_demand_truck_kms
   start: 0.0
   min: -5.0
   max: 5.0
   step: 0.1
   unit: ! '%'
-- key: transport_trucks_compressed_gas_share
+- key: transport_truck_using_compressed_natural_gas_share
   start: 0.0
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: transport_truck_tech
-- key: transport_trucks_diesel_share
+- key: transport_truck_using_diesel_mix_share
   start: 100.0
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: transport_truck_tech
-- key: transport_trucks_electric_share
+- key: transport_truck_using_electricity_share
   start: 0.0
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: transport_truck_tech
-- key: transport_trucks_gasoline_share
+- key: transport_truck_using_gasoline_mix_share
   start: 0.0
   min: 0.0
   max: 100.0

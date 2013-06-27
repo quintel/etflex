@@ -1,5 +1,5 @@
 type: one_to_one
-engine_key: households_hot_water_solar_water_heater_share
+engine_key: households_water_heater_solar_thermal_share
 display: slider
 min: 0.0
 max: 2.0

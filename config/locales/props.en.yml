@@ -14,42 +14,42 @@ en:
         warming and melting polar ice caps.
 
         Try to reduce this number to get a higher score, but you cannot get to
-        zero, because some emissions (for example from trucks, industry,
-        etcetera) cannot be influenced with sliders here. (If you want, 
-        try to further decrease this number in the free professional version 
-        of the ETM.)
+        zero, because some emissions (for example from trucks, industry, etc.)
+        cannot be influenced with sliders here. (If you want, try to further
+        decrease this number in the free professional version of the ETM).
 
     costs:
       name: "Costs"
       header: "You spend (Q:total_costs) on energy every year!"
       body: |-
-        This includes costs for building and installing the devices that use energy.
+        This includes costs for building and installing devices that use
+        energy.
 
     etflex_score:
       name: "Score"
       header: "You score (Q:score) points"
       body: |-
-        Your score goes up when you decrease costs, CO<sub>2</sub> emissions
+        Your score goes up when you decrease costs, CO<sub>2</sub> emissions,
         and nuclear waste, and when you increase renewabilty and reliability.
         Relying too much on one technology or option decreases your score.
-        Good balance between supply and demand increases it.
+        A good balance between supply and demand increases it.
 
     reliability:
       name: "Reliability"
       header:
         'on':  "You have a reliable energy supply!"
-        'off': "Oh no, your current settings will leave you in the dark now and then!"
+        'off': "Oh no! Your current settings will occasionally leave you in the dark."
       body: |-
         Renewable power is less predictable than power from (fossil) power
         plants, because sometimes there is no wind or sunshine. This means you
-        cannot be sure to have power, unless you manage to store it somewhere
-        or have a backup plan.
+        cannot be sure to have a reliable supply, unless you manage to store
+        it somewhere or have a backup plan.
 
     renewability:
       header: "(Q:renewability) of your energy is renewable"
       body: |-
         Do you want to produce more renewable energy? Then build more
-        wind and solar or add more green gas to your gas network.
+        wind and solar, or add more green gas to your gas network.
 
         If you want to increase the number above 20%, you will need to go to
         the free professional version of the ETM in order to adjust settings
@@ -92,38 +92,39 @@ en:
 
     co2_emissions_household:
       header: "Annual CO2 emissions"
-      body: "These average annual CO<sub>2</sub> emissions per household depend
-      on your assumptions for heating and electricity."
+      body: "The average annual CO<sub>2</sub> emissions per household depend
+        on your choices for heating and electricity. As you add more heating,
+        and the house consumes more electricty, emissions will increase."
 
     electricity_use:
       header: "Annual electricity use"
-      body: "The average household's annual electricity use depends on 
-      your assumptions on electric appliances, but also on how homes
-      will be heated in the future."
+      body: "The average household's electricity use depends on your
+        assumptions for how many electric appliances will be used, but also on
+        how homes will be heated in the future."
 
     energy_bill:
       header: "Monthly Energy bill"
       body: "The average household's energy bill is based on your choices
-      for energy use. We have assumed an electricity price of 22 
-      &euro;ct/kWh and a gas price of 60 &euro;ct/m<sup>3</sup>."
+        for energy use. We have assumed an electricity price of 22
+        &euro;ct/kWh and a gas price of 60 &euro;ct/m<sup>3</sup>."
 
     gas_use:
       header: "Annual gas use"
-      body: "The average household's annual gas use mostly depends on your 
-      assumptions for heating and insulation. There always remains some gas
-      use needed for cooking."
+      body: "The average household's annual gas use mostly depends on your
+        choices for heating and insulation. There always remains some gas use
+        needed for cooking."
 
     investment:
       header: "Total investment costs"
-      body: "This shows the total investment costs per household needed 
-      to realize the options you chose here."
+      body: "This shows the total investment costs per household needed
+        to realize your choices."
 
     sustainable_energy:
       header: "Renewable energy"
       body: "This shows the percentage of renewable energy use in households.
-      If households produce more renewable electricy than they need, this
-      can be higher than 100%. In that case you have a house that is net energy
-      neutral!"
+        If households produce more renewable electricy than they need, this
+        can be higher than 100%. In that case, you have a house that is net
+        energy neutral!"
 
     etflex_households_score:
       name: "Score HOUSEHOLDS"
@@ -141,9 +142,8 @@ en:
     house:
       header: "The energy use of a house"
       body: |-
-        The house you see on your screen right now is an average free-standing
-        Dutch house with 3 inhabitants. It has a HR-combi boiler and an average
+        The house you see on your screen is an average free-standing Dutch
+        house with 3 inhabitants. It has an HR-combi boiler and an average
         number of appliances. The rest is up to you! Can you turn this house
         into an energy self-sufficient house? You can choose from different
-        heating options, installing solar panels and reducing the demand.
-
+        heating options, installing solar panels, and reducing the demand.

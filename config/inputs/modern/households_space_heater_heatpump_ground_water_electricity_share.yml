@@ -1,5 +1,5 @@
 type: one_to_one
-engine_key: households_heating_heat_pump_ground_share
+engine_key: households_space_heater_heatpump_ground_water_electricity_share
 display: slider
 min: 0.0
 max: 100.0
