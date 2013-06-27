@@ -1,8 +1,8 @@
 type: one_to_one
-engine_key: households_lighting_light_emitting_diode_share
+engine_key: households_water_heater_solar_thermal_share
 display: slider
 min: 0.0
 max: 100.0
 step: 0.1
-start: 0.0
+start: 0.904652
 unit: percentage

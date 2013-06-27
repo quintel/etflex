@@ -49,7 +49,7 @@ task :production do
   set :rails_env, 'production'
   set :branch,    fetch(:branch, 'production')
 
-  set :deploy_to, "/u/apps/#{application_name}"
+  set :deploy_to, "/u/apps/#{application}"
 
   set :db_host,   'etm.cr6sxqj0itls.eu-west-1.rds.amazonaws.com'
   set :db_pass,   'acutZUVT56PoGI'
@@ -63,14 +63,14 @@ task :staging do
   set :rails_env, 'staging'
   set :branch,    fetch(:branch, 'staging')
 
-  set :deploy_to, "/u/apps/#{application_name}"
+  set :deploy_to, "/u/apps/#{application}"
 
   set :db_host,   'etm.cr6sxqj0itls.eu-west-1.rds.amazonaws.com'
   set :db_pass,   'V20KpwldSTFSDr'
   set :db_name,   'etflex_staging'
   set :db_user,   'etflex_staging'
 
-  server 'etflex.et-model.com', :web, :app, :db, primary: true
+  server 'beta.etflex.et-model.com', :web, :app, :db, primary: true
 end
 
 

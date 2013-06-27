@@ -14,21 +14,19 @@ describe ETFlex::ClientResponder do
     end
 
     def index
-      respond_with @inputs = [ Input.first ]
+      respond_with @inputs = [ Input.for_scene('house').first ]
     end
 
     def create
       if params[:fail]
         input = Input.new.tap { |i| i.valid? }
       else
-        Input.first
+        Input.for_scene('house').first
       end
 
       respond_with input, location: '/'
     end
   end
-
-  before(:each) { create :input }
 
   # --------------------------------------------------------------------------
 

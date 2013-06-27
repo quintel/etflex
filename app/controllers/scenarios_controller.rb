@@ -57,7 +57,7 @@ class ScenariosController < ApplicationController
   #
   def since
     return head :bad_request unless params[:days].match(/\A\d+\Z/)
-    
+
     @scene = Scene.find params[:scene_id]
 
     @scenarios = @scene.high_scores_since(params[:days].to_i.days.ago)

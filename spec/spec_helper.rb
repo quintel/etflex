@@ -4,6 +4,10 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'capybara/rails'
 
+# Make sure Capybara ignores hidden elements so that we can match against
+# script tags.
+Capybara.ignore_hidden_elements = false
+
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
@@ -15,6 +19,7 @@ RSpec.configure do |config|
   config.include Devise::TestHelpers,      type: :controller
   config.include ETFlex::Spec::SignIn,     type: :request
   config.include ETFlex::Spec::WaitForXHR, type: :request
+  config.include WaitSteps
   config.include Capybara::DSL
 
   # == Mock Framework
@@ -79,8 +84,9 @@ RSpec.configure do |config|
 
   # Capybara
   # --------
-
-  Capybara.javascript_driver = :webkit
+  require 'capybara/poltergeist'
+  Capybara.javascript_driver = :poltergeist
+  # Capybara.javascript_driver = :webkit
 
   Capybara.register_driver :rack_test_api do |app|
     Capybara::RackTest::Driver.new(app, headers: {
