@@ -177,6 +177,7 @@ class exports.HighScores extends Backbone.View
   scenarioNotification: (data) =>
     # Collection may not yet be loaded when no data is bootstrapped.
     return true unless @collection
+    return true unless data.scene_id is @getSceneId()
 
     if summary = @collection.get data.session_id
       summary.set data
