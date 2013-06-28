@@ -205,6 +205,7 @@ class Scenario < ActiveRecord::Base
     user_name = guest_name unless user_name.present?
 
     { session_id:          session_id,
+      scene_id:            scene_id,
       href:               "/scenes/#{ scene_id }/with/#{ session_id }",
       score:               score,
       query_results:       query_results,
