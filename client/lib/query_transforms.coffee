@@ -1,18 +1,36 @@
 # When a query does not define a formatting function, this is used instead.
-FORMAT_DEFAULT = (value) ->
-  I18n.toNumber value, precision: 1, strip_insignificant_zeros: true
+FORMAT_DEFAULT = (value, precision = 0) ->
+  withPrecision(I18n.toNumber, value,
+    precision: precision, strip_insignificant_zeros: true)
 
 # Formatter which displays a value in euros
 FORMAT_EUROS = (value) ->
-  I18n.toCurrency(value, unit: '€')
+  withPrecision(I18n.toCurrency, value, unit: '€')
 
 # Formatter which displays a percentage.
-FORMAT_PERCENT = (value) ->
-  I18n.toPercentage value, precision: 1, strip_insignificant_zeros: true
+FORMAT_PERCENT = (value, precision = 0) ->
+  withPrecision(I18n.toPercentage, value,
+    precision: precision, strip_insignificant_zeros: true)
 
 FORMAT_PERCENT_WITH_PRECISION = (precision) ->
-  (value) -> I18n.toCurrency(value, precision: precision, unit: '€')
+  (value) ->
+    withPrecision(I18n.toCurrency, value, precision: precision, unit: '€')
 
+# Calls a number formatter, testing that the precision - if present - is set
+# to a sensible value.
+#
+# If the "value" is zero, and "precision" is zero, then the I18n library
+# outputs a blank string. withPrecision will force the precision to 1 so that
+# a zero is returned.
+withPrecision = (func, value, options = {}) ->
+  if options?.hasOwnProperty('precision') and options.precision is 0
+    if value is 0
+      options.precision = 1
+    else
+      # Prevents a bug in I18n from truncating "100" to "1".
+      options.strip_insignificant_zeros = false
+
+  func.call(I18n, value, options)
 
 # Returns a function which divides a value by divisor.
 divide = (divisor) -> ((value) -> value / divisor)
@@ -21,7 +39,8 @@ divide = (divisor) -> ((value) -> value / divisor)
 multiply = (multiplier) -> ((value) -> value * multiplier)
 
 # Formats a value with the given unit.
-as = (unit) -> ((value) -> "#{FORMAT_DEFAULT value} #{unit}")
+as = (unit, precision = 0) ->
+  (value) -> "#{FORMAT_DEFAULT(value, precision)} #{unit}"
 
 # Retrieves the mutate/format definitions for a given query.
 exports.forQuery = (query) ->
@@ -59,7 +78,7 @@ TRANSFORMS =
   total_costs:
     mutate: divide 1000000000
     format: (value) ->
-      I18n.t 'magnitudes.billion', amount: FORMAT_EUROS(value)
+      I18n.t 'magnitudes.billion', amount: "€#{ Math.round(value) }"
 
   security_of_supply_reliability:
     mutate: (value) -> value * 100
@@ -71,13 +90,13 @@ TRANSFORMS =
     format: FORMAT_PERCENT
 
   etflex_households_co2_emissions_per_household:
-    format: as 'tonnes'
+    format: as 'tonnes', 1
 
   etflex_households_investment_per_household:
     format: FORMAT_PERCENT_WITH_PRECISION(0)
 
   etflex_households_monthly_energy_bill:
-    format: FORMAT_PERCENT_WITH_PRECISION(1)
+    format: FORMAT_PERCENT_WITH_PRECISION(0)
 
   etflex_households_final_demand_electricity_per_household:
     format: as "kWh"
