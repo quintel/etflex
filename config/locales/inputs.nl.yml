@@ -1,7 +1,7 @@
 ---
 nl:
   inputs:
-    amount_of_insulation: "Hoe goed isoleer je je huis?"
+    amount_of_insulation: "Niveau van isolatie"
     comfort_temperature_in_the_house: "Gemiddelde temperatuur in huis"
     daily_length_of_shower_per_person: "Gemiddelde duur dagelijkse douche"
     green_gas_total_share: "Groen gas"
@@ -27,7 +27,7 @@ nl:
     households_solar_pv_solar_radiation_market_penetration: "Zonnepanelen"
     new: "Nieuwe input"
     number_of_appliances_in_the_house: "Verandering aantal apparaten"
-    number_of_cold_showers_per_week: "Hoe vaak per week douche je koud?"
+    number_of_cold_showers_per_week: "Aantal keer koude douche per week"
     number_of_energy_power_combined_cycle_network_gas: "Aardgascentrales"
     number_of_households_heating_solar_thermal_collectors: "Aantal zonnecollectoren (warmte)"    
     number_of_energy_power_nuclear_gen3_uranium_oxide: "Kerncentrales"
