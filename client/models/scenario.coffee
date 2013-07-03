@@ -112,7 +112,10 @@ class exports.Scenario extends Backbone.Model
 
     if queries?.length
       for query in queries.models
-        queryResults[ query.id ] = query.get('future')
+        queryResults[ query.id ] = {
+          present: query.get('present')
+          future:  query.get('future')
+        }
 
       @set { queryResults }
 #

@@ -56,7 +56,12 @@ exports.hurdleState = (view, value) ->
 # Query values are inserted using the pattern (Q:query_key) with the number
 # being nicely formatted by humanize::number.
 #
+# After the query key, you may add a space followed by a period (present or
+# future) to specify whether to show the value from the present graph, or the
+# future graph. Omitting this will default to the future graph.
+#
 exports.insertQueryData = (raw, queries) ->
   unless raw.match (/\(Q:/) then raw else
-    raw.replace /\(Q:([^}]+)\)/, (ignore, key) =>
-      queries.get(key)?.formatted('future')
+    raw.replace /\(Q:([^)]+)\)/g, (ignore, data) =>
+      split = data.split(' ')
+      queries.get(split[0])?.formatted(split[1] or 'future')
