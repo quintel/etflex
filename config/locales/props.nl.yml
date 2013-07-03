@@ -89,14 +89,27 @@ nl:
 
     co2_emissions_household:
       header: "Jaarlijkse CO2 uitstoot"
-      body: "De jaarlijkse CO<sub>2</sub>-uitstoot van de woning hangt
-      af van je keuzes voor verwarming en elektriciteit."
+      body: |-
+        De jaarlijkse CO<sub>2</sub>-uitstoot van de woning hangt
+        af van je keuzes voor verwarming en elektriciteit.
+        
+        Een gemiddeld huis in Nederland stoot ongeveer 2.2 ton CO<sub>2</sub>
+        per jaar uit (bron: CBS). Het vrijstaande huis op deze pagina stoot
+        in het begin (Q:etflex_households_co2_emissions_per_household present)
+        per jaar uit.
 
     electricity_use:
       header: "Jaarlijks elektriciteitsgebruik"
-      body: "Het gemiddelde jaarlijkse elektriciteitsgebruik in huishoudens
-      hangt af van je keuzes voor elektrische apparaten, maar ook van 
-      hoe woningen in de toekomst verwarmd worden."
+      body: |-
+        Het gemiddelde jaarlijkse elektriciteitsgebruik in huishoudens
+        hangt af van je keuzes voor elektrische apparaten, maar ook van 
+        hoe woningen in de toekomst verwarmd worden.
+        
+        Een gemiddeld huishouden gebruikt zo'n 3500 kWh aan stroom per jaar
+        (bron: Nibud). Het vrijstaande huishouden met 3 personen in dit spel
+        gebruikt in het begin
+        (Q:etflex_households_final_demand_electricity_per_household present)
+        kWh.
 
     energy_bill:
       header: "Maandelijkse energierekening"
@@ -107,9 +120,16 @@ nl:
 
     gas_use:
       header: "Jaarlijks gasgebruik"
-      body: "Het gemiddelde jaarlijkse gasgebruik per huishouden hangt vooral 
-      af van jouw aannames over verwarming en isolatie. Er blijft altijd een
-      beetje gasgebruik over om te koken."
+      body: |-
+        Het gemiddelde jaarlijkse gasgebruik per huishouden hangt vooral 
+        af van jouw aannames over verwarming en isolatie. Er blijft altijd een
+        beetje gasgebruik over om te koken.
+        
+        Een gemiddeld huishouden gebruikt per jaar tussen de 1500-1600
+        m<sup>3</sup> aardgas (bron: Nibud). Dit vrijstaande huis gebruikt in
+        het begin
+        (Q:etflex_households_final_demand_network_gas_per_household present)
+        m<sup>3</sup> per jaar.
 
     investment:
       header: "Totale investeringen"
