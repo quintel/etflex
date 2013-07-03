@@ -108,8 +108,7 @@ nl:
         Een gemiddeld huishouden gebruikt zo'n 3500 kWh aan stroom per jaar
         (bron: Nibud). Het vrijstaande huishouden met 3 personen in dit spel
         gebruikt in het begin
-        (Q:etflex_households_final_demand_electricity_per_household present)
-        kWh.
+        (Q:etflex_households_final_demand_electricity_per_household present).
 
     energy_bill:
       header: "Maandelijkse energierekening"
@@ -129,7 +128,7 @@ nl:
         m<sup>3</sup> aardgas (bron: Nibud). Dit vrijstaande huis gebruikt in
         het begin
         (Q:etflex_households_final_demand_network_gas_per_household present)
-        m<sup>3</sup> per jaar.
+        per jaar.
 
     investment:
       header: "Totale investeringen"
