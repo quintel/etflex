@@ -112,8 +112,7 @@ en:
         An average household uses around 3500 kWh of electricity per year
         (source: Nibud). This freestanding house with 3 inhabitants starts
         with a yearly electricity use of
-        (Q:etflex_households_final_demand_electricity_per_household present)
-        kWh.
+        (Q:etflex_households_final_demand_electricity_per_household present).
 
     energy_bill:
       header: "Monthly Energy bill"
@@ -131,8 +130,7 @@ en:
         An average household uses between 1500-1600 m<sup>3</sup> natural gas
         per year (source: Nibud). This freestanding house starts with a yearly
         gas use of
-        (Q:etflex_households_final_demand_network_gas_per_household present)
-        m<sup>3</sup>.
+        (Q:etflex_households_final_demand_network_gas_per_household present).
 
     investment:
       header: "Total investment costs"
