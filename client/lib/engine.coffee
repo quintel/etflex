@@ -102,6 +102,6 @@ localRestore = (scenario, queries, inputs, callback) ->
   # TODO
   inputs.setValue key, value for key, value in localInputs
   # input.set(value: localInputs[input.def.id.toString()]) for input in inputs
-  query.set(future: localQueries[query.id]) for query in queries
+  query.set(localQueries[query.id]) for query in queries
 
   callback null, scenario.get('sessionId')

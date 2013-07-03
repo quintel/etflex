@@ -188,11 +188,25 @@ class Scenario < ActiveRecord::Base
   # results - A hash of query keys and the value returned by ETEngine.
   #
   def query_results=(results)
-    write_attribute(:query_results, results.present? ? results.to_hash : {})
-    self.score               = query_results[self.scene.score_gquery]
-    self.total_co2_emissions = query_results['total_co2_emissions']
-    self.total_costs         = query_results['total_costs']
-    self.renewability        = query_results['renewability']
+    hash_results = if results.present?
+      # Cast the results of each query to a hash, instead of an indifferent
+      # access hash.
+      results.each_with_object(Hash.new) do |(key, data), hash|
+        hash[key] = data.to_hash
+      end
+    else
+      {}
+    end
+
+    write_attribute(:query_results, hash_results)
+
+    self.score = query_results[self.scene.score_gquery]['future']
+
+    %w( total_co2_emissions total_costs renewability ).each do |key|
+      if query_results.key?(key)
+        write_attribute(key, query_results[key]['future'])
+      end
+    end
   end
 
   # Returns a copy of the scenario as a hash containing data which it sent to
