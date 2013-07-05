@@ -22,15 +22,15 @@ class ScenariosController < ApplicationController
     end
   end
 
+  # Converts the JS-style keys (e.g. inputValues) into Ruby-style keys
+  # (e.g. input_values).
   def scenario_attrs
     attrs = params[:scenario] || Hash.new
+    keys  = %w( title inputValues queryResults endYear country guestName )
 
-    { title:         attrs[:title],
-      input_values:  attrs[:inputValues],
-      query_results: attrs[:queryResults],
-      end_year:      attrs[:endYear],
-      country:       attrs[:country],
-      guest_name:    attrs[:guestName] }
+    keys.each_with_object(Hash.new) do |key, data|
+      data[key.underscore] = attrs[key] if attrs.key?(key)
+    end
   end
 
   # Sends notification to Pusher that a user did something.

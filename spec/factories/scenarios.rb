@@ -8,17 +8,18 @@ FactoryGirl.define do
    association  :user
 
    session_id  { FactoryGirl.generate(:session_id) }
+   end_year 2030
 
-    query_results etflex_score: 500
-
+   query_results({ 'etflex_score' => { 'present' => 0, 'future' => 500 } })
   end
 
   factory :guest_scenario, class: Scenario do
     association  :scene
 
     session_id  { FactoryGirl.generate(:session_id) }
-    query_results etflex_score: 500
+    query_results({ 'etflex_score' => { 'present' => 0, 'future' => 500 } })
     guest_uid    'abc'
     guest_name   'def'
+    end_year     2030
   end
 end

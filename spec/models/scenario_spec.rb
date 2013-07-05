@@ -320,6 +320,7 @@ describe Scenario do
 
   describe '#query_results=' do
     let(:scenario) { build :scenario }
+
     it 'should set an empty hash when given nil' do
       scenario.query_results = nil
       scenario.query_results.should eql(Hash.new)
@@ -339,12 +340,17 @@ describe Scenario do
     end
 
     it 'should set a hash' do
-      scenario.query_results = { '1' => '2' }
-      scenario.query_results.should eql('1' => '2')
+      scenario.query_results = {
+        '1' => { 'present' => '1', 'future' => '2' }}
+
+      scenario.query_results.should eql('1' => {
+        'present' => '1', 'future' => '2' })
     end
 
     it 'should also set a score when present' do
-      scenario.query_results = { 'etflex_score' => 1337 }
+      scenario.query_results = {
+        'etflex_score' => { 'present' => 42, 'future' => 1337 } }
+
       scenario.score.should eql(1337.0)
     end
 

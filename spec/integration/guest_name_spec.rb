@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 feature 'Requesting the visitors name', js: true do
-  let!(:scene) { create :scene, name: 'Balancing Supply and Demand' }
+  let!(:scene) { create :detailed_scene, name: 'Balancing Supply and Demand' }
 
   # --------------------------------------------------------------------------
 

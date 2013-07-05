@@ -200,7 +200,11 @@ class Scenario < ActiveRecord::Base
 
     write_attribute(:query_results, hash_results)
 
-    self.score = query_results[self.scene.score_gquery]['future']
+    if query_results.key?(self.scene.score_gquery)
+      self.score = query_results[self.scene.score_gquery]['future']
+    else
+      self.score = nil
+    end
 
     %w( total_co2_emissions total_costs renewability ).each do |key|
       if query_results.key?(key)
