@@ -10,7 +10,8 @@ describe ScenariosController do
       sign_in create(:user)
       put :update, scene_id: scene.id, id: 42, format: :json, scenario: {
         country: 'nl', endYear: '2030',
-        inputValues: { '1' => '2' }, queryResults: { '3' => '4' } }
+        inputValues: { '1' => '2' },
+        queryResults: { '3' => { 'present' => '4', 'future' => '5' } } }
     end
 
     it 'should respond with 204 No Content' do
@@ -30,16 +31,17 @@ describe ScenariosController do
     end
 
     it 'should set the query results' do
-      Scenario.first.query_results.should eql('3' => '4')
+      Scenario.first.query_results.should eql(
+        '3' => { 'present' => '4', 'future' => '5' })
     end
   end
 
   # --------------------------------------------------------------------------
 
   describe 'Updating an existing scenario' do
-    let(:owner)    { create :user }
-    let(:scene)    { create :scene }
-    let(:scenario) { create :scenario, scene: scene, user: owner }
+    let!(:owner)    { create :user }
+    let!(:scene)    { create :scene }
+    let!(:scenario) { create :scenario, scene: scene, user: owner }
 
     context 'when the user owns the scenario' do
       before(:each) do

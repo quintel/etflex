@@ -3,7 +3,7 @@ require 'spec_helper'
 feature 'Viewing the root page' do
 
   background do
-    @scene = create :scene
+    @scene = create :detailed_scene
   end
 
   def root_link_matcher(link)

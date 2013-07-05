@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 feature 'Viewing scenarios', js: true do
-  let(:scene) { create :scene, name: 'Balancing Supply and Demand' }
+  let(:scene) { create :detailed_scene, name: 'Balancing Supply and Demand' }
   let(:owner) { create :user }
 
   def create_scenario(scene_id, user = nil)
@@ -227,7 +227,8 @@ describe 'Scenarios' do
     let(:scenario) { create(:scenario, scene: scene,
                        guest_name: 'A Person',
                        input_values:  { '1' => '2' },
-                       query_results: { '3' => '4' }) }
+                       query_results: { '3' => { 'present' => '5',
+                                                 'future'  => '4' }}) }
 
     let(:json)     { JSON.parse page.source }
 

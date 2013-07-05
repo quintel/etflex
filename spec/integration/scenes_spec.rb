@@ -6,7 +6,7 @@ describe 'Scenes' do
 
   specify 'Viewing the ETlite scene', js: true do
 
-    scene = create :scene, name: 'Balancing Supply and Demand'
+    scene = create :detailed_scene, name: 'Balancing Supply and Demand'
 
     # Finally...!
 
