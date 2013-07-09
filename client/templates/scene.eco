@@ -1,17 +1,17 @@
 <div id="core">
   <div id="controls">
-    <div id="left-inputs" data-input-location="left">
+    <div id="left-inputs" data-input-location="left" data-intro='<%= I18n.t 'intro.step1' %>' data-step='1' data-position='right'>
     </div>
 
     <div data-prop-location="center" id="center-props"></div>
 
-    <div id="right-inputs" data-input-location="right">
+    <div id="right-inputs" data-input-location="right" data-intro='Hello step two!' data-step='2' data-position='left'>
     </div>
   </div>
 
-  <div data-prop-location="bottom" class="dashboard" id="main-props"></div>
+  <div data-prop-location="bottom" class="dashboard" id="main-props" data-intro='And watch your outcomes here' data-step='3' data-position='top'></div>
 
-  <div id="scores">
+  <div id="scores" data-intro='If you get the high score, you end up in the hall of fame right here' data-step='4' data-position='top'>
     <h2><%= I18n.t 'words.high_scores' %></h2>
     <div class="loading"><%= I18n.t 'words.loading' %></div>
   </div>
