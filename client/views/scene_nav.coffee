@@ -37,6 +37,9 @@ renderInfo = ({ model }) ->
     privacy:  I18n.t('navigation.privacy')
     etmodel:  I18n.t('navigation.etmodel')
 
+renderHelp = (nav) ->
+  introJs().start()
+
 # Renders the contents of the settings menu.
 renderSettings = (nav) ->
   element = $ settingsTemplate
@@ -145,6 +148,7 @@ class exports.SceneNav extends Backbone.View
     if @activeItem?            then @itemEl(@activeItem).removeClass('active')
 
     content = switch itemName
+      when 'help'     then renderHelp     this
       when 'info'     then renderInfo     this
       when 'settings' then renderSettings this
       when 'user'     then renderUser     this
