@@ -23,3 +23,10 @@ guard 'rspec', :version => 2 do
   # Capybara request specs
   watch(%r{^app/views/(.+)/.*\.(erb|haml)$})          { |m| "spec/requests/#{m[1]}_spec.rb" }
 end
+
+# Add files and commands to this file, like the example:
+#   watch(%r{file/path}) { `command(s)` }
+#
+guard 'shell' do
+  watch(%r{^config/locales/(.*).yml}) { `echo 'exporting...';bundle exec rake i18n:js:export` }
+end
