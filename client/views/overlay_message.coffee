@@ -5,8 +5,9 @@ class exports.OverlayMessageView extends Backbone.View
   className: 'overlay-background'
 
   events:
-    'click .hide': 'hide'
-    'click': 'clickOutsideHide'
+    'click .hide':              'hide'
+    'click':                    'clickOutsideHide'
+    'click a[data-action-key]': 'handleAction'
 
   # Creates the HTML elements for the modal overlay.
   #
@@ -105,3 +106,45 @@ class exports.OverlayMessageView extends Backbone.View
     @hide() unless \
       $target.hasClass('overlay-message') or
       $target.parents('.overlay-message').length
+
+  # Activates an action to a JS-call and hides the overlay-message.
+  handleAction: (event) ->
+    @hide()
+
+    intro = introJs()
+
+    intro.setOptions({
+      jQuerySelector: true,
+      steps: [
+        {
+          element: '#left-inputs'
+          intro: I18n.t 'intro.left-controls'
+          position: 'right'
+        },
+        {
+          element: '.world .house'
+          intro: I18n.t 'intro.house'
+          position: 'right'
+        },
+        {
+          element: '#right-inputs'
+          intro: I18n.t 'intro.right-controls'
+          position: 'left'
+        },
+        {
+          element: '.dashboard'
+          intro: I18n.t 'intro.dashboard'
+          position: 'top'
+        },
+        {
+          element: '#scores'
+          intro: I18n.t 'intro.highscores'
+          position: 'top'
+        },
+      ]
+    })
+
+    intro.start()
+
+    event.preventDefault()
+    event.stopPropagation()
