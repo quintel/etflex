@@ -13,6 +13,7 @@ badgeTempl           = require 'templates/badge'
 
 { getProp }          = require 'views/props'
 { clientNavigate }   = require 'lib/client_navigate'
+{ showMessage }      = require 'lib/messages'
 { createUser }       = require 'models/user'
 
 # Scene ----------------------------------------------------------------------
@@ -65,9 +66,8 @@ class exports.SceneView extends Backbone.View
 
   postRender: ->
     @renderInputs()
-    # The RTL badge should be visible only on the balance scene
     @renderBadge() if app.isBeta()
-
+    @showIntro()
     @doNameRequest()
 
   # When a user tries to alter inputs on a scenario which isn't theirs, a "not
@@ -292,6 +292,9 @@ class exports.SceneView extends Backbone.View
     localStorage?.setItem 'seen-prelaunch', app.user.id
 
     @requestScenarioGuestName true, 'prelaunch'
+
+  showIntro: ->
+    showMessage I18n.t('first_intro.header'), I18n.t('first_intro.body')
 
   renderBadge: ->
     $('#master-content').append badgeTempl()

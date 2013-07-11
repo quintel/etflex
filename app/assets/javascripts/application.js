@@ -23,7 +23,7 @@
  *= require i18n
  *= require i18n/translations
  *= require ./stitch_preamble
- *= require introjs
+ *= require intro
  *= require parser
  *= require_tree ../../../client
  */

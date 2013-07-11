@@ -7,6 +7,8 @@ settingsTemplate = require 'templates/scene_nav/settings'
 userTemplate     = require 'templates/scene_nav/user'
 accountTemplate  = require 'templates/scene_nav/account'
 
+{ showMessage }  = require 'lib/messages'
+
 # ----------------------------------------------------------------------------
 
 # Returns the path to the current ETEngine scenario on ETModel.
@@ -38,7 +40,8 @@ renderInfo = ({ model }) ->
     etmodel:  I18n.t('navigation.etmodel')
 
 renderHelp = (nav) ->
-  introJs().start()
+  showMessage I18n.t('first_intro.header'), I18n.t('first_intro.body')
+  # introJs().start()
 
 # Renders the contents of the settings menu.
 renderSettings = (nav) ->
@@ -104,10 +107,10 @@ class exports.SceneNav extends Backbone.View
   id: 'main-nav'
 
   events:
-    'click ul.scene-nav a':       'handleClick'
-    'click .main-nav-pulldown a': 'deactivate'
-    'clickoutside':               'deactivate'
-    'click ul a[data-modal-key]': 'showModalMessage'
+    'click ul.scene-nav a':        'handleClick'
+    'click .main-nav-pulldown a':  'deactivate'
+    'clickoutside':                'deactivate'
+    'click ul a[data-modal-key]':  'showModalMessage'
 
   activeItem: null
 
@@ -137,7 +140,6 @@ class exports.SceneNav extends Backbone.View
     event.preventDefault()
     event.stopPropagation()
 
-  # Activates an item in the navigation by the key. If the item is already
   # active the menu will be deactivated instead.
   #
   # itemName - The item name, e.g. "info", "settings" for the item which is
