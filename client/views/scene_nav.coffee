@@ -32,16 +32,19 @@ itemNameFromEvent = (event) ->
 
 # Renders the contents of the information menu.
 renderInfo = ({ model }) ->
-  infoTemplate
+  elements = $ infoTemplate
     etmURL:   if model? then urlToScenarioOnETM(model)
+    help:     I18n.t('navigation.help')
     about:    I18n.t('navigation.about')
     feedback: I18n.t('navigation.feedback')
     privacy:  I18n.t('navigation.privacy')
     etmodel:  I18n.t('navigation.etmodel')
 
-renderHelp = (nav) ->
-  showMessage I18n.t('first_intro.header'), I18n.t('first_intro.body')
-  # introJs().start()
+  elements.find('.start-intro').on 'click', ->
+    showMessage I18n.t('first_intro.header'), I18n.t('first_intro.body')
+    false
+
+  elements
 
 # Renders the contents of the settings menu.
 renderSettings = (nav) ->
@@ -150,7 +153,6 @@ class exports.SceneNav extends Backbone.View
     if @activeItem?            then @itemEl(@activeItem).removeClass('active')
 
     content = switch itemName
-      when 'help'     then renderHelp     this
       when 'info'     then renderInfo     this
       when 'settings' then renderSettings this
       when 'user'     then renderUser     this
