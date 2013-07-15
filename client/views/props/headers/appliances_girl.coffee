@@ -3,5 +3,6 @@
 class exports.AppliancesGirlProp extends HeaderIcon
   queries: [ 'etflex_households_amount_of_appliances' ]
 
-  hurdles: [ 3750 ]
+  # Must be no lower than the "high" hurdle in AppliancesProp.
+  hurdles: [ 2800 ]
   states:  [ 'reading', 'browsing' ]
