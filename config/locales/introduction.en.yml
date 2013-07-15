@@ -1,4 +1,31 @@
 en:
+  first_intro:
+    header: 'Welcome to the game'
+    body:   "<p>Since this is your first visit to the site, would you like to
+             view a quick explanation of how everything works?</p>
+             <span class='buttons'>
+               <a href='#' class='blue pull-right inline-block' data-action-key='introJs().start();'>Take the one-minute tour</a>
+             </span>"
+
   intro:
-    step1:
-      <h1>Bla</h1>
+    left-controls:
+      "<h2>Enter your assumptions about the future</h2>
+       <p>Here you can set what you think is going to happen in the future.
+          Move each slider to the left or right to make changes.</p>"
+
+    house:
+      "<h2>You will see the house change.</h2>"
+
+    right-controls:
+      "<h2>Don't forget these choices!</h2>
+      <p>Just like on the left, your choices here will affect the outcome. If
+         you do not understand something, just click the question mark.</p>"
+
+    dashboard:
+      "<h2>Dashboard</h2>
+       <p>Here you can see the effect your choices have on the future for
+          CO<sub>2</sub> emissions, energy bills, etc.</p>"
+
+    highscores:
+      "<h2>Compare your score to everyone elses</h2>
+       <p>If you get a high score, your scenario will be shown here!</p>"
