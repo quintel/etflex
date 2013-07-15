@@ -1,4 +1,5 @@
 <ul class="icon-nav">
+  <li><a href="#" class="start-intro" data-navigate="noclient"><%= @help %></a></li>
   <li><a href="#" data-modal-key="information.about" data-navigate="noclient"><%= @about %></a></li>
   <li><a href="mailto:etflex@quintel.com" data-navigate="noclient"><%= @feedback %></a></li>
   <li><a href="#" data-modal-key="information.privacy" data-navigate="noclient"><%= @privacy %></a></li>
