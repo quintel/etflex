@@ -34,7 +34,7 @@ itemNameFromEvent = (event) ->
 renderInfo = ({ model }) ->
   elements = $ infoTemplate
     etmURL:   if model? then urlToScenarioOnETM(model)
-    help:     I18n.t('navigation.help')
+    help:     I18n.t('navigation.how_to_use')
     about:    I18n.t('navigation.about')
     feedback: I18n.t('navigation.feedback')
     privacy:  I18n.t('navigation.privacy')

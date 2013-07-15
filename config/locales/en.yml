@@ -21,8 +21,9 @@ en:
     loading:  Loading
     sign_out: Sign out
 
-    info:     More
-    help:     Help
+    info:        More
+    help:        Help
+    how_to_use:  How to use the site
 
     settings:    Settings
     region:      Region/Country
