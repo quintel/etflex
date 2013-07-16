@@ -111,7 +111,5 @@ class exports.OverlayMessageView extends Backbone.View
   handleAction: (event) ->
     @hide()
 
-    require('views/tour').start()
-
     event.preventDefault()
     event.stopPropagation()

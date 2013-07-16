@@ -94,6 +94,7 @@ en:
         text: >-
           Congratulations, your score is one of the highest.
           How would you like to be named on the score board?
+          You don't have to provide a name if you don't want to.
       prelaunch:
         header: "Welcome"
         text: >-
