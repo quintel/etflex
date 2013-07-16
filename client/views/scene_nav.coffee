@@ -31,7 +31,7 @@ itemNameFromEvent = (event) ->
   $(event.currentTarget).parent('li').attr('id')[4..]
 
 # Renders the contents of the information menu.
-renderInfo = ({ model }) ->
+renderInfo = ({ model, deactivate }) ->
   elements = $ infoTemplate
     etmURL:   if model? then urlToScenarioOnETM(model)
     help:     I18n.t('navigation.how_to_use')
@@ -41,7 +41,8 @@ renderInfo = ({ model }) ->
     etmodel:  I18n.t('navigation.etmodel')
 
   elements.find('.start-intro').on 'click', ->
-    showMessage I18n.t('first_intro.header'), I18n.t('first_intro.body')
+    require('views/tour').start()
+    deactivate()
     false
 
   elements
