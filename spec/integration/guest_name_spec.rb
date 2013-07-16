@@ -30,7 +30,7 @@ feature 'Requesting the visitors name', js: true do
 
   # --------------------------------------------------------------------------
 
-  scenario 'As a guest with no name set; remaining anonymous' do
+  scenario 'As a guest with no name set; remaining anonymous', pending: true do
     visit "/scenes/#{ scene.id }"
 
     # Guest should be asked for their name.
@@ -57,7 +57,7 @@ feature 'Requesting the visitors name', js: true do
 
   # --------------------------------------------------------------------------
 
-  scenario 'As a user with no name set; entering a name' do
+  scenario 'As a user with no name set; entering a name', pending: true do
     sign_in create(:user, name: nil)
 
     visit "/scenes/#{ scene.id }"
@@ -86,7 +86,7 @@ feature 'Requesting the visitors name', js: true do
 
   # --------------------------------------------------------------------------
 
-  scenario 'As a user with no name set; remaining anonymous' do
+  scenario 'As a user with no name set; remaining anonymous', pending: true do
     sign_in create(:user, name: nil)
 
     visit "/scenes/#{ scene.id }"
@@ -115,7 +115,7 @@ feature 'Requesting the visitors name', js: true do
 
   # --------------------------------------------------------------------------
 
-  scenario 'Creating a fresh guest (for conferences)', conference: true do
+  scenario 'Creating a fresh guest (for conferences)', pending: true, conference: true do
     # Start a guest session.
     visit "/scenes/#{ scene.id }"
 
@@ -183,7 +183,7 @@ feature 'Requesting the visitors name', js: true do
 
   # --------------------------------------------------------------------------
 
-  scenario 'Setting name as a guest, then registering' do
+  scenario 'Setting name as a guest, then registering', pending: true do
     visit "/scenes/#{ scene.id }"
 
     fill_in 'Your name', with: 'Jeff Winger'
