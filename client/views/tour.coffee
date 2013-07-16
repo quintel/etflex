@@ -32,7 +32,7 @@ tourSteps = ->
    else if $('#scores ol li').length
      # Highlight the current top score. We do this rather than showing the
      # whole high score div because it is too tall.
-     highScoreEl = '#scores ol li:first'
+     highScoreEl = '#scores ol li:first-child'
    else
      # Okay, fine. The whole (empty) high score div will do.
      highScoreEl = '#scores'

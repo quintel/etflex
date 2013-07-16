@@ -4,7 +4,8 @@ en:
     body:   "<p>Since this is your first visit to the site, would you like to
              view a quick explanation of how everything works?</p>
              <span class='buttons'>
-               <a href='#' class='blue pull-right inline-block' data-action-key='introJs().start();'>Take the one-minute tour</a>
+               <a href='#' class='tour blue pull-right inline-block' data-action-key='tour'>Take the one-minute tour</a>
+               <a href='#' class='skip pull-right inline-block' data-action-key='skip'>Skip the tour</a>
              </span>"
 
   intro:
