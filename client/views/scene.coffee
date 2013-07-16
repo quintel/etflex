@@ -10,10 +10,10 @@ badgeTempl           = require 'templates/badge'
 { HighScores }       = require 'views/high_scores'
 { HighScoreRequest } = require 'views/high_score_request'
 { HighScoreGrowl }   = require 'views/growl'
+{ TourRequestView }  = require 'views/tour_request'
 
 { getProp }          = require 'views/props'
 { clientNavigate }   = require 'lib/client_navigate'
-{ showMessage }      = require 'lib/messages'
 { createUser }       = require 'models/user'
 
 # Scene ----------------------------------------------------------------------
@@ -68,7 +68,6 @@ class exports.SceneView extends Backbone.View
     @renderInputs()
     @renderBadge() if app.isBeta()
     @showIntro()
-    @doNameRequest()
 
   # When a user tries to alter inputs on a scenario which isn't theirs, a "not
   # authorized" modal dialog appears allowing them to take suitable action.
@@ -294,7 +293,10 @@ class exports.SceneView extends Backbone.View
     @requestScenarioGuestName true, 'prelaunch'
 
   showIntro: ->
-    showMessage I18n.t('first_intro.header'), I18n.t('first_intro.body')
+    unless localStorage?.getItem 'seen-tour'
+      tour = new TourRequestView()
+      tour.render(I18n.t('first_intro.header'), I18n.t('first_intro.body'))
+      tour.prependTo $ 'body'
 
   renderBadge: ->
     $('#master-content').append badgeTempl()
