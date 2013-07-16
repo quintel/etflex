@@ -57,7 +57,7 @@ class exports.OverlayMessageView extends Backbone.View
 
     # Push messages slightly higher up the page unless there is little space
     # available (phones).
-    margin  = if @$el.height() > 720 then margin - 100 else margin
+    margin  = if @$el.height() > 720 then margin - 50 else margin
 
     content.css('margin-top', "#{ margin }px")
 
