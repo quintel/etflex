@@ -72,7 +72,11 @@ TRANSFORMS =
   # CO2 emissions arrive in kg so we convert to megatons.
   total_co2_emissions:
     mutate: divide 1000000000
-    format: as 'Mtonnes'
+    format: (value) ->
+      if I18n.locale is 'nl'
+        as('Mtons')(value)
+      else
+        as('Mtonnes')(value)
 
   # Total costs come in Euros; convert to billions.
   total_costs:
@@ -90,7 +94,11 @@ TRANSFORMS =
     format: FORMAT_PERCENT
 
   etflex_households_co2_emissions_per_household:
-    format: as 'tonnes', 1
+    format: (value) ->
+      if I18n.locale is 'nl'
+        as('tons', 1)(value)
+      else
+        as('tonnes', 1)(value)
 
   etflex_households_investment_per_household:
     format: FORMAT_PERCENT_WITH_PRECISION(0)
