@@ -128,6 +128,7 @@ en:
       gas_use:            "Gas Use"
       sustainable_energy: "Sustainable Energy"
       billion:            "billion"
+      co2_emissions:      "CO<sub>2</sub> emissions"
 
       landingTitle:    "What does your <strong>%{future}</strong> look like?"
       landingFuture:   "Energy Future"

@@ -39,7 +39,7 @@ exports.boot = (window, { locale, api, env, user, realtime, conference, offline,
   I18n.fallbacks = no
 
   moment.lang locale
-  $('body').addClass(locale).addClass(exports.mode)
+  $('body').addClass(exports.mode)
 
   # Pusher notifications.
   if exports.realtime

@@ -13,7 +13,7 @@ class exports.CO2EmissionsView extends IconDashboardProp
 
   # Display settings.
 
-  name: 'CO<sub>2</sub>'
+  name: I18n.t 'scenes.etlite.co2_emissions'
 
   # Help Texts
   helpHeader: -> "props.co2_emissions.header"
