@@ -5,7 +5,8 @@ nl:
              Zal ik je even uitleggen hoe het werkt en wat je hier
              allemaal kunt vinden?</p>
              <span class='buttons'>
-               <a href='#' class='blue pull-right inline-block' data-action-key='introJs().start();'>Leg me in 1 minuut uit hoe dit werkt</a>
+               <a href='#' class='tour blue pull-right inline-block' data-action-key='tour'>Leg me in 1 minuut uit hoe dit werkt</a>
+               <a href='#' class='skip pull-right inline-block' data-action-key='skip'>Sla de tour</a>
              </span>"
 
   intro:

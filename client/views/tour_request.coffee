@@ -3,7 +3,9 @@
 class exports.TourRequestView extends OverlayMessageView
   handleAction: (event) ->
     super
-    require('views/tour').start()
+
+    if $(event.target).data('action-key') is 'tour'
+      require('views/tour').start()
 
   hide: (event) =>
     super
