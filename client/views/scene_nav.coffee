@@ -125,12 +125,7 @@ class exports.SceneNav extends Backbone.View
     this
 
   showModalMessage: (event) ->
-    modalDialog = $('#modal-dialog')
-    modalDialog.removeClass 'dark-nav'
-
-    $('#modal-content', modalDialog).html I18n.t $(event.target).attr 'data-modal-key'
-
-    modalDialog.reveal()
+    showMessage '', I18n.t($(event.target).attr 'data-modal-key')
 
     event.preventDefault()
     event.stopPropagation()
