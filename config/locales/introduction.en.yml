@@ -9,23 +9,23 @@ en:
 
   intro:
     left-controls:
-      "<h2>Enter your assumptions about the future</h2>
+      "<h3>Enter your assumptions about the future</h3>
        <p>Here you can set what you think is going to happen in the future.
           Move each slider to the left or right to make changes.</p>"
 
     house:
-      "<h2>You will see the house change.</h2>"
+      "<h3>You will see the house change.</h3>"
 
     right-controls:
-      "<h2>Don't forget these choices!</h2>
+      "<h3>Don't forget these choices!</h3>
       <p>Just like on the left, your choices here will affect the outcome. If
          you do not understand something, just click the question mark.</p>"
 
     dashboard:
-      "<h2>Dashboard</h2>
+      "<h3>Dashboard</h3>
        <p>Here you can see the effect your choices have on the future for
           CO<sub>2</sub> emissions, energy bills, etc.</p>"
 
     highscores:
-      "<h2>Compare your score to everyone elses</h2>
+      "<h3>Compare your score to everyone elses</h3>
        <p>If you get a high score, your scenario will be shown here!</p>"
