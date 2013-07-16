@@ -40,7 +40,7 @@ multiply = (multiplier) -> ((value) -> value * multiplier)
 
 # Formats a value with the given unit.
 as = (unit, precision = 0) ->
-  (value) -> "#{FORMAT_DEFAULT(value, precision)} #{unit}"
+  (value) -> "#{FORMAT_DEFAULT(value, precision)}&nbsp;#{unit}"
 
 # Retrieves the mutate/format definitions for a given query.
 exports.forQuery = (query) ->
