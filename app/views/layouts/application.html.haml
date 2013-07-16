@@ -9,7 +9,7 @@
 
     %meta(name="viewport" content="width=1100")
 
-  %body.message
+  %body.message{ class: I18n.locale }
     #master-content
       = yield
 
