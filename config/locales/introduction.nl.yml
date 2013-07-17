@@ -1,0 +1,33 @@
+nl:
+  first_intro:
+    header: 'Welkom bij dit Spel'
+    body:   "<p>Dit is waarschijnlijk de eerste keer dat je hier bent.
+             Zal ik je even uitleggen hoe het werkt en wat je hier
+             allemaal kunt vinden?</p>
+             <span class='buttons'>
+               <a href='#' class='tour blue pull-right inline-block' data-action-key='tour'>Leg me in 1 minuut uit hoe dit werkt</a>
+               <a href='#' class='skip pull-right inline-block' data-action-key='skip'>Nee, bedankt</a>
+             </span>"
+
+  intro:
+    left-controls:
+      "<h3>Vul hier je aannames over de toekomst in</h3>
+       <p>Hier kun je instellen wat je denkt dat er gaat gebeuren in de
+       toekomst. Trek het schuifje gewoon naar links of rechts.</p>"
+
+    house:
+      "<h3>Je zal het huis zien meeveranderen.</h3>"
+
+    right-controls:
+      "<h3>Vergeet ook deze schuifjes niet</h3>
+      <p>Hetzelfde als aan de linkerkant. Als je iets niet begrijpt kun je
+      klikken op het vraagtekentje!</p>"
+
+    dashboard:
+      "<h3>Dashboard</h3>
+       <p>Hier kun je zien wat voor impact je keuzes hebben voor je CO2-uitstoot,
+       je energierekening etcetera.</p>"
+
+    highscores:
+      "<h3>Hier zie je hoe goed je scoort ten opzichte van de rest</h3>
+       <p>Als je een hoge score haalt, dan kun je hier terecht komen!</p>"

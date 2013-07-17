@@ -5,8 +5,9 @@ class exports.OverlayMessageView extends Backbone.View
   className: 'overlay-background'
 
   events:
-    'click .hide': 'hide'
-    'click': 'clickOutsideHide'
+    'click .hide':              'hide'
+    'click':                    'clickOutsideHide'
+    'click a[data-action-key]': 'handleAction'
 
   # Creates the HTML elements for the modal overlay.
   #
@@ -56,7 +57,7 @@ class exports.OverlayMessageView extends Backbone.View
 
     # Push messages slightly higher up the page unless there is little space
     # available (phones).
-    margin  = if @$el.height() > 720 then margin - 100 else margin
+    margin  = if @$el.height() > 720 then margin - 50 else margin
 
     content.css('margin-top', "#{ margin }px")
 
@@ -105,3 +106,10 @@ class exports.OverlayMessageView extends Backbone.View
     @hide() unless \
       $target.hasClass('overlay-message') or
       $target.parents('.overlay-message').length
+
+  # Activates an action to a JS-call and hides the overlay-message.
+  handleAction: (event) ->
+    @hide()
+
+    event.preventDefault()
+    event.stopPropagation()

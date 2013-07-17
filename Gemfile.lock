@@ -110,6 +110,8 @@ GEM
     guard-rspec (2.4.0)
       guard (>= 1.1)
       rspec (~> 2.11)
+    guard-shell (0.5.1)
+      guard (>= 1.1.0)
     haml (3.1.7)
     hashie (1.2.0)
     highline (1.6.15)
@@ -300,6 +302,7 @@ DEPENDENCIES
   growl_notify
   guard
   guard-rspec
+  guard-shell
   haml (~> 3.1)
   hashie
   http_accept_language

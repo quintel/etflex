@@ -79,6 +79,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'guard'
   gem 'guard-rspec'
+  gem 'guard-shell'
   gem 'rb-fsevent'
   gem 'growl_notify'
 end

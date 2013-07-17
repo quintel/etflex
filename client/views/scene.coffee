@@ -10,6 +10,7 @@ badgeTempl           = require 'templates/badge'
 { HighScores }       = require 'views/high_scores'
 { HighScoreRequest } = require 'views/high_score_request'
 { HighScoreGrowl }   = require 'views/growl'
+{ TourRequestView }  = require 'views/tour_request'
 
 { getProp }          = require 'views/props'
 { clientNavigate }   = require 'lib/client_navigate'
@@ -65,10 +66,8 @@ class exports.SceneView extends Backbone.View
 
   postRender: ->
     @renderInputs()
-    # The RTL badge should be visible only on the balance scene
     @renderBadge() if app.isBeta()
-
-    @doNameRequest()
+    @showIntro()
 
   # When a user tries to alter inputs on a scenario which isn't theirs, a "not
   # authorized" modal dialog appears allowing them to take suitable action.
@@ -292,6 +291,12 @@ class exports.SceneView extends Backbone.View
     localStorage?.setItem 'seen-prelaunch', app.user.id
 
     @requestScenarioGuestName true, 'prelaunch'
+
+  showIntro: ->
+    unless localStorage?.getItem 'seen-tour'
+      tour = new TourRequestView()
+      tour.render(I18n.t('first_intro.header'), I18n.t('first_intro.body'))
+      tour.prependTo $ 'body'
 
   renderBadge: ->
     $('#master-content').append badgeTempl()
