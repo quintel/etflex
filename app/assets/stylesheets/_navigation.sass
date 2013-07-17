@@ -5,7 +5,7 @@
   position: absolute
   right: 0
   top: -11px
-  width: 240px
+  width: 260px
   z-index: 2
 
   ul.scene-nav
@@ -40,15 +40,10 @@
     li
       a
         display: block
-        padding: 10px 0
+        padding: 5px 0
 
     li.static
-      padding: 10px 0
-
-    .new-category
-      border-top: 1px solid #c0c9c9
-      margin-top: 10px
-      padding-top: 10px
+      padding: 5px 0
 
   .main-nav-pulldown
     border: 1px solid #c0c9c9
@@ -62,7 +57,7 @@
     position: absolute
     right: -1px
     top: 69px
-    width: 250px
+    width: 220px
     z-index: 9
 
     &.first
@@ -155,6 +150,36 @@
       &:hover
         color: #386a8d
 
+    li.border
+      border-top: 1px solid #dde5e8
+      margin-top: 7px
+      padding-top: 7px
+
+    li.small
+      font-size: 11px
+
+      a
+        color: #88b1cc !important
+        &:hover
+          color: #548aaa !important
+
+    li.legalese a
+      float: left
+      width: 110px
+
+    li.split
+      overflow: hidden
+
+      .left, .right
+        display: block
+        float: left
+        width: 30%
+      .right
+        width: 70%
+        a
+          display: inline
+          padding: 0
+
   li.active
     @include background-image(linear-gradient(white, #f0fbff))
     @include border-top-radius(4px)
@@ -177,3 +202,6 @@
 
     &:active
       background-position: -168px -110px
+
+  #nav-settings, #nav-user, #nav-account
+    margin-left: 10px
