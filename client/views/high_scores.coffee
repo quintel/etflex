@@ -413,5 +413,5 @@ class SummaryRow extends Backbone.View
     if transform and barExtrema and @model.get('query_results')[query]
       value = transform.mutate(@model.get('query_results')[query]['future'])
 
-      element.find('.value').text transform.format(value)
+      element.find('.value').html transform.format(value)
       element.find('.bar').css 'width', widthOf(value, barExtrema...)
