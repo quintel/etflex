@@ -1,22 +1,33 @@
 <ul class="icon-nav settings">
-  <li class='static'>
-    <%= I18n.t 'navigation.region' %>:
-    <%= I18n.t("regions.#{@country}") %>
+  <li class='static split'>
+    <span class="left"><%= I18n.t 'navigation.region' %>:</span>
+    <span class="right"><strong><%= I18n.t("regions.#{@country}") %></strong> in <strong><%= @endYear %></strong></span>
   </li>
-  <li class='static'>
-    <%= I18n.t 'navigation.end_year' %>:
-    <%= @endYear %>
+  <li class='split border static' style="line-height: 20px; padding-top: 10px">
+    <span class="left"><%= I18n.t("navigation.locale") %>:</span>
+    <span class="right">
+        <img src="/assets/nl.png" width="16" height="11" />
+        <% if @alternativeLocale is 'nl': %>
+          <a href='/lang/<%= @alternativeLocale %>?backto=<%= encodeURIComponent window.location.pathname %>' data-navigate="noclient">Nederlands</a>
+        <% else: %>
+          <strong>Nederlands</strong>
+        <% end %>
+
+        <br />
+
+        <img src="/assets/gb.png" width="16" height="11" />
+        <% if @alternativeLocale is 'en': %>
+          <a href='/lang/<%= @alternativeLocale %>?backto=<%= encodeURIComponent window.location.pathname %>' data-navigate="noclient">English</a>
+        <% else: %>
+          <strong>English</strong>
+        <% end %>
+    </span>
   </li>
   <li class='static'>
     <input name='show-score' id='show-score' type='checkbox' value=1 <%= "checked='checked'" if @showScore %> />
     <label for='show-score'>Show score</label>
   </li>
-  <li>
-    <a href='/lang/<%= @alternativeLocale %>?backto=<%= encodeURIComponent window.location.pathname %>' data-navigate="noclient">
-      <%= I18n.t 'navigation.switch_to' %> <%= I18n.t "locales.#{@alternativeLocale}" %>
-    </a>
-  </li>
-  <li class='new-category'>
+  <li class='border'>
     <% if @conference: %>
       <a href='/scenes/<%= @sceneId %>/fresh' class="hard-reset" data-navigate='noclient'>
         <strong><%= I18n.t 'navigation.hard_reset' %></strong>

@@ -21,7 +21,9 @@ nl:
     loading:  Loading
     sign_out: Afmelden
 
-    info:     Meer
+    info:        Meer
+    help:        Help
+    how_to_use:  Hoe de site te gebruiken
 
     settings:    Instellingen
     region:      Gebied

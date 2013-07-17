@@ -7,6 +7,8 @@ settingsTemplate = require 'templates/scene_nav/settings'
 userTemplate     = require 'templates/scene_nav/user'
 accountTemplate  = require 'templates/scene_nav/account'
 
+{ showMessage }  = require 'lib/messages'
+
 # ----------------------------------------------------------------------------
 
 # Returns the path to the current ETEngine scenario on ETModel.
@@ -29,13 +31,21 @@ itemNameFromEvent = (event) ->
   $(event.currentTarget).parent('li').attr('id')[4..]
 
 # Renders the contents of the information menu.
-renderInfo = ({ model }) ->
-  infoTemplate
+renderInfo = ({ model, deactivate }) ->
+  elements = $ infoTemplate
     etmURL:   if model? then urlToScenarioOnETM(model)
+    help:     I18n.t('navigation.how_to_use')
     about:    I18n.t('navigation.about')
     feedback: I18n.t('navigation.feedback')
     privacy:  I18n.t('navigation.privacy')
     etmodel:  I18n.t('navigation.etmodel')
+
+  elements.find('.start-intro').on 'click', ->
+    require('views/tour').start()
+    deactivate()
+    false
+
+  elements
 
 # Renders the contents of the settings menu.
 renderSettings = (nav) ->
@@ -101,10 +111,10 @@ class exports.SceneNav extends Backbone.View
   id: 'main-nav'
 
   events:
-    'click ul.scene-nav a':       'handleClick'
-    'click .main-nav-pulldown a': 'deactivate'
-    'clickoutside':               'deactivate'
-    'click ul a[data-modal-key]': 'showModalMessage'
+    'click ul.scene-nav a':        'handleClick'
+    'click .main-nav-pulldown a':  'deactivate'
+    'clickoutside':                'deactivate'
+    'click ul a[data-modal-key]':  'showModalMessage'
 
   activeItem: null
 
@@ -115,12 +125,7 @@ class exports.SceneNav extends Backbone.View
     this
 
   showModalMessage: (event) ->
-    modalDialog = $('#modal-dialog')
-    modalDialog.removeClass 'dark-nav'
-
-    $('#modal-content', modalDialog).html I18n.t $(event.target).attr 'data-modal-key'
-
-    modalDialog.reveal()
+    showMessage '', I18n.t($(event.target).attr 'data-modal-key')
 
     event.preventDefault()
     event.stopPropagation()
@@ -134,7 +139,6 @@ class exports.SceneNav extends Backbone.View
     event.preventDefault()
     event.stopPropagation()
 
-  # Activates an item in the navigation by the key. If the item is already
   # active the menu will be deactivated instead.
   #
   # itemName - The item name, e.g. "info", "settings" for the item which is

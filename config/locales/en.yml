@@ -21,10 +21,12 @@ en:
     loading:  Loading
     sign_out: Sign out
 
-    info:     More
+    info:        More
+    help:        Help
+    how_to_use:  How to use the site
 
     settings:    Settings
-    region:      Region/Country
+    region:      Country
     end_year:    End Year
     locale:      Language
     switch_to:   Switch to
@@ -92,6 +94,7 @@ en:
         text: >-
           Congratulations, your score is one of the highest.
           How would you like to be named on the score board?
+          You don't have to provide a name if you don't want to.
       prelaunch:
         header: "Welcome"
         text: >-
