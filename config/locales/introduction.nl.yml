@@ -6,7 +6,7 @@ nl:
              allemaal kunt vinden?</p>
              <span class='buttons'>
                <a href='#' class='tour blue pull-right inline-block' data-action-key='tour'>Leg me in 1 minuut uit hoe dit werkt</a>
-               <a href='#' class='skip pull-right inline-block' data-action-key='skip'>Sla de tour</a>
+               <a href='#' class='skip pull-right inline-block' data-action-key='skip'>Nee, bedankt</a>
              </span>"
 
   intro:
