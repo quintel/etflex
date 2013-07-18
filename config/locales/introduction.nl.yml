@@ -1,33 +1,32 @@
 nl:
   first_intro:
     header: 'Welkom bij dit Spel'
-    body:   "<p>Dit is waarschijnlijk de eerste keer dat je hier bent.
-             Zal ik je even uitleggen hoe het werkt en wat je hier
+    body:   "<p>Zal ik je even uitleggen hoe alles werkt en wat je hier
              allemaal kunt vinden?</p>
              <span class='buttons'>
-               <a href='#' class='tour blue pull-right inline-block' data-action-key='tour'>Leg me in 1 minuut uit hoe dit werkt</a>
-               <a href='#' class='skip pull-right inline-block' data-action-key='skip'>Nee, bedankt</a>
+               <a href='#' class='tour blue pull-right inline-block' data-action-key='tour'>Geef me uitleg (1 minuut)</a>
+               <a href='#' class='skip pull-right inline-block' data-action-key='skip'>Uitleg overslaan</a>
              </span>"
 
   intro:
     left-controls:
-      "<h3>Vul hier je aannames over de toekomst in</h3>
-       <p>Hier kun je instellen wat je denkt dat er gaat gebeuren in de
+      "<h3>Vul je aannames in over de toekomst</h3>
+       <p>Hier stel je in wat er volgens jou gaat gebeuren in de
        toekomst. Trek het schuifje gewoon naar links of rechts.</p>"
 
     house:
-      "<h3>Je zal het huis zien meeveranderen.</h3>"
+      "<h3>Je zal het huis zien veranderen.</h3>"
 
     right-controls:
       "<h3>Vergeet ook deze schuifjes niet</h3>
       <p>Hetzelfde als aan de linkerkant. Als je iets niet begrijpt kun je
-      klikken op het vraagtekentje!</p>"
+      klikken op het vraagteken!</p>"
 
     dashboard:
       "<h3>Dashboard</h3>
-       <p>Hier kun je zien wat voor impact je keuzes hebben voor je CO2-uitstoot,
+       <p>Hier zie je de impact van je keuzes op je CO2-uitstoot,
        je energierekening etcetera.</p>"
 
     highscores:
-      "<h3>Hier zie je hoe goed je scoort ten opzichte van de rest</h3>
-       <p>Als je een hoge score haalt, dan kun je hier terecht komen!</p>"
+      "<h3>Vergelijk je score met die van anderen</h3>
+       <p>Als je een hoge score haalt, komen jouw instellingen hier terecht!</p>"
