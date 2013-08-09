@@ -717,12 +717,6 @@
   max: 86.0
   step: 0.1
   unit: ! '%'
-- key: households_useful_demand_electricity_per_person
-  start: 0.0
-  min: -5.0
-  max: 5.0
-  step: 0.1
-  unit: ! '%'
 - key: households_useful_demand_heat_per_person
   start: 0.0
   min: -5.0
@@ -947,12 +941,6 @@
 - key: households_number_of_inhabitants
   start: 0.0
   min: -5.0
-  max: 5.0
-  step: 0.1
-  unit: ! '%'
-- key: households_replacement_of_existing_houses
-  start: 0.0
-  min: 0.0
   max: 5.0
   step: 0.1
   unit: ! '%'
