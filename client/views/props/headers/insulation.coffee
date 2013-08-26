@@ -3,6 +3,6 @@
 class exports.InsulationProp extends HeaderIcon
   queries: [ 'etflex_households_insulation_level' ]
 
-  hurdles: [ 1.28, 1.56, 1.84, 2.12, 2.4, 2.68 ]
+  hurdles: [ 0.75, 1.00, 1.25, 1.75, 2.25, 2.75 ]
   states:  [ 'extremely_low', 'very_low', 'low', 'medium', 'high', 'very_high', 'extremely_high' ]
 
