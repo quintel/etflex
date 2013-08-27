@@ -25,7 +25,7 @@ describe 'Scenes' do
     #
     page.all('.range').each do |range|
       if range.has_css?('.label', text: 'Better insulation')
-        range.should have_css('.output', text: '1.0')
+        range.should have_css('.output', text: '0.5')
 
         # Has info; a (?) should be present.
         range.should have_css('.help')
