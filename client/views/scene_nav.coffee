@@ -20,9 +20,9 @@ urlToScenarioOnETM = (scenario) ->
   host = if app.etm_url
     app.etm_url
   else if api.isBeta
-    'http://beta.et-model.com'
+    'http://beta.pro.et-model.com'
   else
-    'http://et-model.com'
+    'http://pro.et-model.com'
 
   "#{ host }/scenarios/#{ scenario.get('sessionId') }/load"
 
