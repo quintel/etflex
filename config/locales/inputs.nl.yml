@@ -46,12 +46,12 @@ nl:
       warmte en koudevraag. 
       Isolatie van vloeren, muren, daken en isolerende ramen zijn goed 
       voor 75% van het besparingspotenieel. De isolatiegraad kun je 
-      uitdrukken als 'thermische weerstand' of RC-waarde. Dit is een maat
+      uitdrukken als 'thermische weerstand' of R-waarde. Dit is een maat
       voor hoeveel weerstand een huis biedt aan ontsnappende warmte of koude.
-      Hoe hoger de Rc-waarde hoe beter de isolatie. 
-      In Nederland is de gemiddelde Rc-waarde voor oude woningen ongeveer 1. 
-      Dit is natuurlijk het gemiddelde van slecht, deels en goed geïsoleerde
-      woningen. Oude huizen zijn lastig naar een Rc-waarde van meer dan 3 te
+      Hoe hoger de R-waarde hoe beter de isolatie. 
+      In Nederland is de gemiddelde R-waarde voor oude woningen ongeveer 0.5. 
+      Dit is natuurlijk het gemiddelde van slecht, gemiddeld en goed geïsoleerde
+      woningen. Oude huizen zijn lastig naar een R-waarde van meer dan 3 te
       krijgen. 
 
     comfort_temperature_in_the_house: |-
