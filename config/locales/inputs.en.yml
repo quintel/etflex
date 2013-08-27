@@ -48,13 +48,13 @@ en:
 
       Roof, wall, and floor insulation, and insulating glazing, account for
       75% of the total potential savings. The insulation level can be
-      expressed as a "thermal resistance" or Rc-value. This is a measure of
+      expressed as a "thermal resistance" or R-value. This is a measure of
       how much the building resists escaping heat or cold. The higher the
-      Rc-value, the better the insulation.
+      R-value, the better the insulation.
 
-      For the Netherlands, the average Rc-value of old residences is about 1.
+      For the Netherlands, the average R-value of old residences is about 0.5.
       This is the result of a mix between badly, partially, and well-insulated
-      residences. For old residences it is not easy to reach Rc-values higher
+      residences. For old residences it is not easy to reach R-values higher
       than 3.
 
     comfort_temperature_in_the_house: |-
