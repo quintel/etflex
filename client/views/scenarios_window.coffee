@@ -16,7 +16,6 @@ class exports.ScenariosWindow extends Backbone.View
   className: 'overlay-content high-scores-overlay'
 
   events:
-    'click .high-scores li': 'activateScenario'
     'click .close':          'close'
     'clickoutside':          'close'
 
@@ -58,22 +57,6 @@ class exports.ScenariosWindow extends Backbone.View
         @$('.info .content').html landingTpl()
 
     return false if event
-
-  # Callback triggered when the user click on one of the high scoring
-  # scenarios. Shows a summary of the scenarios in the right-hand pane.
-  #
-  activateScenario: (event) =>
-    scenarioId = event.currentTarget.id.replace(/^high-score-/, '')
-    scenarioId = parseInt scenarioId, 10
-
-    if scenario = @scores.collection.get scenarioId
-      @scores.$('li').removeClass 'active'
-      $( event.currentTarget ).addClass 'active'
-
-      # Get the widths for each bar.
-
-      @$('.info .content').html(new ScenarioComparison(
-        current: @scene, selected: scenario).render().el)
 
   # Changes the content of the info element to inform the user their their
   # current scenario has become a high scoring scenario and asking them for

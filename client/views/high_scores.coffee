@@ -14,7 +14,6 @@ class exports.HighScores extends Backbone.View
 
   events:
     'click h2 a':          'changeDateLimit'
-    'click li .actions a': 'navigateToScenario'
 
   # Provide HighScores with a ScenarioSummaries collection in the options
   # hash.
@@ -187,22 +186,6 @@ class exports.HighScores extends Backbone.View
 
     @trigger 'update', summary, @collection
 
-  # Callback triggered when the user clicks on a scenario list element. On
-  # compact high score lists, where no "Show" button is visible, clicking on
-  # the element directs the user to the scenario.
-  #
-  navigateToScenario: (event) =>
-    event.preventDefault()
-    event.stopPropagation()
-
-    listEl     = $(event.currentTarget).parents('li')
-    scenarioId = parseInt listEl.attr('id').replace(/^high-score-/, ''), 10
-
-    if scenario = @collection.get scenarioId
-      app.navigate scenario.get('href')
-
-    return false
-
   # When the scenario guest name changes, we look for the row which
   # corresponds with the scenario, and change the users name.
   updateGuestName: =>
@@ -331,9 +314,6 @@ widthOf = (value, min, max) ->
 class SummaryRow extends Backbone.View
   tagName: 'li'
 
-  events:
-    'click': 'openScore'
-
   modelEvents:
     'change:score':      'updateScore'
     'change:updated_at': 'updateTime'
@@ -366,12 +346,6 @@ class SummaryRow extends Backbone.View
 
     # Unbind events from the model.
     @model.off event, @[func] for own event, func of @modelEvents
-
-  # View UI callbacks
-
-  openScore: (event) =>
-    event.preventDefault()
-    app.navigate @model.get('href')
 
   # Model update callbacks ---------------------------------------------------
 
