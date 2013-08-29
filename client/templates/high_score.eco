@@ -37,7 +37,4 @@
     </span>
   <% end %>
 
-  <span class="actions">
-    <a href="<%= @href %>" class="view-action" data-navigate="noclient" title="View this high score">View</a>
-  </span>
 </div>
