@@ -40,7 +40,7 @@ class Scenario < ActiveRecord::Base
 
   # Returns the Scenario for a given scene ID / session ID pair.
   def self.for_session(scene_id, session_id)
-    where(scene_id: scene_id, session_id: session_id).first
+    where(scene_id: scene_id, session_id: session_id, obsolete: false).first
   end
 
   # Returns only scenarios which have either a guest name, or belong to a
@@ -62,7 +62,8 @@ class Scenario < ActiveRecord::Base
   #
   # user - A User or Guest whose scenarios are to be retrieved.
   #
-  scope :for_user, lambda { |user| where user_attribute_for(user) => user.id }
+  scope :for_user, lambda { |user| where(user_attribute_for(user) => user.id,
+                                         :obsolete => false )}
 
   # Returns scenarios which do not belong to the given user or guest. Useful
   # if chained onto a scene, for example:
