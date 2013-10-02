@@ -6,7 +6,14 @@
 # Returns nothing.
 exports.start = ->
   tour = introJs()
-  tour.setOptions(jQuerySelector: true, steps: tourSteps())
+  tour.setOptions
+    jQuerySelector: true
+    steps: tourSteps()
+    nextLabel: "#{ I18n.t('tour.next') } &rarr;"
+    prevLabel: "&larr; #{ I18n.t('tour.back') }"
+    skipLabel: I18n.t('tour.skip')
+    doneLabel: I18n.t('tour.done')
+
   tour.onchange(onChange)
   tour.start()
 
