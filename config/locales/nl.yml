@@ -155,6 +155,12 @@ nl:
     en: Engels
     de: Duits
 
+  tour:
+    next: Volgende
+    back: Terug
+    skip: Niet nu
+    done: Gedaan
+
   regions:
     nl:               Nederland
     uk:               Verenigd Koninkrijk

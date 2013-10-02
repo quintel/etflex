@@ -162,6 +162,12 @@ en:
     en: English
     de: German
 
+  tour:
+    next: Next
+    back: Back
+    skip: Skip
+    done: Done
+
   regions:
     nl:               Netherlands
     uk:               United Kingdom
