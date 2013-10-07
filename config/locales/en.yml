@@ -132,7 +132,7 @@ en:
 
       landingTitle:    "What does your <strong>%{future}</strong> look like?"
       landingFuture:   "Energy Future"
-      landingSubtitle: "... and can you get high score?"
+      landingSubtitle: "... and can you get the high score?"
       landingButton:   "Create your own future"
       startOver:       "Start over"
       continue:        "Continue playing"
