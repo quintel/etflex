@@ -23,7 +23,7 @@ nl:
         Dit is inclusief de bouw- en installatiekosten van de centrales en apparaten die energie 
         gebruiken.
 
-    score:
+    etflex_score:
       header: "Je scoort (Q:score) punten"
       body: |-
         Je score gaat omhoog als je kosten, CO<sub>2</sub> en kernafval
