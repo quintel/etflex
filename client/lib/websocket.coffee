@@ -10,24 +10,14 @@ class exports.Websocket
   calculateResults: (pieces) ->
     pieces = _(pieces).countBy (piece) -> piece
 
-    coalPlants          = pieces["coal_plant"]          || 0
-    gasPlants           = pieces["gas_plant"]           || 0
-    nuclearPlants       = pieces["nuclear_plant"]       || 0
-    windTurbines        = pieces["wind_turbine"]        || 0
-    pvPanels            = pieces["pv_panel"]            || 0
-    waterHeaters        = pieces["thermal_collector"]   || 0
-    electricCars        = pieces["electric_car"]        || 0
-    gasCars             = pieces["gas_car"]             || 0
-    ledLights           = pieces["led_light"]           || 0
-    incandescentLights  = pieces["incandescent_light"]  || 0
-
-    electricCarShare = 0
-    if electricCars > 0
-      electricCarShare = (electricCars / (electricCars + gasCars)) * 100
-
-    ledLightingShare = 0
-    if ledLights > 0
-      ledLightingShare = (ledLights / (incandescentLights + ledLights)) * 100
+    coalPlants          = pieces["coal_plant"]        || 0
+    gasPlants           = pieces["gas_plant"]         || 0
+    nuclearPlants       = pieces["nuclear_plant"]     || 0
+    windTurbines        = pieces["wind_turbine"]      || 0
+    pvPanels            = pieces["pv_panel"]          || 0
+    waterHeaters        = pieces["thermal_collector"] || 0
+    electricCars        = pieces["electric_car"]      || 0
+    ledLights           = pieces["led_light"]         || 0
 
     results = {}
 
@@ -36,9 +26,9 @@ class exports.Websocket
     results.number_of_energy_power_nuclear_gen3_uranium_oxide = nuclearPlants
     results.number_of_energy_power_wind_turbine_offshore = 500 * windTurbines
     results.households_solar_pv_solar_radiation_market_penetration = (100/6) * pvPanels
-    results.households_water_heater_solar_thermal_share = (100/3) * waterHeaters
-    results.transport_car_using_electricity_share = electricCarShare
-    results.households_lighting_led_electricity_share = ledLightingShare
+    results.households_water_heater_solar_thermal_share = (100/5) * waterHeaters
+    results.transport_car_using_electricity_share = (100/5) * electricCars
+    results.households_lighting_led_electricity_share = (100/5) * ledLights
 
     for key, value of results
       slider = $("##{ key }").data 'quinn'
