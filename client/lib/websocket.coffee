@@ -25,7 +25,7 @@ class exports.Websocket
     results.number_of_energy_power_combined_cycle_network_gas = gasPlants * 2
     results.number_of_energy_power_nuclear_gen3_uranium_oxide = nuclearPlants
     results.number_of_energy_power_wind_turbine_offshore = 500 * windTurbines
-    results.households_solar_pv_solar_radiation_market_penetration = (100/6) * pvPanels
+    results.households_solar_pv_solar_radiation_market_penetration = (100/5) * pvPanels
     results.households_water_heater_solar_thermal_share = (100/5) * waterHeaters
     results.transport_car_using_electricity_share = (100/5) * electricCars
     results.households_lighting_led_electricity_share = (100/5) * ledLights
