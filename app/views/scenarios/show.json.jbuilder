@@ -18,7 +18,7 @@ else
   )
 end
 
-json.user do |json|
+json.user do
   if @scenario.user
     json.partial! 'embeds/user',  user: @scenario.user
   else
@@ -26,7 +26,7 @@ json.user do |json|
   end
 end
 
-json.scene do |json|
+json.scene do
   @scene = @scenario.scene
   render template: 'scenes/show', locals: { json: json }
 end
