@@ -42,7 +42,8 @@ module ETFlex
       elsif session[:locale].blank?
         # No locale set yet; first visit. Use the Accept-Language header to
         # infer what they want.
-        session[:locale] = request.compatible_language_from(AVAILABLE_LOCALES)
+        session[:locale] =
+          http_accept_language.compatible_language_from(AVAILABLE_LOCALES)
       end
 
       I18n.locale = session[:locale]
