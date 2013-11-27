@@ -46,7 +46,7 @@ gem 'json', '~> 1.7.7'
 gem 'treetop'
 
 # Deploy with Capistrano
-gem 'capistrano'
+gem 'capistrano', '< 3.0'
 
 # Gems used only for assets and not required
 # in production environments by default.
