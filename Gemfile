@@ -40,7 +40,7 @@ gem 'pusher'
 
 gem 'airbrake'
 gem 'hashie'
-gem 'json', '~> 1.7.7'
+gem 'json'
 
 # Treetop for the grammars
 gem 'treetop'
@@ -58,10 +58,7 @@ group :assets do
   gem 'therubyracer', '>= 0.12'
   gem 'libv8',        '>= 3.16.14.3'
 
-  # Temporary workaround for difficulties using Sass 3.2 on Pow:
-  # https://github.com/37signals/pow/issues/316
-  gem 'sass',          '3.2.0.alpha.278'
-
+  gem 'sass',          '~> 3.2'
   gem 'sass-rails',    '~> 3.2'
   gem 'coffee-rails',  '>= 3.2.1'
   gem 'compass-rails', '>= 1.0.0'

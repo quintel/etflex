@@ -133,7 +133,7 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (4.1.0)
       railties (>= 3.1.0)
-    json (1.7.7)
+    json (1.8.1)
     jwt (0.1.8)
       multi_json (>= 1.5)
     kgio (2.8.1)
@@ -253,7 +253,7 @@ GEM
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
       rspec-mocks (~> 2.14.0)
-    sass (3.2.0.alpha.278)
+    sass (3.2.12)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
@@ -328,7 +328,7 @@ DEPENDENCIES
   jbuilder
   jquery-rails (~> 2.1.4)
   jquery-ui-rails
-  json (~> 1.7.7)
+  json
   launchy
   libv8 (>= 3.16.14.3)
   mysql2
@@ -344,7 +344,7 @@ DEPENDENCIES
   redcarpet
   rest-client
   rspec-rails (~> 2.8)
-  sass (= 3.2.0.alpha.278)
+  sass (~> 3.2)
   sass-rails (~> 3.2)
   shoulda-matchers
   simple_form
