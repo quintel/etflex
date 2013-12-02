@@ -330,7 +330,7 @@ DEPENDENCIES
   jquery-ui-rails
   json (~> 1.7.7)
   launchy
-  libv8 (~> 3.16.14)
+  libv8 (>= 3.16.14.3)
   mysql2
   omniauth-facebook
   omniauth-twitter
@@ -348,7 +348,7 @@ DEPENDENCIES
   sass-rails (~> 3.2)
   shoulda-matchers
   simple_form
-  therubyracer (~> 0.12.0)
+  therubyracer (>= 0.12)
   treetop
   uglifier (>= 1.0.3)
   unicorn
