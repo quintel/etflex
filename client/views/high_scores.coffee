@@ -41,7 +41,7 @@ class exports.HighScores extends Backbone.View
     # There is nothing to destruct if the view has not been rendered.
     return true unless @listElement
 
-    if app.realtime
+    if app.pusher_key
       app.pusher.unbind 'scenario.created', @scenarioNotification
       app.pusher.unbind 'scenario.updated', @scenarioNotification
 
@@ -63,7 +63,7 @@ class exports.HighScores extends Backbone.View
     else
       @loadSince 7
 
-    if app.realtime
+    if app.pusher_key
       app.pusher.bind 'scenario.created', @scenarioNotification
       app.pusher.bind 'scenario.updated', @scenarioNotification
 

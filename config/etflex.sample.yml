@@ -8,9 +8,9 @@ production: &production
   # API endpoint.
   api_url: 'http://et-engine.com'
 
-  # Use real-time features with Pusher. Disable if external services are not
-  # available (such as on laptops).
-  realtime: true
+  # Set the Pusher API key through which to send and receive updates. Set to
+  # false to disable real-time updates.
+  pusher_key: false
 
   # Enable when displaying ETFlex in public settings. This will change the
   # root page behaviour so that the BIG button always creates a totally new
