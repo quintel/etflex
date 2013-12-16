@@ -16,6 +16,8 @@ end
 
 module ETFlex
   class Application < Rails::Application
+    require Rails.root.join('lib/etflex/config')
+
     # Settings in config/environments/* take precedence over those specified
     # here. Application configuration should go into files in
     # config/initializers -- all .rb files in that directory are automatically
@@ -69,7 +71,7 @@ module ETFlex
     config.assets.version = '1.0'
 
     # Required by Devise.
-    config.action_mailer.default_url_options = { host: 'localhost:3000' }
+    config.action_mailer.default_url_options = { host: ETFlex.config.host }
 
   end
 end

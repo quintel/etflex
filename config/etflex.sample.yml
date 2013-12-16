@@ -1,6 +1,9 @@
 ---
 production: &production
 
+  # Where is the application hosted? Required by Devise and ActionMailer.
+  host: 'etflex.et-model.com'
+
   # The base API for all API requests. Include the protocol and path to the
   # API endpoint.
   api_url: 'http://et-engine.com'
