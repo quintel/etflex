@@ -18,7 +18,6 @@
  *= require moment
  *= require moment.nl.js
  *= require jquery.quinn
- *= require jquery.quinn.balancer
  *= require async
  *= require i18n
  *= require i18n/translations
