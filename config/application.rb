@@ -71,16 +71,5 @@ module ETFlex
     # Required by Devise.
     config.action_mailer.default_url_options = { host: 'localhost:3000' }
 
-    # Assert that the configuration specifies only the host.
-    config.after_initialize do
-      if (path = URI.parse(ETFlex.config.api_url).path).present?
-        raise <<-MESSAGE.strip_heredoc.gsub(/\n/, ' ')
-          Do not include a path in the "api_url" option in the etflex.yml
-          configuration. Your value included the path #{ path.inspect }.
-          Try something like "http://et-engine.com".
-        MESSAGE
-      end
-    end
-
   end
 end
