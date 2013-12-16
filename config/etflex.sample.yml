@@ -31,6 +31,10 @@ production: &production
   # (or beta) as default
   etm_url: nil
 
+  # Enter an IPInfoDB API key to lookup the IP of those who complete scenarios.
+  # Leave this blank to disable IP lookup.
+  ipinfodb_key: nil
+
 staging:     *production
 development: *production
 
