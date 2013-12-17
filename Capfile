@@ -1,4 +1,5 @@
 require 'bundler/capistrano'
+require 'airbrake/capistrano'
 
 load 'deploy'
 load 'deploy/assets'
@@ -30,14 +31,22 @@ end
 # multiple calls.
 def remote_file(path)
   @remote_files ||= {}
-  @remote_files[path] ||= YAML.load(capture("cat #{ path }"))
+  @remote_files[path] ||= capture("cat #{ path }")
+end
+
+# Reads the remote .env file to set the Airbrake key locally in Capistrano.
+def remote_airbrake_key
+  key = remote_file("#{shared_path}/.env").match(/^AIRBRAKE_API_KEY=(.+)$/)
+  key && key[1]
 end
 
 # Reads a remote config file to fetch the value of an attribute. If a matching
 # environment variable is set (prefixed with "DB_"), it will be used instead.
-def remote_config(file, key)
-  ENV[key.to_s.upcase] ||
-    remote_file("#{shared_path}/config/#{file}.yml")[rails_env.to_s][key.to_s]
+def remote_db_config(key)
+  ENV["DB_#{ key.to_s.upcase }"] ||
+    YAML.load(
+      remote_file("#{shared_path}/config/database.yml")
+    )[rails_env.to_s][key.to_s]
 end
 
 # APPLICATION CAPISTRANO CONFIGURATION ---------------------------------------
@@ -66,10 +75,12 @@ task :production do
 
   set :deploy_to, "/u/apps/#{application}"
 
-  set :db_host,   remote_config(:database, :host)
-  set :db_pass,   remote_config(:database, :password)
-  set :db_name,   remote_config(:database, :database)
-  set :db_user,   remote_config(:database, :username)
+  set :db_host, remote_db_config(:host)
+  set :db_pass, remote_db_config(:password)
+  set :db_name, remote_db_config(:database)
+  set :db_user, remote_db_config(:username)
+
+  set :airbrake_key, remote_airbrake_key
 end
 
 task :staging do
@@ -80,17 +91,14 @@ task :staging do
 
   set :deploy_to, "/u/apps/#{application}"
 
-  set :db_host,   remote_config(:database, :host)
-  set :db_pass,   remote_config(:database, :password)
-  set :db_name,   remote_config(:database, :database)
-  set :db_user,   remote_config(:database, :username)
+  set :db_host, remote_db_config(:host)
+  set :db_pass, remote_db_config(:password)
+  set :db_name, remote_db_config(:database)
+  set :db_user, remote_db_config(:username)
+
+  set :airbrake_key, remote_airbrake_key
 end
 
-task :show do
-  %w( db_host db_pass db_name db_user ).each do |meth|
-    puts "#{ meth }=#{ __send__(meth) }"
-  end
-end
 
 # COMMON CONFIGURATION -------------------------------------------------------
 

@@ -41,6 +41,7 @@ gem 'pusher'
 gem 'airbrake'
 gem 'hashie'
 gem 'json'
+gem 'dotenv-rails', groups: [:development, :test, :production]
 
 # Treetop for the grammars
 gem 'treetop'

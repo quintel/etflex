@@ -71,7 +71,9 @@ module ETFlex
     config.assets.version = '1.0'
 
     # Required by Devise.
-    config.action_mailer.default_url_options = { host: ETFlex.config.host }
+    config.action_mailer.default_url_options = {
+      host: ENV['ACTION_MAILER_HOST']
+    }
 
   end
 end
