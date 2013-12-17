@@ -4,7 +4,7 @@
 # @param [String] file The name of the file in the config/ directory.
 #
 def link_config_command(file)
-  %( ln -sf "#{shared_path}/config/#{file}" "#{release_path}/config/#{file}" )
+  %( ln -sf "#{shared_path}/#{file}" "#{release_path}/#{file}" )
 end
 
 namespace :deploy do
@@ -15,7 +15,8 @@ namespace :deploy do
     each of the config files into the "current_path" config directory.
   DESC
   task :link_config, roles: :app, except: { no_release: true } do
-    run link_config_command('database.yml')
-    run link_config_command('etflex.yml')
+    run link_config_command('config/database.yml')
+    run link_config_command('config/etflex.yml')
+    run link_config_command('.env')
   end
 end
