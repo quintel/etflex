@@ -39,7 +39,7 @@ gem 'pusher'
 gem 'airbrake'
 gem 'hashie'
 gem 'json'
-gem 'dotenv-rails', groups: [:development, :test, :production]
+gem 'dotenv-rails', groups: [:development, :test, :production, :staging]
 
 # Treetop for the grammars
 gem 'treetop'
