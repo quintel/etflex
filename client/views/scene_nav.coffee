@@ -4,8 +4,6 @@ api              = require 'lib/api'
 sceneNavTemplate = require 'templates/scene_nav'
 infoTemplate     = require 'templates/scene_nav/info'
 settingsTemplate = require 'templates/scene_nav/settings'
-userTemplate     = require 'templates/scene_nav/user'
-accountTemplate  = require 'templates/scene_nav/account'
 
 { showMessage }  = require 'lib/messages'
 
@@ -75,36 +73,6 @@ renderSettings = (nav) ->
 
   element
 
-# Renders the contents of the user menu.
-renderUser = ->
-  modalDialog = $('#modal-dialog')
-  modalDialog.addClass 'dark-nav'
-
-  $('#modal-content', modalDialog).html userTemplate()
-
-  showForm = (show, event) ->
-    if show is 'sign-in'
-      $('#sign-in-form', modalDialog).show()
-      $('#sign-up-form', modalDialog).hide()
-    else
-      $('#sign-in-form', modalDialog).hide()
-      $('#sign-up-form', modalDialog).show()
-
-    $('li.active').removeClass('active')
-    $(event.target).parents('li').addClass('active')
-
-    event.preventDefault()
-
-  $('.nav a.in').click (event) -> showForm 'sign-in', event
-  $('.nav a.up').click (event) -> showForm 'sign-up', event
-
-  modalDialog.reveal()
-
-  false
-
-# Renders the contents of the user account menu.
-renderAccount = -> accountTemplate()
-
 # SceneNav -------------------------------------------------------------------
 
 class exports.SceneNav extends Backbone.View
@@ -151,8 +119,6 @@ class exports.SceneNav extends Backbone.View
     content = switch itemName
       when 'info'     then renderInfo     this
       when 'settings' then renderSettings this
-      when 'user'     then renderUser     this
-      when 'account'  then renderAccount  this
 
     if content
       @itemEl(itemName).addClass('active')
@@ -163,9 +129,9 @@ class exports.SceneNav extends Backbone.View
       # need to disable the correct border radius so that the menu doesn't look
       # weird.
       radii = switch itemName
-        when 'info'            then [ 'addClass',    'removeClass' ]
-        when 'user', 'account' then [ 'removeClass', 'addClass'    ]
-        else                        [ 'removeClass', 'removeClass' ]
+        when '----'     then [ 'addClass',    'removeClass' ]
+        when 'settings' then [ 'removeClass', 'addClass'    ]
+        else                 [ 'removeClass', 'removeClass' ]
 
       @pulldown[radii[0]]('first')
       @pulldown[radii[1]]('last')

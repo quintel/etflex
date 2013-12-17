@@ -10,10 +10,6 @@ describe User do
   it { should allow_mass_assignment_of(:name) }
   it { should allow_mass_assignment_of(:remember_me) }
 
-  it { should allow_mass_assignment_of(:city) }
-  it { should allow_mass_assignment_of(:country) }
-  it { should allow_mass_assignment_of(:latitude) }
-  it { should allow_mass_assignment_of(:longitude) }
   it { should allow_mass_assignment_of(:ip) }
 
   it { should_not allow_mass_assignment_of(:image) }
@@ -32,80 +28,4 @@ describe User do
       User.new.should_not be_admin
     end
   end # admin
-
-  describe 'image_url' do
-    context 'when a facebook image is set' do
-      it 'should return the facebook image path' do
-        image = User.new { |u| u.image = 'my-fb-image' }.image_url
-        image.should eql('my-fb-image')
-      end
-    end
-
-    context 'when no facebook image is set' do
-      it 'should return a gravatar path when an e-mail is set' do
-        image = User.new(email: 'me@example.com').image_url
-        image.should match(/^http:\/\/gravatar\.com/)
-      end
-
-      it 'should return the guest image when no e-mail is set' do
-        image = User.new.image_url
-        image.should eql(Guest::IMAGE_URL)
-      end
-    end
-
-  end
-
-  # FIND OR CREATE WITH FACEBOOK ---------------------------------------------
-
-  describe 'find_or_create_with_facebook!' do
-    let(:attributes) do
-      Hashie::Mash.new(
-        info: {
-          email: 'etflex@example.com',
-          image: 'some-url.png',
-          name:  'Person Name'
-        },
-        credentials: { token: 'abc' },
-        uid: 'my-uid'
-      )
-    end
-
-    describe 'when no matching user exists' do
-      subject { User.find_or_create_with_facebook!(attributes) }
-
-      it             { should be_kind_of(User) }
-      it             { should be_persisted }
-      its(:email)    { should eql('etflex@example.com') }
-      its(:password) { should be_present }
-      its(:origin)   { should eql('facebook') }
-      its(:image)    { should eql('some-url.png') }
-      its(:name)     { should eql('Person Name') }
-      its(:uid)      { should eql('my-uid') }
-      its(:token)    { should eql('abc') }
-    end
-
-    describe 'when the attributes hash is invalid' do
-      it 'should raise an error' do
-        attributes.info.email = nil
-
-        expect { User.find_or_create_with_facebook!(attributes) }.to \
-          raise_error(ActiveRecord::RecordInvalid)
-      end
-    end
-
-    describe 'when a matching user already exists' do
-      let(:user) { create :user, email: 'etflex@example.com' }
-      before { user }
-
-      it 'should return the user' do
-        User.find_or_create_with_facebook!(attributes).should eql(user)
-      end
-
-      it 'should not create another user' do
-        expect { User.find_or_create_with_facebook!(attributes) }.to_not \
-          change { User.count }
-      end
-    end
-  end # find or create with facebook
-
 end

@@ -5,7 +5,7 @@
   position: absolute
   right: 0
   top: -11px
-  width: 260px
+  width: 170px
   z-index: 2
 
   ul.scene-nav
@@ -85,44 +85,6 @@
       text-align: center
       text-transform: uppercase
 
-    form
-      margin-bottom: 20px
-
-      input
-        font: 13px "Helvetica Neue", Arial, sans-serif
-        margin: 0
-
-        &:focus
-          outline: none
-
-        & + input
-          margin-top: -1px
-
-        &#user_email, &#user_password
-          border: 1px solid #c0c9c9
-          padding: 6px 4px
-          width: 190px
-
-        &#user_email
-          +border-top-radius(3px)
-
-        &#user_password
-          +border-bottom-radius(3px)
-          margin-bottom: 19px
-
-      label#user-remember
-        padding-top: 5px
-        font-size: 12px
-
-        input
-          margin-right: 3px
-
-      input#user-sign-in
-        float: right
-        font-size: 12px
-        font-weight: bold
-        margin-top: -7px
-
 // Extractions from the Modern Scene.
 
 #core #main-nav
@@ -191,17 +153,10 @@
     position: relative
     z-index: 10
 
-  #nav-settings a
-    background-position: -68px -50px
-
-    &:active
-      background-position: -68px -110px
-
-  #nav-user a, #nav-account a
-    background-position: -168px -50px
-
-    &:active
-      background-position: -168px -110px
-
-  #nav-settings, #nav-user, #nav-account
+  #nav-settings
     margin-left: 10px
+    a
+      background-position: -68px -50px
+
+      &:active
+        background-position: -68px -110px
