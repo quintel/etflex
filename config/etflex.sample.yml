@@ -1,9 +1,6 @@
 ---
 production: &production
 
-  # Where is the application hosted? Required by Devise and ActionMailer.
-  host: 'etflex.et-model.com'
-
   # The base API for all API requests. Include the protocol and path to the
   # API endpoint.
   api_url: 'http://et-engine.com'
@@ -34,11 +31,7 @@ production: &production
   # Base URL of the ETM (used to open the current scenario). Only laptops need
   # to set this value. If blank or missing the JS app will use the live server
   # (or beta) as default
-  etm_url: nil
-
-  # Enter an IPInfoDB API key to lookup the IP of those who complete scenarios.
-  # Leave this blank to disable IP lookup.
-  ipinfodb_key: nil
+  etm_url: false
 
 staging:     *production
 development: *production
