@@ -8,9 +8,14 @@ production: &production
   # API endpoint.
   api_url: 'http://et-engine.com'
 
-  # Set the Pusher API key through which to send and receive updates. Set to
+  # Set the Pusher credentials with which to send and receive updates. Set to
   # false to disable real-time updates.
-  pusher_key: false
+  #
+  # pusher:
+  #   app_id: something
+  #   key:    something
+  #   secret: something
+  pusher: false
 
   # Enable when displaying ETFlex in public settings. This will change the
   # root page behaviour so that the BIG button always creates a totally new

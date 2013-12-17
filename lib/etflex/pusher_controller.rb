@@ -18,7 +18,7 @@ module ETFlex
     #         to connected clients.
     #
     def pusher(event, data = nil)
-      if ETFlex.config.pusher_key
+      if ETFlex.config.pusher && ! Rails.env.test?
         Pusher["etflex-#{ Rails.env }"].trigger! event, data
       end
     end
