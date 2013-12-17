@@ -32,7 +32,7 @@ module ApplicationHelper
       api:        ETFlex.config.api_url,
       env:        Rails.env,
       user:       JSON.parse(rendered_user),
-      pusher_key: ETFlex.config.pusher[:key],
+      pusher_key: ETFlex.config.pusher && ETFlex.config.pusher[:key],
       conference: ETFlex.config.conference,
       offline:    ETFlex.config.offline,
       etm_url:    ETFlex.config.etm_url
