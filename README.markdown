@@ -12,15 +12,18 @@ Most of the application is implemented in **CoffeeScript** and can be found in
 ## Installation
 
 
- 1. Copy `config/database.sample.yml` and `config/etflex.sample.yml` to respectively 
-    `config/database.yml` and `config/etflex.yml`. Edit any settings
-    as necessary for your local machine.
+ 1. Copy `config/database.sample.yml` and `config/etflex.sample.yml` to
+    `config/database.yml` and `config/etflex.yml` respectively. Edit any
+    settings as necessary for your local machine.
 
  2. Install the Qt framework (see "Running the Tests" below for more
-    information). This is one required when installing Gems for the "test"
+    information). This is required when installing Gems for the "test"
     environment, and is not needed for production installs.
 
  3. `bundle install`
+
+ 4. After creating your new database, run `rake db:setup db:seed` to add the
+    tables, and some initial seed data.
 
 ## Running the Tests
 
