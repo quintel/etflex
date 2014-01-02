@@ -145,7 +145,7 @@ class exports.SceneView extends Backbone.View
   # scrolls to the high scores list, and shows the user name form.
   #
   clickScoreNotifier: (event) ->
-    $.scrollTo('#scores', offset: { top: -20 }, duration: 350)
+    $.scrollTo('#scores', 350, offset: { top: -20 })
     @requestScenarioGuestName(true)
 
     event.stopPropagation()
