@@ -32,6 +32,13 @@ tourSteps = ->
         position: 'right'
      })
 
+   if $('#energy-generation').length
+     steps.push({
+        element: '#energy-generation'
+        intro: I18n.t 'intro.balance'
+        position: 'right'
+     })
+
    if $('#scores ol .current').length
      # If the user's current scenario is in the high score table, highlight
      # that as the final tour item.

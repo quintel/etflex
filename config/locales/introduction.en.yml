@@ -22,6 +22,11 @@ en:
       <p>Just like on the left, your choices here will affect the outcome. If
          you do not understand something, just click the question mark.</p>"
 
+    balance:
+      "<h3>Supply and Demand</h3>
+       <p>See how your choices affect the supply and demand of energy. Keeping
+          these balanced will increase your score.</p>"
+
     dashboard:
       "<h3>Dashboard</h3>
        <p>Here you can see the effect your choices have on the future for
