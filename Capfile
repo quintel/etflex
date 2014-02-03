@@ -58,7 +58,7 @@ set :use_sudo,      false
 # Git Repository.
 
 set :scm,          :git
-set :repository,   'git@github.com:quintel/etflex.git'
+set :repository,   'https://github.com/quintel/etflex.git'
 set :deploy_via,   :remote_cache
 
 set :bundle_flags, '--deployment --quiet --binstubs --shebang ruby-local-exec'
