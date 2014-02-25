@@ -67,7 +67,8 @@ class exports.SceneView extends Backbone.View
   postRender: ->
     @renderInputs()
     @renderBadge() if app.isBeta()
-    @showIntro()
+
+    new (require('lib/websocket').Websocket)
 
   # When a user tries to alter inputs on a scenario which isn't theirs, a "not
   # authorized" modal dialog appears allowing them to take suitable action.
