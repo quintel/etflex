@@ -17,6 +17,7 @@ namespace :deploy do
   task :link_config, roles: :app, except: { no_release: true } do
     run link_config_command('config/database.yml')
     run link_config_command('config/etflex.yml')
+    run link_config_command('config/newrelic.yml')
     run link_config_command('.env')
   end
 end
