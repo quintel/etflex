@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-RAILS_VERSION = '~> 3.2.11'
+RAILS_VERSION = '~> 3.2.17'
 
 gem 'activesupport',  RAILS_VERSION, :require => 'active_support'
 gem 'actionpack',     RAILS_VERSION, :require => 'action_pack'
