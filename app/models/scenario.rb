@@ -31,16 +31,12 @@ class Scenario < ActiveRecord::Base
   serialize :input_values,  Hash
   serialize :query_results, Hash
 
-  attr_accessible :title, :guest_name, :input_values, :query_results,
-                  :end_year, :country
-
   # SCOPES -------------------------------------------------------------------
-
-  default_scope include: :scene, joins: :scene
 
   # Returns the Scenario for a given scene ID / session ID pair.
   def self.for_session(scene_id, session_id)
-    where(scene_id: scene_id, session_id: session_id, obsolete: false).first
+    where(scene_id: scene_id, session_id: session_id, obsolete: false).
+      includes(:scene).joins(:scene).first
   end
 
   # Returns only scenarios which have either a guest name, or belong to a
@@ -80,7 +76,7 @@ class Scenario < ActiveRecord::Base
   }
 
   # Orders the retrieved scenarios from newest to oldest.
-  scope :recent, order('updated_at DESC')
+  scope :recent, ->{ order('updated_at DESC') }
 
   # Returns scenarios updated at -- or after -- the given time.
   #

@@ -3,6 +3,7 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'capybara/rails'
+require 'shoulda/matchers'
 
 # Make sure Capybara ignores hidden elements so that we can match against
 # script tags.

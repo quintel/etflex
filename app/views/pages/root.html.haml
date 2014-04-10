@@ -37,12 +37,12 @@
               .conference-continue
                 == #{ t :'words.or' }:
 
-                %a{ href: scene_scenario_path(scene, previous_attempt) }
+                %a{ href: scene_scenario_path(scene_id: scene, id: previous_attempt) }
                   == #{ t :'scenes.etlite.backToPrevious' }&hellip;
 
             - elsif scene.previous_attempt(current_or_guest_user)
               %span.buttons
-                %a.blue.launch{ href: scene_scenario_path(scene, previous_attempt) }<>
+                %a.blue.launch{ href: scene_scenario_path(scene_id: scene, id: previous_attempt) }<>
                   == #{ t :'scenes.etlite.continue' }&hellip;
 
               .start-over

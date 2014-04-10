@@ -12,10 +12,6 @@ class User < ActiveRecord::Base
   #
   devise :database_authenticatable, :recoverable, :rememberable, :validatable
 
-  # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :name, :remember_me, :ip,
-                  :password, :password_confirmation,
-
   # INSTANCE METHODS ---------------------------------------------------------
 
   # The URL to a user's profile image.

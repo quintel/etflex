@@ -21,8 +21,6 @@ class SceneProp < ActiveRecord::Base
 
   delegate :key, :behaviour, to: :prop, allow_nil: true
 
-  attr_accessible :location, :prop_id, :position
-
   default_scope do
     order(:position)
   end

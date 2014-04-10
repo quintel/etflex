@@ -42,7 +42,6 @@ describe ETFlex::ClientResponder do
     context 'when requesting JSON' do
       subject { get :index, format: 'json' }
 
-      it { should_not render_template('application/client') }
       it { subject.content_type.should eql('application/json') }
       it { subject.status.should eql(200) }
     end # when requesting JSON
