@@ -62,7 +62,8 @@ class exports.DashboardProp extends GenericProp
   setDifference: (difference, options) ->
     options or= { precision: 1, strip_insignificant_zeros: true }
 
-    element = @$ '.difference .output'
+    effect  = @$('.difference .effect')
+    element = @$('.difference .output')
 
     # Clear out other classes by default
     element.attr class: 'output'
@@ -78,8 +79,10 @@ class exports.DashboardProp extends GenericProp
 
     if difference > 0
       element.addClass('up').html "#{formatted}"
+      effect.hide().show('bounce', { times: 3 }, 'slow')
     else if difference < 0
       element.addClass('down').html "#{formatted}"
+      effect.hide().show('bounce', { times: 3 }, 'slow')
     else
       element.html ""
 

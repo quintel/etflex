@@ -13,6 +13,7 @@
  *= require jquery.scrollTo-1.4.7
  *= require jquery.reveal
  *= require jquery.cookie
+ *= require jquery.bounce
  *= require underscore
  *= require backbone
  *= require moment
