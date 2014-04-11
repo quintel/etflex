@@ -3,7 +3,7 @@
     <% if @conferenceMode: %>
       <li>&nbsp;</li>
     <% else: %>
-      <li>
+      <li style="width: 110px">
         <div class="g-plus" data-action="share" data-annotation="bubble" data-href="http://etflex.et-model.com/"></div>
 
         <script type="text/javascript">
