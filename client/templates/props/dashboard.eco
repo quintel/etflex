@@ -6,5 +6,5 @@
 </span>
 
 <span class="difference <% if @lowerBetter: %>lower-better<% end %>">
-  <span class="output"></span>
+  <span class="effect"><span class="output"></span></span>
 </span>
