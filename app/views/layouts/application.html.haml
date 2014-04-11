@@ -1,5 +1,5 @@
 !!! 5
-%html{lang:I18n.locale}
+%html{ lang: I18n.locale, itemscope: 'itemscope', itemtype: 'http://schema.org/SoftwareApplication' }
   %head
     %title= I18n.t "etm_light"
 
@@ -8,6 +8,9 @@
     = csrf_meta_tags
 
     %meta(name="viewport" content="width=1100")
+    %meta(itemprop="name" content="Energy Transition Model")
+    %meta(itemprop="description" content="The &quot;light&quot; Energy Transition Model is a game where you decide how to create (and consume) energy in the 2030. Can you create a greener, more sustainable, and inexpensive future? Try to beat the high score!")
+    %meta(itemprop="image" content="http://etflex.et-model.com/assets/share-image.png")
 
   %body.message{ class: I18n.locale }
     #master-content
