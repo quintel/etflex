@@ -13,8 +13,7 @@ ETFlex::Application.routes.draw do
 
   # Devise -------------------------------------------------------------------
 
-  devise_for :users, controllers: {
-    omniauth_callbacks: 'omniauth_callbacks', registrations: 'users' }
+  devise_for :users
 
   devise_scope :user do
     get '/hello',   to: 'devise/sessions#new'

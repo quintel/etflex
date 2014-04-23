@@ -54,9 +54,6 @@ class SceneInput < ActiveRecord::Base
 
   delegate :key, :unit, :group, to: :input, allow_nil: true
 
-  attr_accessible :input_id, :location, :position, :step, :min, :max,
-                  :step, :start, :information_en, :information_nl
-
   default_scope do
     order(:position)
   end

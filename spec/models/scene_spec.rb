@@ -3,25 +3,6 @@ require 'spec_helper'
 describe Scene do
   it { should successfully_save }
 
-  it { should allow_mass_assignment_of(:name) }
-  it { should allow_mass_assignment_of(:name_key) }
-  it { should allow_mass_assignment_of(:score_gquery) }
-
-  it { should_not allow_mass_assignment_of(:scene_props) }
-  it { should_not allow_mass_assignment_of(:props) }
-
-  it { should_not allow_mass_assignment_of(:scene_inputs) }
-  it { should_not allow_mass_assignment_of(:left_scene_inputs) }
-  it { should_not allow_mass_assignment_of(:right_scene_inputs) }
-  it { should_not allow_mass_assignment_of(:hidden_scene_inputs) }
-
-  it { should_not allow_mass_assignment_of(:inputs) }
-  it { should_not allow_mass_assignment_of(:left_inputs) }
-  it { should_not allow_mass_assignment_of(:right_inputs) }
-  it { should_not allow_mass_assignment_of(:hidden_inputs) }
-
-  it { should_not allow_mass_assignment_of(:scenarios) }
-
   # RELATIONS ----------------------------------------------------------------
 
   it { should have_many(:scene_props) }

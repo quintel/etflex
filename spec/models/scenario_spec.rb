@@ -6,21 +6,6 @@ describe Scenario do
 
   # ATTRIBUTES --------------------------------------------------------------
 
-  it { should_not allow_mass_assignment_of(:user) }
-  it { should_not allow_mass_assignment_of(:user_id) }
-  it { should_not allow_mass_assignment_of(:guest_uid) }
-
-  it { should_not allow_mass_assignment_of(:scene) }
-  it { should_not allow_mass_assignment_of(:scene_id) }
-
-  it { should_not allow_mass_assignment_of(:session_id) }
-  it { should_not allow_mass_assignment_of(:score) }
-
-  it { should allow_mass_assignment_of(:guest_name) }
-  it { should allow_mass_assignment_of(:title) }
-  it { should allow_mass_assignment_of(:input_values) }
-  it { should allow_mass_assignment_of(:query_results) }
-
   it { should_not validate_presence_of(:guest_name) }
 
   # RELATIONS ----------------------------------------------------------------

@@ -19,8 +19,6 @@
 #
 class Prop < ActiveRecord::Base
 
-  attr_accessible :behaviour, :key
-
   # VALIDATION ---------------------------------------------------------------
 
   validates :key,       presence: true, length: { in: 1..100 }

@@ -6,7 +6,7 @@ module Backstage::PropsHelper
   # form - The form builder object.
   #
   def scene_prop_key_select(form)
-    props = Prop.scoped.only(:id, :key).map do |prop|
+    props = Prop.all.only(:id, :key).map do |prop|
       [ %|#{ I18n.t "props.#{ prop.key }.name" } (#{ prop.key })|, prop.id ]
     end
 

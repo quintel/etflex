@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-RAILS_VERSION = '~> 3.2.17'
+RAILS_VERSION = '~> 4.1.0'
 
 gem 'activesupport',  RAILS_VERSION, :require => 'active_support'
 gem 'actionpack',     RAILS_VERSION, :require => 'action_pack'
@@ -17,7 +17,7 @@ gem 'mysql2'
 gem 'acts_as_list'
 gem 'default_value_for'
 
-gem 'haml', '~> 3.1'
+gem 'haml', '~> 4.0'
 gem 'jbuilder'
 gem 'simple_form'
 gem 'redcarpet'
@@ -57,8 +57,7 @@ group :assets do
   gem 'therubyracer', '>= 0.12'
   gem 'libv8',        '>= 3.16.14.3'
 
-  gem 'sass',          '~> 3.2'
-  gem 'sass-rails',    '~> 3.2'
+  gem 'sass-rails',    '~> 4.0'
   gem 'coffee-rails',  '>= 3.2.1'
   gem 'compass-rails', '>= 1.0.0'
   gem 'eco',           '~> 1.0'
@@ -96,7 +95,7 @@ end
 
 group :test do
   gem 'database_cleaner'
-  gem 'shoulda-matchers'
+  gem 'shoulda-matchers', require: false
 
   # Integration / acceptance testing.
   gem 'capybara', '~> 2.1.0'

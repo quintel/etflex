@@ -2,14 +2,6 @@ require 'spec_helper'
 
 describe SceneProp do
 
-  it { should allow_mass_assignment_of(:location) }
-  it { should allow_mass_assignment_of(:prop_id) }
-  it { should allow_mass_assignment_of(:position) }
-
-  it { should_not allow_mass_assignment_of(:scene) }
-  it { should_not allow_mass_assignment_of(:scene_id) }
-  it { should_not allow_mass_assignment_of(:prop) }
-
   it { should validate_presence_of(:scene_id) }
   it { should validate_presence_of(:prop_id) }
 

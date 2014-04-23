@@ -15,6 +15,12 @@ module Backstage
       @scene = Scene.find(params[:id])
     end
 
+    # Returns the sanitized parameters for creating and editing props.
+    #
+    def scene_params
+      params.require(:scene).permit(:name, :name_key, :score_gquery)
+    end
+
     # ACTIONS ----------------------------------------------------------------
 
     ######
@@ -43,7 +49,7 @@ module Backstage
     # POST /backstage/scenes
     #
     def create
-      @scene = Scene.create(params[:scene])
+      @scene = Scene.create(scene_params)
       respond_with @scene, location: backstage_scenes_path
     end
 
@@ -60,7 +66,7 @@ module Backstage
     # PUT /backstage/scenes/:id
     #
     def update
-      @scene.update_attributes(params[:scene])
+      @scene.update_attributes(scene_params)
       respond_with @scene, location: backstage_scenes_path
     end
 
