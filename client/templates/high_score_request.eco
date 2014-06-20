@@ -6,7 +6,7 @@
     <label for="scenario-guest-name"><%= I18n.t 'words.your_name' %></label>
 
     <fieldset>
-      <input name="name" id="scenario-guest-name" value="<%= @name %>" placeholder="<%= I18n.t('words.anonymous') %>" type="text" />
+      <input name="name" id="scenario-guest-name" value="<%= @name %>" placeholder="<%= I18n.t('words.anonymous') %>" type="text" maxlength="50" />
 
       <span class="buttons">
         <input type="submit" value="<%= I18n.t 'words.save' %>" class="button green" />

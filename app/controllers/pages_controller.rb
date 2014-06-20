@@ -47,6 +47,7 @@ class PagesController < ApplicationController
 
     # Name may be nil if the users wishes to be anonymous.
     name = params[:user][:name].presence
+    name = name[0...50] if name
 
     if user_signed_in?
       current_user.update_attributes(name: name)

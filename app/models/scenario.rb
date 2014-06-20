@@ -137,6 +137,7 @@ class Scenario < ActiveRecord::Base
   validates :user_id,    presence: true, if: -> { guest_uid.blank? }
   validates :scene_id,   presence: true
   validates :session_id, presence: true, uniqueness: true
+  validates :guest_name, length: { maximum: 50 }, allow_blank: true
 
   # INSTANCE METHODS ---------------------------------------------------------
 
