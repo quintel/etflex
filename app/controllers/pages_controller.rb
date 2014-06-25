@@ -47,18 +47,13 @@ class PagesController < ApplicationController
   def update_username
     return head(:bad_request) if params[:user].nil?
 
-    # Name may be nil if the users wishes to be anonymous.
     name = params[:user][:name].presence
-    name = name[0...50] if name
 
+    # Name may be nil if the users wishes to be anonymous.
     if user_signed_in?
       current_user.update_attributes(name: name)
     else
-      guest_user.name = name
-      guest_user.save(cookies)
-
-      # Update the stored guest name for the user's scenarios.
-      Scenario.where(guest_uid: guest_user.id).update_all(guest_name: name)
+      set_guest_name(name)
     end
 
     head :no_content

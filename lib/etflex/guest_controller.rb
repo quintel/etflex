@@ -7,6 +7,7 @@ module ETFlex
 
     included do
       before_filter :handle_guest_id
+      before_filter :guest_name_from_params
       helper_method :guest_user
       helper_method :current_or_guest_user
     end
@@ -47,6 +48,36 @@ module ETFlex
       if user_signed_in? then current_user else guest_user end
     end
 
+    # Before filter which detects the presence of a "who" parameter, and sets
+    # the guest name to it's value. The user will be redirected back to the
+    # page without the "who" parameter present.
+    #
+    # If a guest name was already set, the session will be reset, and a new one
+    # created with the new guest name.
+    #
+    # Only affects GET requests which want HTML.
+    def guest_name_from_params
+      if request.get? && request.format.html? && (name = params[:who])
+        if user_signed_in? || guest_user.name && guest_user.name != name
+          reset_guest!
+        end
+
+        set_guest_name(name)
+
+        redirect_to params.except(:who)
+      end
+    end
+
+    # Given a name, sets the current session's guest name to be that vlaue.
+    def set_guest_name(name)
+      guest_user.name = name
+      guest_user.save(cookies)
+
+      # Update the stored guest name for the user's scenarios.
+      Scenario.where(guest_uid: guest_user.id)
+        .update_all(guest_name: guest_user.name)
+    end
+
     # Removes all stored settings about the guest so that a sebsequent request
     # is assigned a new guest ID.
     #
@@ -54,6 +85,7 @@ module ETFlex
       original_locale = session[:locale]
       original_scores = session[:show_scores]
 
+      sign_out(:user) if user_signed_in?
       reset_session
 
       session[:locale]      = original_locale

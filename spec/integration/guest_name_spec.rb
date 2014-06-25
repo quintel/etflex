@@ -210,4 +210,50 @@ feature 'Requesting the visitors name', js: true do
     page.should have_css('.high-score-request')
   end
 
+  # ----------------------------------------------------------------------------
+
+  scenario 'As anonymous user, setting name via :who parameter' do
+    visit "/scenes/#{ scene.id }"
+
+    scenario = Scenario.last
+
+    expect { visit "/scenes/#{ scene.id }?who=Jeff" }.
+      to change { scenario.reload ; scenario.guest_name }.
+      from(nil).to('Jeff')
+  end
+
+  # ----------------------------------------------------------------------------
+
+  scenario 'As a named user, setting name via :who parameter' do
+    visit "/scenes/#{ scene.id }?who=Jeff"
+
+    scenario = Scenario.last
+
+    # When the guest already has a name, a new session should be created.
+    expect { visit "/scenes/#{ scene.id }?who=Britta" }.
+      to change { Scenario.count }
+
+    expect(scenario.guest_name).to eq('Jeff')
+    expect(Scenario.last.guest_name).to eq('Britta')
+  end
+
+  # --------------------------------------------------------------------------
+
+  scenario 'As a signed-in user; setting name via :who parameter' do
+    sign_in create(:user, name: 'Jeff')
+
+    visit "/scenes/#{ scene.id }"
+
+    scenario = Scenario.last
+
+    # When the guest already has a name, a new session should be created.
+    expect { visit "/scenes/#{ scene.id }?who=Britta" }.
+      to change { Scenario.count }
+
+    expect(scenario.guest_name).to eq('Jeff')
+    expect(scenario.user.name).to eq('Jeff')
+
+    expect(Scenario.last.guest_name).to eq('Britta')
+  end
+
 end
