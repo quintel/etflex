@@ -58,9 +58,10 @@
                 .start-over &nbsp;
 
 
-          #scores.scores.condensed{ data: {scene: scene.id} }
-            %h2== #{ t :'words.high_scores' }:
-            .loading== #{ t :'words.loading' }&hellip;
+          - if scores_enabled?
+            #scores.scores.condensed{ data: {scene: scene.id} }
+              %h2== #{ t :'words.high_scores' }:
+              .loading== #{ t :'words.loading' }&hellip;
 
     %footer
       %ul#partners
