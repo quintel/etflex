@@ -11,7 +11,6 @@ Most of the application is implemented in **CoffeeScript** and can be found in
 
 ## Installation
 
-
  1. Copy `config/database.sample.yml` and `config/etflex.sample.yml` to
     `config/database.yml` and `config/etflex.yml` respectively. Edit any
     settings as necessary for your local machine.
@@ -24,6 +23,38 @@ Most of the application is implemented in **CoffeeScript** and can be found in
 
  4. After creating your new database, run `rake db:setup db:seed` to add the
     tables, and some initial seed data.
+
+## Runtime Options
+
+You can customise the ETFlex experience by including certain options as part of
+the URL query string.
+
+#### `who=GuestName`
+
+Any GET request for an HTTP resource (i.e. the root page, /scenes/:id, etc) may
+include an optional `who` parameter:
+
+```
+http://beta.etflex.et-model.com/?who=Jeff
+http://beta.etflex.et-model.com/scenes/1?who=Britta
+```
+
+This will set the name of the guest user. If the visitor has been to the ETFlex
+site previously then either the name will be updated (if they opted not to enter
+a name on their previous visit), or a new session will be created if the name
+differs from the one we stored.
+
+#### `scores=(off|no|false|hide|on|yes|true|show)`
+
+Disables or enables the display of high scores. When disabled, the high score
+"podium" prop is removed from scenario pages, and the high score lists will be
+hidden on both scenario pages and the root page.
+
+```
+http://beta.etflex.et-model.com/?scores=off
+http://beta.etflex.et-model.com/?scores=on
+http://beta.etflex.et-model.com/scenes/1/with/348179?scores=hide
+```
 
 ## Running the Tests
 
