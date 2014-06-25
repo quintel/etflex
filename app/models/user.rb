@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
   #
   devise :database_authenticatable, :recoverable, :rememberable, :validatable
 
+  validates :name, length: { maximum: 50 }, allow_blank: true
+
   # INSTANCE METHODS ---------------------------------------------------------
 
   # The URL to a user's profile image.

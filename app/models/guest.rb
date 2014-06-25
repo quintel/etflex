@@ -18,7 +18,16 @@ class Guest
   # name - A string containing the guest's name.
   #
   def initialize(id = SecureRandom.uuid, name = nil)
-    @id, @name = id, name
+    @id = id
+    self.name = name
+  end
+
+  # Sets the guest name.
+  #
+  # name - The string to set.
+  #
+  def name=(name)
+    @name = (name = name.try(:strip).presence) && name[0..50] || nil
   end
 
   # Returns the URL of the image used to idenfity guests, relative to the web
