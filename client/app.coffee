@@ -41,6 +41,8 @@ exports.boot = (window, { locale, api, env, user, pusher_key, conference, offlin
   moment.lang locale
   $('body').addClass(exports.mode)
 
+  setGlobalCssClasses({ conference, offline })
+
   # Pusher notifications.
   if exports.pusher_key
     exports.pusher = new Pusher(exports.pusher_key).
@@ -105,6 +107,19 @@ modeFromUrl = ->
     'energyfuture'
   else
     'normal'
+
+# Given an object containing keys and values which are true or false, sets
+# classes on the body element so that CSS can read the settings.
+#
+# For example:
+#
+#   setBodyClasses(score: true, conference: false)
+#   # body.score.no-conference
+setGlobalCssClasses = (options) ->
+  el = $('html')
+
+  for own key, value of options
+    if value then el.addClass(key) else el.addClass("no-#{ key }")
 
 # Global PubSub Events -------------------------------------------------------
 
