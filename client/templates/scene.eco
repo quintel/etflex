@@ -11,10 +11,12 @@
 
   <div data-prop-location="bottom" class="dashboard" id="main-props"></div>
 
-  <div id="scores">
-    <h2><%= I18n.t 'words.high_scores' %></h2>
-    <div class="loading"><%= I18n.t 'words.loading' %></div>
-  </div>
+  <% if @showScores: %>
+    <div id="scores">
+      <h2><%= I18n.t 'words.high_scores' %></h2>
+      <div class="loading"><%= I18n.t 'words.loading' %></div>
+    </div>
 
-  <a href="#scores" id="score-notifier" data-navigate="noclient"><%= I18n.t 'scenes.name_request.score.header' %></a>
+    <a href="#scores" id="score-notifier" data-navigate="noclient"><%= I18n.t 'scenes.name_request.score.header' %></a>
+  <% end %>
 </div>

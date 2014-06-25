@@ -9,6 +9,9 @@ exports.pusher_key = true
 # Behave as if ETFlex is being displayed at a conference?
 exports.conference = false
 
+# Are features related to scores (the podium, high score list, etc) enabled?
+exports.scores = true
+
 # Custom version of ETFlex to show (e.g. energyfuture.nl iframe).
 exports.mode = 'normal'
 
@@ -22,7 +25,7 @@ exports.collections = {}
 exports.pusher = null
 
 # Called _once_ when the application is first loaded in the browser.
-exports.boot = (window, { locale, api, env, user, pusher_key, conference, offline, etm_url }) ->
+exports.boot = (window, { locale, api, env, user, pusher_key, conference, offline, etm_url, scores }) ->
   installConsolePolyfill window
 
   # Current user
@@ -30,6 +33,7 @@ exports.boot = (window, { locale, api, env, user, pusher_key, conference, offlin
   exports.user       = require('models/user').createUser user
   exports.pusher_key = pusher_key
   exports.conference = conference
+  exports.scores     = scores
   exports.offline    = offline
   exports.mode       = modeFromUrl()
   exports.etm_url    = etm_url
@@ -41,7 +45,7 @@ exports.boot = (window, { locale, api, env, user, pusher_key, conference, offlin
   moment.lang locale
   $('body').addClass(exports.mode)
 
-  setGlobalCssClasses({ conference, offline })
+  setGlobalCssClasses({ scores, conference, offline })
 
   # Pusher notifications.
   if exports.pusher_key

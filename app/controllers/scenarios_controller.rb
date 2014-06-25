@@ -2,6 +2,8 @@ class ScenariosController < ApplicationController
   include ETFlex::ClientController
   helper  ScenesHelper
 
+  before_filter :enable_or_disable_scores, only: :show
+
   # HELPERS ------------------------------------------------------------------
 
   #######
@@ -110,7 +112,7 @@ class ScenariosController < ApplicationController
     respond_with @scenario, location: scene_scenario_url
 
     # Send information about the update to connected clients.
-    scenario_pusher event, @scenario
+    scenario_pusher(event, @scenario) if scores_enabled?
   end
 
 end # ScenariosController

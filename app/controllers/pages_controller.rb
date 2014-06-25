@@ -2,6 +2,8 @@ class PagesController < ApplicationController
   helper  ScenesHelper
   include ETFlex::PusherController
 
+  before_filter :enable_or_disable_scores, only: :root
+
   # Supported browser page breaks otherwise in non-pushState browsers if we
   # use the application layout.
   layout false, only: 'supported_browsers'

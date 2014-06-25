@@ -55,12 +55,12 @@ class exports.SceneView extends Backbone.View
   #   $('body').html view.render().el
   #
   render: ->
-    @$el.html template(conferenceMode: app.conference)
+    @$el.html template(conferenceMode: app.conference, showScores: app.scores)
 
     @renderTheme()
     @renderProps()
     @renderNavigation()
-    @initHighScores()
+    @initHighScores() if app.scores
 
     this
 

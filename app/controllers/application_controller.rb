@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   include ETFlex::GuestController
   include ETFlex::LocaleController
   include ETFlex::PusherController
+  include ETFlex::ScoreController
 
   layout :layout_by_resource
 

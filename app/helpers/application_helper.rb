@@ -35,7 +35,8 @@ module ApplicationHelper
       pusher_key: ETFlex.config.pusher && ETFlex.config.pusher[:key],
       conference: ETFlex.config.conference,
       offline:    ETFlex.config.offline,
-      etm_url:    ETFlex.config.etm_url
+      etm_url:    ETFlex.config.etm_url,
+      scores:     scores_enabled?
     }.to_json
   end
 

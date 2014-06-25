@@ -23,3 +23,7 @@
 @mixin pull($size)
   left: -( $size * 60px )
 
+// Elements made invisible by the presence of the "no-scores" class on the
+// <html> element.
+html.no-scores %no-scores
+  display: none

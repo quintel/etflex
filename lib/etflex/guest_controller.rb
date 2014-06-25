@@ -52,9 +52,12 @@ module ETFlex
     #
     def reset_guest!
       original_locale = session[:locale]
+      original_scores = session[:show_scores]
 
       reset_session
-      session[:locale] = original_locale
+
+      session[:locale]      = original_locale
+      session[:show_scores] = original_scores
 
       cookies.delete :guest
       @_guest = nil
