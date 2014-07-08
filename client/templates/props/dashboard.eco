@@ -1,6 +1,7 @@
 <div class="icon"></div>
 
 <span class="help value">
+  <span class="help-icon"></span>
   <span class="name"><%- @name %>:</span>
   <span class="output"><%- @value or '' %></span>
 </span>

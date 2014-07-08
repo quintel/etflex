@@ -62,6 +62,8 @@ group :assets do
   gem 'compass-rails', '>= 1.0.0'
   gem 'eco',           '~> 1.0'
   gem 'uglifier',      '>= 1.0.3'
+
+  gem 'animation'
 end
 
 group :production, :staging do

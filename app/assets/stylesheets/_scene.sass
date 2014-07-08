@@ -5,12 +5,19 @@
 // while style specific to different scenes should be placed in a file
 // dedicated to the scenes in ./scenes
 
+@include keyframes(zoomProp)
+  0%
+    @include scale(1.0)
+  50%
+    @include scale(1.07)
+  100%
+    @include scale(1.0)
+
 #scene-view
   .range .label .help,
   #left-inputs h2 .help,
-  #right-inputs h2 .help,
-  .icon-prop .help
-    background: image-url("range-help.png") no-repeat
+  #right-inputs h2 .help
+    background: image-url("range-help.png") no-repeat 0 0
     cursor: pointer
     display: inline-block
     height: 18px
@@ -67,7 +74,7 @@
     // The three props which sit at the bottom of each page, beneath
     // the slider groups.
     .dashboard
-      @extend .clearfix
+      @include pie-clearfix
       margin-bottom: 25px
       text-align: center
 
@@ -77,6 +84,9 @@
         text-align: center
         vertical-align: top
         width: 192px
+
+        &.zoom
+          @include animation(zoomProp 0.4s 2)
 
         .icon-prop
           height: 140px
@@ -99,6 +109,20 @@
           display: inline-block
           font-size: 13px
           padding: 5px 7px 1px
+
+          .help-icon
+            background: image-url("range-help.png") no-repeat 0 100px
+            display: inline-block
+            height: 18px
+            margin: -4px 0 0 -21px
+            vertical-align: middle
+            width: 17px
+
+          &:hover .help-icon
+            background-position: 0 0
+
+          &:active .help-icon
+            background-position: 0 -70px
 
           .output, .unit
             font-weight: bold

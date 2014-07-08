@@ -2,6 +2,15 @@ template        = require 'templates/props/dashboard'
 { GenericProp } = require 'views/props/generic'
 { IconProp }    = require 'views/props/icon'
 
+cssTransitionAnimation = (element) ->
+  element.addClass('zoom')
+  console.log element
+  setTimeout((-> element.removeClass('zoom')), 850)
+
+jsAnimation = (element) ->
+  element.find('.difference .effect')
+    .hide().show('bounce', { times: 3 }, 'slow')
+
 # View Classes ---------------------------------------------------------------
 
 # A base class used by props which appear in the dashboard section. Shows an
@@ -77,12 +86,16 @@ class exports.DashboardProp extends GenericProp
     difference = parseFloat @precision(difference,
       if options.precision? then options.precision else 1)
 
-    if difference > 0
-      element.addClass('up').html "#{formatted}"
-      effect.hide().show('bounce', { times: 3 }, 'slow')
-    else if difference < 0
-      element.addClass('down').html "#{formatted}"
-      effect.hide().show('bounce', { times: 3 }, 'slow')
+    if difference
+      if difference > 0
+        element.addClass('up').html "#{formatted}"
+      else
+        element.addClass('down').html "#{formatted}"
+
+      if Modernizr.csstransforms
+        cssTransitionAnimation(@$el)
+      else
+        jsAnimation(@$el)
     else
       element.html ""
 
