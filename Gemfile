@@ -2,11 +2,7 @@ source 'http://rubygems.org'
 
 RAILS_VERSION = '~> 4.1.0'
 
-gem 'activesupport',  RAILS_VERSION, :require => 'active_support'
-gem 'actionpack',     RAILS_VERSION, :require => 'action_pack'
-gem 'activerecord',   RAILS_VERSION, :require => 'active_record'
-gem 'actionmailer',   RAILS_VERSION, :require => 'action_mailer'
-gem 'railties',       RAILS_VERSION, :require => 'rails'
+gem 'rails', '~> 4.1.0'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
