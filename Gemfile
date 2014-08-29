@@ -1,4 +1,4 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
 RAILS_VERSION = '~> 4.1.0'
 
@@ -40,27 +40,20 @@ gem 'dotenv-rails', groups: [:development, :test, :production, :staging]
 # Treetop for the grammars
 gem 'treetop'
 
-# Deploy with Capistrano
-gem 'capistrano', '< 3.0'
+# The Ruby Racer gives _much_ faster CoffeeScript compilation than simply
+# using Node since it all happens within the Ruby process; compilation with
+# Node fires up a new Node process for each source file, slowing things down
+# considerably in development.
+gem 'therubyracer',  '>= 0.12'
+gem 'libv8',         '>= 3.16.14.3'
 
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  # The Ruby Racer gives _much_ faster CoffeeScript compilation than simply
-  # using Node since it all happens within the Ruby process; compilation with
-  # Node fires up a new Node process for each source file, slowing things down
-  # considerably in development..
-  gem 'therubyracer', '>= 0.12'
-  gem 'libv8',        '>= 3.16.14.3'
+gem 'sass-rails',    '~> 4.0'
+gem 'coffee-rails',  '>= 3.2.1'
+gem 'compass-rails', '>= 1.0.0'
+gem 'eco',           '~> 1.0'
+gem 'uglifier',      '>= 1.0.3'
 
-  gem 'sass-rails',    '~> 4.0'
-  gem 'coffee-rails',  '>= 3.2.1'
-  gem 'compass-rails', '>= 1.0.0'
-  gem 'eco',           '~> 1.0'
-  gem 'uglifier',      '>= 1.0.3'
-
-  gem 'animation'
-end
+gem 'animation'
 
 group :production, :staging do
   gem 'unicorn'
@@ -75,6 +68,13 @@ group :development do
   gem 'guard-shell'
   gem 'rb-fsevent'
   gem 'growl_notify'
+
+  # Deploy with Capistrano.
+  gem 'capistrano',          '~> 3.0', require: false
+  gem 'capistrano-rbenv',    '~> 2.0', require: false
+  gem 'capistrano-rails',    '~> 1.1', require: false
+  gem 'capistrano-bundler',  '~> 1.1', require: false
+  gem 'capistrano3-unicorn', '~> 0.2', require: false
 end
 
 group :test, :development do
