@@ -19,11 +19,11 @@ nl:
 
     right-controls:
       "<h3>Vergeet ook deze schuifjes niet</h3>
-      <p>Hetzelfde als aan de linkerkant. Als je iets niet begrijpt kun je
-      klikken op het vraagteken!</p>"
+       <p>Hetzelfde als aan de linkerkant. Als je iets niet begrijpt kun je
+       klikken op het vraagteken!</p>"
 
     balance:
-      "<h3>Supply and Demand</h3>
+      "<h3>Vraag en Aanbod</h3>
        <p>Probeer vraag en aanbod van energie in balans te houden!</p>"
 
     dashboard:

@@ -23,7 +23,7 @@ nl:
 
     info:        Meer
     help:        Help
-    how_to_use:  Hoe de site te gebruiken
+    how_to_use:  Hoe werkt deze site?
 
     settings:    Instellingen
     region:      Gebied
@@ -54,7 +54,7 @@ nl:
     confirm_password:   Bevestig wachtwoord
     remember_me:        Onthoud mijn login
     sign_in:            Aanmelden
-    sign_in_long:       Meld u aan bij mijn account
+    sign_in_long:       Meld u aan bij uw account
     sign_up:            Meld je nu aan
     cancel:             Annuleren
     save:               Bewaren
@@ -101,7 +101,7 @@ nl:
           Wat is je naam? Deze wordt gebruikt voor de high score.
     cannot_change:
       title:   "Dit scenario behoort tot een andere bezoeker"
-      message: "Sorry je kunt iemand anders zijn scenario niet aanpassen"
+      message: "Sorry je kunt het scenario van iemand anders niet aanpassen"
 
     etlite:
       savings:      "Besparingen"
@@ -137,7 +137,7 @@ nl:
 
   # Common content on scene pages --------------------------------------------
 
-  partners: "Partners of the Energy Transition Model"
+  partners: "Partners van het Energietransitiemodel"
   leading_partner: "Leading partner van het Energietransitiemodel"
 
   # Custom validation messages

@@ -26,8 +26,8 @@ nl:
     etflex_score:
       header: "Je scoort (Q:score) punten"
       body: |-
-        Je score gaat omhoog als je kosten, CO<sub>2</sub> en kernafval
-        dalen, en als je duurzaamheid en betrouwbaarheid stijgen. Als je
+        Je score gaat omhoog als je kosten, CO<sub>2</sub> uitstoot en kernafval
+        dalen, en als de duurzaamheid en betrouwbaarheid stijgen. Als je
         teveel inzet op één opwekkingstechniek of als je geen
         balans hebt tussen vraag en aanbod daalt je score.
 
@@ -132,8 +132,8 @@ nl:
 
     investment:
       header: "Totale investeringen"
-      body: "Deze totale investeringskosten per huishouden zijn nodig
-      om de opties te realiseren die je hier hebt gekozen."
+      body: "Per huishouden moet zoveel geïnvesteerd worden als hier 
+      aangegeven om alles te realiseren wat je hier hebt gekozen."
 
     sustainable_energy:
       header: "Hernieuwbaarheid"
@@ -158,7 +158,7 @@ nl:
     house:
       header: "Het energiegebruik van een huis"
       body: |-
-        Het huis dat je in je scherm ziet staan is een gemiddeld vrijstaand
+        Het huis dat je in je scherm ziet staan, is een gemiddeld vrijstaand
         huis in Nederland met 3 bewoners. Het huis heeft een HR-ketel 
         een gemiddeld aantal elektrische apparaten. De rest
         is aan jou! Lukt het je om van dit huis een energieneutraal huis te
