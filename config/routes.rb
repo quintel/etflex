@@ -40,6 +40,6 @@ ETFlex::Application.routes.draw do
 
   get '/supported_browsers', to: 'pages#supported_browsers'
 
-  root to: 'pages#root'
+  get '/', to: redirect('/scenes/1')
 
 end
