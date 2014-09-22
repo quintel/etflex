@@ -78,6 +78,15 @@ module ETFlex
         .update_all(guest_name: guest_user.name)
     end
 
+    # Given a guest object, completely removes the previous guest and installs
+    # the one given.
+    def set_guest(guest)
+      reset_guest!
+
+      @_guest = guest
+      @_guest.save(cookies)
+    end
+
     # Removes all stored settings about the guest so that a sebsequent request
     # is assigned a new guest ID.
     #
