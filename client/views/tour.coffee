@@ -39,18 +39,6 @@ tourSteps = ->
       position: 'right'
     })
 
-  if $('#scores ol .current').length
-    # If the user's current scenario is in the high score table, highlight
-    # that as the final tour item.
-    highScoreEl = '#scores ol .current'
-  else if $('#scores ol li').length
-    # Highlight the current top score. We do this rather than showing the
-    # whole high score div because it is too tall.
-    highScoreEl = '#scores ol li:first-child'
-  else
-    # Okay, fine. The whole (empty) high score div will do.
-    highScoreEl = '#scores'
-
   steps.push({
     element: '#right-inputs'
     intro: I18n.t 'intro.right-controls'
@@ -59,11 +47,26 @@ tourSteps = ->
     element: '.dashboard'
     intro: I18n.t 'intro.dashboard'
     position: 'top'
-  }, {
-    element: highScoreEl
-    intro: I18n.t 'intro.highscores'
-    position: 'top'
   })
+
+  if $('#scores').length
+    if $('#scores ol .current').length
+      # If the user's current scenario is in the high score table, highlight
+      # that as the final tour item.
+      highScoreEl = '#scores ol .current'
+    else if $('#scores ol li').length
+      # Highlight the current top score. We do this rather than showing the
+      # whole high score div because it is too tall.
+      highScoreEl = '#scores ol li:first-child'
+    else
+      # Okay, fine. The whole (empty) high score div will do.
+      highScoreEl = '#scores'
+
+    steps.push({
+      element: highScoreEl
+      intro: I18n.t 'intro.highscores'
+      position: 'top'
+    })
 
   steps
 
