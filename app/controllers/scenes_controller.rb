@@ -36,4 +36,30 @@ class ScenesController < ApplicationController
     redirect_to scene_path(params[:id])
   end
 
+  # An action for visitors from the survey. Identifies the visitor by a token
+  # so that repeat visits may be sent back to their scenario, even though the
+  # client's application does not know the scenario ID.
+  #
+  # Redirects to the scenario.
+  #
+  # GET /as/:token
+  #
+  def survey
+    reset_guest!
+
+    session[:locale]      = :nl
+    session[:show_scores] = false
+
+    token = params[:token].strip
+
+    set_guest(Guest.new(token, token))
+
+    if existing = Scenario.for_user(guest_user).first
+      redirect_to scene_scenario_url(
+        scene_id: existing.scene_id, id: existing.session_id)
+    else
+      redirect_to Scene.find(1)
+    end
+  end
+
 end # ScenesController

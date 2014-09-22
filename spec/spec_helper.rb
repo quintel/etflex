@@ -104,4 +104,10 @@ RSpec.configure do |config|
   config.before(:each, api: true) { Capybara.current_driver = :rack_test_api }
   config.after(:each,  api: true) { Capybara.current_driver = :rack_test     }
 
+  # Survey Branch Customisation
+  # ---------------------------
+
+  # Conference mode does not apply.
+  config.filter_run_excluding conference: true
+
 end

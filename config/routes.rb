@@ -8,6 +8,8 @@ ETFlex::Application.routes.draw do
     member { get 'fresh' }
   end
 
+  get 'survey/:token', to: 'scenes#survey'
+
   # High scoring scenarios for the high scores list.
   get 'scenes/:scene_id/scenarios/since/:days', to: 'scenarios#since'
 

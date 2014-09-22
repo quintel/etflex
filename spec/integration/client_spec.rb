@@ -6,7 +6,7 @@ describe 'The Backbone client' do
 
   # --------------------------------------------------------------------------
 
-  specify 'Should load in client mode at the root path' do
+  pending 'Should load in client mode at the root path' do
     visit ''
 
     # English by default.
@@ -172,7 +172,7 @@ describe 'The Backbone client' do
   # --------------------------------------------------------------------------
 
   specify 'Should not be in conference mode by default' do
-    visit ''
+    visit "/scenes/#{ scene.id }"
 
     # English by default.
     page.should have_css('script', text: "boot(window,")

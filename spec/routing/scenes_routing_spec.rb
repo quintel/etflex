@@ -31,5 +31,10 @@ describe 'ScenesController' do
       get('/scenes/1/fresh').should route_to('scenes#fresh', id: '1')
     end
 
+    it 'routes to #survey' do
+      get('/survey/whoami').should route_to('scenes#survey', token: 'whoami')
+      get('/survey').should_not be_routable
+    end
+
   end
 end
