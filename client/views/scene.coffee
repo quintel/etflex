@@ -55,7 +55,13 @@ class exports.SceneView extends Backbone.View
   #   $('body').html view.render().el
   #
   render: ->
-    @$el.html template(conferenceMode: app.conference, showScores: app.scores)
+    @$el.html template(
+      scenario:       @scenario,
+      conferenceMode: app.conference,
+      showScores:     app.scores,
+      csrfName:       $('head meta[name=csrf-param]').attr('content')
+      csrfToken:      $('head meta[name=csrf-token]').attr('content')
+    )
 
     @renderTheme()
     @renderProps()

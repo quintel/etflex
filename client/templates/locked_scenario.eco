@@ -1,0 +1,4 @@
+<div id="locked-scenario">
+  <h1><%= I18n.t 'survey.thanks' %></h1>
+  <p><a href="#"><%= I18n.t 'survey.return_to_survey' %>&hellip;</a></p>
+</div>

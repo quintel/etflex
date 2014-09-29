@@ -5,6 +5,8 @@ ETFlex::Application.routes.draw do
     post 'with/:id', to: 'scenarios#update'
     put  'with/:id', to: 'scenarios#update'
 
+    post 'with/:id/lock', to: 'scenarios#lock'
+
     member { get 'fresh' }
   end
 

@@ -205,3 +205,13 @@ en:
       website. You may continue if you wish, but we recommend either upgrading
       your current browser, or to consider swapping to either Google Chrome or
       Mozilla Firefox – both are free.
+
+  # Survey Mode --------------------------------------------------------------
+
+  survey:
+    save_scenario: Save my settings and return to the survey
+    thanks: Thanks for participating!
+    return_to_survey: Return to the survey
+    save_warning: >
+      Once you save your settings, you will not be able to make any
+      further changes.

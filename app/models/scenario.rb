@@ -158,6 +158,8 @@ class Scenario < ActiveRecord::Base
   def can_change?(visitor)
     if new_record?
       true
+    elsif self.locked?
+      false
     elsif self.user_id.present?
       visitor.kind_of?(User) && visitor.id == user_id
     elsif self.guest_uid.present?

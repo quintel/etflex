@@ -2,7 +2,8 @@ class ScenariosController < ApplicationController
   include ETFlex::ClientController
   helper  ScenesHelper
 
-  before_filter :enable_or_disable_scores, only: :show
+  before_filter :enable_or_disable_scores,  only: :show
+  skip_before_filter :restrict_html_to_get, only: :lock
 
   # HELPERS ------------------------------------------------------------------
 
@@ -113,6 +114,23 @@ class ScenariosController < ApplicationController
 
     # Send information about the update to connected clients.
     scenario_pusher(event, @scenario) if scores_enabled?
+  end
+
+  # Locks a scenario preventing the user from making any further changes.
+  # Redirect back to to the survey.
+  #
+  # GET /scenes/:scene_id/with/:id/lock
+  #
+  def lock
+    unless @scenario = Scenario.for_session(*params.values_at(:scene_id, :id))
+      raise ActiveRecord::RecordNotFound
+    end
+
+    @scenario.update_attribute(:locked, true)
+
+    # TODO Redirect back to survey.
+     redirect_to scene_scenario_url(
+      scene_id: @scenario.scene_id, id: @scenario.session_id)
   end
 
 end # ScenariosController

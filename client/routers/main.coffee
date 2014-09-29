@@ -1,8 +1,9 @@
-app              = require 'app'
-render           = require 'lib/render'
+app    = require 'app'
+render = require 'lib/render'
 
-{ SceneView }    = require 'views/scene'
-{ NotFoundView } = require 'views/not_found'
+{ SceneView }          = require 'views/scene'
+{ LockedScenarioView } = require 'views/locked_scenario'
+{ NotFoundView }       = require 'views/not_found'
 
 # HELPERS --------------------------------------------------------------------
 
@@ -33,7 +34,10 @@ startScene = (collection, startArgs...) ->
           app.navigate "scenes/#{ scene.id }/with/#{ sessionId }",
             trigger: false, replace: true
 
-          render new SceneView model: scene, scenario: scenario
+          if scenario.get('locked')
+            render new LockedScenarioView model: scenario
+          else
+            render new SceneView model: scene, scenario: scenario
 
 # ROUTER ---------------------------------------------------------------------
 

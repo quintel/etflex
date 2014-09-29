@@ -12,9 +12,10 @@
   <div data-prop-location="bottom" class="dashboard" id="main-props"></div>
 
   <div id="finished-button">
-    <div class="finished-bg">
-      <a href="#" data-navigate="noclient">Save my settings and return to the survey&hellip;</a>
-      <p>Once you save your settings, you will not be able to make any further changes.</p>
+    <form class="finished-bg" action="/scenes/<%= @scenario.scene.id %>/with/<%= @scenario.id %>/lock" method="post">
+      <input type="hidden" name="<%= @csrfName %>" value="<%= @csrfToken %>" />
+      <button type="submit"><%= I18n.t 'survey.save_scenario' %>&hellip;</button>
+      <p><%= I18n.t 'survey.save_warning' %></p>
     </div>
   </div>
 

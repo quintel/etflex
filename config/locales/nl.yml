@@ -198,3 +198,13 @@ nl:
       door het ETM. Je mag doorgaan als je wilt, maar wij raden je aan je
       huidige browser te upgraden, of Google Chrome of Mozilla Firefox
       te gebruiken – beide zijn gratis.
+
+  # Survey Mode --------------------------------------------------------------
+
+  survey:
+    save_scenario: Save my settings and return to the survey
+    thanks: Thanks for participating!
+    return_to_survey: Return to the survey
+    save_warning: >
+      Once you save your settings, you will not be able to make any
+      further changes.
