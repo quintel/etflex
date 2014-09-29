@@ -18,7 +18,8 @@
 server 'etflex.et-model.com', user: 'ubuntu', roles: %w{web app db}
 
 set :application, 'surveyflex'
-set :branch, 'survey'
+set :branch,      'survey'
+set :rails_env,   'production'
 
 
 # Custom SSH Options
