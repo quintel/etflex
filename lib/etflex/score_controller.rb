@@ -23,7 +23,7 @@ module ETFlex
     # Public: Returns if the high score podium, and high score list, should be
     # displayed to the user.
     def scores_enabled?
-      session[:show_scores] != false
+      ETFlex.config.scores != false && session[:show_scores] != false
     end
 
     #######

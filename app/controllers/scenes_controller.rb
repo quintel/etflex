@@ -47,9 +47,7 @@ class ScenesController < ApplicationController
   def survey
     reset_guest!
 
-    session[:locale]      = :nl
-    session[:show_scores] = false
-
+    session[:locale] = :nl
     token = params[:token].strip
 
     set_guest(Guest.new(token, token))
