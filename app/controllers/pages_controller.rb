@@ -13,10 +13,14 @@ class PagesController < ApplicationController
   # GET /
   #
   def root
-    @alternative_locales = alternative_locales
+    scene = Scene.find(1)
 
-    @scenes           = Scene.all
-    @high_scenarios   = Scene.high_scores_since 7.days.ago
+    if scenario = scene.previous_attempt(guest_user)
+      redirect_to scene_scenario_url(
+        scene_id: scene.id, id: scenario.session_id)
+    else
+      redirect_to scene_url(scene)
+    end
   end
 
   # Changes the user language. The actual change will be handled by
