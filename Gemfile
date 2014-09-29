@@ -26,7 +26,7 @@ gem 'devise'
 gem 'jquery-rails', '~> 2.1.4'
 gem 'jquery-ui-rails'
 
-gem 'i18n-js'
+gem 'i18n-js', '>= 3.0.0.rc6'
 gem 'rails-i18n'
 gem 'http_accept_language'
 
