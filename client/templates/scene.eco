@@ -11,6 +11,13 @@
 
   <div data-prop-location="bottom" class="dashboard" id="main-props"></div>
 
+  <div id="finished-button">
+    <div class="finished-bg">
+      <a href="#" data-navigate="noclient">Save my settings and return to the survey&hellip;</a>
+      <p>Once you save your settings, you will not be able to make any further changes.</p>
+    </div>
+  </div>
+
   <% if @showScores: %>
     <div id="scores">
       <h2><%= I18n.t 'words.high_scores' %></h2>
