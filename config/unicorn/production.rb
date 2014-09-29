@@ -1,7 +1,7 @@
 # Current file lives in /u/apps/:app_name/releases/:timestamp/config/unicorn/production.rb
 app_dir = File.expand_path('../../..', File.dirname(__FILE__))
 
-worker_processes 12
+worker_processes 4
 working_directory "#{app_dir}/current"
 
 # This loads the application in the master process before forking worker
