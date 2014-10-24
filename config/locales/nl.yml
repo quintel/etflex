@@ -202,9 +202,9 @@ nl:
   # Survey Mode --------------------------------------------------------------
 
   survey:
-    save_scenario: Save my settings and return to the survey
-    thanks: Thanks for participating!
-    return_to_survey: Return to the survey
+    save_scenario: Opslaan en door naar de laatste vragenlijst
+    thanks: Veel dank voor uw deelname!
+    return_to_survey: Door naar laatste vragenlijst
     save_warning: >
-      Once you save your settings, you will not be able to make any
-      further changes.
+      Als je je instellingen opslaat, kun je je instellingen niet
+      meer veranderen. 
