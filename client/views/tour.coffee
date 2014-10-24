@@ -51,6 +51,10 @@ tourSteps = ->
     element: '.dashboard'
     intro: I18n.t 'intro.dashboard'
     position: 'top'
+  }, {
+    element: '#finished-button .finished-bg'
+    intro: I18n.t 'intro.finished-button'
+    position: 'top'
   })
 
   if $('#scores').length

@@ -35,3 +35,7 @@ en:
     highscores:
       "<h3>Compare your score to everyone elses</h3>
        <p>If you get a high score, your scenario will be shown here!</p>"
+
+    finished-button:
+      "<h3>Are you done?</h3>
+       <p>When you have finished, use this button to save your settings and close this session. You will be forwarded to a final short set of questions.</p>"

@@ -34,3 +34,7 @@ nl:
     highscores:
       "<h3>Vergelijk je score met die van anderen</h3>
        <p>Als je een hoge score haalt, komen jouw instellingen hier terecht!</p>"
+
+    finished-button:
+      "<h3>Tot slot</h3>
+       <p>Als je klaar bent kun je met deze knop je instellingen opslaan en afsluiten. Je wordt dan doorgestuurd naar een laatste korte vragenlijst.</p>"
