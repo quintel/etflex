@@ -15,6 +15,10 @@ exports.start = ->
     doneLabel: I18n.t('tour.done')
 
   tour.onchange(onChange)
+
+  tour.onexit(-> $.scrollTo(0, 250))
+  tour.oncomplete(-> $.scrollTo(0, 250))
+
   tour.start()
 
 # An array containing each step to be shown to the user
