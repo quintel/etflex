@@ -31,7 +31,7 @@ nl:
     number_of_energy_power_combined_cycle_network_gas: "Aardgascentrales"
     number_of_households_heating_solar_thermal_collectors: "Aantal zonnecollectoren (warmte)"    
     number_of_energy_power_nuclear_gen3_uranium_oxide: "Kerncentrales"
-    number_of_energy_power_ultra_supercritical_coal: "Kolen- / biomassacentrales"
+    number_of_energy_power_ultra_supercritical_coal: "Kolencentrales"
     number_of_energy_power_wind_turbine_offshore: "Windmolens"
     policy_area_biomass: "Biomass"
     transport_car_using_electricity_share: "Elektrische auto's"
@@ -67,6 +67,8 @@ nl:
       in dit huis 3 mensen wonen.
 
     green_gas_total_share: |-
+      Welk deel van al het gebruikte aardgas is groen?
+      <br/><br/>
       Uit mest, GFT afval, rioolslib, maïs en nog veel meer plantaardige en
       dierlijke producten kun je biogas maken. Biogas kun je zuiveren tot 
       aardgaskwaliteit en dan heet het groen gas.
@@ -75,6 +77,8 @@ nl:
       altijd zo gemakkelijk.
 
     households_area_solar_pv: |-
+      Welk deel van de geschikte daken heeft zonnenpanelen?
+      <br/><br/>
       Zonnepanelen maken stroom van zonlicht. Dakkopvlak is schaars en daarom
       moet je mogelijk kiezen tussen zonneboilers of zon PV.
       Zonnepanelen worden snel goedkoper. De komende 20 jaar is de verwachting
@@ -86,6 +90,8 @@ nl:
       mogelijk uit te zetten, kunnen we dus stroom besparen.
 
     households_space_heater_heatpump_ground_water_electricity_share: |-
+      Welk deel van alle huishoudens wordt met warmtepomp verwarmd?
+      <br/><br/>
       Een warmtepomp is een apparaat om je huis te verwarmen. Een warmtepomp is
       een soort omgekeerde koelkast. Hij pompt warmte van buiten het huis naar
       binnen, terwijl een koelkast warmte van binnen de koelkast naar buiten
@@ -94,18 +100,22 @@ nl:
       dat de warmtepomp duurder is om aan te schaffen.
 
     households_water_heater_solar_thermal_share: |-
+      Welk deel van alle huishoudens met een geschikt dak heeft een zonneboiler?
+      <br/><br/>
       Zonneboilers gebruiken de warmte van de zon om warm water te maken. 
       Omdat ze op je dak liggen, net als zonnepanelen, moet je mogelijk kiezen
       welke techniek je wilt. 
 
     households_water_heater_fuel_cell_chp_network_gas_share: |-
+      Welk percentage van alle huishoudens maakt warm water met brandstofcellen?
+      <br/><br/>
       Brandstofcellen lijken op batterijen. Ze zijn zeer
-      efficiënt en maken elektriciteit en warmte uit aardgas. 
-      Deze brandstofcel, een 'Solid Oxide Fuel Cell', heeft als
+      efficiënt en maken elektriciteit en warmte uit aardgas of waterstof. 
+      Deze brandstofcel heeft als
       grootste nadeel dat hij alleen bij hoge temperaturen werkt 
       (500 - 1000 °C), 
       waardoor het een tijdje duurt voordat hij opgestart is. In
-      huishoudens is dat niet zo'n probleem, omdat de brandstofcel bijna continu
+      huishoudens is dat niet zo'n probleem, omdat de brandstofcel bijna non-stop
       aanstaat. Dit apparaat maakt meer elektriciteit dan een gemiddeld 
       huishouden nodig heeft en de eigenaar wordt een echte stroomproducent. 
       
@@ -121,6 +131,8 @@ nl:
       welke techniek je wilt. 
 
     households_insulation_level_old_houses: |-
+      Hoeveel beter wordt de isolatie van onze huizen? 
+      <br/><br/>
       Hoe beter je een huis isoleert en luchtdicht maakt, hoe minder energie je
       nodig hebt voor verwarming in de winter. Isolatie zorgt er voor dat de
       warmte niet weglekt door ramen, muren, vloeren en daken. Luchtdichtheid
@@ -130,6 +142,8 @@ nl:
       geïsoleerd en luchtdicht.
 
     households_lighting_led_electricity_share: |-
+      Welk deel van alle lampen wordt LED verlichting?
+      <br/><br/>
       LED lampen zijn nog 50% efficiënter dan spaarlampen. 
       Ze kunnen snel aan en uitgezet worden, zonder dat ze daardoor sneller
       stukgaan. Ze kosten nog veel meer dan spaarlampen, maar gaan ook
@@ -167,6 +181,8 @@ nl:
       van een gascentrale is ongeveer de helft van een kolencentrale.
 
     number_of_energy_power_ultra_supercritical_network_gas: |-
+      Hoeveel gascentrales staan er?
+      <br/><br/>
       Een gascentrale is goedkoper om te bouwen dan een kolencentrale. Wel zijn
       ze duurder als ze draaien dan centrales op kolen. Een gascentrale kun je
       makkelijk aan of uit zetten. Dat is handig om stroom te makken als de
@@ -180,6 +196,8 @@ nl:
       wat je wilt. 
    
     number_of_energy_power_nuclear_gen3_uranium_oxide: |-
+      Hoeveel kerncentrales staan er?
+      <br/><br/>
       Een kerncentrale is heel duur om te bouwen, maar gaat
       lang mee en gebruikt maar kleine hoeveelheden brandstof (uranium).
       Hierdoor is het maken van stroom relatief goedkoop en staat een
@@ -191,6 +209,8 @@ nl:
       bedacht. 
 
     number_of_energy_power_ultra_supercritical_coal: |-
+      Hoeveel kolencentrales staan er?
+      <br/><br/>
       Een kolencentrale draait het grootste deel van de tijd op volle kracht.
       Regelmatig uitzetten verlaagt de hoeveelheid stroom die we uit kolen kunnen
       halen. Van alle manieren om stroom te maken geeft een kolencentrale de
@@ -198,9 +218,11 @@ nl:
       zo groot als die van een gascentrale.
 
     number_of_energy_power_wind_turbine_offshore: |-
-      Een windmolen produceert hernieuwbare stroom, omdat je geen last hebt van
-      CO<sub>2</sub>-uitstoot. Het waait niet altijd, daarom kun je niet
-      volstaan met alleen windmolens, maar heb je ook stroomopwek nodig die
+      Hoeveel windmolens staan er?
+      <br/><br/>
+      Een windmolen produceert hernieuwbare stroom, zodat je geen last hebt van
+      CO<sub>2</sub>-uitstoot. Het waait niet altijd, daarom is windmolens alleen
+      niet genoeg, maar heb je ook stroomopwek nodig die
       altijd kan blijven draaien en liefst soms wat meer en soms wat minder.
       Gascentrales zijn hier relatief het beste voor geschikt. 
       Nadeel van een windmolen op land is voor veel mensen dat ze hem niet
@@ -220,6 +242,8 @@ nl:
       op land. 
 
     transport_car_using_electricity_share: |-
+      Welk deel van alle auto's wordt elektrisch?
+      <br/><br/> 
       Een elektrische auto gebruikt de helft van de energie van een auto op
       benzine of diesel. Met elektrische auto's besparen we veel olie. 
       We moeten natuurlijk wel meer elektriciteit maken. 

@@ -28,8 +28,9 @@ nl:
 
     dashboard:
       "<h3>Dashboard</h3>
-       <p>Hier zie je hoe jouw keuzes de CO2-uitstoot,
-       je energierekening enz. veranderen.</p>"
+       <p>Steeds als je een schuifje verzet, zie je hieronder wat er gebeurt met de CO2-uitstoot,
+       de totale kosten voor Nederland, de betrouwbaarheid van stroomlevering en de hernieuwbaarheid.
+       De vraagtekentjes hieronder geven meer uitleg over de getallen.</p>"
 
     highscores:
       "<h3>Vergelijk je score met die van anderen</h3>
