@@ -2,7 +2,7 @@
 nl:
   props:
     co2_emissions:
-      header: "Je stoot (Q:total_co2_emissions) aan CO<sub>2</sub> uit"
+      header: "Je stoot nu (Q:total_co2_emissions) aan CO<sub>2</sub> uit"
       body: |-
         Auto's, verwarmingsketels en electriciteitscentrales stoten
         koolstofmonoxide uit. Volgens veel klimaatwetenschappers heeft een

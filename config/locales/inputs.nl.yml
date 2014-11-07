@@ -73,8 +73,8 @@ nl:
       dierlijke producten kun je biogas maken. Biogas kun je zuiveren tot 
       aardgaskwaliteit en dan heet het groen gas.
       De kunst is om biogas te maken op een manier waarbij de natuur niet wordt
-      aangetast en de voedselvoorziening niet in gevaar komt. Helaas is dat niet
-      altijd zo gemakkelijk.
+      aangetast en de voedselvoorziening niet in gevaar komt. Dat levert bij hoge
+      percentages groen gas een uitdaging op.
 
     households_area_solar_pv: |-
       Welk deel van de geschikte daken heeft zonnenpanelen?
@@ -175,7 +175,7 @@ nl:
     number_of_energy_power_combined_cycle_network_gas: |-
       Een gascentrale is goedkoper om te bouwen dan een kolencentrale. Wel zijn
       ze duurder als ze draaien dan centrales op kolen. Een gascentrale kun je
-      makkelijk aan of uit zetten. Dat is handig om stroom te makken als de
+      makkelijk aan of uit zetten. Dat is handig om stroom te maken als de
       zon niet schijnt of de 
       windmolen even stilstaat, omdat het niet waait. De CO<sub>2</sub>-uitstoot
       van een gascentrale is ongeveer de helft van een kolencentrale.
@@ -204,8 +204,8 @@ nl:
       kerncentrale bijna altijd op volle kracht aan. Een kerncentrale is niet zo
       geschikt om vraag en aanbod van stroom in evenwicht te brengen als het
       bijvoorbeeld even niet waait en/of de zon niet schijnt. Voordeel is dat
-      je nauwelijks last hebt van CO<sub>2</sub>-uitstoot. Nadeel is het
-      radioactieve afval dat overblijft. Hiervoor is nog geen goede oplossing
+      je nauwelijks last hebt van CO<sub>2</sub>-uitstoot. Wel is het zo dat er
+      radioactieve afval overblijft. Hiervoor is nog geen goede oplossing
       bedacht. 
 
     number_of_energy_power_ultra_supercritical_coal: |-
@@ -225,11 +225,10 @@ nl:
       niet genoeg, maar heb je ook stroomopwek nodig die
       altijd kan blijven draaien en liefst soms wat meer en soms wat minder.
       Gascentrales zijn hier relatief het beste voor geschikt. 
-      Nadeel van een windmolen op land is voor veel mensen dat ze hem niet
-      mooi vinden en daarom is er vaak verzet tegen het plaatsen van 
+      Sommige mensen vinden windmolens niet
+      mooi en daarom is er soms verzet tegen het plaatsen van 
       windmolens op land. Windmolens op zee hebben een hogere opbrengst, 
-      maar als nadeel dat het bouwen en onderhouden van deze molens veel 
-      duurder is dan windmolens op land.
+      maar het bouwen en onderhouden van deze molens is ook veel duurder.
 
     number_of_energy_power_wind_turbine_inland: |-
       Een windmolen produceert hernieuwbare stroom, omdat je geen last hebt van
