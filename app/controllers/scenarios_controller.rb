@@ -128,9 +128,7 @@ class ScenariosController < ApplicationController
 
     @scenario.update_attribute(:locked, true)
 
-    # TODO Redirect back to survey.
-     redirect_to scene_scenario_url(
-      scene_id: @scenario.scene_id, id: @scenario.session_id)
+    redirect_to(guest_user.survey_callback_url)
   end
 
 end # ScenariosController

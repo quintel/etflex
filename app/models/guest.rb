@@ -22,6 +22,20 @@ class Guest
     self.name = name
   end
 
+  def remote_token
+    remote_components.first
+  end
+
+  def remote_pagenum
+    remote_components.last
+  end
+
+  def survey_callback_url
+    "https://www.pollland.nl/survey/html.pro?" +
+      "sessionstr=#{ remote_token }&" +
+      "pagenum=#{ remote_pagenum }&rc=rf"
+  end
+
   # Sets the guest name.
   #
   # name - The string to set.
@@ -67,6 +81,18 @@ class Guest
       new *cookie.values_at(:id, :name)
     else
       new.tap { |guest| guest.save(cookies) }
+    end
+  end
+
+  #######
+  private
+  #######
+
+  def remote_components
+    if (split = @id.to_s.split('-')).length > 2
+      [split[0..-2].join('-'), split.last]
+    else
+      split
     end
   end
 

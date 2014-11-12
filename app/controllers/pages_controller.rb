@@ -15,7 +15,7 @@ class PagesController < ApplicationController
   def root
     scene = Scene.find(1)
 
-    if scenario = scene.previous_attempt(guest_user)
+    if scenario = scene.previous_attempt(current_or_guest_user)
       redirect_to scene_scenario_url(
         scene_id: scene.id, id: scenario.session_id)
     else

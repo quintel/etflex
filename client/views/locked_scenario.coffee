@@ -1,6 +1,9 @@
 class exports.LockedScenarioView extends Backbone.View
   render: ->
-    @$el.html require('templates/locked_scenario')()
+    template    = require('templates/locked_scenario')
+    callbackUrl = require('app').user.surveyCallbackUrl
+
+    @$el.html(template(callbackUrl: callbackUrl))
 
     this
 

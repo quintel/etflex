@@ -13,7 +13,7 @@ exports.createUser = (data) ->
 
 # Represents a visitor to ETFlex who has not yet signed up.
 class Guest
-  constructor: ({ @id, @name }) ->
+  constructor: ({ @id, @name, @surveyCallbackUrl }) ->
     @actsLikeUser = true
     @isSignedIn   = false
     @isGuest      = true
