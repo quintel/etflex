@@ -5,7 +5,7 @@ nl:
       header: "Je stoot nu (Q:total_co2_emissions) aan CO<sub>2</sub> uit"
       body: |-
         Auto's, verwarmingsketels en electriciteitscentrales stoten
-        koolstofmonoxide uit. Volgens veel klimaatwetenschappers heeft een
+        koolstofdioxide uit. Volgens veel klimaatwetenschappers heeft een
         grote toename in CO<sub>2</sub>-uitstoot gedurende de laatste 200 jaar
         ervoor gezorgd dat het klimaat langzaam opwarmt en dat de poolkappen
         smelten.
@@ -41,7 +41,8 @@ nl:
         betekent dat je er niet van uit kan gaan dat de windmolens en de
         zonnepanelen stroom leveren op het moment dat je wil
         internetten, tv wil kijken, of de wasmachine aan wil zetten. Tenzij je
-        die energie natuurlijk ergens kan opslaan...
+        die energie natuurlijk ergens kan opslaan, maar dat kost nu nog teveel.
+        
 
     renewability:
       header: "(Q:renewability) deel van je energievoorziening is hernieuwbaar"
@@ -49,11 +50,11 @@ nl:
         Wil je hernieuwbare energie maken? Kies dan voor wind, zon of meng meer
         'groen' gas bij.
 
-        Als je nog meer mogelijkheden wilt hebben om het
-        hernieuwbaarheidspercentage te verhogen, ga dan naar de professionele
-        versie van het Energietransitiemodel, daar kun je o.a. ook de
+        De mogelijkheden om hernieuwbaarheid te verhogen zijn hier beperkt.
+        Er zijn meer mogelijkheden in de professionele
+        versie van het Energietransitiemodel. Daar kun je o.a. ook de
         transportsector en de industriesector (verder) proberen te
-        verduurzamen.
+        verduurzamen. U kunt dat wellicht een andere keer nader bekijken.
 
     supply_demand:
       name: "Saldo van Vraag en Aanbod"
