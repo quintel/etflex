@@ -11,7 +11,9 @@ namespace :survey do
 
         stamp = Time.now.utc.strftime('%Y-%m-%d_%H-%M-%S%z')
 
-        FileUtils.mkdir('tmp')
+        unless File.directory?('tmp')
+          FileUtils.mkdir('tmp')
+        end
 
         download!(
           current_path.join('tmp/survey.csv'),
