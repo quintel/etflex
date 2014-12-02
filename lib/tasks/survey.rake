@@ -61,9 +61,31 @@ namespace :survey do
       query_keys.map { |v| "result.#{v}" }
     )
 
+    # Duplicate check
+    # ---------------
+
+    duplicate_scenarios = Scenario.where(
+      guest_uid: Scenario.select(:guest_uid)
+        .group(:guest_uid).having('COUNT(*) > 1')
+    ).order('updated_at DESC').group_by(&:guest_uid).values
+
+    duplicates = duplicate_scenarios.map do |scenarios|
+      # Find the most recent scenario whose score suggests the user changed
+      # a slider.
+      canonical = scenarios.detect do |scenario|
+        ! (scenario.score.try(:floor) || 0).between?(475, 478)
+      end
+
+      scenarios.map(&:id) - [(canonical || scenarios.first).id]
+    end.flatten
+
+    # Create the CSV
+    # --------------
+
     csv = CSV.generate(headers: headers, write_headers: true) do |csv|
       Scenario.find_each do |scenario|
         next unless scenario.scene_id == 1 && scenario.guest_uid
+        next if     duplicates.include?(scenario.id)
 
         static  = columns.values.map { |fetcher| fetcher.call(scenario) }
         inputs  = input_keys.map { |key| fetch_input.call(scenario, key) }
