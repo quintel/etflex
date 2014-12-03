@@ -4,24 +4,27 @@ nl:
     co2_emissions:
       header: "Je stoot nu (Q:total_co2_emissions) aan CO<sub>2</sub> uit"
       body: |-
-        Auto's, verwarmingsketels en electriciteitscentrales stoten
+        Auto's, verwarmingsketels en elektriciteitscentrales stoten
         koolstofdioxide uit. Volgens veel klimaatwetenschappers heeft een
         grote toename in CO<sub>2</sub>-uitstoot gedurende de laatste 200 jaar
         ervoor gezorgd dat het klimaat langzaam opwarmt en dat de poolkappen
         smelten.
 
-        Probeer de uitstoot van CO<sub>2</sub> zo veel mogelijk te beperken om
-        een zo hoog mogelijke score te krijgen. Je kan alleen nooit op nul
-        uitkomen, omdat er ook veel uitstoot is die niet wordt bepaald door je
-        schuifjes op deze pagina (denk aan vrachtauto's, de industrie,
-        enzovoorts). In de professionele versie van het ETM kun je dit getal
-        wel lager krijgen.
+        Probeer de uitstoot van CO<sub>2</sub> zo veel mogelijk te beperken als 
+        je denkt dat het belangrijk is om klimaatverandering tegen te gaan.
+        Je kan in dit spel nooit op nul uitkomen, omdat er ook veel uitstoot 
+        is die niet je met de schuifjes op deze pagina niet kunt veranderen 
+        (denk aan vrachtauto's, de industrie, enzovoorts). Een professionele
+        versie can dit spel geeft die mogelijkheid wel (te bereiken via het 
+        "Help" menu). Je kunt dat wellicht een andere keer bekijken.
 
     costs:
       header: "Je geeft ieder jaar (Q:total_costs) uit aan energie!"
       body: |-
-        Dit is inclusief de bouw- en installatiekosten van de centrales en apparaten die energie 
-        gebruiken.
+        Dit zijn de kosten voor heel Nederland. Dit getal krijg je door
+        alle uitgaven voor olie, gas, kolen en brandstoffen op te tellen
+        bij de bouw- en aanschafkosten van de centrales, CV-ketels
+        en andere apparaten die energie gebruiken.
 
     etflex_score:
       header: "Je scoort (Q:score) punten"
@@ -36,25 +39,28 @@ nl:
         'on':  "Je energievoorziening is betrouwbaar!"
         'off': "Oh nee, met jouw instellingen zit je weleens in het donker!"
       body: |-
-        Hernieuwbare bronnen zijn minder goed voorspelbaar dan (fossiele)
-        centrales, want soms schijnt de zon niet of waait het niet. Dit
-        betekent dat je er niet van uit kan gaan dat de windmolens en de
-        zonnepanelen stroom leveren op het moment dat je wil
-        internetten, tv wil kijken, of de wasmachine aan wil zetten. Tenzij je
+        Hernieuwbare bronnen als wind- of zonnestroom zijn minder goed 
+        voorspelbaar dan (fossiele) centrales, want soms schijnt de zon 
+        niet of waait het niet. 
+        Dit betekent dat je niet zeker weet of de windmolens en de
+        zonnepanelen stroom leveren op het moment dat je wilt
+        internetten, tv wil kijken, of de wasmachine aan wilt zetten. Tenzij je
         die energie natuurlijk ergens kan opslaan, maar dat kost nu nog teveel.
         
 
     renewability:
-      header: "(Q:renewability) deel van je energievoorziening is hernieuwbaar"
+      header: "(Q:renewability) van je energievoorziening is hernieuwbaar"
       body: |-
         Wil je hernieuwbare energie maken? Kies dan voor wind, zon of meng meer
-        'groen' gas bij.
+        'groen' gas bij. Warmtepompen en elektrische auto's helpen ook, vooral
+        als je stroom maakt met wind of zon.
 
         De mogelijkheden om hernieuwbaarheid te verhogen zijn hier beperkt.
         Er zijn meer mogelijkheden in de professionele
-        versie van het Energietransitiemodel. Daar kun je o.a. ook de
-        transportsector en de industriesector (verder) proberen te
-        verduurzamen. U kunt dat wellicht een andere keer nader bekijken.
+        versie van het Energietransitiemodel (te bereiken via het "Help"
+        menu). Daar kun je o.a. ook de
+        transportsector en de industriesector proberen te
+        verduurzamen. Je kunt dat wellicht een andere keer nader bekijken.
 
     supply_demand:
       name: "Saldo van Vraag en Aanbod"

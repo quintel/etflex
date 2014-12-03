@@ -46,13 +46,14 @@ nl:
       warmte en koudevraag. 
       Isolatie van vloeren, muren, daken en isolerende ramen zijn goed 
       voor 75% van het besparingspotenieel. De isolatiegraad kun je 
-      uitdrukken als 'thermische weerstand' of R-waarde. Dit is een maat
-      voor hoeveel weerstand een huis biedt aan ontsnappende warmte of koude.
-      Hoe hoger de R-waarde hoe beter de isolatie. 
+      uitdrukken als 'thermische weerstand' of R-waarde. Hoe hoger 
+      de R-waarde hoe beter de isolatie en hoe meer weerstand een huis
+      biedt aan ontsnappende warmte of koude.
+      
       In Nederland is de gemiddelde R-waarde voor oude woningen ongeveer 0.5. 
       Dit is natuurlijk het gemiddelde van slecht, gemiddeld en goed geïsoleerde
-      woningen. Oude huizen zijn lastig naar een R-waarde van meer dan 3 te
-      krijgen. 
+      woningen. Het gemiddelde van oude huizen is dan ook lastig naar een 
+      R-waarde van meer dan 3 te krijgen. 
 
     comfort_temperature_in_the_house: |-
       Je kunt veel energie besparen door de thermostaat iets lager te zetten. 
@@ -80,9 +81,10 @@ nl:
       Welk deel van de geschikte daken heeft zonnepanelen?
       <br/><br/>
       Zonnepanelen maken stroom van zonlicht. Dakoppervlak is schaars en daarom
-      moet je mogelijk kiezen tussen zonneboilers of zon PV.
+      moet je mogelijk kiezen tussen warm water uit zonneboilers of stroom uit
+      zonnepanelen.
       Zonnepanelen worden nu snel goedkoper. De komende 20 jaar is de verwachting
-      dat ze nog nog veel goedkoper zullen worden. 
+      dat ze nog veel goedkoper zullen worden. 
 
     households_behavior_standby_killer_turn_off_appliances: |-
       We hebben steeds meer elektrische apparaten in huis. Heel vaak staan deze
@@ -92,10 +94,11 @@ nl:
     households_space_heater_heatpump_ground_water_electricity_share: |-
       Welk deel van alle huishoudens wordt met warmtepomp verwarmd?
       <br/><br/>
-      Een warmtepomp is een apparaat om je huis te verwarmen. Een warmtepomp is
-      een soort omgekeerde koelkast. Hij pompt warmte van buiten het huis naar
-      binnen, terwijl een koelkast warmte van binnen de koelkast naar buiten
-      pompt. Warmtepompen zijn vaak erg efficiënt. Daardoor gebruik je minder
+      Een warmtepomp is een elektrisch apparaat om je huis te verwarmen. 
+      Een warmtepomp is een soort omgekeerde koelkast. 
+      Hij pompt warmte van buiten het huis naar binnen, terwijl een 
+      koelkast warmte van binnen de koelkast naar buiten pompt. 
+      Warmtepompen zijn vaak erg efficiënt. Daardoor gebruik je minder
       fossiele energie dan met bijvoorbeeld een HR gasketel. Nadeel is nog wel
       dat de warmtepomp duurder is om aan te schaffen.
 
@@ -107,17 +110,18 @@ nl:
       welke techniek je wilt. 
 
     households_water_heater_fuel_cell_chp_network_gas_share: |-
-      Welk percentage van alle huishoudens maakt warm water met brandstofcellen?
+      Welk percentage van alle huishoudens maakt warm water met zogenaamde 
+      'brandstofcellen'?
       <br/><br/>
       Brandstofcellen lijken op batterijen. Ze zijn zeer
       efficiënt en maken elektriciteit en warmte uit aardgas of waterstof. 
       Deze brandstofcel heeft als
-      grootste nadeel dat hij alleen bij hoge temperaturen werkt 
-      (500 - 1000 °C), 
-      waardoor het een tijdje duurt voordat hij opgestart is. In
-      huishoudens is dat niet zo'n probleem, omdat de brandstofcel bijna non-stop
-      aanstaat. Dit apparaat maakt meer elektriciteit dan een gemiddeld 
-      huishouden nodig heeft en de eigenaar wordt een echte stroomproducent. 
+      grootste nadeel dat hij alleen bij heel hoge temperaturen werkt 
+      (500 - 1000 °C), dus het duurt een tijdje voordat hij opgestart is. 
+      In huishoudens is dat niet zo'n probleem, omdat de brandstofcel 
+      bijna non-stop aanstaat. Dit apparaat maakt meer elektriciteit 
+      dan een gemiddeld huishouden nodig heeft en de eigenaar wordt 
+      een echte stroomproducent. 
       
     households_water_heater_micro_chp_network_gas_share: |-
       De micro-WKK is een kleine warmte-kracht centrale voor in je huis.
@@ -135,12 +139,11 @@ nl:
       <br/><br/>
       Hoe beter je een huis isoleert en luchtdicht maakt, hoe minder energie je
       nodig hebt voor verwarming in de winter. Isolatie zorgt er voor dat de
-      warmte niet weglekt door ramen, muren, vloeren en daken. Luchtdichtheid
-      zorgt er voor dat de wind geen koude lucht het huis in kan blazen en warme
-      lucht er uit. Hoe luchtdichter je een huis maakt, hoe meer je actief moet
-      zorgen voor een goed binnenklimaat. Zeer energiezuinige huizen zijn super
-      geïsoleerd en luchtdicht.
-
+      warmte niet weglekt door ramen, muren, vloeren en daken. Het getal naast
+      dit schuifje geeft de 'warmteweerstand' aan. Als die twee keer zo groot 
+      wordt, dus bijvoorbeeld van '0,5' naar '1,0' lekt nog maar de helft van 
+      de warmte weg. 
+      
     households_lighting_led_electricity_share: |-
       Welk deel van alle lampen wordt LED verlichting?
       <br/><br/>
@@ -165,8 +168,8 @@ nl:
       Een kolencentrale draait het grootste deel van de tijd op volle kracht.
       Regelmatig uitzetten verlaagt de hoeveelheid stroom die we uit kolen kunnen
       halen. Van alle manieren om stroom te maken geeft een kolencentrale de
-      grootste luchtvervuiling. De CO<sub>2</sub>-uitstoot is ongeveer 2 keer
-      zo groot als die van een gascentrale.
+      grootste luchtvervuiling. De CO<sub>2</sub>-uitstoot van een kolencentrale 
+      is ongeveer 2 keer zo groot als die van een gascentrale.
 
     number_of_cold_showers_per_week: |-
       Eén maal per week koud douchen zorgt voor een besparing van meer dan 
