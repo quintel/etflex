@@ -32,7 +32,8 @@ nl:
     number_of_households_heating_solar_thermal_collectors: "Aantal zonnecollectoren (warmte)"    
     number_of_energy_power_nuclear_gen3_uranium_oxide: "Kerncentrales"
     number_of_energy_power_ultra_supercritical_coal: "Kolen- / biomassacentrales"
-    number_of_energy_power_wind_turbine_offshore: "Windmolens"
+    number_of_energy_power_wind_turbine_offshore: "Windmolens op zee"
+    number_of_energy_power_wind_turbine_inland: "Windmolens op land"
     policy_area_biomass: "Biomass"
     transport_car_using_electricity_share: "Elektrische auto's"
     use_of_air_conditioning_options:

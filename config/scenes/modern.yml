@@ -14,6 +14,7 @@ inputs:
       - number_of_energy_power_combined_cycle_network_gas
       - number_of_energy_power_nuclear_gen3_uranium_oxide
       - number_of_energy_power_wind_turbine_offshore
+      - number_of_energy_power_wind_turbine_inland
       - households_solar_pv_solar_radiation_market_penetration
       - green_gas_total_share
 

@@ -32,7 +32,8 @@ en:
     number_of_households_heating_solar_thermal_collectors: "Number of solar thermal collectors"
     number_of_energy_power_nuclear_gen3_uranium_oxide: "Nuclear power plants"
     number_of_energy_power_ultra_supercritical_coal: "Coal / biomass power plants"
-    number_of_energy_power_wind_turbine_offshore: "Wind turbines"
+    number_of_energy_power_wind_turbine_offshore: "Offshore wind turbines"
+    number_of_energy_power_wind_turbine_inland: "Inland wind turbines"
     policy_area_biomass: "Biomass"
     transport_car_using_electricity_share: "Electric cars"
     use_of_air_conditioning_options:
