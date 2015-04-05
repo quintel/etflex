@@ -4,5 +4,5 @@ display: slider
 min: 0.0
 max: 2000.0
 step: 20.0
-start: 68.6869
+start: 0.0
 unit: number

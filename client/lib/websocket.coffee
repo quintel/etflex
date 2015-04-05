@@ -10,18 +10,19 @@ class exports.Websocket
   calculateResults: (pieces) ->
     pieces = _(pieces).countBy (piece) -> piece
 
-    bioGas        = pieces["bio_gas"]           || 0
-    coalPlants    = pieces["coal_plant"]        || 0
-    electricCars  = pieces["electric_car"]      || 0
-    fuelCells     = pieces["fuel_cell"]         || 0
-    gasPlants     = pieces["gas_plant"]         || 0
-    heatPumps     = pieces["heat_pump"]         || 0
-    insulation    = pieces["insulation"]        || 0
-    ledLights     = pieces["led_light"]         || 0
-    nuclearPlants = pieces["nuclear_plant"]     || 0
-    pvPanels      = pieces["pv_panel"]          || 0
-    waterHeaters  = pieces["thermal_collector"] || 0
-    windTurbines  = pieces["wind_turbine"]      || 0
+    bioGas                = pieces["bio_gas"]                  || 0
+    coalPlants            = pieces["coal_plant"]               || 0
+    electricCars          = pieces["electric_car"]             || 0
+    fuelCells             = pieces["fuel_cell"]                || 0
+    gasPlants             = pieces["gas_plant"]                || 0
+    heatPumps             = pieces["heat_pump"]                || 0
+    insulation            = pieces["insulation"]               || 0
+    ledLights             = pieces["led_light"]                || 0
+    nuclearPlants         = pieces["nuclear_plant"]            || 0
+    pvPanels              = pieces["pv_panel"]                 || 0
+    waterHeaters          = pieces["thermal_collector"]        || 0
+    windTurbinesOffshore  = pieces["wind_turbine_offshore"]    || 0
+    windTurbinesInland    = pieces["wind_turbine_inland"]      || 0
 
     results = {}
 
@@ -35,7 +36,8 @@ class exports.Websocket
     results.number_of_energy_power_ultra_supercritical_coal = coalPlants * 2
     results.number_of_energy_power_combined_cycle_network_gas = gasPlants * 2
     results.number_of_energy_power_nuclear_gen3_uranium_oxide = nuclearPlants
-    results.number_of_energy_power_wind_turbine_offshore = 500 * windTurbines
+    results.number_of_energy_power_wind_turbine_offshore = 500 * windTurbinesOffshore
+    results.number_of_energy_power_wind_turbine_inland = 500 * windTurbinesInland
     results.households_solar_pv_solar_radiation_market_penetration = (100/5) * pvPanels
     results.green_gas_total_share = 2 * bioGas
 
