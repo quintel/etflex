@@ -1,6 +1,6 @@
 #Very hacky...but we need this to make the Omniauth callback to work on MacOSX
 #In production we should point to our certificates... (and create them?)
-OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
+#OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
 
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
