@@ -2,6 +2,7 @@ json.(@scenario, :end_year, :country)
 
 json.guestName    @scenario.guest_name
 json.sessionId    @scenario.session_id
+json.beagleboneId @scenario.beaglebone_id
 json.inputValues  @scenario.input_values
 
 if @scenario.query_results.empty? || @scenario.query_results.first.last.is_a?(Hash)

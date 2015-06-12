@@ -2,6 +2,14 @@ template        = require 'templates/props/dashboard'
 { GenericProp } = require 'views/props/generic'
 { IconProp }    = require 'views/props/icon'
 
+cssTransitionAnimation = (element) ->
+  element.addClass('zoom')
+  setTimeout((-> element.removeClass('zoom')), 850)
+
+jsAnimation = (element) ->
+  element.find('.difference .effect')
+    .hide().show('bounce', { times: 3 }, 'slow')
+
 # View Classes ---------------------------------------------------------------
 
 # A base class used by props which appear in the dashboard section. Shows an

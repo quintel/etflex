@@ -27,11 +27,15 @@ startScene = (collection, startArgs...) ->
       thing.start (err, scene, scenario) ->
         if err? then console.error err else
           sessionId = scenario.get 'sessionId'
+          beagleboneId = scenario.get 'beagleboneId'
+          navigationUrl = "scenes/#{ scene.id }/with/#{ sessionId }"
+
+          if beagleboneId
+            navigationUrl = "#{ navigationUrl }?bb_id=#{ beagleBoneId }"
 
           # Now that we have fetched the session, we change the URL so that
           # the user can hit refresh without losing their changes.
-          app.navigate "scenes/#{ scene.id }/with/#{ sessionId }",
-            trigger: false, replace: true
+          app.navigate navigationUrl trigger: false, replace: true
 
           render new SceneView model: scene, scenario: scenario
 
