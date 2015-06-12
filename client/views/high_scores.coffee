@@ -18,7 +18,6 @@ class exports.HighScores extends Backbone.View
   # Provide HighScores with a ScenarioSummaries collection in the options
   # hash.
   constructor: ({ @collection, @show, @style, @scenario, @sceneId }) ->
-    console.log(@scenario)
     super
 
     # Show, by default, the five highest scores.
@@ -43,6 +42,7 @@ class exports.HighScores extends Backbone.View
     return true unless @listElement
 
     if app.pusher_key
+      app.pusher.unbind 'game.updated', @updateSlidersFromBeagleBone
       app.pusher.unbind 'scenario.created', @scenarioNotification
       app.pusher.unbind 'scenario.updated', @scenarioNotification
 
@@ -64,8 +64,8 @@ class exports.HighScores extends Backbone.View
     else
       @loadSince 7
 
-    if app.pusher_key
-      app.pusher.bind 'scenario.bb.updated', @updateSlidersFromBeagleBone
+    if app.realtime
+      app.pusher.bind 'game.updated', @updateSlidersFromBeagleBone
       app.pusher.bind 'scenario.created', @scenarioNotification
       app.pusher.bind 'scenario.updated', @scenarioNotification
 
@@ -188,7 +188,7 @@ class exports.HighScores extends Backbone.View
 
     @trigger 'update', summary, @collection
 
-  updateSlidersFromBeagleBone: (data) ->
+  updateSlidersFromBeagleBone: (data) =>
     console.log("LEEERRROOOOY JENKINS")
     console.log(data)
 
