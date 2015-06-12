@@ -18,6 +18,7 @@ class exports.HighScores extends Backbone.View
   # Provide HighScores with a ScenarioSummaries collection in the options
   # hash.
   constructor: ({ @collection, @show, @style, @scenario, @sceneId }) ->
+    console.log(@scenario)
     super
 
     # Show, by default, the five highest scores.
@@ -64,6 +65,7 @@ class exports.HighScores extends Backbone.View
       @loadSince 7
 
     if app.pusher_key
+      app.pusher.bind 'scenario.bb.updated', @updateSlidersFromBeagleBone
       app.pusher.bind 'scenario.created', @scenarioNotification
       app.pusher.bind 'scenario.updated', @scenarioNotification
 
@@ -185,6 +187,10 @@ class exports.HighScores extends Backbone.View
       @collection.add summary
 
     @trigger 'update', summary, @collection
+
+  updateSlidersFromBeagleBone: (data) ->
+    console.log("LEEERRROOOOY JENKINS")
+    console.log(data)
 
   # When the scenario guest name changes, we look for the row which
   # corresponds with the scenario, and change the users name.
