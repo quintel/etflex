@@ -1,5 +1,6 @@
 app                   = require 'app'
 queryTransforms       = require 'lib/query_transforms'
+sliderUpdater         = require 'lib/slider_updater'
 
 listTemplate          = require 'templates/high_scores'
 rowTemplate           = require 'templates/high_score'
@@ -189,8 +190,9 @@ class exports.HighScores extends Backbone.View
     @trigger 'update', summary, @collection
 
   updateSlidersFromBeagleBone: (data) =>
-    console.log("LEEERRROOOOY JENKINS")
-    console.log(data)
+    #super_detections = new exports.SliderUpdater.update(data.detections)
+    console.log(data.detections)
+    console.log(window.updateSlider(data.detections))
 
   # When the scenario guest name changes, we look for the row which
   # corresponds with the scenario, and change the users name.
