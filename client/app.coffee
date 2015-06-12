@@ -46,7 +46,7 @@ exports.boot = (window, { locale, api, env, user, realtime, conference, offline,
     exports.pusher = new Pusher('415cc8feb622f665d49a').
       subscribe("etflex-#{ exports.env }")
 
-  exports.websocket = new (require('lib/websocket').Websocket)
+  #exports.websocket = new (require('lib/websocket').Websocket)
 
   # Engine API.
   require('lib/api').setPath api, offline

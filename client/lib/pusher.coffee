@@ -1,11 +1,7 @@
-class exports.Websocket
+class exports.Pusher
   constructor: ->
-    @ws = new WebSocket('ws://localhost:8080')
-    @ws.onmessage = @onMessage
-
-  onMessage: (ev) =>
-    data = JSON.parse(ev.data)
-    @calculateResults(data.pieces)
+    channel = exports.pusher.subscribe('game.updated')
+    channel.bind('updated', calculateResults)
 
   calculateResults: (pieces) ->
     pieces = _(pieces).countBy (piece) -> piece
