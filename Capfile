@@ -73,6 +73,20 @@ task :staging do
   server 'beta.etflex.et-model.com', :web, :app, :db, primary: true
 end
 
+task :rflex_staging do
+  set :rails_env, 'staging'
+  set :branch,    fetch(:branch, 'rfi2d_flex_staging')
+
+  set :deploy_to, "/u/apps/rfi2d_flex"
+
+  set :db_host,   'etm.cr6sxqj0itls.eu-west-1.rds.amazonaws.com'
+  set :db_pass,   'V20KpwldSTFSDr'
+  set :db_name,   'rfi2d_flex_staging'
+  set :db_user,   'rflex_staging'
+
+  server 'beta.rfi2d-flex.et-model.com', :web, :app, :db, primary: true
+end
+
 
 # COMMON CONFIGURATION -------------------------------------------------------
 
