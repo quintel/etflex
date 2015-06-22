@@ -69,7 +69,7 @@ module ETFlex
     config.assets.version = '1.0'
 
     # Required by Devise.
-    config.action_mailer.default_url_options = { host: 'localhost:3000' }
+    #config.action_mailer.default_url_options = { host: 'localhost:3000' }
 
     # Assert that the configuration specifies only the host.
     config.after_initialize do
