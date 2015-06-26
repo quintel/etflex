@@ -24,12 +24,12 @@ load 'lib/capistrano/database'
 #   +-------------------+------------------+
 #
 def application_name
-  if rails_env == 'production' then 'etflex' else "etflex_#{ rails_env }" end
+  "rfi2d_flex_staging"
 end
 
 # APPLICATION CAPISTRANO CONFIGURATION ---------------------------------------
 
-set :application,  'etflex'
+set :application,  'rfi2d_flex'
 set :user,         'ubuntu'
 set :use_sudo,      false
 
@@ -73,7 +73,7 @@ task :staging do
   server 'beta.etflex.et-model.com', :web, :app, :db, primary: true
 end
 
-task :rflex_staging do
+task :rfi2d_flex_staging do
   set :rails_env, 'staging'
   set :branch,    fetch(:branch, 'rfi2d_flex_staging')
 
