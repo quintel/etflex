@@ -25,7 +25,7 @@ gem 'gravtastic'
 
 gem 'rest-client'
 
-gem 'devise'
+gem 'devise', '~> 1.5.4'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 
@@ -42,11 +42,10 @@ gem 'airbrake'
 gem 'hashie'
 gem 'json', '~> 1.7.7'
 
+gem 'unicorn'
+
 # Treetop for the grammars
 gem 'treetop'
-
-# Deploy with Capistrano
-gem 'capistrano'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -69,11 +68,6 @@ group :assets do
   gem 'uglifier',      '>= 1.0.3'
 end
 
-group :production do
-  # Use unicorn as the web server
-  gem 'unicorn'
-end
-
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
@@ -82,6 +76,12 @@ group :development do
   gem 'guard-shell'
   gem 'rb-fsevent'
   gem 'growl_notify'
+
+  gem 'capistrano', '3.2.1'
+  gem 'capistrano-rbenv',    '~> 2.0',   require: false
+  gem 'capistrano-rails',    '~> 1.1',   require: false
+  gem 'capistrano-bundler',  '~> 1.1',   require: false
+  gem 'capistrano3-unicorn', '~> 0.2',   require: false
 end
 
 group :test, :development do
