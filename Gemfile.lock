@@ -31,7 +31,9 @@ GEM
       builder
       girl_friday
     arel (3.0.2)
-    bcrypt-ruby (3.0.1)
+    bcrypt (3.1.10)
+    bcrypt-ruby (3.1.5)
+      bcrypt (>= 3.1.3)
     better_errors (0.7.2)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
@@ -81,11 +83,10 @@ GEM
     database_cleaner (0.9.1)
     debug_inspector (0.0.2)
     default_value_for (2.0.1)
-    devise (2.2.3)
+    devise (1.5.4)
       bcrypt-ruby (~> 3.0)
-      orm_adapter (~> 0.1)
-      railties (~> 3.1)
-      warden (~> 1.2.1)
+      orm_adapter (~> 0.0.3)
+      warden (~> 1.1)
     diff-lcs (1.1.3)
     eco (1.0.0)
       coffee-script
@@ -186,7 +187,7 @@ GEM
     omniauth-twitter (0.0.14)
       multi_json (~> 1.3)
       omniauth-oauth (~> 1.0)
-    orm_adapter (0.4.0)
+    orm_adapter (0.0.7)
     poltergeist (1.3.0)
       capybara (~> 2.1.0)
       faye-websocket (>= 0.4.4, < 0.5.0)
@@ -283,7 +284,7 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
-    warden (1.2.1)
+    warden (1.2.3)
       rack (>= 1.0)
     xpath (2.0.0)
       nokogiri (~> 1.3)
@@ -310,7 +311,7 @@ DEPENDENCIES
   compass-rails (>= 1.0.0)
   database_cleaner
   default_value_for
-  devise
+  devise (~> 1.5.4)
   eco (~> 1.0)
   factory_girl_rails
   gravtastic
