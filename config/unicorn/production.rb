@@ -15,7 +15,7 @@ timeout 30
 
 # This is where we specify the socket. We will point the upstream Nginx module
 # to this socket later on
-listen "#{app_dir}/shared/pids/unicorn.sock", backlog: 64
+listen "#{app_dir}/shared/sockets/unicorn.sock", backlog: 64
 
 # File containing the Unicorn process ID.
 pid "#{app_dir}/shared/pids/unicorn.pid"
