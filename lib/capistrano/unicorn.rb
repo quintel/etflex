@@ -2,7 +2,7 @@ namespace :deploy do
   def set_unicorn_variables
     set :unicorn_binary, "#{current_path}/bin/unicorn"
     set :unicorn_config, "#{current_path}/config/unicorn/#{rails_env}.rb"
-    set :unicorn_pid,    "#{current_path}/pids/unicorn.pid"
+    set :unicorn_pid,    "#{current_path}/tmp/pids/unicorn.pid"
   end
 
   task :start, roles: :app, except: { no_release: true } do
