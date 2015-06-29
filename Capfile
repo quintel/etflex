@@ -1,90 +1,27 @@
-require 'bundler/capistrano'
+# Load DSL and set up stages
+require 'capistrano/setup'
 
-load 'deploy'
-load 'deploy/assets'
+# Include default deployment tasks
+require 'capistrano/deploy'
 
-load 'lib/capistrano/airbrake'
-load 'lib/capistrano/link_config'
-load 'lib/capistrano/refresh_scenarios'
-load 'lib/capistrano/unicorn'
-load 'lib/capistrano/database'
-
-# Determines the name of the application. ETflex in production mode will
-# simply be "etflex", while other deployments (indicated by the "rails_env"
-# configuration, will append the environment name.
+# Include tasks from other gems included in your Gemfile
 #
-# Examples:
+# For documentation on these, see for example:
 #
-#   +-------------------+------------------+
-#   | "rails_env" value | application name |
-#   +-------------------+------------------+
-#   | production        | etflex           |
-#   | staging           | etflex_staging   |
-#   | rc                | etflex_rc        |
-#   +-------------------+------------------+
+#   https://github.com/capistrano/rvm
+#   https://github.com/capistrano/rbenv
+#   https://github.com/capistrano/chruby
+#   https://github.com/capistrano/bundler
+#   https://github.com/capistrano/rails
+#   https://github.com/capistrano/passenger
 #
-def application_name
-  if rails_env == 'production' then 'etflex' else "etflex_#{ rails_env }" end
-end
+# require 'capistrano/rvm'
+ require 'capistrano/rbenv'
+# require 'capistrano/chruby'
+ require 'capistrano/bundler'
+ require 'capistrano/rails/assets'
+ require 'capistrano/rails/migrations'
+ require 'capistrano3/unicorn'
 
-# APPLICATION CAPISTRANO CONFIGURATION ---------------------------------------
-
-set :application,  'etflex'
-set :user,         'ubuntu'
-set :use_sudo,      false
-
-# Git Repository.
-
-set :scm,          :git
-set :repository,   'git@github.com:quintel/etflex.git'
-set :deploy_via,   :remote_cache
-
-set :bundle_flags, '--deployment --quiet --binstubs --shebang ruby-local-exec'
-
-ssh_options[:forward_agent] = true
-
-# DEPLOYMENT TARGETS ---------------------------------------------------------
-
-task :production do
-  set :rails_env, 'production'
-  set :branch,    fetch(:branch, 'production')
-
-  set :deploy_to, "/u/apps/#{application}"
-
-  set :db_host,   'etm.cr6sxqj0itls.eu-west-1.rds.amazonaws.com'
-  set :db_pass,   'acutZUVT56PoGI'
-  set :db_name,   'etflex'
-  set :db_user,   'etflex'
-
-  server 'etflex.et-model.com', :web, :app, :db, primary: true
-end
-
-task :staging do
-  set :rails_env, 'staging'
-  set :branch,    fetch(:branch, 'staging')
-
-  set :deploy_to, "/u/apps/#{application}"
-
-  set :db_host,   'etm.cr6sxqj0itls.eu-west-1.rds.amazonaws.com'
-  set :db_pass,   'V20KpwldSTFSDr'
-  set :db_name,   'etflex_staging'
-  set :db_user,   'etflex_staging'
-
-  server 'beta.etflex.et-model.com', :web, :app, :db, primary: true
-end
-
-
-# COMMON CONFIGURATION -------------------------------------------------------
-
-# Configuration options which depend on values set in :production, :staging,
-# etc, MUST be set in a block.
-
-# Symlink database.yml, etc.
-before 'deploy:assets:precompile', 'deploy:link_config'
-after  'deploy:update_code',       'deploy:link_config'
-after  'deploy:update',            'deploy:cleanup'
-after  'deploy',                   'airbrake:notify'
-
-# ----------------------------------------------------------------------------
-
-# vim: set filetype=ruby :
+# Load custom tasks from `lib/capistrano/tasks` if you have any defined
+Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }
