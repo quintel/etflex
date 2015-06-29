@@ -25,7 +25,7 @@ gem 'gravtastic'
 
 gem 'rest-client'
 
-gem 'devise'
+gem 'devise', '~> 1.5.4'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 
