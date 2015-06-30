@@ -3,8 +3,11 @@ lock '3.2.1'
 
 set :log_level, 'info'
 
-set :application, 'etflex'
-set :repo_url, 'https://github.com/quintel/etflex.git'
+set :application, 'rfi2d_flex'
+set :repo_url,    'https://github.com/quintel/etflex.git'
+set :branch,      fetch(:branch, 'rfi2d_flex_staging')
+set :stages,      %w(staging)
+set :rails_env,   'staging'
 
 # Set up rbenv
 set :rbenv_type, :user
@@ -32,7 +35,7 @@ set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 
 # Default value for :linked_files is []
 set :linked_files,
-  %w{config/database.yml config/etflex.yml config/newrelic.yml .env}
+  %w{config/database.yml config/etflex.yml config/newrelic.yml .env config/pusher.yml}
 
 # Default value for linked_dirs is []
 set :linked_dirs,
