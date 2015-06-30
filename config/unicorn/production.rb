@@ -1,8 +1,5 @@
-# Current file lives in /u/apps/:app_name/releases/:timestamp/config/unicorn/production.rb
-app_dir = File.expand_path('../../..', File.dirname(__FILE__))
-
-worker_processes 12
-working_directory "#{app_dir}/current"
+worker_processes 2
+working_directory '/var/www/rfi2d_flex/current'
 
 # This loads the application in the master process before forking worker
 # processes. Read more about it here:
@@ -15,17 +12,17 @@ timeout 30
 
 # This is where we specify the socket. We will point the upstream Nginx module
 # to this socket later on
-listen "#{app_dir}/shared/tmp/pids/unicorn.sock", backlog: 64
+listen "/var/www/rfi2d_flex/shared/tmp/pids/unicorn.sock", backlog: 64
 
 # File containing the Unicorn process ID.
-pid "#{app_dir}/shared/tmp/pids/unicorn.pid"
+pid "/var/www/rfi2d_flex/shared/tmp/pids/unicorn.pid"
 
 # Set the path of the log files inside the log folder of the testapp
-stderr_path "#{app_dir}/shared/log/unicorn.log"
-stdout_path "#{app_dir}/shared/log/unicorn.log"
+stderr_path "/var/www/rfi2d_flex/shared/log/unicorn.log"
+stdout_path "/var/www/rfi2d_flex/shared/log/unicorn.log"
 
 before_exec do |server|
-  ENV['BUNDLE_GEMFILE'] = "#{app_dir}/current/Gemfile"
+  ENV['BUNDLE_GEMFILE'] = "/var/www/rfi2d_flex/current/Gemfile"
 end
 
 before_fork do |server, worker|
@@ -37,7 +34,7 @@ before_fork do |server, worker|
   # around until it is explicitly killed (so that it can be used if the new
   # master fails to start). Since we got as far as starting a new worker, we
   # end the old process...
-  old_pid = "#{app_dir}/shared/tmp/pids/unicorn.pid.oldbin"
+  old_pid = "/var/www/rfi2d_flex/shared/tmp/pids/unicorn.pid.oldbin"
 
   if File.exists?(old_pid) && server.pid != old_pid
     begin
