@@ -5,7 +5,7 @@ set :log_level, 'info'
 
 set :application, 'rfi2d_flex'
 set :repo_url,    'https://github.com/quintel/etflex.git'
-set :branch,      fetch(:branch, 'rfi2d_flex_staging')
+set :branch,      fetch(:branch, 'rflex_etfbranched_staging')
 set :stages,      %w(staging)
 set :rails_env,   'staging'
 
