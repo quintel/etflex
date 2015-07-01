@@ -35,7 +35,7 @@ set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 
 # Default value for :linked_files is []
 set :linked_files,
-  %w{config/database.yml config/etflex.yml config/newrelic.yml .env config/pusher.yml}
+  %w{config/database.yml config/etflex.yml .env config/pusher.yml}
 
 # Default value for linked_dirs is []
 set :linked_dirs,
