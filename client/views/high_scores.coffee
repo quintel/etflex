@@ -65,7 +65,7 @@ class exports.HighScores extends Backbone.View
     else
       @loadSince 7
 
-    if app.realtime
+    if app.pusher_key
       app.pusher.bind 'game.updated', @updateSlidersFromBeagleBone
       app.pusher.bind 'scenario.created', @scenarioNotification
       app.pusher.bind 'scenario.updated', @scenarioNotification
