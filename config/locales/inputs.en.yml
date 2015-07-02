@@ -32,7 +32,8 @@ en:
     number_of_households_heating_solar_thermal_collectors: "Number of solar thermal collectors"
     number_of_energy_power_nuclear_gen3_uranium_oxide: "Nuclear power plants"
     number_of_energy_power_ultra_supercritical_coal: "Coal / biomass power plants"
-    number_of_energy_power_wind_turbine_offshore: "Wind turbines"
+    number_of_energy_power_wind_turbine_offshore: "Offshore wind turbines"
+    number_of_energy_power_wind_turbine_inland: "Inland wind turbines"
     policy_area_biomass: "Biomass"
     transport_car_using_electricity_share: "Electric cars"
     use_of_air_conditioning_options:
@@ -144,7 +145,7 @@ en:
       power you can expect than with wind power. Of course, a solar
       panel in sunny Spain produces more electricity than one in the United
       Kingdom. You can install solar panels on the roof of your own house
-      to avoids power losses from transporting electricity over a long cable. 
+      to avoids power losses from transporting electricity over a long cable.
       Solar panels are still quite expensive, but they are rapidly becoming
       more affordable.
 
@@ -167,8 +168,8 @@ en:
       than 10%. How many cold showers would you take per week?
 
     number_of_energy_power_combined_cycle_network_gas: |-
-      A gas-fired power plant is cheaper to build than a coal power plant. 
-      However, power from gas costs more than power plants that burn coal. 
+      A gas-fired power plant is cheaper to build than a coal power plant.
+      However, power from gas costs more than power plants that burn coal.
       A gas-fired power plant is easily powered up or down. That can come
       in handy when there is no wind and solar panels do not
       produce electricity because the sun is not shining. CO<sub>2</sub>
@@ -183,11 +184,11 @@ en:
       CO<sub>2</sub> emissions are half that of a coal-fired power plant.
 
     number_of_households_heating_solar_thermal_collectors: |-
-      Solar water heaters (SWH) use heat from the sun to produce warm water. 
-      This warm water can be used for showering or for doing the dishes, 
+      Solar water heaters (SWH) use heat from the sun to produce warm water.
+      This warm water can be used for showering or for doing the dishes,
       etc. SWHs are usually installed on rooftops or in asphalt for parking
       lots. A SWH is often combined with a gas-fired central heating boiler
-      that heats water further if necessary. It can also be combined with 
+      that heats water further if necessary. It can also be combined with
       a heat pump.
 
     number_of_energy_power_nuclear_gen3_uranium_oxide: |-
@@ -206,26 +207,26 @@ en:
       than older types.
 
     number_of_energy_power_ultra_supercritical_coal: |-
-      Coal-fired power plants are less suitable to act as backup plants 
+      Coal-fired power plants are less suitable to act as backup plants
       for wind- and solar
       electricity than gas-fired plants, because they are expensive to build and
       cheap to run. For this reason coal-fired power plants are almost always
-      running, producing electricity at maximum power. Coal has the highest 
+      running, producing electricity at maximum power. Coal has the highest
       CO<sub>2</sub>-emissions, about twice a much as gas-fired power plants.
-      Wood can be co-fired in coal plants, to reduce such emissions and 
+      Wood can be co-fired in coal plants, to reduce such emissions and
       increase renewability.
 
     number_of_energy_power_wind_turbine_offshore: |-
       Wind turbines produce renewable power without CO<sub>2</sub>
-      emissions. Although wind does not run out, it does not always blow. 
-      This means that building windmills alone is not enough to ensure 
-      supply. 
-      You would have a problem if you needed power and there was no wind. 
+      emissions. Although wind does not run out, it does not always blow.
+      This means that building windmills alone is not enough to ensure
+      supply.
+      You would have a problem if you needed power and there was no wind.
 
     number_of_energy_power_wind_turbine_inland: |-
       Wind turbines produce renewable power without CO<sub>2</sub>
-      emissions. Although wind does not run out, it does not always blow. 
-      This means that building windmills alone is not enough to ensure 
+      emissions. Although wind does not run out, it does not always blow.
+      This means that building windmills alone is not enough to ensure
       supply. You would have a problem if you
       needed power and there was no wind.
 
@@ -233,9 +234,9 @@ en:
       An electric car uses about half the energy of a diesel or gasoline
       -powered car. Diesel and gasoline are made from oil. By switching to
       electric cars, we will save a lot of oil and at the same time use more
-      electricity. Wind or solar powered cars will no longer produce 
-      any CO<sub>2</sub> emissions. 
-      Electric cars powered by modern coal or gas-fired power plants  will 
+      electricity. Wind or solar powered cars will no longer produce
+      any CO<sub>2</sub> emissions.
+      Electric cars powered by modern coal or gas-fired power plants  will
       still emit less than conventional ones.
       <img src="/assets/information/electric_versus_gasoline.png" width="444" height="362" />
 
