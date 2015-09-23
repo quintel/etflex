@@ -60,14 +60,14 @@ class exports.SceneView extends Backbone.View
     @renderTheme()
     @renderProps()
     @renderNavigation()
-    @initHighScores() if app.scores
+  #  @initHighScores() if app.scores
 
     this
 
   postRender: ->
     @renderInputs()
     @renderBadge() if app.isBeta()
-    @showIntro()
+    # @showIntro()
 
   # When a user tries to alter inputs on a scenario which isn't theirs, a "not
   # authorized" modal dialog appears allowing them to take suitable action.
@@ -144,12 +144,14 @@ class exports.SceneView extends Backbone.View
   # Triggered when the user clicks the "You got a high score" box. Smoothly
   # scrolls to the high scores list, and shows the user name form.
   #
-  clickScoreNotifier: (event) ->
-    $.scrollTo('#scores', 350, offset: { top: -20 })
-    @requestScenarioGuestName(true)
+  # Disabled for the rfi2d-flex physical game frontend
+  #
+  # clickScoreNotifier: (event) ->
+  #   $.scrollTo('#scores', 350, offset: { top: -20 })
+  #   @requestScenarioGuestName(true)
 
-    event.stopPropagation()
-    event.preventDefault()
+  #   event.stopPropagation()
+  #   event.preventDefault()
 
   # Shows an overlay message asking the user for a guest name to be associated
   # with the scenario.
@@ -158,13 +160,15 @@ class exports.SceneView extends Backbone.View
   # will always trigger for guests (allowing them to change the name if
   # they want).
   #
-  requestScenarioGuestName: (force, namespace) ->
-    if not app.user.name or app.user.name.length is 0
-      @highScoreRequest or= new HighScoreRequest
-        model: @scenario
-        into:  $ '#master-content'
+  # Disabled for the rfi2d-flex physical game frontend
+  #
+  # requestScenarioGuestName: (force, namespace) ->
+  #   if not app.user.name or app.user.name.length is 0
+  #     @highScoreRequest or= new HighScoreRequest
+  #       model: @scenario
+  #       into:  $ '#master-content'
 
-      @highScoreRequest.show force, namespace
+  #     @highScoreRequest.show force, namespace
 
   # RENDERING STEPS ----------------------------------------------------------
 
@@ -250,57 +254,61 @@ class exports.SceneView extends Backbone.View
   # that we can inform the user if their scenario appear or disappears from
   # the list.
   #
-  initHighScores: ->
-    @highScores = new HighScores scenario: @scenario
-    notifier    = new HighScoreGrowl @$('#score-notifier')
+  # Disabled for the rfi2d-flex physical game frontend
+  #
+  # initHighScores: ->
+  #   @highScores = new HighScores scenario: @scenario
+  #   notifier    = new HighScoreGrowl @$('#score-notifier')
 
-    @$('#scores').html @highScores.render().el
+  #   @$('#scores').html @highScores.render().el
 
-    @highScores.on 'update', (summary, coll) =>
-      return false unless summary.get('session_id') is @scenario.id
-      return false unless summary.get('user_id') is app.user.id
+  #   @highScores.on 'update', (summary, coll) =>
+  #     return false unless summary.get('session_id') is @scenario.id
+  #     return false unless summary.get('user_id') is app.user.id
 
-      unless coll.isTopN(summary, @highScores.show)
-        notifier.hide()
-        return false
+  #     unless coll.isTopN(summary, @highScores.show)
+  #       notifier.hide()
+  #       return false
 
-      # Don't show if the inputs are unchanged from the defaults. This happens
-      # when the site is inactive; there may be fewer than 10 items on the
-      # score board, and without this check the high score request would be
-      # shown as soon as the scene loads.
-      return false if @scenario.isDefault()
+  #     # Don't show if the inputs are unchanged from the defaults. This happens
+  #     # when the site is inactive; there may be fewer than 10 items on the
+  #     # score board, and without this check the high score request would be
+  #     # shown as soon as the scene loads.
+  #     return false if @scenario.isDefault()
 
-      notifier.show()
+  #     notifier.show()
 
-      # Don't prompt for a name if we already know one.
-      if summary.get('user_name')?.length or @scenario.stayAnonymous
-        return false
+  #     # Don't prompt for a name if we already know one.
+  #     if summary.get('user_name')?.length or @scenario.stayAnonymous
+  #       return false
 
-      @requestScenarioGuestName()
+  #     @requestScenarioGuestName()
 
   # When the scenario belongs to the current user, and no name is set, we ask
   # them to let us know how to identify them.
   #
-  doNameRequest: ->
-    seenPrelaunchId = localStorage?.getItem 'seen-prelaunch'
+  # Disabled for the rfi2d-flex physical game frontend
+  #
+  # doNameRequest: ->
+  #   seenPrelaunchId = localStorage?.getItem 'seen-prelaunch'
 
-    return true if     seenPrelaunchId and seenPrelaunchId is "#{app.user.id}"
-    return true unless createUser(@scenario.get 'user').id is app.user.id
-    return true if     app.user.name?.length > 0
+  #   return true if     seenPrelaunchId and seenPrelaunchId is "#{app.user.id}"
+  #   return true unless createUser(@scenario.get 'user').id is app.user.id
+  #   return true if     app.user.name?.length > 0
 
-    localStorage?.setItem 'seen-prelaunch', app.user.id
+  #   localStorage?.setItem 'seen-prelaunch', app.user.id
 
-    @requestScenarioGuestName true, 'prelaunch'
+  #   @requestScenarioGuestName true, 'prelaunch'
 
-  showIntro: ->
-    seenTour = localStorage?.getItem('seen-tour')
+  # showIntro: ->
+  #   seenTour = localStorage?.getItem('seen-tour')
 
-    console.log(!seenTour, (seenTour is not app.user.id), seenTour, app.user.id)
+  #   console.log(!seenTour, (seenTour is not app.user.id), seenTour, app.user.id)
 
-    if (! seenTour) or (seenTour isnt app.user.id)
-      tour = new TourRequestView()
-      tour.render(I18n.t('first_intro.header'), I18n.t('first_intro.body'))
-      tour.prependTo $ 'body'
+  #   if (! seenTour) or (seenTour isnt app.user.id)
+  #     tour = new TourRequestView()
+  #     tour.render(I18n.t('first_intro.header'), I18n.t('first_intro.body'))
+  #     tour.prependTo $ 'body'
 
   renderBadge: ->
     $('#master-content').append badgeTempl()
