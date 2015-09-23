@@ -58,10 +58,11 @@
                 .start-over &nbsp;
 
 
-          - if scores_enabled?
-            #scores.scores.condensed{ data: {scene: scene.id} }
-              %h2== #{ t :'words.high_scores' }:
-              .loading== #{ t :'words.loading' }&hellip;
+          // Disabled for rfi2d-flex phyiscal game frontend
+          // - if scores_enabled?
+          //   #scores.scores.condensed{ data: {scene: scene.id} }
+          //     %h2== #{ t :'words.high_scores' }:
+          //     .loading== #{ t :'words.loading' }&hellip;
 
     %footer
       %ul#partners
