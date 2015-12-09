@@ -12,7 +12,7 @@ options:
       households_water_heater_combined_network_gas_share: 100
       households_water_heater_heatpump_ground_water_electricity_share: 0
       households_water_heater_micro_chp_network_gas_share: 0
-      households_space_heater_heatpump_add_on_electricity_share: 0
+      households_space_heater_heatpump_air_water_electricity: 0
 
   -
     key: micro_chp
@@ -23,7 +23,7 @@ options:
       households_water_heater_combined_network_gas_share: 50
       households_water_heater_heatpump_ground_water_electricity_share: 0
       households_water_heater_micro_chp_network_gas_share: 50
-      households_space_heater_heatpump_add_on_electricity_share: 0
+      households_space_heater_heatpump_air_water_electricity: 0
   -
     key: heatpump_ground
     effects:
@@ -33,4 +33,4 @@ options:
       households_water_heater_combined_network_gas_share: 0
       households_water_heater_heatpump_ground_water_electricity_share: 100
       households_water_heater_micro_chp_network_gas_share: 0
-      households_space_heater_heatpump_add_on_electricity_share: 0
+      households_space_heater_heatpump_air_water_electricity: 0
