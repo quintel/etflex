@@ -16,7 +16,7 @@ nl:
       incandescent_lighting: "Gloeilampen"
       led_lighting: "LED-lampen"
     households_behavior_standby_killer_turn_off_appliances: "Apparaten uitzetten"
-    households_space_heater_heatpump_air_water_electricity: "Warmtepomp"
+    households_space_heater_heatpump_air_water_electricity_share: "Warmtepomp"
     households_space_heater_heatpump_ground_water_electricity_share: "Warmtepomp"
     households_water_heater_solar_thermal_share: "Zonthermische collectoren"
     households_water_heater_fuel_cell_chp_network_gas_share: "Brandstofcel"

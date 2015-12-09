@@ -785,7 +785,7 @@
   step: 0.1
   unit: ! '%'
   group: district_heating_households
-- key: households_space_heater_heatpump_air_water_electricity
+- key: households_space_heater_heatpump_air_water_electricity_share
   start: 0.062621532712059
   min: 0.0
   max: 100.0
