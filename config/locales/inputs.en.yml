@@ -16,7 +16,7 @@ en:
       incandescent_lighting: "Incandescent lighting"
       led_lighting: "LED lighting"
     households_behavior_standby_killer_turn_off_appliances: "Switch off appliances"
-    households_space_heater_heatpump_add_on_electricity_share: "Heat pump for the home"
+    households_space_heater_heatpump_air_water_electricity_share: "Heat pump for the home"
     households_space_heater_heatpump_ground_water_electricity_share: "Heat pump for the home"
     households_water_heater_solar_thermal_share: "Solar thermal collectors"
     households_water_heater_fuel_cell_chp_network_gas_share: "Fuel cell for hot water"
