@@ -3,7 +3,7 @@ production: &production
 
   # The base API for all API requests. Include the protocol and path to the
   # API endpoint.
-  api_url: 'http://et-engine.com'
+  api_url: 'https://engine.energytransitionmodel.com'
 
   # Set the Pusher credentials with which to send and receive updates. Set to
   # false to disable real-time updates.
@@ -47,4 +47,4 @@ test: &test
 
 ci:
   <<: *test
-  api_url: 'http://beta.et-engine.com'
+  api_url: 'https://beta-engine.energytransitionmodel.com'
