@@ -1,11 +1,6 @@
 source 'https://rubygems.org'
 
-RAILS_VERSION = '~> 4.1.0'
-
 gem 'rails', '~> 4.1.0'
-
-# Bundle edge Rails instead:
-# gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 gem 'rack-proxy'
 
@@ -34,7 +29,7 @@ gem 'pusher'
 
 gem 'airbrake'
 gem 'hashie'
-gem 'json'
+gem 'json', '~> 1.8.2'
 gem 'dotenv-rails', groups: [:development, :test, :production, :staging]
 
 # Treetop for the grammars
@@ -67,7 +62,7 @@ group :development do
   gem 'guard-rspec'
   gem 'guard-shell'
   gem 'rb-fsevent'
-  gem 'growl_notify'
+  gem 'libnotify'
 
   # Deploy with Capistrano.
   gem 'capistrano',          '~> 3.0', require: false
