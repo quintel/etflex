@@ -1,5 +1,6 @@
 app                   = require 'app'
 queryTransforms       = require 'lib/query_transforms'
+sliderUpdater         = require 'lib/slider_updater'
 
 listTemplate          = require 'templates/high_scores'
 rowTemplate           = require 'templates/high_score'
@@ -42,6 +43,7 @@ class exports.HighScores extends Backbone.View
     return true unless @listElement
 
     if app.pusher_key
+      app.pusher.unbind 'game.updated', @updateSlidersFromBeagleBone
       app.pusher.unbind 'scenario.created', @scenarioNotification
       app.pusher.unbind 'scenario.updated', @scenarioNotification
 
@@ -64,6 +66,7 @@ class exports.HighScores extends Backbone.View
       @loadSince 7
 
     if app.pusher_key
+      app.pusher.bind 'game.updated', @updateSlidersFromBeagleBone
       app.pusher.bind 'scenario.created', @scenarioNotification
       app.pusher.bind 'scenario.updated', @scenarioNotification
 
@@ -185,6 +188,11 @@ class exports.HighScores extends Backbone.View
       @collection.add summary
 
     @trigger 'update', summary, @collection
+
+  updateSlidersFromBeagleBone: (data) =>
+    #super_detections = new exports.SliderUpdater.update(data.detections)
+    console.log(data.detections)
+    console.log(window.updateSlider(data.detections))
 
   # When the scenario guest name changes, we look for the row which
   # corresponds with the scenario, and change the users name.

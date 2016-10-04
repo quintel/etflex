@@ -3,6 +3,6 @@ engine_key: number_of_energy_power_wind_turbine_offshore
 display: slider
 min: 0.0
 max: 2000.0
-step: 20.0
-start: 68.6869
+step: 500.0
+start: 0
 unit: number

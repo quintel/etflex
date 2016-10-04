@@ -75,6 +75,9 @@ class exports.RangeView extends Backbone.View
     @quinn.on 'drag',   @updateOutput
     @quinn.on 'change', @updateModel
 
+    @$el.attr 'id', @model.get 'key'
+    @$el.data 'quinn', @quinn
+
     @updateOutput @model.get('value'), @quinn
     @delegateEvents()
 

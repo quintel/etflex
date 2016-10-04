@@ -29,10 +29,11 @@ nl:
     number_of_appliances_in_the_house: "Verandering aantal apparaten"
     number_of_cold_showers_per_week: "Aantal keer koude douche per week"
     number_of_energy_power_combined_cycle_network_gas: "Aardgascentrales"
-    number_of_households_heating_solar_thermal_collectors: "Aantal zonnecollectoren (warmte)"    
+    number_of_households_heating_solar_thermal_collectors: "Aantal zonnecollectoren (warmte)"
     number_of_energy_power_nuclear_gen3_uranium_oxide: "Kerncentrales"
     number_of_energy_power_ultra_supercritical_coal: "Kolen- / biomassacentrales"
-    number_of_energy_power_wind_turbine_offshore: "Windmolens"
+    number_of_energy_power_wind_turbine_offshore: "Windmolens op zee"
+    number_of_energy_power_wind_turbine_inland: "Windmolens op land"
     policy_area_biomass: "Biomass"
     transport_car_using_electricity_share: "Elektrische auto's"
     use_of_air_conditioning_options:
@@ -42,33 +43,33 @@ nl:
 
   information:
     amount_of_insulation: |-
-      Isolatie is goedkoop en effectief en heeft veel invloed op de 
-      warmte en koudevraag. 
-      Isolatie van vloeren, muren, daken en isolerende ramen zijn goed 
-      voor 75% van het besparingspotenieel. De isolatiegraad kun je 
+      Isolatie is goedkoop en effectief en heeft veel invloed op de
+      warmte en koudevraag.
+      Isolatie van vloeren, muren, daken en isolerende ramen zijn goed
+      voor 75% van het besparingspotenieel. De isolatiegraad kun je
       uitdrukken als 'thermische weerstand' of R-waarde. Dit is een maat
       voor hoeveel weerstand een huis biedt aan ontsnappende warmte of koude.
-      Hoe hoger de R-waarde hoe beter de isolatie. 
-      In Nederland is de gemiddelde R-waarde voor oude woningen ongeveer 0.5. 
+      Hoe hoger de R-waarde hoe beter de isolatie.
+      In Nederland is de gemiddelde R-waarde voor oude woningen ongeveer 0.5.
       Dit is natuurlijk het gemiddelde van slecht, gemiddeld en goed geïsoleerde
       woningen. Oude huizen zijn lastig naar een R-waarde van meer dan 3 te
-      krijgen. 
+      krijgen.
 
     comfort_temperature_in_the_house: |-
-      Je kunt veel energie besparen door de thermostaat iets lager te zetten. 
+      Je kunt veel energie besparen door de thermostaat iets lager te zetten.
       Toch blijkt dat mensen de neiging hebben voor comfort te kiezen als ze
       het kunnen betalen. Op welke temperatuur denk jij dat we de thermostaat
       in de toekomst in de toekomst gaan instellen?
 
     daily_length_of_shower_per_person: |-
       Bijna 80% van het warm watergebruik is voor douchen. Korter douchen
-      kan veel water en energie besparen. Nu douchen we gemiddeld 8 minuten. 
+      kan veel water en energie besparen. Nu douchen we gemiddeld 8 minuten.
       Hoe lang denk jij dat we in de toekomst zullen douchen? Denk eraan dat
       in dit huis 3 mensen wonen.
 
     green_gas_total_share: |-
       Uit mest, GFT afval, rioolslib, maïs en nog veel meer plantaardige en
-      dierlijke producten kun je biogas maken. Biogas kun je zuiveren tot 
+      dierlijke producten kun je biogas maken. Biogas kun je zuiveren tot
       aardgaskwaliteit en dan heet het groen gas.
       De kunst is om biogas te maken op een manier waarbij de natuur niet wordt
       aangetast en de voedselvoorziening niet in gevaar komt. Helaas is dat niet
@@ -78,7 +79,7 @@ nl:
       Zonnepanelen maken stroom van zonlicht. Dakkopvlak is schaars en daarom
       moet je mogelijk kiezen tussen zonneboilers of zon PV.
       Zonnepanelen worden snel goedkoper. De komende 20 jaar is de verwachting
-      dat ze nog nog veel goedkoper zullen worden. 
+      dat ze nog nog veel goedkoper zullen worden.
 
     households_behavior_standby_killer_turn_off_appliances: |-
       We hebben steeds meer elektrische apparaten in huis. Heel vaak staan deze
@@ -94,31 +95,31 @@ nl:
       dat de warmtepomp duurder is om aan te schaffen.
 
     households_water_heater_solar_thermal_share: |-
-      Zonneboilers gebruiken de warmte van de zon om warm water te maken. 
+      Zonneboilers gebruiken de warmte van de zon om warm water te maken.
       Omdat ze op je dak liggen, net als zonnepanelen, moet je mogelijk kiezen
-      welke techniek je wilt. 
+      welke techniek je wilt.
 
     households_water_heater_fuel_cell_chp_network_gas_share: |-
       Brandstofcellen lijken op batterijen. Ze zijn zeer
-      efficiënt en maken elektriciteit en warmte uit aardgas. 
+      efficiënt en maken elektriciteit en warmte uit aardgas.
       Deze brandstofcel, een 'Solid Oxide Fuel Cell', heeft als
-      grootste nadeel dat hij alleen bij hoge temperaturen werkt 
-      (500 - 1000 °C), 
+      grootste nadeel dat hij alleen bij hoge temperaturen werkt
+      (500 - 1000 °C),
       waardoor het een tijdje duurt voordat hij opgestart is. In
       huishoudens is dat niet zo'n probleem, omdat de brandstofcel bijna continu
-      aanstaat. Dit apparaat maakt meer elektriciteit dan een gemiddeld 
-      huishouden nodig heeft en de eigenaar wordt een echte stroomproducent. 
-      
+      aanstaat. Dit apparaat maakt meer elektriciteit dan een gemiddeld
+      huishouden nodig heeft en de eigenaar wordt een echte stroomproducent.
+
     households_water_heater_micro_chp_network_gas_share: |-
       De micro-WKK is een kleine warmte-kracht centrale voor in je huis.
       Het lokaal produceren van stroom kan veel energiebesparing opleveren.
-      Omdat deze technologie in het klein nog behoorlijk nieuw is, zijn 
+      Omdat deze technologie in het klein nog behoorlijk nieuw is, zijn
       micro-WKK's vrij duur.
 
     households_water_heater_solar_thermal_share: |-
-      Zonneboilers gebruiken de warmte van de zon om warm water te maken. 
+      Zonneboilers gebruiken de warmte van de zon om warm water te maken.
       Omdat ze op je dak liggen, net als zonnepanelen, moet je mogelijk kiezen
-      welke techniek je wilt. 
+      welke techniek je wilt.
 
     households_insulation_level_old_houses: |-
       Hoe beter je een huis isoleert en luchtdicht maakt, hoe minder energie je
@@ -130,7 +131,7 @@ nl:
       geïsoleerd en luchtdicht.
 
     households_lighting_led_electricity_share: |-
-      LED lampen zijn nog 50% efficiënter dan spaarlampen. 
+      LED lampen zijn nog 50% efficiënter dan spaarlampen.
       Ze kunnen snel aan en uitgezet worden, zonder dat ze daardoor sneller
       stukgaan. Ze kosten nog veel meer dan spaarlampen, maar gaan ook
       langer mee, waardoor de stroomrekening nog lager uitvalt.
@@ -139,14 +140,14 @@ nl:
       Zonnepanelen maken stroom van zonlicht. Dakkopvlak is schaars en daarom
       moet je mogelijk kiezen tussen zonneboilers of zon PV.
       Zonnepanelen worden snel goedkoper. De komende 20 jaar is de verwachting
-      dat ze nog nog veel goedkoper zullen worden. 
+      dat ze nog nog veel goedkoper zullen worden.
 
     number_of_appliances_in_the_house: |-
-      Het aantal huishoudelijke apparaten (telefoons, mediaspelers, laptops, 
+      Het aantal huishoudelijke apparaten (telefoons, mediaspelers, laptops,
       etc) dat we hebben, neemt al jaren gestaag toe. Denk je dat deze trend
       in de toekomst doorzet? Hier vul je in of we meer of minder apparaten
       gaan gebruiken. -50% is een halvering en 100% is een verdubbeling.
-      
+
     number_of_energy_power_supercritical_coal: |-
       Een kolencentrale draait het grootste deel van de tijd op volle kracht.
       Regelmatig uitzetten verlaagt de hoeveelheid stroom die we uit kolen kunnen
@@ -155,14 +156,14 @@ nl:
       zo groot als die van een gascentrale.
 
     number_of_cold_showers_per_week: |-
-      Eén maal per week koud douchen zorgt voor een besparing van meer dan 
+      Eén maal per week koud douchen zorgt voor een besparing van meer dan
       10% op je warm water. Hoeveel koude douches gaan we wekelijks nemen?
-       
+
     number_of_energy_power_combined_cycle_network_gas: |-
       Een gascentrale is goedkoper om te bouwen dan een kolencentrale. Wel zijn
       ze duurder als ze draaien dan centrales op kolen. Een gascentrale kun je
       makkelijk aan of uit zetten. Dat is handig om stroom te makken als de
-      zon niet schijnt of de 
+      zon niet schijnt of de
       windmolen even stilstaat, omdat het niet waait. De CO<sub>2</sub>-uitstoot
       van een gascentrale is ongeveer de helft van een kolencentrale.
 
@@ -170,15 +171,15 @@ nl:
       Een gascentrale is goedkoper om te bouwen dan een kolencentrale. Wel zijn
       ze duurder als ze draaien dan centrales op kolen. Een gascentrale kun je
       makkelijk aan of uit zetten. Dat is handig om stroom te makken als de
-      zon niet schijnt of de 
+      zon niet schijnt of de
       windmolen even stilstaat, omdat het niet waait. De CO<sub>2</sub>-uitstoot
       van een gascentrale is ongeveer de helft van een kolencentrale.
 
     number_of_households_heating_solar_thermal_collectors: |-
-      Zonneboilers gebruiken de warmte van de zon om warm water te maken. 
+      Zonneboilers gebruiken de warmte van de zon om warm water te maken.
       Omdat ze op je dak liggen, net als zonnepanelen, moet je mogelijk kiezen
-      wat je wilt. 
-   
+      wat je wilt.
+
     number_of_energy_power_nuclear_gen3_uranium_oxide: |-
       Een kerncentrale is heel duur om te bouwen, maar gaat
       lang mee en gebruikt maar kleine hoeveelheden brandstof (uranium).
@@ -188,7 +189,7 @@ nl:
       bijvoorbeeld even niet waait en/of de zon niet schijnt. Voordeel is dat
       je nauwelijks last hebt van CO<sub>2</sub>-uitstoot. Nadeel is het
       radioactieve afval dat overblijft. Hiervoor is nog geen goede oplossing
-      bedacht. 
+      bedacht.
 
     number_of_energy_power_ultra_supercritical_coal: |-
       Een kolencentrale draait het grootste deel van de tijd op volle kracht.
@@ -202,11 +203,11 @@ nl:
       CO<sub>2</sub>-uitstoot. Het waait niet altijd, daarom kun je niet
       volstaan met alleen windmolens, maar heb je ook stroomopwek nodig die
       altijd kan blijven draaien en liefst soms wat meer en soms wat minder.
-      Gascentrales zijn hier relatief het beste voor geschikt. 
+      Gascentrales zijn hier relatief het beste voor geschikt.
       Nadeel van een windmolen op land is voor veel mensen dat ze hem niet
-      mooi vinden en daarom is er vaak verzet tegen het plaatsen van 
-      windmolens op land. Windmolens op zee hebben een hogere opbrengst, 
-      maar als nadeel dat het bouwen en onderhouden van deze molens veel 
+      mooi vinden en daarom is er vaak verzet tegen het plaatsen van
+      windmolens op land. Windmolens op zee hebben een hogere opbrengst,
+      maar als nadeel dat het bouwen en onderhouden van deze molens veel
       duurder is dan windmolens op land.
 
     number_of_energy_power_wind_turbine_inland: |-
@@ -214,21 +215,21 @@ nl:
       CO<sub>2</sub>-uitstoot. Het waait niet altijd, daarom kun je niet
       volstaan met alleen windmolens, maar heb je ook stroomopwek nodig die
       altijd kan blijven draaien en liefst soms wat meer en soms wat minder.
-      Gascentrales zijn hier relatief het beste voor geschikt. 
+      Gascentrales zijn hier relatief het beste voor geschikt.
       Nadeel van een windmolen op land is voor veel mensen ook dat ze hem niet
-      mooi vinden en daarom is er vaak verzet tegen het plaatsen van windmolens 
-      op land. 
+      mooi vinden en daarom is er vaak verzet tegen het plaatsen van windmolens
+      op land.
 
     transport_car_using_electricity_share: |-
       Een elektrische auto gebruikt de helft van de energie van een auto op
-      benzine of diesel. Met elektrische auto's besparen we veel olie. 
-      We moeten natuurlijk wel meer elektriciteit maken. 
+      benzine of diesel. Met elektrische auto's besparen we veel olie.
+      We moeten natuurlijk wel meer elektriciteit maken.
       Als we deze elektriciteit opwekken met wind
       of zon, dan heeft autorijden geen CO<sub>2</sub>-uitstoot meer tot gevolg.
       Maken we de stroom met kolen- of gascentrales dan is er nog steeds een
       voordeel ten opzichte van auto's op benzine en diesel.
 
     use_of_air_conditioning_options: |-
-      Momenteel hebben nog geen 30% van de woningen airconditioning. Hoeveel 
+      Momenteel hebben nog geen 30% van de woningen airconditioning. Hoeveel
       worden dat er in de toekomst?
-      
+
