@@ -50,7 +50,7 @@ exports.boot = (window, { locale, api, env, user, pusher_key, conference, offlin
   # Pusher notifications.
   if exports.pusher_key
     exports.pusher = new Pusher(exports.pusher_key).
-      subscribe("etflex-staging")
+      subscribe("etflex#{ exports.env }")
 
   # Engine API.
   require('lib/api').setPath api, offline
