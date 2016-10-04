@@ -1,3 +1,3 @@
-Pusher.app_id = ETFlex.config[:app_id]
-Pusher.key    = ETFlex.config[:key]
-Pusher.secret = ETFlex.config[:secret]
+Pusher.app_id = ETFlex.config["pusher"]["app_id"]
+Pusher.key    = ETFlex.config["pusher"]["key"]
+Pusher.secret = ETFlex.config["pusher"]["secret"]
