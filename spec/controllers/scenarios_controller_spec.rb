@@ -36,6 +36,22 @@ describe ScenariosController do
     end
   end
 
+  describe "creating a new scenario with beaglebone" do
+    let(:scene) { create :scene }
+
+    before do
+      sign_in create(:user)
+      put :update, scene_id: scene.id, id: 42, bb_id: 343, format: :json, scenario: {
+        country: 'nl', endYear: '2030',
+        inputValues: { '1' => '2' },
+        queryResults: { '3' => { 'present' => '4', 'future' => '5' } } }
+    end
+
+    it "creates a scene with a beaglebone id" do
+      expect(Scenario.first.beaglebone_id).to eq(343)
+    end
+  end
+
   # --------------------------------------------------------------------------
 
   describe 'Updating an existing scenario' do

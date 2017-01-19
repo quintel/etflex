@@ -19,8 +19,7 @@
   // These go at the end so that loading JS doesn't block the page load...
   = javascript_include_tag 'application'
 
-  - if ETFlex.config.pusher
-    = javascript_include_tag 'http://js.pusher.com/1.11/pusher.min.js'
+  = javascript_include_tag 'http://js.pusher.com/1.11/pusher.min.js'
 
   - unless ETFlex.config.conference
     = javascript_include_tag 'google_analytics.js'

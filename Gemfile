@@ -57,7 +57,6 @@ gem 'animation'
 
 group :production, :staging do
   gem 'unicorn'
-  gem 'newrelic_rpm'
 end
 
 group :development do
