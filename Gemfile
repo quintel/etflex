@@ -67,7 +67,6 @@ group :development do
   gem 'guard-rspec'
   gem 'guard-shell'
   gem 'rb-fsevent'
-  gem 'growl_notify'
 
   # Deploy with Capistrano.
   gem 'capistrano',          '~> 3.0', require: false

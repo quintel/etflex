@@ -117,8 +117,6 @@ GEM
     formatador (0.2.4)
     fssm (0.2.10)
     gravtastic (3.2.6)
-    growl_notify (0.0.3)
-      rb-appscript
     guard (2.6.0)
       formatador (>= 0.2.4)
       listen (~> 2.7)
@@ -147,11 +145,11 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (4.2.0)
       railties (>= 3.2.16)
-    json (1.8.1)
+    json (1.8.6)
     kgio (2.9.2)
     launchy (2.4.2)
       addressable (~> 2.3)
-    libv8 (3.16.14.3)
+    libv8 (3.16.14.17)
     listen (2.7.1)
       celluloid (>= 0.15.2)
       celluloid-io (>= 0.15.0)
@@ -171,7 +169,7 @@ GEM
       net-ssh (>= 2.6.5)
     net-ssh (2.9.1)
     newrelic_rpm (3.7.3.204)
-    nio4r (1.0.0)
+    nio4r (2.0.0)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
     orm_adapter (0.5.0)
@@ -214,7 +212,6 @@ GEM
       thor (>= 0.18.1, < 2.0)
     raindrops (0.13.0)
     rake (10.3.2)
-    rb-appscript (0.6.1)
     rb-fsevent (0.9.4)
     rb-inotify (0.9.3)
       ffi (>= 0.5.0)
@@ -313,7 +310,6 @@ DEPENDENCIES
   eco (~> 1.0)
   factory_girl_rails
   gravtastic
-  growl_notify
   guard
   guard-rspec
   guard-shell
@@ -346,3 +342,6 @@ DEPENDENCIES
   treetop
   uglifier (>= 1.0.3)
   unicorn
+
+BUNDLED WITH
+   1.12.3
