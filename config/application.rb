@@ -68,7 +68,7 @@ module ETFlex
 
     # Version of your assets, change this if you want to expire all your
     # assets.
-    config.assets.version = '1.0'
+    config.assets.version = '1.1'
 
     # Required by Devise.
     config.action_mailer.default_url_options = {
