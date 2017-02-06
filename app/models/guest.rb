@@ -10,7 +10,7 @@ class Guest
   # TODO This should be part of a view, not the model; move as soon as
   #      Scenario#to_pusher_event is extracted from the model.
   #
-  IMAGE_URL = 'http://etflex.et-model.com/assets/guest.png'.freeze
+  IMAGE_URL = 'https://light.energytransitionmodel.com/images/guest.png'.freeze
 
   # Creates a new Guest.
   #
@@ -34,9 +34,7 @@ class Guest
   # root.
   #
   def image_url
-    # the IMAGE_URL constant above is used by Gravtastic, that is expecting an
-    # absolute URL
-    '/assets/guest.png'
+    URI(IMAGE_URL).path
   end
 
   # Public: Saves the guest into a cookie.
