@@ -44,6 +44,12 @@ class ScenariosController < ApplicationController
   #
   def scenario_pusher(event, scenario)
     pusher "scenario.#{ event }", scenario.to_pusher_event
+  rescue Pusher::HTTPError => ex
+    # Ignore timeouts.
+    raise(ex) unless ex.message =~ /execution expired/i
+  rescue Pusher::Error => ex
+    # Ignore (spurious?) quota errors.
+    raise(ex) unless ex.message =~ /quota exceeded/i
   end
 
   # ACTIONS ------------------------------------------------------------------
