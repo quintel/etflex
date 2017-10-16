@@ -4,6 +4,9 @@ RAILS_VERSION = '~> 4.1.0'
 
 gem 'rails', '~> 4.1.0'
 
+# https://stackoverflow.com/questions/35893584/nomethoderror-undefined-method-last-comment-after-upgrading-to-rake-11
+gem 'rake', '< 11.0'
+
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
@@ -56,7 +59,7 @@ gem 'uglifier',      '>= 1.0.3'
 gem 'animation'
 
 group :production, :staging do
-  gem 'unicorn'
+  gem 'puma'
   gem 'newrelic_rpm'
 end
 
@@ -69,11 +72,11 @@ group :development do
   gem 'rb-fsevent'
 
   # Deploy with Capistrano.
-  gem 'capistrano',          '~> 3.0', require: false
-  gem 'capistrano-rbenv',    '~> 2.0', require: false
-  gem 'capistrano-rails',    '~> 1.1', require: false
-  gem 'capistrano-bundler',  '~> 1.1', require: false
-  gem 'capistrano3-unicorn', '~> 0.2', require: false
+  gem 'capistrano',         '~> 3.9',   require: false
+  gem 'capistrano-rbenv',   '~> 2.0',   require: false
+  gem 'capistrano-rails',   '~> 1.1',   require: false
+  gem 'capistrano-bundler', '~> 1.1',   require: false
+  gem 'capistrano3-puma',   '~> 3.1.1', require: false
 end
 
 group :test, :development do

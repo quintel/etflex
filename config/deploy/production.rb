@@ -15,7 +15,7 @@
 # server list. The second argument is a, or duck-types, Hash and is
 # used to set extended properties on the server.
 
-server 'etflex.et-model.com', user: 'ubuntu', roles: %w{web app db}
+server 'etflex.et-model.com', user: 'deploy', roles: %w[web app db]
 set :branch, 'production'
 
 
