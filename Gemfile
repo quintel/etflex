@@ -1,14 +1,9 @@
 source 'https://rubygems.org'
 
-RAILS_VERSION = '~> 4.1.0'
-
-gem 'rails', '~> 4.1.0'
+gem 'rails', '~> 4.1'
 
 # https://stackoverflow.com/questions/35893584/nomethoderror-undefined-method-last-comment-after-upgrading-to-rake-11
 gem 'rake', '< 11.0'
-
-# Bundle edge Rails instead:
-# gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 gem 'rack-proxy'
 
@@ -34,6 +29,7 @@ gem 'rails-i18n'
 gem 'http_accept_language'
 
 gem 'pusher'
+gem 'responders'
 
 gem 'airbrake'
 gem 'hashie'
