@@ -64,7 +64,7 @@ module ETFlex
 
         set_guest_name(name)
 
-        redirect_to params.except(:who)
+        redirect_to url_for(params.except(:who))
       end
     end
 
