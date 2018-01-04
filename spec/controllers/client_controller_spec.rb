@@ -115,7 +115,8 @@ describe ETFlex::ClientController do
 
   describe 'client method' do
     it 'should not be reachable' do
-      expect { get :client }.to raise_error(ActionController::RoutingError)
+      expect { get :client }.
+        to raise_error(ActionController::UrlGenerationError)
     end
   end
 
