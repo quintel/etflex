@@ -6,31 +6,22 @@ options:
   -
     key: combi_boiler
     effects:
-      households_space_heater_combined_network_gas_share: 100
-      households_space_heater_heatpump_ground_water_electricity_share: 0
-      households_space_heater_micro_chp_network_gas_share: 0
-      households_water_heater_combined_network_gas_share: 100
-      households_water_heater_heatpump_ground_water_electricity_share: 0
-      households_water_heater_micro_chp_network_gas_share: 0
-      households_space_heater_heatpump_air_water_electricity_share: 0
+      households_heater_combined_network_gas_share: 100
+      households_heater_heatpump_ground_water_electricity_share: 0
+      households_heater_micro_chp_network_gas_share: 0
+      households_heater_heatpump_air_water_electricity_share: 0
 
   -
     key: micro_chp
     effects:
-      households_space_heater_combined_network_gas_share: 50
-      households_space_heater_heatpump_ground_water_electricity_share: 0
-      households_space_heater_micro_chp_network_gas_share: 50
-      households_water_heater_combined_network_gas_share: 50
-      households_water_heater_heatpump_ground_water_electricity_share: 0
-      households_water_heater_micro_chp_network_gas_share: 50
-      households_space_heater_heatpump_air_water_electricity_share: 0
+      households_heater_combined_network_gas_share: 50
+      households_heater_heatpump_ground_water_electricity_share: 0
+      households_heater_micro_chp_network_gas_share: 50
+      households_heater_heatpump_air_water_electricity_share: 0
   -
     key: heatpump_ground
     effects:
-      households_space_heater_combined_network_gas_share: 0
-      households_space_heater_heatpump_ground_water_electricity_share: 100
-      households_space_heater_micro_chp_network_gas_share: 0
-      households_water_heater_combined_network_gas_share: 0
-      households_water_heater_heatpump_ground_water_electricity_share: 100
-      households_water_heater_micro_chp_network_gas_share: 0
-      households_space_heater_heatpump_air_water_electricity_share: 0
+      households_heater_combined_network_gas_share: 0
+      households_heater_heatpump_ground_water_electricity_share: 100
+      households_heater_micro_chp_network_gas_share: 0
+      households_heater_heatpump_air_water_electricity_share: 0
