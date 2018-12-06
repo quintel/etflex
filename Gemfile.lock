@@ -185,7 +185,7 @@ GEM
     mini_portile2 (2.3.0)
     minitest (5.11.1)
     multi_json (1.12.2)
-    mysql2 (0.3.21)
+    mysql2 (0.4.10)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (4.2.0)
@@ -351,7 +351,7 @@ DEPENDENCIES
   json
   launchy
   libv8 (>= 3.16.14.3)
-  mysql2 (~> 0.3.18)
+  mysql2 (~> 0.4.10)
   newrelic_rpm
   poltergeist
   pry (>= 0.9.7)
@@ -377,4 +377,4 @@ RUBY VERSION
    ruby 2.4.2p198
 
 BUNDLED WITH
-   1.16.0
+   1.17.1
