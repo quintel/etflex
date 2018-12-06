@@ -52,5 +52,4 @@ config/database.yml
 config/etflex.yml
 public/assets/*
 .rvmrc
-.ruby-version
 .DS_Store
