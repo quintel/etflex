@@ -16,13 +16,11 @@ en:
       incandescent_lighting: "Incandescent lighting"
       led_lighting: "LED lighting"
     households_behavior_standby_killer_turn_off_appliances: "Switch off appliances"
-    households_space_heater_heatpump_air_water_electricity_share: "Heat pump for the home"
-    households_space_heater_heatpump_ground_water_electricity_share: "Heat pump for the home"
+    households_heater_heatpump_air_water_electricity_share: "Heat pump for the home"
+    households_heater_heatpump_ground_water_electricity_share: "Heat pump for the home"
     households_water_heater_solar_thermal_share: "Solar thermal collectors"
-    households_water_heater_fuel_cell_chp_network_gas_share: "Fuel cell for hot water"
-    households_water_heater_micro_chp_network_gas_share: "Micro-CHP for hot water"
     households_water_heater_solar_thermal_share: "Solar water heater"
-    households_insulation_level_old_houses: "Better insulation"
+    households_insulation_level: "Better insulation"
     households_lighting_led_electricity_share: "Low-energy lighting"
     households_solar_pv_solar_radiation_market_penetration: "Solar panels"
     new: "New input"
@@ -35,6 +33,7 @@ en:
     number_of_energy_power_wind_turbine_offshore: "Wind turbines"
     policy_area_biomass: "Biomass"
     transport_car_using_electricity_share: "Electric cars"
+    transport_truck_using_electricity_share: "Electric trucks"
     use_of_air_conditioning_options:
       no_cooling: "No airco"
       one_room_cooling: "Only in one room"
@@ -86,7 +85,7 @@ en:
       We own more and more electrical appliances that are often left on when
       they are not being used. We can save some power by switching them off.
 
-    households_space_heater_heatpump_ground_water_electricity_share: |-
+    households_heater_heatpump_ground_water_electricity_share: |-
       A heat pump is like a refrigerator used the other way around: it pumps
       heat into the house from outside, while a refrigerator pumps heat from
       inside to outside. Heat pumps reduce your need for gas to heat the home.
@@ -100,29 +99,12 @@ en:
       heats water further if necessary. It can also be combined with a heat
       pump.
 
-    households_water_heater_fuel_cell_chp_network_gas_share: |-
-      This so-called Solid Oxide Fuel Cell (SOFC) produces electricity and
-      heat from natural gas. Fuel cells are highly efficient.
-
-      The largest disadvantage is that this operates at high temperatures
-      (500 - 1000 °C), which results in longer start-up times. In households
-      this is not a problem as they are typically running constantly,
-      producing warm water that is stored in a container until it is needed.
-      This device provides more electricity than a typical household needs,
-      turning its owner into a net electricity producer.
-
-    households_water_heater_micro_chp_network_gas_share: |-
-      The micro-CHP (Combined Heat and Power) unit is a tiny gas-fired
-      heat and power plant for use in your house. Using a micro-CHP can
-      deliver significant energy savings. Because this technology is
-      relatively new, it is quite expensive.
-
     households_water_heater_solar_thermal_share: |-
       A solar water heater uses heat from the sun to make warm water. This is
       often done on the roof of a house. The hot water can then be used for
       showering or washing dishes. Using the sun's heat saves energy.
 
-    households_insulation_level_old_houses: |-
+    households_insulation_level: |-
       A house uses a lot less energy for heating in winter if it is insulated
       and airtight. Insulation prevents heat leaking through windows, walls,
       floors, and ceilings. Airtightness prevents the wind blowing cold air
@@ -144,7 +126,7 @@ en:
       power you can expect than with wind power. Of course, a solar
       panel in sunny Spain produces more electricity than one in the United
       Kingdom. You can install solar panels on the roof of your own house
-      to avoids power losses from transporting electricity over a long cable. 
+      to avoids power losses from transporting electricity over a long cable.
       Solar panels are still quite expensive, but they are rapidly becoming
       more affordable.
 
@@ -167,8 +149,8 @@ en:
       than 10%. How many cold showers would you take per week?
 
     number_of_energy_power_combined_cycle_network_gas: |-
-      A gas-fired power plant is cheaper to build than a coal power plant. 
-      However, power from gas costs more than power plants that burn coal. 
+      A gas-fired power plant is cheaper to build than a coal power plant.
+      However, power from gas costs more than power plants that burn coal.
       A gas-fired power plant is easily powered up or down. That can come
       in handy when there is no wind and solar panels do not
       produce electricity because the sun is not shining. CO<sub>2</sub>
@@ -183,11 +165,11 @@ en:
       CO<sub>2</sub> emissions are half that of a coal-fired power plant.
 
     number_of_households_heating_solar_thermal_collectors: |-
-      Solar water heaters (SWH) use heat from the sun to produce warm water. 
-      This warm water can be used for showering or for doing the dishes, 
+      Solar water heaters (SWH) use heat from the sun to produce warm water.
+      This warm water can be used for showering or for doing the dishes,
       etc. SWHs are usually installed on rooftops or in asphalt for parking
       lots. A SWH is often combined with a gas-fired central heating boiler
-      that heats water further if necessary. It can also be combined with 
+      that heats water further if necessary. It can also be combined with
       a heat pump.
 
     number_of_energy_power_nuclear_gen3_uranium_oxide: |-
@@ -206,26 +188,26 @@ en:
       than older types.
 
     number_of_energy_power_ultra_supercritical_coal: |-
-      Coal-fired power plants are less suitable to act as backup plants 
+      Coal-fired power plants are less suitable to act as backup plants
       for wind- and solar
       electricity than gas-fired plants, because they are expensive to build and
       cheap to run. For this reason coal-fired power plants are almost always
-      running, producing electricity at maximum power. Coal has the highest 
+      running, producing electricity at maximum power. Coal has the highest
       CO<sub>2</sub>-emissions, about twice a much as gas-fired power plants.
-      Wood can be co-fired in coal plants, to reduce such emissions and 
+      Wood can be co-fired in coal plants, to reduce such emissions and
       increase renewability.
 
     number_of_energy_power_wind_turbine_offshore: |-
       Wind turbines produce renewable power without CO<sub>2</sub>
-      emissions. Although wind does not run out, it does not always blow. 
-      This means that building windmills alone is not enough to ensure 
-      supply. 
-      You would have a problem if you needed power and there was no wind. 
+      emissions. Although wind does not run out, it does not always blow.
+      This means that building windmills alone is not enough to ensure
+      supply.
+      You would have a problem if you needed power and there was no wind.
 
     number_of_energy_power_wind_turbine_inland: |-
       Wind turbines produce renewable power without CO<sub>2</sub>
-      emissions. Although wind does not run out, it does not always blow. 
-      This means that building windmills alone is not enough to ensure 
+      emissions. Although wind does not run out, it does not always blow.
+      This means that building windmills alone is not enough to ensure
       supply. You would have a problem if you
       needed power and there was no wind.
 
@@ -233,9 +215,21 @@ en:
       An electric car uses about half the energy of a diesel or gasoline
       -powered car. Diesel and gasoline are made from oil. By switching to
       electric cars, we will save a lot of oil and at the same time use more
-      electricity. Wind or solar powered cars will no longer produce 
-      any CO<sub>2</sub> emissions. 
-      Electric cars powered by modern coal or gas-fired power plants  will 
+      electricity. Wind or solar powered cars will no longer produce
+      any CO<sub>2</sub> emissions.
+      Electric cars powered by modern coal or gas-fired power plants will
+      still emit less than conventional ones.
+      <img src="/assets/information/electric_versus_gasoline.png" width="444" height="362" />
+
+    transport_truck_using_electricity_share: |-
+      Some people believe trucks will run on diesel for quite a while
+      longer, as electric trucks are a technological challenge. An electric truck
+      uses about half the energy of a diesel or gasoline
+      -powered truck. Diesel and gasoline are made from oil. By switching to
+      electric trucks, we will save a lot of oil and at the same time use more
+      electricity. Wind or solar powered cars will no longer produce
+      any CO<sub>2</sub> emissions.
+      Electric cars powered by modern coal or gas-fired power plants will
       still emit less than conventional ones.
       <img src="/assets/information/electric_versus_gasoline.png" width="444" height="362" />
 

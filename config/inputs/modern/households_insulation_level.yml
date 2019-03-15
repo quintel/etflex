@@ -1,0 +1,8 @@
+type: one_to_one
+engine_key: households_insulation_level_terraced_houses
+display: slider
+min: 0.0
+max: 67.0
+step: 0.1
+start: 11.0
+unit: percentage
