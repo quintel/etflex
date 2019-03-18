@@ -1,0 +1,8 @@
+type: one_to_one
+engine_key: settings_enable_merit_order
+display: slider
+min: 0.0
+max: 1.0
+step: 1.0
+start: 0
+unit: number
