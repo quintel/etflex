@@ -10,7 +10,7 @@ nl:
     household_heating_technology_options:
       combi_boiler: "HR combi-ketel"
       heatpump_ground: "Warmtepomp met bodemsonde"
-      micro_chp: "Micro-WKK"
+      district_heating: "Warmtenet"
     household_lighting_type_options:
       fluorescent_lighting: "Spaarlampen"
       incandescent_lighting: "Gloeilampen"
@@ -20,7 +20,7 @@ nl:
     households_heater_heatpump_ground_water_electricity_share: "Warmtepomp"
     households_water_heater_solar_thermal_share: "Zonthermische collectoren"
     households_water_heater_solar_thermal_share: "Zonneboiler"
-    households_insulation_level: "Betere isolatie"
+    households_insulation_level_terraced_houses: "Betere isolatie"
     households_lighting_led_electricity_share: "Zuinige lampen"
     households_solar_pv_solar_radiation_market_penetration: "Zonnepanelen"
     new: "Nieuwe input"
@@ -108,18 +108,17 @@ nl:
       aanstaat. Dit apparaat maakt meer elektriciteit dan een gemiddeld
       huishouden nodig heeft en de eigenaar wordt een echte stroomproducent.
 
-    households_water_heater_micro_chp_network_gas_share: |-
-      De micro-WKK is een kleine warmte-kracht centrale voor in je huis.
-      Het lokaal produceren van stroom kan veel energiebesparing opleveren.
-      Omdat deze technologie in het klein nog behoorlijk nieuw is, zijn
-      micro-WKK's vrij duur.
+    households_heater_district_heating_steam_hot_water_share: |-
+      Warmte uit een warmtenet kan geproduceerd worden door lokale
+      warmtecentrales / grootschalige warmteketels óf de warmte kan worden
+      geïmporteerd van buiten jouw gebied.
 
     households_water_heater_solar_thermal_share: |-
       Zonneboilers gebruiken de warmte van de zon om warm water te maken.
       Omdat ze op je dak liggen, net als zonnepanelen, moet je mogelijk kiezen
       welke techniek je wilt.
 
-    households_insulation_level: |-
+    households_insulation_level_terraced_houses: |-
       Hoe beter je een huis isoleert en luchtdicht maakt, hoe minder energie je
       nodig hebt voor verwarming in de winter. Isolatie zorgt er voor dat de
       warmte niet weglekt door ramen, muren, vloeren en daken. Luchtdichtheid

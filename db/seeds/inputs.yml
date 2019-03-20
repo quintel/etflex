@@ -771,6 +771,13 @@
   step: 0.1
   unit: ! '%'
   group: heating_households
+- key: households_heater_district_heating_steam_hot_water_share
+  start: 0.0
+  min: 0.0
+  max: 100.0
+  step: 0.1
+  unit: ! '%'
+  group: heating_households
 - key: households_collective_geothermal_share
   start: 0.0
   min: 0.0
@@ -1164,7 +1171,7 @@
   max: 300.0
   step: 1.0
   unit: ! '%'
-- key: investment_costs_micro_chp
+- key: investment_costs_district_heating
   start: 0.0
   min: -100.0
   max: 300.0

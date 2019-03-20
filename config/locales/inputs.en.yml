@@ -10,7 +10,7 @@ en:
     household_heating_technology_options:
       combi_boiler: "Gas-fired combi-boiler"
       heatpump_ground: "Ground source heat pump"
-      micro_chp: "Gas-fired Micro-CHP"
+      district_heating: "District heating"
     household_lighting_type_options:
       fluorescent_lighting: "Fluorescent lighting"
       incandescent_lighting: "Incandescent lighting"
@@ -20,7 +20,7 @@ en:
     households_heater_heatpump_ground_water_electricity_share: "Heat pump for the home"
     households_water_heater_solar_thermal_share: "Solar thermal collectors"
     households_water_heater_solar_thermal_share: "Solar water heater"
-    households_insulation_level: "Better insulation"
+    households_insulation_level_terraced_houses: "Better insulation"
     households_lighting_led_electricity_share: "Low-energy lighting"
     households_solar_pv_solar_radiation_market_penetration: "Solar panels"
     new: "New input"
@@ -104,7 +104,7 @@ en:
       often done on the roof of a house. The hot water can then be used for
       showering or washing dishes. Using the sun's heat saves energy.
 
-    households_insulation_level: |-
+    households_insulation_level_terraced_houses: |-
       A house uses a lot less energy for heating in winter if it is insulated
       and airtight. Insulation prevents heat leaking through windows, walls,
       floors, and ceilings. Airtightness prevents the wind blowing cold air
