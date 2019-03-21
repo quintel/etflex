@@ -108,11 +108,6 @@ nl:
       aanstaat. Dit apparaat maakt meer elektriciteit dan een gemiddeld
       huishouden nodig heeft en de eigenaar wordt een echte stroomproducent.
 
-    households_heater_district_heating_steam_hot_water_share: |-
-      Warmte uit een warmtenet kan geproduceerd worden door lokale
-      warmtecentrales / grootschalige warmteketels óf de warmte kan worden
-      geïmporteerd van buiten jouw gebied.
-
     households_water_heater_solar_thermal_share: |-
       Zonneboilers gebruiken de warmte van de zon om warm water te maken.
       Omdat ze op je dak liggen, net als zonnepanelen, moet je mogelijk kiezen
