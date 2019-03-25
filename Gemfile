@@ -33,7 +33,7 @@ gem 'http_accept_language'
 gem 'pusher'
 gem 'responders'
 
-gem 'airbrake'
+gem 'airbrake', '~> 3.1'
 gem 'hashie'
 gem 'json'
 gem 'dotenv-rails', groups: [:development, :test, :production, :staging]
