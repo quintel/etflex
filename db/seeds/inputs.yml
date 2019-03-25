@@ -736,35 +736,35 @@
   step: 0.1
   unit: ! '%'
   group: district_heating_households
-- key: households_space_heater_coal_share
+- key: households_heater_coal_share
   start: 0.06182960727123701
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: heating_households
-- key: households_space_heater_district_heating_steam_hot_water_share
+- key: households_heater_district_heating_steam_hot_water_share
   start: 3.0538449504402303
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: heating_households
-- key: households_space_heater_electricity_share
+- key: households_heater_electricity_share
   start: 1.7665909822899801
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: heating_households
-- key: households_space_heater_combined_network_gas_share
+- key: households_heater_combined_network_gas_share
   start: 80.85967135001293
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: heating_households
-- key: households_space_heater_network_gas_share
+- key: households_heater_network_gas_share
   start: 10.3666245320529
   min: 0.0
   max: 100.0
@@ -785,34 +785,28 @@
   step: 0.1
   unit: ! '%'
   group: district_heating_households
-- key: households_space_heater_heatpump_air_water_electricity_share
-  start: 0.062621532712059
-  min: 0.0
-  max: 100.0
-  step: 0.1
-  unit: ! '%'
-- key: households_space_heater_heatpump_ground_water_electricity_share
-  start: 0.0751740843527652
+- key: households_heater_heatpump_ground_water_electricity_share
+  start: 0.5
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: heating_households
-- key: households_space_heater_micro_chp_network_gas_share
-  start: 0.0
+- key: households_heater_hybrid_heatpump_air_water_electricity_share
+  start: 0.1
   min: 0.0
-  max: 70.0
+  max: 100.0
   step: 0.1
   unit: ! '%'
   group: heating_households
-- key: households_space_heater_crude_oil_share
+- key: households_heater_crude_oil_share
   start: 1.2481851967881
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: heating_households
-- key: households_space_heater_wood_pellets_share
+- key: households_heater_wood_pellets_share
   start: 2.56807929679186
   min: 0.0
   max: 100.0
@@ -832,90 +826,36 @@
   max: 100.0
   step: 0.1
   unit: ! '%'
-- key: households_water_heater_wood_pellets_share
-  start: 0.0
-  min: 0.0
-  max: 100.0
-  step: 0.1
-  unit: ! '%'
-  group: hot_water_households
-- key: households_water_heater_coal_share
-  start: 0.0
-  min: 0.0
-  max: 100.0
-  step: 0.1
-  unit: ! '%'
-  group: hot_water_households
 - key: households_useful_demand_hot_water_share
   start: 0.0
   min: -5.0
   max: 5.0
   step: 0.1
   unit: ! '%'
-- key: households_water_heater_resistive_electricity_share
-  start: 8.107844174755801
+- key: households_insulation_level_semi_detached_houses
+  start: 13.0
   min: 0.0
-  max: 100.0
+  max: 69.0
   step: 0.1
-  unit: ! '%'
-  group: hot_water_households
-- key: households_water_heater_fuel_cell_chp_network_gas_share
-  start: 0.0
+- key: households_insulation_level_detached_houses
+  start: 11.0
   min: 0.0
-  max: 100.0
+  max: 67.0
   step: 0.1
-  unit: ! '%'
-  group: hot_water_households
-- key: households_water_heater_combined_network_gas_share
-  start: 75.7878108533221
+- key: households_insulation_level_corner_houses
+  start: 9.0
   min: 0.0
-  max: 100.0
+  max: 69.0
   step: 0.1
-  unit: ! '%'
-  group: hot_water_households
-- key: households_water_heater_network_gas_share
-  start: 13.374319562351003
+- key: households_insulation_level_terraced_houses
+  start: 13.0
   min: 0.0
-  max: 100.0
+  max: 69.0
   step: 0.1
-  unit: ! '%'
-  group: hot_water_households
-- key: households_water_heater_district_heating_steam_hot_water_share
-  start: 2.7259674295036396
+- key: households_insulation_level_apartments
+  start: 13.0
   min: 0.0
-  max: 100.0
-  step: 0.1
-  unit: ! '%'
-  group: hot_water_households
-- key: households_water_heater_micro_chp_network_gas_share
-  start: 0.0
-  min: 0.0
-  max: 100.0
-  step: 0.1
-  unit: ! '%'
-  group: hot_water_households
-- key: households_water_heater_crude_oil_share
-  start: 0.0
-  min: 0.0
-  max: 100.0
-  step: 0.1
-  unit: ! '%'
-  group: hot_water_households
-- key: households_water_heater_solar_thermal_share
-  start: 1.0045452107072
-  min: 0.0
-  max: 100.0
-  step: 0.1
-  unit: ! '%'
-- key: households_insulation_level_new_houses
-  start: 2.5
-  min: 2.5
-  max: 6.0
-  step: 0.1
-- key: households_insulation_level_old_houses
-  start: 1.0
-  min: 1.0
-  max: 3.0
+  max: 67.0
   step: 0.1
 - key: households_lighting_incandescent_electricity_share
   start: 80.0
@@ -950,33 +890,44 @@
   max: 5.0
   step: 0.1
   unit: ! '%'
+- key: households_number_of_detached_houses
+  start: 0.0
+  min: 0.0
+  max: 7587964
+  step: 0.1
+- key: households_number_of_apartments
+  start: 0.0
+  min: 0.0
+  max: 7587964
+  step: 0.1
+- key: households_number_of_semi_detached_houses
+  start: 0.0
+  min: 0.0
+  max: 7587964
+  step: 0.1
+- key: households_number_of_corner_houses
+  start: 0.0
+  min: 0.0
+  max: 7587964
+  step: 0.1
+- key: households_number_of_terraced_houses
+  start: 7587964
+  min: 0.0
+  max: 7587964
+  step: 0.1
 - key: households_replacement_of_existing_houses
   start: 0.0
   min: 0.0
   max: 5.0
   step: 0.1
   unit: ! '%'
-- key: households_space_heater_heatpump_air_water_electricity_share
+- key: households_heater_heatpump_air_water_electricity_share
   start: 0.0
   min: 0.0
   max: 100.0
   step: 0.1
   unit: ! '%'
   group: heating_households
-- key: households_water_heater_heatpump_air_water_electricity_share
-  start: 0.0
-  min: 0.0
-  max: 100.0
-  step: 0.1
-  unit: ! '%'
-  group: hot_water_households
-- key: households_water_heater_heatpump_ground_water_electricity_share
-  start: 0.00405798006744534
-  min: 0.0
-  max: 100.0
-  step: 0.1
-  unit: ! '%'
-  group: hot_water_households
 - key: industry_aluminium_carbothermalreduction_electricity_share
   start: 0.0
   min: 0.0
@@ -1214,7 +1165,7 @@
   max: 300.0
   step: 1.0
   unit: ! '%'
-- key: investment_costs_micro_chp
+- key: investment_costs_district_heating
   start: 0.0
   min: -100.0
   max: 300.0
@@ -1284,7 +1235,7 @@
   min: 0.0
   max: 603.3739281977582
   step: 0.1
-- key: number_of_households_space_heater_wood_pellets_fixed
+- key: number_of_households_heater_wood_pellets_fixed
   start: 188779.8797879809
   min: 0.0
   max: 100000000.0
@@ -1433,11 +1384,6 @@
   start: 0.0
   min: 0.0
   max: 92.81236035912721
-  step: 0.1
-- key: number_of_households_space_heater_micro_chp_network_gas_fixed
-  start: 0.0
-  min: 0.0
-  max: 7349500.0
   step: 0.1
 - key: number_of_energy_power_nuclear_gen3_uranium_oxide
   start: 0.3187499999999999
