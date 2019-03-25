@@ -16,7 +16,7 @@
 # used to set extended properties on the server.
 
 server 'beta.etflex.et-model.com', user: 'deploy', roles: %w[web app db]
-set :branch, 'staging'
+set :branch, 'master'
 
 
 # Custom SSH Options
