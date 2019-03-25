@@ -9,19 +9,19 @@ options:
       households_heater_combined_network_gas_share: 100
       households_heater_heatpump_ground_water_electricity_share: 0
       households_heater_heatpump_air_water_electricity_share: 0
-      households_heater_district_heating_steam_hot_water_share: 0
+      households_heater_hybrid_heatpump_air_water_electricity_share: 0
 
   -
-    key: district_heating
+    key: hybrid_heatpump
     effects:
       households_heater_combined_network_gas_share: 0
       households_heater_heatpump_ground_water_electricity_share: 0
       households_heater_heatpump_air_water_electricity_share: 0
-      households_heater_district_heating_steam_hot_water_share: 100
+      households_heater_hybrid_heatpump_air_water_electricity_share: 100
   -
     key: heatpump_ground
     effects:
       households_heater_combined_network_gas_share: 0
       households_heater_heatpump_ground_water_electricity_share: 100
       households_heater_heatpump_air_water_electricity_share: 0
-      households_heater_district_heating_steam_hot_water_share: 0
+      households_heater_hybrid_heatpump_air_water_electricity_share: 0

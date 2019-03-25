@@ -10,7 +10,7 @@ nl:
     household_heating_technology_options:
       combi_boiler: "HR combi-ketel"
       heatpump_ground: "Warmtepomp met bodemsonde"
-      district_heating: "Warmtenet"
+      hybrid_heatpump: "Hybride warmtepomp"
     household_lighting_type_options:
       fluorescent_lighting: "Spaarlampen"
       incandescent_lighting: "Gloeilampen"

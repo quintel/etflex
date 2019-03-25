@@ -10,14 +10,14 @@ en:
     household_heating_technology_options:
       combi_boiler: "Gas-fired combi-boiler"
       heatpump_ground: "Ground source heat pump"
-      district_heating: "District heating"
+      hybrid_heatpump: "Hybrid heat pump"
     household_lighting_type_options:
       fluorescent_lighting: "Fluorescent lighting"
       incandescent_lighting: "Incandescent lighting"
       led_lighting: "LED lighting"
     households_behavior_standby_killer_turn_off_appliances: "Switch off appliances"
-    households_heater_heatpump_air_water_electricity_share: "Heat pump for the home"
-    households_heater_heatpump_ground_water_electricity_share: "Heat pump for the home"
+    households_heater_heatpump_air_water_electricity_share: "Heat pump"
+    households_heater_heatpump_ground_water_electricity_share: "Heat pump"
     households_water_heater_solar_thermal_share: "Solar thermal collectors"
     households_water_heater_solar_thermal_share: "Solar water heater"
     households_insulation_level_terraced_houses: "Better insulation"
