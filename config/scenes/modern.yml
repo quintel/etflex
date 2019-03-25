@@ -24,3 +24,8 @@ inputs:
       - number_of_energy_power_ultra_supercritical_network_gas
       - number_of_energy_power_wind_turbine_inland
       - settings_enable_merit_order
+      - households_number_of_apartments
+      - households_number_of_corner_houses
+      - households_number_of_detached_houses
+      - households_number_of_semi_detached_houses
+      - households_number_of_terraced_houses
