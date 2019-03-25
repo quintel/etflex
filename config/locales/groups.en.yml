@@ -16,10 +16,10 @@ en:
         Choose how to heat your house:
 
         <h4>Gas-fired combi boiler</h4>
-        In many homes in the Netherlands, the combi-boiler is the default
-        technology for producing heat and hot water. Although this technology
-        uses gas quite efficiently, it still emits CO<sub>2</sub>. This could
-        pose a problem if you want to significantly reduce emissions.
+        In many homes in the Netherlands, the gas-fired combi-boiler is the
+        default technology for producing heat and hot water. Although this
+        technology uses gas quite efficiently, it still emits CO<sub>2</sub>.
+        This could pose a problem if you want to significantly reduce emissions.
 
         <h4>Hybrid heatpump</h4>
         This heater is a combination of an electric heat pump that draws its
@@ -27,24 +27,12 @@ en:
         boiler. Essentially, the hybrid heat pump offers a way to strongly
         reduce natural gas demand for heating, while buying time for grid
         management companies to reinforce grids.
-        <br>
-        This works as follows: The gas-fired part takes over all of the heating
-        of the building on cold winter days, when heat demand peaks. Because of
-        this clever trick, the heat pump has less impact on the electricity grid
-        than an all-electric heat pump does. Smart use of hybrid heat pumps may
-        therefore avoid the need to reinforce local power grids.
-        <br>
-        Heat pumps move heat from one place to another. Refrigerators use heat
-        pumps, for example, but buildings can use them for heating and cooling
-        too. For optimal results with most types of heat pump, installation of
-        under-floor and wall heating instead of radiators is often required, as
-        well as good levels of insulation. The hybrid heat pump is an exception,
-        because of its gas-fired heater as a fall-back option. Hybrid heat pumps
-        can intelligently use whichever part (heat pump or gas-fired heater) is
-        the most efficient or cost-effective given the weather conditions and
-        insulation level. Houses with limited insulation will rely on the
-        gas-fired part more, better insulated ones will make more use of the
-        heat pump.
+        <br><br>
+        Hybrid heat pumps can intelligently use whichever part (heat pump or
+        gas-fired heater) is the most efficient or cost-effective given the
+        weather conditions and insulation level. Houses with limited insulation
+        will rely on the gas-fired part more, better insulated ones will make
+        more use of the heat pump.
 
         <h4>Ground source heat pump</h4>
         A heat pump is like a refrigerator used the other way around: it pumps
