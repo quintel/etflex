@@ -1,0 +1,8 @@
+type: one_to_one
+engine_key: capacity_of_energy_power_wind_turbine_offshore
+display: slider
+min: 0.0
+max: 6000.0
+step: 60.0
+start: 206.0
+unit: MW

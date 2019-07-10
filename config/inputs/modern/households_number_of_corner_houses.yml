@@ -1,8 +1,0 @@
-type: one_to_one
-engine_key: households_number_of_corner_houses
-display: slider
-min: 0.0
-max: 7587964.0
-step: 0.1
-start: 0.0
-unit: number

@@ -1,0 +1,8 @@
+type: one_to_one
+engine_key: capacity_of_energy_power_wind_turbine_inland
+display: slider
+min: 0.0
+max: 15000.0
+step: 300.0
+start: 1259.0
+unit: MW

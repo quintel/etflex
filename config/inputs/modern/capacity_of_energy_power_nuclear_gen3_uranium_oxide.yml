@@ -1,0 +1,8 @@
+type: one_to_one
+engine_key: capacity_of_energy_power_nuclear_gen3_uranium_oxide
+display: slider
+min: 0.0
+max: 3300.0
+step: 1.0
+start: 526.0
+unit: MW
