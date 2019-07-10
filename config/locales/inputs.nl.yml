@@ -26,11 +26,11 @@ nl:
     new: "Nieuwe input"
     number_of_appliances_in_the_house: "Verandering aantal apparaten"
     number_of_cold_showers_per_week: "Aantal keer koude douche per week"
-    number_of_energy_power_combined_cycle_network_gas: "Aardgascentrales"
+    capacity_of_energy_power_combined_cycle_network_gas: "Aardgascentrales"
     number_of_households_heating_solar_thermal_collectors: "Aantal zonnecollectoren (warmte)"
-    number_of_energy_power_nuclear_gen3_uranium_oxide: "Kerncentrales"
-    number_of_energy_power_ultra_supercritical_coal: "Kolen- / biomassacentrales"
-    number_of_energy_power_wind_turbine_offshore: "Windmolens"
+    capacity_of_energy_power_nuclear_gen3_uranium_oxide: "Kerncentrales"
+    capacity_of_energy_power_ultra_supercritical_coal: "Kolen- / biomassacentrales"
+    capacity_of_energy_power_wind_turbine_offshore: "Windmolens"
     policy_area_biomass: "Biomassa"
     transport_car_using_electricity_share: "Elektrische auto's"
     transport_truck_using_electricity_share: "Elektrische vrachtwagens"
@@ -140,7 +140,7 @@ nl:
       in de toekomst doorzet? Hier vul je in of we meer of minder apparaten
       gaan gebruiken. -50% is een halvering en 100% is een verdubbeling.
 
-    number_of_energy_power_supercritical_coal: |-
+    capacity_of_energy_power_supercritical_coal: |-
       Een kolencentrale draait het grootste deel van de tijd op volle kracht.
       Regelmatig uitzetten verlaagt de hoeveelheid stroom die we uit kolen kunnen
       halen. Van alle manieren om stroom te maken geeft een kolencentrale de
@@ -151,7 +151,7 @@ nl:
       Eén maal per week koud douchen zorgt voor een besparing van meer dan
       10% op je warm water. Hoeveel koude douches gaan we wekelijks nemen?
 
-    number_of_energy_power_combined_cycle_network_gas: |-
+    capacity_of_energy_power_combined_cycle_network_gas: |-
       Een gascentrale is goedkoper om te bouwen dan een kolencentrale. Wel zijn
       ze duurder als ze draaien dan centrales op kolen. Een gascentrale kun je
       makkelijk aan of uit zetten. Dat is handig om stroom te makken als de
@@ -159,7 +159,7 @@ nl:
       windmolen even stilstaat, omdat het niet waait. De CO<sub>2</sub>-uitstoot
       van een gascentrale is ongeveer de helft van een kolencentrale.
 
-    number_of_energy_power_ultra_supercritical_network_gas: |-
+    capacity_of_energy_power_ultra_supercritical_network_gas: |-
       Een gascentrale is goedkoper om te bouwen dan een kolencentrale. Wel zijn
       ze duurder als ze draaien dan centrales op kolen. Een gascentrale kun je
       makkelijk aan of uit zetten. Dat is handig om stroom te makken als de
@@ -172,7 +172,7 @@ nl:
       Omdat ze op je dak liggen, net als zonnepanelen, moet je mogelijk kiezen
       wat je wilt.
 
-    number_of_energy_power_nuclear_gen3_uranium_oxide: |-
+    capacity_of_energy_power_nuclear_gen3_uranium_oxide: |-
       Een kerncentrale is heel duur om te bouwen, maar gaat
       lang mee en gebruikt maar kleine hoeveelheden brandstof (uranium).
       Hierdoor is het maken van stroom relatief goedkoop en staat een
@@ -183,14 +183,14 @@ nl:
       radioactieve afval dat overblijft. Hiervoor is nog geen goede oplossing
       bedacht.
 
-    number_of_energy_power_ultra_supercritical_coal: |-
+    capacity_of_energy_power_ultra_supercritical_coal: |-
       Een kolencentrale draait het grootste deel van de tijd op volle kracht.
       Regelmatig uitzetten verlaagt de hoeveelheid stroom die we uit kolen kunnen
       halen. Van alle manieren om stroom te maken geeft een kolencentrale de
       grootste luchtvervuiling. De CO<sub>2</sub>-uitstoot is ongeveer 2 keer
       zo groot als die van een gascentrale.
 
-    number_of_energy_power_wind_turbine_offshore: |-
+    capacity_of_energy_power_wind_turbine_offshore: |-
       Een windmolen produceert hernieuwbare stroom, omdat je geen last hebt van
       CO<sub>2</sub>-uitstoot. Het waait niet altijd, daarom kun je niet
       volstaan met alleen windmolens, maar heb je ook stroomopwek nodig die
@@ -202,7 +202,7 @@ nl:
       maar als nadeel dat het bouwen en onderhouden van deze molens veel
       duurder is dan windmolens op land.
 
-    number_of_energy_power_wind_turbine_inland: |-
+    capacity_of_energy_power_wind_turbine_inland: |-
       Een windmolen produceert hernieuwbare stroom, omdat je geen last hebt van
       CO<sub>2</sub>-uitstoot. Het waait niet altijd, daarom kun je niet
       volstaan met alleen windmolens, maar heb je ook stroomopwek nodig die

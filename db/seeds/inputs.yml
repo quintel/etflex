@@ -53,11 +53,11 @@
   step: 0.1
   unit: ! '%'
   group: agri_heat
-- key: number_of_agriculture_chp_engine_network_gas
-  start: 3023.581081081071
+- key: capacity_of_agriculture_chp_engine_network_gas
+  start: 6026.0
   min: 0.0
-  max: 6047.162162162142
-  step: 0.1
+  max: 12094.0
+  step: 1.0
 - key: bio_ethanol_from_beet_sugar_share
   start: 60.0
   min: 0.0
@@ -834,27 +834,27 @@
   unit: ! '%'
 - key: households_insulation_level_semi_detached_houses
   start: 13.0
-  min: 0.0
+  min: 13.0
   max: 69.0
   step: 0.1
 - key: households_insulation_level_detached_houses
   start: 11.0
-  min: 0.0
+  min: 11.0
   max: 67.0
   step: 0.1
 - key: households_insulation_level_corner_houses
   start: 9.0
-  min: 0.0
+  min: 9.0
   max: 69.0
   step: 0.1
 - key: households_insulation_level_terraced_houses
   start: 13.0
-  min: 0.0
+  min: 13.0
   max: 69.0
   step: 0.1
 - key: households_insulation_level_apartments
   start: 13.0
-  min: 0.0
+  min: 13.0
   max: 67.0
   step: 0.1
 - key: households_lighting_incandescent_electricity_share
@@ -890,27 +890,32 @@
   max: 5.0
   step: 0.1
   unit: ! '%'
-- key: households_number_of_detached_houses
+- key: households_number_of_residences
+  start: 7587964
+  min: 0.0
+  max: 30351856
+  step: 1.0
+- key: households_detached_houses_share
   start: 0.0
   min: 0.0
-  max: 7587964
+  max: 100.0
   step: 0.1
-- key: households_number_of_apartments
+- key: households_apartments_share
   start: 0.0
   min: 0.0
-  max: 7587964
+  max: 100.0
   step: 0.1
-- key: households_number_of_semi_detached_houses
+- key: households_semi_detached_houses_share
   start: 0.0
   min: 0.0
-  max: 7587964
+  max: 100.0
   step: 0.1
-- key: households_number_of_corner_houses
+- key: households_corner_houses_share
   start: 0.0
   min: 0.0
-  max: 7587964
+  max: 100.0
   step: 0.1
-- key: households_number_of_terraced_houses
+- key: households_terraced_houses_share
   start: 7587964
   min: 0.0
   max: 7587964
@@ -1044,11 +1049,11 @@
   min: 0.0
   max: 222.7088403538023
   step: 0.1
-- key: number_of_industry_chp_combined_cycle_gas_power_fuelmix
-  start: 122.08775510204084
+- key: capacity_of_industry_chp_combined_cycle_gas_power_fuelmix
+  start: 11627.4052478134
   min: 0.0
-  max: 274.57192281570985
-  step: 0.1
+  max: 26149.7069348295
+  step: 1.0
 - key: industry_other_metals_process_electricity_efficiency
   start: 0.0
   min: 0.0
@@ -1230,191 +1235,191 @@
   min: 0.0
   max: 100000000.0
   step: 1.0
-- key: number_of_energy_heater_for_heat_network_wood_pellets
+- key: capacity_of_energy_heater_for_heat_network_wood_pellets
   start: 0.0
   min: 0.0
-  max: 603.3739281977582
-  step: 0.1
+  max: 60337.39281977582
+  step: 1.0
 - key: number_of_households_heater_wood_pellets_fixed
   start: 188779.8797879809
   min: 0.0
   max: 100000000.0
   step: 1.0
-- key: number_of_energy_chp_ultra_supercritical_coal
-  start: 2.365705625634861
+- key: capacity_of_energy_chp_ultra_supercritical_coal
+  start: 1645.7082613112
   min: 0.0
-  max: 52.98532992871274
-  step: 0.1
-- key: number_of_energy_chp_ultra_supercritical_coal_fixed
-  start: 2.365705625634861
+  max: 36859.3599504088
+  step: 1.0
+- key: capacity_of_energy_chp_ultra_supercritical_coal_fixed
+  start: 1645.7082613112
   min: 0.0
-  max: 100000000.0
-  step: 0.1
+  max: 69565217391.3043
+  step: 1.0
 - key: number_of_co_firing_coal
   start: 0.0
   min: 0.0
   max: 23.89356266684798
   step: 0.1
-- key: number_of_energy_power_supercritical_coal
+- key: capacity_of_energy_power_supercritical_coal
   start: 0.0
   min: 0.0
-  max: 68.7385215794307
-  step: 0.1
-- key: number_of_energy_heater_for_heat_network_coal
+  max: 54990.8172635446
+  step: 1.0
+- key: capacity_of_energy_heater_for_heat_network_coal
   start: 0.0
   min: 0.0
-  max: 100.0
-  step: 0.1
+  max: 10000.0
+  step: 1.0
 - key: number_of_other_burner_coal
   start: 4554.9702436293965
   min: 0.0
   max: 100000000.0
   step: 1.0
-- key: number_of_energy_power_combined_cycle_ccs_coal
+- key: capacity_of_energy_power_combined_cycle_ccs_coal
   start: 0.0
   min: 0.0
-  max: 62.13733130506372
-  step: 0.1
-- key: number_of_energy_power_combined_cycle_coal
-  start: 0.32270408163265396
+  max: 40886.3639987319
+  step: 1.0
+- key: capacity_of_energy_power_combined_cycle_coal
+  start: 258.1632653061
   min: 0.0
-  max: 59.9228959025471
-  step: 0.1
-- key: number_of_energy_power_ultra_supercritical_lignite
+  max: 47938.3167220377
+  step: 1.0
+- key: capacity_of_energy_power_ultra_supercritical_lignite
   start: 0.0
   min: 0.0
-  max: 47.90810539783189
-  step: 0.1
-- key: number_of_energy_power_ultra_supercritical_oxyfuel_ccs_lignite
+  max: 38326.4843182655
+  step: 1.0
+- key: capacity_of_energy_power_ultra_supercritical_oxyfuel_ccs_lignite
   start: 0.0
   min: 0.0
-  max: 62.675717674539165
-  step: 0.1
-- key: number_of_energy_power_solar_csp_solar_radiation
+  max: 41365.9736651958
+  step: 1.0
+- key: capacity_of_energy_power_solar_csp_solar_radiation
   start: 0.0
   min: 0.0
-  max: 4790.800000000001
-  step: 0.1
+  max: 239540.0
+  step: 1.0
 - key: number_of_decentral_coal_chp_fixed
   start: 0.0
   min: 0.0
   max: 100000000.0
   step: 0.1
-- key: number_of_energy_power_engine_diesel
+- key: capacity_of_energy_power_engine_diesel
   start: 0.0
   min: 0.0
-  max: 87.1962654924984
+  max: 174.392530985
   step: 1.0
 - key: number_of_electric_heat_pump_fixed
   start: 31088.526477274576
   min: 0.0
   max: 100000000.0
   step: 1.0
-- key: number_of_energy_power_combined_cycle_network_gas
-  start: 5.104591836734693
+- key: capacity_of_energy_power_combined_cycle_network_gas
+  start: 4083.6734693878
   min: 0.0
-  max: 55.328232062055605
-  step: 0.1
-- key: number_of_energy_power_combined_cycle_ccs_network_gas
+  max: 44262.5856496445
+  step: 1.0
+- key: capacity_of_energy_power_combined_cycle_ccs_network_gas
   start: 0.0
   min: 0.0
-  max: 76.35739761124161
-  step: 0.1
-- key: number_of_energy_power_ultra_supercritical_network_gas
-  start: 4.828282828282834
+  max: 50777.6694114757
+  step: 1.0
+- key: capacity_of_energy_power_ultra_supercritical_network_gas
+  start: 3862.6262626263
   min: 0.0
-  max: 217.89127141802382
-  step: 0.1
+  max: 174313.017134419
+  step: 1.0
 - key: number_of_gas_fired_heat_pump_fixed
   start: 0.0
   min: 0.0
   max: 100000000.0
   step: 1.0
-- key: number_of_energy_heater_for_heat_network_network_gas
+- key: capacity_of_energy_heater_for_heat_network_network_gas
   start: 0.0
   min: 0.0
-  max: 300.0
-  step: 0.1
+  max: 30000.0
+  step: 1.0
 - key: number_of_gas_fired_heater_fixed
   start: 7112078.950452734
   min: 0.0
   max: 100000000.0
   step: 1.0
-- key: number_of_energy_power_turbine_network_gas
-  start: 1.4421768707483003
+- key: capacity_of_energy_power_turbine_network_gas
+  start: 216.0
   min: 0.0
-  max: 1799.2658730158726
+  max: 269890.0
   step: 1.0
-- key: number_of_energy_power_geothermal
+- key: capacity_of_energy_power_geothermal
   start: 0.0
   min: 0.0
-  max: 2073.9393939393944
-  step: 0.1
+  max: 24888.0
+  step: 1.0
 - key: number_of_geothermal_fixed
   start: 0.8898758702118148
   min: 0.0
   max: 100000000.0
   step: 1.0
-- key: number_of_energy_power_hydro_mountain
+- key: capacity_of_energy_power_hydro_mountain
   start: 0.0
   min: 0.0
-  max: 60.76610857432776
-  step: 0.1
-- key: number_of_energy_power_hydro_river
-  start: 3.7000000000000015
-  min: 0.0
-  max: 4431.490000000005
-  step: 0.1
-- key: number_of_energy_chp_combined_cycle_network_gas
-  start: 5.749536178107604
-  min: 0.0
-  max: 81.01434682964097
-  step: 0.1
-- key: number_of_energy_chp_combined_cycle_network_gas_fixed
-  start: 5.749536178107604
-  min: 0.0
-  max: 100000000.0
+  max: 30383.0
   step: 1.0
-- key: number_of_energy_chp_ultra_supercritical_lignite
+- key: capacity_of_energy_power_hydro_river
+  start: 37.000000000000015
+  min: 0.0
+  max: 44314.90000000005
+  step: 1.0
+- key: capacity_of_energy_chp_combined_cycle_network_gas
+  start: 690.0
+  min: 0.0
+  max: 9722.0
+  step: 1.0
+- key: capacity_of_energy_chp_combined_cycle_network_gas_fixed
+  start: 689.9443413729
+  min: 0.0
+  max: 12000000000.0
+  step: 1.0
+- key: capacity_of_energy_chp_ultra_supercritical_lignite
   start: 0.0
   min: 0.0
-  max: 92.81236035912721
-  step: 0.1
-- key: number_of_energy_chp_ultra_supercritical_lignite_fixed
+  max: 64969.0
+  step: 1.0
+- key: capacity_of_energy_chp_ultra_supercritical_lignite_fixed
   start: 0.0
   min: 0.0
-  max: 92.81236035912721
-  step: 0.1
-- key: number_of_energy_power_nuclear_gen3_uranium_oxide
-  start: 0.3187499999999999
+  max: 45478056.5759723
+  step: 1.0
+- key: capacity_of_energy_power_nuclear_gen3_uranium_oxide
+  start: 526.0
   min: 0.0
-  max: 19.088343750000003
-  step: 0.1
-- key: number_of_energy_power_nuclear_gen2_uranium_oxide
+  max: 31496.0
+  step: 1.0
+- key: capacity_of_energy_power_nuclear_gen2_uranium_oxide
   start: 0.0
   min: 0.0
-  max: 19.088343750000003
-  step: 0.1
+  max: 31496.0
+  step: 1.0
 - key: number_of_oil_fired_heater_fixed
   start: 102540.99476293403
   min: 0.0
   max: 100000000.0
   step: 1.0
-- key: number_of_energy_power_ultra_supercritical_crude_oil
+- key: capacity_of_energy_power_ultra_supercritical_crude_oil
   start: 0.0
   min: 0.0
-  max: 87.1962654924984
-  step: 0.1
-- key: number_of_energy_power_ultra_supercritical_coal
-  start: 3.3919016542999048
+  max: 69757.0
+  step: 1.0
+- key: capacity_of_energy_power_ultra_supercritical_coal
+  start: 2714.0
   min: 0.0
-  max: 43.67098161845704
-  step: 0.1
-- key: number_of_energy_power_ultra_supercritical_ccs_coal
+  max: 34937.0
+  step: 1.0
+- key: capacity_of_energy_power_ultra_supercritical_ccs_coal
   start: 0.0
   min: 0.0
-  max: 64.1799348987281
-  step: 0.1
+  max: 40883.0
+  step: 1.0
 - key: number_of_small_chp_fixed
   start: 4017.4505298826134
   min: 0.0
@@ -1425,11 +1430,11 @@
   min: 0.0
   max: 100000000.0
   step: 1.0
-- key: number_of_energy_power_solar_pv_solar_radiation
+- key: capacity_of_energy_power_solar_pv_solar_radiation
   start: 0.0
   min: 0.0
-  max: 6871.485943775101
-  step: 0.1
+  max: 137430.0
+  step: 1.0
 - key: number_of_households_solar_pv_solar_radiation_fixed
   start: 53570.47236565309
   min: 0.0
@@ -1440,31 +1445,31 @@
   min: 0.0
   max: 100000000.0
   step: 1.0
-- key: number_of_energy_heater_for_heat_network_waste_mix
+- key: capacity_of_energy_heater_for_heat_network_waste_mix
   start: 0.0
   min: 0.0
-  max: 5000.0
-  step: 0.1
-- key: number_of_energy_power_supercritical_waste_mix
-  start: 11.689786466567211
+  max: 25000.0
+  step: 1.0
+- key: capacity_of_energy_power_supercritical_waste_mix
+  start: 649.0
   min: 0.0
-  max: 17.94981698847122
-  step: 0.1
-- key: number_of_energy_power_wind_turbine_offshore
-  start: 64.76190476190487
+  max: 997.0
+  step: 1.0
+- key: capacity_of_energy_power_wind_turbine_offshore
+  start: 194.0
   min: 0.0
-  max: 32000.0
-  step: 0.1
-- key: number_of_energy_power_wind_turbine_coastal
+  max: 96000.0
+  step: 1.0
+- key: capacity_of_energy_power_wind_turbine_coastal
   start: 66.66666666666666
   min: 0.0
   max: 2255.0
-  step: 0.1
-- key: number_of_energy_power_wind_turbine_inland
-  start: 359.99999999999886
+  step: 1.0
+- key: capacity_of_energy_power_wind_turbine_inland
+  start: 1080.0
   min: 0.0
-  max: 56895.0
-  step: 0.1
+  max: 170685.0
+  step: 1.0
 - key: om_costs_co2_ccs
   start: 0.0
   min: -100.0

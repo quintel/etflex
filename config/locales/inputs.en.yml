@@ -26,11 +26,11 @@ en:
     new: "New input"
     number_of_appliances_in_the_house: "Change in number of appliances"
     number_of_cold_showers_per_week: "Number of cold showers per week"
-    number_of_energy_power_combined_cycle_network_gas: "Gas-fired power plants"
+    capacity_of_energy_power_combined_cycle_network_gas: "Gas-fired power plants"
     number_of_households_heating_solar_thermal_collectors: "Number of solar thermal collectors"
-    number_of_energy_power_nuclear_gen3_uranium_oxide: "Nuclear power plants"
-    number_of_energy_power_ultra_supercritical_coal: "Coal / biomass power plants"
-    number_of_energy_power_wind_turbine_offshore: "Wind turbines"
+    capacity_of_energy_power_nuclear_gen3_uranium_oxide: "Nuclear power plants"
+    capacity_of_energy_power_ultra_supercritical_coal: "Coal / biomass power plants"
+    capacity_of_energy_power_wind_turbine_offshore: "Wind turbines"
     policy_area_biomass: "Biomass"
     transport_car_using_electricity_share: "Electric cars"
     transport_truck_using_electricity_share: "Electric trucks"
@@ -137,7 +137,7 @@ en:
       are going to use more or less appliances. -50% halves the number of
       appliances, 100% doubles it.
 
-    number_of_energy_power_supercritical_coal: |-
+    capacity_of_energy_power_supercritical_coal: |-
       A coal-fired power plant runs at full capacity most of the time.
       Turning it off regularly reduces the amount of electricity that can
       be obtained from an given amount of coal. Coal plants are the most
@@ -148,7 +148,7 @@ en:
       Taking one cold shower a week reduces your hot water consumption by more
       than 10%. How many cold showers would you take per week?
 
-    number_of_energy_power_combined_cycle_network_gas: |-
+    capacity_of_energy_power_combined_cycle_network_gas: |-
       A gas-fired power plant is cheaper to build than a coal power plant.
       However, power from gas costs more than power plants that burn coal.
       A gas-fired power plant is easily powered up or down. That can come
@@ -157,7 +157,7 @@ en:
       emissions of a gas-fired power plant are half that of a coal-fired
       power plant.
 
-    number_of_energy_power_ultra_supercritical_network_gas: |-
+    capacity_of_energy_power_ultra_supercritical_network_gas: |-
       A gas-fired power plant is cheaper to build than a coal power plant.
       However, power from gas costs more than power plants that burn coal.
       A gas-fired power plant is easily powered up or down. That can come
@@ -172,7 +172,7 @@ en:
       that heats water further if necessary. It can also be combined with
       a heat pump.
 
-    number_of_energy_power_nuclear_gen3_uranium_oxide: |-
+    capacity_of_energy_power_nuclear_gen3_uranium_oxide: |-
       A nuclear power plant is very expensive to build. They last
       a really long time and they use only small amounts of fuel (uranium).
       Once the power plant has been built, making electricity is cheap.
@@ -187,7 +187,7 @@ en:
       generations of nuclear power plants are designed to be much safer
       than older types.
 
-    number_of_energy_power_ultra_supercritical_coal: |-
+    capacity_of_energy_power_ultra_supercritical_coal: |-
       Coal-fired power plants are less suitable to act as backup plants
       for wind- and solar
       electricity than gas-fired plants, because they are expensive to build and
@@ -197,14 +197,14 @@ en:
       Wood can be co-fired in coal plants, to reduce such emissions and
       increase renewability.
 
-    number_of_energy_power_wind_turbine_offshore: |-
+    capacity_of_energy_power_wind_turbine_offshore: |-
       Wind turbines produce renewable power without CO<sub>2</sub>
       emissions. Although wind does not run out, it does not always blow.
       This means that building windmills alone is not enough to ensure
       supply.
       You would have a problem if you needed power and there was no wind.
 
-    number_of_energy_power_wind_turbine_inland: |-
+    capacity_of_energy_power_wind_turbine_inland: |-
       Wind turbines produce renewable power without CO<sub>2</sub>
       emissions. Although wind does not run out, it does not always blow.
       This means that building windmills alone is not enough to ensure
