@@ -220,7 +220,7 @@ GEM
       multi_json (~> 1.0)
       pusher-signature (~> 0.1.8)
     pusher-signature (0.1.8)
-    rack (1.6.11)
+    rack (1.6.12)
     rack-proxy (0.6.5)
       rack
     rack-test (0.6.3)
