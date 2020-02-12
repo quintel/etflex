@@ -96,6 +96,6 @@ group :test do
   gem 'shoulda-matchers'
 
   # Integration / acceptance testing.
-  gem 'capybara', '~> 2.1.0'
+  gem 'capybara', '~> 2.1'
   gem 'poltergeist'
 end
