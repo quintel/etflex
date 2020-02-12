@@ -5,10 +5,10 @@ describe Prop do
   it { should successfully_save }
 
   it { should validate_presence_of(:behaviour) }
-  it { should ensure_length_of(:behaviour).is_at_least(1).is_at_most(100) }
+  it { should validate_length_of(:behaviour).is_at_least(1).is_at_most(100) }
 
   it { should validate_presence_of(:key) }
-  it { should ensure_length_of(:key).is_at_least(1).is_at_most(100) }
+  it { should validate_length_of(:key).is_at_least(1).is_at_most(100) }
 
   # KEY ----------------------------------------------------------------------
 

@@ -93,7 +93,7 @@ end
 
 group :test do
   gem 'database_cleaner'
-  gem 'shoulda-matchers', require: false
+  gem 'shoulda-matchers'
 
   # Integration / acceptance testing.
   gem 'capybara', '~> 2.1.0'
