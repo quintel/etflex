@@ -295,8 +295,6 @@ class exports.SceneView extends Backbone.View
   showIntro: ->
     seenTour = localStorage?.getItem('seen-tour')
 
-    console.log(!seenTour, (seenTour is not app.user.id), seenTour, app.user.id)
-
     if (! seenTour) or (seenTour isnt app.user.id)
       tour = new TourRequestView()
       tour.render(I18n.t('first_intro.header'), I18n.t('first_intro.body'))

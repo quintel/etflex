@@ -44,6 +44,7 @@ feature 'Viewing the root page' do
 
     # Wait until the page has loaded.
     page.should have_css('#left-inputs')
+    sleep 0.2
 
     find('#logo').trigger('click')
 
@@ -60,6 +61,7 @@ feature 'Viewing the root page' do
 
     # Wait until the page has loaded.
     page.should have_css('#left-inputs')
+    sleep 0.2
 
     find('#logo').trigger('click')
 
@@ -92,6 +94,7 @@ feature 'Viewing the root page' do
 
     # Wait until the page has loaded.
     page.should have_css('#left-inputs')
+    sleep 0.2
 
     find('#logo').trigger('click')
 

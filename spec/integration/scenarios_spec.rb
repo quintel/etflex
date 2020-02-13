@@ -15,6 +15,8 @@ feature 'Viewing scenarios', js: true do
     # Wait until the scene has loaded.
     page.should have_css('#left-inputs')
 
+    wait_for_scenario { |_| }
+
     visit '/goodbye' if user
 
     Scenario.first
@@ -22,6 +24,19 @@ feature 'Viewing scenarios', js: true do
 
   def clear_scenarios_except(scenario)
     Scenario.all.each { |s| s.destroy unless s.id == scenario.id }
+  end
+
+  def wait_for_scenario
+    scenario = nil
+
+    Timeout.timeout(1) do
+      until (scenario = Scenario.last)
+      end
+
+      yield scenario
+    end
+
+    raise 'Expected saved scenario to appear' unless scenario
   end
 
   # make sure the scene exists before starting.
@@ -35,15 +50,12 @@ feature 'Viewing scenarios', js: true do
     visit "/scenes/#{ scene.id }"
 
     # Wait until the page scene has loaded.
-    page.should have_css('#left-inputs')
+    find('#left-inputs')
 
-    scenario = Scenario.last
-
-    scenario.guest_uid.should be_present
-    scenario.user_id.should   be_blank
-
-    # TODO Once we can test slider movement assert that the guest changing
-    #      the inputs saves the changes to the scenario.
+    wait_for_scenario do |scenario|
+      scenario.guest_uid.should be_present
+      scenario.user_id.should   be_blank
+    end
   end
 
   # --------------------------------------------------------------------------
@@ -58,6 +70,9 @@ feature 'Viewing scenarios', js: true do
 
     # Wait until the page scene has loaded.
     page.should have_css('#left-inputs')
+
+    # Wait for JS to finish.
+    sleep 0.2
 
     # Should not have saved a new scenario (it already exists).
     Scenario.count.should eql(num_scenarios)
@@ -82,6 +97,9 @@ feature 'Viewing scenarios', js: true do
     # Wait until the page scene has loaded.
     page.should have_css('#left-inputs')
 
+    # Wait for JS to finish.
+    sleep 0.2
+
     # Should not have saved a new scenario (it already exists).
     Scenario.count.should eql(num_scenarios)
 
@@ -100,6 +118,9 @@ feature 'Viewing scenarios', js: true do
     # Wait until the page scene has loaded.
     page.should have_css('#left-inputs')
 
+    # Wait for JS to finish.
+    sleep 0.2
+
     # Should not have saved a new scenario.
     Scenario.count.should eql(num_scenarios)
 
@@ -117,6 +138,9 @@ feature 'Viewing scenarios', js: true do
 
     # Wait until the scene has loaded.
     page.should have_css('#left-inputs')
+
+    # Wait for JS to finish.
+    sleep 0.2
 
     # Should have saved a new scenario.
     Scenario.count.should eql(num_scenarios + 1)
@@ -143,6 +167,9 @@ feature 'Viewing scenarios', js: true do
     # Wait until the scene has loaded.
     page.should have_css('#left-inputs')
 
+    # Wait for JS to finish.
+    sleep 0.2
+
     # Should not have saved a new scenario (one already exists).
     Scenario.count.should eql(num_scenarios)
 
@@ -165,6 +192,9 @@ feature 'Viewing scenarios', js: true do
 
     # Wait until the scene has loaded.
     page.should have_css('#left-inputs')
+
+    # Wait for JS to finish.
+    sleep 0.2
 
     # Should have not have saved a new scenario.
     Scenario.count.should eql(num_scenarios)
@@ -189,6 +219,9 @@ feature 'Viewing scenarios', js: true do
     # Wait until the scene has loaded.
     page.should have_css('#left-inputs')
 
+    # Wait for JS to finish.
+    sleep 0.2
+
     # Should have not have saved a new scenario.
     Scenario.count.should eql(num_scenarios)
 
@@ -206,12 +239,16 @@ feature 'Viewing scenarios', js: true do
     # Wait until the scene has loaded.
     page.should have_css('#left-inputs')
 
+    sleep 0.2
+
     scenario = Scenario.last
     scenario.destroy
 
     # Visiting the scenario should *not* fetch data from ETengine, but
     # instead 404.
     visit "/scenes/#{ scene.id }/with/#{ scenario.session_id }"
+
+    sleep 0.2
 
     page.status_code.should eql(404)
   end

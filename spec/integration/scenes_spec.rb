@@ -14,7 +14,7 @@ describe 'Scenes' do
 
     # Switch off appliances.
 
-    page.should have_css('.label', text: 'Low-energy lighting')
+    page.should have_css('.label', text: 'Better insulation')
 
     # Test that the Low-energy lighting range value is 0
     #
@@ -24,8 +24,8 @@ describe 'Scenes' do
     #      page.should have_range('Switch off appliances', value: 0)
     #
     page.all('.range').each do |range|
-      if range.has_css?('.label', text: 'Better insulation')
-        range.should have_css('.output', text: '0.5')
+      if range.text.include?('Better insulation')
+        range.should have_css('.output', text: '13.0')
 
         # Has info; a (?) should be present.
         range.should have_css('.help')
@@ -37,8 +37,8 @@ describe 'Scenes' do
     page.should have_css('.label', text: 'Coal / biomass power plants')
 
     page.all('.range').each do |range|
-      if range.has_css?('.label', text: 'Coal-fired power plants')
-        range.should have_css('.output', text: '3.4')
+      if range.text.include?('Coal / biomass power plants')
+        range.should have_css('.output', text: '2,713')
 
         # Has info; a (?) should be present.
         range.should have_css('.help')

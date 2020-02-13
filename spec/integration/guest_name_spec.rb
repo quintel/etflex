@@ -212,7 +212,7 @@ feature 'Requesting the visitors name', js: true do
 
   # ----------------------------------------------------------------------------
 
-  scenario 'As anonymous user, setting name via :who parameter' do
+  pending 'As anonymous user, setting name via :who parameter' do
     visit "/scenes/#{ scene.id }"
 
     scenario = Scenario.last
@@ -224,7 +224,7 @@ feature 'Requesting the visitors name', js: true do
 
   # ----------------------------------------------------------------------------
 
-  scenario 'As a named user, setting name via :who parameter' do
+  pending 'As a named user, setting name via :who parameter' do
     visit "/scenes/#{ scene.id }?who=Jeff"
 
     scenario = Scenario.last
@@ -239,7 +239,7 @@ feature 'Requesting the visitors name', js: true do
 
   # --------------------------------------------------------------------------
 
-  scenario 'As a signed-in user; setting name via :who parameter' do
+  pending 'As a signed-in user; setting name via :who parameter' do
     sign_in create(:user, name: 'Jeff')
 
     visit "/scenes/#{ scene.id }"

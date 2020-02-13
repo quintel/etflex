@@ -167,7 +167,7 @@ class exports.HighScores extends Backbone.View
   #
   loadSince: (days, callback) ->
     jQuery.getJSON("/scenes/#{ @getSceneId() }/scenarios/since/#{ days }.json")
-      .fail(        -> console.error 'Failed to fetch high scores')
+      .fail(        -> console.log 'Failed to fetch high scores')
       .done( (data) => @setCollection new ScenarioSummaries data)
 
   # Callback triggered by Pusher whenever a scenario is added or updated by
