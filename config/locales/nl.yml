@@ -74,6 +74,8 @@ nl:
   periods:
     today:   Vandaag
     week:    Deze week
+    month:   Deze maand
+    year:    Dit jaar
     alltime: Altijd
 
   magnitudes:

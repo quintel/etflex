@@ -61,7 +61,7 @@ class exports.HighScores extends Backbone.View
     if @collection
       @setCollection @collection
     else
-      @loadSince 7
+      @loadSince 30
 
     if app.pusher_key
       app.pusher.bind 'scenario.created', @scenarioNotification

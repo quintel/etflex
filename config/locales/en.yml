@@ -73,6 +73,8 @@ en:
   periods:
     today:   Today
     week:    This week
+    month:   This month
+    year:    This year
     alltime: All time
 
   magnitudes:

@@ -1,8 +1,8 @@
 <h2>
   High Scores
   <span class="since">
-    <a href="#" data-navigate="noclient" data-since="7" class="current"><%= I18n.t 'periods.week' %></a>
-    <a href="#" data-navigate="noclient" data-since="1"><%= I18n.t 'periods.today' %></a>
+    <a href="#" data-navigate="noclient" data-since="30" class="current"><%= I18n.t 'periods.month' %></a>
+    <a href="#" data-navigate="noclient" data-since="365"><%= I18n.t 'periods.year' %></a>
   </span>
 </h2>
 
