@@ -1,0 +1,8 @@
+type: one_to_one
+engine_key: capacity_of_energy_heat_solar_thermal
+display: slider
+min: 0.0
+max: 15000
+step: 1.0
+start: 0.0
+unit: MW
