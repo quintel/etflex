@@ -37,13 +37,8 @@ class exports.InputManager extends Backbone.Collection
     collection
 
   getKey: (key) ->
-    input = _.find @models, (input) ->
+    _.find @models, (input) ->
       input.get('key') == key
-
-    unless input
-      console.error("Could not find input: #{key}")
-
-    input
 
   keys: ->
     input.get('key') for input in @models
@@ -64,7 +59,7 @@ class exports.InputManager extends Backbone.Collection
 
   setValue: (key, value) ->
     input = @getKey key
-    input.set value: value
+    input && input.set value: value
 
   setValues: (values) ->
     @setValue key, value for key, value of values
