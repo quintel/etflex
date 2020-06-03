@@ -1,12 +1,12 @@
 inputs:
   left:
     demand:
+      - households_heater_heatpump_ground_water_electricity_share
+      - households_heater_heatpump_ground_water_electricity_share
+      - households_water_heater_solar_thermal_share
       - households_insulation_level_terraced_houses
       - households_lighting_led_electricity_share
       - transport_car_using_electricity_share
-      - transport_truck_using_electricity_share
-      - households_heater_heatpump_ground_water_electricity_share
-      - households_water_heater_solar_thermal_share
 
   right:
     supply:
