@@ -32,13 +32,13 @@ describe 'Scenes' do
       end
     end
 
-    # Coal power plants.
+    # Solar panels.
 
-    page.should have_css('.label', text: 'Coal / biomass power plants')
+    page.should have_css('.label', text: 'Solar panels')
 
     page.all('.range').each do |range|
-      if range.text.include?('Coal / biomass power plants')
-        range.should have_css('.output', text: '2,713')
+      if range.text.include?('Solar panels')
+        range.should have_css('.output', text: '0')
 
         # Has info; a (?) should be present.
         range.should have_css('.help')
