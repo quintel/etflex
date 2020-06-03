@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '~> 4.1'
 
 # https://stackoverflow.com/questions/35893584/nomethoderror-undefined-method-last-comment-after-upgrading-to-rake-11
-gem 'rake', '< 11.0'
+gem 'rake', '< 13.0'
 
 gem 'rack-proxy'
 
