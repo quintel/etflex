@@ -37,8 +37,13 @@ class exports.InputManager extends Backbone.Collection
     collection
 
   getKey: (key) ->
-    _.find @models, (input) ->
+    input = _.find @models, (input) ->
       input.get('key') == key
+
+    unless input
+      console.error("Could not find input: #{key}")
+
+    input
 
   keys: ->
     input.get('key') for input in @models

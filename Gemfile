@@ -87,7 +87,7 @@ group :test, :development do
   # rspec-rails needs to be added to the development environment, otherwise
   # the spec:* tasks won't be available when using rake.
   gem 'rspec-rails',  '~> 2.8'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'launchy'
 end
 

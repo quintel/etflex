@@ -1,0 +1,8 @@
+type: one_to_one
+engine_key: share_of_industry_chemicals_refineries_reused_residual_heat
+display: slider
+min: 0.0
+max: 100.0
+step: 0.1
+start: 0.0
+unit: percentage

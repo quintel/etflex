@@ -18,11 +18,14 @@ en:
     households_behavior_standby_killer_turn_off_appliances: "Switch off appliances"
     households_heater_heatpump_air_water_electricity_share: "Heat pump"
     households_heater_heatpump_ground_water_electricity_share: "Heat pump"
+    households_heater_hybrid_heatpump_air_water_electricity_share: "Hybrid heat pump"
+    households_heater_district_heating_steam_hot_water_share: "District heating"
     households_water_heater_solar_thermal_share: "Solar thermal collectors"
     households_water_heater_solar_thermal_share: "Solar water heater"
     households_insulation_level_terraced_houses: "Better insulation"
     households_lighting_led_electricity_share: "Low-energy lighting"
     households_solar_pv_solar_radiation_market_penetration: "Solar panels"
+    share_of_industry_chemicals_refineries_reused_residual_heat: 'Residual heat from industry'
     new: "New input"
     number_of_appliances_in_the_house: "Change in number of appliances"
     number_of_cold_showers_per_week: "Number of cold showers per week"
@@ -31,6 +34,7 @@ en:
     capacity_of_energy_power_nuclear_gen3_uranium_oxide: "Nuclear power plants"
     capacity_of_energy_power_ultra_supercritical_coal: "Coal / biomass power plants"
     capacity_of_energy_power_wind_turbine_offshore: "Wind turbines"
+    capacity_of_energy_heat_solar_thermal: "Solar thermal plants"
     policy_area_biomass: "Biomass"
     transport_car_using_electricity_share: "Electric cars"
     transport_truck_using_electricity_share: "Electric trucks"
@@ -90,6 +94,10 @@ en:
       heat into the house from outside, while a refrigerator pumps heat from
       inside to outside. Heat pumps reduce your need for gas to heat the home.
       This seems like a good thing, since gas will not be available forever.
+
+    households_heater_district_heating_steam_hot_water_share: |-
+
+    households_heater_hybrid_heatpump_air_water_electricity_share: |-
 
     households_water_heater_solar_thermal_share: |-
       Solar water heaters (SWH) use heat from the sun to produce warm water.
