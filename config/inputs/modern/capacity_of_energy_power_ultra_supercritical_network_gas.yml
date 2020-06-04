@@ -4,5 +4,5 @@ display: slider
 min: 0.0
 max: 8000.0
 step: 1.0
-start: 3863.0
+start: 0.0
 unit: MW
