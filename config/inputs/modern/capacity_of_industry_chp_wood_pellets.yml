@@ -1,0 +1,8 @@
+type: one_to_one
+engine_key: capacity_of_industry_chp_wood_pellets
+display: slider
+min: 0.0
+max: 8000.0
+step: 1.0
+start: 0.0
+unit: MW

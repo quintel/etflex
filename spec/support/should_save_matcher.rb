@@ -1,4 +1,4 @@
-# An RSpec matcher which works with FactoryGirl to assert that a factory can
+# An RSpec matcher which works with FactoryBot to assert that a factory can
 # be saved without any errors. Useful to go one step further than testing
 # validation to confirm that a model can actually _be persisted_.
 #
@@ -17,7 +17,7 @@ RSpec::Matchers.define :successfully_save do |*factory|
     @factory  = factory.try(:first) ||
       document.class.name.split('::').last.underscore.to_sym
 
-    @instance = FactoryGirl.build(@factory)
+    @instance = FactoryBot.build(@factory)
     @instance.save
   end
 

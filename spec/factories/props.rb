@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   prop_behaviours = YAML.load_file('config/prop_map.yml').map(&:first)
 
   factory :prop do
