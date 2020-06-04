@@ -1,5 +1,5 @@
 type: one_to_one
-engine_key: capacity_of_energy_power_wind_turbine_inland
+engine_key: capacity_of_energy_power_hydro_river
 display: slider
 min: 0.0
 max: 15000.0
