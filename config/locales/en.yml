@@ -112,8 +112,8 @@ en:
       savings:      "Savings"
       production:   "Production"
 
-      supply:       "Supply"
-      demand:       "Demand"
+      supply:       "Electricity supply"
+      demand:       "Electricity demand"
 
       balanced:     "Balanced"
       supplyExcess: "Supply too high"
