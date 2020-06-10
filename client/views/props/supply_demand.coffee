@@ -8,7 +8,7 @@ EXTENT = 1000
 # based on the selections made by the user on the ETlite recreation.
 #
 class exports.SupplyDemandView extends Backbone.View
-  queries: [ 'total_electricity_produced', 'final_demand_of_electricity' ]
+  queries: [ 'total_electricity_produced', 'etflex_electricity_demand' ]
   hurdles: [ 0.95, 1.05 ]
   states:  [ 'supplyExcess', 'balanced', 'demandExcess' ]
 
@@ -22,8 +22,8 @@ class exports.SupplyDemandView extends Backbone.View
     # we should have results for them both before updating the gauge.
     @updateGauge = _.debounce @updateGauge, 50
 
-    @demandQuery = options.queries.get 'final_demand_of_electricity'
-    @supplyQuery = options.queries.get 'total_electricity_produced'
+    @demandQuery = options.queries.get 'demand_in_source_of_electricity_production'
+    @supplyQuery = options.queries.get 'etflex_electricity_demand'
 
     @demandQuery.on 'change:future', @redrawDemand
     @supplyQuery.on 'change:future', @redrawSupply
