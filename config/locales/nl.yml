@@ -109,8 +109,8 @@ nl:
       savings:      "Besparingen"
       production:   "Productie"
 
-      supply:       "Aanbod"
-      demand:       "Vraag"
+      supply:       "Elektriciteitsaanbod"
+      demand:       "Elektriciteitsvraag"
 
       balanced:     "Balans"
       supplyExcess: "Aanbod te hoog"

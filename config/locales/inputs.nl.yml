@@ -29,7 +29,7 @@ nl:
     new: "Nieuwe input"
     number_of_appliances_in_the_house: "Verandering aantal apparaten"
     number_of_cold_showers_per_week: "Aantal keer koude douche per week"
-    capacity_of_energy_power_combined_cycle_network_gas: "Aardgascentrales"
+    capacity_of_energy_power_combined_cycle_network_gas: "Gascentrales (vraaggestuurd)"
     number_of_households_heating_solar_thermal_collectors: "Aantal zonnecollectoren (warmte)"
     capacity_of_energy_power_nuclear_gen3_uranium_oxide: "Kerncentrales"
     capacity_of_energy_power_ultra_supercritical_coal: "Kolen- / biomassacentrales"
