@@ -1,4 +1,9 @@
 nl:
   scenes:
-    modern: "Breng vraag en aanbod in balans"
-    house: "Bouw jouw huis van de toekomst"
+    modern: "Spel 1: Breng vraag en aanbod in balans"
+    modern_text: "Hier stel je in wat er volgens jou gaat gebeuren in de toekomst."
+    house: "Spel 2: Bouw jouw huis van de toekomst"
+    house_text: "Hier stel je in wat er volgens jou gaat gebeuren in de toekomst."
+    quiz: "Of test je kennis in de quiz"
+    quiz_text: "Speel de kennisquiz als je de eerste twee spellen hebt uitgespeeld."
+    quiz_button: "Ga naar de quiz"

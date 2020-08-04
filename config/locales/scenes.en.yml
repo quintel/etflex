@@ -1,4 +1,9 @@
 en:
   scenes:
-    modern: "Balance energy demand and supply"
-    house: "Create your house of the future"
+    modern: "Game 1: Balance energy demand and supply"
+    modern_text: "In the first game you will create an energysystem.."
+    house: "Game 2: Create your house of the future"
+    house_text: "What can you change around the house to be more energy efficient?"
+    quiz: "Or test your knowledge in the quiz"
+    quiz_text: "Play the quiz when you have finished all the games"
+    quiz_button: "Take the quiz"

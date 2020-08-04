@@ -4,8 +4,6 @@
   <span class="score"><%= @score %></span>
 
   <span class="user">
-    <img width="35" height="35" src="<%= @imageUrl %>" alt="User Avatar" />
-
     <% if @isMine: %>
       <span class="you" title="<%= I18n.t "words.you" %>">
         <span class="name-stretch">

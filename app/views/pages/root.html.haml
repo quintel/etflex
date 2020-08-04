@@ -11,57 +11,53 @@
         %a{href: "/lang/#{alt_locale}", title: (t :'switch_to_this_language', locale: alt_locale), class: alt_locale}
           = t :'switch_to_this_language', locale: alt_locale
 
-    -# = render 'theme_header'
-
     %section#main
-
-      %h1
-        = t(:'scenes.etlite.landingTitle', future: t(:'scenes.etlite.landingFuture')).html_safe
-        %em= t :'scenes.etlite.landingSubtitle'
-
-      = render partial: "landing_#{ I18n.locale }"
-
       - @scenes.each do |scene|
         - previous_attempt = scene.previous_attempt(current_or_guest_user)
-        .level
-          %h2= t("scenes.#{scene.name_key}")
+        .level{ id: "#{scene.name_key}" }
+          %section.go{ class: "#{scene.name_key}" }
+            .top
+              %h2= t("scenes.#{scene.name_key}")
+              %p= t("scenes.#{scene.name_key}_text")
+            .start-game
+              - if ETFlex.config.conference and previous_attempt
+                %span.buttons
+                  %a.blue.launch{ href: "/scenes/#{scene.id}/fresh" }<>
+                    == #{ t :'scenes.etlite.landingButton' }&hellip;
+                .conference-continue
+                  == #{ t :'words.or' }:
+                  %a{ href: scene_scenario_path(scene_id: scene, id: previous_attempt) }
+                    == #{ t :'scenes.etlite.backToPrevious' }&hellip;
 
-          = link_to(image_tag("scenes/#{scene.name_key}/impression.jpg", height: '350px'), create_or_continue_playing_path(scene), class: 'poster')
+              - elsif scene.previous_attempt(current_or_guest_user)
+                %span.buttons
+                  %a.blue.launch{ href: scene_scenario_path(scene_id: scene, id: previous_attempt) }<>
+                    == #{ t :'scenes.etlite.continue' }&hellip;
+                .start-over
+                  == #{ t :'words.or' }:
+                  %a{ href: "/scenes/#{scene.id}" }== #{ t :'scenes.etlite.startOver' }&hellip;
 
-          %section.go
-            - if ETFlex.config.conference and previous_attempt
-              %span.buttons
-                %a.blue.launch{ href: "/scenes/#{scene.id}/fresh" }<>
-                  == #{ t :'scenes.etlite.landingButton' }&hellip;
-
-              .conference-continue
-                == #{ t :'words.or' }:
-
-                %a{ href: scene_scenario_path(scene_id: scene, id: previous_attempt) }
-                  == #{ t :'scenes.etlite.backToPrevious' }&hellip;
-
-            - elsif scene.previous_attempt(current_or_guest_user)
-              %span.buttons
-                %a.blue.launch{ href: scene_scenario_path(scene_id: scene, id: previous_attempt) }<>
-                  == #{ t :'scenes.etlite.continue' }&hellip;
-
-              .start-over
-                == #{ t :'words.or' }:
-                %a{ href: "/scenes/#{scene.id}" }== #{ t :'scenes.etlite.startOver' }&hellip;
-
-            - else
-
-              %span.buttons
-                %a.blue.launch{ href: scene_path(scene) }<>
-                  == #{ t :'scenes.etlite.landingButton' }&hellip;
-
-                .start-over &nbsp;
-
+              - else
+                %span.buttons
+                  %a.blue.launch{ href: scene_path(scene) }<>
+                    == #{ t :'scenes.etlite.landingButton' }&hellip;
+                  .start-over &nbsp;
 
           - if scores_enabled?
             #scores.scores.condensed{ data: {scene: scene.id} }
               %h2== #{ t :'words.high_scores' }:
               .loading== #{ t :'words.loading' }&hellip;
+
+      .level#quiz
+        = link_to(image_tag("mosaic.png"), "https://quest.energytransitionmodel.com/", class: 'poster')
+        %section.go.quiz
+          .top
+            %h2= t('scenes.quiz')
+            %p= t('scenes.quiz_text')
+          %span.buttons
+            %a.blue.launch{ href: "https://quest.energytransitionmodel.com/" }
+              = t('scenes.quiz_button')
+              →
 
     %footer
       %ul#partners

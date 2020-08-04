@@ -21,7 +21,7 @@ class exports.HighScores extends Backbone.View
     super
 
     # Show, by default, the five highest scores.
-    @show  or= 10
+    @show  or= 5
     @style or= 'full'
 
     # Temporary, until we decide what details to include on the house scene.
