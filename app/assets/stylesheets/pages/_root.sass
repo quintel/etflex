@@ -1,27 +1,13 @@
 #page-view.root
-  background: #fff image-url("scenes/modern/bg.png") center top repeat-y
-  background: image-url("scenes/modern/footer.jpg") center bottom no-repeat, #fff image-url("scenes/modern/bg.png") center top repeat-y
-  background-color: #89bbda
   min-height: 100%
   overflow: hidden
   padding: 0
+  background: #e2f7ff
 
   #core
     @include container
     position: relative
     padding-top: 25px
-
-    &:before
-      content: ""
-      left: -25%
-      width: 150%
-      z-index: 0
-      position: absolute
-      background: #e2f7ff
-      background: image-url("scenes/modern/impression_wide.png") center top no-repeat
-      background-image: -webkit-linear-gradient(left, rgb(239,250,255) 0%, rgba(0,0,0,0) 20%, rgba(0,0,0,0) 80%, rgb(226,247,255) 100%), url("scenes/modern/impression_wide.png")
-      height: 265px
-      margin-top: -30px
 
     #logo
       background: image-url("logo.png") left top no-repeat
@@ -33,46 +19,53 @@
 
     #main
       overflow: hidden
-      padding-top: 60px
+      padding-top: 0px
       z-index: 2
-      margin-top: 130px
+      margin-top: 0px
 
     .level
       text-align: center
       display: flex
       flex-direction: row
       justify-content: space-between
-      margin-top: 90px
-
-      .poster
-        width: 30%
-        z-index: 2
-        img
-          border: 2px solid #62bb46
-          width: 100%
 
       &#house
-        margin-top: 120px
+        margin-top: 80px
         &:before
-          width: 150%
+          width: 75%
           content: ""
           z-index: 0
           position: absolute
-          left: -25%
-          height: 425px
-          margin: -75px 0 0 0
-          background: image-url("scenes/house/impression_wide.png") center center no-repeat
-          background-image: -webkit-linear-gradient(left, rgb(239,250,255) 0%, rgba(0,0,0,0) 20%, rgba(0,0,0,0) 80%, rgb(226,247,255) 100%), url("scenes/house/impression_wide.png")
-          height: 520px
+          left: 12.5%
+          margin: -80px 0 0 0
+          background: image-url("scenes/house/impression_wide.png") center top no-repeat
+          background-image: -webkit-linear-gradient(left, rgb(226,247,255) 0%, rgba(0,0,0,0) 20%, rgba(0,0,0,0) 80%, rgb(226,247,255) 100%), url("scenes/house/impression_wide.png")
+          height: 550px
+
+      &#modern, &#quiz
+        background: #fff
+        padding: 20px
+        border-radius: 4px
+        box-shadow: #999 0 0 10px
+        z-index: 1
+        position: relative
+
+      &#modern
+        .image
+          background: image-url("scenes/modern/header/car.png") top left no-repeat
+          width: 300px
+          height: 130px
+          background-size: cover
+          align-self: flex-end
 
       &#quiz
         margin-bottom: 40px
-        margin-top: 120px
+        margin-top: 99px
         .poster
           width: 100%
           margin-right: 20px
           img
-            border: none
+            width: 100%
             padding-top: 10px
 
   nav#language-select
@@ -94,8 +87,41 @@
     a.en
       background: image-url("gb.png") center left no-repeat
 
+  h1
+    line-height: 1.2em
+    font-size: 48px
+    font-weight: normal
+    color: #111
+    text-align: left
+    text-rendering: optimizelegibility
+    z-index: 1
+    padding-top: 60px
+    position: relative
+
+    strong
+      font-weight: bold
+
+    em
+      display: block
+      font-size: 15px
+      line-height: 1.5em
+      color: #777
+      text-align: right
+      text-shadow: none
+
+    span.since
+      font-size: 12px
+      font-weight: normal
+
+      a
+        padding: 2px
+        margin-left: 3px
+
+        &.current
+          font-weight: bold
+
   #scores
-    width: 30%
+    width: 300px
     z-index: 2
     height: 341px
     padding: 5px 10px 20px 10px
@@ -105,16 +131,16 @@
       display: none
 
   #house #scores
-    order: -1
     background: image-url("scenes/house/controls-bg.png")
-    background: rgba(255,255,255,0.7)
-    border: 1px solid rgba(255,255,255,0.7)
+    background: rgba(255,255,255,0.85)
+    border: 1px solid rgba(255,255,255,0.85)
     +border-radius(3px)
     +box-shadow(#999 0 0 10px)
-
+    margin-right: 20px
   p
     font-size: 14px
     line-height: 22px
+
 
   section.go
     width: 30%
@@ -127,15 +153,15 @@
     h2
       margin-top: 0
       margin-bottom: 0.5em
-      text-align: right
       font-size: 1.875em
       line-height: 1
+      text-align: left
 
     p
-      text-align: right
       color: #777
       margin-top: 0
       font-size: 15px
+      text-align: left
 
     a.launch
       font-size: 15px
@@ -143,7 +169,7 @@
       border: none
       box-shadow: none
 
-      &.blue
+      &.green
         box-shadow: inset 0 1px 0 darken(#62bb46, 2%), rgba(black, 0.3) 0px 1px 2px
         text-shadow: none
         background: none
@@ -173,26 +199,24 @@
         &:hover
           color: #62bb46
 
-    &.modern
-      order: -1
-      h2, p, .start-over
-        text-align: left
-
     &.house
-      padding: 15px 30px
-      width: 247px
+      padding: 15px 20px
+      width: 275px
       height: 340px
       background: image-url("scenes/house/controls-bg.png")
-      background: rgba(255,255,255,0.7)
-      border: 1px solid rgba(255,255,255,0.7)
+      background: rgba(255,255,255,0.85)
+      border: 1px solid rgba(255,255,255,0.85)
       +border-radius(3px)
       +box-shadow(#999 0 0 10px)
+
       p
         text-shadow: 0 1px 0 white
 
     &.quiz
       width: 100%
       height: 155px
+      p, h2
+        text-align: right
       .buttons
         align-self: flex-end
 

@@ -10,6 +10,9 @@
       - @alternative_locales.each do |alt_locale|
         %a{href: "/lang/#{alt_locale}", title: (t :'switch_to_this_language', locale: alt_locale), class: alt_locale}
           = t :'switch_to_this_language', locale: alt_locale
+    %h1
+      = t(:'scenes.etlite.landingTitle', future: t(:'scenes.etlite.landingFuture')).html_safe
+      %em= t :'scenes.etlite.landingSubtitle'
 
     %section#main
       - @scenes.each do |scene|
@@ -22,7 +25,7 @@
             .start-game
               - if ETFlex.config.conference and previous_attempt
                 %span.buttons
-                  %a.blue.launch{ href: "/scenes/#{scene.id}/fresh" }<>
+                  %a.green.launch{ href: "/scenes/#{scene.id}/fresh" }<>
                     == #{ t :'scenes.etlite.landingButton' }&hellip;
                 .conference-continue
                   == #{ t :'words.or' }:
@@ -31,7 +34,7 @@
 
               - elsif scene.previous_attempt(current_or_guest_user)
                 %span.buttons
-                  %a.blue.launch{ href: scene_scenario_path(scene_id: scene, id: previous_attempt) }<>
+                  %a.green.launch{ href: scene_scenario_path(scene_id: scene, id: previous_attempt) }<>
                     == #{ t :'scenes.etlite.continue' }&hellip;
                 .start-over
                   == #{ t :'words.or' }:
@@ -39,9 +42,11 @@
 
               - else
                 %span.buttons
-                  %a.blue.launch{ href: scene_path(scene) }<>
+                  %a.green.launch{ href: scene_path(scene) }<>
                     == #{ t :'scenes.etlite.landingButton' }&hellip;
                   .start-over &nbsp;
+
+          .image
 
           - if scores_enabled?
             #scores.scores.condensed{ data: {scene: scene.id} }
@@ -55,7 +60,7 @@
             %h2= t('scenes.quiz')
             %p= t('scenes.quiz_text')
           %span.buttons
-            %a.blue.launch{ href: "https://quest.energytransitionmodel.com/" }
+            %a.green.launch{ href: "https://quest.energytransitionmodel.com/" }
               = t('scenes.quiz_button')
               →
 

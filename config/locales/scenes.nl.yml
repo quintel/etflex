@@ -1,9 +1,18 @@
 nl:
   scenes:
     modern: "Spel 1: Breng vraag en aanbod in balans"
-    modern_text: "Hier stel je in wat er volgens jou gaat gebeuren in de toekomst."
+    modern_text: |
+      Hier stel je in wat er volgens jou gaat gebeuren in de toekomst.
+      Ga lekker met schuifjes aan de slag! Zorg er voor dat vraag en aanbod goed
+      balans blijven. Ga jij de highscore halen? Probeer dit vette spel nu! ja, klik
+      op de link hieronder. Je kan het! Hier stel je in wat er volgens jou gaat gebeuren in de toekomst.
+      Ga lekker met schuifjes aan de slag!
     house: "Spel 2: Bouw jouw huis van de toekomst"
-    house_text: "Hier stel je in wat er volgens jou gaat gebeuren in de toekomst."
+    house_text: |
+      Hier stel je in wat er volgens jou gaat gebeuren in de toekomst.
+      Ga lekker met schuifjes aan de slag! Zorg er voor dat vraag en aanbod goed
+      balans blijven. Ga jij de highscore halen? Probeer dit vette spel nu! ja, klik
+      op de link hieronder. Je kan het!
     quiz: "Of test je kennis in de quiz"
     quiz_text: "Speel de kennisquiz als je de eerste twee spellen hebt uitgespeeld."
     quiz_button: "Ga naar de quiz"
