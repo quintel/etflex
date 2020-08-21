@@ -1,9 +1,27 @@
 en:
   scenes:
-    modern: "Game 1: Balance energy demand and supply"
-    modern_text: "In the first game you will create an energysystem.."
+    modern: "Game 1: Balance supply and demand"
+    modern_text: |
+      An important form of energy is electricity. Can you balance the
+      electricity grid? In addition, take into account the reduction of
+      CO2 emissions, costs, reliability and renewable energy system!
     house: "Game 2: Create your house of the future"
-    house_text: "What can you change around the house to be more energy efficient?"
+    house_text: |
+      Do you know what it takes to live as sustainably as possible?
+      Make your own choices and reduce CO<sub>2</sub> emissions and produce as much
+      sustainable energy as possible. Also pay attention to the difference
+      between the energy bill and the investment costs. Sometimes investing
+      is smart for your energy bill.
     quiz: "Or test your knowledge in the quiz"
-    quiz_text: "Play the quiz when you have finished all the games"
+    quiz_text: |
+      Test your energy knowledge here. The better you do, the more
+      questions you get. How high can you score?
     quiz_button: "Take the quiz"
+    info: Information
+    info_text: |
+      This game is based on real energy data and was created by Quintel
+      Intelligence together with almost all parties (corporate, government
+      and education) involved in energy in the Netherlands. When you are
+      done playing at this level, perhaps it is time to move on to the
+      real thing and build an energy future using the professional version
+      of the Energy Transition Model.

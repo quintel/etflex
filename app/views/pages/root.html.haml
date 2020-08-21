@@ -21,7 +21,7 @@
           %section.go{ class: "#{scene.name_key}" }
             .top
               %h2= t("scenes.#{scene.name_key}")
-              %p= t("scenes.#{scene.name_key}_text")
+              %p= t("scenes.#{scene.name_key}_text").html_safe
             .start-game
               - if ETFlex.config.conference and previous_attempt
                 %span.buttons
@@ -46,7 +46,7 @@
                     == #{ t :'scenes.etlite.landingButton' }&hellip;
                   .start-over &nbsp;
 
-          .image
+              .image
 
           - if scores_enabled?
             #scores.scores.condensed{ data: {scene: scene.id} }
@@ -63,7 +63,10 @@
             %a.green.launch{ href: "https://quest.energytransitionmodel.com/" }
               = t('scenes.quiz_button')
               →
-
+      .level#info
+        %section.go.info
+          %h2= t('scenes.info')
+          %p= t('scenes.info_text').html_safe
     %footer
       %ul#partners
         %li

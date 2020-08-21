@@ -28,21 +28,23 @@
       display: flex
       flex-direction: row
       justify-content: space-between
+      margin: 10px
 
       &#house
-        margin-top: 80px
+        // margin-top: 80px
+        margin-top: 40px
         &:before
-          width: 75%
+          width: 100%
           content: ""
-          z-index: 0
+          z-index: 3
           position: absolute
-          left: 12.5%
-          margin: -80px 0 0 0
-          background: image-url("scenes/house/impression_wide.png") center top no-repeat
-          background-image: -webkit-linear-gradient(left, rgb(226,247,255) 0%, rgba(0,0,0,0) 20%, rgba(0,0,0,0) 80%, rgb(226,247,255) 100%), url("scenes/house/impression_wide.png")
+          left: 31%
+          margin: 151px 0 0 0
+          background: image-url("scenes/house/impression.png") center top no-repeat
+          // background-image: -webkit-linear-gradient(left, rgb(226,247,255) 0%, rgba(0,0,0,0) 20%, rgba(0,0,0,0) 80%, rgb(226,247,255) 100%), url("scenes/house/impression_wide.png")
           height: 550px
 
-      &#modern, &#quiz
+      &#modern, &#quiz, &#info
         background: #fff
         padding: 20px
         border-radius: 4px
@@ -51,22 +53,33 @@
         position: relative
 
       &#modern
-        .image
-          background: image-url("scenes/modern/header/car.png") top left no-repeat
-          width: 300px
-          height: 130px
+        &:before
+          width: 100%
+          content: ""
+          position: absolute
+          background: image-url("scenes/modern/header/electric-car.png") top left no-repeat
+          width: 600px
+          height: 242px
           background-size: cover
-          align-self: flex-end
+          // align-self: flex-end
+          // order: 2
+          // float: right
+          bottom: -89px
+          left: 82px
 
       &#quiz
         margin-bottom: 40px
-        margin-top: 99px
+        // margin-top: 99px
+        z-index: 3
+        margin-top: 40px
         .poster
           width: 100%
           margin-right: 20px
           img
             width: 100%
             padding-top: 10px
+      &#info
+        display: auto
 
   nav#language-select
     font-size: 11px
@@ -131,8 +144,9 @@
       display: none
 
   #house #scores
-    background: image-url("scenes/house/controls-bg.png")
-    background: rgba(255,255,255,0.85)
+    // background: image-url("scenes/house/controls-bg.png")
+    // background: rgba(255,255,255,0.85)
+    background: #fff
     border: 1px solid rgba(255,255,255,0.85)
     +border-radius(3px)
     +box-shadow(#999 0 0 10px)
@@ -141,18 +155,17 @@
     font-size: 14px
     line-height: 22px
 
-
   section.go
     width: 30%
     z-index: 2
     text-align: center
     display: flex
     flex-direction: column
-    justify-content: space-between
+    // justify-content: space-between
 
     h2
       margin-top: 0
-      margin-bottom: 0.5em
+      margin-bottom: 1em
       font-size: 1.875em
       line-height: 1
       text-align: left
@@ -163,6 +176,8 @@
       font-size: 15px
       text-align: left
 
+    .start-game
+      margin-top: 13px
     a.launch
       font-size: 15px
       padding: 12px 48px
@@ -176,6 +191,7 @@
         background: #62bb46
         color: white
         border-radius: 2px
+        width: 150px
         &:hover
           background: lighten(#62bb46, 10%)
           box-shadow: inset 0 1px 0 #62bb46
@@ -189,7 +205,7 @@
       font-size: 12px
       padding: 10px 0
       text-transform: uppercase
-      text-align: right
+      text-align: left
 
       a
         font-weight: bold
@@ -199,12 +215,18 @@
         &:hover
           color: #62bb46
 
+    &.modern
+      flex-grow: 2
+      padding-right: 20px
     &.house
+      flex-grow: 2
       padding: 15px 20px
       width: 275px
-      height: 340px
-      background: image-url("scenes/house/controls-bg.png")
-      background: rgba(255,255,255,0.85)
+      order: 2
+      height: 337px
+      // background: image-url("scenes/house/controls-bg.png")
+      // background: rgba(255,255,255,0.85)
+      background: #fff
       border: 1px solid rgba(255,255,255,0.85)
       +border-radius(3px)
       +box-shadow(#999 0 0 10px)
@@ -219,6 +241,8 @@
         text-align: right
       .buttons
         align-self: flex-end
+    &.info
+      width: 100%
 
 
   footer

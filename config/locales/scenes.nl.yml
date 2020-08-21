@@ -1,18 +1,29 @@
 nl:
   scenes:
-    modern: "Spel 1: Breng vraag en aanbod in balans"
+    modern: "Game 1: Breng vraag en aanbod in balans"
     modern_text: |
-      Hier stel je in wat er volgens jou gaat gebeuren in de toekomst.
-      Ga lekker met schuifjes aan de slag! Zorg er voor dat vraag en aanbod goed
-      balans blijven. Ga jij de highscore halen? Probeer dit vette spel nu! ja, klik
-      op de link hieronder. Je kan het! Hier stel je in wat er volgens jou gaat gebeuren in de toekomst.
-      Ga lekker met schuifjes aan de slag!
-    house: "Spel 2: Bouw jouw huis van de toekomst"
+      Een belangrijke vorm van energie is elektriciteit. Kan jij het
+      elektriciteitsnet in balans brengen? Houdt daarnaast rekening
+      met het naar beneden brengen van CO2-uitstoot, kosten,
+      betrouwbaarheid en hernieuwbaarheid van het energiesysteem!
+    house: "Game 2: Bouw jouw huis van de toekomst"
     house_text: |
-      Hier stel je in wat er volgens jou gaat gebeuren in de toekomst.
-      Ga lekker met schuifjes aan de slag! Zorg er voor dat vraag en aanbod goed
-      balans blijven. Ga jij de highscore halen? Probeer dit vette spel nu! ja, klik
-      op de link hieronder. Je kan het!
+      Weet jij wat er nodig is om zo duurzaam mogelijk te
+      wonen? Maak zelf de keuzes en breng CO2-uitstoot omlaag en produceer
+      zelf zoveel mogelijk duurzame energie. Let wel ook op het verschil
+      tussen de energierekening en de investeringskosten. Soms is
+      investeren, slim voor de energierekening
     quiz: "Of test je kennis in de quiz"
-    quiz_text: "Speel de kennisquiz als je de eerste twee spellen hebt uitgespeeld."
+    quiz_text: "Test hier jouw energiekennis. Hoe beter jij het doet hoe meer vragen jij krijgt. Hoe hoog kan jij scoren?"
     quiz_button: "Ga naar de quiz"
+    info: Informatie
+    info_text: |
+      Dit spel is gebaseerd op de echte energiedata van Nederland en is
+      gemaakt door Quintel Intelligence in samenwerking met praktisch alle
+      partijen (bedrijven, overheid en onderwijs) die in Nederland met energie
+      bezig zijn. Als je uitgespeeld bent op het eerste niveau van het spel
+      kun je door naar het echte werk en een energietoekomst bouwen met de
+      professionele versie van het Energietransitiemodel. Wil je meer weten
+      over de energietransitie? Ga dan naar
+      <a href="https://www.morgenlandfilm.nl/lesmateriaal.php"> de website van Morgenland </a>
+      en bekijk de film, het lesmateriaal en nog veel meer.
