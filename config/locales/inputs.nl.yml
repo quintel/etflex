@@ -29,7 +29,7 @@ nl:
     new: "Nieuwe input"
     number_of_appliances_in_the_house: "Verandering aantal apparaten"
     number_of_cold_showers_per_week: "Aantal keer koude douche per week"
-    capacity_of_energy_power_combined_cycle_network_gas: "Gascentrales (vraaggestuurd)"
+    capacity_of_energy_power_combined_cycle_network_gas: "Gascentrales"
     number_of_households_heating_solar_thermal_collectors: "Aantal zonnecollectoren (warmte)"
     capacity_of_energy_power_nuclear_gen3_uranium_oxide: "Kerncentrales"
     capacity_of_energy_power_ultra_supercritical_coal: "Kolen- / biomassacentrales"
@@ -70,12 +70,12 @@ nl:
       in dit huis 3 mensen wonen.
 
     green_gas_total_share: |-
-      Uit mest, GFT afval, rioolslib, maïs en nog veel meer plantaardige en
-      dierlijke producten kun je biogas maken. Biogas kun je zuiveren tot
-      aardgaskwaliteit en dan heet het groen gas.
-      De kunst is om biogas te maken op een manier waarbij de natuur niet wordt
-      aangetast en de voedselvoorziening niet in gevaar komt. Helaas is dat niet
-      altijd zo gemakkelijk.
+      Met mest, GFT afval, rioolslib, maïs en nog veel meer plantaardige en
+      dierlijke producten kun je biogas maken. Het kan op aardgaskwaliteit
+      worden gebracht en dan noemen we het groen gas. De biogrondstoffen
+      die voor de productie van groen worden gebruikt, moeten zelf duurzaam
+      zijn. Dat wil zeggen dat de toepassing ervan de natuur niet aantast en de
+      voedselvoorziening niet in gevaar brengt. 
 
     households_area_solar_pv: |-
       Zonnepanelen maken stroom van zonlicht. Dakoppervlak is schaars en daarom
@@ -89,16 +89,35 @@ nl:
       mogelijk uit te zetten, kunnen we dus stroom besparen.
 
     households_heater_heatpump_ground_water_electricity_share: |-
-      Een warmtepomp is een apparaat om je huis te verwarmen. Een warmtepomp is
-      een soort omgekeerde koelkast. Hij pompt warmte van buiten het huis naar
-      binnen, terwijl een koelkast warmte van binnen de koelkast naar buiten
-      pompt. Warmtepompen zijn vaak erg efficiënt. Daardoor gebruik je minder
-      fossiele energie dan met bijvoorbeeld een HR gasketel. Nadeel is nog wel
-      dat de warmtepomp duurder is om aan te schaffen.
+      Een warmtepomp is een apparaat om je huis te verwarmen. Het is een soort
+      omgekeerde koelkast. Hij pompt warmte van buiten het huis naar binnen,
+      terwijl een koelkast warmte van binnen de koelkast naar buiten pompt.
+      Warmtepompen zijn vaak erg efficiënt. Nadeel is nog wel dat een warmtepomp
+      duurder is dan een HR-gasketel. Ook brengt een warmtepomp het water op een
+      lagere temperatuur. Een huis moet daarom beter geïsoleerd zijn én er is
+      vloerverwarming nodig en/of speciale radiatoren.
 
     households_heater_district_heating_steam_hot_water_share: |-
+      Een warmtenet is een ondergronds buizensysteem dat warm water naar
+      woningen brengt. Vaak wordt dit stadsverwarming genoemd. Het water in de
+      warmtenetten kan op heel veel manieren verwarmd worden, met fossiele maar
+      ook duurzame bronnen. Denk aan aardgas en restwarmte uit
+      elektriciteitscentrales enerzijds en groen gas, aardwarmte en zonthermie
+      anderzijds. Groen gas komt vaak uit mest, GFT of plantenresten. Aardwarmte
+      komt kilometers diep uit de aarde. Het daar aangetroffen water wordt naar
+      woningen gepompt. Zonthermie is het opvangen van warmte uit de zon door
+      middel van zwarte panelen. Wie wel eens op een heet geworden zwarte
+      autostoel is gaan zitten, weet hoe goed dit werkt.
 
     households_heater_hybrid_heatpump_air_water_electricity_share: |-
+      Een hybride warmtepomp is een apparaat om je huis te verwarmen. Het is een
+      combinatie van een warmtepomp met een gasketel. Een warmtepomp is een
+      soort omgekeerde koelkast. Hij pompt warmte van buiten het huis naar
+      binnen, terwijl een koelkast warmte van binnen de koelkast naar buiten
+      pompt. De gasketel springt alleen bij op hele koude momenten. Het voordeel
+      van een hybride warmtepomp is dus dat hij veel minder gas gebruikt dan een
+      gasketel en ook een minder goed geïsoleerd huis in de koudste winters warm
+      kan houden.
 
     households_water_heater_solar_thermal_share: |-
       Zonneboilers gebruiken de warmte van de zon om warm water te maken.
@@ -123,24 +142,25 @@ nl:
 
     households_insulation_level_terraced_houses: |-
       Hoe beter je een huis isoleert en luchtdicht maakt, hoe minder energie je
-      nodig hebt voor verwarming in de winter. Isolatie zorgt er voor dat de
+      nodig hebt voor verwarming in de winter. Isolatie zorgt ervoor dat de
       warmte niet weglekt door ramen, muren, vloeren en daken. Luchtdichtheid
-      zorgt er voor dat de wind geen koude lucht het huis in kan blazen en warme
+      zorgt ervoor dat de wind geen koude lucht het huis in kan blazen en warme
       lucht er uit. Hoe luchtdichter je een huis maakt, hoe meer je actief moet
       zorgen voor een goed binnenklimaat. Zeer energiezuinige huizen zijn super
       geïsoleerd en luchtdicht.
 
     households_lighting_led_electricity_share: |-
-      LED lampen zijn nog 50% efficiënter dan spaarlampen.
-      Ze kunnen snel aan en uitgezet worden, zonder dat ze daardoor sneller
-      stukgaan. Ze kosten nog veel meer dan spaarlampen, maar gaan ook
-      langer mee, waardoor de stroomrekening nog lager uitvalt.
+      LED lampen zijn nog 50% efficiënter dan spaarlampen. Ze kunnen snel aan-
+      en uitgezet worden, zonder dat ze daardoor sneller stuk gaan. Ze kosten
+      wel meer dan spaarlampen, hoewel de prijzen de laatste jaren fors zijn
+      gedaald. Doordat ze langer meegaan, valt de stroomrekening per saldo
+      lager uit.
 
     households_solar_pv_solar_radiation_market_penetration: |-
-      Zonnepanelen maken stroom van zonlicht. Dakkopvlak is schaars en daarom
-      moet je mogelijk kiezen tussen zonneboilers of zon PV.
-      Zonnepanelen worden snel goedkoper. De komende 20 jaar is de verwachting
-      dat ze nog nog veel goedkoper zullen worden.
+      Zonnepanelen maken stroom van zonlicht. Zonnepanelen worden snel goedkoper.
+      Voor de komende 20 jaar wordt verwacht dat de prijs nog veel verder zal
+      dalen. Het nadeel van zonnepanelen is dat ze vooral in de zomer stroom
+      opwekken en je wel het hele jaar door elektriciteit gebruikt.
 
     number_of_appliances_in_the_house: |-
       Het aantal huishoudelijke apparaten (telefoons, mediaspelers, laptops,
@@ -162,20 +182,20 @@ nl:
       10% op je warm water. Hoeveel koude douches gaan we wekelijks nemen?
 
     capacity_of_energy_power_combined_cycle_network_gas: |-
-      Een gascentrale is goedkoper om te bouwen dan een kolencentrale. Wel zijn
-      ze duurder als ze draaien dan centrales op kolen. Een gascentrale kun je
-      makkelijk aan of uit zetten. Dat is handig om stroom te makken als de
-      zon niet schijnt of de
-      windmolen even stilstaat, omdat het niet waait. De CO<sub>2</sub>-uitstoot
-      van een gascentrale is ongeveer de helft van een kolencentrale.
+      Een gascentrale produceert elektriciteit met gas. Een gascentrale kun je
+      makkelijk aan of uit zetten en kan zich daardoor aanpassen aan de
+      elektriciteitsvraag. Dat is nuttig wanneer er geen of onvoldoende
+      duurzame elektriciteit beschikbaar is, doordat de zon niet schijnt of de
+      wind niet waait. Een voordeel van gascentrales is bovendien dat de
+      CO<sub>2</sub>-uitstoot ongeveer de helft is van een kolencentrale.
 
     capacity_of_energy_power_ultra_supercritical_network_gas: |-
-      Een gascentrale is goedkoper om te bouwen dan een kolencentrale. Wel zijn
-      ze duurder als ze draaien dan centrales op kolen. Een gascentrale kun je
-      makkelijk aan of uit zetten. Dat is handig om stroom te makken als de
-      zon niet schijnt of de
-      windmolen even stilstaat, omdat het niet waait. De CO<sub>2</sub>-uitstoot
-      van een gascentrale is ongeveer de helft van een kolencentrale.
+      Een gascentrale produceert elektriciteit met gas. Een gascentrale kun je
+      makkelijk aan of uit zetten en kan zich daardoor aanpassen aan de
+      elektriciteitsvraag. Dat is nuttig wanneer er geen of onvoldoende
+      duurzame elektriciteit beschikbaar is, doordat de zon niet schijnt of de
+      wind niet waait. Een voordeel van gascentrales is bovendien dat de
+      CO<sub>2</sub>-uitstoot ongeveer de helft is van een kolencentrale.
 
     number_of_households_heating_solar_thermal_collectors: |-
       Zonneboilers gebruiken de warmte van de zon om warm water te maken.
@@ -183,15 +203,14 @@ nl:
       wat je wilt.
 
     capacity_of_energy_power_nuclear_gen3_uranium_oxide: |-
-      Een kerncentrale is heel duur om te bouwen, maar gaat
-      lang mee en gebruikt maar kleine hoeveelheden brandstof (uranium).
-      Hierdoor is het maken van stroom relatief goedkoop en staat een
-      kerncentrale bijna altijd op volle kracht aan. Een kerncentrale is niet zo
-      geschikt om vraag en aanbod van stroom in evenwicht te brengen als het
-      bijvoorbeeld even niet waait en/of de zon niet schijnt. Voordeel is dat
-      je nauwelijks last hebt van CO<sub>2</sub>-uitstoot. Nadeel is het
-      radioactieve afval dat overblijft. Hiervoor is nog geen goede oplossing
-      bedacht.
+      Voor een kerncentrale is een grote investering nodig om te bouwen, maar
+      het gaat wel lang mee en gebruikt maar kleine hoeveelheden brandstof
+      (uranium). Een kerncentrale draait economisch gezien het liefst het hele
+      jaar op volle kracht. Daarom is het niet zo geschikt om vraag en aanbod
+      van stroom in evenwicht te brengen als het bijvoorbeeld even niet waait
+      en/of de zon niet schijnt. Voordeel is dat er bij kernenergie niet of
+      nauwelijks sprake is van CO2-uitstoot. Nadeel is het radioactieve afval
+      dat overblijft. Hiervoor is nog geen goede oplossing bedacht.
 
     capacity_of_energy_power_ultra_supercritical_coal: |-
       Een kolencentrale draait het grootste deel van de tijd op volle kracht.
@@ -201,16 +220,15 @@ nl:
       zo groot als die van een gascentrale.
 
     capacity_of_energy_power_wind_turbine_offshore: |-
-      Een windmolen produceert hernieuwbare stroom, omdat je geen last hebt van
-      CO<sub>2</sub>-uitstoot. Het waait niet altijd, daarom kun je niet
-      volstaan met alleen windmolens, maar heb je ook stroomopwek nodig die
-      altijd kan blijven draaien en liefst soms wat meer en soms wat minder.
-      Gascentrales zijn hier relatief het beste voor geschikt.
-      Nadeel van een windmolen op land is voor veel mensen dat ze hem niet
-      mooi vinden en daarom is er vaak verzet tegen het plaatsen van
-      windmolens op land. Windmolens op zee hebben een hogere opbrengst,
-      maar als nadeel dat het bouwen en onderhouden van deze molens veel
-      duurder is dan windmolens op land.
+      Een windmolen produceert hernieuwbare stroom zonder CO<sub>2</sub>-uitstoot. Helaas
+      waait het niet altijd, dus hebben we nog steeds ook stroomopwek nodig die
+      altijd beschikbaar is en flexibel ingezet kan worden. Als de windmolens
+      stilstaan omdat het niet hard genoeg of juist te hard waait, hoeft dat dan
+      niet tot stroomuitval te leiden. Gascentrales zijn hier relatief het beste
+      voor geschikt. Een nadeel van windmolens op land is dat veel mensen ze
+      niet mooi vinden. Daarom is er vaak verzet tegen. Windmolens op zee hebben
+      een hogere opbrengst maar er zijn wel grote en lange kabels nodig om de
+      elektriciteit naar de woningen en bedrijven te brengen.
 
     capacity_of_energy_power_wind_turbine_inland: |-
       Een windmolen produceert hernieuwbare stroom, omdat je geen last hebt van
@@ -222,26 +240,50 @@ nl:
       mooi vinden en daarom is er vaak verzet tegen het plaatsen van windmolens
       op land.
 
+    capacity_of_energy_heat_solar_thermal: |-
+      Zonthermie is het opvangen van warmte uit de zon met zwarte panelen. Wie
+      wel eens op een heet geworden zwarte autostoel is gaan zitten, weet hoe
+      dit werkt. Zonthermische parken zijn hectares vol zwarte panelen die de
+      warmte uit de zonnestralen opnemen. Deze warmte kan in grote
+      waterreservoirs worden opgeslagen waarmee in de winter het warmtenet kan
+      worden gevoed.
+
+    share_of_industry_chemicals_refineries_reused_residual_heat: |-
+      Industrieën houden soms warmte over van hun productieproces dat ze zelf
+      niet meer kunnen gebruiken. Deze restwarmte kan soms worden ingezet voor
+      de verwarming van huizen. Dat gebeurt door met de restwarmte water op te
+      warmen en dat vervolgens met een warmtenet vanaf de industrie naar de
+      woonwijken te brengen.
+
     transport_car_using_electricity_share: |-
-      Een elektrische auto gebruikt de helft van de energie van een auto op
-      benzine of diesel. Met elektrische auto's besparen we veel olie.
-      We moeten natuurlijk wel meer elektriciteit maken.
-      Als we deze elektriciteit opwekken met wind
-      of zon, dan heeft autorijden geen CO<sub>2</sub>-uitstoot meer tot gevolg.
-      Maken we de stroom met kolen- of gascentrales dan is er nog steeds een
-      voordeel ten opzichte van auto's op benzine en diesel.
+      Een elektrische auto gebruikt per afgelegde kilometer gemiddeld de helft
+      van de energie van een auto op benzine of diesel. Met elektrische auto's
+      besparen we dan ook veel olie. We moeten natuurlijk wel meer elektriciteit
+      maken. Als we deze elektriciteit opwekken met wind of zon, dan heeft
+      autorijden nauwelijks nog CO<sub>2</sub>-uitstoot tot gevolg. Maken we de stroom met
+      kolen- of gascentrales dan is de gebruikte elektriciteit zeker niet
+      CO<sub>2</sub>-vrij maar is de uitstoot door het lage energiegebruik nog steeds lager
+      dan die van benzine- en dieselauto's.
 
     transport_truck_using_electricity_share: |-
       Veel mensen denken dat dieselvrachtwagens nog wel een tijdje gebruikt
-      zullen worden, doordat elektrische vrachtwagens met een goed bereik
-      moeilijker te realiseren zijn dan elektrische auto's. Een elektrische
-      vrachtwagen gebruikt veel minder energie dan een auto op
-      benzine of diesel, dus bespaart veel olie. We moeten natuurlijk wel meer
-      elektriciteit maken.
-      Als we deze elektriciteit opwekken met wind
-      of zon, dan zorgt dat voor minder CO<sub>2</sub>-uitstoot.
-      Maken we de stroom met kolen- of gascentrales dan is er nog steeds een
-      voordeel ten opzichte van auto's op benzine en diesel.
+      zullen worden, doordat elektrische vrachtwagens een kleinere bereik
+      (actieradius) hebben. De benodigde accu’s hebben nog niet genoeg
+      opslagcapaciteit en moeten dus verhoudingsgewijs vaak worden
+      bijgevuld. Een ander probleem op dit moment is dat de accu’s veel ruimte
+      innemen en daarmee ten koste gaan van de laadruimte van een vrachtauto.
+      Ook zijn ze zwaar en moet dus veel extra gewicht meegesleept worden.
+      Waterstof biedt mogelijk een alternatief om vrachtwagens toch elektrisch
+      te laten rijden.
+      Een elektrische vrachtwagen gebruikt veel minder energie dan een auto op
+      benzine of diesel, dus bespaart per afgelegde kilometer gemiddeld veel
+      olie. We moeten natuurlijk wel meer elektriciteit maken voor al dat extra
+      elektrische transport. Als we deze elektriciteit opwekken met wind of zon,
+      dan zorgt dat voor minder CO<sub>2</sub>-uitstoot. Maken we de stroom met kolen- of
+      gascentrales dan is de gebruikte elektriciteit niet CO<sub>2</sub>-vrij maar de
+      uitstoot door het lage energiegebruik nog steeds lager dan die van
+      benzine- en dieselauto's.
+
 
     use_of_air_conditioning_options: |-
       Momenteel hebben nog geen 30% van de woningen airconditioning. Hoeveel

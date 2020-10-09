@@ -29,7 +29,7 @@ en:
     new: "New input"
     number_of_appliances_in_the_house: "Change in number of appliances"
     number_of_cold_showers_per_week: "Number of cold showers per week"
-    capacity_of_energy_power_combined_cycle_network_gas: "Gas-fired power plants (demand driven)"
+    capacity_of_energy_power_combined_cycle_network_gas: "Gas-fired power plants"
     number_of_households_heating_solar_thermal_collectors: "Number of solar thermal collectors"
     capacity_of_energy_power_nuclear_gen3_uranium_oxide: "Nuclear power plants"
     capacity_of_energy_power_ultra_supercritical_coal: "Coal / biomass power plants"
