@@ -23,7 +23,7 @@ gem 'rest-client'
 
 gem 'devise'
 
-gem 'jquery-rails', '~> 2.1.4'
+gem 'jquery-rails', '~> 3.1.3'
 gem 'jquery-ui-rails', '~> 4.2'
 
 gem 'i18n-js'
