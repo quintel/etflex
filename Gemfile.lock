@@ -150,7 +150,8 @@ GEM
     guard-shell (0.7.1)
       guard (>= 2.0.0)
       guard-compat (~> 1.0)
-    haml (4.0.7)
+    haml (5.0.0)
+      temple (>= 0.8.0)
       tilt
     hashie (3.6.0)
     hike (1.2.3)
@@ -312,6 +313,7 @@ GEM
     sshkit (1.18.2)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
+    temple (0.8.2)
     therubyracer (0.12.3)
       libv8 (~> 3.16.14.15)
       ref
@@ -361,7 +363,7 @@ DEPENDENCIES
   guard
   guard-rspec
   guard-shell
-  haml (~> 4.0)
+  haml (~> 5.0)
   hashie
   http_accept_language
   i18n-js

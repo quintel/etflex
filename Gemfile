@@ -13,7 +13,7 @@ gem 'mysql2', '~> 0.4.10'
 gem 'acts_as_list'
 gem 'default_value_for'
 
-gem 'haml', '~> 4.0'
+gem 'haml', '~> 5.0'
 gem 'jbuilder'
 gem 'simple_form'
 gem 'redcarpet'
