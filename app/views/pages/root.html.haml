@@ -58,13 +58,13 @@
                 .start-over &nbsp;
 
           .description{style: 'text-align: left'}
-            / .preview
-            / %p
-            /   = t("scenes.#{scene.name_key}_preview").html_safe
-            / %span.button Lees verder
+            .preview
+              %p
+                = t("scenes.#{scene.name_key}_preview").html_safe
+              %span.button= t('scenes.expand')
             .full
               %p= t("scenes.#{scene.name_key}_description").html_safe
-              / %span.button Klap in
+              %span.button= t('scenes.collapse')
 
           - if scores_enabled?
             #scores.scores.condensed{ data: {scene: scene.id} }

@@ -1,6 +1,14 @@
 en:
   scenes:
+    expand: Continue reading
+    collapse: Less
     modern: "Balance energy demand and supply"
+    modern_preview: |
+      The aim of this game is to playfully introduce you to the versatility
+      of the energy transition and to challenge your energy and
+      climate preferences and corresponding consequences. By moving the sliders,
+      you increase or decrease different energy sources, carriers
+      (sustainable, fossil...
     modern_description: |
       The aim of this game is to playfully introduce you to the versatility
       of the energy transition and to challenge your energy and
@@ -21,7 +29,8 @@ en:
       lowest cost – you get the most points.<br/><br/>
 
       Each slider is provided with an explanation. Would you like to know more
-      about the energy transition? Then go to morgenland's website  and watch
+      about the energy transition? Then go to morgenland's
+      <a href="https://www.morgenlandfilm.nl/index.php">website</a> and watch
       the film, look at the teaching material and much more.<br/><br/>
 
       You can test your knowledge of the energy issue immediately after playing
@@ -32,7 +41,7 @@ en:
       The energy transition begins within your house. With this game you can
       build your house of the future. By moving the sliders, you can immediately
       see the effect of turning the thermostat op or down, not insulating your
-      home, or better, opting for an electric heat pump, an HR boiler or hybrid
+      home, or better, opting for an electric heat...
     house_description: |
       The energy transition begins within your house. With this game you can
       build your house of the future. By moving the sliders, you can immediately
@@ -49,7 +58,8 @@ en:
       within your budget.<br/><br/>
 
       Each slider is provided with an explanation. Would you like to know more
-      about the energy transition? Then go to  morgenland's website  and watch
+      about the energy transition? Then go to morgenland's
+      <a href="https://www.morgenlandfilm.nl/index.php">website</a>  and watch
       the film, look at educational material and much more. <br/><br/>
 
       You can test your knowledge of the energy transition immediately after

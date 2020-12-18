@@ -26,6 +26,7 @@
  *= require intro
  *= require parser
  *= require_tree ../../../client
+ *= require root
  */
 
 jQuery.easing.def = 'easeInOutQuart';
