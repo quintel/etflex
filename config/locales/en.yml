@@ -150,7 +150,7 @@ en:
     body: |
       You have been getting a nice score on this game.
       Are you ready to test your knowledge in the quiz?</br></br>
-      <a href='https://quest.energytransitionmodel.com/' target='_blank'> Play the quiz!</a>
+      <a href='https://quest.energytransitionmodel.com/' target='_blank'> Play the quiz here ⤍</a>
 
   # Custom validation messages
 
