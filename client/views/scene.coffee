@@ -306,7 +306,9 @@ class exports.SceneView extends Backbone.View
   # time in this scene-session
   showQuiz: ->
     seenQuiz = false
-    score = @scenario.queries.models.find((x) -> x.id == 'score')
+    score = $.grep(@scenario.queries.models, (x) -> x.id == 'score')[0]
+
+    return unless score?
 
     score.on 'change:future', () =>
       if (! seenQuiz) and score.get('future') > 600
