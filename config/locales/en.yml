@@ -145,6 +145,13 @@ en:
   partners: "Partners of the Energy Transition Model"
   leading_partner: "Leading partner of the Energy Transition Model"
 
+  quiz:
+    header: "Ready to try the quiz?"
+    body: |
+      You have been getting a nice score on this game.
+      Are you ready to test your knowledge in the quiz?</br></br>
+      <a href='https://quest.energytransitionmodel.com/' target='_blank'> Play the quiz!</a>
+
   # Custom validation messages
 
   activerecord:

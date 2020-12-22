@@ -142,6 +142,12 @@ nl:
   partners: "Partners of the Energy Transition Model"
   leading_partner: "Leading partner van het Energietransitiemodel"
 
+  quiz:
+    header: "Ben je klaar voor de quiz?"
+    body: |
+      Je hebt een prima score behaald.
+      Ben je klaar om je kennis te gaan testen in de Energy Quiz?</br></br>
+      <a href='https://quest.energytransitionmodel.com/' target='_blank'> Speel de quiz nu ⤍</a>
   # Custom validation messages
 
   activerecord:

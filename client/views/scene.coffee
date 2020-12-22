@@ -11,6 +11,7 @@ badgeTempl           = require 'templates/badge'
 { HighScoreRequest } = require 'views/high_score_request'
 { HighScoreGrowl }   = require 'views/growl'
 { TourRequestView }  = require 'views/tour_request'
+{ QuizRequestView }  = require 'views/quiz_request'
 
 { getProp }          = require 'views/props'
 { clientNavigate }   = require 'lib/client_navigate'
@@ -67,6 +68,7 @@ class exports.SceneView extends Backbone.View
   postRender: ->
     @renderInputs()
     @renderBadge() if app.isBeta()
+    @showQuiz()
     @showIntro()
 
   # When a user tries to alter inputs on a scenario which isn't theirs, a "not
@@ -299,6 +301,19 @@ class exports.SceneView extends Backbone.View
       tour = new TourRequestView()
       tour.render(I18n.t('first_intro.header'), I18n.t('first_intro.body'))
       tour.prependTo $ 'body'
+
+  # Show the quiz prompt when the score exceeds 600 for the first
+  # time in this scene-session
+  showQuiz: ->
+    seenQuiz = false
+    score = @scenario.queries.models.find((x) -> x.id == 'score')
+
+    score.on 'change:future', () =>
+      if (! seenQuiz) and score.get('future') > 600
+        quiz = new QuizRequestView()
+        quiz.render(I18n.t('quiz.header'), I18n.t('quiz.body'))
+        quiz.prependTo $ 'body'
+        seenQuiz = true
 
   renderBadge: ->
     $('#master-content').append badgeTempl()
