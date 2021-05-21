@@ -96,23 +96,16 @@ en:
         The average annual CO<sub>2</sub> emissions per household depend
         on your choices for heating and electricity. As you add more heating,
         and the house consumes more electricty, emissions will increase.
-        
         An average house in the Netherlands emits around 2.2 tonnes of
-        CO<sub>2</sub> per year (source: CBS). The freestanding house on this
-        page starts with an emission of  
-        (Q:etflex_households_co2_emissions_per_household present) per year.
+        CO<sub>2</sub> per year (source: CBS). 
 
     electricity_use:
       header: "Annual electricity use"
       body: |-
         The average household's electricity use depends on your
         assumptions for how many electric appliances will be used, but also on
-        how homes will be heated in the future.
-        
-        An average household uses around 3500 kWh of electricity per year
-        (source: Nibud). This freestanding house with 3 inhabitants starts
-        with a yearly electricity use of
-        (Q:etflex_households_final_demand_electricity_per_household present).
+        how homes will be heated in the future. An average household uses around 
+        3500 kWh of electricity per year (source: Nibud).
 
     energy_bill:
       header: "Monthly Energy bill"
@@ -126,11 +119,8 @@ en:
         The average household's annual gas use mostly depends on your
         choices for heating and insulation. There always remains some gas use
         needed for cooking.
-        
         An average household uses between 1500-1600 m<sup>3</sup> natural gas
-        per year (source: Nibud). This freestanding house starts with a yearly
-        gas use of
-        (Q:etflex_households_final_demand_network_gas_per_household present).
+        per year (source: Nibud). 
 
     investment:
       header: "Total investment costs"
