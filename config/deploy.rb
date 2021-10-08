@@ -1,15 +1,31 @@
-lock '3.11.0'
+lock '3.16.0'
 
 set :log_level, 'info'
 
 set :application, 'etflex'
 set :repo_url, 'https://github.com/quintel/etflex.git'
 
-# Set up rbenv
-set :rbenv_type, :user
+# rbenv Options
+# =============
+
+set :rbenv_type, :system
 set :rbenv_ruby, '2.4.2'
-set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
+set :rbenv_prefix, "#{fetch(:rbenv_path)}/bin/rbenv exec"
 set :rbenv_map_bins, %w{rake gem bundle ruby rails}
+
+# Puma Options
+# ============
+
+# If these are changed, be sure to run `cap $stage puma:config` in order to
+# update the config on the server.
+
+set :puma_init_active_record, true
+set :puma_preload_app, true
+set :puma_service_unit_env_vars, ["RBENV_ROOT=#{fetch(:rbenv_path)}"]
+set :puma_systemctl_user, :user
+
+# Bundler Options
+# ===============
 
 set :bundle_binstubs, (-> { shared_path.join('sbin') })
 
@@ -48,11 +64,3 @@ set :linked_dirs,
 namespace :deploy do
   after :publishing, :restart
 end
-
-# Puma Options
-# ============
-# If these are changed, be sure to then run `cap $stage puma:config`; the config
-# on the server is not automatically updated when deploying.
-
-set :puma_init_active_record, true
-set :puma_preload_app, true

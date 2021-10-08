@@ -45,8 +45,7 @@ gem 'treetop'
 # using Node since it all happens within the Ruby process; compilation with
 # Node fires up a new Node process for each source file, slowing things down
 # considerably in development.
-gem 'therubyracer',  '>= 0.12'
-gem 'libv8',         '>= 3.16.14.3'
+gem 'mini_racer'
 
 gem 'sass-rails',    '~> 4.0'
 gem 'coffee-rails',  '>= 3.2.1'
@@ -57,7 +56,7 @@ gem 'uglifier',      '>= 1.0.3'
 gem 'animation'
 
 group :production, :staging do
-  gem 'puma'
+  gem 'puma', '< 5'
   gem 'newrelic_rpm'
 end
 
@@ -70,11 +69,11 @@ group :development do
   gem 'rb-fsevent'
 
   # Deploy with Capistrano.
-  gem 'capistrano',         '~> 3.9',   require: false
-  gem 'capistrano-rbenv',   '~> 2.0',   require: false
-  gem 'capistrano-rails',   '~> 1.1',   require: false
-  gem 'capistrano-bundler', '~> 1.1',   require: false
-  gem 'capistrano3-puma',   '~> 3.1.1', require: false
+  gem 'capistrano',         '~> 3.9', require: false
+  gem 'capistrano-rbenv',   '~> 2.1', require: false
+  gem 'capistrano-rails',   '~> 1.6', require: false
+  gem 'capistrano-bundler', '~> 1.1', require: false
+  gem 'capistrano3-puma',   '~> 5.0', require: false
 end
 
 group :test, :development do
