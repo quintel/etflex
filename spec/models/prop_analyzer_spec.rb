@@ -1,11 +1,11 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe ETFlex::PropAnalyzer do
   context 'when given a prop with an illegal behaviour' do
     it 'should raise an error' do
       expect {
         ETFlex::PropAnalyzer.new(Prop.new(behaviour: 'nope'))
-      }.to raise_error
+      }.to raise_error('No such prop behaviour in the map: nope')
     end
   end
 

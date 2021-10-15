@@ -10,8 +10,8 @@ class Backstage::BackstageController < ApplicationController
 
   # FILTERS ------------------------------------------------------------------
 
-  before_filter :authenticate_user!
-  before_filter :require_admin!
+  before_action :authenticate_user!
+  before_action :require_admin!
 
   # Checks that the authenticated user is an admin, otherwise just renders
   # a 404.

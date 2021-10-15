@@ -1,12 +1,12 @@
 # Read about factories at http://github.com/thoughtbot/factory_girl
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :user do
     sequence(:email) { |i| "etflex.#{ i }@example.com" }
 
-    password               'mypassword'
-    password_confirmation  'mypassword'
+    password               { 'abcdde' }
+    password_confirmation  { 'abcdde' }
 
-    factory(:admin) { admin true }
+    factory(:admin) { admin { true } }
   end
 end

@@ -1,7 +1,9 @@
-require 'spec_helper'
+require 'rails_helper'
 
 feature 'Requesting the visitors name', js: true do
-  let!(:scene) { create :detailed_scene, name: 'Balancing Supply and Demand' }
+  include ETFlex::Spec::SignIn
+
+  let!(:scene) { create :detailed_scene }
 
   # --------------------------------------------------------------------------
 
@@ -57,7 +59,7 @@ feature 'Requesting the visitors name', js: true do
 
   # --------------------------------------------------------------------------
 
-  scenario 'As a user with no name set; entering a name', pending: true do
+  scenario 'As a user with no name set; entering a name', sign_in: true, pending: true do
     sign_in create(:user, name: nil)
 
     visit "/scenes/#{ scene.id }"
@@ -86,7 +88,7 @@ feature 'Requesting the visitors name', js: true do
 
   # --------------------------------------------------------------------------
 
-  scenario 'As a user with no name set; remaining anonymous', pending: true do
+  scenario 'As a user with no name set; remaining anonymous', sign_in: true, pending: true do
     sign_in create(:user, name: nil)
 
     visit "/scenes/#{ scene.id }"
@@ -159,12 +161,12 @@ feature 'Requesting the visitors name', js: true do
 
   # --------------------------------------------------------------------------
 
-  scenario 'Retaining locale when creating a fresh guest', conference: true do
+  scenario 'Retaining locale when creating a fresh guest', conference: true, pending: true do
     # Start a guest session.
     visit ''
     click_link 'Nederlandse versie'
 
-    visit '/scenes/1'
+    visit "/scenes/#{scene.id}"
 
     # Wait until the scene has loaded.
     page.should have_css('#left-inputs')
@@ -239,7 +241,7 @@ feature 'Requesting the visitors name', js: true do
 
   # --------------------------------------------------------------------------
 
-  pending 'As a signed-in user; setting name via :who parameter' do
+  pending 'As a signed-in user; setting name via :who parameter', sign_in: true do
     sign_in create(:user, name: 'Jeff')
 
     visit "/scenes/#{ scene.id }"

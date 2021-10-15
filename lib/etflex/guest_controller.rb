@@ -6,8 +6,8 @@ module ETFlex
     extend ActiveSupport::Concern
 
     included do
-      before_filter :handle_guest_id
-      before_filter :guest_name_from_params
+      before_action :handle_guest_id
+      before_action :guest_name_from_params
       helper_method :guest_user
       helper_method :current_or_guest_user
     end

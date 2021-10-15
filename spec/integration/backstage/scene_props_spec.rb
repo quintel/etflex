@@ -1,6 +1,7 @@
-require 'spec_helper'
+require 'rails_helper'
 
 feature 'Editing scene props' do
+  include ETFlex::Spec::SignIn
 
   background do
     @scene = create :scene

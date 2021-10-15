@@ -9,7 +9,7 @@ module ETFlex
   # Note that the high score list will never be displayed, regardless of the
   # "score" parameter if the etflex.yml file contains "high_scores: false".
   #
-  # Use "before_filter :show_hide_scores" to enable the feature on the controller
+  # Use "before_action :show_hide_scores" to enable the feature on the controller
   # or action.
   module ScoreController
     extend ActiveSupport::Concern

@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe ETFlex::ClientController do
   controller(ApplicationController) do

@@ -10,13 +10,13 @@ module ETFlex
     # are JSON-only.
     #
     included do
-      before_filter :restrict_html_to_get
+      before_action :restrict_html_to_get
 
       respond_to :html, except: [ :create, :update, :destroy ]
       respond_to :json
     end
 
-    # Used as a before_filter in ClientControllers and forcefully denies HTML
+    # Used as a before_actions in ClientControllers and forcefully denies HTML
     # requests from issuing anything except a GET. Everything else must use
     # JSON.
     #

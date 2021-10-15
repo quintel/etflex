@@ -1,4 +1,4 @@
-ruby '2.4.2'
+ruby '2.5.9'
 
 source 'https://rubygems.org'
 
@@ -41,13 +41,8 @@ gem 'dotenv-rails', groups: [:development, :test, :production, :staging]
 # Treetop for the grammars
 gem 'treetop'
 
-# The Ruby Racer gives _much_ faster CoffeeScript compilation than simply
-# using Node since it all happens within the Ruby process; compilation with
-# Node fires up a new Node process for each source file, slowing things down
-# considerably in development.
-gem 'therubyracer',  '>= 0.12'
-gem 'libv8',         '>= 3.16.14.3'
 
+gem 'mini_racer'
 gem 'sass-rails',    '~> 4.0'
 gem 'coffee-rails',  '>= 3.2.1'
 gem 'compass-rails', '>= 1.0.0'
@@ -86,16 +81,20 @@ group :test, :development do
 
   # rspec-rails needs to be added to the development environment, otherwise
   # the spec:* tasks won't be available when using rake.
-  gem 'rspec-rails',  '~> 2.8'
-  gem 'factory_girl_rails'
+  gem 'rspec-rails',  '~> 3.4.2'
+  gem 'factory_bot_rails'
   gem 'launchy'
 end
 
 group :test do
   gem 'database_cleaner'
+  gem 'rspec-collection_matchers'
+  gem 'rspec-its'
   gem 'shoulda-matchers'
 
-  # Integration / acceptance testing.
-  gem 'capybara', '~> 2.1'
-  gem 'poltergeist'
+  # Integration / acceptance testing. The webdrivers gem includes drivers for
+  # Chrome, Firefox and Edge, but we currently use only the Chrome ones.
+  gem 'capybara'
+  gem 'capybara-selenium'
+  gem 'webdrivers', '~> 3.0'
 end

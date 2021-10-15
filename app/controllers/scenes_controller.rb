@@ -2,7 +2,7 @@ class ScenesController < ApplicationController
   include ETFlex::ClientController
   helper  ScenesHelper
 
-  before_filter :enable_or_disable_scores, only: :show
+  before_action :enable_or_disable_scores, only: :show
 
   # Shows a list of all available scenes.
   #

@@ -8,8 +8,8 @@ module Backstage
     private
     #######
 
-    before_filter :fetch_scene
-    before_filter :fetch_prop, :except => [ :index, :new, :create ]
+    before_action :fetch_scene
+    before_action :fetch_prop, :except => [ :index, :new, :create ]
 
     # Retrieves the scene identified in the params.
     #

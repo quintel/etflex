@@ -1,6 +1,9 @@
-require 'spec_helper'
+require 'rails_helper'
 
-feature 'Viewing scenarios', js: true do
+# We need type to use allow  sign_in
+feature 'Viewing scenarios', js: true, type: :request do
+  include ETFlex::Spec::SignIn
+
   let(:scene) { create :detailed_scene, name: 'Balancing Supply and Demand' }
   let(:owner) { create :user }
 
@@ -250,7 +253,7 @@ feature 'Viewing scenarios', js: true do
 
     sleep 0.2
 
-    page.status_code.should eql(404)
+    expect(page).to have_content("The page you were looking for doesn't exist")
   end
 
 end
@@ -258,6 +261,14 @@ end
 # ----------------------------------------------------------------------------
 
 describe 'Scenarios' do
+
+  # Capybara::Selenium has no status_code support
+  def have_status_code_ok
+    have_no_content("The page you were looking for doesn't exist") && # 404
+      have_no_content('The change you wanted was rejected') && # 422
+      have_no_content("We're sorry, but something went wrong") # 500
+  end
+
   context 'Retrieving a scenario', api: true do
     let(:scene)    { create(:detailed_scene) }
 
@@ -274,7 +285,9 @@ describe 'Scenarios' do
       visit "/scenes/#{ scene.id }/with/#{ scenario.session_id }"
     end
 
-    it { page.status_code.should eql(200) }
+    it 'is succesful' do
+      expect(page).to have_status_code_ok
+    end
 
     it_should_behave_like 'scene JSON' do
       let(:scene_json) { json['scene'] }

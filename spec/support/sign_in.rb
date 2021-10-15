@@ -9,7 +9,7 @@ module ETFlex::Spec
     #   The user's password.
     #
     def sign_in(user, password = nil)
-      if user.kind_of?(User)
+      if user.is_a?(User)
         login    = user.email
         password = user.password unless password.present?
       else
@@ -18,13 +18,13 @@ module ETFlex::Spec
 
       visit '/hello'
 
-      fill_in 'Email',    :with => login
-      fill_in 'Password', :with => password
+      fill_in 'Email',    with: login
+      fill_in 'Password', with: password
 
       click_button 'Sign in'
 
       # Sanity check.
-      page.should_not have_content('Sign in')
+      expect(page).to have_no_content('Sign in')
     end
   end # SignIn
 end # ETFlex::Spec

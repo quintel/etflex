@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe PagesController, 'routing' do
   it 'routes / to pages#root' do

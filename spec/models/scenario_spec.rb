@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe Scenario do
   it { should successfully_save }
@@ -47,23 +47,23 @@ describe Scenario do
       subject { create(:scenario) }
 
       it 'should be changeable by the owner' do
-        subject.can_change?(subject.user).should be_true
+        subject.can_change?(subject.user).should be_truthy
       end
 
       it 'should not be changeable by another user' do
-        subject.can_change?(create :user).should be_false
+        subject.can_change?(create(:user)).should be_falsey
       end
 
       it 'should not be changeable by a new user' do
-        subject.can_change?(User.new).should be_false
+        subject.can_change?(User.new).should be_falsey
       end
 
       it 'should not be changeable by a guest' do
-        subject.can_change?(Guest.new('abc')).should be_false
+        subject.can_change?(Guest.new('abc')).should be_falsey
       end
 
       it 'should not be changeable by an exploiting guest' do
-        subject.can_change?(Guest.new(subject.user.id)).should be_false
+        subject.can_change?(Guest.new(subject.user.id)).should be_falsey
       end
     end
 
@@ -72,19 +72,19 @@ describe Scenario do
       let(:guest) { Guest.new(subject.guest_uid) }
 
       it 'should be changeable by the owner' do
-        subject.can_change?(guest).should be_true
+        subject.can_change?(guest).should be_truthy
       end
 
       it 'should not be changeable by another guest' do
-        subject.can_change?(Guest.new('def')).should be_false
+        subject.can_change?(Guest.new('def')).should be_falsey
       end
 
       it 'should not be changeable by a user' do
-        subject.can_change?(create :user).should be_false
+        subject.can_change?(create(:user)).should be_falsey
       end
 
       it 'should not be changeable by a new user' do
-        subject.can_change?(User.new).should be_false
+        subject.can_change?(User.new).should be_falsey
       end
     end
 
@@ -92,11 +92,11 @@ describe Scenario do
       subject { Scenario.new }
 
       it 'should be changeable by a user' do
-        subject.can_change?(create :user).should be_true
+        subject.can_change?(create(:user)).should be_truthy
       end
 
       it 'should be changeable by a guest' do
-        subject.can_change?(Guest.new('abc')).should be_true
+        subject.can_change?(Guest.new('abc')).should be_truthy
       end
     end
   end
@@ -130,7 +130,9 @@ describe Scenario do
 
     context 'when given something else' do
       it 'should raise an error' do
-        expect { Scenario.for_user(1) }.to raise_error
+        expect { Scenario.for_user(1) }.to raise_error(
+          'Scenario.user_attribute_for requires a User or Guest'
+        )
       end
     end
   end
@@ -190,7 +192,9 @@ describe Scenario do
 
       context 'when given something else' do
         it 'should raise an error' do
-          expect { Scenario.for_user(1) }.to raise_error
+          expect { Scenario.for_user(1) }.to raise_error(
+            'Scenario.user_attribute_for requires a User or Guest'
+          )
         end
       end
     end

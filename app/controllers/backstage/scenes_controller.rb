@@ -7,7 +7,7 @@ module Backstage
     private
     #######
 
-    before_filter :fetch_scene, except: [ :index, :new, :create ]
+    before_action :fetch_scene, except: [ :index, :new, :create ]
 
     # Retrieves the input specified in the params.
     #

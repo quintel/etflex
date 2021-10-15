@@ -1,9 +1,9 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe ETFlex::ClientResponder do
   render_views
 
-  controller do
+  controller(ApplicationController) do
     include ETFlex::ClientController
 
     respond_to :json
@@ -76,7 +76,7 @@ describe ETFlex::ClientResponder do
 
       context 'when requesting JSON' do
         subject { post :create, fail: '1', format: 'json' }
-        before { pending '???' }
+        before { skip '???' }
 
         it { response.status.should eql(200) }
         it { response.should_not render_template('application/client') }

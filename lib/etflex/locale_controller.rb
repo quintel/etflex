@@ -11,7 +11,7 @@ module ETFlex
   module LocaleController
     extend ActiveSupport::Concern
 
-    included { before_filter :set_locale }
+    included { before_action :set_locale }
 
     # Set the languages for which we have translations.
     AVAILABLE_LOCALES = %w( en nl )
@@ -48,7 +48,7 @@ module ETFlex
 
       I18n.locale = session[:locale]
     end
-    
+
     def alternative_locales
       AVAILABLE_LOCALES.reject{ |locale| locale == I18n.locale.to_s }
     end
