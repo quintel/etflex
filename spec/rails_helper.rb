@@ -103,7 +103,10 @@ RSpec.configure do |config|
 
   Capybara.register_driver :headless_chrome do |app|
     capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
-      chromeOptions: { args: %w[headless disable-gpu] }
+      # 2022 onwards.
+      'goog:chromeOptions': { args: %w[headless disable-gpu no-sandbox] },
+      # Pre-2022.
+      chromeOptions: { args: %w[headless disable-gpu no-sandbox] }
     )
 
     Capybara::Selenium::Driver.new(
@@ -113,6 +116,7 @@ RSpec.configure do |config|
     )
   end
 
+  Capybara.default_driver = :headless_chrome
   Capybara.javascript_driver = :headless_chrome
 
   # Steps with the "api" meta-data should ask for JSON.
