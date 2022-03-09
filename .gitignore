@@ -16,8 +16,6 @@ capybara-*.html
 /coverage/
 /spec/tmp/*
 **.orig
-config/config.yml
-config/database.yml
 rerun.txt
 pickle-email-*.html
 et*.sql
@@ -48,8 +46,6 @@ doc/
 # Project-Specific Ignores
 # -----------------------
 
-config/database.yml
-config/etflex.yml
 public/assets/*
 .rvmrc
 .DS_Store

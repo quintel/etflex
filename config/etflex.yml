@@ -12,7 +12,10 @@ production: &production
   #   app_id: something
   #   key:    something
   #   secret: something
-  pusher: false
+  pusher:
+    key: <%= ENV.fetch('PUSHER_APP_ID', false) %>
+    key: <%= ENV.fetch('PUSHER_KEY', '') %>
+    secret: <%= ENV.fetch('PUSHER_SECRET', '') %>
 
   # Enable when displaying ETFlex in public settings. This will change the
   # root page behaviour so that the BIG button always creates a totally new
@@ -22,8 +25,15 @@ production: &production
   # A list of browsers which are supported by ETFlex. Browsers not in this
  # list  will still be permitted to use the site, but are displayed a message
   # on first load, and then have a small banner at the top of each page.
-  supported_browsers: [
-    'ie9', 'ie8', 'ie10', 'chrome', 'firefox', 'safari', 'ipad', 'opera' ]
+  supported_browsers:
+    - ie9
+    - ie8
+    - ie10
+    - chrome
+    - firefox
+    - safari
+    - ipad
+    - opera
 
   # offline laptops disable CORS
   offline: false
@@ -39,12 +49,8 @@ development: *production
 test: &test
   <<: *production
 
-  # Assume POW is present for testing.
-  api_url: 'http://etengine.dev'
+  # Assume puma-dev is present for testing.
+  api_url: <%= ENV.fetch('API_URL', 'http://localhost:3000') %>
 
   # Always default conference mode off.
   conference: false
-
-ci:
-  <<: *test
-  api_url: 'https://beta-engine.energytransitionmodel.com'

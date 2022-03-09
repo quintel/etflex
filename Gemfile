@@ -36,11 +36,9 @@ gem 'responders'
 gem 'sentry-raven'
 gem 'hashie'
 gem 'json'
-gem 'dotenv-rails', groups: [:development, :test, :production, :staging]
 
 # Treetop for the grammars
 gem 'treetop'
-
 
 gem 'mini_racer'
 gem 'sass-rails',    '~> 4.0'
@@ -59,17 +57,7 @@ end
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'guard'
-  gem 'guard-rspec'
-  gem 'guard-shell'
   gem 'rb-fsevent'
-
-  # Deploy with Capistrano.
-  gem 'capistrano',         '~> 3.9',   require: false
-  gem 'capistrano-rbenv',   '~> 2.0',   require: false
-  gem 'capistrano-rails',   '~> 1.1',   require: false
-  gem 'capistrano-bundler', '~> 1.1',   require: false
-  gem 'capistrano3-puma',   '~> 3.1.1', require: false
 end
 
 group :test, :development do
@@ -81,7 +69,7 @@ group :test, :development do
 
   # rspec-rails needs to be added to the development environment, otherwise
   # the spec:* tasks won't be available when using rake.
-  gem 'rspec-rails',  '~> 3.4.2'
+  gem 'rspec-rails', '~> 3.4.2'
   gem 'factory_bot_rails'
   gem 'launchy'
 end
