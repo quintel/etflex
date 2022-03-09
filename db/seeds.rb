@@ -6,6 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+return if ENV['CI']
+
 puts  'Seeding will remove EVERYTHING from the DB. Are you sure?'
 print 'Enter "yes" or "y" to continue; anything else will abort: '
 
