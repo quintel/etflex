@@ -7,24 +7,23 @@ agent:
 blocks:
   - name: RSpec
     task:
-      jobs:
-        - name: Test
-          commands:
-            - checkout
-            - docker-compose build web
-            - docker-compose pull
-            - docker-compose up -d database
-            - docker-compose run -e CI -e API_URL -e MYSQL_DATABASE -e RAILS_ENV --rm web bundle exec rake db:setup
-            - docker-compose run -e CI -e API_URL -e MYSQL_DATABASE -e RAILS_ENV --rm web bundle exec rspec
       env_vars:
         - name: API_URL
           value: 'https://beta.engine.energytransitionmodel.com'
         - name: RAILS_ENV
           value: test
-        - name: MYSQL_DATABASE
-          value: etflex_test
-      secrets:
-        - name: Docker Hub credentials
+      jobs:
+        - name: Test
+          commands:
+            - checkout
+            - sem-service start mysql 8
+            - cache restore
+            - gem install bundler -v 1.17.3
+            - bundle install --deployment --jobs=4
+            - cache store
+            - cat /dev/null > config/database.yml
+            - bundle exec rake db:setup
+            - bundle exec rspec
 promotions:
   - name: Deploy to staging
     pipeline_file: deploy_staging.yml
