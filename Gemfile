@@ -9,7 +9,7 @@ gem 'rake', '< 11.0'
 
 gem 'rack-proxy'
 
-gem 'mysql2', '~> 0.4.10'
+gem 'mysql2'
 gem 'acts_as_list'
 gem 'default_value_for'
 
