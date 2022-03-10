@@ -10,6 +10,8 @@ blocks:
       env_vars:
         - name: API_URL
           value: 'https://beta.engine.energytransitionmodel.com'
+        - name: DATABASE_URL
+          value: mysql2://root@localhost/etflex_test?pool=5&encoding=utf8mb4
         - name: RAILS_ENV
           value: test
       jobs:
