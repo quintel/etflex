@@ -1,51 +1,65 @@
-# Rails Ignores
-# -------------
-# https://github.com/github/gitignore/blob/master/Rails.gitignore
+.git
+.gitignore
+.rvmrc
 
-*.rbc
-*.sassc
-.sass-cache
-capybara-*.html
-.rspec
+# Docker
+# Ignore bundler config.
 /.bundle
 /vendor/bundle
+
+# Rails
+capybara-*.html
+.rspec
+/public/system
+/coverage/
+/spec/tmp
+rerun.txt
+junit.xml
+
+# Node
+node_modules
+
+# Comment out this rule if you are OK with secrets being uploaded to the repo
+config/initializers/secret_token.rb
+config/master.key
+config/*.local.*
+config/email.yml
+
+# Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
-/db/*.sqlite3
-/public/system/*
-/coverage/
-/spec/tmp/*
-**.orig
-rerun.txt
-pickle-email-*.html
-et*.sql
+!/log/.keep
+!/tmp/.keep
 
-# Ruby Ignores
-# ------------
-# https://github.com/github/gitignore/blob/master/Ruby.gitignore
+# Ignore pidfiles, but keep the directory.
+/tmp/pids/*
+!/tmp/pids/
+!/tmp/pids/.keep
 
-*.gem
-*.rbc
-.bundle
-.config
-coverage
-InstalledFiles
-lib/bundler/man
-pkg
-rdoc
-spec/reports
-test/tmp
-test/version_tmp
-tmp
+# Ignore uploaded files in development.
+/storage/*
+!/storage/.keep
 
-# YARD artifacts
-.yardoc
-_yardoc
-doc/
+/public/assets
+.byebug_history
 
-# Project-Specific Ignores
-# -----------------------
+# Ignore precompiled javascript packs
+/public/packs
+/public/packs-test
+/public/assets
 
-public/assets/*
-.rvmrc
+# Ignore uploaded files in development
+/storage/*
+!/storage/.keep
+
+# Ignore yarn files
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
+
+# Ignore dotenv
+.env
+.docker-env
+
+# Ignore Mac specific files
 .DS_Store
