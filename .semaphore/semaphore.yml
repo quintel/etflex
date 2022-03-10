@@ -23,6 +23,8 @@ blocks:
           value: test
         - name: MYSQL_DATABASE
           value: etflex_test
+      secrets:
+        - name: Docker Hub credentials
 promotions:
   - name: Deploy to staging
     pipeline_file: deploy_staging.yml
