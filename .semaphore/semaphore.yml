@@ -12,7 +12,8 @@ blocks:
           commands:
             - checkout
             - docker-compose build web
-            - docker-compose run -e CI -e API_URL -e MYSQL_DATABASE -e RAILS_ENV --rm web bundle install
+            - docker-compose pull
+            - docker-compose up -d database
             - docker-compose run -e CI -e API_URL -e MYSQL_DATABASE -e RAILS_ENV --rm web bundle exec rake db:setup
             - docker-compose run -e CI -e API_URL -e MYSQL_DATABASE -e RAILS_ENV --rm web bundle exec rspec
       env_vars:
