@@ -13,7 +13,7 @@ production: &production
   #   key:    something
   #   secret: something
   pusher:
-    key: <%= ENV.fetch('PUSHER_APP_ID', false) %>
+    app_id: <%= ENV.fetch('PUSHER_APP_ID', false) %>
     key: <%= ENV.fetch('PUSHER_KEY', '') %>
     secret: <%= ENV.fetch('PUSHER_SECRET', '') %>
 
