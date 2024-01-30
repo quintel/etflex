@@ -26,12 +26,12 @@ blocks:
             - cat /dev/null > config/database.yml
             - bundle exec rake db:setup
             - bundle exec rspec
-promotions:
-  - name: Deploy to staging
-    pipeline_file: deploy_staging.yml
-    auto_promote:
-      when: "result = 'passed' and branch = 'master'"
-  - name: Deploy to production
-    pipeline_file: deploy_production.yml
-    auto_promote:
-      when: "result = 'passed' and branch = 'production'"
+# promotions:
+#   - name: Deploy to staging
+#     pipeline_file: deploy_staging.yml
+#     auto_promote:
+#       when: "result = 'passed' and branch = 'master'"
+#   - name: Deploy to production
+#     pipeline_file: deploy_production.yml
+#     auto_promote:
+#       when: "result = 'passed' and branch = 'production'"
